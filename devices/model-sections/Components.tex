@@ -1,0 +1,112 @@
+% Generated 2020-01-27 16:23:51 -0500
+\subsection{Components} \label{model:Components}
+\subsubsection{Defintion of \texttt{<<Block>> Component}}
+  \label{type:Component}
+
+\FloatBarrier
+
+A Component XML element is a container type XML element used to organize information describing a physical part or logical function of a piece of equipment. It also provides structure for describing the Lower Level Structural Elements associated with the Component. Component is an abstract type XML element and will never appear directly in the MTConnect XML document. As an abstract type XML element, Component will be replaced in the XML document by specific Component types. XML elements representing Component are described in Section 5 - Component Structural Elements and include elements such as Axes, Controller, and Systems.
+
+There can be multiple types of Component elements in the document.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{id : ID}
+
+\tab The unique identifier for this element.
+id is a required attribute.
+An id MUST be unique across all the id attributes in the document.
+An ID-type.
+
+\item \texttt{name : string}
+
+\tab The common name normally associated with a specific physical or logical part of a piece of equipment.
+nativeName is an optional attribute.
+
+\item \texttt{nativeName : string}
+
+\item \texttt{sampleInterval : integer}
+
+\item \texttt{sampleRate : float}
+
+\item \texttt{uuid : NMTOKEN}
+
+\item \texttt{hasDescription : Description}
+
+\tab An element that can contain any descriptive content.
+
+\item \texttt{hasComposition : Composition}
+
+\item \texttt{hasComponent : Component}
+
+\item \texttt{hasConfiguration : Configuration}
+
+\item \texttt{isComponentOf : Component}
+
+\item \texttt{observes : DataItem}
+
+\item \texttt{hasDataItemRef : DataItem}
+
+\item \texttt{isReferenceFor : Component}
+
+\item \texttt{hasComponentRef : Component}
+
+\item \texttt{madeObservation : Observation}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{ ComponentRef}}
+  \label{type:ComponentRef}
+
+\FloatBarrier
+
+
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Reference}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{ DataItemRef}}
+  \label{type:DataItemRef}
+
+\FloatBarrier
+
+
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Reference}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Description}}
+  \label{type:Description}
+
+\FloatBarrier
+
+
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{manufacturer : string}
+
+\item \texttt{model : string}
+
+\item \texttt{serialNumber : string}
+
+\item \texttt{station : string}
+
+\item \texttt{value : string}
+
+\end{itemize}
+\FloatBarrier

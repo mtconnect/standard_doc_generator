@@ -1,0 +1,2678 @@
+% Generated 2020-01-27 16:23:52 -0500
+\subsection{EventTypes} \label{model:EventTypes}
+\subsubsection{Defintion of \texttt{<<Block>> ActiveAxes}}
+  \label{type:ActiveAxes}
+
+\FloatBarrier
+
+The set of axes currently associated with a path or controller structural element.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ActuatorState}}
+  \label{type:ActuatorState}
+
+\FloatBarrier
+
+Represents the operational state of an apparatus for moving or controlling a mechanism or system.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ActuatorStateEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Alarm}}
+  \label{type:Alarm}
+
+\FloatBarrier
+
+DEPRECATED: Replaced with condition category category data items in Version 1.1.0.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> AssetChanged}}
+  \label{type:AssetChanged}
+
+\FloatBarrier
+
+The value of the cdata for the event MUST be the assetid of the asset that has been added or changed. There will not be a separate message for new assets.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> AssetRemoved}}
+  \label{type:AssetRemoved}
+
+\FloatBarrier
+
+The value of the cdata for the event MUST be the assetid of the asset that has been removed. The asset will still be visible if requested with the includeremoved parameter as described in the protocol section. When assets are removed they are not moved to the beginning of the most recently modified list.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Availability}}
+  \label{type:Availability}
+
+\FloatBarrier
+
+Represents the agent's ability to communicate with the data source.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : AvailabilityEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> AxisCoupling}}
+  \label{type:AxisCoupling}
+
+\FloatBarrier
+
+Describes the way the axes will be associated to each other. 
+  
+ This is used in conjunction with coupledaxes event to indicate the way they are interacting.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : AxisCouplingEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> AxisFeedrateOverride}}
+  \label{type:AxisFeedrateOverride}
+
+\FloatBarrier
+
+The value of a signal or calculation issued to adjust the feedrate of an individual linear type axis.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> JogAxisFeedrateOverride}}
+  \label{type:JogAxisFeedrateOverride}
+
+\FloatBarrier
+
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the axes. 
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : AxisFeedrateOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProgrammedAxisFeedrateOverride}}
+  \label{type:ProgrammedAxisFeedrateOverride}
+
+\FloatBarrier
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : AxisFeedrateOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> RapidAxisFeedrateOverride}}
+  \label{type:RapidAxisFeedrateOverride}
+
+\FloatBarrier
+
+The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : AxisFeedrateOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> AxisInterlock}}
+  \label{type:AxisInterlock}
+
+\FloatBarrier
+
+An indicator of the state of the axis lockout function when power has been removed and the axis is allowed to move freely.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ActuatorStateEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> AxisState}}
+  \label{type:AxisState}
+
+\FloatBarrier
+
+An indicator of the controlled state of a linear or rotary component representing an axis.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : AxisStateEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Block}}
+  \label{type:Block}
+
+\FloatBarrier
+
+The line of code or command being executed by a controller structural element.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> BlockCount}}
+  \label{type:BlockCount}
+
+\FloatBarrier
+
+The total count of the number of blocks of program code that have been executed since execution started.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ChuckInterlock}}
+  \label{type:ChuckInterlock}
+
+\FloatBarrier
+
+An indication of the state of an interlock function or control logic state intended to prevent the associated chuck component from being operated.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ActuatorStateEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ManualUnclampChuckInterlock}}
+  \label{type:ManualUnclampChuckInterlock}
+
+\FloatBarrier
+
+An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
+ The valid data value must be active value or inactive value. 
+ When manualunclamp subtype is active value, it is expected that a chuck cannot be unclamped until manualunclamp subtype is set to inactive value. 
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ChuckInterlock}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ChuckState}}
+  \label{type:ChuckState}
+
+\FloatBarrier
+
+An indication of the operating state of a mechanism that holds a part or stock material during a manufacturing process. It may also represent a mechanism that holds any other mechanism in place within a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ChuckStateEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> CloseChuck}}
+  \label{type:CloseChuck}
+
+\FloatBarrier
+
+Service to close a chuck.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> CloseDoor}}
+  \label{type:CloseDoor}
+
+\FloatBarrier
+
+Service to close a door.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Code}}
+  \label{type:Code}
+
+\FloatBarrier
+
+DEPRECATED in Version 1.1.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> CompositionState}}
+  \label{type:CompositionState}
+
+\FloatBarrier
+
+An indication of the operating condition of a mechanism represented by a composition type element.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ActionCompositionState}}
+  \label{type:ActionCompositionState}
+
+\FloatBarrier
+
+An indication of the operating state of a mechanism represented by a composition type component.
+ The operating state indicates whether the composition element is activated or disabled. 
+ The valid data value must be active value or inactive value.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : CompositionState}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> LateralCompositionState}}
+  \label{type:LateralCompositionState}
+
+\FloatBarrier
+
+An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a composition type component. 
+ The position information indicates whether the composition element is positioned to the right, to the left, or is in transition.  
+ The valid data value must be right value, left value, or transitioning value.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : CompositionState}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MotionCompositionState}}
+  \label{type:MotionCompositionState}
+
+\FloatBarrier
+
+An indication of the open or closed state of a mechanism.   The mechanism is represented by a composition type component. 
+ The operating state indicates whether the state of the composition element is open, closed, or unlatched.   
+ The valid data value must be open value, unlatched value, or closed value.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : CompositionState}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> SwitchedCompositionState}}
+  \label{type:SwitchedCompositionState}
+
+\FloatBarrier
+
+An indication of the activation state of a mechanism represented by a composition type component.
+ The activation state indicates whether the composition element is activated or not.
+ The valid data value must be on value or off value.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : CompositionState}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> VerticalCompositionState}}
+  \label{type:VerticalCompositionState}
+
+\FloatBarrier
+
+An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a composition type component. 
+ The position information indicates whether the composition element is positioned to the top, to the bottom, or is in transition.  
+ The valid data value must be up value, down value, or transitioning value.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : CompositionState}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ControllerMode}}
+  \label{type:ControllerMode}
+
+\FloatBarrier
+
+The current operating mode of the controller component.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ControllerModeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ControllerModeOverride}}
+  \label{type:ControllerModeOverride}
+
+\FloatBarrier
+
+A setting or operator selection that changes the behavior of a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ControllerModeOverrideEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> DryRunControllerModeOverride}}
+  \label{type:DryRunControllerModeOverride}
+
+\FloatBarrier
+
+A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
+ The valid data value must be on value or off value. 
+ When dryrun subtype is on value, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ControllerModeOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> SingleBlockControllerModeOverride}}
+  \label{type:SingleBlockControllerModeOverride}
+
+\FloatBarrier
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The valid data value must be on value or off value.
+ Program execution is paused after each block event of code is executed when singleblock subtype is on value.   
+ When singleblock subtype is on value, execution event must change to interrupted value after completion of each block event of code. 
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ControllerModeOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MachineAxisLockControllerModeOverride}}
+  \label{type:MachineAxisLockControllerModeOverride}
+
+\FloatBarrier
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The valid data value must be on value or off value. 
+ When machineaxislock subtype is on value, program execution continues normally, but no equipment motion occurs 
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ControllerModeOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> OptionalStopControllerModeOverride}}
+  \label{type:OptionalStopControllerModeOverride}
+
+\FloatBarrier
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The valid data value must be on value or off value.
+ The program execution is stopped after a specific program block is executed when optionalstop subtype is on value.    
+ In the case of a G-Code program, a program block event containing a M01 code designates the command for an optionalstop subtype. 
+ execution event must change to optionalstop subtype after a program block specifying an optional stop is executed and the optionalstop subtype selection is on value.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ControllerModeOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ToolChangeStopControllerModeOverride}}
+  \label{type:ToolChangeStopControllerModeOverride}
+
+\FloatBarrier
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The valid data value must be on value or off value. 
+ Program execution is paused when a command is executed requesting a cutting tool to be changed. 
+ execution event must change to interrupted value after completion of the command requesting a cutting tool to be changed and toolchangestop subtype is on value.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ControllerModeOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> CoupledAxes}}
+  \label{type:CoupledAxes}
+
+\FloatBarrier
+
+Refers to the set of associated axes.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> DateCode}}
+  \label{type:DateCode}
+
+\FloatBarrier
+
+The time and date code associated with a material or other physical item.
+  
+ datecode event MUST be reported in ISO 8601 format.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ManufactureDateCode}}
+  \label{type:ManufactureDateCode}
+
+\FloatBarrier
+
+The time and date code relating to the production of a material or other physical item.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : DateCode}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ExpirationDateCode}}
+  \label{type:ExpirationDateCode}
+
+\FloatBarrier
+
+The time and date code relating to the expiration or end of useful life for a material or other physical item.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : DateCode}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> FirstUseDateCode}}
+  \label{type:FirstUseDateCode}
+
+\FloatBarrier
+
+The time and date code relating the first use of a material or other physical item.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : DateCode}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> DeviceUuid}}
+  \label{type:DeviceUuid}
+
+\FloatBarrier
+
+The identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function.
+  
+ The valid data value MUST be a NMTOKEN XML type.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Direction}}
+  \label{type:Direction}
+
+\FloatBarrier
+
+The direction of motion.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> RotaryDirection}}
+  \label{type:RotaryDirection}
+
+\FloatBarrier
+
+The rotational direction of a rotary motion using the right hand rule convention.
+ The valid data value must be clockwise value or counterclockwise value.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Direction}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> LinearDirection}}
+  \label{type:LinearDirection}
+
+\FloatBarrier
+
+The direction of motion of a linear motion.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Direction}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> DoorState}}
+  \label{type:DoorState}
+
+\FloatBarrier
+
+The operational state of a door type component or composition element.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : DoorStateEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> EmergencyStop}}
+  \label{type:EmergencyStop}
+
+\FloatBarrier
+
+The current state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : EmergencyStopEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> EndOfBar}}
+  \label{type:EndOfBar}
+
+\FloatBarrier
+
+An indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : EndOfBarEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PrimaryEndOfBar}}
+  \label{type:PrimaryEndOfBar}
+
+\FloatBarrier
+
+Specific applications MAY reference one or more locations on a piece of bar stock as the indication for the endofbar event. The main or most important location must be designated as the primary subtype indication for the endofbar event.   
+ If no subtype is specified, primary subtype must be the default endofbar event indication.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : EndOfBar}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> AuxiliaryEndOfBar}}
+  \label{type:AuxiliaryEndOfBar}
+
+\FloatBarrier
+
+When multiple locations on a piece of bar stock are referenced as the indication for the endofbar event, the additional location(s) must be designated as auxiliary subtype indication(s) for the endofbar event.  
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : EndOfBar}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> EquipmentMode}}
+  \label{type:EquipmentMode}
+
+\FloatBarrier
+
+An indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ControllerModeOverrideEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> LoadedEquipmentMode}}
+  \label{type:LoadedEquipmentMode}
+
+\FloatBarrier
+
+Subparts of a piece of equipment are under load.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : EquipmentMode}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> WorkingEquipmentMode}}
+  \label{type:WorkingEquipmentMode}
+
+\FloatBarrier
+
+A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : EquipmentMode}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> OperatingEquipmentMode}}
+  \label{type:OperatingEquipmentMode}
+
+\FloatBarrier
+
+A piece of equipment are powered or performing any activity.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : EquipmentMode}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PoweredEquipmentMode}}
+  \label{type:PoweredEquipmentMode}
+
+\FloatBarrier
+
+Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : EquipmentMode}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> DelayEquipmentMode}}
+  \label{type:DelayEquipmentMode}
+
+\FloatBarrier
+
+A piece of equipment waiting for an event or an action to occur.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : EquipmentMode}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Execution}}
+  \label{type:Execution}
+
+\FloatBarrier
+
+The execution status of the controller.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ExecutionEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> FunctionalMode}}
+  \label{type:FunctionalMode}
+
+\FloatBarrier
+
+The current intended production status of the device or component.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : FunctionalModeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Hardness}}
+  \label{type:Hardness}
+
+\FloatBarrier
+
+The measurement of the hardness of a material.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> RockwellHardness}}
+  \label{type:RockwellHardness}
+
+\FloatBarrier
+
+A scale to measure the resistance to deformation of a surface.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Hardness}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> VickersHardness}}
+  \label{type:VickersHardness}
+
+\FloatBarrier
+
+A scale to measure the resistance to deformation of a surface.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Hardness}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ShoreHardness}}
+  \label{type:ShoreHardness}
+
+\FloatBarrier
+
+A scale to measure the resistance to deformation of a surface.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Hardness}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> BrinellHardness}}
+  \label{type:BrinellHardness}
+
+\FloatBarrier
+
+A scale to measure the resistance to deformation of a surface.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Hardness}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> LeebHardness}}
+  \label{type:LeebHardness}
+
+\FloatBarrier
+
+A scale to measure the elasticity of a surface.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Hardness}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MohsHardness}}
+  \label{type:MohsHardness}
+
+\FloatBarrier
+
+A scale to measure the resistance to scratching of a surface.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Hardness}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> InterfaceState}}
+  \label{type:InterfaceState}
+
+\FloatBarrier
+
+An indication of the operational state of an interface component component.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : InterfaceStateEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Line}}
+  \label{type:Line}
+
+\FloatBarrier
+
+DEPRECATED in Version 1.4.0.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MaximumLine}}
+  \label{type:MaximumLine}
+
+\FloatBarrier
+
+Maximum value of a data entity or attribute.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Line}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MinimumLine}}
+  \label{type:MinimumLine}
+
+\FloatBarrier
+
+The minimum value of a data entity or attribute.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Line}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> LineLabel}}
+  \label{type:LineLabel}
+
+\FloatBarrier
+
+An optional identifier for a block event of code in a program event.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> LineNumber}}
+  \label{type:LineNumber}
+
+\FloatBarrier
+
+A reference to the position of a block of program code within a control program.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> AbsoluteLineNumber}}
+  \label{type:AbsoluteLineNumber}
+
+\FloatBarrier
+
+The position of a block of program code relative to the beginning of the control program.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : LineNumber}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> IncrementalLineNumber}}
+  \label{type:IncrementalLineNumber}
+
+\FloatBarrier
+
+The position of a block of program code relative to the occurrence of the last linelabel event encountered in the control program.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : LineNumber}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Material}}
+  \label{type:Material}
+
+\FloatBarrier
+
+The identifier of a material used or consumed in the manufacturing process.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MaterialChange}}
+  \label{type:MaterialChange}
+
+\FloatBarrier
+
+Service to change the type of material or product being loaded or fed to a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MaterialFeed}}
+  \label{type:MaterialFeed}
+
+\FloatBarrier
+
+Service to advance material or feed product to a piece of equipment from a continuous or bulk source.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MaterialLayer}}
+  \label{type:MaterialLayer}
+
+\FloatBarrier
+
+Identifies the layers of material applied to a part or product as part of an additive manufacturing process.
+  
+ The valid data value MUST be an integer.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ActualMaterialLayer}}
+  \label{type:ActualMaterialLayer}
+
+\FloatBarrier
+
+The measured value of the data item type given by a sensor or encoder.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : MaterialLayer}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> TargetMaterialLayer}}
+  \label{type:TargetMaterialLayer}
+
+\FloatBarrier
+
+The desired measure or count for a data item value.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : MaterialLayer}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MaterialLoad}}
+  \label{type:MaterialLoad}
+
+\FloatBarrier
+
+Service to load a piece of material or product.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MaterialRetract}}
+  \label{type:MaterialRetract}
+
+\FloatBarrier
+
+Service to remove or retract material or product.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MaterialUnload}}
+  \label{type:MaterialUnload}
+
+\FloatBarrier
+
+Service to unload a piece of material or product.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Message}}
+  \label{type:Message}
+
+\FloatBarrier
+
+Any text string of information to be transferred from a piece of equipment to a client software application.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> OpenChuck}}
+  \label{type:OpenChuck}
+
+\FloatBarrier
+
+Service to open a chuck.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> OpenDoor}}
+  \label{type:OpenDoor}
+
+\FloatBarrier
+
+Service to open a door.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> OperatorId}}
+  \label{type:OperatorId}
+
+\FloatBarrier
+
+The identifier of the person currently responsible for operating the piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PalletId}}
+  \label{type:PalletId}
+
+\FloatBarrier
+
+The identifier for a pallet.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PartChange}}
+  \label{type:PartChange}
+
+\FloatBarrier
+
+Service to change the part or product associated with a piece of equipment to a different part or product.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PartCount}}
+  \label{type:PartCount}
+
+\FloatBarrier
+
+The count of parts produced.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> AllPartCount}}
+  \label{type:AllPartCount}
+
+\FloatBarrier
+
+The count of all the parts produced.  If the subtype is not given, this is the default.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : PartCount}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> GoodPartCount}}
+  \label{type:GoodPartCount}
+
+\FloatBarrier
+
+Indicates the count of correct parts made.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : PartCount}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> BadPartCount}}
+  \label{type:BadPartCount}
+
+\FloatBarrier
+
+Indicates the count of incorrect parts produced.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : PartCount}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> TargetPartCount}}
+  \label{type:TargetPartCount}
+
+\FloatBarrier
+
+The desired measure or count for a data item value.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : PartCount}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> RemainingPartCount}}
+  \label{type:RemainingPartCount}
+
+\FloatBarrier
+
+Remaining measure of an object or an action.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : PartCount}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PartDetect}}
+  \label{type:PartDetect}
+
+\FloatBarrier
+
+An indication designating whether a part or work piece has been detected or is present.
+  
+ The valid data value MUST be present or notpresent.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PartId}}
+  \label{type:PartId}
+
+\FloatBarrier
+
+An identifier of a part in a manufacturing operation.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PartNumber}}
+  \label{type:PartNumber}
+
+\FloatBarrier
+
+An identifier of a part or product moving through the manufacturing process. 
+ The valid data value must be a text string. 
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PathFeedrateOverride}}
+  \label{type:PathFeedrateOverride}
+
+\FloatBarrier
+
+The value of a signal or calculation issued to adjust the feedrate for the axes associated with a path component that may represent a single axis or the coordinated movement of multiple axes.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> JogPathFeedrateOverride}}
+  \label{type:JogPathFeedrateOverride}
+
+\FloatBarrier
+
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the axes. 
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : PathFeedrateOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProgrammedPathFeedrateOverride}}
+  \label{type:ProgrammedPathFeedrateOverride}
+
+\FloatBarrier
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : PathFeedrateOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> RapidPathFeedrateOverride}}
+  \label{type:RapidPathFeedrateOverride}
+
+\FloatBarrier
+
+The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : PathFeedrateOverride}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PathMode}}
+  \label{type:PathMode}
+
+\FloatBarrier
+
+Describes the operational relationship between a path structural element and another path structural element for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : PathModeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PowerState}}
+  \label{type:PowerState}
+
+\FloatBarrier
+
+The indication of the status of the source of energy for a structural element to allow it to perform its intended function or the state of an enabling signal providing permission for the structural element to perform its functions.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ControllerModeOverrideEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> LinePowerState}}
+  \label{type:LinePowerState}
+
+\FloatBarrier
+
+The state of the power source for the structural element.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : PowerState}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ControlPowerState}}
+  \label{type:ControlPowerState}
+
+\FloatBarrier
+
+The state of the enabling signal or control logic that enables or disables the function or operation of the structural element.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : PowerState}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> PowerStatus}}
+  \label{type:PowerStatus}
+
+\FloatBarrier
+
+DEPRECATED in Version 1.1.0.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProcessTime}}
+  \label{type:ProcessTime}
+
+\FloatBarrier
+
+The time and date associated with an activity or event.
+  
+ processtime event MUST be reported in ISO 8601 format.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> StartProcessTime}}
+  \label{type:StartProcessTime}
+
+\FloatBarrier
+
+The time and date associated with the beginning of an activity or event.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ProcessTime}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> CompleteProcessTime}}
+  \label{type:CompleteProcessTime}
+
+\FloatBarrier
+
+Completion of an action.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ProcessTime}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> TargetCompletionProcessTime}}
+  \label{type:TargetCompletionProcessTime}
+
+\FloatBarrier
+
+The projected time and date associated with the end or completion of an activity or event.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ProcessTime}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Program}}
+  \label{type:Program}
+
+\FloatBarrier
+
+The name of the logic or motion program being executed by the controller component.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProgramComment}}
+  \label{type:ProgramComment}
+
+\FloatBarrier
+
+A comment or non-executable statement in the control program.
+ The valid data value must be a text string.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProgramEdit}}
+  \label{type:ProgramEdit}
+
+\FloatBarrier
+
+An indication of the status of the controller components program editing mode. 
+ On many controls, a program can be edited while another program is currently being executed.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ProgramEditEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProgramEditName}}
+  \label{type:ProgramEditName}
+
+\FloatBarrier
+
+The name of the program being edited. 
+ This is used in conjunction with programedit event when in active value state. 
+ The valid data value must be a text string.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProgramHeader}}
+  \label{type:ProgramHeader}
+
+\FloatBarrier
+
+The non-executable header section of the control program.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProgramLocation}}
+  \label{type:ProgramLocation}
+
+\FloatBarrier
+
+The Uniform Resource Identifier (URI) for the source file associated with program event.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ScheduleProgramLocation}}
+  \label{type:ScheduleProgramLocation}
+
+\FloatBarrier
+
+The identity of a control program that is used to specify the order of execution of other programs.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ProgramLocation}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MainProgramLocation}}
+  \label{type:MainProgramLocation}
+
+\FloatBarrier
+
+The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ProgramLocation}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ActiveProgramLocation}}
+  \label{type:ActiveProgramLocation}
+
+\FloatBarrier
+
+The value of the data entity that is engaging.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ProgramLocation}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProgramLocationType}}
+  \label{type:ProgramLocationType}
+
+\FloatBarrier
+
+Defines whether the logic or motion program defined by program event is being executed from the local memory of the controller or from an outside source.
+  
+ The valid data value MUST be local or external.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ScheduleProgramLocationType}}
+  \label{type:ScheduleProgramLocationType}
+
+\FloatBarrier
+
+The identity of a control program that is used to specify the order of execution of other programs.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ProgramLocationType}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MainProgramLocationType}}
+  \label{type:MainProgramLocationType}
+
+\FloatBarrier
+
+The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ProgramLocationType}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ActiveProgramLocationType}}
+  \label{type:ActiveProgramLocationType}
+
+\FloatBarrier
+
+The value of the data entity that is engaging.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ProgramLocationType}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProgramNestLevel}}
+  \label{type:ProgramNestLevel}
+
+\FloatBarrier
+
+An indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed.
+  
+ If an Initial Value is not defined, the nesting level associated with the highest or initial nesting level of the program MUST default to zero (0).
+  
+ The value reported for programnestlevel event MUST be an integer.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> RotaryMode}}
+  \label{type:RotaryMode}
+
+\FloatBarrier
+
+The current operating mode for a rotary type axis.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : RotaryModeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> RotaryVelocityOverride}}
+  \label{type:RotaryVelocityOverride}
+
+\FloatBarrier
+
+The value of a command issued to adjust the programmed velocity for a rotary type axis.
+ This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a rotary type axis.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> SerialNumber}}
+  \label{type:SerialNumber}
+
+\FloatBarrier
+
+The serial number associated with a component, asset mtconnectassets, or device. The valid data value must be a text string.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> SpindleInterlock}}
+  \label{type:SpindleInterlock}
+
+\FloatBarrier
+
+An indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\item \texttt{value : ActuatorStateEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ToolAssetId}}
+  \label{type:ToolAssetId}
+
+\FloatBarrier
+
+The identifier of an individual tool asset.The valid data value must be a text string.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ToolGroup}}
+  \label{type:ToolGroup}
+
+\FloatBarrier
+
+An identifier for the tool group associated with a specific tool. Commonly used to designate spare tools.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ToolId}}
+  \label{type:ToolId}
+
+\FloatBarrier
+
+DEPRECATED in Version 1.2.0.   See toolassetid event. The identifier of the tool currently in use for a given path.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ToolNumber}}
+  \label{type:ToolNumber}
+
+\FloatBarrier
+
+The identifier assigned by the controller component to a cutting tool when in use by a piece of equipment. 
+ The valid data value must be a text string.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ToolOffset}}
+  \label{type:ToolOffset}
+
+\FloatBarrier
+
+A reference to the tool offset variables applied to the active cutting tool associated with a path in a controller type component.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> RadialToolOffset}}
+  \label{type:RadialToolOffset}
+
+\FloatBarrier
+
+A reference to a radial type tool offset variable.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ToolOffset}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> LengthToolOffset}}
+  \label{type:LengthToolOffset}
+
+\FloatBarrier
+
+A reference to a length type tool offset variable.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : ToolOffset}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> User}}
+  \label{type:User}
+
+\FloatBarrier
+
+The identifier of the person currently responsible for operating the piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> OperatorUser}}
+  \label{type:OperatorUser}
+
+\FloatBarrier
+
+The identifier of the person currently responsible for operating the piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : User}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> MaintenanceUser}}
+  \label{type:MaintenanceUser}
+
+\FloatBarrier
+
+Action related to maintenance on the piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : User}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> SetUpUser}}
+  \label{type:SetUpUser}
+
+\FloatBarrier
+
+The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : User}
+
+\item \texttt{subType : DataItemSubTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Variable}}
+  \label{type:Variable}
+
+\FloatBarrier
+
+A data value whose meaning may change over time due to changes in the opertion of a piece of equipment or the process being executed on that piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> WaitState}}
+  \label{type:WaitState}
+
+\FloatBarrier
+
+An indication of the reason that execution event is reporting a value of wait.
+  
+ The valid data value MUST be poweringup, poweringdown, partload, partunload, toolload, toolunload, materialload event, materialunload event, secondaryprocess, pausing, or resuming.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Wire}}
+  \label{type:Wire}
+
+\FloatBarrier
+
+A string like piece or filament of relatively rigid or flexible material provided in a variety of diameters.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> WorkOffset}}
+  \label{type:WorkOffset}
+
+\FloatBarrier
+
+A reference to the offset variables for a work piece or part associated with a path in a controller type component.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> WorkholdingId}}
+  \label{type:WorkholdingId}
+
+\FloatBarrier
+
+The identifier for the current workholding or part clamp in use by a piece of equipment. 
+ The valid data value must be a text string.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Event}
+
+\item \texttt{Supertype : Event}
+
+\item \texttt{units : UnitEnum}
+
+\item \texttt{type : DataItemTypeEnum}
+
+\end{itemize}
+\FloatBarrier

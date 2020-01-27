@@ -1,0 +1,530 @@
+% Generated 2020-01-27 16:23:51 -0500
+\subsection{ComponentTypes} \label{model:ComponentTypes}
+\subsubsection{Defintion of \texttt{<<Block>> Actuator}}
+  \label{type:Actuator}
+
+\FloatBarrier
+
+Redefined as a piece of equipment with the ability to be represented as a lower level component of a parent component element or as a composition element. See actuator type
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Auxiliaries}}
+  \label{type:Auxiliaries}
+
+\FloatBarrier
+
+An XML container used to organize information for lower level elements representing functional sub-systems that provide supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> BarFeeder}}
+  \label{type:BarFeeder}
+
+\FloatBarrier
+
+barfeeder is an XML container that represents the information for a unit involved in delivering bar stock to a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Auxiliaries}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Environmental}}
+  \label{type:Environmental}
+
+\FloatBarrier
+
+environmental is an XML container that represents the information for a unit or function involved in monitoring, managing, or conditioning the environment around or within a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Auxiliaries}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Loader}}
+  \label{type:Loader}
+
+\FloatBarrier
+
+loader is an XML container that represents the information for a unit comprised of all the parts involved in moving and distributing materials, parts, tooling, and other items to or from a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Auxiliaries}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Sensor}}
+  \label{type:Sensor}
+
+\FloatBarrier
+
+The sensor unit is modeled as a lower level component called sensor.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Auxiliaries}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ToolingDelivery}}
+  \label{type:ToolingDelivery}
+
+\FloatBarrier
+
+toolingdelivery is an XML container that represents the information for a unit involved in managing, positioning, storing, and delivering tooling within a piece of equipment.
+
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Auxiliaries}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> WasteDisposal}}
+  \label{type:WasteDisposal}
+
+\FloatBarrier
+
+wastedisposal is an XML container that represents the information for a unit comprised of all the parts involved in removing manufacturing byproducts from a piece of equipment.
+
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Auxiliaries}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Axes}}
+  \label{type:Axes}
+
+\FloatBarrier
+
+An XML container used to organize the structural element of a piece of equipment that perform linear or rotational motion.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Linear}}
+  \label{type:Linear}
+
+\FloatBarrier
+
+A linear axis represents the movement of a physical piece of equipment, or a portion of the equipment, in a straight line. 
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Axes}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Rotary}}
+  \label{type:Rotary}
+
+\FloatBarrier
+
+A rotary axis represents any non-linear or rotary movement of a physical piece of equipment or a portion of the equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Axes}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Chuck}}
+  \label{type:Chuck}
+
+\FloatBarrier
+
+Chuck is an XML container that provides the information about a mechanism that holds a part or stock material in place.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Rotary}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Controller}}
+  \label{type:Controller}
+
+\FloatBarrier
+
+An XML container used to organize information about an intelligent or computational function within a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Path}}
+  \label{type:Path}
+
+\FloatBarrier
+
+path is an XML container that represents the information for an independent operation or function within a controller.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Controller}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Deposition}}
+  \label{type:Deposition}
+
+\FloatBarrier
+
+deposition is an XML container that represents the information for a system that manages the addition of material or state change of material being performed in an additive manufacturing process.  For example, this could describe the portion of a piece of equipment that manages a material extrusion process or a vat polymerization process.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Door}}
+  \label{type:Door}
+
+\FloatBarrier
+
+door component is an XML container that represents the information for a mechanical mechanism or closure that can cover.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> EndEffector}}
+  \label{type:EndEffector}
+
+\FloatBarrier
+
+endeffector is an XML container that represents the information for those functions that form the last link segment of a piece of equipment. It is the part of a piece of equipment that interacts with the manufacturing process.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Interface}}
+  \label{type:Interface}
+
+\FloatBarrier
+
+Each interface component contains data entity available from the piece of equipment that may be needed to coordinate activities with associated pieces of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Interfaces}}
+  \label{type:Interfaces}
+
+\FloatBarrier
+
+An XML container that organizes information used to coordinate actions and activities between pieces of equipment that communicate information between each other.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Power}}
+  \label{type:Power}
+
+\FloatBarrier
+
+DEPRECATED: power was DEPRECATED in MTConnect Version 1.1 and was replaced by the data entity called availability event.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Resources}}
+  \label{type:Resources}
+
+\FloatBarrier
+
+An XML container used to organize information for lower level elements representing types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location. resources also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Materials}}
+  \label{type:Materials}
+
+\FloatBarrier
+
+materials is an XML container that provides information about materials or other items consumed or used by the piece of equipment for production of parts, materials, or other types of goods.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Resources}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Stock}}
+  \label{type:Stock}
+
+\FloatBarrier
+
+stock is an XML container that represents the information for the material that is used in a manufacturing process and to which work is applied in a machine or piece of equipment to produce parts.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Materials}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Personnel}}
+  \label{type:Personnel}
+
+\FloatBarrier
+
+personnel is an XML container that provides information about an individual or individuals who either control, support, or otherwise interface with a piece of equipment.
+
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Resources}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Systems}}
+  \label{type:Systems}
+
+\FloatBarrier
+
+An XML container used to organize information for lower level elements representing the major sub-systems that are permanently integrated into a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Component}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Coolant}}
+  \label{type:Coolant}
+
+\FloatBarrier
+
+coolant is an XML container that represents the information for a system comprised of all the parts involved in distribution and management of fluids that remove heat from a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Systems}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Dielectric}}
+  \label{type:Dielectric}
+
+\FloatBarrier
+
+dielectric is an XML container that represents the information for a system that manages a chemical mixture used in a manufacturing process being performed at that piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Systems}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Electric}}
+  \label{type:Electric}
+
+\FloatBarrier
+
+electric is an XML container that represents the information for the main power supply for device piece of equipment and the distribution of that power throughout the equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Systems}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Enclosure}}
+  \label{type:Enclosure}
+
+\FloatBarrier
+
+enclosure is an XML container that represents the information for a structure used to contain or isolate a piece of equipment or area.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Systems}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Feeder}}
+  \label{type:Feeder}
+
+\FloatBarrier
+
+feeder is an XML container that represents the information for a system that manages the delivery of materials within a piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Systems}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Hydraulic}}
+  \label{type:Hydraulic}
+
+\FloatBarrier
+
+hydraulic is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized liquid throughout the piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Systems}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Lubrication}}
+  \label{type:Lubrication}
+
+\FloatBarrier
+
+lubrication is an XML container that represents the information for a system comprised of all the parts involved in distribution and management of fluids used to lubricate portions of the piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Systems}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Pneumatic}}
+  \label{type:Pneumatic}
+
+\FloatBarrier
+
+pneumatic is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized gas throughout the piece of equipment.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Systems}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> ProcessPower}}
+  \label{type:ProcessPower}
+
+\FloatBarrier
+
+processpower is an XML container that represents the information for a power source associated with a piece of equipment that supplies energy to the manufacturing process separate from the electric system.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Systems}
+
+\end{itemize}
+\FloatBarrier
+\subsubsection{Defintion of \texttt{<<Block>> Protective}}
+  \label{type:Protective}
+
+\FloatBarrier
+
+Protective is an XML container that represents the information for those functions that detect or prevent harm or damage to equipment or personnel.
+
+\FloatBarrier
+\paragraph{Referenced Properties and Objects}
+
+\begin{itemize}
+\item \texttt{Supertype : Systems}
+
+\end{itemize}
+\FloatBarrier
