@@ -1,11 +1,11 @@
-% Generated 2020-01-27 16:23:51 -0500
+% Generated 2020-01-28 11:37:24 -0500
 \subsection{ComponentTypes} \label{model:ComponentTypes}
 \subsubsection{Defintion of \texttt{<<Block>> Actuator}}
   \label{type:Actuator}
 
 \FloatBarrier
 
-Redefined as a piece of equipment with the ability to be represented as a lower level component of a parent component element or as a composition element. See actuator type
+Redefined as a piece of equipment with the ability to be represented as a {term:Lower Level} component of a parent {model:Component} element or as a {model:Composition} element. See {model:ACTUATOR}
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -20,7 +20,7 @@ Redefined as a piece of equipment with the ability to be represented as a lower 
 
 \FloatBarrier
 
-An XML container used to organize information for lower level elements representing functional sub-systems that provide supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
+An XML container used to organize information for {term:Lower Level} elements representing functional sub-systems that provide supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -35,7 +35,7 @@ An XML container used to organize information for lower level elements represent
 
 \FloatBarrier
 
-barfeeder is an XML container that represents the information for a unit involved in delivering bar stock to a piece of equipment.
+{model:BarFeeder} is an XML container that represents the information for a unit involved in delivering bar stock to a piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -50,7 +50,7 @@ barfeeder is an XML container that represents the information for a unit involve
 
 \FloatBarrier
 
-environmental is an XML container that represents the information for a unit or function involved in monitoring, managing, or conditioning the environment around or within a piece of equipment.
+{model:Environmental} is an XML container that represents the information for a unit or function involved in monitoring, managing, or conditioning the environment around or within a piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -65,7 +65,7 @@ environmental is an XML container that represents the information for a unit or 
 
 \FloatBarrier
 
-loader is an XML container that represents the information for a unit comprised of all the parts involved in moving and distributing materials, parts, tooling, and other items to or from a piece of equipment.
+{model:Loader} is an XML container that represents the information for a unit comprised of all the parts involved in moving and distributing materials, parts, tooling, and other items to or from a piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -80,7 +80,7 @@ loader is an XML container that represents the information for a unit comprised 
 
 \FloatBarrier
 
-The sensor unit is modeled as a lower level component called sensor.
+The {term:sensor unit} is modeled as a {term:Lower Level} {model:Component} called {model:Sensor}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -95,7 +95,7 @@ The sensor unit is modeled as a lower level component called sensor.
 
 \FloatBarrier
 
-toolingdelivery is an XML container that represents the information for a unit involved in managing, positioning, storing, and delivering tooling within a piece of equipment.
+{model:ToolingDelivery} is an XML container that represents the information for a unit involved in managing, positioning, storing, and delivering tooling within a piece of equipment.
 
 
 \FloatBarrier
@@ -111,7 +111,7 @@ toolingdelivery is an XML container that represents the information for a unit i
 
 \FloatBarrier
 
-wastedisposal is an XML container that represents the information for a unit comprised of all the parts involved in removing manufacturing byproducts from a piece of equipment.
+{model:WasteDisposal} is an XML container that represents the information for a unit comprised of all the parts involved in removing manufacturing byproducts from a piece of equipment.
 
 
 \FloatBarrier
@@ -127,7 +127,7 @@ wastedisposal is an XML container that represents the information for a unit com
 
 \FloatBarrier
 
-An XML container used to organize the structural element of a piece of equipment that perform linear or rotational motion.
+An XML container used to organize the {term:Structural Elements} of a piece of equipment that perform linear or rotational motion.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -142,7 +142,7 @@ An XML container used to organize the structural element of a piece of equipment
 
 \FloatBarrier
 
-A linear axis represents the movement of a physical piece of equipment, or a portion of the equipment, in a straight line. 
+A {model:Linear} axis represents the movement of a physical piece of equipment, or a portion of the equipment, in a straight line. 
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -157,7 +157,7 @@ A linear axis represents the movement of a physical piece of equipment, or a por
 
 \FloatBarrier
 
-A rotary axis represents any non-linear or rotary movement of a physical piece of equipment or a portion of the equipment.
+A {model:Rotary} axis represents any non-linear or rotary movement of a physical piece of equipment or a portion of the equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -202,7 +202,7 @@ An XML container used to organize information about an intelligent or computatio
 
 \FloatBarrier
 
-path is an XML container that represents the information for an independent operation or function within a controller.
+{model:Path} is an XML container that represents the information for an independent operation or function within a {model:Controller}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -217,7 +217,7 @@ path is an XML container that represents the information for an independent oper
 
 \FloatBarrier
 
-deposition is an XML container that represents the information for a system that manages the addition of material or state change of material being performed in an additive manufacturing process.  For example, this could describe the portion of a piece of equipment that manages a material extrusion process or a vat polymerization process.
+{model:Deposition} is an XML container that represents the information for a system that manages the addition of material or state change of material being performed in an additive manufacturing process.  For example, this could describe the portion of a piece of equipment that manages a material extrusion process or a vat polymerization process.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -232,7 +232,7 @@ deposition is an XML container that represents the information for a system that
 
 \FloatBarrier
 
-door component is an XML container that represents the information for a mechanical mechanism or closure that can cover.
+{model:Door} is an XML container that represents the information for a mechanical mechanism or closure that can cover.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -247,7 +247,7 @@ door component is an XML container that represents the information for a mechani
 
 \FloatBarrier
 
-endeffector is an XML container that represents the information for those functions that form the last link segment of a piece of equipment. It is the part of a piece of equipment that interacts with the manufacturing process.
+{model:EndEffector} is an XML container that represents the information for those functions that form the last link segment of a piece of equipment. It is the part of a piece of equipment that interacts with the manufacturing process.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -262,7 +262,7 @@ endeffector is an XML container that represents the information for those functi
 
 \FloatBarrier
 
-Each interface component contains data entity available from the piece of equipment that may be needed to coordinate activities with associated pieces of equipment.
+Each {model:Interface} contains {term:Data Entities} available from the piece of equipment that may be needed to coordinate activities with associated pieces of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -292,7 +292,7 @@ An XML container that organizes information used to coordinate actions and activ
 
 \FloatBarrier
 
-DEPRECATED: power was DEPRECATED in MTConnect Version 1.1 and was replaced by the data entity called availability event.
+{model:Power} was *DEPRECATED* in MTConnect Version 1.1 and was replaced by the {term:Data Entity} called {model:AVAILABILITY}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -307,7 +307,7 @@ DEPRECATED: power was DEPRECATED in MTConnect Version 1.1 and was replaced by th
 
 \FloatBarrier
 
-An XML container used to organize information for lower level elements representing types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location. resources also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
+An XML container used to organize information for {term:Lower Level} elements representing types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location. {model:Resources} also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -322,7 +322,7 @@ An XML container used to organize information for lower level elements represent
 
 \FloatBarrier
 
-materials is an XML container that provides information about materials or other items consumed or used by the piece of equipment for production of parts, materials, or other types of goods.
+{model:Materials} is an XML container that provides information about materials or other items consumed or used by the piece of equipment for production of parts, materials, or other types of goods.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -337,7 +337,7 @@ materials is an XML container that provides information about materials or other
 
 \FloatBarrier
 
-stock is an XML container that represents the information for the material that is used in a manufacturing process and to which work is applied in a machine or piece of equipment to produce parts.
+{model:Stock} is an XML container that represents the information for the material that is used in a manufacturing process and to which work is applied in a machine or piece of equipment to produce parts.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -352,7 +352,7 @@ stock is an XML container that represents the information for the material that 
 
 \FloatBarrier
 
-personnel is an XML container that provides information about an individual or individuals who either control, support, or otherwise interface with a piece of equipment.
+{model:Personnel} is an XML container that provides information about an individual or individuals who either control, support, or otherwise interface with a piece of equipment.
 
 
 \FloatBarrier
@@ -368,7 +368,7 @@ personnel is an XML container that provides information about an individual or i
 
 \FloatBarrier
 
-An XML container used to organize information for lower level elements representing the major sub-systems that are permanently integrated into a piece of equipment.
+An XML container used to organize information for {term:Lower Level} elements representing the major sub-systems that are permanently integrated into a piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -383,7 +383,7 @@ An XML container used to organize information for lower level elements represent
 
 \FloatBarrier
 
-coolant is an XML container that represents the information for a system comprised of all the parts involved in distribution and management of fluids that remove heat from a piece of equipment.
+{model:Coolant} is an XML container that represents the information for a system comprised of all the parts involved in distribution and management of fluids that remove heat from a piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -398,7 +398,7 @@ coolant is an XML container that represents the information for a system compris
 
 \FloatBarrier
 
-dielectric is an XML container that represents the information for a system that manages a chemical mixture used in a manufacturing process being performed at that piece of equipment.
+{model:Dielectric} is an XML container that represents the information for a system that manages a chemical mixture used in a manufacturing process being performed at that piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -413,7 +413,7 @@ dielectric is an XML container that represents the information for a system that
 
 \FloatBarrier
 
-electric is an XML container that represents the information for the main power supply for device piece of equipment and the distribution of that power throughout the equipment.
+{model:Electric} is an XML container that represents the information for the main power supply for device piece of equipment and the distribution of that power throughout the equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -428,7 +428,7 @@ electric is an XML container that represents the information for the main power 
 
 \FloatBarrier
 
-enclosure is an XML container that represents the information for a structure used to contain or isolate a piece of equipment or area.
+{model:Enclosure} is an XML container that represents the information for a structure used to contain or isolate a piece of equipment or area.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -443,7 +443,7 @@ enclosure is an XML container that represents the information for a structure us
 
 \FloatBarrier
 
-feeder is an XML container that represents the information for a system that manages the delivery of materials within a piece of equipment.
+{model:Feeder} is an XML container that represents the information for a system that manages the delivery of materials within a piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -458,7 +458,7 @@ feeder is an XML container that represents the information for a system that man
 
 \FloatBarrier
 
-hydraulic is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized liquid throughout the piece of equipment.
+{model:Hydraulic} is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized liquid throughout the piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -473,7 +473,7 @@ hydraulic is an XML container that represents the information for a system compr
 
 \FloatBarrier
 
-lubrication is an XML container that represents the information for a system comprised of all the parts involved in distribution and management of fluids used to lubricate portions of the piece of equipment.
+{model:Lubrication} is an XML container that represents the information for a system comprised of all the parts involved in distribution and management of fluids used to lubricate portions of the piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -488,7 +488,7 @@ lubrication is an XML container that represents the information for a system com
 
 \FloatBarrier
 
-pneumatic is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized gas throughout the piece of equipment.
+{model:Pneumatic} is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized gas throughout the piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -503,7 +503,7 @@ pneumatic is an XML container that represents the information for a system compr
 
 \FloatBarrier
 
-processpower is an XML container that represents the information for a power source associated with a piece of equipment that supplies energy to the manufacturing process separate from the electric system.
+{model:ProcessPower} is an XML container that represents the information for a power source associated with a piece of equipment that supplies energy to the manufacturing process separate from the {model:Electric} system.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}

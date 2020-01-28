@@ -1,4 +1,4 @@
-% Generated 2020-01-27 16:23:52 -0500
+% Generated 2020-01-28 11:37:25 -0500
 \subsection{ConditionTypes} \label{model:ConditionTypes}
 \subsubsection{Defintion of \texttt{<<Block>> Communications}}
   \label{type:Communications}
@@ -13,9 +13,7 @@ An indication that the piece of equipment has experienced a communications failu
 \begin{itemize}
 \item \texttt{Supertype : Condition}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{COMMUNICATIONS}
 
 \end{itemize}
 \FloatBarrier
@@ -32,24 +30,7 @@ An indication that the value of the data associated with a measured value or a c
 \begin{itemize}
 \item \texttt{Supertype : Condition}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\end{itemize}
-\FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Fault}}
-  \label{type:Fault}
-
-\FloatBarrier
-
-
-
-\FloatBarrier
-\paragraph{Referenced Properties and Objects}
-
-\begin{itemize}
-\item \texttt{Supertype : Condition}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DATA_RANGE}
 
 \end{itemize}
 \FloatBarrier
@@ -58,7 +39,7 @@ An indication that the value of the data associated with a measured value or a c
 
 \FloatBarrier
 
-An indication of a fault associated with the hardware subsystem of the structural element.
+An indication of a fault associated with the hardware subsystem of the {term:Structural Element}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -66,9 +47,7 @@ An indication of a fault associated with the hardware subsystem of the structura
 \begin{itemize}
 \item \texttt{Supertype : Condition}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{HARDWARE}
 
 \end{itemize}
 \FloatBarrier
@@ -85,9 +64,7 @@ An indication that an error occurred in the logic program or programmable logic 
 \begin{itemize}
 \item \texttt{Supertype : Condition}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{LOGIC_PROGRAM}
 
 \end{itemize}
 \FloatBarrier
@@ -104,24 +81,7 @@ An indication that an error occurred in the motion program associated with a pie
 \begin{itemize}
 \item \texttt{Supertype : Condition}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\end{itemize}
-\FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Normal}}
-  \label{type:Normal}
-
-\FloatBarrier
-
-
-
-\FloatBarrier
-\paragraph{Referenced Properties and Objects}
-
-\begin{itemize}
-\item \texttt{Supertype : Condition}
+\item \texttt{type : DataItemTypeEnum} : \texttt{MOTION_PROGRAM}
 
 \end{itemize}
 \FloatBarrier
@@ -138,24 +98,7 @@ A general purpose indication associated with an electronic component of a piece 
 \begin{itemize}
 \item \texttt{Supertype : Condition}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\end{itemize}
-\FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Warning}}
-  \label{type:Warning}
-
-\FloatBarrier
-
-
-
-\FloatBarrier
-\paragraph{Referenced Properties and Objects}
-
-\begin{itemize}
-\item \texttt{Supertype : Condition}
+\item \texttt{type : DataItemTypeEnum} : \texttt{SYSTEM}
 
 \end{itemize}
 \FloatBarrier

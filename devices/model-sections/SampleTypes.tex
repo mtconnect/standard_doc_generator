@@ -1,4 +1,4 @@
-% Generated 2020-01-27 16:23:52 -0500
+% Generated 2020-01-28 11:37:25 -0500
 \subsection{SampleTypes} \label{model:SampleTypes}
 \subsubsection{Defintion of \texttt{<<Block>> Acceleration}}
   \label{type:Acceleration}
@@ -13,9 +13,9 @@ The measurement of the rate of change of velocity.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/SECOND^2}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ACCELERATION}
 
 \end{itemize}
 \FloatBarrier
@@ -32,9 +32,9 @@ The measurement of accumulated time for an activity or event.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ACCUMULATED_TIME}
 
 \end{itemize}
 \FloatBarrier
@@ -51,9 +51,9 @@ The measurement of electrical current.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{AMPERE}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{AMPERAGE}
 
 \end{itemize}
 \FloatBarrier
@@ -70,7 +70,7 @@ The measurement of alternating voltage or current.   If not specified further in
 \begin{itemize}
 \item \texttt{Supertype : Amperage}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ALTERNATING}
 
 \end{itemize}
 \FloatBarrier
@@ -87,7 +87,7 @@ The measurement of DC current or voltage.
 \begin{itemize}
 \item \texttt{Supertype : Amperage}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{DIRECT}
 
 \end{itemize}
 \FloatBarrier
@@ -104,7 +104,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : Amperage}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -121,7 +121,7 @@ The desired measure or count for a data item value.
 \begin{itemize}
 \item \texttt{Supertype : Amperage}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
 
 \end{itemize}
 \FloatBarrier
@@ -138,9 +138,9 @@ The measurement of angular position.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{DEGREE}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ANGLE}
 
 \end{itemize}
 \FloatBarrier
@@ -149,7 +149,7 @@ The measurement of angular position.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -157,7 +157,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : Angle}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -174,7 +174,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : Angle}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -191,9 +191,9 @@ The measurement rate of change of angular velocity.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{DEGREE/SECOND^2}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ANGULAR_ACCELERATION}
 
 \end{itemize}
 \FloatBarrier
@@ -210,9 +210,9 @@ The measurement of the rate of change of angular position.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{DEGREE/SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ANGULAR_VELOCITY}
 
 \end{itemize}
 \FloatBarrier
@@ -229,9 +229,9 @@ The measurement of the feedrate of a linear axis.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{AXIS_FEEDRATE}
 
 \end{itemize}
 \FloatBarrier
@@ -248,7 +248,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : AxisFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -257,7 +257,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -265,7 +265,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : AxisFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -274,7 +274,7 @@ A value specified by the controller type component.
 
 \FloatBarrier
 
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the axes. 
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -282,7 +282,7 @@ The feedrate specified by a logic or motion program, by a pre-set value, or set 
 \begin{itemize}
 \item \texttt{Supertype : AxisFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{JOG}
 
 \end{itemize}
 \FloatBarrier
@@ -299,7 +299,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 \begin{itemize}
 \item \texttt{Supertype : AxisFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
 
 \end{itemize}
 \FloatBarrier
@@ -316,7 +316,7 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 \begin{itemize}
 \item \texttt{Supertype : AxisFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{RAPID}
 
 \end{itemize}
 \FloatBarrier
@@ -325,7 +325,7 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 \FloatBarrier
 
-DEPRECATED: The operators overridden value.
+The operators overridden value.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -333,7 +333,7 @@ DEPRECATED: The operators overridden value.
 \begin{itemize}
 \item \texttt{Supertype : AxisFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OVERRIDE}
 
 \end{itemize}
 \FloatBarrier
@@ -350,9 +350,9 @@ The fluid capacity of an object or container.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLILITER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CAPACITY_FLUID}
 
 \end{itemize}
 \FloatBarrier
@@ -369,9 +369,9 @@ The geometric capacity of an object or container.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{CUBIC_MILLIMETER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CAPACITY_SPATIAL}
 
 \end{itemize}
 \FloatBarrier
@@ -388,9 +388,9 @@ The value provided by a timing device at a specific point in time.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{yyyy-mm-ddthh:mm:ss.ffff}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CLOCK_TIME}
 
 \end{itemize}
 \FloatBarrier
@@ -407,9 +407,9 @@ The measurement of the percentage of one component within a mixture of component
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{PERCENT}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CONCENTRATION}
 
 \end{itemize}
 \FloatBarrier
@@ -426,9 +426,9 @@ The measurement of the ability of a material to conduct electricity.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{SIEMENS/METER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CONDUCTIVITY}
 
 \end{itemize}
 \FloatBarrier
@@ -445,9 +445,9 @@ The speed difference (relative velocity) between the cutting mechanism and the s
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CUTTING_SPEED}
 
 \end{itemize}
 \FloatBarrier
@@ -464,7 +464,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : CuttingSpeed}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -473,7 +473,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -481,7 +481,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : CuttingSpeed}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -498,7 +498,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 \begin{itemize}
 \item \texttt{Supertype : CuttingSpeed}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
 
 \end{itemize}
 \FloatBarrier
@@ -515,9 +515,9 @@ The volumetric mass of a material per unit volume of that material.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIGRAM/CUBIC_MILLIMETER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DENSITY}
 
 \end{itemize}
 \FloatBarrier
@@ -534,9 +534,9 @@ The rate of change in spatial volume of material deposited in an additive manufa
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{CUBIC_MILLIMETER/SECOND^2}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DEPOSITION_ACCELERATION_VOLUMETRIC}
 
 \end{itemize}
 \FloatBarrier
@@ -553,7 +553,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : DepositionAccelerationVolumetric}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -562,7 +562,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -570,7 +570,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : DepositionAccelerationVolumetric}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -587,9 +587,9 @@ The density of the material deposited in an additive manufacturing process per u
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIGRAM/CUBIC_MILLIMETER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DEPOSITION_DENSITY}
 
 \end{itemize}
 \FloatBarrier
@@ -606,7 +606,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : DepositionDensity}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -615,7 +615,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -623,7 +623,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : DepositionDensity}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -640,9 +640,9 @@ The mass of the material deposited in an additive manufacturing process.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIGRAM}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DEPOSITION_MASS}
 
 \end{itemize}
 \FloatBarrier
@@ -659,7 +659,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : DepositionMass}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -668,7 +668,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -676,7 +676,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : DepositionMass}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -693,9 +693,9 @@ The rate at which a spatial volume of material is deposited in an additive manuf
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{CUBIC_MILLIMETER/SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DEPOSITION_RATE_VOLUMETRIC}
 
 \end{itemize}
 \FloatBarrier
@@ -712,7 +712,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : DepositionRateVolumetric}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -721,7 +721,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -729,7 +729,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : DepositionRateVolumetric}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -746,9 +746,9 @@ The spatial volume of material to be deposited in an additive manufacturing proc
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{CUBIC_MILLIMETER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DEPOSITION_VOLUME}
 
 \end{itemize}
 \FloatBarrier
@@ -765,7 +765,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : DepositionVolume}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -774,7 +774,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -782,7 +782,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : DepositionVolume}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -799,9 +799,9 @@ The measurement of the change in position of an object.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIMETER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DISPLACEMENT}
 
 \end{itemize}
 \FloatBarrier
@@ -818,9 +818,9 @@ The measurement of electrical energy consumption by a component.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{WATT_SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ELECTRICAL_ENERGY}
 
 \end{itemize}
 \FloatBarrier
@@ -837,9 +837,9 @@ The measurement of the amount of time a piece of equipment or a sub-part of a pi
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{EQUIPMENT_TIMER}
 
 \end{itemize}
 \FloatBarrier
@@ -856,7 +856,7 @@ Subparts of a piece of equipment are under load.
 \begin{itemize}
 \item \texttt{Supertype : EquipmentTimer}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{LOADED}
 
 \end{itemize}
 \FloatBarrier
@@ -873,7 +873,7 @@ A piece of equipment performing any activity, the equipment is active and perfor
 \begin{itemize}
 \item \texttt{Supertype : EquipmentTimer}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{WORKING}
 
 \end{itemize}
 \FloatBarrier
@@ -890,7 +890,7 @@ A piece of equipment are powered or performing any activity.
 \begin{itemize}
 \item \texttt{Supertype : EquipmentTimer}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OPERATING}
 
 \end{itemize}
 \FloatBarrier
@@ -907,7 +907,7 @@ Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, th
 \begin{itemize}
 \item \texttt{Supertype : EquipmentTimer}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{POWERED}
 
 \end{itemize}
 \FloatBarrier
@@ -924,7 +924,7 @@ A piece of equipment waiting for an event or an action to occur.
 \begin{itemize}
 \item \texttt{Supertype : EquipmentTimer}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{DELAY}
 
 \end{itemize}
 \FloatBarrier
@@ -941,9 +941,9 @@ The measurement of the amount of a substance remaining compared to the planned m
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{PERCENT}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{FILL_LEVEL}
 
 \end{itemize}
 \FloatBarrier
@@ -960,9 +960,9 @@ The measurement of the rate of flow of a fluid.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{LITER/SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{FLOW}
 
 \end{itemize}
 \FloatBarrier
@@ -979,9 +979,9 @@ The measurement of the number of occurrences of a repeating event per unit time.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{HERTZ}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{FREQUENCY}
 
 \end{itemize}
 \FloatBarrier
@@ -990,7 +990,7 @@ The measurement of the number of occurrences of a repeating event per unit time.
 
 \FloatBarrier
 
-DEPRECATED in Version 1.1
+*DEPRECATED* in Version 1.1
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -998,9 +998,7 @@ DEPRECATED in Version 1.1
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{GLOBAL_POSITION}
 
 \end{itemize}
 \FloatBarrier
@@ -1017,9 +1015,9 @@ The measurement of the length of an object.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIMETER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{LENGTH}
 
 \end{itemize}
 \FloatBarrier
@@ -1036,7 +1034,7 @@ The standard or original length of an object.
 \begin{itemize}
 \item \texttt{Supertype : Length}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{STANDARD}
 
 \end{itemize}
 \FloatBarrier
@@ -1053,7 +1051,7 @@ Remaining measure of an object or an action.
 \begin{itemize}
 \item \texttt{Supertype : Length}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{REMAINING}
 
 \end{itemize}
 \FloatBarrier
@@ -1070,7 +1068,7 @@ The remaining useable length of an object.
 \begin{itemize}
 \item \texttt{Supertype : Length}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{USEABLE}
 
 \end{itemize}
 \FloatBarrier
@@ -1079,7 +1077,7 @@ The remaining useable length of an object.
 
 \FloatBarrier
 
-DEPRECATED in Version 1.2.  See filllevel sample
+*DEPRECATED* in Version 1.2.  See {model:FILL_LEVEL}
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1087,9 +1085,7 @@ DEPRECATED in Version 1.2.  See filllevel sample
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{LEVEL}
 
 \end{itemize}
 \FloatBarrier
@@ -1106,9 +1102,9 @@ The measurement of the push or pull introduced by an actuator or exerted on an o
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{NEWTON}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{LINEAR_FORCE}
 
 \end{itemize}
 \FloatBarrier
@@ -1125,9 +1121,9 @@ The measurement of the actual versus the standard rating of a piece of equipment
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{PERCENT}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{LOAD}
 
 \end{itemize}
 \FloatBarrier
@@ -1144,9 +1140,9 @@ The measurement of the mass of an object(s) or an amount of material.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{KILOGRAM}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{MASS}
 
 \end{itemize}
 \FloatBarrier
@@ -1163,9 +1159,9 @@ A measure of the acidity or alkalinity of a solution.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{PH}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PH}
 
 \end{itemize}
 \FloatBarrier
@@ -1174,7 +1170,7 @@ A measure of the acidity or alkalinity of a solution.
 
 \FloatBarrier
 
-The measurement of the feedrate for the axes, or a single axis, associated with a path component-a vector.
+The measurement of the feedrate for the axes, or a single axis, associated with a {model:Path} component-a vector.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1182,9 +1178,9 @@ The measurement of the feedrate for the axes, or a single axis, associated with 
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PATH_FEEDRATE}
 
 \end{itemize}
 \FloatBarrier
@@ -1201,7 +1197,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : PathFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -1210,7 +1206,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1218,7 +1214,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : PathFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -1227,7 +1223,7 @@ A value specified by the controller type component.
 
 \FloatBarrier
 
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the axes. 
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1235,7 +1231,7 @@ The feedrate specified by a logic or motion program, by a pre-set value, or set 
 \begin{itemize}
 \item \texttt{Supertype : PathFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{JOG}
 
 \end{itemize}
 \FloatBarrier
@@ -1252,7 +1248,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 \begin{itemize}
 \item \texttt{Supertype : PathFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
 
 \end{itemize}
 \FloatBarrier
@@ -1269,7 +1265,7 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 \begin{itemize}
 \item \texttt{Supertype : PathFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{RAPID}
 
 \end{itemize}
 \FloatBarrier
@@ -1278,7 +1274,7 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 \FloatBarrier
 
-DEPRECATED: The operators overridden value.
+The operators overridden value.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1286,7 +1282,7 @@ DEPRECATED: The operators overridden value.
 \begin{itemize}
 \item \texttt{Supertype : PathFeedrate}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OVERRIDE}
 
 \end{itemize}
 \FloatBarrier
@@ -1303,9 +1299,9 @@ The feedrate for the axes, or a single axis.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/REVOLUTION}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PATH_FEEDRATE_PER_REVOLUTION}
 
 \end{itemize}
 \FloatBarrier
@@ -1322,7 +1318,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : PathFeedratePerRevolution}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -1331,7 +1327,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1339,7 +1335,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : PathFeedratePerRevolution}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -1356,7 +1352,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 \begin{itemize}
 \item \texttt{Supertype : PathFeedratePerRevolution}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
 
 \end{itemize}
 \FloatBarrier
@@ -1365,7 +1361,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 
 \FloatBarrier
 
-A measured or calculated position of a control point associated with a controller element, or path element if provided, of a piece of equipment.
+A measured or calculated position of a control point associated with a {model:Controller} element, or {model:Path} element if provided, of a piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1373,9 +1369,9 @@ A measured or calculated position of a control point associated with a controlle
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIMETER_3D}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PATH_POSITION}
 
 \end{itemize}
 \FloatBarrier
@@ -1392,7 +1388,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : PathPosition}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -1401,7 +1397,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1409,7 +1405,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : PathPosition}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -1426,7 +1422,7 @@ The desired measure or count for a data item value.
 \begin{itemize}
 \item \texttt{Supertype : PathPosition}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
 
 \end{itemize}
 \FloatBarrier
@@ -1443,7 +1439,7 @@ The position provided by a measurement probe.
 \begin{itemize}
 \item \texttt{Supertype : PathPosition}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROBE}
 
 \end{itemize}
 \FloatBarrier
@@ -1452,7 +1448,7 @@ The position provided by a measurement probe.
 
 \FloatBarrier
 
-A measured or calculated position of a component element as reported by a piece of equipment.
+A measured or calculated position of a {model:Component} element as reported by a piece of equipment.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1460,9 +1456,9 @@ A measured or calculated position of a component element as reported by a piece 
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIMETER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{POSITION}
 
 \end{itemize}
 \FloatBarrier
@@ -1479,7 +1475,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : Position}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -1488,7 +1484,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1496,7 +1492,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : Position}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -1513,7 +1509,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 \begin{itemize}
 \item \texttt{Supertype : Position}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
 
 \end{itemize}
 \FloatBarrier
@@ -1530,7 +1526,7 @@ The desired measure or count for a data item value.
 \begin{itemize}
 \item \texttt{Supertype : Position}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
 
 \end{itemize}
 \FloatBarrier
@@ -1547,9 +1543,9 @@ The measurement of the ratio of real power flowing to a load to the apparent pow
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{PERCENT}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{POWER_FACTOR}
 
 \end{itemize}
 \FloatBarrier
@@ -1566,9 +1562,9 @@ The measurement of force per unit area exerted by a gas or liquid.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{PASCAL}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PRESSURE}
 
 \end{itemize}
 \FloatBarrier
@@ -1585,9 +1581,9 @@ The measurement of the amount of time a piece of equipment has performed differe
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PROCESS_TIMER}
 
 \end{itemize}
 \FloatBarrier
@@ -1604,7 +1600,7 @@ The measurement of the time from the beginning of production of a part or produc
 \begin{itemize}
 \item \texttt{Supertype : ProcessTimer}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROCESS}
 
 \end{itemize}
 \FloatBarrier
@@ -1621,7 +1617,7 @@ A piece of equipment waiting for an event or an action to occur.
 \begin{itemize}
 \item \texttt{Supertype : ProcessTimer}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{DELAY}
 
 \end{itemize}
 \FloatBarrier
@@ -1638,9 +1634,9 @@ The measurement of the degree to which a substance opposes the passage of an ele
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{OHM}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{RESISTANCE}
 
 \end{itemize}
 \FloatBarrier
@@ -1657,9 +1653,9 @@ The measurement of the rotational speed of a rotary axis.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{REVOLUTION/MINUTE}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ROTARY_VELOCITY}
 
 \end{itemize}
 \FloatBarrier
@@ -1676,7 +1672,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : RotaryVelocity}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -1685,7 +1681,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1693,7 +1689,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : RotaryVelocity}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -1710,7 +1706,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 \begin{itemize}
 \item \texttt{Supertype : RotaryVelocity}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
 
 \end{itemize}
 \FloatBarrier
@@ -1719,7 +1715,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 
 \FloatBarrier
 
-DEPRECATED: The operators overridden value.
+The operators overridden value.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1727,7 +1723,7 @@ DEPRECATED: The operators overridden value.
 \begin{itemize}
 \item \texttt{Supertype : RotaryVelocity}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OVERRIDE}
 
 \end{itemize}
 \FloatBarrier
@@ -1744,9 +1740,9 @@ The measurement of a sound level or sound pressure level relative to atmospheric
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{DECIBEL}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{SOUND_LEVEL}
 
 \end{itemize}
 \FloatBarrier
@@ -1763,7 +1759,7 @@ No weighting factor on the frequency scale
 \begin{itemize}
 \item \texttt{Supertype : SoundLevel}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{NO_SCALE}
 
 \end{itemize}
 \FloatBarrier
@@ -1780,7 +1776,7 @@ A Scale weighting factor.   This is the default weighting factor if no factor is
 \begin{itemize}
 \item \texttt{Supertype : SoundLevel}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{A_SCALE}
 
 \end{itemize}
 \FloatBarrier
@@ -1797,7 +1793,7 @@ B Scale weighting factor
 \begin{itemize}
 \item \texttt{Supertype : SoundLevel}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{B_SCALE}
 
 \end{itemize}
 \FloatBarrier
@@ -1814,7 +1810,7 @@ C Scale weighting factor
 \begin{itemize}
 \item \texttt{Supertype : SoundLevel}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{C_SCALE}
 
 \end{itemize}
 \FloatBarrier
@@ -1831,7 +1827,7 @@ D Scale weighting factor
 \begin{itemize}
 \item \texttt{Supertype : SoundLevel}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{D_SCALE}
 
 \end{itemize}
 \FloatBarrier
@@ -1840,7 +1836,7 @@ D Scale weighting factor
 
 \FloatBarrier
 
-DEPRECATED in Version 1.2.  Replaced by rotaryvelocity sample
+*DEPRECATED* in Version 1.2.  Replaced by {model:ROTARY_VELOCITY}
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1848,9 +1844,9 @@ DEPRECATED in Version 1.2.  Replaced by rotaryvelocity sample
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{REVOLUTION/MINUTE}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{SPINDLE_SPEED}
 
 \end{itemize}
 \FloatBarrier
@@ -1867,7 +1863,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : SpindleSpeed}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -1876,7 +1872,7 @@ The measured value of the data item type given by a sensor or encoder.
 
 \FloatBarrier
 
-A value specified by the controller type component.
+A value specified by the {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1884,7 +1880,7 @@ A value specified by the controller type component.
 \begin{itemize}
 \item \texttt{Supertype : SpindleSpeed}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
 
 \end{itemize}
 \FloatBarrier
@@ -1893,7 +1889,7 @@ A value specified by the controller type component.
 
 \FloatBarrier
 
-DEPRECATED: The operators overridden value.
+The operators overridden value.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1901,7 +1897,7 @@ DEPRECATED: The operators overridden value.
 \begin{itemize}
 \item \texttt{Supertype : SpindleSpeed}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OVERRIDE}
 
 \end{itemize}
 \FloatBarrier
@@ -1918,9 +1914,9 @@ The measurement of the amount of deformation per unit length of an object when a
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{PERCENT}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{STRAIN}
 
 \end{itemize}
 \FloatBarrier
@@ -1937,9 +1933,9 @@ The measurement of temperature.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{CELSIUS}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{TEMPERATURE}
 
 \end{itemize}
 \FloatBarrier
@@ -1956,9 +1952,9 @@ The measurement of a force that stretches or elongates an object.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{NEWTON}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{TENSION}
 
 \end{itemize}
 \FloatBarrier
@@ -1975,9 +1971,9 @@ The measurement of angular displacement.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MICRO_RADIAN}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{TILT}
 
 \end{itemize}
 \FloatBarrier
@@ -1994,9 +1990,9 @@ The measurement of the turning force exerted on an object or by an object.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{NEWTON_METER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{TORQUE}
 
 \end{itemize}
 \FloatBarrier
@@ -2005,7 +2001,7 @@ The measurement of the turning force exerted on an object or by an object.
 
 \FloatBarrier
 
-The measurement of the rate of change of position of a component.
+The measurement of the rate of change of position of a {model:Component}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2013,9 +2009,9 @@ The measurement of the rate of change of position of a component.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{VELOCITY}
 
 \end{itemize}
 \FloatBarrier
@@ -2032,9 +2028,9 @@ The measurement of a fluids resistance to flow.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{PASCAL_SECOND}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{VISCOSITY}
 
 \end{itemize}
 \FloatBarrier
@@ -2051,9 +2047,9 @@ The measurement of the apparent power in an electrical circuit, equal to the pro
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{VOLT_AMPERE}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{VOLT_AMPERE}
 
 \end{itemize}
 \FloatBarrier
@@ -2070,9 +2066,9 @@ The measurement of reactive power in an AC electrical circuit (commonly referred
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{VOLT_AMPERE_REACTIVE}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{VOLT_AMPERE_REACTIVE}
 
 \end{itemize}
 \FloatBarrier
@@ -2089,9 +2085,9 @@ The measurement of electrical potential between two points.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{VOLT}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{VOLTAGE}
 
 \end{itemize}
 \FloatBarrier
@@ -2108,7 +2104,7 @@ The measurement of alternating voltage or current.   If not specified further in
 \begin{itemize}
 \item \texttt{Supertype : Voltage}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ALTERNATING}
 
 \end{itemize}
 \FloatBarrier
@@ -2125,7 +2121,7 @@ The measurement of DC current or voltage.
 \begin{itemize}
 \item \texttt{Supertype : Voltage}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{DIRECT}
 
 \end{itemize}
 \FloatBarrier
@@ -2142,7 +2138,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : Voltage}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -2159,7 +2155,7 @@ The desired measure or count for a data item value.
 \begin{itemize}
 \item \texttt{Supertype : Voltage}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
 
 \end{itemize}
 \FloatBarrier
@@ -2176,9 +2172,9 @@ The fluid volume of an object or container.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{MILLILITER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{VOLUME_FLUID}
 
 \end{itemize}
 \FloatBarrier
@@ -2195,7 +2191,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : VolumeFluid}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -2212,7 +2208,7 @@ The amount of bulk material consumed from an object or container during a manufa
 \begin{itemize}
 \item \texttt{Supertype : VolumeFluid}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{CONSUMED}
 
 \end{itemize}
 \FloatBarrier
@@ -2229,9 +2225,9 @@ The geometric volume of an object or container.
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{CUBIC_MILLIMETER}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{VOLUME_SPATIAL}
 
 \end{itemize}
 \FloatBarrier
@@ -2248,7 +2244,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : VolumeSpatial}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -2265,7 +2261,7 @@ The amount of bulk material consumed from an object or container during a manufa
 \begin{itemize}
 \item \texttt{Supertype : VolumeSpatial}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{CONSUMED}
 
 \end{itemize}
 \FloatBarrier
@@ -2282,9 +2278,9 @@ The measurement of power flowing through or dissipated by an electrical circuit 
 \begin{itemize}
 \item \texttt{Supertype : Sample}
 
-\item \texttt{units : UnitEnum}
+\item \texttt{units : UnitEnum} : \texttt{WATT}
 
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{WATTAGE}
 
 \end{itemize}
 \FloatBarrier
@@ -2301,7 +2297,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : Wattage}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -2318,7 +2314,7 @@ The desired measure or count for a data item value.
 \begin{itemize}
 \item \texttt{Supertype : Wattage}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
 
 \end{itemize}
 \FloatBarrier

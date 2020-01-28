@@ -1,4 +1,4 @@
-% Generated 2020-01-27 16:23:52 -0500
+% Generated 2020-01-28 11:37:25 -0500
 \subsection{DataItems} \label{model:DataItems}
 \subsubsection{Defintion of \texttt{<<Block>> Constraints}}
   \label{type:Constraints}
@@ -13,6 +13,24 @@
 \begin{itemize}
 \item \texttt{Filter : FilterEnum}
 
+\FloatBarrier
+
+
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{FilterEnum} Enumeration}
+  \label{enum:FilterEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{MINIMUM_DELTA} & It is Minimum Delta. \\
+\texttt{PERIOD} &  \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \item \texttt{Maximum : float}
 
 \item \texttt{Minimum : float}
@@ -36,10 +54,47 @@
 \begin{itemize}
 \item \texttt{category : CategoryEnum}
 
+\FloatBarrier
+
+
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{CategoryEnum} Enumeration}
+  \label{enum:CategoryEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{SAMPLE} &  \\
+\texttt{EVENT} &  \\
+\texttt{CONDITION} &  \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \item \texttt{compositionId : ID}
 
 \item \texttt{coordinateSystem : CoordinateSystemEnum}
 
+\FloatBarrier
+
+
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{CoordinateSystemEnum} Enumeration}
+  \label{enum:CoordinateSystemEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{MACHINE} &  \\
+\texttt{WORK} &  \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \item \texttt{discrete : boolean}
 
 \item \texttt{id : ID}
@@ -50,22 +105,163 @@
 
 \item \texttt{nativeUnits : NativeUnitEnum}
 
+\FloatBarrier
+
+
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{NativeUnitEnum} Enumeration}
+  \label{enum:NativeUnitEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{CENTIPOISE} &  \\
+\texttt{DEGREE/MINUTE} &  \\
+\texttt{FAHRENHEIT} &  \\
+\texttt{FOOT} &  \\
+\texttt{FOOT/MINUTE} &  \\
+\texttt{FOOT/SECOND} &  \\
+\texttt{FOOT/SECOND\^2} &  \\
+\texttt{FOOT_3D} &  \\
+\texttt{GALLON/MINUTE} &  \\
+\texttt{HOUR} &  \\
+\texttt{INCH} &  \\
+\texttt{INCH/MINUTE} &  \\
+\texttt{INCH/SECOND} &  \\
+\texttt{INCH/SECOND\^2} &  \\
+\texttt{INCH_POUND} &  \\
+\texttt{INCH_3D} &  \\
+\texttt{KELVIN} &  \\
+\texttt{KILOWATT} &  \\
+\texttt{KILOWATT_HOUR} &  \\
+\texttt{LITER} &  \\
+\texttt{LITER/MINUTE} &  \\
+\texttt{MILLIMETER/MINUTE} &  \\
+\texttt{MINUTE} &  \\
+\texttt{OTHER} &  \\
+\texttt{POUND} &  \\
+\texttt{POUND/INCH\^2} &  \\
+\texttt{RADIAN} &  \\
+\texttt{RADIAN/MINUTE} &  \\
+\texttt{RADIAN/SECOND} &  \\
+\texttt{RADIAN/SECOND\^2} &  \\
+\texttt{REVOLUTION/SECOND} &  \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \item \texttt{sampleRate : float}
 
 \item \texttt{significantDigits : integer}
 
 \item \texttt{statistic : StatisticEnum}
 
+\FloatBarrier
+
+
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{StatisticEnum} Enumeration}
+  \label{enum:StatisticEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{AVERAGE} &  \\
+\texttt{KURTOSIS} &  \\
+\texttt{MAXIMUM} &  \\
+\texttt{MEDIAN} &  \\
+\texttt{MINIMUM} &  \\
+\texttt{MODE} &  \\
+\texttt{RANGE} &  \\
+\texttt{ROOT_MEAN_SQUARE} &  \\
+\texttt{STANDARD_DEVIATION} &  \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \item \texttt{subType : string}
 
 \item \texttt{type : string}
 
 \item \texttt{units : UnitEnum}
 
+\FloatBarrier
+
+
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{UnitEnum} Enumeration}
+  \label{enum:UnitEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{AMPERE} & Amps \\
+\texttt{CELSIUS} & Degrees Celsius \\
+\texttt{COUNT} & A count of something. \\
+\texttt{DECIBEL} & Sound Level \\
+\texttt{DEGREE} & Angle in degrees \\
+\texttt{DEGREE/SECOND} & Angular degrees per second \\
+\texttt{DEGREE/SECOND\^2} & Angular acceleration in degrees per second squared \\
+\texttt{HERTZ} & Frequency measured in cycles per second \\
+\texttt{JOULE} & A measurement of energy. \\
+\texttt{KILOGRAM} & Kilograms \\
+\texttt{LITER} & Measurement of volume of a fluid \\
+\texttt{LITER/SECOND} & Liters per second \\
+\texttt{MICRO_RADIAN} & Measurement of Tilt \\
+\texttt{MILLIMETER} & Millimeters \\
+\texttt{MILLIMETER_3D} & A point in space identified by X, Y, and Z positions and represented by a space-delimited set of numbers each expressed in millimeters. \\
+\texttt{MILLIMETER/REVOLUTION} & Millimeters per revolution. \\
+\texttt{MILLIMETER/SECOND} & Millimeters per second \\
+\texttt{MILLIMETER/SECOND\^2} & Acceleration in millimeters per second squared \\
+\texttt{NEWTON} & Force in Newtons \\
+\texttt{NEWTON_METER} & Torque, a unit for force times distance. \\
+\texttt{OHM} & Measure of Electrical Resistance \\
+\texttt{PASCAL} & Pressure in Newtons per square meter \\
+\texttt{PASCAL_SECOND} & Measurement of Viscosity \\
+\texttt{PERCENT} & Percentage \\
+\texttt{PH} & A measure of the acidity or alkalinity of a solution. \\
+\texttt{REVOLUTION/MINUTE} & Revolutions per minute \\
+\texttt{SECOND} & A measurement of time. \\
+\texttt{SIEMENS/METER} & A measurement of Electrical Conductivity \\
+\texttt{VOLT} & Volts \\
+\texttt{VOLT_AMPERE} & The measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA). \\
+\texttt{VOLT_AMPERE_REACTIVE} & The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR). \\
+\texttt{WATT} & Watts \\
+\texttt{WATT_SECOND} & Measurement of electrical energy, equal to one Joule \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \item \texttt{isObservedBy : Component}
 
 \item \texttt{representation : RepresentationEnum}
 
+\FloatBarrier
+
+
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{RepresentationEnum} Enumeration}
+  \label{enum:RepresentationEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{TIME_SERIES} &  \\
+\texttt{VALUE} &  \\
+\texttt{DATA_SET} &  \\
+\texttt{DISCRETE} &  \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \item \texttt{hasSource : Source}
 
 \item \texttt{hasConstraint : Constraints}
@@ -95,6 +291,23 @@
 \begin{itemize}
 \item \texttt{type : FilterEnum}
 
+\FloatBarrier
+
+
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{FilterEnum} Enumeration}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{MINIMUM_DELTA} & It is Minimum Delta. \\
+\texttt{PERIOD} &  \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \end{itemize}
 \FloatBarrier
 \subsubsection{Defintion of \texttt{<<Block>> InitialValue}}
@@ -125,6 +338,31 @@
 \begin{itemize}
 \item \texttt{type : ResetTriggerEnum}
 
+\FloatBarrier
+
+
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{ResetTriggerEnum} Enumeration}
+  \label{enum:ResetTriggerEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{ACTION_COMPLETE} &  \\
+\texttt{ANNUAL} &  \\
+\texttt{DAY} &  \\
+\texttt{LIFE} &  \\
+\texttt{MAINTENANCE} &  \\
+\texttt{MONTH} &  \\
+\texttt{POWER_ON} &  \\
+\texttt{SHIFT} &  \\
+\texttt{WEEK} &  \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \end{itemize}
 \FloatBarrier
 \subsubsection{Defintion of \texttt{<<Block>> Source}}

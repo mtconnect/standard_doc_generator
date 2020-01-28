@@ -1,11 +1,11 @@
-% Generated 2020-01-27 16:23:52 -0500
+% Generated 2020-01-28 11:37:25 -0500
 \subsection{EventTypes} \label{model:EventTypes}
 \subsubsection{Defintion of \texttt{<<Block>> ActiveAxes}}
   \label{type:ActiveAxes}
 
 \FloatBarrier
 
-The set of axes currently associated with a path or controller structural element.
+The set of axes currently associated with a {model:Path} or {model:Controller} {term:Structural Element}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -13,9 +13,7 @@ The set of axes currently associated with a path or controller structural elemen
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ACTIVE_AXES}
 
 \end{itemize}
 \FloatBarrier
@@ -32,11 +30,7 @@ Represents the operational state of an apparatus for moving or controlling a mec
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ActuatorStateEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ACTUATOR_STATE}
 
 \end{itemize}
 \FloatBarrier
@@ -45,7 +39,7 @@ Represents the operational state of an apparatus for moving or controlling a mec
 
 \FloatBarrier
 
-DEPRECATED: Replaced with condition category category data items in Version 1.1.0.
+*DEPRECATED:* Replaced with {model:CONDITION} category data items in Version 1.1.0.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -53,9 +47,7 @@ DEPRECATED: Replaced with condition category category data items in Version 1.1.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ALARM}
 
 \end{itemize}
 \FloatBarrier
@@ -64,7 +56,7 @@ DEPRECATED: Replaced with condition category category data items in Version 1.1.
 
 \FloatBarrier
 
-The value of the cdata for the event MUST be the assetid of the asset that has been added or changed. There will not be a separate message for new assets.
+The value of the {term:CDATA} for the event *MUST* be the {model:assetId} of the asset that has been added or changed. There will not be a separate message for new assets.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -72,9 +64,7 @@ The value of the cdata for the event MUST be the assetid of the asset that has b
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ASSET_CHANGED}
 
 \end{itemize}
 \FloatBarrier
@@ -83,7 +73,7 @@ The value of the cdata for the event MUST be the assetid of the asset that has b
 
 \FloatBarrier
 
-The value of the cdata for the event MUST be the assetid of the asset that has been removed. The asset will still be visible if requested with the includeremoved parameter as described in the protocol section. When assets are removed they are not moved to the beginning of the most recently modified list.
+The value of the {term:CDATA} for the event *MUST* be the {model:assetId} of the asset that has been removed. The asset will still be visible if requested with the {model:includeRemoved} parameter as described in the protocol section. When assets are removed they are not moved to the beginning of the most recently modified list.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -91,9 +81,7 @@ The value of the cdata for the event MUST be the assetid of the asset that has b
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ASSET_REMOVED}
 
 \end{itemize}
 \FloatBarrier
@@ -102,7 +90,7 @@ The value of the cdata for the event MUST be the assetid of the asset that has b
 
 \FloatBarrier
 
-Represents the agent's ability to communicate with the data source.
+Represents the {term:Agent}'s ability to communicate with the data source.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -110,11 +98,7 @@ Represents the agent's ability to communicate with the data source.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : AvailabilityEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{AVAILABILITY}
 
 \end{itemize}
 \FloatBarrier
@@ -125,7 +109,7 @@ Represents the agent's ability to communicate with the data source.
 
 Describes the way the axes will be associated to each other. 
   
- This is used in conjunction with coupledaxes event to indicate the way they are interacting.
+ This is used in conjunction with {model:COUPLED_AXES} to indicate the way they are interacting.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -133,11 +117,7 @@ Describes the way the axes will be associated to each other.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : AxisCouplingEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{AXIS_COUPLING}
 
 \end{itemize}
 \FloatBarrier
@@ -154,9 +134,7 @@ The value of a signal or calculation issued to adjust the feedrate of an individ
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{AXIS_FEEDRATE_OVERRIDE}
 
 \end{itemize}
 \FloatBarrier
@@ -165,7 +143,7 @@ The value of a signal or calculation issued to adjust the feedrate of an individ
 
 \FloatBarrier
 
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the axes. 
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -173,7 +151,7 @@ The feedrate specified by a logic or motion program, by a pre-set value, or set 
 \begin{itemize}
 \item \texttt{Supertype : AxisFeedrateOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{JOG}
 
 \end{itemize}
 \FloatBarrier
@@ -190,7 +168,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 \begin{itemize}
 \item \texttt{Supertype : AxisFeedrateOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
 
 \end{itemize}
 \FloatBarrier
@@ -207,7 +185,7 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 \begin{itemize}
 \item \texttt{Supertype : AxisFeedrateOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{RAPID}
 
 \end{itemize}
 \FloatBarrier
@@ -224,11 +202,7 @@ An indicator of the state of the axis lockout function when power has been remov
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ActuatorStateEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{AXIS_INTERLOCK}
 
 \end{itemize}
 \FloatBarrier
@@ -237,7 +211,7 @@ An indicator of the state of the axis lockout function when power has been remov
 
 \FloatBarrier
 
-An indicator of the controlled state of a linear or rotary component representing an axis.
+An indicator of the controlled state of a {model:Linear} or {model:Rotary} component representing an axis.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -245,11 +219,7 @@ An indicator of the controlled state of a linear or rotary component representin
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : AxisStateEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{AXIS_STATE}
 
 \end{itemize}
 \FloatBarrier
@@ -258,7 +228,7 @@ An indicator of the controlled state of a linear or rotary component representin
 
 \FloatBarrier
 
-The line of code or command being executed by a controller structural element.
+The line of code or command being executed by a {model:Controller} {term:Structural Element}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -266,9 +236,7 @@ The line of code or command being executed by a controller structural element.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{BLOCK}
 
 \end{itemize}
 \FloatBarrier
@@ -285,9 +253,7 @@ The total count of the number of blocks of program code that have been executed 
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{BLOCK_COUNT}
 
 \end{itemize}
 \FloatBarrier
@@ -296,7 +262,7 @@ The total count of the number of blocks of program code that have been executed 
 
 \FloatBarrier
 
-An indication of the state of an interlock function or control logic state intended to prevent the associated chuck component from being operated.
+An indication of the state of an interlock function or control logic state intended to prevent the associated {model:CHUCK} component from being operated.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -304,11 +270,7 @@ An indication of the state of an interlock function or control logic state inten
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ActuatorStateEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CHUCK_INTERLOCK}
 
 \end{itemize}
 \FloatBarrier
@@ -318,8 +280,8 @@ An indication of the state of an interlock function or control logic state inten
 \FloatBarrier
 
 An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
- The valid data value must be active value or inactive value. 
- When manualunclamp subtype is active value, it is expected that a chuck cannot be unclamped until manualunclamp subtype is set to inactive value. 
+ The {term:Valid Data Value} *MUST* be {model:ACTIVE} or {model:INACTIVE}. 
+ When {model:MANUAL_UNCLAMP} is {model:ACTIVE}, it is expected that a chuck cannot be unclamped until {model:MANUAL_UNCLAMP} is set to {model:INACTIVE}. 
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -327,7 +289,7 @@ An indication of the state of an operator controlled interlock that can inhibit 
 \begin{itemize}
 \item \texttt{Supertype : ChuckInterlock}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{MANUAL_UNCLAMP}
 
 \end{itemize}
 \FloatBarrier
@@ -344,11 +306,7 @@ An indication of the operating state of a mechanism that holds a part or stock m
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ChuckStateEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CHUCK_STATE}
 
 \end{itemize}
 \FloatBarrier
@@ -365,9 +323,7 @@ Service to close a chuck.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CLOSE_CHUCK}
 
 \end{itemize}
 \FloatBarrier
@@ -384,9 +340,7 @@ Service to close a door.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CLOSE_DOOR}
 
 \end{itemize}
 \FloatBarrier
@@ -395,7 +349,7 @@ Service to close a door.
 
 \FloatBarrier
 
-DEPRECATED in Version 1.1.
+*DEPRECATED* in Version 1.1.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -403,9 +357,7 @@ DEPRECATED in Version 1.1.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CODE}
 
 \end{itemize}
 \FloatBarrier
@@ -414,7 +366,7 @@ DEPRECATED in Version 1.1.
 
 \FloatBarrier
 
-An indication of the operating condition of a mechanism represented by a composition type element.
+An indication of the operating condition of a mechanism represented by a {model:Composition} type element.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -422,9 +374,7 @@ An indication of the operating condition of a mechanism represented by a composi
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{COMPOSITION_STATE}
 
 \end{itemize}
 \FloatBarrier
@@ -433,9 +383,9 @@ An indication of the operating condition of a mechanism represented by a composi
 
 \FloatBarrier
 
-An indication of the operating state of a mechanism represented by a composition type component.
- The operating state indicates whether the composition element is activated or disabled. 
- The valid data value must be active value or inactive value.
+An indication of the operating state of a mechanism represented by a {model:Composition} type component.
+ The operating state indicates whether the {model:Composition} element is activated or disabled. 
+ The {term:Valid Data Value} *MUST* be {model:ACTIVE} or {model:INACTIVE}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -443,7 +393,7 @@ An indication of the operating state of a mechanism represented by a composition
 \begin{itemize}
 \item \texttt{Supertype : CompositionState}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTION}
 
 \end{itemize}
 \FloatBarrier
@@ -452,9 +402,9 @@ An indication of the operating state of a mechanism represented by a composition
 
 \FloatBarrier
 
-An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a composition type component. 
- The position information indicates whether the composition element is positioned to the right, to the left, or is in transition.  
- The valid data value must be right value, left value, or transitioning value.
+An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a {model:Composition} type component. 
+ The position information indicates whether the {model:Composition} element is positioned to the right, to the left, or is in transition.  
+ The {term:Valid Data Value} *MUST* be {model:RIGHT}, {model:LEFT}, or {model:TRANSITIONING}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -462,7 +412,7 @@ An indication of the position of a mechanism that may move in a lateral directio
 \begin{itemize}
 \item \texttt{Supertype : CompositionState}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{LATERAL}
 
 \end{itemize}
 \FloatBarrier
@@ -471,9 +421,9 @@ An indication of the position of a mechanism that may move in a lateral directio
 
 \FloatBarrier
 
-An indication of the open or closed state of a mechanism.   The mechanism is represented by a composition type component. 
- The operating state indicates whether the state of the composition element is open, closed, or unlatched.   
- The valid data value must be open value, unlatched value, or closed value.
+An indication of the open or closed state of a mechanism.   The mechanism is represented by a {model:Composition} type component. 
+ The operating state indicates whether the state of the {model:Composition} element is open, closed, or unlatched.   
+ The {term:Valid Data Value} *MUST* be {model:OPEN}, {model:UNLATCHED}, or {model:CLOSED}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -481,7 +431,7 @@ An indication of the open or closed state of a mechanism.   The mechanism is rep
 \begin{itemize}
 \item \texttt{Supertype : CompositionState}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{MOTION}
 
 \end{itemize}
 \FloatBarrier
@@ -490,9 +440,9 @@ An indication of the open or closed state of a mechanism.   The mechanism is rep
 
 \FloatBarrier
 
-An indication of the activation state of a mechanism represented by a composition type component.
- The activation state indicates whether the composition element is activated or not.
- The valid data value must be on value or off value.
+An indication of the activation state of a mechanism represented by a {model:Composition} type component.
+ The activation state indicates whether the {model:Composition} element is activated or not.
+ The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -500,7 +450,7 @@ An indication of the activation state of a mechanism represented by a compositio
 \begin{itemize}
 \item \texttt{Supertype : CompositionState}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{SWITCHED}
 
 \end{itemize}
 \FloatBarrier
@@ -509,9 +459,9 @@ An indication of the activation state of a mechanism represented by a compositio
 
 \FloatBarrier
 
-An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a composition type component. 
- The position information indicates whether the composition element is positioned to the top, to the bottom, or is in transition.  
- The valid data value must be up value, down value, or transitioning value.
+An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a {model:Composition} type component. 
+ The position information indicates whether the {model:Composition} element is positioned to the top, to the bottom, or is in transition.  
+ The {term:Valid Data Value} *MUST* be {model:UP}, {model:DOWN}, or {model:TRANSITIONING}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -519,7 +469,7 @@ An indication of the position of a mechanism that may move in a vertical directi
 \begin{itemize}
 \item \texttt{Supertype : CompositionState}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{VERTICAL}
 
 \end{itemize}
 \FloatBarrier
@@ -528,7 +478,7 @@ An indication of the position of a mechanism that may move in a vertical directi
 
 \FloatBarrier
 
-The current operating mode of the controller component.
+The current operating mode of the {model:Controller} component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -536,11 +486,7 @@ The current operating mode of the controller component.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ControllerModeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CONTROLLER_MODE}
 
 \end{itemize}
 \FloatBarrier
@@ -557,11 +503,7 @@ A setting or operator selection that changes the behavior of a piece of equipmen
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ControllerModeOverrideEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{CONTROLLER_MODE_OVERRIDE}
 
 \end{itemize}
 \FloatBarrier
@@ -571,8 +513,8 @@ A setting or operator selection that changes the behavior of a piece of equipmen
 \FloatBarrier
 
 A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
- The valid data value must be on value or off value. 
- When dryrun subtype is on value, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
+ The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}. 
+ When {model:DRY_RUN} is {model:ON}, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -580,7 +522,7 @@ A setting or operator selection used to execute a test mode to confirm the execu
 \begin{itemize}
 \item \texttt{Supertype : ControllerModeOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{DRY_RUN}
 
 \end{itemize}
 \FloatBarrier
@@ -590,9 +532,9 @@ A setting or operator selection used to execute a test mode to confirm the execu
 \FloatBarrier
 
 A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value.
- Program execution is paused after each block event of code is executed when singleblock subtype is on value.   
- When singleblock subtype is on value, execution event must change to interrupted value after completion of each block event of code. 
+ The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}.
+ Program execution is paused after each {model:BLOCK} of code is executed when {model:SINGLE_BLOCK} is {model:ON}.   
+ When {model:SINGLE_BLOCK} is {model:ON}, {model:EXECUTION} *MUST* change to {model:INTERRUPTED} after completion of each {model:BLOCK} of code. 
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -600,7 +542,7 @@ A setting or operator selection that changes the behavior of the controller on a
 \begin{itemize}
 \item \texttt{Supertype : ControllerModeOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{SINGLE_BLOCK}
 
 \end{itemize}
 \FloatBarrier
@@ -610,8 +552,8 @@ A setting or operator selection that changes the behavior of the controller on a
 \FloatBarrier
 
 A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value. 
- When machineaxislock subtype is on value, program execution continues normally, but no equipment motion occurs 
+ The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}. 
+ When {model:MACHINE_AXIS_LOCK} is {model:ON}, program execution continues normally, but no equipment motion occurs 
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -619,7 +561,7 @@ A setting or operator selection that changes the behavior of the controller on a
 \begin{itemize}
 \item \texttt{Supertype : ControllerModeOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{MACHINE_AXIS_LOCK}
 
 \end{itemize}
 \FloatBarrier
@@ -629,10 +571,10 @@ A setting or operator selection that changes the behavior of the controller on a
 \FloatBarrier
 
 A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value.
- The program execution is stopped after a specific program block is executed when optionalstop subtype is on value.    
- In the case of a G-Code program, a program block event containing a M01 code designates the command for an optionalstop subtype. 
- execution event must change to optionalstop subtype after a program block specifying an optional stop is executed and the optionalstop subtype selection is on value.
+ The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}.
+ The program execution is stopped after a specific program block is executed when {model:OPTIONAL_STOP} is {model:ON}.    
+ In the case of a G-Code program, a program {model:BLOCK} containing a M01 code designates the command for an {model:OPTIONAL_STOP}. 
+ {model:EXECUTION} *MUST* change to {model:OPTIONAL_STOP} after a program block specifying an optional stop is executed and the {model:OPTIONAL_STOP} selection is {model:ON}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -640,7 +582,7 @@ A setting or operator selection that changes the behavior of the controller on a
 \begin{itemize}
 \item \texttt{Supertype : ControllerModeOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OPTIONAL_STOP}
 
 \end{itemize}
 \FloatBarrier
@@ -650,9 +592,9 @@ A setting or operator selection that changes the behavior of the controller on a
 \FloatBarrier
 
 A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value. 
+ The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}. 
  Program execution is paused when a command is executed requesting a cutting tool to be changed. 
- execution event must change to interrupted value after completion of the command requesting a cutting tool to be changed and toolchangestop subtype is on value.
+ {model:EXECUTION} *MUST* change to {model:INTERRUPTED} after completion of the command requesting a cutting tool to be changed and {model:TOOL_CHANGE_STOP} is {model:ON}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -660,7 +602,7 @@ A setting or operator selection that changes the behavior of the controller on a
 \begin{itemize}
 \item \texttt{Supertype : ControllerModeOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TOOL_CHANGE_STOP}
 
 \end{itemize}
 \FloatBarrier
@@ -677,9 +619,7 @@ Refers to the set of associated axes.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{COUPLED_AXES}
 
 \end{itemize}
 \FloatBarrier
@@ -690,7 +630,7 @@ Refers to the set of associated axes.
 
 The time and date code associated with a material or other physical item.
   
- datecode event MUST be reported in ISO 8601 format.
+ {model:DATE_CODE} *MUST* be reported in ISO 8601 format.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -698,9 +638,7 @@ The time and date code associated with a material or other physical item.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DATE_CODE}
 
 \end{itemize}
 \FloatBarrier
@@ -717,7 +655,7 @@ The time and date code relating to the production of a material or other physica
 \begin{itemize}
 \item \texttt{Supertype : DateCode}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{MANUFACTURE}
 
 \end{itemize}
 \FloatBarrier
@@ -734,7 +672,7 @@ The time and date code relating to the expiration or end of useful life for a ma
 \begin{itemize}
 \item \texttt{Supertype : DateCode}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{EXPIRATION}
 
 \end{itemize}
 \FloatBarrier
@@ -751,7 +689,7 @@ The time and date code relating the first use of a material or other physical it
 \begin{itemize}
 \item \texttt{Supertype : DateCode}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{FIRST_USE}
 
 \end{itemize}
 \FloatBarrier
@@ -762,7 +700,7 @@ The time and date code relating the first use of a material or other physical it
 
 The identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function.
   
- The valid data value MUST be a NMTOKEN XML type.
+ The {term:Valid Data Value} *MUST* be a NMTOKEN XML type.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -770,9 +708,7 @@ The identifier of another piece of equipment that is temporarily associated with
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DEVICE_UUID}
 
 \end{itemize}
 \FloatBarrier
@@ -789,9 +725,7 @@ The direction of motion.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DIRECTION}
 
 \end{itemize}
 \FloatBarrier
@@ -801,7 +735,7 @@ The direction of motion.
 \FloatBarrier
 
 The rotational direction of a rotary motion using the right hand rule convention.
- The valid data value must be clockwise value or counterclockwise value.
+ The {term:Valid Data Value} *MUST* be {model:CLOCKWISE} or {model:COUNTER_CLOCKWISE}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -809,7 +743,7 @@ The rotational direction of a rotary motion using the right hand rule convention
 \begin{itemize}
 \item \texttt{Supertype : Direction}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ROTARY}
 
 \end{itemize}
 \FloatBarrier
@@ -826,7 +760,7 @@ The direction of motion of a linear motion.
 \begin{itemize}
 \item \texttt{Supertype : Direction}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{LINEAR}
 
 \end{itemize}
 \FloatBarrier
@@ -835,7 +769,7 @@ The direction of motion of a linear motion.
 
 \FloatBarrier
 
-The operational state of a door type component or composition element.
+The operational state of a {model:DOOR} type component or composition element.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -843,11 +777,7 @@ The operational state of a door type component or composition element.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : DoorStateEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{DOOR_STATE}
 
 \end{itemize}
 \FloatBarrier
@@ -864,11 +794,7 @@ The current state of the emergency stop signal for a piece of equipment, control
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : EmergencyStopEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{EMERGENCY_STOP}
 
 \end{itemize}
 \FloatBarrier
@@ -885,11 +811,7 @@ An indication of whether the end of a piece of bar stock being feed by a bar fee
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : EndOfBarEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{END_OF_BAR}
 
 \end{itemize}
 \FloatBarrier
@@ -898,8 +820,8 @@ An indication of whether the end of a piece of bar stock being feed by a bar fee
 
 \FloatBarrier
 
-Specific applications MAY reference one or more locations on a piece of bar stock as the indication for the endofbar event. The main or most important location must be designated as the primary subtype indication for the endofbar event.   
- If no subtype is specified, primary subtype must be the default endofbar event indication.
+Specific applications *MAY* reference one or more locations on a piece of bar stock as the indication for the {model:END_OF_BAR}. The main or most important location *MUST* be designated as the {model:PRIMARY} indication for the {model:END_OF_BAR}.   
+ If no {model:subType} is specified, {model:PRIMARY} *MUST* be the default {model:END_OF_BAR} indication.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -907,7 +829,7 @@ Specific applications MAY reference one or more locations on a piece of bar stoc
 \begin{itemize}
 \item \texttt{Supertype : EndOfBar}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PRIMARY}
 
 \end{itemize}
 \FloatBarrier
@@ -916,7 +838,7 @@ Specific applications MAY reference one or more locations on a piece of bar stoc
 
 \FloatBarrier
 
-When multiple locations on a piece of bar stock are referenced as the indication for the endofbar event, the additional location(s) must be designated as auxiliary subtype indication(s) for the endofbar event.  
+When multiple locations on a piece of bar stock are referenced as the indication for the {model:END_OF_BAR}, the additional location(s) *MUST* be designated as {model:AUXILIARY} indication(s) for the {model:END_OF_BAR}.  
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -924,7 +846,7 @@ When multiple locations on a piece of bar stock are referenced as the indication
 \begin{itemize}
 \item \texttt{Supertype : EndOfBar}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{AUXILIARY}
 
 \end{itemize}
 \FloatBarrier
@@ -941,11 +863,7 @@ An indication that a piece of equipment, or a sub-part of a piece of equipment, 
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ControllerModeOverrideEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{EQUIPMENT_MODE}
 
 \end{itemize}
 \FloatBarrier
@@ -962,7 +880,7 @@ Subparts of a piece of equipment are under load.
 \begin{itemize}
 \item \texttt{Supertype : EquipmentMode}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{LOADED}
 
 \end{itemize}
 \FloatBarrier
@@ -979,7 +897,7 @@ A piece of equipment performing any activity, the equipment is active and perfor
 \begin{itemize}
 \item \texttt{Supertype : EquipmentMode}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{WORKING}
 
 \end{itemize}
 \FloatBarrier
@@ -996,7 +914,7 @@ A piece of equipment are powered or performing any activity.
 \begin{itemize}
 \item \texttt{Supertype : EquipmentMode}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OPERATING}
 
 \end{itemize}
 \FloatBarrier
@@ -1013,7 +931,7 @@ Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, th
 \begin{itemize}
 \item \texttt{Supertype : EquipmentMode}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{POWERED}
 
 \end{itemize}
 \FloatBarrier
@@ -1030,7 +948,7 @@ A piece of equipment waiting for an event or an action to occur.
 \begin{itemize}
 \item \texttt{Supertype : EquipmentMode}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{DELAY}
 
 \end{itemize}
 \FloatBarrier
@@ -1039,7 +957,7 @@ A piece of equipment waiting for an event or an action to occur.
 
 \FloatBarrier
 
-The execution status of the controller.
+The execution status of the {model:Controller}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1047,11 +965,7 @@ The execution status of the controller.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ExecutionEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{EXECUTION}
 
 \end{itemize}
 \FloatBarrier
@@ -1068,11 +982,7 @@ The current intended production status of the device or component.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : FunctionalModeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{FUNCTIONAL_MODE}
 
 \end{itemize}
 \FloatBarrier
@@ -1089,9 +999,7 @@ The measurement of the hardness of a material.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{HARDNESS}
 
 \end{itemize}
 \FloatBarrier
@@ -1108,7 +1016,7 @@ A scale to measure the resistance to deformation of a surface.
 \begin{itemize}
 \item \texttt{Supertype : Hardness}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ROCKWELL}
 
 \end{itemize}
 \FloatBarrier
@@ -1125,7 +1033,7 @@ A scale to measure the resistance to deformation of a surface.
 \begin{itemize}
 \item \texttt{Supertype : Hardness}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{VICKERS}
 
 \end{itemize}
 \FloatBarrier
@@ -1142,7 +1050,7 @@ A scale to measure the resistance to deformation of a surface.
 \begin{itemize}
 \item \texttt{Supertype : Hardness}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{SHORE}
 
 \end{itemize}
 \FloatBarrier
@@ -1159,7 +1067,7 @@ A scale to measure the resistance to deformation of a surface.
 \begin{itemize}
 \item \texttt{Supertype : Hardness}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{BRINELL}
 
 \end{itemize}
 \FloatBarrier
@@ -1176,7 +1084,7 @@ A scale to measure the elasticity of a surface.
 \begin{itemize}
 \item \texttt{Supertype : Hardness}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{LEEB}
 
 \end{itemize}
 \FloatBarrier
@@ -1193,7 +1101,7 @@ A scale to measure the resistance to scratching of a surface.
 \begin{itemize}
 \item \texttt{Supertype : Hardness}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{MOHS}
 
 \end{itemize}
 \FloatBarrier
@@ -1202,7 +1110,7 @@ A scale to measure the resistance to scratching of a surface.
 
 \FloatBarrier
 
-An indication of the operational state of an interface component component.
+An indication of the operational state of an {model:Interface} component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1210,11 +1118,7 @@ An indication of the operational state of an interface component component.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : InterfaceStateEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{INTERFACE_STATE}
 
 \end{itemize}
 \FloatBarrier
@@ -1223,7 +1127,7 @@ An indication of the operational state of an interface component component.
 
 \FloatBarrier
 
-DEPRECATED in Version 1.4.0.
+*DEPRECATED* in Version 1.4.0.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1231,9 +1135,7 @@ DEPRECATED in Version 1.4.0.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{LINE}
 
 \end{itemize}
 \FloatBarrier
@@ -1250,7 +1152,7 @@ Maximum value of a data entity or attribute.
 \begin{itemize}
 \item \texttt{Supertype : Line}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{MAXIMUM}
 
 \end{itemize}
 \FloatBarrier
@@ -1267,7 +1169,7 @@ The minimum value of a data entity or attribute.
 \begin{itemize}
 \item \texttt{Supertype : Line}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{MINIMUM}
 
 \end{itemize}
 \FloatBarrier
@@ -1276,7 +1178,7 @@ The minimum value of a data entity or attribute.
 
 \FloatBarrier
 
-An optional identifier for a block event of code in a program event.
+An optional identifier for a {model:BLOCK} of code in a {model:PROGRAM}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1284,9 +1186,7 @@ An optional identifier for a block event of code in a program event.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{LINE_LABEL}
 
 \end{itemize}
 \FloatBarrier
@@ -1303,9 +1203,7 @@ A reference to the position of a block of program code within a control program.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{LINE_NUMBER}
 
 \end{itemize}
 \FloatBarrier
@@ -1322,7 +1220,7 @@ The position of a block of program code relative to the beginning of the control
 \begin{itemize}
 \item \texttt{Supertype : LineNumber}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ABSOLUTE}
 
 \end{itemize}
 \FloatBarrier
@@ -1331,7 +1229,7 @@ The position of a block of program code relative to the beginning of the control
 
 \FloatBarrier
 
-The position of a block of program code relative to the occurrence of the last linelabel event encountered in the control program.
+The position of a block of program code relative to the occurrence of the last {model:LINE_LABEL} encountered in the control program.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1339,7 +1237,7 @@ The position of a block of program code relative to the occurrence of the last l
 \begin{itemize}
 \item \texttt{Supertype : LineNumber}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{INCREMENTAL}
 
 \end{itemize}
 \FloatBarrier
@@ -1356,9 +1254,7 @@ The identifier of a material used or consumed in the manufacturing process.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{MATERIAL}
 
 \end{itemize}
 \FloatBarrier
@@ -1375,9 +1271,7 @@ Service to change the type of material or product being loaded or fed to a piece
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{MATERIAL_CHANGE}
 
 \end{itemize}
 \FloatBarrier
@@ -1394,9 +1288,7 @@ Service to advance material or feed product to a piece of equipment from a conti
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{MATERIAL_FEED}
 
 \end{itemize}
 \FloatBarrier
@@ -1407,7 +1299,7 @@ Service to advance material or feed product to a piece of equipment from a conti
 
 Identifies the layers of material applied to a part or product as part of an additive manufacturing process.
   
- The valid data value MUST be an integer.
+ The {term:Valid Data Value} *MUST* be an integer.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1415,9 +1307,7 @@ Identifies the layers of material applied to a part or product as part of an add
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{MATERIAL_LAYER}
 
 \end{itemize}
 \FloatBarrier
@@ -1434,7 +1324,7 @@ The measured value of the data item type given by a sensor or encoder.
 \begin{itemize}
 \item \texttt{Supertype : MaterialLayer}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
 
 \end{itemize}
 \FloatBarrier
@@ -1451,7 +1341,7 @@ The desired measure or count for a data item value.
 \begin{itemize}
 \item \texttt{Supertype : MaterialLayer}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
 
 \end{itemize}
 \FloatBarrier
@@ -1468,9 +1358,7 @@ Service to load a piece of material or product.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{MATERIAL_LOAD}
 
 \end{itemize}
 \FloatBarrier
@@ -1487,9 +1375,7 @@ Service to remove or retract material or product.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{MATERIAL_RETRACT}
 
 \end{itemize}
 \FloatBarrier
@@ -1506,9 +1392,7 @@ Service to unload a piece of material or product.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{MATERIAL_UNLOAD}
 
 \end{itemize}
 \FloatBarrier
@@ -1525,9 +1409,7 @@ Any text string of information to be transferred from a piece of equipment to a 
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{MESSAGE}
 
 \end{itemize}
 \FloatBarrier
@@ -1544,9 +1426,7 @@ Service to open a chuck.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{OPEN_CHUCK}
 
 \end{itemize}
 \FloatBarrier
@@ -1563,9 +1443,7 @@ Service to open a door.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{OPEN_DOOR}
 
 \end{itemize}
 \FloatBarrier
@@ -1582,9 +1460,7 @@ The identifier of the person currently responsible for operating the piece of eq
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{OPERATOR_ID}
 
 \end{itemize}
 \FloatBarrier
@@ -1601,9 +1477,7 @@ The identifier for a pallet.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PALLET_ID}
 
 \end{itemize}
 \FloatBarrier
@@ -1620,9 +1494,7 @@ Service to change the part or product associated with a piece of equipment to a 
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PART_CHANGE}
 
 \end{itemize}
 \FloatBarrier
@@ -1639,9 +1511,7 @@ The count of parts produced.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PART_COUNT}
 
 \end{itemize}
 \FloatBarrier
@@ -1658,7 +1528,7 @@ The count of all the parts produced.  If the subtype is not given, this is the d
 \begin{itemize}
 \item \texttt{Supertype : PartCount}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ALL}
 
 \end{itemize}
 \FloatBarrier
@@ -1675,7 +1545,7 @@ Indicates the count of correct parts made.
 \begin{itemize}
 \item \texttt{Supertype : PartCount}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{GOOD}
 
 \end{itemize}
 \FloatBarrier
@@ -1692,7 +1562,7 @@ Indicates the count of incorrect parts produced.
 \begin{itemize}
 \item \texttt{Supertype : PartCount}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{BAD}
 
 \end{itemize}
 \FloatBarrier
@@ -1709,7 +1579,7 @@ The desired measure or count for a data item value.
 \begin{itemize}
 \item \texttt{Supertype : PartCount}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
 
 \end{itemize}
 \FloatBarrier
@@ -1726,7 +1596,7 @@ Remaining measure of an object or an action.
 \begin{itemize}
 \item \texttt{Supertype : PartCount}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{REMAINING}
 
 \end{itemize}
 \FloatBarrier
@@ -1737,7 +1607,7 @@ Remaining measure of an object or an action.
 
 An indication designating whether a part or work piece has been detected or is present.
   
- The valid data value MUST be present or notpresent.
+ The {term:Valid Data Value} *MUST* be {model:PRESENT} or {model:NOT_PRESENT}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1745,9 +1615,7 @@ An indication designating whether a part or work piece has been detected or is p
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PART_DETECT}
 
 \end{itemize}
 \FloatBarrier
@@ -1764,9 +1632,7 @@ An identifier of a part in a manufacturing operation.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PART_ID}
 
 \end{itemize}
 \FloatBarrier
@@ -1776,7 +1642,7 @@ An identifier of a part in a manufacturing operation.
 \FloatBarrier
 
 An identifier of a part or product moving through the manufacturing process. 
- The valid data value must be a text string. 
+ The {term:Valid Data Value} *MUST* be a text string. 
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1784,9 +1650,7 @@ An identifier of a part or product moving through the manufacturing process.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PART_NUMBER}
 
 \end{itemize}
 \FloatBarrier
@@ -1795,7 +1659,7 @@ An identifier of a part or product moving through the manufacturing process.
 
 \FloatBarrier
 
-The value of a signal or calculation issued to adjust the feedrate for the axes associated with a path component that may represent a single axis or the coordinated movement of multiple axes.
+The value of a signal or calculation issued to adjust the feedrate for the axes associated with a {model:Path} component that may represent a single axis or the coordinated movement of multiple axes.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1803,9 +1667,7 @@ The value of a signal or calculation issued to adjust the feedrate for the axes 
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PATH_FEEDRATE_OVERRIDE}
 
 \end{itemize}
 \FloatBarrier
@@ -1814,7 +1676,7 @@ The value of a signal or calculation issued to adjust the feedrate for the axes 
 
 \FloatBarrier
 
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the axes. 
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1822,7 +1684,7 @@ The feedrate specified by a logic or motion program, by a pre-set value, or set 
 \begin{itemize}
 \item \texttt{Supertype : PathFeedrateOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{JOG}
 
 \end{itemize}
 \FloatBarrier
@@ -1839,7 +1701,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 \begin{itemize}
 \item \texttt{Supertype : PathFeedrateOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
 
 \end{itemize}
 \FloatBarrier
@@ -1856,7 +1718,7 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 \begin{itemize}
 \item \texttt{Supertype : PathFeedrateOverride}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{RAPID}
 
 \end{itemize}
 \FloatBarrier
@@ -1865,7 +1727,7 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 \FloatBarrier
 
-Describes the operational relationship between a path structural element and another path structural element for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
+Describes the operational relationship between a {model:Path} {term:Structural Element} and another {model:Path} {term:Structural Element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1873,11 +1735,7 @@ Describes the operational relationship between a path structural element and ano
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : PathModeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PATH_MODE}
 
 \end{itemize}
 \FloatBarrier
@@ -1886,7 +1744,7 @@ Describes the operational relationship between a path structural element and ano
 
 \FloatBarrier
 
-The indication of the status of the source of energy for a structural element to allow it to perform its intended function or the state of an enabling signal providing permission for the structural element to perform its functions.
+The indication of the status of the source of energy for a {term:Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the {term:Structural Element} to perform its functions.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1894,11 +1752,7 @@ The indication of the status of the source of energy for a structural element to
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ControllerModeOverrideEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{POWER_STATE}
 
 \end{itemize}
 \FloatBarrier
@@ -1907,7 +1761,7 @@ The indication of the status of the source of energy for a structural element to
 
 \FloatBarrier
 
-The state of the power source for the structural element.
+The state of the power source for the {term:Structural Element}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1915,7 +1769,7 @@ The state of the power source for the structural element.
 \begin{itemize}
 \item \texttt{Supertype : PowerState}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{LINE}
 
 \end{itemize}
 \FloatBarrier
@@ -1924,7 +1778,7 @@ The state of the power source for the structural element.
 
 \FloatBarrier
 
-The state of the enabling signal or control logic that enables or disables the function or operation of the structural element.
+The state of the enabling signal or control logic that enables or disables the function or operation of the {term:Structural Element}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1932,7 +1786,7 @@ The state of the enabling signal or control logic that enables or disables the f
 \begin{itemize}
 \item \texttt{Supertype : PowerState}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{CONTROL}
 
 \end{itemize}
 \FloatBarrier
@@ -1941,7 +1795,7 @@ The state of the enabling signal or control logic that enables or disables the f
 
 \FloatBarrier
 
-DEPRECATED in Version 1.1.0.
+*DEPRECATED* in Version 1.1.0.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1949,9 +1803,7 @@ DEPRECATED in Version 1.1.0.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{POWER_STATUS}
 
 \end{itemize}
 \FloatBarrier
@@ -1962,7 +1814,7 @@ DEPRECATED in Version 1.1.0.
 
 The time and date associated with an activity or event.
   
- processtime event MUST be reported in ISO 8601 format.
+ {model:PROCESS_TIME} *MUST* be reported in ISO 8601 format.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -1970,9 +1822,7 @@ The time and date associated with an activity or event.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PROCESS_TIME}
 
 \end{itemize}
 \FloatBarrier
@@ -1989,7 +1839,7 @@ The time and date associated with the beginning of an activity or event.
 \begin{itemize}
 \item \texttt{Supertype : ProcessTime}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{START}
 
 \end{itemize}
 \FloatBarrier
@@ -2006,7 +1856,7 @@ Completion of an action.
 \begin{itemize}
 \item \texttt{Supertype : ProcessTime}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMPLETE}
 
 \end{itemize}
 \FloatBarrier
@@ -2023,7 +1873,7 @@ The projected time and date associated with the end or completion of an activity
 \begin{itemize}
 \item \texttt{Supertype : ProcessTime}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET_COMPLETION}
 
 \end{itemize}
 \FloatBarrier
@@ -2032,7 +1882,7 @@ The projected time and date associated with the end or completion of an activity
 
 \FloatBarrier
 
-The name of the logic or motion program being executed by the controller component.
+The name of the logic or motion program being executed by the {model:Controller} component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2040,9 +1890,7 @@ The name of the logic or motion program being executed by the controller compone
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PROGRAM}
 
 \end{itemize}
 \FloatBarrier
@@ -2052,7 +1900,7 @@ The name of the logic or motion program being executed by the controller compone
 \FloatBarrier
 
 A comment or non-executable statement in the control program.
- The valid data value must be a text string.
+ The {term:Valid Data Value} *MUST* be a text string.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2060,9 +1908,7 @@ A comment or non-executable statement in the control program.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PROGRAM_COMMENT}
 
 \end{itemize}
 \FloatBarrier
@@ -2071,7 +1917,7 @@ A comment or non-executable statement in the control program.
 
 \FloatBarrier
 
-An indication of the status of the controller components program editing mode. 
+An indication of the status of the {model:Controller} components program editing mode. 
  On many controls, a program can be edited while another program is currently being executed.
 
 \FloatBarrier
@@ -2080,11 +1926,7 @@ An indication of the status of the controller components program editing mode.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ProgramEditEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PROGRAM_EDIT}
 
 \end{itemize}
 \FloatBarrier
@@ -2094,8 +1936,8 @@ An indication of the status of the controller components program editing mode.
 \FloatBarrier
 
 The name of the program being edited. 
- This is used in conjunction with programedit event when in active value state. 
- The valid data value must be a text string.
+ This is used in conjunction with {model:PROGRAM_EDIT} when in {model:ACTIVE} state. 
+ The {term:Valid Data Value} *MUST* be a text string.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2103,9 +1945,7 @@ The name of the program being edited.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PROGRAM_EDIT_NAME}
 
 \end{itemize}
 \FloatBarrier
@@ -2122,9 +1962,7 @@ The non-executable header section of the control program.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PROGRAM_HEADER}
 
 \end{itemize}
 \FloatBarrier
@@ -2133,7 +1971,7 @@ The non-executable header section of the control program.
 
 \FloatBarrier
 
-The Uniform Resource Identifier (URI) for the source file associated with program event.
+The Uniform Resource Identifier (URI) for the source file associated with {model:PROGRAM}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2141,9 +1979,7 @@ The Uniform Resource Identifier (URI) for the source file associated with progra
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PROGRAM_LOCATION}
 
 \end{itemize}
 \FloatBarrier
@@ -2160,7 +1996,7 @@ The identity of a control program that is used to specify the order of execution
 \begin{itemize}
 \item \texttt{Supertype : ProgramLocation}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{SCHEDULE}
 
 \end{itemize}
 \FloatBarrier
@@ -2177,7 +2013,7 @@ The identity of the primary logic or motion program currently being executed. It
 \begin{itemize}
 \item \texttt{Supertype : ProgramLocation}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{MAIN}
 
 \end{itemize}
 \FloatBarrier
@@ -2186,7 +2022,7 @@ The identity of the primary logic or motion program currently being executed. It
 
 \FloatBarrier
 
-The value of the data entity that is engaging.
+The value of the {term:Data Entity} that is engaging.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2194,7 +2030,7 @@ The value of the data entity that is engaging.
 \begin{itemize}
 \item \texttt{Supertype : ProgramLocation}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTIVE}
 
 \end{itemize}
 \FloatBarrier
@@ -2203,9 +2039,9 @@ The value of the data entity that is engaging.
 
 \FloatBarrier
 
-Defines whether the logic or motion program defined by program event is being executed from the local memory of the controller or from an outside source.
+Defines whether the logic or motion program defined by {model:PROGRAM} is being executed from the local memory of the controller or from an outside source.
   
- The valid data value MUST be local or external.
+ The {term:Valid Data Value} *MUST* be {model:LOCAL} or {model:EXTERNAL}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2213,9 +2049,7 @@ Defines whether the logic or motion program defined by program event is being ex
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PROGRAM_LOCATION_TYPE}
 
 \end{itemize}
 \FloatBarrier
@@ -2232,7 +2066,7 @@ The identity of a control program that is used to specify the order of execution
 \begin{itemize}
 \item \texttt{Supertype : ProgramLocationType}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{SCHEDULE}
 
 \end{itemize}
 \FloatBarrier
@@ -2249,7 +2083,7 @@ The identity of the primary logic or motion program currently being executed. It
 \begin{itemize}
 \item \texttt{Supertype : ProgramLocationType}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{MAIN}
 
 \end{itemize}
 \FloatBarrier
@@ -2258,7 +2092,7 @@ The identity of the primary logic or motion program currently being executed. It
 
 \FloatBarrier
 
-The value of the data entity that is engaging.
+The value of the {term:Data Entity} that is engaging.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2266,7 +2100,7 @@ The value of the data entity that is engaging.
 \begin{itemize}
 \item \texttt{Supertype : ProgramLocationType}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTIVE}
 
 \end{itemize}
 \FloatBarrier
@@ -2277,9 +2111,9 @@ The value of the data entity that is engaging.
 
 An indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed.
   
- If an Initial Value is not defined, the nesting level associated with the highest or initial nesting level of the program MUST default to zero (0).
+ If an Initial Value is not defined, the nesting level associated with the highest or initial nesting level of the program *MUST* default to zero (0).
   
- The value reported for programnestlevel event MUST be an integer.
+ The value reported for {model:PROGRAM_NEST_LEVEL} *MUST* be an integer.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2287,9 +2121,7 @@ An indication of the nesting level within a control program that is associated w
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{PROGRAM_NEST_LEVEL}
 
 \end{itemize}
 \FloatBarrier
@@ -2298,7 +2130,7 @@ An indication of the nesting level within a control program that is associated w
 
 \FloatBarrier
 
-The current operating mode for a rotary type axis.
+The current operating mode for a {model:Rotary} type axis.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2306,11 +2138,7 @@ The current operating mode for a rotary type axis.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : RotaryModeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ROTARY_MODE}
 
 \end{itemize}
 \FloatBarrier
@@ -2319,8 +2147,8 @@ The current operating mode for a rotary type axis.
 
 \FloatBarrier
 
-The value of a command issued to adjust the programmed velocity for a rotary type axis.
- This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a rotary type axis.
+The value of a command issued to adjust the programmed velocity for a {model:Rotary} type axis.
+ This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a {model:Rotary} type axis.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2328,9 +2156,7 @@ The value of a command issued to adjust the programmed velocity for a rotary typ
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{ROTARY_VELOCITY_OVERRIDE}
 
 \end{itemize}
 \FloatBarrier
@@ -2339,7 +2165,7 @@ The value of a command issued to adjust the programmed velocity for a rotary typ
 
 \FloatBarrier
 
-The serial number associated with a component, asset mtconnectassets, or device. The valid data value must be a text string.
+The serial number associated with a {model:Component}, {model:Asset}, or {model:Device}. The {term:Valid Data Value} *MUST* be a text string.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2347,9 +2173,7 @@ The serial number associated with a component, asset mtconnectassets, or device.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{SERIAL_NUMBER}
 
 \end{itemize}
 \FloatBarrier
@@ -2366,11 +2190,7 @@ An indication of the status of the spindle for a piece of equipment when power h
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
-
-\item \texttt{value : ActuatorStateEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{SPINDLE_INTERLOCK}
 
 \end{itemize}
 \FloatBarrier
@@ -2379,7 +2199,7 @@ An indication of the status of the spindle for a piece of equipment when power h
 
 \FloatBarrier
 
-The identifier of an individual tool asset.The valid data value must be a text string.
+The identifier of an individual tool asset.The {term:Valid Data Value} *MUST* be a text string.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2387,9 +2207,7 @@ The identifier of an individual tool asset.The valid data value must be a text s
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{TOOL_ASSET_ID}
 
 \end{itemize}
 \FloatBarrier
@@ -2406,9 +2224,7 @@ An identifier for the tool group associated with a specific tool. Commonly used 
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{TOOL_GROUP}
 
 \end{itemize}
 \FloatBarrier
@@ -2417,7 +2233,7 @@ An identifier for the tool group associated with a specific tool. Commonly used 
 
 \FloatBarrier
 
-DEPRECATED in Version 1.2.0.   See toolassetid event. The identifier of the tool currently in use for a given path.
+*DEPRECATED* in Version 1.2.0.   See {model:TOOL_ASSET_ID}. &DEPRECATED:The identifier of the tool currently in use for a given {model:Path}.&
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2425,9 +2241,7 @@ DEPRECATED in Version 1.2.0.   See toolassetid event. The identifier of the tool
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{TOOL_ID}
 
 \end{itemize}
 \FloatBarrier
@@ -2436,8 +2250,8 @@ DEPRECATED in Version 1.2.0.   See toolassetid event. The identifier of the tool
 
 \FloatBarrier
 
-The identifier assigned by the controller component to a cutting tool when in use by a piece of equipment. 
- The valid data value must be a text string.
+The identifier assigned by the {model:Controller} component to a cutting tool when in use by a piece of equipment. 
+ The {term:Valid Data Value} *MUST* be a text string.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2445,9 +2259,7 @@ The identifier assigned by the controller component to a cutting tool when in us
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{TOOL_NUMBER}
 
 \end{itemize}
 \FloatBarrier
@@ -2456,7 +2268,7 @@ The identifier assigned by the controller component to a cutting tool when in us
 
 \FloatBarrier
 
-A reference to the tool offset variables applied to the active cutting tool associated with a path in a controller type component.
+A reference to the tool offset variables applied to the active cutting tool associated with a {model:Path} in a {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2464,9 +2276,7 @@ A reference to the tool offset variables applied to the active cutting tool asso
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{TOOL_OFFSET}
 
 \end{itemize}
 \FloatBarrier
@@ -2483,7 +2293,7 @@ A reference to a radial type tool offset variable.
 \begin{itemize}
 \item \texttt{Supertype : ToolOffset}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{RADIAL}
 
 \end{itemize}
 \FloatBarrier
@@ -2500,7 +2310,7 @@ A reference to a length type tool offset variable.
 \begin{itemize}
 \item \texttt{Supertype : ToolOffset}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{LENGTH}
 
 \end{itemize}
 \FloatBarrier
@@ -2517,9 +2327,7 @@ The identifier of the person currently responsible for operating the piece of eq
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{USER}
 
 \end{itemize}
 \FloatBarrier
@@ -2536,7 +2344,7 @@ The identifier of the person currently responsible for operating the piece of eq
 \begin{itemize}
 \item \texttt{Supertype : User}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OPERATOR}
 
 \end{itemize}
 \FloatBarrier
@@ -2553,7 +2361,7 @@ Action related to maintenance on the piece of equipment.
 \begin{itemize}
 \item \texttt{Supertype : User}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{MAINTENANCE}
 
 \end{itemize}
 \FloatBarrier
@@ -2570,7 +2378,7 @@ The identifier of the person currently responsible for preparing a piece of equi
 \begin{itemize}
 \item \texttt{Supertype : User}
 
-\item \texttt{subType : DataItemSubTypeEnum}
+\item \texttt{subType : DataItemSubTypeEnum} : \texttt{SET_UP}
 
 \end{itemize}
 \FloatBarrier
@@ -2587,9 +2395,7 @@ A data value whose meaning may change over time due to changes in the opertion o
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{VARIABLE}
 
 \end{itemize}
 \FloatBarrier
@@ -2598,9 +2404,9 @@ A data value whose meaning may change over time due to changes in the opertion o
 
 \FloatBarrier
 
-An indication of the reason that execution event is reporting a value of wait.
+An indication of the reason that {model:EXECUTION} is reporting a value of {model:WAIT}.
   
- The valid data value MUST be poweringup, poweringdown, partload, partunload, toolload, toolunload, materialload event, materialunload event, secondaryprocess, pausing, or resuming.
+ The {term:Valid Data Value} *MUST* be {model:POWERING_UP}, {model:POWERING_DOWN}, {model:PART_LOAD}, {model:PART_UNLOAD}, {model:TOOL_LOAD}, {model:TOOL_UNLOAD}, {model:MATERIAL_LOAD}, {model:MATERIAL_UNLOAD}, {model:SECONDARY_PROCESS}, {model:PAUSING}, or {model:RESUMING}.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2608,9 +2414,7 @@ An indication of the reason that execution event is reporting a value of wait.
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{WAIT_STATE}
 
 \end{itemize}
 \FloatBarrier
@@ -2627,9 +2431,7 @@ A string like piece or filament of relatively rigid or flexible material provide
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{WIRE}
 
 \end{itemize}
 \FloatBarrier
@@ -2638,7 +2440,7 @@ A string like piece or filament of relatively rigid or flexible material provide
 
 \FloatBarrier
 
-A reference to the offset variables for a work piece or part associated with a path in a controller type component.
+A reference to the offset variables for a work piece or part associated with a {model:Path} in a {model:Controller} type component.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2646,11 +2448,7 @@ A reference to the offset variables for a work piece or part associated with a p
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{Supertype : Event}
-
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{WORK_OFFSET}
 
 \end{itemize}
 \FloatBarrier
@@ -2660,7 +2458,7 @@ A reference to the offset variables for a work piece or part associated with a p
 \FloatBarrier
 
 The identifier for the current workholding or part clamp in use by a piece of equipment. 
- The valid data value must be a text string.
+ The {term:Valid Data Value} *MUST* be a text string.
 
 \FloatBarrier
 \paragraph{Referenced Properties and Objects}
@@ -2668,11 +2466,7 @@ The identifier for the current workholding or part clamp in use by a piece of eq
 \begin{itemize}
 \item \texttt{Supertype : Event}
 
-\item \texttt{Supertype : Event}
-
-\item \texttt{units : UnitEnum}
-
-\item \texttt{type : DataItemTypeEnum}
+\item \texttt{type : DataItemTypeEnum} : \texttt{WORKHOLDING_ID}
 
 \end{itemize}
 \FloatBarrier
