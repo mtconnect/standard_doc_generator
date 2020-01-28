@@ -13,13 +13,10 @@ class Type
   class Literal
     attr_reader :name, :value, :description
     
-    def initialize(name, value, suffix = '')
-      @name, @value = name, value
+    def initialize(name, value, description, suffix = '')
+      @name, @value, @description = name, value, description
       base = name.gsub('_', '').downcase
-=begin Removing Glossary dependency
-      ent = Glossary[base + suffix] || Glossary[base] || Glossary[base + ' value']
-      @description = ent.description if ent and !ent.description.empty?
-=end
+
     end
   end
 
@@ -212,12 +209,6 @@ class Type
     
     sn = @name.sub(/^MT/, '').sub(/Type$/, '').sub(/Class$/, '').sub(/Sub$/, '')
     
-=begin Removing Glossary dependency
-	doc = Glossary[sn] || Glossary[sn.upcase]
-    if doc and false
-      @documentation << "\n\n" << doc.description      
-    end
-=end
     @stereotype = xmi_stereotype(e)
     
     @type = e['xmi:type']
@@ -242,8 +233,9 @@ class Type
     if @type == 'uml:Enumeration'
       suffix = ' ' + @name.sub(/^MT/, '').sub(/Type$/, '').downcase
       e.ownedLiteral.each do |lit|
-        name, value = lit['name'].split('=')
-        @literals << Literal.new(name, value, suffix)
+        name, value = lit['name'].sub(/\^/,'\^').split('=')
+		description = xmi_documentation(lit)
+        @literals << Literal.new(name, value, description, suffix)
       end
     else
       e.element_children.each do |r|

@@ -224,7 +224,7 @@ EOT
     relations_with_documentation =
       @relations.select do |r|
         $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target.type.nil?
-        r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation # and not (r.name == "Supertype" and @name == r.final_target.type.name)
+        r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation
       end
 
     unless relations_with_documentation.empty?
@@ -233,21 +233,25 @@ EOT
       f.puts "\\begin{itemize}"
 
       relations_with_documentation.each do |r|
-        if r.documentation
-          f.puts "\\item \\texttt{#{r.name} : #{r.final_target.type.name}}\n\n" 
-		  f.puts "\\tab #{r.documentation}\n\n"
+		if r.redefinesProperty and r.default
+		  f.puts "\\item \\texttt{#{r.name} : #{r.final_target.type.name}} : #{r.default}"
         else
-		  f.puts "\\item \\texttt{#{r.name} : #{r.final_target.type.name}}\n\n"
+		  f.puts "\\item \\texttt{#{r.name} : #{r.final_target.type.name}}"
+		end
+		if r.documentation
+		  f.puts "\n\\tab #{r.documentation}\n"
+        else
+		  f.puts "\n"
 		end
         
-=begin
-        if r.target.type.type == 'uml:Enumeration' 
-          f.puts "\\item \\textbf{Allowable Values} for \\texttt{#{r.target.type.name}}"
+		
+        if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty
+          #f.puts "\\tab\\textbf{Allowable Values} for \\texttt{#{r.target.type.name}}"
           f.puts "\\FloatBarrier"
 		  r.target.type.generate_enumerations(f)
 		  f.puts "\\FloatBarrier"
         end
-=end
+
       end
       f.puts "\\end{itemize}"
     end
@@ -343,14 +347,14 @@ EOT
 
       f.puts <<EOT
 \\tabulinesep=3pt
-\\begin{tabu} to 6in {|l|r|X|} \\everyrow{\\hline}
+\\begin{tabu} to 6in {|l|X|} \\everyrow{\\hline}
 \\hline
-\\rowfont\\bfseries {Name} & {Index} & {Description} \\\\
+\\rowfont\\bfseries {Name} & {Description} \\\\
 \\tabucline[1.5pt]{}
 EOT
       
       @literals.each do |lit|
-        f.puts "\\texttt{#{lit.name}} & \\texttt{#{lit.value}} & #{lit.description} \\\\"
+        f.puts "\\texttt{#{lit.name}} & #{lit.description} \\\\"
       end
         
       f.puts <<EOT
@@ -377,7 +381,7 @@ EOT
         if dep.stereotype and dep.stereotype == 'values' and
             target.type.type == 'uml:Enumeration'
           
-          f.puts "\\item \\textbf{Allowable Values} for \\texttt{#{target.type.name}}"
+          #f.puts "\\item \\textbf{Allowable Values} for \\texttt{#{target.type.name}}"
           f.puts "\\FloatBarrier"
           target.type.generate_enumerations(f)
           f.puts "\\FloatBarrier"

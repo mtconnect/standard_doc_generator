@@ -33,7 +33,7 @@ $logger.formatter = proc do |severity, datetime, progname, msg|
   "#{severity}: #{msg}\n"
 end
 
-DeviceModels = ['Devices','Components', 'ComponentTypes', 'DataItems','DataItemType', 'ConditionTypes', 'EventTypes', 'SampleTypes', 'Profile']
+DeviceModels = ['Devices','Components', 'ComponentTypes', 'DataItems', 'ConditionTypes', 'EventTypes', 'SampleTypes', 'Profile']
 
 DeviceDirectory = File.join(File.dirname(__FILE__),'..','devices')
 DeviceDocumentFile = File.join(File.dirname(__FILE__),'..','devices','devices.tex')

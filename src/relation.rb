@@ -60,7 +60,7 @@ module Relation
     
     attr_reader :id, :name, :type, :xmi, :multiplicity,
                 :source, :target, :owner, :stereotype,
-                :constraints, :invariants, :assoc
+                :constraints, :invariants, :assoc, :redefinesProperty, :default
     attr_accessor :documentation
 
     class Connection
@@ -317,26 +317,21 @@ module Relation
   end
 
   class Attribute < Relation
-    attr_reader :default
     
     def initialize(owner, a)
       super(owner, a)
       return if not a['name']
 	  
 	  @name = a['name']
-      @default = get_value(a, 'defaultValue')
-      
+      @default = "\\texttt{#{get_value(a, 'defaultValue')}}"
+
+	  @redefinesProperty = a.at('./redefinedProperty') ? true : false
+
       @stereotype = xmi_stereotype(a)
       @documentation = xmi_documentation(a)
 
       $logger.debug "  Searching for docs for #{owner.name}::#{name}"
-=begin Removing Glossary dependency
-	  ent = Glossary[@name.downcase]
-      if ent and !ent.description.empty?
-        @documentation = "#{@documentation}" #{ent.description}"
-        $logger.debug "    -> Found #{@documentation}"
-      end
-=end
+
       type = a['type']
       @target = Connection.new('type', Type::LazyPointer.new(type))
 
