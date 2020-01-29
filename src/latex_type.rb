@@ -224,39 +224,59 @@ EOT
     relations_with_documentation =
       @relations.select do |r|
         $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target.type.nil?
-        r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation
+        (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and @model.name.split('Type')[0] != r.final_target.type.name
       end
 
     unless relations_with_documentation.empty?
-      f.puts "\\FloatBarrier"
-      f.puts "\\paragraph{#{header}}\n\n"
-      f.puts "\\begin{itemize}"
 
-      relations_with_documentation.each do |r|
-		if r.redefinesProperty and r.default
-		  f.puts "\\item \\texttt{#{r.name} : #{r.final_target.type.name}} : #{r.default}"
-        else
-		  f.puts "\\item \\texttt{#{r.name} : #{r.final_target.type.name}}"
+f.puts <<EOT
+\\begin{table}[ht]
+\\centering 
+  \\caption{\\texttt{#{header} of #{@name}}}
+  \\label{properties:#{@name}}
+\\tabulinesep=3pt
+\\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
+\\hline
+\\rowfont\\bfseries {#{header}} & {ValueType} & {Multiplicity} \\\\
+\\tabucline[1.5pt]{}
+EOT
+  
+	  relations_with_documentation.each do |r|
+		if r.name == 'Supertype'
+		  next
 		end
-		if r.documentation
-		  f.puts "\n\\tab #{r.documentation}\n"
-        else
-		  f.puts "\n"
-		end
-        
+		stereo = r.stereotype ? "<<#{r.stereotype}>> " : nil
 		
-        if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty
-          #f.puts "\\tab\\textbf{Allowable Values} for \\texttt{#{r.target.type.name}}"
-          f.puts "\\FloatBarrier"
-		  r.target.type.generate_enumerations(f)
-		  f.puts "\\FloatBarrier"
-        end
+		if r.redefinesProperty and r.default
+		  f.puts "\\texttt{#{stereo}#{r.name}} & \\texttt{#{r.default}} & #{r.multiplicity} \\\\"
+        else
+		  f.puts "\\texttt{#{stereo}#{r.name}} & \\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
+		end
+	  end
+        
+f.puts <<EOT
+\\end{tabu}
+\\end{table}
+\\FloatBarrier
 
-      end
-      f.puts "\\end{itemize}"
-    end
+EOT
 
-    
+	  relations_with_documentation.each do |r|
+		if r.name == 'Supertype'
+		  next
+		elsif (r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
+			f.puts "\n\\paragraph{\\texttt{#{r.name}}}\\mbox{}\n"
+			if r.documentation
+			  f.puts "\\newline\\tab #{r.documentation}\n"
+			end
+			
+			if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty
+			  r.target.type.generate_enumerations(f)
+			  f.puts "\\FloatBarrier"
+			end
+		end
+	  end
+	end    
   end
   
   def generate_operations(f)
@@ -472,13 +492,8 @@ EOT
   end
 
   def generate_class(f)
-    
-=begin
-	if stereotype_name !~ /Factory/o and (is_a_type?('References') or @model.name !~ /Profile/)
-      generate_type_table(f)
-    end
-=end    
-    generate_attribute_docs(f, "Referenced Properties and Objects")
+     
+    generate_attribute_docs(f, "Properties")
     generate_operations(f)
     generate_constraints(f)
     generate_dependencies(f)    
@@ -487,9 +502,15 @@ EOT
   def generate_latex(f = STDOUT)
     # puts "--- Generating #{@name} #{@stereotype}"
     return if @name =~ /Factory/ or @stereotype =~ /metaclass/
+	section_name = if defined?(@relations[0].name) and @relations[0].name == 'Supertype' 
+		"[#{escape_name}]{#{escape_name} \\\\ {\\small Subtype of #{@relations[0].final_target.type.name}}}"
+		else
+			"{#{escape_name}}"
+		end
+
 
     f.puts <<EOT
-\\subsubsection{Defintion of \\texttt{#{stereotype_name} #{escape_name}}}
+\\subsubsection#{section_name}
   \\label{type:#{@name}}
 
 \\FloatBarrier
