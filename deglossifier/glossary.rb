@@ -56,6 +56,41 @@ CSV.open(File.join($root, 'component_gen.csv'), 'w') do |csv|
   end
 end
 
+owner = 'Components::Compositions::CompositionTypes'
+
+CSV.open(File.join($root, 'composition_classes.csv'), 'w') do |csv|
+  csv << ['Owner', 'Name', 'ownedComment']
+  $parser.compositions.sort.each do |g|
+    csv << [owner, pascalize(g.name_property), g.description]
+  end  
+end
+
+CSV.open(File.join($root, 'composition_gen.csv'), 'w') do |csv|
+  csv << ['Generalization', 'Name']
+  $parser.compositions.sort.each do |g|
+    csv << ['Components::Compositions::Composition', "#{owner}::#{pascalize(g.name_property)}"]
+  end  
+end
+
+
+CSV.open(File.join($root, 'composition_enum.csv'), 'w') do |csv|
+  csv << ['Owner', 'Name', 'ownedComment']
+  $parser.compositions.sort.each do |g|
+    csv << [g.name_property, g.description]
+  end  
+end
+
+# Set the static type
+
+CSV.open(File.join($root, 'composition_attributes.csv'), 'w') do |csv|
+  csv << ['Owner', 'Name', 'AttrType', 'Visibility', 'True', 'Type', 'Redefines']
+  $parser.compositions.sort.each do |g|
+    block = "#{owner}::#{pascalize(g.name_property)}"
+    csv << [block, 'type', "Components::Compositions::CompositionTypeEnum", 'public', 'true', 
+            "Components::Compositions::Composition::type"]
+  end
+end
+
 # Observation Types
 
 class Observable
@@ -129,11 +164,14 @@ class Enumeration
   def qn
     "#{owner}::#{@name}"
   end
-end  
+end
 
-Observable.new('Sample', 'DataItems::DataItemTypes', 'Sample', nil, nil, nil, nil, nil, nil)
-Observable.new('Event', 'DataItems::DataItemTypes', 'Event', nil, nil, nil, nil, nil, nil)
-Observable.new('Condition', 'DataItems::DataItemTypes', 'Condition', nil, nil, nil, nil, nil, nil)
+enum_prefix = 'Obervations::Events'
+observation = 'Observations'
+
+Observable.new('Sample', observation, 'Sample', nil, nil, nil, nil, nil, nil)
+Observable.new('Event', observation, 'Event', nil, nil, nil, nil, nil, nil)
+Observable.new('Condition', observation, 'Condition', nil, nil, nil, nil, nil, nil)
 
 $parser.samples.concat($parser.events).concat($parser.conditions).sort.uniq.each do |g|
   name = g[:elementname].to_s
@@ -145,7 +183,7 @@ $parser.samples.concat($parser.events).concat($parser.conditions).sort.uniq.each
   end
 
   kind = g[:kind].to_s.split(',').select { |s| s =~ /event|sample|condition/ }.first.capitalize
-  owner = "DataItems::DataItemTypes::#{kind}Types"
+  owner = "#{observation}::#{kind}s"
 
   if g[:enumeration]
     values = (g.enumeration.to_s.split(',').map do |en|
@@ -174,7 +212,7 @@ $parser.samples.concat($parser.events).concat($parser.conditions).sort.uniq.each
   end
 end
 
-CSV.open(File.join($root, 'dataitem_classes.csv'), 'w') do |types|  
+CSV.open(File.join($root, 'observation_classes.csv'), 'w') do |types|  
   types << ['Owner', 'Name', 'OwnedComment']
   Observable.types.each do |name, observable|
     unless observable.abstract?
@@ -183,7 +221,7 @@ CSV.open(File.join($root, 'dataitem_classes.csv'), 'w') do |types|
   end
 end
 
-CSV.open(File.join($root, 'dataitem_gen.csv'), 'w') do |types|  
+CSV.open(File.join($root, 'observation_gen.csv'), 'w') do |types|  
   types << ['Generalization', 'Name']
   Observable.types.each do |name, observable|
     unless observable.abstract?
@@ -192,41 +230,38 @@ CSV.open(File.join($root, 'dataitem_gen.csv'), 'w') do |types|
   end
 end
 
-enum_prefix = 'DataTypes'
-data_item = 'DataItems::DataItem'
-
-CSV.open(File.join($root, 'dataitem_attributes.csv'), 'w') do |attrs|
+CSV.open(File.join($root, 'observation_attributes.csv'), 'w') do |attrs|
   attrs << ['Owner', 'Name', 'AttrType', 'Visibility', 'True', 'Unit', 'Redefines']
   Observable.types.each do |name, observable|
     unless observable.abstract?
       if observable.parent.abstract? and observable.units and !observable.units.empty?
         attrs << [observable.qn, 'units', "#{enum_prefix}::UnitEnum", 'public', 'true', observable.units,
-                  "#{data_item}::units"]
+                  "#{observation}::units"]
       end
       if observable.parent.abstract?
         attrs << [observable.qn, 'type', "#{enum_prefix}::DataItemTypeEnum", 'public', 'true', observable.type,
-                  "#{data_item}::type"]
+                  "#{observation}::type"]
       end
       if observable.sub_type
         attrs << [observable.qn, 'subType', "#{enum_prefix}::DataItemSubTypeEnum", 'public', 'true',
-                  observable.sub_type, "#{data_item}::subType"]
+                  observable.sub_type, "#{observation}::subType"]
       end
-      #if observable.enum
-      #  attrs << [observable.qn, 'value', "#{observable.enum.qn}", 'public', 'false',
-      #            observable.sub_type, "#{data_item}::Observation::value"]
-      #end        
+      if observable.enum
+        attrs << [observable.qn, 'value', "#{observable.enum.qn}", 'public', 'false',
+                  observable.sub_type, "#{observation}::Observation::value"]
+      end        
     end
   end
 end  
 
-CSV.open(File.join($root, 'dataitem_enums.csv'), 'w') do |enums|
+CSV.open(File.join($root, 'observation_enums.csv'), 'w') do |enums|
   enums << ['Owner', 'Name']
   Enumeration.enums.each do |keys, enum|
     enums << [enum.owner, enum.name]
   end
 end
 
-CSV.open(File.join($root, 'dataitem_enum_values.csv'), 'w') do |enums|
+CSV.open(File.join($root, 'observation_enum_values.csv'), 'w') do |enums|
   enums << ['Owner', 'Name', 'OwnerComment']
   Enumeration.enums.each do |keys, enum|
     enum.values.each do |v|
@@ -234,3 +269,4 @@ CSV.open(File.join($root, 'dataitem_enum_values.csv'), 'w') do |enums|
     end
   end
 end
+

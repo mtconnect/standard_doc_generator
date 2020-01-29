@@ -1,0 +1,43 @@
+Owner,Name,ownedComment
+ACTUATOR,"A mechanism for moving or controlling a mechanical part of a piece of equipment.   
+ It takes energy usually provided by air, electric current, or liquid and converts the energy into some kind of motion. "
+AMPLIFIER,"An electronic component or circuit for amplifying power, electric current, or voltage."
+BALLSCREW,A mechanical structure for transforming rotary motion into linear motion.
+BELT,An endless flexible band used to transmit motion for a piece of equipment or to convey materials and objects.
+BRAKE,"A mechanism for slowing or stopping a moving object by the absorption or transfer of the energy of momentum, usually by means of friction, electrical force, or magnetic force."
+CHAIN,An interconnected series of objects that band together and are used to transmit motion for a piece of equipment or to convey materials and objects.
+CHOPPER,A mechanism used to break material into smaller pieces.
+CHUCK,"A mechanism that holds a part, stock material, or any other item in place."
+CHUTE,An inclined channel for conveying material.
+CIRCUIT_BREAKER,A mechanism for interrupting an electric circuit.
+CLAMP,"A mechanism used to strengthen, support, or fasten objects in place."
+COMPRESSOR,A pump or other mechanism for reducing volume and increasing pressure of gases in order to condense the gases to drive pneumatically powered pieces of equipment.
+DOOR,A mechanical mechanism or closure that can cover a physical access portal into a piece of equipment allowing or restricting access to other parts of the equipment.
+DRAIN,"A mechanism that allows material to flow for the purpose of drainage from, for example, a vessel or tank."
+ENCODER,A mechanism used to measure rotary position.
+EXPOSURE_UNIT,A mechanism for emitting a type of radiation
+EXTRUSION_UNIT,A mechanism for dispensing liquid or powered materials
+FAN,Any mechanism for producing a current of air.
+FILTER,Any substance or structure through which liquids or gases are passed to remove suspended impurities or to recover solids.
+GALVANOMOTOR,An electromechanical actuator that produces deflection of a beam of light or energy in response to electric current through its coil in a magnetic field.
+GRIPPER,"A mechanism that holds a part, stock material, or any other item in place."
+HOPPER,"A chamber or bin in which materials are stored temporarily, typically being filled through the top and dispensed through the bottom."
+LINEAR_POSITION_FEEDBACK,A mechanism that measures linear motion or position.
+MOTOR,"A mechanism that converts electrical, pneumatic, or hydraulic energy into mechanical energy."
+OIL,A viscous liquid.
+POWER_SUPPLY,A unit that provides power to electric mechanisms.
+PULLEY,A mechanism or wheel that turns in a frame or block and serves to change the direction of or to transmit force.
+PUMP,"An apparatus raising, driving, exhausting, or compressing fluids or gases by means of a piston, plunger, or set of rotating vanes."
+REEL,A rotary storage unit for material
+SENSING_ELEMENT,A mechanism that provides a signal or measured value.
+SPREADER,A mechanism for flattening or spreading materials
+STORAGE_BATTERY,"A component consisting of one or more cells, in which chemical energy is converted into electricity and used as a source of power. "
+SWITCH,A mechanism for turning on or off an electric current or for making or breaking a circuit.
+TABLE,A surface for holding an object or material
+TANK,A receptacle or container for holding material.
+TENSIONER,A mechanism that provides or applies a stretch or strain to another mechanism.
+TRANSFORMER,A mechanism that transforms electric energy from a source to a secondary circuit.
+VALVE,"Any mechanism for halting or controlling the flow of a liquid, gas, or other material through a passage, pipe, inlet, or outlet."
+VAT,A container for liquid or powdered materials
+WATER,A fluid.
+WIRE,A string like piece or filament of relatively rigid or flexible material provided in a variety of diameters.
