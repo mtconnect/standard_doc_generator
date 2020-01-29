@@ -1,2320 +1,2916 @@
-% Generated 2020-01-28 11:37:25 -0500
+% Generated 2020-01-29 13:56:33 -0500
 \subsection{SampleTypes} \label{model:SampleTypes}
-\subsubsection{Defintion of \texttt{<<Block>> Acceleration}}
+\subsubsection[Acceleration]{Acceleration \\ {\small Subtype of Sample}}
   \label{type:Acceleration}
 
 \FloatBarrier
 
 The measurement of the rate of change of velocity.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Acceleration}}
+  \label{properties:Acceleration}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIMETER/SECOND^2} & 1 \\
+\texttt{type} & \texttt{ACCELERATION} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/SECOND^2}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{ACCELERATION}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> AccumulatedTime}}
+\subsubsection[AccumulatedTime]{AccumulatedTime \\ {\small Subtype of Sample}}
   \label{type:AccumulatedTime}
 
 \FloatBarrier
 
 The measurement of accumulated time for an activity or event.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of AccumulatedTime}}
+  \label{properties:AccumulatedTime}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{SECOND} & 1 \\
+\texttt{type} & \texttt{ACCUMULATED_TIME} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{ACCUMULATED_TIME}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Amperage}}
+\subsubsection[Amperage]{Amperage \\ {\small Subtype of Sample}}
   \label{type:Amperage}
 
 \FloatBarrier
 
 The measurement of electrical current.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Amperage}}
+  \label{properties:Amperage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{AMPERE} & 1 \\
+\texttt{type} & \texttt{AMPERAGE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{AMPERE}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{AMPERAGE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> AlternatingAmperage}}
+\subsubsection[AlternatingAmperage]{AlternatingAmperage \\ {\small Subtype of Amperage}}
   \label{type:AlternatingAmperage}
 
 \FloatBarrier
 
 The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of AlternatingAmperage}}
+  \label{properties:AlternatingAmperage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ALTERNATING} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Amperage}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ALTERNATING}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DirectAmperage}}
+\subsubsection[DirectAmperage]{DirectAmperage \\ {\small Subtype of Amperage}}
   \label{type:DirectAmperage}
 
 \FloatBarrier
 
 The measurement of DC current or voltage.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DirectAmperage}}
+  \label{properties:DirectAmperage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{DIRECT} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Amperage}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{DIRECT}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualAmperage}}
+\subsubsection[ActualAmperage]{ActualAmperage \\ {\small Subtype of Amperage}}
   \label{type:ActualAmperage}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualAmperage}}
+  \label{properties:ActualAmperage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Amperage}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> TargetAmperage}}
+\subsubsection[TargetAmperage]{TargetAmperage \\ {\small Subtype of Amperage}}
   \label{type:TargetAmperage}
 
 \FloatBarrier
 
 The desired measure or count for a data item value.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of TargetAmperage}}
+  \label{properties:TargetAmperage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{TARGET} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Amperage}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Angle}}
+\subsubsection[Angle]{Angle \\ {\small Subtype of Sample}}
   \label{type:Angle}
 
 \FloatBarrier
 
 The measurement of angular position.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Angle}}
+  \label{properties:Angle}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{DEGREE} & 1 \\
+\texttt{type} & \texttt{ANGLE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{DEGREE}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{ANGLE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedAngle}}
+\subsubsection[CommandedAngle]{CommandedAngle \\ {\small Subtype of Angle}}
   \label{type:CommandedAngle}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedAngle}}
+  \label{properties:CommandedAngle}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Angle}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualAngle}}
+\subsubsection[ActualAngle]{ActualAngle \\ {\small Subtype of Angle}}
   \label{type:ActualAngle}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualAngle}}
+  \label{properties:ActualAngle}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Angle}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> AngularAcceleration}}
+\subsubsection[AngularAcceleration]{AngularAcceleration \\ {\small Subtype of Sample}}
   \label{type:AngularAcceleration}
 
 \FloatBarrier
 
 The measurement rate of change of angular velocity.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of AngularAcceleration}}
+  \label{properties:AngularAcceleration}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{DEGREE/SECOND^2} & 1 \\
+\texttt{type} & \texttt{ANGULAR_ACCELERATION} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{DEGREE/SECOND^2}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{ANGULAR_ACCELERATION}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> AngularVelocity}}
+\subsubsection[AngularVelocity]{AngularVelocity \\ {\small Subtype of Sample}}
   \label{type:AngularVelocity}
 
 \FloatBarrier
 
 The measurement of the rate of change of angular position.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of AngularVelocity}}
+  \label{properties:AngularVelocity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{DEGREE/SECOND} & 1 \\
+\texttt{type} & \texttt{ANGULAR_VELOCITY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{DEGREE/SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{ANGULAR_VELOCITY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> AxisFeedrate}}
+\subsubsection[AxisFeedrate]{AxisFeedrate \\ {\small Subtype of Sample}}
   \label{type:AxisFeedrate}
 
 \FloatBarrier
 
 The measurement of the feedrate of a linear axis.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of AxisFeedrate}}
+  \label{properties:AxisFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIMETER/SECOND} & 1 \\
+\texttt{type} & \texttt{AXIS_FEEDRATE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{AXIS_FEEDRATE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualAxisFeedrate}}
+\subsubsection[ActualAxisFeedrate]{ActualAxisFeedrate \\ {\small Subtype of AxisFeedrate}}
   \label{type:ActualAxisFeedrate}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualAxisFeedrate}}
+  \label{properties:ActualAxisFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : AxisFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedAxisFeedrate}}
+\subsubsection[CommandedAxisFeedrate]{CommandedAxisFeedrate \\ {\small Subtype of AxisFeedrate}}
   \label{type:CommandedAxisFeedrate}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedAxisFeedrate}}
+  \label{properties:CommandedAxisFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : AxisFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> JogAxisFeedrate}}
+\subsubsection[JogAxisFeedrate]{JogAxisFeedrate \\ {\small Subtype of AxisFeedrate}}
   \label{type:JogAxisFeedrate}
 
 \FloatBarrier
 
 The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of JogAxisFeedrate}}
+  \label{properties:JogAxisFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{JOG} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : AxisFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{JOG}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ProgrammedAxisFeedrate}}
+\subsubsection[ProgrammedAxisFeedrate]{ProgrammedAxisFeedrate \\ {\small Subtype of AxisFeedrate}}
   \label{type:ProgrammedAxisFeedrate}
 
 \FloatBarrier
 
 The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ProgrammedAxisFeedrate}}
+  \label{properties:ProgrammedAxisFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{PROGRAMMED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : AxisFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> RapidAxisFeedrate}}
+\subsubsection[RapidAxisFeedrate]{RapidAxisFeedrate \\ {\small Subtype of AxisFeedrate}}
   \label{type:RapidAxisFeedrate}
 
 \FloatBarrier
 
 The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of RapidAxisFeedrate}}
+  \label{properties:RapidAxisFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{RAPID} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : AxisFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{RAPID}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> OverrideAxisFeedrate}}
+\subsubsection[OverrideAxisFeedrate]{OverrideAxisFeedrate \\ {\small Subtype of AxisFeedrate}}
   \label{type:OverrideAxisFeedrate}
 
 \FloatBarrier
 
 The operators overridden value.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of OverrideAxisFeedrate}}
+  \label{properties:OverrideAxisFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{OVERRIDE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : AxisFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OVERRIDE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CapacityFluid}}
+\subsubsection[CapacityFluid]{CapacityFluid \\ {\small Subtype of Sample}}
   \label{type:CapacityFluid}
 
 \FloatBarrier
 
 The fluid capacity of an object or container.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CapacityFluid}}
+  \label{properties:CapacityFluid}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLILITER} & 1 \\
+\texttt{type} & \texttt{CAPACITY_FLUID} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLILITER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{CAPACITY_FLUID}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CapacitySpatial}}
+\subsubsection[CapacitySpatial]{CapacitySpatial \\ {\small Subtype of Sample}}
   \label{type:CapacitySpatial}
 
 \FloatBarrier
 
 The geometric capacity of an object or container.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CapacitySpatial}}
+  \label{properties:CapacitySpatial}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{CUBIC_MILLIMETER} & 1 \\
+\texttt{type} & \texttt{CAPACITY_SPATIAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{CUBIC_MILLIMETER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{CAPACITY_SPATIAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ClockTime}}
+\subsubsection[ClockTime]{ClockTime \\ {\small Subtype of Sample}}
   \label{type:ClockTime}
 
 \FloatBarrier
 
 The value provided by a timing device at a specific point in time.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ClockTime}}
+  \label{properties:ClockTime}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{yyyy-mm-ddthh:mm:ss.ffff} & 1 \\
+\texttt{type} & \texttt{CLOCK_TIME} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{yyyy-mm-ddthh:mm:ss.ffff}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{CLOCK_TIME}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Concentration}}
+\subsubsection[Concentration]{Concentration \\ {\small Subtype of Sample}}
   \label{type:Concentration}
 
 \FloatBarrier
 
 The measurement of the percentage of one component within a mixture of components
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Concentration}}
+  \label{properties:Concentration}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{PERCENT} & 1 \\
+\texttt{type} & \texttt{CONCENTRATION} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{PERCENT}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{CONCENTRATION}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Conductivity}}
+\subsubsection[Conductivity]{Conductivity \\ {\small Subtype of Sample}}
   \label{type:Conductivity}
 
 \FloatBarrier
 
 The measurement of the ability of a material to conduct electricity.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Conductivity}}
+  \label{properties:Conductivity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{SIEMENS/METER} & 1 \\
+\texttt{type} & \texttt{CONDUCTIVITY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{SIEMENS/METER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{CONDUCTIVITY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CuttingSpeed}}
+\subsubsection[CuttingSpeed]{CuttingSpeed \\ {\small Subtype of Sample}}
   \label{type:CuttingSpeed}
 
 \FloatBarrier
 
 The speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CuttingSpeed}}
+  \label{properties:CuttingSpeed}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIMETER/SECOND} & 1 \\
+\texttt{type} & \texttt{CUTTING_SPEED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{CUTTING_SPEED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualCuttingSpeed}}
+\subsubsection[ActualCuttingSpeed]{ActualCuttingSpeed \\ {\small Subtype of CuttingSpeed}}
   \label{type:ActualCuttingSpeed}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualCuttingSpeed}}
+  \label{properties:ActualCuttingSpeed}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : CuttingSpeed}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedCuttingSpeed}}
+\subsubsection[CommandedCuttingSpeed]{CommandedCuttingSpeed \\ {\small Subtype of CuttingSpeed}}
   \label{type:CommandedCuttingSpeed}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedCuttingSpeed}}
+  \label{properties:CommandedCuttingSpeed}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : CuttingSpeed}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ProgrammedCuttingSpeed}}
+\subsubsection[ProgrammedCuttingSpeed]{ProgrammedCuttingSpeed \\ {\small Subtype of CuttingSpeed}}
   \label{type:ProgrammedCuttingSpeed}
 
 \FloatBarrier
 
 The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ProgrammedCuttingSpeed}}
+  \label{properties:ProgrammedCuttingSpeed}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{PROGRAMMED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : CuttingSpeed}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Density}}
+\subsubsection[Density]{Density \\ {\small Subtype of Sample}}
   \label{type:Density}
 
 \FloatBarrier
 
 The volumetric mass of a material per unit volume of that material.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Density}}
+  \label{properties:Density}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIGRAM/CUBIC_MILLIMETER} & 1 \\
+\texttt{type} & \texttt{DENSITY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIGRAM/CUBIC_MILLIMETER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{DENSITY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DepositionAccelerationVolumetric}}
+\subsubsection[DepositionAccelerationVolumetric]{DepositionAccelerationVolumetric \\ {\small Subtype of Sample}}
   \label{type:DepositionAccelerationVolumetric}
 
 \FloatBarrier
 
 The rate of change in spatial volume of material deposited in an additive manufacturing process.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DepositionAccelerationVolumetric}}
+  \label{properties:DepositionAccelerationVolumetric}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{CUBIC_MILLIMETER/SECOND^2} & 1 \\
+\texttt{type} & \texttt{DEPOSITION_ACCELERATION_VOLUMETRIC} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{CUBIC_MILLIMETER/SECOND^2}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{DEPOSITION_ACCELERATION_VOLUMETRIC}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualDepositionAccelerationVolumetric}}
+\subsubsection[ActualDepositionAccelerationVolumetric]{ActualDepositionAccelerationVolumetric \\ {\small Subtype of DepositionAccelerationVolumetric}}
   \label{type:ActualDepositionAccelerationVolumetric}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualDepositionAccelerationVolumetric}}
+  \label{properties:ActualDepositionAccelerationVolumetric}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : DepositionAccelerationVolumetric}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedDepositionAccelerationVolumetric}}
+\subsubsection[CommandedDepositionAccelerationVolumetric]{CommandedDepositionAccelerationVolumetric \\ {\small Subtype of DepositionAccelerationVolumetric}}
   \label{type:CommandedDepositionAccelerationVolumetric}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedDepositionAccelerationVolumetric}}
+  \label{properties:CommandedDepositionAccelerationVolumetric}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : DepositionAccelerationVolumetric}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DepositionDensity}}
+\subsubsection[DepositionDensity]{DepositionDensity \\ {\small Subtype of Sample}}
   \label{type:DepositionDensity}
 
 \FloatBarrier
 
 The density of the material deposited in an additive manufacturing process per unit of volume.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DepositionDensity}}
+  \label{properties:DepositionDensity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIGRAM/CUBIC_MILLIMETER} & 1 \\
+\texttt{type} & \texttt{DEPOSITION_DENSITY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIGRAM/CUBIC_MILLIMETER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{DEPOSITION_DENSITY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualDepositionDensity}}
+\subsubsection[ActualDepositionDensity]{ActualDepositionDensity \\ {\small Subtype of DepositionDensity}}
   \label{type:ActualDepositionDensity}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualDepositionDensity}}
+  \label{properties:ActualDepositionDensity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : DepositionDensity}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedDepositionDensity}}
+\subsubsection[CommandedDepositionDensity]{CommandedDepositionDensity \\ {\small Subtype of DepositionDensity}}
   \label{type:CommandedDepositionDensity}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedDepositionDensity}}
+  \label{properties:CommandedDepositionDensity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : DepositionDensity}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DepositionMass}}
+\subsubsection[DepositionMass]{DepositionMass \\ {\small Subtype of Sample}}
   \label{type:DepositionMass}
 
 \FloatBarrier
 
 The mass of the material deposited in an additive manufacturing process.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DepositionMass}}
+  \label{properties:DepositionMass}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIGRAM} & 1 \\
+\texttt{type} & \texttt{DEPOSITION_MASS} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIGRAM}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{DEPOSITION_MASS}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualDepositionMass}}
+\subsubsection[ActualDepositionMass]{ActualDepositionMass \\ {\small Subtype of DepositionMass}}
   \label{type:ActualDepositionMass}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualDepositionMass}}
+  \label{properties:ActualDepositionMass}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : DepositionMass}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedDepositionMass}}
+\subsubsection[CommandedDepositionMass]{CommandedDepositionMass \\ {\small Subtype of DepositionMass}}
   \label{type:CommandedDepositionMass}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedDepositionMass}}
+  \label{properties:CommandedDepositionMass}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : DepositionMass}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DepositionRateVolumetric}}
+\subsubsection[DepositionRateVolumetric]{DepositionRateVolumetric \\ {\small Subtype of Sample}}
   \label{type:DepositionRateVolumetric}
 
 \FloatBarrier
 
 The rate at which a spatial volume of material is deposited in an additive manufacturing process.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DepositionRateVolumetric}}
+  \label{properties:DepositionRateVolumetric}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{CUBIC_MILLIMETER/SECOND} & 1 \\
+\texttt{type} & \texttt{DEPOSITION_RATE_VOLUMETRIC} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{CUBIC_MILLIMETER/SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{DEPOSITION_RATE_VOLUMETRIC}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualDepositionRateVolumetric}}
+\subsubsection[ActualDepositionRateVolumetric]{ActualDepositionRateVolumetric \\ {\small Subtype of DepositionRateVolumetric}}
   \label{type:ActualDepositionRateVolumetric}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualDepositionRateVolumetric}}
+  \label{properties:ActualDepositionRateVolumetric}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : DepositionRateVolumetric}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedDepositionRateVolumetric}}
+\subsubsection[CommandedDepositionRateVolumetric]{CommandedDepositionRateVolumetric \\ {\small Subtype of DepositionRateVolumetric}}
   \label{type:CommandedDepositionRateVolumetric}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedDepositionRateVolumetric}}
+  \label{properties:CommandedDepositionRateVolumetric}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : DepositionRateVolumetric}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DepositionVolume}}
+\subsubsection[DepositionVolume]{DepositionVolume \\ {\small Subtype of Sample}}
   \label{type:DepositionVolume}
 
 \FloatBarrier
 
 The spatial volume of material to be deposited in an additive manufacturing process.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DepositionVolume}}
+  \label{properties:DepositionVolume}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{CUBIC_MILLIMETER} & 1 \\
+\texttt{type} & \texttt{DEPOSITION_VOLUME} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{CUBIC_MILLIMETER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{DEPOSITION_VOLUME}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualDepositionVolume}}
+\subsubsection[ActualDepositionVolume]{ActualDepositionVolume \\ {\small Subtype of DepositionVolume}}
   \label{type:ActualDepositionVolume}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualDepositionVolume}}
+  \label{properties:ActualDepositionVolume}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : DepositionVolume}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedDepositionVolume}}
+\subsubsection[CommandedDepositionVolume]{CommandedDepositionVolume \\ {\small Subtype of DepositionVolume}}
   \label{type:CommandedDepositionVolume}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedDepositionVolume}}
+  \label{properties:CommandedDepositionVolume}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : DepositionVolume}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Displacement}}
+\subsubsection[Displacement]{Displacement \\ {\small Subtype of Sample}}
   \label{type:Displacement}
 
 \FloatBarrier
 
 The measurement of the change in position of an object.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Displacement}}
+  \label{properties:Displacement}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIMETER} & 1 \\
+\texttt{type} & \texttt{DISPLACEMENT} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIMETER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{DISPLACEMENT}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ElectricalEnergy}}
+\subsubsection[ElectricalEnergy]{ElectricalEnergy \\ {\small Subtype of Sample}}
   \label{type:ElectricalEnergy}
 
 \FloatBarrier
 
 The measurement of electrical energy consumption by a component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ElectricalEnergy}}
+  \label{properties:ElectricalEnergy}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{WATT_SECOND} & 1 \\
+\texttt{type} & \texttt{ELECTRICAL_ENERGY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{WATT_SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{ELECTRICAL_ENERGY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> EquipmentTimer}}
+\subsubsection[EquipmentTimer]{EquipmentTimer \\ {\small Subtype of Sample}}
   \label{type:EquipmentTimer}
 
 \FloatBarrier
 
 The measurement of the amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of EquipmentTimer}}
+  \label{properties:EquipmentTimer}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{SECOND} & 1 \\
+\texttt{type} & \texttt{EQUIPMENT_TIMER} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{EQUIPMENT_TIMER}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> LoadedEquipmentTimer}}
+\subsubsection[LoadedEquipmentTimer]{LoadedEquipmentTimer \\ {\small Subtype of EquipmentTimer}}
   \label{type:LoadedEquipmentTimer}
 
 \FloatBarrier
 
 Subparts of a piece of equipment are under load.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of LoadedEquipmentTimer}}
+  \label{properties:LoadedEquipmentTimer}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{LOADED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : EquipmentTimer}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{LOADED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> WorkingEquipmentTimer}}
+\subsubsection[WorkingEquipmentTimer]{WorkingEquipmentTimer \\ {\small Subtype of EquipmentTimer}}
   \label{type:WorkingEquipmentTimer}
 
 \FloatBarrier
 
 A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of WorkingEquipmentTimer}}
+  \label{properties:WorkingEquipmentTimer}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{WORKING} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : EquipmentTimer}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{WORKING}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> OperatingEquipmentTimer}}
+\subsubsection[OperatingEquipmentTimer]{OperatingEquipmentTimer \\ {\small Subtype of EquipmentTimer}}
   \label{type:OperatingEquipmentTimer}
 
 \FloatBarrier
 
 A piece of equipment are powered or performing any activity.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of OperatingEquipmentTimer}}
+  \label{properties:OperatingEquipmentTimer}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{OPERATING} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : EquipmentTimer}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OPERATING}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> PoweredEquipmentTimer}}
+\subsubsection[PoweredEquipmentTimer]{PoweredEquipmentTimer \\ {\small Subtype of EquipmentTimer}}
   \label{type:PoweredEquipmentTimer}
 
 \FloatBarrier
 
 Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of PoweredEquipmentTimer}}
+  \label{properties:PoweredEquipmentTimer}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{POWERED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : EquipmentTimer}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{POWERED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DelayEquipmentTimer}}
+\subsubsection[DelayEquipmentTimer]{DelayEquipmentTimer \\ {\small Subtype of EquipmentTimer}}
   \label{type:DelayEquipmentTimer}
 
 \FloatBarrier
 
 A piece of equipment waiting for an event or an action to occur.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DelayEquipmentTimer}}
+  \label{properties:DelayEquipmentTimer}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{DELAY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : EquipmentTimer}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{DELAY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> FillLevel}}
+\subsubsection[FillLevel]{FillLevel \\ {\small Subtype of Sample}}
   \label{type:FillLevel}
 
 \FloatBarrier
 
 The measurement of the amount of a substance remaining compared to the planned maximum amount of that substance.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of FillLevel}}
+  \label{properties:FillLevel}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{PERCENT} & 1 \\
+\texttt{type} & \texttt{FILL_LEVEL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{PERCENT}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{FILL_LEVEL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Flow}}
+\subsubsection[Flow]{Flow \\ {\small Subtype of Sample}}
   \label{type:Flow}
 
 \FloatBarrier
 
 The measurement of the rate of flow of a fluid.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Flow}}
+  \label{properties:Flow}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{LITER/SECOND} & 1 \\
+\texttt{type} & \texttt{FLOW} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{LITER/SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{FLOW}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Frequency}}
+\subsubsection[Frequency]{Frequency \\ {\small Subtype of Sample}}
   \label{type:Frequency}
 
 \FloatBarrier
 
 The measurement of the number of occurrences of a repeating event per unit time.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Frequency}}
+  \label{properties:Frequency}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{HERTZ} & 1 \\
+\texttt{type} & \texttt{FREQUENCY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{HERTZ}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{FREQUENCY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> GlobalPosition}}
+\subsubsection[GlobalPosition]{GlobalPosition \\ {\small Subtype of Sample}}
   \label{type:GlobalPosition}
 
 \FloatBarrier
 
 *DEPRECATED* in Version 1.1
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of GlobalPosition}}
+  \label{properties:GlobalPosition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{GLOBAL_POSITION} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{GLOBAL_POSITION}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Length}}
+\subsubsection[Length]{Length \\ {\small Subtype of Sample}}
   \label{type:Length}
 
 \FloatBarrier
 
 The measurement of the length of an object.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Length}}
+  \label{properties:Length}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIMETER} & 1 \\
+\texttt{type} & \texttt{LENGTH} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIMETER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{LENGTH}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> StandardLength}}
+\subsubsection[StandardLength]{StandardLength \\ {\small Subtype of Length}}
   \label{type:StandardLength}
 
 \FloatBarrier
 
 The standard or original length of an object.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of StandardLength}}
+  \label{properties:StandardLength}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{STANDARD} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Length}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{STANDARD}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> RemainingLength}}
+\subsubsection[RemainingLength]{RemainingLength \\ {\small Subtype of Length}}
   \label{type:RemainingLength}
 
 \FloatBarrier
 
 Remaining measure of an object or an action.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of RemainingLength}}
+  \label{properties:RemainingLength}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{REMAINING} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Length}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{REMAINING}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> UseableLength}}
+\subsubsection[UseableLength]{UseableLength \\ {\small Subtype of Length}}
   \label{type:UseableLength}
 
 \FloatBarrier
 
 The remaining useable length of an object.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of UseableLength}}
+  \label{properties:UseableLength}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{USEABLE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Length}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{USEABLE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Level}}
+\subsubsection[Level]{Level \\ {\small Subtype of Sample}}
   \label{type:Level}
 
 \FloatBarrier
 
 *DEPRECATED* in Version 1.2.  See {model:FILL_LEVEL}
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Level}}
+  \label{properties:Level}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{LEVEL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{LEVEL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> LinearForce}}
+\subsubsection[LinearForce]{LinearForce \\ {\small Subtype of Sample}}
   \label{type:LinearForce}
 
 \FloatBarrier
 
 The measurement of the push or pull introduced by an actuator or exerted on an object.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of LinearForce}}
+  \label{properties:LinearForce}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{NEWTON} & 1 \\
+\texttt{type} & \texttt{LINEAR_FORCE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{NEWTON}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{LINEAR_FORCE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Load}}
+\subsubsection[Load]{Load \\ {\small Subtype of Sample}}
   \label{type:Load}
 
 \FloatBarrier
 
 The measurement of the actual versus the standard rating of a piece of equipment.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Load}}
+  \label{properties:Load}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{PERCENT} & 1 \\
+\texttt{type} & \texttt{LOAD} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{PERCENT}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{LOAD}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Mass}}
+\subsubsection[Mass]{Mass \\ {\small Subtype of Sample}}
   \label{type:Mass}
 
 \FloatBarrier
 
 The measurement of the mass of an object(s) or an amount of material.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Mass}}
+  \label{properties:Mass}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{KILOGRAM} & 1 \\
+\texttt{type} & \texttt{MASS} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{KILOGRAM}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{MASS}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> PH}}
+\subsubsection[PH]{PH \\ {\small Subtype of Sample}}
   \label{type:PH}
 
 \FloatBarrier
 
 A measure of the acidity or alkalinity of a solution.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of PH}}
+  \label{properties:PH}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{PH} & 1 \\
+\texttt{type} & \texttt{PH} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{PH}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{PH}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> PathFeedrate}}
+\subsubsection[PathFeedrate]{PathFeedrate \\ {\small Subtype of Sample}}
   \label{type:PathFeedrate}
 
 \FloatBarrier
 
 The measurement of the feedrate for the axes, or a single axis, associated with a {model:Path} component-a vector.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of PathFeedrate}}
+  \label{properties:PathFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIMETER/SECOND} & 1 \\
+\texttt{type} & \texttt{PATH_FEEDRATE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{PATH_FEEDRATE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualPathFeedrate}}
+\subsubsection[ActualPathFeedrate]{ActualPathFeedrate \\ {\small Subtype of PathFeedrate}}
   \label{type:ActualPathFeedrate}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualPathFeedrate}}
+  \label{properties:ActualPathFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedPathFeedrate}}
+\subsubsection[CommandedPathFeedrate]{CommandedPathFeedrate \\ {\small Subtype of PathFeedrate}}
   \label{type:CommandedPathFeedrate}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedPathFeedrate}}
+  \label{properties:CommandedPathFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> JogPathFeedrate}}
+\subsubsection[JogPathFeedrate]{JogPathFeedrate \\ {\small Subtype of PathFeedrate}}
   \label{type:JogPathFeedrate}
 
 \FloatBarrier
 
 The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of JogPathFeedrate}}
+  \label{properties:JogPathFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{JOG} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{JOG}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ProgrammedPathFeedrate}}
+\subsubsection[ProgrammedPathFeedrate]{ProgrammedPathFeedrate \\ {\small Subtype of PathFeedrate}}
   \label{type:ProgrammedPathFeedrate}
 
 \FloatBarrier
 
 The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ProgrammedPathFeedrate}}
+  \label{properties:ProgrammedPathFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{PROGRAMMED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> RapidPathFeedrate}}
+\subsubsection[RapidPathFeedrate]{RapidPathFeedrate \\ {\small Subtype of PathFeedrate}}
   \label{type:RapidPathFeedrate}
 
 \FloatBarrier
 
 The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of RapidPathFeedrate}}
+  \label{properties:RapidPathFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{RAPID} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{RAPID}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> OverridePathFeedrate}}
+\subsubsection[OverridePathFeedrate]{OverridePathFeedrate \\ {\small Subtype of PathFeedrate}}
   \label{type:OverridePathFeedrate}
 
 \FloatBarrier
 
 The operators overridden value.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of OverridePathFeedrate}}
+  \label{properties:OverridePathFeedrate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{OVERRIDE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathFeedrate}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OVERRIDE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> PathFeedratePerRevolution}}
+\subsubsection[PathFeedratePerRevolution]{PathFeedratePerRevolution \\ {\small Subtype of Sample}}
   \label{type:PathFeedratePerRevolution}
 
 \FloatBarrier
 
 The feedrate for the axes, or a single axis.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of PathFeedratePerRevolution}}
+  \label{properties:PathFeedratePerRevolution}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIMETER/REVOLUTION} & 1 \\
+\texttt{type} & \texttt{PATH_FEEDRATE_PER_REVOLUTION} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/REVOLUTION}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{PATH_FEEDRATE_PER_REVOLUTION}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualPathFeedratePerRevolution}}
+\subsubsection[ActualPathFeedratePerRevolution]{ActualPathFeedratePerRevolution \\ {\small Subtype of PathFeedratePerRevolution}}
   \label{type:ActualPathFeedratePerRevolution}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualPathFeedratePerRevolution}}
+  \label{properties:ActualPathFeedratePerRevolution}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathFeedratePerRevolution}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedPathFeedratePerRevolution}}
+\subsubsection[CommandedPathFeedratePerRevolution]{CommandedPathFeedratePerRevolution \\ {\small Subtype of PathFeedratePerRevolution}}
   \label{type:CommandedPathFeedratePerRevolution}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedPathFeedratePerRevolution}}
+  \label{properties:CommandedPathFeedratePerRevolution}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathFeedratePerRevolution}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ProgrammedPathFeedratePerRevolution}}
+\subsubsection[ProgrammedPathFeedratePerRevolution]{ProgrammedPathFeedratePerRevolution \\ {\small Subtype of PathFeedratePerRevolution}}
   \label{type:ProgrammedPathFeedratePerRevolution}
 
 \FloatBarrier
 
 The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ProgrammedPathFeedratePerRevolution}}
+  \label{properties:ProgrammedPathFeedratePerRevolution}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{PROGRAMMED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathFeedratePerRevolution}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> PathPosition}}
+\subsubsection[PathPosition]{PathPosition \\ {\small Subtype of Sample}}
   \label{type:PathPosition}
 
 \FloatBarrier
 
 A measured or calculated position of a control point associated with a {model:Controller} element, or {model:Path} element if provided, of a piece of equipment.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of PathPosition}}
+  \label{properties:PathPosition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIMETER_3D} & 1 \\
+\texttt{type} & \texttt{PATH_POSITION} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIMETER_3D}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{PATH_POSITION}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualPathPosition}}
+\subsubsection[ActualPathPosition]{ActualPathPosition \\ {\small Subtype of PathPosition}}
   \label{type:ActualPathPosition}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualPathPosition}}
+  \label{properties:ActualPathPosition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathPosition}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedPathPosition}}
+\subsubsection[CommandedPathPosition]{CommandedPathPosition \\ {\small Subtype of PathPosition}}
   \label{type:CommandedPathPosition}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedPathPosition}}
+  \label{properties:CommandedPathPosition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathPosition}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> TargetPathPosition}}
+\subsubsection[TargetPathPosition]{TargetPathPosition \\ {\small Subtype of PathPosition}}
   \label{type:TargetPathPosition}
 
 \FloatBarrier
 
 The desired measure or count for a data item value.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of TargetPathPosition}}
+  \label{properties:TargetPathPosition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{TARGET} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathPosition}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ProbePathPosition}}
+\subsubsection[ProbePathPosition]{ProbePathPosition \\ {\small Subtype of PathPosition}}
   \label{type:ProbePathPosition}
 
 \FloatBarrier
 
 The position provided by a measurement probe.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ProbePathPosition}}
+  \label{properties:ProbePathPosition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{PROBE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : PathPosition}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROBE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Position}}
+\subsubsection[Position]{Position \\ {\small Subtype of Sample}}
   \label{type:Position}
 
 \FloatBarrier
 
 A measured or calculated position of a {model:Component} element as reported by a piece of equipment.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Position}}
+  \label{properties:Position}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIMETER} & 1 \\
+\texttt{type} & \texttt{POSITION} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIMETER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{POSITION}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualPosition}}
+\subsubsection[ActualPosition]{ActualPosition \\ {\small Subtype of Position}}
   \label{type:ActualPosition}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualPosition}}
+  \label{properties:ActualPosition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Position}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedPosition}}
+\subsubsection[CommandedPosition]{CommandedPosition \\ {\small Subtype of Position}}
   \label{type:CommandedPosition}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedPosition}}
+  \label{properties:CommandedPosition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Position}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ProgrammedPosition}}
+\subsubsection[ProgrammedPosition]{ProgrammedPosition \\ {\small Subtype of Position}}
   \label{type:ProgrammedPosition}
 
 \FloatBarrier
 
 The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ProgrammedPosition}}
+  \label{properties:ProgrammedPosition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{PROGRAMMED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Position}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> TargetPosition}}
+\subsubsection[TargetPosition]{TargetPosition \\ {\small Subtype of Position}}
   \label{type:TargetPosition}
 
 \FloatBarrier
 
 The desired measure or count for a data item value.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of TargetPosition}}
+  \label{properties:TargetPosition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{TARGET} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Position}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> PowerFactor}}
+\subsubsection[PowerFactor]{PowerFactor \\ {\small Subtype of Sample}}
   \label{type:PowerFactor}
 
 \FloatBarrier
 
 The measurement of the ratio of real power flowing to a load to the apparent power in that AC circuit.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of PowerFactor}}
+  \label{properties:PowerFactor}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{PERCENT} & 1 \\
+\texttt{type} & \texttt{POWER_FACTOR} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{PERCENT}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{POWER_FACTOR}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Pressure}}
+\subsubsection[Pressure]{Pressure \\ {\small Subtype of Sample}}
   \label{type:Pressure}
 
 \FloatBarrier
 
 The measurement of force per unit area exerted by a gas or liquid.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Pressure}}
+  \label{properties:Pressure}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{PASCAL} & 1 \\
+\texttt{type} & \texttt{PRESSURE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{PASCAL}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{PRESSURE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ProcessTimer}}
+\subsubsection[ProcessTimer]{ProcessTimer \\ {\small Subtype of Sample}}
   \label{type:ProcessTimer}
 
 \FloatBarrier
 
 The measurement of the amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ProcessTimer}}
+  \label{properties:ProcessTimer}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{SECOND} & 1 \\
+\texttt{type} & \texttt{PROCESS_TIMER} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{PROCESS_TIMER}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ProcessProcessTimer}}
+\subsubsection[ProcessProcessTimer]{ProcessProcessTimer \\ {\small Subtype of ProcessTimer}}
   \label{type:ProcessProcessTimer}
 
 \FloatBarrier
 
 The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ProcessProcessTimer}}
+  \label{properties:ProcessProcessTimer}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{PROCESS} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : ProcessTimer}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROCESS}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DelayProcessTimer}}
+\subsubsection[DelayProcessTimer]{DelayProcessTimer \\ {\small Subtype of ProcessTimer}}
   \label{type:DelayProcessTimer}
 
 \FloatBarrier
 
 A piece of equipment waiting for an event or an action to occur.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DelayProcessTimer}}
+  \label{properties:DelayProcessTimer}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{DELAY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : ProcessTimer}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{DELAY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Resistance}}
+\subsubsection[Resistance]{Resistance \\ {\small Subtype of Sample}}
   \label{type:Resistance}
 
 \FloatBarrier
 
 The measurement of the degree to which a substance opposes the passage of an electric current.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Resistance}}
+  \label{properties:Resistance}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{OHM} & 1 \\
+\texttt{type} & \texttt{RESISTANCE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{OHM}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{RESISTANCE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> RotaryVelocity}}
+\subsubsection[RotaryVelocity]{RotaryVelocity \\ {\small Subtype of Sample}}
   \label{type:RotaryVelocity}
 
 \FloatBarrier
 
 The measurement of the rotational speed of a rotary axis.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of RotaryVelocity}}
+  \label{properties:RotaryVelocity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{REVOLUTION/MINUTE} & 1 \\
+\texttt{type} & \texttt{ROTARY_VELOCITY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{REVOLUTION/MINUTE}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{ROTARY_VELOCITY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualRotaryVelocity}}
+\subsubsection[ActualRotaryVelocity]{ActualRotaryVelocity \\ {\small Subtype of RotaryVelocity}}
   \label{type:ActualRotaryVelocity}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualRotaryVelocity}}
+  \label{properties:ActualRotaryVelocity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : RotaryVelocity}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedRotaryVelocity}}
+\subsubsection[CommandedRotaryVelocity]{CommandedRotaryVelocity \\ {\small Subtype of RotaryVelocity}}
   \label{type:CommandedRotaryVelocity}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedRotaryVelocity}}
+  \label{properties:CommandedRotaryVelocity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : RotaryVelocity}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ProgrammedRotaryVelocity}}
+\subsubsection[ProgrammedRotaryVelocity]{ProgrammedRotaryVelocity \\ {\small Subtype of RotaryVelocity}}
   \label{type:ProgrammedRotaryVelocity}
 
 \FloatBarrier
 
 The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ProgrammedRotaryVelocity}}
+  \label{properties:ProgrammedRotaryVelocity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{PROGRAMMED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : RotaryVelocity}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{PROGRAMMED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> OverrideRotaryVelocity}}
+\subsubsection[OverrideRotaryVelocity]{OverrideRotaryVelocity \\ {\small Subtype of RotaryVelocity}}
   \label{type:OverrideRotaryVelocity}
 
 \FloatBarrier
 
 The operators overridden value.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of OverrideRotaryVelocity}}
+  \label{properties:OverrideRotaryVelocity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{OVERRIDE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : RotaryVelocity}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OVERRIDE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> SoundLevel}}
+\subsubsection[SoundLevel]{SoundLevel \\ {\small Subtype of Sample}}
   \label{type:SoundLevel}
 
 \FloatBarrier
 
 The measurement of a sound level or sound pressure level relative to atmospheric pressure.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of SoundLevel}}
+  \label{properties:SoundLevel}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{DECIBEL} & 1 \\
+\texttt{type} & \texttt{SOUND_LEVEL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{DECIBEL}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{SOUND_LEVEL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> NoScaleSoundLevel}}
+\subsubsection[NoScaleSoundLevel]{NoScaleSoundLevel \\ {\small Subtype of SoundLevel}}
   \label{type:NoScaleSoundLevel}
 
 \FloatBarrier
 
 No weighting factor on the frequency scale
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of NoScaleSoundLevel}}
+  \label{properties:NoScaleSoundLevel}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{NO_SCALE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : SoundLevel}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{NO_SCALE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> AScaleSoundLevel}}
+\subsubsection[AScaleSoundLevel]{AScaleSoundLevel \\ {\small Subtype of SoundLevel}}
   \label{type:AScaleSoundLevel}
 
 \FloatBarrier
 
 A Scale weighting factor.   This is the default weighting factor if no factor is specified
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of AScaleSoundLevel}}
+  \label{properties:AScaleSoundLevel}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{A_SCALE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : SoundLevel}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{A_SCALE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> BScaleSoundLevel}}
+\subsubsection[BScaleSoundLevel]{BScaleSoundLevel \\ {\small Subtype of SoundLevel}}
   \label{type:BScaleSoundLevel}
 
 \FloatBarrier
 
 B Scale weighting factor
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of BScaleSoundLevel}}
+  \label{properties:BScaleSoundLevel}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{B_SCALE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : SoundLevel}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{B_SCALE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CScaleSoundLevel}}
+\subsubsection[CScaleSoundLevel]{CScaleSoundLevel \\ {\small Subtype of SoundLevel}}
   \label{type:CScaleSoundLevel}
 
 \FloatBarrier
 
 C Scale weighting factor
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CScaleSoundLevel}}
+  \label{properties:CScaleSoundLevel}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{C_SCALE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : SoundLevel}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{C_SCALE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DScaleSoundLevel}}
+\subsubsection[DScaleSoundLevel]{DScaleSoundLevel \\ {\small Subtype of SoundLevel}}
   \label{type:DScaleSoundLevel}
 
 \FloatBarrier
 
 D Scale weighting factor
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DScaleSoundLevel}}
+  \label{properties:DScaleSoundLevel}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{D_SCALE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : SoundLevel}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{D_SCALE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> SpindleSpeed}}
+\subsubsection[SpindleSpeed]{SpindleSpeed \\ {\small Subtype of Sample}}
   \label{type:SpindleSpeed}
 
 \FloatBarrier
 
 *DEPRECATED* in Version 1.2.  Replaced by {model:ROTARY_VELOCITY}
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of SpindleSpeed}}
+  \label{properties:SpindleSpeed}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{REVOLUTION/MINUTE} & 1 \\
+\texttt{type} & \texttt{SPINDLE_SPEED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{REVOLUTION/MINUTE}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{SPINDLE_SPEED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualSpindleSpeed}}
+\subsubsection[ActualSpindleSpeed]{ActualSpindleSpeed \\ {\small Subtype of SpindleSpeed}}
   \label{type:ActualSpindleSpeed}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualSpindleSpeed}}
+  \label{properties:ActualSpindleSpeed}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : SpindleSpeed}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> CommandedSpindleSpeed}}
+\subsubsection[CommandedSpindleSpeed]{CommandedSpindleSpeed \\ {\small Subtype of SpindleSpeed}}
   \label{type:CommandedSpindleSpeed}
 
 \FloatBarrier
 
 A value specified by the {model:Controller} type component.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CommandedSpindleSpeed}}
+  \label{properties:CommandedSpindleSpeed}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{COMMANDED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : SpindleSpeed}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{COMMANDED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> OverrideSpindleSpeed}}
+\subsubsection[OverrideSpindleSpeed]{OverrideSpindleSpeed \\ {\small Subtype of SpindleSpeed}}
   \label{type:OverrideSpindleSpeed}
 
 \FloatBarrier
 
 The operators overridden value.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of OverrideSpindleSpeed}}
+  \label{properties:OverrideSpindleSpeed}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{OVERRIDE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : SpindleSpeed}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{OVERRIDE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Strain}}
+\subsubsection[Strain]{Strain \\ {\small Subtype of Sample}}
   \label{type:Strain}
 
 \FloatBarrier
 
 The measurement of the amount of deformation per unit length of an object when a load is applied.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Strain}}
+  \label{properties:Strain}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{PERCENT} & 1 \\
+\texttt{type} & \texttt{STRAIN} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{PERCENT}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{STRAIN}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Temperature}}
+\subsubsection[Temperature]{Temperature \\ {\small Subtype of Sample}}
   \label{type:Temperature}
 
 \FloatBarrier
 
 The measurement of temperature.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Temperature}}
+  \label{properties:Temperature}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{CELSIUS} & 1 \\
+\texttt{type} & \texttt{TEMPERATURE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{CELSIUS}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{TEMPERATURE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Tension}}
+\subsubsection[Tension]{Tension \\ {\small Subtype of Sample}}
   \label{type:Tension}
 
 \FloatBarrier
 
 The measurement of a force that stretches or elongates an object.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Tension}}
+  \label{properties:Tension}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{NEWTON} & 1 \\
+\texttt{type} & \texttt{TENSION} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{NEWTON}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{TENSION}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Tilt}}
+\subsubsection[Tilt]{Tilt \\ {\small Subtype of Sample}}
   \label{type:Tilt}
 
 \FloatBarrier
 
 The measurement of angular displacement.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Tilt}}
+  \label{properties:Tilt}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MICRO_RADIAN} & 1 \\
+\texttt{type} & \texttt{TILT} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MICRO_RADIAN}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{TILT}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Torque}}
+\subsubsection[Torque]{Torque \\ {\small Subtype of Sample}}
   \label{type:Torque}
 
 \FloatBarrier
 
 The measurement of the turning force exerted on an object or by an object.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Torque}}
+  \label{properties:Torque}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{NEWTON_METER} & 1 \\
+\texttt{type} & \texttt{TORQUE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{NEWTON_METER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{TORQUE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Velocity}}
+\subsubsection[Velocity]{Velocity \\ {\small Subtype of Sample}}
   \label{type:Velocity}
 
 \FloatBarrier
 
 The measurement of the rate of change of position of a {model:Component}.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Velocity}}
+  \label{properties:Velocity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLIMETER/SECOND} & 1 \\
+\texttt{type} & \texttt{VELOCITY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLIMETER/SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{VELOCITY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Viscosity}}
+\subsubsection[Viscosity]{Viscosity \\ {\small Subtype of Sample}}
   \label{type:Viscosity}
 
 \FloatBarrier
 
 The measurement of a fluids resistance to flow.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Viscosity}}
+  \label{properties:Viscosity}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{PASCAL_SECOND} & 1 \\
+\texttt{type} & \texttt{VISCOSITY} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{PASCAL_SECOND}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{VISCOSITY}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> VoltAmpere}}
+\subsubsection[VoltAmpere]{VoltAmpere \\ {\small Subtype of Sample}}
   \label{type:VoltAmpere}
 
 \FloatBarrier
 
 The measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA).
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of VoltAmpere}}
+  \label{properties:VoltAmpere}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{VOLT_AMPERE} & 1 \\
+\texttt{type} & \texttt{VOLT_AMPERE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{VOLT_AMPERE}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{VOLT_AMPERE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> VoltAmpereReactive}}
+\subsubsection[VoltAmpereReactive]{VoltAmpereReactive \\ {\small Subtype of Sample}}
   \label{type:VoltAmpereReactive}
 
 \FloatBarrier
 
 The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR).
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of VoltAmpereReactive}}
+  \label{properties:VoltAmpereReactive}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{VOLT_AMPERE_REACTIVE} & 1 \\
+\texttt{type} & \texttt{VOLT_AMPERE_REACTIVE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{VOLT_AMPERE_REACTIVE}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{VOLT_AMPERE_REACTIVE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Voltage}}
+\subsubsection[Voltage]{Voltage \\ {\small Subtype of Sample}}
   \label{type:Voltage}
 
 \FloatBarrier
 
 The measurement of electrical potential between two points.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Voltage}}
+  \label{properties:Voltage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{VOLT} & 1 \\
+\texttt{type} & \texttt{VOLTAGE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{VOLT}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{VOLTAGE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> AlternatingVoltage}}
+\subsubsection[AlternatingVoltage]{AlternatingVoltage \\ {\small Subtype of Voltage}}
   \label{type:AlternatingVoltage}
 
 \FloatBarrier
 
 The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of AlternatingVoltage}}
+  \label{properties:AlternatingVoltage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ALTERNATING} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Voltage}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ALTERNATING}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DirectVoltage}}
+\subsubsection[DirectVoltage]{DirectVoltage \\ {\small Subtype of Voltage}}
   \label{type:DirectVoltage}
 
 \FloatBarrier
 
 The measurement of DC current or voltage.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DirectVoltage}}
+  \label{properties:DirectVoltage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{DIRECT} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Voltage}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{DIRECT}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualVoltage}}
+\subsubsection[ActualVoltage]{ActualVoltage \\ {\small Subtype of Voltage}}
   \label{type:ActualVoltage}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualVoltage}}
+  \label{properties:ActualVoltage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Voltage}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> TargetVoltage}}
+\subsubsection[TargetVoltage]{TargetVoltage \\ {\small Subtype of Voltage}}
   \label{type:TargetVoltage}
 
 \FloatBarrier
 
 The desired measure or count for a data item value.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of TargetVoltage}}
+  \label{properties:TargetVoltage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{TARGET} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Voltage}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> VolumeFluid}}
+\subsubsection[VolumeFluid]{VolumeFluid \\ {\small Subtype of Sample}}
   \label{type:VolumeFluid}
 
 \FloatBarrier
 
 The fluid volume of an object or container.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of VolumeFluid}}
+  \label{properties:VolumeFluid}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{MILLILITER} & 1 \\
+\texttt{type} & \texttt{VOLUME_FLUID} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{MILLILITER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{VOLUME_FLUID}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualVolumeFluid}}
+\subsubsection[ActualVolumeFluid]{ActualVolumeFluid \\ {\small Subtype of VolumeFluid}}
   \label{type:ActualVolumeFluid}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualVolumeFluid}}
+  \label{properties:ActualVolumeFluid}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : VolumeFluid}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ConsumedVolumeFluid}}
+\subsubsection[ConsumedVolumeFluid]{ConsumedVolumeFluid \\ {\small Subtype of VolumeFluid}}
   \label{type:ConsumedVolumeFluid}
 
 \FloatBarrier
 
 The amount of bulk material consumed from an object or container during a manufacturing process.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ConsumedVolumeFluid}}
+  \label{properties:ConsumedVolumeFluid}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{CONSUMED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : VolumeFluid}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{CONSUMED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> VolumeSpatial}}
+\subsubsection[VolumeSpatial]{VolumeSpatial \\ {\small Subtype of Sample}}
   \label{type:VolumeSpatial}
 
 \FloatBarrier
 
 The geometric volume of an object or container.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of VolumeSpatial}}
+  \label{properties:VolumeSpatial}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{CUBIC_MILLIMETER} & 1 \\
+\texttt{type} & \texttt{VOLUME_SPATIAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{CUBIC_MILLIMETER}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{VOLUME_SPATIAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualVolumeSpatial}}
+\subsubsection[ActualVolumeSpatial]{ActualVolumeSpatial \\ {\small Subtype of VolumeSpatial}}
   \label{type:ActualVolumeSpatial}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualVolumeSpatial}}
+  \label{properties:ActualVolumeSpatial}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : VolumeSpatial}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ConsumedVolumeSpatial}}
+\subsubsection[ConsumedVolumeSpatial]{ConsumedVolumeSpatial \\ {\small Subtype of VolumeSpatial}}
   \label{type:ConsumedVolumeSpatial}
 
 \FloatBarrier
 
 The amount of bulk material consumed from an object or container during a manufacturing process.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ConsumedVolumeSpatial}}
+  \label{properties:ConsumedVolumeSpatial}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{CONSUMED} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : VolumeSpatial}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{CONSUMED}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Wattage}}
+\subsubsection[Wattage]{Wattage \\ {\small Subtype of Sample}}
   \label{type:Wattage}
 
 \FloatBarrier
 
 The measurement of power flowing through or dissipated by an electrical circuit or piece of equipment.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Wattage}}
+  \label{properties:Wattage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{WATT} & 1 \\
+\texttt{type} & \texttt{WATTAGE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Sample}
-
-\item \texttt{units : UnitEnum} : \texttt{WATT}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{WATTAGE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ActualWattage}}
+\subsubsection[ActualWattage]{ActualWattage \\ {\small Subtype of Wattage}}
   \label{type:ActualWattage}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ActualWattage}}
+  \label{properties:ActualWattage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{ACTUAL} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Wattage}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{ACTUAL}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> TargetWattage}}
+\subsubsection[TargetWattage]{TargetWattage \\ {\small Subtype of Wattage}}
   \label{type:TargetWattage}
 
 \FloatBarrier
 
 The desired measure or count for a data item value.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of TargetWattage}}
+  \label{properties:TargetWattage}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{subType} & \texttt{TARGET} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Wattage}
-
-\item \texttt{subType : DataItemSubTypeEnum} : \texttt{TARGET}
-
-\end{itemize}
 \FloatBarrier
