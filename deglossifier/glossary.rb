@@ -76,7 +76,7 @@ end
 CSV.open(File.join($root, 'composition_enum.csv'), 'w') do |csv|
   csv << ['Owner', 'Name', 'ownedComment']
   $parser.compositions.sort.each do |g|
-    csv << [g.name_property, g.description]
+    csv << ['Components::Compositions::CompositionTypeEnum', g.name_property, g.description]
   end  
 end
 
@@ -87,7 +87,7 @@ CSV.open(File.join($root, 'composition_attributes.csv'), 'w') do |csv|
   $parser.compositions.sort.each do |g|
     block = "#{owner}::#{pascalize(g.name_property)}"
     csv << [block, 'type', "Components::Compositions::CompositionTypeEnum", 'public', 'true', 
-            "Components::Compositions::Composition::type"]
+            g.name_property, "Components::Compositions::Composition::type"]
   end
 end
 
