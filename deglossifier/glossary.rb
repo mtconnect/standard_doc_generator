@@ -166,7 +166,7 @@ class Enumeration
   end
 end
 
-enum_prefix = 'Obervations::Events'
+enum_prefix = 'Observations::Events'
 observation = 'Observations'
 
 Observable.new('Sample', observation, 'Sample', nil, nil, nil, nil, nil, nil)
@@ -183,7 +183,7 @@ $parser.samples.concat($parser.events).concat($parser.conditions).sort.uniq.each
   end
 
   kind = g[:kind].to_s.split(',').select { |s| s =~ /event|sample|condition/ }.first.capitalize
-  owner = "#{observation}::#{kind}s"
+  owner = "#{observation}::#{kind}Types"
 
   if g[:enumeration]
     values = (g.enumeration.to_s.split(',').map do |en|
