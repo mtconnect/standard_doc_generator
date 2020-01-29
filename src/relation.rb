@@ -120,15 +120,7 @@ module Relation
       @stereotype and @stereotype =~ /Attribute/
     end
 
-    def is_folder?
-      false
-    end
-
     def is_property?
-      false
-    end
-
-    def is_mixin?
       false
     end
 
@@ -138,26 +130,6 @@ module Relation
 
     def is_derived?
       false
-    end
-
-    def node_class
-      raise "Unknown ndoe class #{self.class.name} for #{@owner.name} '#{@name}'"
-    end
-
-    def reference_type
-      raise "Unknown reference #{self.class.name} for #{@owner.name} '#{@name}'"
-    end
-    
-    def target_node_name
-      raise "Unknown target node name for #{@owner.name} #{@name}"
-    end
-
-    def target_node_id
-      raise "Unknown target node type for #{@owner.name} #{@name}"
-    end
-
-    def browse_name
-      @name || "<#{@target.type.name.sub(/Type/, '')}>"
     end
 
     def resolve_types
@@ -172,10 +144,6 @@ module Relation
       unless @source.resolve_type
         raise "    !!!! cannot resolve source for #{@owner.name}::#{@name} #{self.class.name}"
       end
-    end
-
-    def rule
-      @optional ? 'Optional' : 'Mandatory'
     end
 
     def is_array?
@@ -271,32 +239,6 @@ module Relation
       @is_derived
     end
     
-    def target_node_name
-      @target.type.name
-    end
-
-    def is_folder?
-      @stereotype and @stereotype == 'Organizes'
-    end
-
-    def node_class
-      if is_folder?
-        'Object'
-      elsif @stereotype
-        'Stereotype'
-      else
-        'Object'
-      end
-    end
-
-    def reference_type
-      if @stereotype
-        @stereotype
-      else
-        'HasComponent'
-      end
-    end
-
     def link_target(reference, type)
       @target = Connection.new(reference, type)
     end
@@ -310,9 +252,6 @@ module Relation
         end
       end
       
-      if is_folder?
-        @target = Connection.new('OrganizedBy', Type.type_for_name('FolderType'))
-      end
     end
   end
 
@@ -323,7 +262,7 @@ module Relation
       return if not a['name']
 	  
 	  @name = a['name']
-      @default = "\\texttt{#{get_value(a, 'defaultValue')}}"
+      @default = get_value(a, 'defaultValue')
 
 	  @redefinesProperty = a.at('./redefinedProperty') ? true : false
 
@@ -352,17 +291,6 @@ module Relation
       !is_attribute?
     end    
 
-    def reference_type
-      'HasProperty'
-    end
-
-    def node_class
-      'Variable'
-    end
-
-    def target_node_name
-      'PropertyType'
-    end
   end
 
   class Dependency < Relation
@@ -380,10 +308,6 @@ module Relation
       sid = sup['xmi:idref']
 
       @target = Connection.new('Target', Type::LazyPointer.new(sid))
-    end
-
-    def reference_type
-      @stereotype || 'HasComponent'
     end
 
     def reflow(source, target)
@@ -405,17 +329,6 @@ module Relation
       super
     end
 
-    def reference_type
-      'HasSubtype'
-    end
-
-    def node_class
-      'ObjectType'
-    end    
-    
-    def target_node_name
-      "ObjectType"
-    end
   end
   
   class Realization < Dependency
@@ -423,9 +336,6 @@ module Relation
       super(owner, r)
     end
 
-    def is_mixin?
-      @stereotype and @stereotype == 'Mixes_In'
-    end
   end
 
   class Slot < Relation
@@ -446,18 +356,6 @@ module Relation
 
     def is_property?
       true
-    end
-
-    def node_class
-      'Variable'
-    end        
-
-    def reference_type
-      'HasProperty'
-    end
-
-    def target_node_name
-      'PropertyType'
     end
 
     def resolve_types
