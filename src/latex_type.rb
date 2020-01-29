@@ -227,7 +227,7 @@ EOT
         (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and @model.name.split('Type')[0] != r.final_target.type.name
       end
 
-    unless relations_with_documentation.empty?
+    unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
 
 f.puts <<EOT
 \\begin{table}[ht]
