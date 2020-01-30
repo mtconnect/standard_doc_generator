@@ -22,9 +22,6 @@ CSV.open(File.join($root, 'enumerations.csv'), 'w') do |csv|
   $parser.units.sort.each do |u|
     csv << ['UnitEnum', u.name_property, u.description]
   end
-  $parser.types.sort.each do |u|
-    csv << ['DataItemTypeEnum', u.name_property, u.description]
-  end
   $parser.subtypes.sort.each do |u|
     csv << ['DataItemSubTypeEnum', u.name_property, u.description]
   end
@@ -226,6 +223,15 @@ CSV.open(File.join($root, 'observation_gen.csv'), 'w') do |types|
   Observable.types.each do |name, observable|
     unless observable.abstract?
       types << [observable.parent.qn, observable.qn]
+    end
+  end
+end
+
+CSV.open(File.join($root, 'dataitemtype_enums.csv'), 'w') do |csv|
+  csv << ['Owner', 'Name', 'Description']
+  Observable.types.each do |name, observable|
+    if observable.type and !observable.abstract?
+      csv << ["DataTypes::#{observable.kind}Enum", observable.type, observable.description]
     end
   end
 end
