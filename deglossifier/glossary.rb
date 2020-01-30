@@ -246,13 +246,20 @@ CSV.open(File.join($root, 'observation_attributes.csv'), 'w') do |attrs|
         attrs << [observable.qn, 'subType', "DataTypes::DataItemSubTypeEnum", 'public', 'true',
                   observable.sub_type, "#{observation}::Observation::subType"]
       end
-      if observable.enum
-        attrs << [observable.qn, 'value', "#{observable.enum.qn}", 'public', 'false',
-                  observable.sub_type, "#{observation}::Observation::result"]
-      end        
     end
   end
-end  
+end
+
+CSV.open(File.join($root, 'observation_event_result.csv'), 'w') do |attrs|
+  attrs << ['Owner', 'Name', 'AttrType', 'Visibility', 'RedefinesProperty', 'Multiplicity']
+  Observable.types.each do |name, observable|
+    if observable.enum
+      attrs << [observable.qn, 'result', "#{observable.enum.qn}", 'public',
+                "#{observation}::Observation::result", '0..1']
+    end
+  end
+end
+
 
 CSV.open(File.join($root, 'observation_enums.csv'), 'w') do |enums|
   enums << ['Owner', 'Name']

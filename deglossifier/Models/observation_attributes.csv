@@ -5,7 +5,6 @@ Observations::SampleTypes::AccumulatedTime,units,DataTypes::UnitEnum,public,true
 Observations::SampleTypes::AccumulatedTime,type,DataTypes::DataItemTypeEnum,public,true,ACCUMULATED_TIME,Observations::Observation::type
 Observations::EventTypes::ActiveAxes,type,DataTypes::DataItemTypeEnum,public,true,ACTIVE_AXES,Observations::Observation::type
 Observations::EventTypes::ActuatorState,type,DataTypes::DataItemTypeEnum,public,true,ACTUATOR_STATE,Observations::Observation::type
-Observations::EventTypes::ActuatorState,value,Observations::EventTypes::ActuatorStateEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::Alarm,type,DataTypes::DataItemTypeEnum,public,true,ALARM,Observations::Observation::type
 Observations::SampleTypes::Amperage,units,DataTypes::UnitEnum,public,true,AMPERE,Observations::Observation::units
 Observations::SampleTypes::Amperage,type,DataTypes::DataItemTypeEnum,public,true,AMPERAGE,Observations::Observation::type
@@ -24,9 +23,7 @@ Observations::SampleTypes::AngularVelocity,type,DataTypes::DataItemTypeEnum,publ
 Observations::EventTypes::AssetChanged,type,DataTypes::DataItemTypeEnum,public,true,ASSET_CHANGED,Observations::Observation::type
 Observations::EventTypes::AssetRemoved,type,DataTypes::DataItemTypeEnum,public,true,ASSET_REMOVED,Observations::Observation::type
 Observations::EventTypes::Availability,type,DataTypes::DataItemTypeEnum,public,true,AVAILABILITY,Observations::Observation::type
-Observations::EventTypes::Availability,value,Observations::EventTypes::AvailabilityEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::AxisCoupling,type,DataTypes::DataItemTypeEnum,public,true,AXIS_COUPLING,Observations::Observation::type
-Observations::EventTypes::AxisCoupling,value,Observations::EventTypes::AxisCouplingEnum,public,false,,Observations::Observation::result
 Observations::SampleTypes::AxisFeedrate,units,DataTypes::UnitEnum,public,true,MILLIMETER/SECOND,Observations::Observation::units
 Observations::SampleTypes::AxisFeedrate,type,DataTypes::DataItemTypeEnum,public,true,AXIS_FEEDRATE,Observations::Observation::type
 Observations::SampleTypes::ActualAxisFeedrate,subType,DataTypes::DataItemSubTypeEnum,public,true,ACTUAL,Observations::Observation::subType
@@ -40,9 +37,7 @@ Observations::EventTypes::JogAxisFeedrateOverride,subType,DataTypes::DataItemSub
 Observations::EventTypes::ProgrammedAxisFeedrateOverride,subType,DataTypes::DataItemSubTypeEnum,public,true,PROGRAMMED,Observations::Observation::subType
 Observations::EventTypes::RapidAxisFeedrateOverride,subType,DataTypes::DataItemSubTypeEnum,public,true,RAPID,Observations::Observation::subType
 Observations::EventTypes::AxisInterlock,type,DataTypes::DataItemTypeEnum,public,true,AXIS_INTERLOCK,Observations::Observation::type
-Observations::EventTypes::AxisInterlock,value,Observations::EventTypes::ActuatorStateEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::AxisState,type,DataTypes::DataItemTypeEnum,public,true,AXIS_STATE,Observations::Observation::type
-Observations::EventTypes::AxisState,value,Observations::EventTypes::AxisStateEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::Block,type,DataTypes::DataItemTypeEnum,public,true,BLOCK,Observations::Observation::type
 Observations::EventTypes::BlockCount,type,DataTypes::DataItemTypeEnum,public,true,BLOCK_COUNT,Observations::Observation::type
 Observations::SampleTypes::CapacityFluid,units,DataTypes::UnitEnum,public,true,MILLILITER,Observations::Observation::units
@@ -50,10 +45,8 @@ Observations::SampleTypes::CapacityFluid,type,DataTypes::DataItemTypeEnum,public
 Observations::SampleTypes::CapacitySpatial,units,DataTypes::UnitEnum,public,true,CUBIC_MILLIMETER,Observations::Observation::units
 Observations::SampleTypes::CapacitySpatial,type,DataTypes::DataItemTypeEnum,public,true,CAPACITY_SPATIAL,Observations::Observation::type
 Observations::EventTypes::ChuckInterlock,type,DataTypes::DataItemTypeEnum,public,true,CHUCK_INTERLOCK,Observations::Observation::type
-Observations::EventTypes::ChuckInterlock,value,Observations::EventTypes::ActuatorStateEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::ManualUnclampChuckInterlock,subType,DataTypes::DataItemSubTypeEnum,public,true,MANUAL_UNCLAMP,Observations::Observation::subType
 Observations::EventTypes::ChuckState,type,DataTypes::DataItemTypeEnum,public,true,CHUCK_STATE,Observations::Observation::type
-Observations::EventTypes::ChuckState,value,Observations::EventTypes::ChuckStateEnum,public,false,,Observations::Observation::result
 Observations::SampleTypes::ClockTime,units,DataTypes::UnitEnum,public,true,yyyy-mm-ddthh:mm:ss.ffff,Observations::Observation::units
 Observations::SampleTypes::ClockTime,type,DataTypes::DataItemTypeEnum,public,true,CLOCK_TIME,Observations::Observation::type
 Observations::EventTypes::CloseChuck,type,DataTypes::DataItemTypeEnum,public,true,CLOSE_CHUCK,Observations::Observation::type
@@ -71,9 +64,7 @@ Observations::SampleTypes::Concentration,type,DataTypes::DataItemTypeEnum,public
 Observations::SampleTypes::Conductivity,units,DataTypes::UnitEnum,public,true,SIEMENS/METER,Observations::Observation::units
 Observations::SampleTypes::Conductivity,type,DataTypes::DataItemTypeEnum,public,true,CONDUCTIVITY,Observations::Observation::type
 Observations::EventTypes::ControllerMode,type,DataTypes::DataItemTypeEnum,public,true,CONTROLLER_MODE,Observations::Observation::type
-Observations::EventTypes::ControllerMode,value,Observations::EventTypes::ControllerModeEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::ControllerModeOverride,type,DataTypes::DataItemTypeEnum,public,true,CONTROLLER_MODE_OVERRIDE,Observations::Observation::type
-Observations::EventTypes::ControllerModeOverride,value,Observations::EventTypes::ControllerModeOverrideEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::DryRunControllerModeOverride,subType,DataTypes::DataItemSubTypeEnum,public,true,DRY_RUN,Observations::Observation::subType
 Observations::EventTypes::SingleBlockControllerModeOverride,subType,DataTypes::DataItemSubTypeEnum,public,true,SINGLE_BLOCK,Observations::Observation::subType
 Observations::EventTypes::MachineAxisLockControllerModeOverride,subType,DataTypes::DataItemSubTypeEnum,public,true,MACHINE_AXIS_LOCK,Observations::Observation::subType
@@ -119,17 +110,13 @@ Observations::EventTypes::LinearDirection,subType,DataTypes::DataItemSubTypeEnum
 Observations::SampleTypes::Displacement,units,DataTypes::UnitEnum,public,true,MILLIMETER,Observations::Observation::units
 Observations::SampleTypes::Displacement,type,DataTypes::DataItemTypeEnum,public,true,DISPLACEMENT,Observations::Observation::type
 Observations::EventTypes::DoorState,type,DataTypes::DataItemTypeEnum,public,true,DOOR_STATE,Observations::Observation::type
-Observations::EventTypes::DoorState,value,Observations::EventTypes::ChuckStateEnum,public,false,,Observations::Observation::result
 Observations::SampleTypes::ElectricalEnergy,units,DataTypes::UnitEnum,public,true,WATT_SECOND,Observations::Observation::units
 Observations::SampleTypes::ElectricalEnergy,type,DataTypes::DataItemTypeEnum,public,true,ELECTRICAL_ENERGY,Observations::Observation::type
 Observations::EventTypes::EmergencyStop,type,DataTypes::DataItemTypeEnum,public,true,EMERGENCY_STOP,Observations::Observation::type
-Observations::EventTypes::EmergencyStop,value,Observations::EventTypes::EmergencyStopEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::EndOfBar,type,DataTypes::DataItemTypeEnum,public,true,END_OF_BAR,Observations::Observation::type
-Observations::EventTypes::EndOfBar,value,Observations::EventTypes::EndOfBarEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::PrimaryEndOfBar,subType,DataTypes::DataItemSubTypeEnum,public,true,PRIMARY,Observations::Observation::subType
 Observations::EventTypes::AuxiliaryEndOfBar,subType,DataTypes::DataItemSubTypeEnum,public,true,AUXILIARY,Observations::Observation::subType
 Observations::EventTypes::EquipmentMode,type,DataTypes::DataItemTypeEnum,public,true,EQUIPMENT_MODE,Observations::Observation::type
-Observations::EventTypes::EquipmentMode,value,Observations::EventTypes::ControllerModeOverrideEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::LoadedEquipmentMode,subType,DataTypes::DataItemSubTypeEnum,public,true,LOADED,Observations::Observation::subType
 Observations::EventTypes::WorkingEquipmentMode,subType,DataTypes::DataItemSubTypeEnum,public,true,WORKING,Observations::Observation::subType
 Observations::EventTypes::OperatingEquipmentMode,subType,DataTypes::DataItemSubTypeEnum,public,true,OPERATING,Observations::Observation::subType
@@ -143,7 +130,6 @@ Observations::SampleTypes::OperatingEquipmentTimer,subType,DataTypes::DataItemSu
 Observations::SampleTypes::PoweredEquipmentTimer,subType,DataTypes::DataItemSubTypeEnum,public,true,POWERED,Observations::Observation::subType
 Observations::SampleTypes::DelayEquipmentTimer,subType,DataTypes::DataItemSubTypeEnum,public,true,DELAY,Observations::Observation::subType
 Observations::EventTypes::Execution,type,DataTypes::DataItemTypeEnum,public,true,EXECUTION,Observations::Observation::type
-Observations::EventTypes::Execution,value,Observations::EventTypes::ExecutionEnum,public,false,,Observations::Observation::result
 Observations::SampleTypes::FillLevel,units,DataTypes::UnitEnum,public,true,PERCENT,Observations::Observation::units
 Observations::SampleTypes::FillLevel,type,DataTypes::DataItemTypeEnum,public,true,FILL_LEVEL,Observations::Observation::type
 Observations::SampleTypes::Flow,units,DataTypes::UnitEnum,public,true,LITER/SECOND,Observations::Observation::units
@@ -151,7 +137,6 @@ Observations::SampleTypes::Flow,type,DataTypes::DataItemTypeEnum,public,true,FLO
 Observations::SampleTypes::Frequency,units,DataTypes::UnitEnum,public,true,HERTZ,Observations::Observation::units
 Observations::SampleTypes::Frequency,type,DataTypes::DataItemTypeEnum,public,true,FREQUENCY,Observations::Observation::type
 Observations::EventTypes::FunctionalMode,type,DataTypes::DataItemTypeEnum,public,true,FUNCTIONAL_MODE,Observations::Observation::type
-Observations::EventTypes::FunctionalMode,value,Observations::EventTypes::FunctionalModeEnum,public,false,,Observations::Observation::result
 Observations::SampleTypes::GlobalPosition,type,DataTypes::DataItemTypeEnum,public,true,GLOBAL_POSITION,Observations::Observation::type
 Observations::EventTypes::Hardness,type,DataTypes::DataItemTypeEnum,public,true,HARDNESS,Observations::Observation::type
 Observations::EventTypes::RockwellHardness,subType,DataTypes::DataItemSubTypeEnum,public,true,ROCKWELL,Observations::Observation::subType
@@ -162,7 +147,6 @@ Observations::EventTypes::LeebHardness,subType,DataTypes::DataItemSubTypeEnum,pu
 Observations::EventTypes::MohsHardness,subType,DataTypes::DataItemSubTypeEnum,public,true,MOHS,Observations::Observation::subType
 Observations::ConditionTypes::Hardware,type,DataTypes::DataItemTypeEnum,public,true,HARDWARE,Observations::Observation::type
 Observations::EventTypes::InterfaceState,type,DataTypes::DataItemTypeEnum,public,true,INTERFACE_STATE,Observations::Observation::type
-Observations::EventTypes::InterfaceState,value,Observations::EventTypes::InterfaceStateEnum,public,false,,Observations::Observation::result
 Observations::SampleTypes::Length,units,DataTypes::UnitEnum,public,true,MILLIMETER,Observations::Observation::units
 Observations::SampleTypes::Length,type,DataTypes::DataItemTypeEnum,public,true,LENGTH,Observations::Observation::type
 Observations::SampleTypes::StandardLength,subType,DataTypes::DataItemSubTypeEnum,public,true,STANDARD,Observations::Observation::subType
@@ -226,7 +210,6 @@ Observations::SampleTypes::ActualPathFeedratePerRevolution,subType,DataTypes::Da
 Observations::SampleTypes::CommandedPathFeedratePerRevolution,subType,DataTypes::DataItemSubTypeEnum,public,true,COMMANDED,Observations::Observation::subType
 Observations::SampleTypes::ProgrammedPathFeedratePerRevolution,subType,DataTypes::DataItemSubTypeEnum,public,true,PROGRAMMED,Observations::Observation::subType
 Observations::EventTypes::PathMode,type,DataTypes::DataItemTypeEnum,public,true,PATH_MODE,Observations::Observation::type
-Observations::EventTypes::PathMode,value,Observations::EventTypes::PathModeEnum,public,false,,Observations::Observation::result
 Observations::SampleTypes::PathPosition,units,DataTypes::UnitEnum,public,true,MILLIMETER_3D,Observations::Observation::units
 Observations::SampleTypes::PathPosition,type,DataTypes::DataItemTypeEnum,public,true,PATH_POSITION,Observations::Observation::type
 Observations::SampleTypes::ActualPathPosition,subType,DataTypes::DataItemSubTypeEnum,public,true,ACTUAL,Observations::Observation::subType
@@ -244,7 +227,6 @@ Observations::SampleTypes::TargetPosition,subType,DataTypes::DataItemSubTypeEnum
 Observations::SampleTypes::PowerFactor,units,DataTypes::UnitEnum,public,true,PERCENT,Observations::Observation::units
 Observations::SampleTypes::PowerFactor,type,DataTypes::DataItemTypeEnum,public,true,POWER_FACTOR,Observations::Observation::type
 Observations::EventTypes::PowerState,type,DataTypes::DataItemTypeEnum,public,true,POWER_STATE,Observations::Observation::type
-Observations::EventTypes::PowerState,value,Observations::EventTypes::ControllerModeOverrideEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::LinePowerState,subType,DataTypes::DataItemSubTypeEnum,public,true,LINE,Observations::Observation::subType
 Observations::EventTypes::ControlPowerState,subType,DataTypes::DataItemSubTypeEnum,public,true,CONTROL,Observations::Observation::subType
 Observations::EventTypes::PowerStatus,type,DataTypes::DataItemTypeEnum,public,true,POWER_STATUS,Observations::Observation::type
@@ -261,7 +243,6 @@ Observations::SampleTypes::DelayProcessTimer,subType,DataTypes::DataItemSubTypeE
 Observations::EventTypes::Program,type,DataTypes::DataItemTypeEnum,public,true,PROGRAM,Observations::Observation::type
 Observations::EventTypes::ProgramComment,type,DataTypes::DataItemTypeEnum,public,true,PROGRAM_COMMENT,Observations::Observation::type
 Observations::EventTypes::ProgramEdit,type,DataTypes::DataItemTypeEnum,public,true,PROGRAM_EDIT,Observations::Observation::type
-Observations::EventTypes::ProgramEdit,value,Observations::EventTypes::ProgramEditEnum,public,false,,Observations::Observation::result
 Observations::EventTypes::ProgramEditName,type,DataTypes::DataItemTypeEnum,public,true,PROGRAM_EDIT_NAME,Observations::Observation::type
 Observations::EventTypes::ProgramHeader,type,DataTypes::DataItemTypeEnum,public,true,PROGRAM_HEADER,Observations::Observation::type
 Observations::EventTypes::ProgramLocation,type,DataTypes::DataItemTypeEnum,public,true,PROGRAM_LOCATION,Observations::Observation::type
@@ -276,7 +257,6 @@ Observations::EventTypes::ProgramNestLevel,type,DataTypes::DataItemTypeEnum,publ
 Observations::SampleTypes::Resistance,units,DataTypes::UnitEnum,public,true,OHM,Observations::Observation::units
 Observations::SampleTypes::Resistance,type,DataTypes::DataItemTypeEnum,public,true,RESISTANCE,Observations::Observation::type
 Observations::EventTypes::RotaryMode,type,DataTypes::DataItemTypeEnum,public,true,ROTARY_MODE,Observations::Observation::type
-Observations::EventTypes::RotaryMode,value,Observations::EventTypes::RotaryModeEnum,public,false,,Observations::Observation::result
 Observations::SampleTypes::RotaryVelocity,units,DataTypes::UnitEnum,public,true,REVOLUTION/MINUTE,Observations::Observation::units
 Observations::SampleTypes::RotaryVelocity,type,DataTypes::DataItemTypeEnum,public,true,ROTARY_VELOCITY,Observations::Observation::type
 Observations::SampleTypes::ActualRotaryVelocity,subType,DataTypes::DataItemSubTypeEnum,public,true,ACTUAL,Observations::Observation::subType
@@ -293,7 +273,6 @@ Observations::SampleTypes::BScaleSoundLevel,subType,DataTypes::DataItemSubTypeEn
 Observations::SampleTypes::CScaleSoundLevel,subType,DataTypes::DataItemSubTypeEnum,public,true,C_SCALE,Observations::Observation::subType
 Observations::SampleTypes::DScaleSoundLevel,subType,DataTypes::DataItemSubTypeEnum,public,true,D_SCALE,Observations::Observation::subType
 Observations::EventTypes::SpindleInterlock,type,DataTypes::DataItemTypeEnum,public,true,SPINDLE_INTERLOCK,Observations::Observation::type
-Observations::EventTypes::SpindleInterlock,value,Observations::EventTypes::ActuatorStateEnum,public,false,,Observations::Observation::result
 Observations::SampleTypes::SpindleSpeed,units,DataTypes::UnitEnum,public,true,REVOLUTION/MINUTE,Observations::Observation::units
 Observations::SampleTypes::SpindleSpeed,type,DataTypes::DataItemTypeEnum,public,true,SPINDLE_SPEED,Observations::Observation::type
 Observations::SampleTypes::ActualSpindleSpeed,subType,DataTypes::DataItemSubTypeEnum,public,true,ACTUAL,Observations::Observation::subType
