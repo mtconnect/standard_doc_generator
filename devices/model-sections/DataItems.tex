@@ -1,21 +1,35 @@
-% Generated 2020-01-28 11:37:25 -0500
+% Generated 2020-01-29 13:56:33 -0500
 \subsection{DataItems} \label{model:DataItems}
-\subsubsection{Defintion of \texttt{<<Block>> Constraints}}
+\subsubsection{Constraints}
   \label{type:Constraints}
 
 \FloatBarrier
 
+Placeholder for documentation!
 
-
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Constraints}}
+  \label{properties:Constraints}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{<<deprecated>> Filter} & \texttt{FilterEnum} & 0..1 \\
+\texttt{Maximum} & \texttt{float} & 0..1 \\
+\texttt{Minimum} & \texttt{float} & 0..1 \\
+\texttt{Nominal} & \texttt{float} & 0..1 \\
+\texttt{Value} & \texttt{float} & 0..* \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
-
-\begin{itemize}
-\item \texttt{Filter : FilterEnum}
-
-\FloatBarrier
 
 
+\paragraph{\texttt{Filter}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
@@ -26,37 +40,72 @@
 \hline
 \rowfont\bfseries {Name} & {Description} \\
 \tabucline[1.5pt]{}
-\texttt{MINIMUM_DELTA} & It is Minimum Delta. \\
-\texttt{PERIOD} &  \\
+\texttt{MINIMUM_DELTA} & Placeholder for documentation! \\
+\texttt{PERIOD} & Placeholder for documentation! \\
 \end{tabu}
 \end{table} 
 \FloatBarrier
-\item \texttt{Maximum : float}
 
-\item \texttt{Minimum : float}
+\paragraph{\texttt{Maximum}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{Nominal : float}
+\paragraph{\texttt{Minimum}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{Value : float}
+\paragraph{\texttt{Nominal}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\end{itemize}
+\paragraph{\texttt{Value}}\mbox{}
+\newline\tab Placeholder for documentation!
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DataItem}}
+\subsubsection{DataItem}
   \label{type:DataItem}
 
 \FloatBarrier
 
+Placeholder for documentation!
 
-
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DataItem}}
+  \label{properties:DataItem}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{category} & \texttt{CategoryEnum} & 1 \\
+\texttt{compositionId} & \texttt{ID} & 0..1 \\
+\texttt{coordinateSystem} & \texttt{CoordinateSystemEnum} & 0..1 \\
+\texttt{discrete} & \texttt{boolean} & 0..1 \\
+\texttt{id} & \texttt{ID} & 1 \\
+\texttt{name} & \texttt{string} & 0..1 \\
+\texttt{nativeScale} & \texttt{integer} & 0..1 \\
+\texttt{nativeUnits} & \texttt{NativeUnitEnum} & 0..1 \\
+\texttt{sampleRate} & \texttt{float} & 0..1 \\
+\texttt{significantDigits} & \texttt{integer} & 0..1 \\
+\texttt{statistic} & \texttt{StatisticEnum} & 0..1 \\
+\texttt{subType} & \texttt{string} & 0..1 \\
+\texttt{type} & \texttt{string} & 1 \\
+\texttt{units} & \texttt{UnitEnum} & 0..1 \\
+\texttt{isObservedBy} & \texttt{Component} & 1 \\
+\texttt{representation} & \texttt{RepresentationEnum} & 0..1 \\
+\texttt{hasSource} & \texttt{Source} & 0..1 \\
+\texttt{hasConstraint} & \texttt{Constraints} & 0..1 \\
+\texttt{hasFilter} & \texttt{Filter} & 0..* \\
+\texttt{hasInitialValue} & \texttt{InitialValue} & 0..1 \\
+\texttt{hasResetTrigger} & \texttt{ResetTrigger} & 0..1 \\
+\texttt{isReferenceFor} & \texttt{Component} & 0..1 \\
+\texttt{hasObservation} & \texttt{Observation} & 0..* \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
-
-\begin{itemize}
-\item \texttt{category : CategoryEnum}
-
-\FloatBarrier
 
 
+\paragraph{\texttt{category}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
@@ -67,19 +116,20 @@
 \hline
 \rowfont\bfseries {Name} & {Description} \\
 \tabucline[1.5pt]{}
-\texttt{SAMPLE} &  \\
-\texttt{EVENT} &  \\
-\texttt{CONDITION} &  \\
+\texttt{SAMPLE} & Placeholder for documentation! \\
+\texttt{EVENT} & Placeholder for documentation! \\
+\texttt{CONDITION} & Placeholder for documentation! \\
 \end{tabu}
 \end{table} 
 \FloatBarrier
-\item \texttt{compositionId : ID}
 
-\item \texttt{coordinateSystem : CoordinateSystemEnum}
+\paragraph{\texttt{compositionId}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\FloatBarrier
+\paragraph{\texttt{coordinateSystem}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-
+Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
@@ -90,24 +140,28 @@
 \hline
 \rowfont\bfseries {Name} & {Description} \\
 \tabucline[1.5pt]{}
-\texttt{MACHINE} &  \\
-\texttt{WORK} &  \\
+\texttt{MACHINE} & Placeholder for documentation! \\
+\texttt{WORK} & Placeholder for documentation! \\
 \end{tabu}
 \end{table} 
 \FloatBarrier
-\item \texttt{discrete : boolean}
 
-\item \texttt{id : ID}
+\paragraph{\texttt{discrete}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{name : string}
+\paragraph{\texttt{id}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{nativeScale : integer}
+\paragraph{\texttt{name}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{nativeUnits : NativeUnitEnum}
+\paragraph{\texttt{nativeScale}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\FloatBarrier
+\paragraph{\texttt{nativeUnits}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-
+Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
@@ -118,49 +172,51 @@
 \hline
 \rowfont\bfseries {Name} & {Description} \\
 \tabucline[1.5pt]{}
-\texttt{CENTIPOISE} &  \\
-\texttt{DEGREE/MINUTE} &  \\
-\texttt{FAHRENHEIT} &  \\
-\texttt{FOOT} &  \\
-\texttt{FOOT/MINUTE} &  \\
-\texttt{FOOT/SECOND} &  \\
-\texttt{FOOT/SECOND\^2} &  \\
-\texttt{FOOT_3D} &  \\
-\texttt{GALLON/MINUTE} &  \\
-\texttt{HOUR} &  \\
-\texttt{INCH} &  \\
-\texttt{INCH/MINUTE} &  \\
-\texttt{INCH/SECOND} &  \\
-\texttt{INCH/SECOND\^2} &  \\
-\texttt{INCH_POUND} &  \\
-\texttt{INCH_3D} &  \\
-\texttt{KELVIN} &  \\
-\texttt{KILOWATT} &  \\
-\texttt{KILOWATT_HOUR} &  \\
-\texttt{LITER} &  \\
-\texttt{LITER/MINUTE} &  \\
-\texttt{MILLIMETER/MINUTE} &  \\
-\texttt{MINUTE} &  \\
-\texttt{OTHER} &  \\
-\texttt{POUND} &  \\
-\texttt{POUND/INCH\^2} &  \\
-\texttt{RADIAN} &  \\
-\texttt{RADIAN/MINUTE} &  \\
-\texttt{RADIAN/SECOND} &  \\
-\texttt{RADIAN/SECOND\^2} &  \\
-\texttt{REVOLUTION/SECOND} &  \\
+\texttt{CENTIPOISE} & Placeholder for documentation! \\
+\texttt{DEGREE/MINUTE} & Placeholder for documentation! \\
+\texttt{FAHRENHEIT} & Placeholder for documentation! \\
+\texttt{FOOT} & Placeholder for documentation! \\
+\texttt{FOOT/MINUTE} & Placeholder for documentation! \\
+\texttt{FOOT/SECOND} & Placeholder for documentation! \\
+\texttt{FOOT/SECOND\^2} & Placeholder for documentation! \\
+\texttt{FOOT_3D} & Placeholder for documentation! \\
+\texttt{GALLON/MINUTE} & Placeholder for documentation! \\
+\texttt{HOUR} & Placeholder for documentation! \\
+\texttt{INCH} & Placeholder for documentation! \\
+\texttt{INCH/MINUTE} & Placeholder for documentation! \\
+\texttt{INCH/SECOND} & Placeholder for documentation! \\
+\texttt{INCH/SECOND\^2} & Placeholder for documentation! \\
+\texttt{INCH_POUND} & Placeholder for documentation! \\
+\texttt{INCH_3D} & Placeholder for documentation! \\
+\texttt{KELVIN} & Placeholder for documentation! \\
+\texttt{KILOWATT} & Placeholder for documentation! \\
+\texttt{KILOWATT_HOUR} & Placeholder for documentation! \\
+\texttt{LITER} & Placeholder for documentation! \\
+\texttt{LITER/MINUTE} & Placeholder for documentation! \\
+\texttt{MILLIMETER/MINUTE} & Placeholder for documentation! \\
+\texttt{MINUTE} & Placeholder for documentation! \\
+\texttt{OTHER} & Placeholder for documentation! \\
+\texttt{POUND} & Placeholder for documentation! \\
+\texttt{POUND/INCH\^2} & Placeholder for documentation! \\
+\texttt{RADIAN} & Placeholder for documentation! \\
+\texttt{RADIAN/MINUTE} & Placeholder for documentation! \\
+\texttt{RADIAN/SECOND} & Placeholder for documentation! \\
+\texttt{RADIAN/SECOND\^2} & Placeholder for documentation! \\
+\texttt{REVOLUTION/SECOND} & Placeholder for documentation! \\
 \end{tabu}
 \end{table} 
 \FloatBarrier
-\item \texttt{sampleRate : float}
 
-\item \texttt{significantDigits : integer}
+\paragraph{\texttt{sampleRate}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{statistic : StatisticEnum}
+\paragraph{\texttt{significantDigits}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\FloatBarrier
+\paragraph{\texttt{statistic}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-
+Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
@@ -171,27 +227,29 @@
 \hline
 \rowfont\bfseries {Name} & {Description} \\
 \tabucline[1.5pt]{}
-\texttt{AVERAGE} &  \\
-\texttt{KURTOSIS} &  \\
-\texttt{MAXIMUM} &  \\
-\texttt{MEDIAN} &  \\
-\texttt{MINIMUM} &  \\
-\texttt{MODE} &  \\
-\texttt{RANGE} &  \\
-\texttt{ROOT_MEAN_SQUARE} &  \\
-\texttt{STANDARD_DEVIATION} &  \\
+\texttt{AVERAGE} & Placeholder for documentation! \\
+\texttt{KURTOSIS} & Placeholder for documentation! \\
+\texttt{MAXIMUM} & Placeholder for documentation! \\
+\texttt{MEDIAN} & Placeholder for documentation! \\
+\texttt{MINIMUM} & Placeholder for documentation! \\
+\texttt{MODE} & Placeholder for documentation! \\
+\texttt{RANGE} & Placeholder for documentation! \\
+\texttt{ROOT_MEAN_SQUARE} & Placeholder for documentation! \\
+\texttt{STANDARD_DEVIATION} & Placeholder for documentation! \\
 \end{tabu}
 \end{table} 
 \FloatBarrier
-\item \texttt{subType : string}
 
-\item \texttt{type : string}
+\paragraph{\texttt{subType}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{units : UnitEnum}
+\paragraph{\texttt{type}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\FloatBarrier
+\paragraph{\texttt{units}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-
+Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
@@ -238,13 +296,14 @@
 \end{tabu}
 \end{table} 
 \FloatBarrier
-\item \texttt{isObservedBy : Component}
 
-\item \texttt{representation : RepresentationEnum}
+\paragraph{\texttt{isObservedBy}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\FloatBarrier
+\paragraph{\texttt{representation}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-
+Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
@@ -255,45 +314,61 @@
 \hline
 \rowfont\bfseries {Name} & {Description} \\
 \tabucline[1.5pt]{}
-\texttt{TIME_SERIES} &  \\
-\texttt{VALUE} &  \\
-\texttt{DATA_SET} &  \\
-\texttt{DISCRETE} &  \\
+\texttt{TIME_SERIES} & Placeholder for documentation! \\
+\texttt{VALUE} & Placeholder for documentation! \\
+\texttt{DATA_SET} & Placeholder for documentation! \\
+\texttt{DISCRETE} & Placeholder for documentation! \\
 \end{tabu}
 \end{table} 
 \FloatBarrier
-\item \texttt{hasSource : Source}
 
-\item \texttt{hasConstraint : Constraints}
+\paragraph{\texttt{hasSource}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{hasFilter : Filter}
+\paragraph{\texttt{hasConstraint}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{hasInitialValue : InitialValue}
+\paragraph{\texttt{hasFilter}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{hasResetTrigger : ResetTrigger}
+\paragraph{\texttt{hasInitialValue}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{isReferenceFor : Component}
+\paragraph{\texttt{hasResetTrigger}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{hasObservation : Observation}
+\paragraph{\texttt{isReferenceFor}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\end{itemize}
+\paragraph{\texttt{hasObservation}}\mbox{}
+\newline\tab Placeholder for documentation!
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Filter}}
+\subsubsection{Filter}
   \label{type:Filter}
 
 \FloatBarrier
 
+Placeholder for documentation!
 
-
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Filter}}
+  \label{properties:Filter}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{FilterEnum} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
-
-\begin{itemize}
-\item \texttt{type : FilterEnum}
-
-\FloatBarrier
 
 
+\paragraph{\texttt{type}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
@@ -303,44 +378,63 @@
 \hline
 \rowfont\bfseries {Name} & {Description} \\
 \tabucline[1.5pt]{}
-\texttt{MINIMUM_DELTA} & It is Minimum Delta. \\
-\texttt{PERIOD} &  \\
+\texttt{MINIMUM_DELTA} & Placeholder for documentation! \\
+\texttt{PERIOD} & Placeholder for documentation! \\
 \end{tabu}
 \end{table} 
 \FloatBarrier
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> InitialValue}}
+\subsubsection{InitialValue}
   \label{type:InitialValue}
 
 \FloatBarrier
 
+Placeholder for documentation!
 
-
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of InitialValue}}
+  \label{properties:InitialValue}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{value} & \texttt{CDATA} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{value : T}
 
-\end{itemize}
+\paragraph{\texttt{value}}\mbox{}
+\newline\tab Placeholder for documentation!
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> ResetTrigger}}
+\subsubsection{ResetTrigger}
   \label{type:ResetTrigger}
 
 \FloatBarrier
 
+Placeholder for documentation!
 
-
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ResetTrigger}}
+  \label{properties:ResetTrigger}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{ResetTriggerEnum} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
-
-\begin{itemize}
-\item \texttt{type : ResetTriggerEnum}
-
-\FloatBarrier
 
 
+\paragraph{\texttt{type}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
@@ -351,38 +445,53 @@
 \hline
 \rowfont\bfseries {Name} & {Description} \\
 \tabucline[1.5pt]{}
-\texttt{ACTION_COMPLETE} &  \\
-\texttt{ANNUAL} &  \\
-\texttt{DAY} &  \\
-\texttt{LIFE} &  \\
-\texttt{MAINTENANCE} &  \\
-\texttt{MONTH} &  \\
-\texttt{POWER_ON} &  \\
-\texttt{SHIFT} &  \\
-\texttt{WEEK} &  \\
+\texttt{ACTION_COMPLETE} & Placeholder for documentation! \\
+\texttt{ANNUAL} & Placeholder for documentation! \\
+\texttt{DAY} & Placeholder for documentation! \\
+\texttt{LIFE} & Placeholder for documentation! \\
+\texttt{MAINTENANCE} & Placeholder for documentation! \\
+\texttt{MONTH} & Placeholder for documentation! \\
+\texttt{POWER_ON} & Placeholder for documentation! \\
+\texttt{SHIFT} & Placeholder for documentation! \\
+\texttt{WEEK} & Placeholder for documentation! \\
 \end{tabu}
 \end{table} 
 \FloatBarrier
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Source}}
+\subsubsection{Source}
   \label{type:Source}
 
 \FloatBarrier
 
+Placeholder for documentation!
 
-
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Source}}
+  \label{properties:Source}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{componentId} & \texttt{ID} & 0..1 \\
+\texttt{compositionId} & \texttt{ID} & 0..1 \\
+\texttt{dataItemId} & \texttt{ID} & 0..1 \\
+\texttt{Value} & \texttt{CDATA} & 0..1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{componentId : ID}
 
-\item \texttt{compositionId : ID}
+\paragraph{\texttt{componentId}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{dataItemId : ID}
+\paragraph{\texttt{compositionId}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\item \texttt{Value : T}
+\paragraph{\texttt{dataItemId}}\mbox{}
+\newline\tab Placeholder for documentation!
 
-\end{itemize}
+\paragraph{\texttt{Value}}\mbox{}
+\newline\tab Placeholder for documentation!
 \FloatBarrier

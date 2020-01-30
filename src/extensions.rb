@@ -15,15 +15,15 @@ module Extensions
              end
            end
     if attr
-      stereo = e.document.root.at("/xmi:XMI/*[@#{attr}='#{id}']")
-      stereo = e.document.root.at("/xmi:XMI/*[@base_Element='#{id}']") unless stereo
-      stereo.name if stereo
+      stereo = e.document.root.at("/xmi:XMI/*[@base_Element='#{id}']")
+      stereo = e.document.root.at("/xmi:XMI/*[@#{attr}='#{id}']") unless stereo
+      stereo.name if stereo and stereo.name != 'ValueProperty' #since every value type has ValueProperty stereotype
     end
   end
 
   def xmi_documentation(e)
     comment = e.at('./ownedComment')
-    comment['body'].gsub(/<[\/]?[a-z]+>/, '') if comment
+    comment ? comment['body'].gsub(/<[\/]?[a-z]+>/, '') : "Placeholder for documentation!"
   end
 
   def get_multiplicity(r)

@@ -1,104 +1,134 @@
-% Generated 2020-01-28 11:37:25 -0500
+% Generated 2020-01-29 13:56:33 -0500
 \subsection{ConditionTypes} \label{model:ConditionTypes}
-\subsubsection{Defintion of \texttt{<<Block>> Communications}}
+\subsubsection[Communications]{Communications \\ {\small Subtype of Condition}}
   \label{type:Communications}
 
 \FloatBarrier
 
 An indication that the piece of equipment has experienced a communications failure.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Communications}}
+  \label{properties:Communications}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{COMMUNICATIONS} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Condition}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{COMMUNICATIONS}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> DataRange}}
+\subsubsection[DataRange]{DataRange \\ {\small Subtype of Condition}}
   \label{type:DataRange}
 
 \FloatBarrier
 
 An indication that the value of the data associated with a measured value or a calculation is outside of an expected range.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DataRange}}
+  \label{properties:DataRange}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{DATA_RANGE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Condition}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{DATA_RANGE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> Hardware}}
+\subsubsection[Hardware]{Hardware \\ {\small Subtype of Condition}}
   \label{type:Hardware}
 
 \FloatBarrier
 
 An indication of a fault associated with the hardware subsystem of the {term:Structural Element}.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Hardware}}
+  \label{properties:Hardware}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{HARDWARE} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Condition}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{HARDWARE}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> LogicProgram}}
+\subsubsection[LogicProgram]{LogicProgram \\ {\small Subtype of Condition}}
   \label{type:LogicProgram}
 
 \FloatBarrier
 
 An indication that an error occurred in the logic program or programmable logic controller (PLC) associated with a piece of equipment.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of LogicProgram}}
+  \label{properties:LogicProgram}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{LOGIC_PROGRAM} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Condition}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{LOGIC_PROGRAM}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> MotionProgram}}
+\subsubsection[MotionProgram]{MotionProgram \\ {\small Subtype of Condition}}
   \label{type:MotionProgram}
 
 \FloatBarrier
 
 An indication that an error occurred in the motion program associated with a piece of equipment.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of MotionProgram}}
+  \label{properties:MotionProgram}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{MOTION_PROGRAM} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Condition}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{MOTION_PROGRAM}
-
-\end{itemize}
 \FloatBarrier
-\subsubsection{Defintion of \texttt{<<Block>> System}}
+\subsubsection[System]{System \\ {\small Subtype of Condition}}
   \label{type:System}
 
 \FloatBarrier
 
 A general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware.
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of System}}
+  \label{properties:System}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{SYSTEM} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
-\paragraph{Referenced Properties and Objects}
 
-\begin{itemize}
-\item \texttt{Supertype : Condition}
-
-\item \texttt{type : DataItemTypeEnum} : \texttt{SYSTEM}
-
-\end{itemize}
 \FloatBarrier
