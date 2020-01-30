@@ -231,24 +231,24 @@ CSV.open(File.join($root, 'observation_gen.csv'), 'w') do |types|
 end
 
 CSV.open(File.join($root, 'observation_attributes.csv'), 'w') do |attrs|
-  attrs << ['Owner', 'Name', 'AttrType', 'Visibility', 'True', 'Unit', 'Redefines']
+  attrs << ['Owner', 'Name', 'AttrType', 'Visibility', 'True', 'Value', 'Redefines']
   Observable.types.each do |name, observable|
     unless observable.abstract?
       if observable.parent.abstract? and observable.units and !observable.units.empty?
-        attrs << [observable.qn, 'units', "#{enum_prefix}::UnitEnum", 'public', 'true', observable.units,
-                  "#{observation}::units"]
+        attrs << [observable.qn, 'units', "DataTypes::UnitEnum", 'public', 'true', observable.units,
+                  "#{observation}::Observation::units"]
       end
       if observable.parent.abstract?
-        attrs << [observable.qn, 'type', "#{enum_prefix}::DataItemTypeEnum", 'public', 'true', observable.type,
-                  "#{observation}::type"]
+        attrs << [observable.qn, 'type', "DataTypes::DataItemTypeEnum", 'public', 'true', observable.type,
+                  "#{observation}::Observation::type"]
       end
       if observable.sub_type
-        attrs << [observable.qn, 'subType', "#{enum_prefix}::DataItemSubTypeEnum", 'public', 'true',
-                  observable.sub_type, "#{observation}::subType"]
+        attrs << [observable.qn, 'subType', "DataTypes::DataItemSubTypeEnum", 'public', 'true',
+                  observable.sub_type, "#{observation}::Observation::subType"]
       end
       if observable.enum
         attrs << [observable.qn, 'value', "#{observable.enum.qn}", 'public', 'false',
-                  observable.sub_type, "#{observation}::Observation::value"]
+                  observable.sub_type, "#{observation}::Observation::result"]
       end        
     end
   end
