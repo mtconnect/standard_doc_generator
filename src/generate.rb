@@ -33,13 +33,13 @@ $logger.formatter = proc do |severity, datetime, progname, msg|
   "#{severity}: #{msg}\n"
 end
 
-DeviceModels = ['Devices','Components', 'ComponentTypes', 'DataItems', 'ConditionTypes', 'EventTypes', 'SampleTypes', 'Profile']
+DeviceModels = ['Components', 'ComponentTypes', 'Compositions','CompositionTypes', 'DataItems', 'ConditionTypes', 'EventTypes', 'SampleTypes', 'Profile']
 
 DeviceDirectory = File.join(File.dirname(__FILE__),'..','devices')
 DeviceDocumentFile = File.join(File.dirname(__FILE__),'..','devices','devices.tex')
 
 xmiDoc = nil
-File.open(File.join(File.dirname(__FILE__), '..', 'MTConnect SysML Model xmi.xml')) do |xmi|
+File.open(File.join(File.dirname(__FILE__), '..', 'MTConnect SysML Model.xml')) do |xmi|
   xmiDoc = Nokogiri::XML(xmi).slop!
   RootModel = xmiDoc.at('//uml:Model')
 end

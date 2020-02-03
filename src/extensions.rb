@@ -23,7 +23,7 @@ module Extensions
 
   def xmi_documentation(e)
     comment = e.at('./ownedComment')
-    comment ? comment['body'].gsub(/<[\/]?[a-z]+>/, '') : "Placeholder for documentation!"
+    comment ? comment['body'] ? comment['body'].gsub(/<[\/]?[a-z]+>/, '') : "Placeholder for documentation!"  : "Placeholder for documentation!"
   end
 
   def get_multiplicity(r)

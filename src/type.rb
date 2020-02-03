@@ -212,7 +212,7 @@ class Type
     @stereotype = xmi_stereotype(e)
     
     @type = e['xmi:type']
-    
+	   
     $logger.debug "  -- Creating class <<#{@stereotype}>> #{@name} : #{@type}"
     
     @operations = @xmi.xpath('./ownedOperation').map do |op|
@@ -230,7 +230,7 @@ class Type
     @aliased = false
 
     associations = []
-    if @type == 'uml:Enumeration'
+    if @type == 'uml:Enumeration' and defined? e.ownedLiteral
       suffix = ' ' + @name.sub(/^MT/, '').sub(/Type$/, '').downcase
       e.ownedLiteral.each do |lit|
         name, value = lit['name'].sub(/\^/,'\^').split('=')
@@ -245,7 +245,7 @@ class Type
       end
     end
     associations.compact!
-    
+   
     @constraints = {}
     @invariants = {}
     @relations = associations

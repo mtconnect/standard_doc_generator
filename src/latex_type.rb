@@ -224,8 +224,10 @@ EOT
     relations_with_documentation =
       @relations.select do |r|
         $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target.type.nil?
-        (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and @model.name.split('Type')[0] != r.final_target.type.name
+        (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and @model.name.split('Type')[0] != r.final_target.type.name and r.visibility == 'public'
       end
+
+	
 
     unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
 
@@ -264,9 +266,11 @@ EOT
 	  relations_with_documentation.each do |r|
 		if r.name == 'Supertype'
 		  next
-		elsif (r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
+		elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
 			f.puts "\n\\paragraph{\\texttt{#{r.name}}}\\mbox{}\n"
-			if r.documentation
+			if r.association_doc
+			  f.puts "\\newline\\tab #{r.association_doc}\n"
+			else r.documentation
 			  f.puts "\\newline\\tab #{r.documentation}\n"
 			end
 			

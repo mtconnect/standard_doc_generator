@@ -35,7 +35,6 @@ class Model
     @type = e['xmi:type']
     @xmi = e
     @types = []
-    @is_opc = !((@name =~ /OPC/).nil?)
 
     comment = e.at('./ownedComment')
     @documentation = comment['body'].gsub(/<[\/]?[a-z]+>/, '') if comment
@@ -50,10 +49,6 @@ class Model
 
   def short_name
     @name.gsub(/[ _]/, '')
-  end
-
-  def is_opc?
-    @is_opc
   end
 
   def to_s

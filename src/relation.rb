@@ -59,8 +59,8 @@ module Relation
     include Extensions
     
     attr_reader :id, :name, :type, :xmi, :multiplicity,
-                :source, :target, :owner, :stereotype,
-                :constraints, :invariants, :assoc, :redefinesProperty, :default
+                :source, :target, :owner, :stereotype, :visibility, :association_name,
+                :constraints, :invariants, :assoc, :redefinesProperty, :default, :association_doc
     attr_accessor :documentation
 
     class Connection
@@ -93,6 +93,7 @@ module Relation
        
       @multiplicity, @optional = get_multiplicity(r)
       @assoc = r['association']
+	  @visibility = r['visibility'] ? r['visibility'] : 'public'
 
       @stereotype = xmi_stereotype(r)
       @documentation = xmi_documentation(r)
@@ -199,6 +200,10 @@ module Relation
       
       aid = r['association']
       assoc = r.document.at("//packagedElement[@xmi:id='#{aid}']")
+	  
+	  @association_doc = xmi_documentation(assoc)
+	  @association_name = assoc['name']
+	  
       src = assoc.at('./ownedEnd')
 	  return if not src
       @assoc_type = assoc['type']
@@ -265,7 +270,7 @@ module Relation
       @default = get_value(a, 'defaultValue')
 
 	  @redefinesProperty = a.at('./redefinedProperty') ? true : false
-
+	  
       @stereotype = xmi_stereotype(a)
       @documentation = xmi_documentation(a)
 
