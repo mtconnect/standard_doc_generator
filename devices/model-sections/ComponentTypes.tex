@@ -1,5 +1,18 @@
-% Generated 2020-01-29 13:56:33 -0500
+% Generated 2020-02-03 17:13:43 -0500
 \subsection{ComponentTypes} \label{model:ComponentTypes}
+
+Component Structural Elements are containers used to represent physical parts or logical functions of a piece of equipment.
+
+Component Structural Elements are defined into two major categories:
+
+	Top Level Component elements are used to group the Structural Elements repre720 senting the most significant physical or logical functions of a piece of equipment. The Top Level Component elements provided in an MTConnectDevices document SHOULD be restricted to those defined below. However, these Top Level Component elements MAY also be used as Lower Level Component elements; as required.
+
+	Lower Level Component elements are used to describe the sub-parts of the parent Component to provide more clarity and granularity to the physical or logical structure of the Top Level Component elements.
+
+This section of the Devices Information Model provides guidance for the most common relationships between Top Level Component elements and Lower Level child components. However, all Component elements MAY be used in any configuration, as required, to fully describe a piece of equipment.
+
+Since Component is an abstract type Structural Element within the Devices Information Model and will never appear directly in the MTConnectDevices document. As abstract type elements, Component will be replaced in the document by a specific Component type.
+
 \subsubsection[Actuator]{Actuator \\ {\small Subtype of Component}}
   \label{type:Actuator}
 
@@ -23,19 +36,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 
 {model:BarFeeder} is an XML container that represents the information for a unit involved in delivering bar stock to a piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of BarFeeder}}
-  \label{properties:BarFeeder}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[Environmental]{Environmental \\ {\small Subtype of Auxiliaries}}
   \label{type:Environmental}
@@ -43,19 +43,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 \FloatBarrier
 
 {model:Environmental} is an XML container that represents the information for a unit or function involved in monitoring, managing, or conditioning the environment around or within a piece of equipment.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Environmental}}
-  \label{properties:Environmental}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Loader]{Loader \\ {\small Subtype of Auxiliaries}}
@@ -65,19 +52,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 
 {model:Loader} is an XML container that represents the information for a unit comprised of all the parts involved in moving and distributing materials, parts, tooling, and other items to or from a piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Loader}}
-  \label{properties:Loader}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[Sensor]{Sensor \\ {\small Subtype of Auxiliaries}}
   \label{type:Sensor}
@@ -85,19 +59,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 \FloatBarrier
 
 The {term:sensor unit} is modeled as a {term:Lower Level} {model:Component} called {model:Sensor}.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Sensor}}
-  \label{properties:Sensor}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[ToolingDelivery]{ToolingDelivery \\ {\small Subtype of Auxiliaries}}
@@ -108,19 +69,6 @@ The {term:sensor unit} is modeled as a {term:Lower Level} {model:Component} call
 {model:ToolingDelivery} is an XML container that represents the information for a unit involved in managing, positioning, storing, and delivering tooling within a piece of equipment.
 
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ToolingDelivery}}
-  \label{properties:ToolingDelivery}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[WasteDisposal]{WasteDisposal \\ {\small Subtype of Auxiliaries}}
   \label{type:WasteDisposal}
@@ -129,19 +77,6 @@ The {term:sensor unit} is modeled as a {term:Lower Level} {model:Component} call
 
 {model:WasteDisposal} is an XML container that represents the information for a unit comprised of all the parts involved in removing manufacturing byproducts from a piece of equipment.
 
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of WasteDisposal}}
-  \label{properties:WasteDisposal}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Axes]{Axes \\ {\small Subtype of Component}}
@@ -159,19 +94,6 @@ An XML container used to organize the {term:Structural Elements} of a piece of e
 
 A {model:Linear} axis represents the movement of a physical piece of equipment, or a portion of the equipment, in a straight line. 
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Linear}}
-  \label{properties:Linear}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[Rotary]{Rotary \\ {\small Subtype of Axes}}
   \label{type:Rotary}
@@ -180,19 +102,6 @@ A {model:Linear} axis represents the movement of a physical piece of equipment, 
 
 A {model:Rotary} axis represents any non-linear or rotary movement of a physical piece of equipment or a portion of the equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Rotary}}
-  \label{properties:Rotary}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[Chuck]{Chuck \\ {\small Subtype of Rotary}}
   \label{type:Chuck}
@@ -200,19 +109,6 @@ A {model:Rotary} axis represents any non-linear or rotary movement of a physical
 \FloatBarrier
 
 Chuck is an XML container that provides the information about a mechanism that holds a part or stock material in place.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Chuck}}
-  \label{properties:Chuck}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Controller]{Controller \\ {\small Subtype of Component}}
@@ -229,19 +125,6 @@ An XML container used to organize information about an intelligent or computatio
 \FloatBarrier
 
 {model:Path} is an XML container that represents the information for an independent operation or function within a {model:Controller}.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Path}}
-  \label{properties:Path}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Deposition]{Deposition \\ {\small Subtype of Component}}
@@ -307,19 +190,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 
 {model:Materials} is an XML container that provides information about materials or other items consumed or used by the piece of equipment for production of parts, materials, or other types of goods.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Materials}}
-  \label{properties:Materials}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[Stock]{Stock \\ {\small Subtype of Materials}}
   \label{type:Stock}
@@ -327,19 +197,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 \FloatBarrier
 
 {model:Stock} is an XML container that represents the information for the material that is used in a manufacturing process and to which work is applied in a machine or piece of equipment to produce parts.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Stock}}
-  \label{properties:Stock}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Personnel]{Personnel \\ {\small Subtype of Resources}}
@@ -349,19 +206,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 
 {model:Personnel} is an XML container that provides information about an individual or individuals who either control, support, or otherwise interface with a piece of equipment.
 
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Personnel}}
-  \label{properties:Personnel}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Systems]{Systems \\ {\small Subtype of Component}}
@@ -379,19 +223,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 
 {model:Coolant} is an XML container that represents the information for a system comprised of all the parts involved in distribution and management of fluids that remove heat from a piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Coolant}}
-  \label{properties:Coolant}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[Dielectric]{Dielectric \\ {\small Subtype of Systems}}
   \label{type:Dielectric}
@@ -399,19 +230,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 \FloatBarrier
 
 {model:Dielectric} is an XML container that represents the information for a system that manages a chemical mixture used in a manufacturing process being performed at that piece of equipment.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Dielectric}}
-  \label{properties:Dielectric}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Electric]{Electric \\ {\small Subtype of Systems}}
@@ -421,19 +239,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 
 {model:Electric} is an XML container that represents the information for the main power supply for device piece of equipment and the distribution of that power throughout the equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Electric}}
-  \label{properties:Electric}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[Enclosure]{Enclosure \\ {\small Subtype of Systems}}
   \label{type:Enclosure}
@@ -441,19 +246,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 \FloatBarrier
 
 {model:Enclosure} is an XML container that represents the information for a structure used to contain or isolate a piece of equipment or area.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Enclosure}}
-  \label{properties:Enclosure}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Feeder]{Feeder \\ {\small Subtype of Systems}}
@@ -463,19 +255,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 
 {model:Feeder} is an XML container that represents the information for a system that manages the delivery of materials within a piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Feeder}}
-  \label{properties:Feeder}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[Hydraulic]{Hydraulic \\ {\small Subtype of Systems}}
   \label{type:Hydraulic}
@@ -483,19 +262,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 \FloatBarrier
 
 {model:Hydraulic} is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized liquid throughout the piece of equipment.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Hydraulic}}
-  \label{properties:Hydraulic}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Lubrication]{Lubrication \\ {\small Subtype of Systems}}
@@ -505,19 +271,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 
 {model:Lubrication} is an XML container that represents the information for a system comprised of all the parts involved in distribution and management of fluids used to lubricate portions of the piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Lubrication}}
-  \label{properties:Lubrication}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[Pneumatic]{Pneumatic \\ {\small Subtype of Systems}}
   \label{type:Pneumatic}
@@ -525,19 +278,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 \FloatBarrier
 
 {model:Pneumatic} is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized gas throughout the piece of equipment.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Pneumatic}}
-  \label{properties:Pneumatic}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[ProcessPower]{ProcessPower \\ {\small Subtype of Systems}}
@@ -547,19 +287,6 @@ An XML container used to organize information for {term:Lower Level} elements re
 
 {model:ProcessPower} is an XML container that represents the information for a power source associated with a piece of equipment that supplies energy to the manufacturing process separate from the {model:Electric} system.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ProcessPower}}
-  \label{properties:ProcessPower}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
 \FloatBarrier
 \subsubsection[Protective]{Protective \\ {\small Subtype of Systems}}
   \label{type:Protective}
@@ -567,18 +294,5 @@ An XML container used to organize information for {term:Lower Level} elements re
 \FloatBarrier
 
 Protective is an XML container that represents the information for those functions that detect or prevent harm or damage to equipment or personnel.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Protective}}
-  \label{properties:Protective}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier

@@ -1,11 +1,16 @@
-% Generated 2020-01-29 13:56:33 -0500
+% Generated 2020-02-03 17:13:43 -0500
 \subsection{Components} \label{model:Components}
+
+Components is a container used to group information describing physical parts or logical functions of a piece of equipment. Components contains one or more Component elements.
+
 \subsubsection{Component}
   \label{type:Component}
 
 \FloatBarrier
 
-Placeholder for documentation!
+An abstract element. Replaced in the document by types of Component elements representing physical parts and logical functions of a piece of equipment.
+
+There can be multiple types of Component elements in the document.
 
 \begin{table}[ht]
 \centering 
@@ -26,10 +31,8 @@ Placeholder for documentation!
 \texttt{hasComposition} & \texttt{Composition} & 0..* \\
 \texttt{hasComponent} & \texttt{Component} & 0..* \\
 \texttt{hasConfiguration} & \texttt{Configuration} & 0..* \\
-\texttt{isComponentOf} & \texttt{Component} & 0..1 \\
 \texttt{observes} & \texttt{DataItem} & 0..* \\
 \texttt{hasDataItemRef} & \texttt{DataItem} & 0..1 \\
-\texttt{isReferenceFor} & \texttt{Component} & 0..1 \\
 \texttt{hasComponentRef} & \texttt{Component} & 0..1 \\
 \texttt{madeObservation} & \texttt{Observation} & 0..* \\
 \end{tabu}
@@ -38,101 +41,111 @@ Placeholder for documentation!
 
 
 \paragraph{\texttt{id}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The unique identifier for this element.
+
+id is a required attribute.
+
+An id MUST be unique across all the id attributes in the document.
+
 
 \paragraph{\texttt{name}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The name of the Component element.
+
+name is an optional attribute.
+
+However, if there are multiple Lower Level components that have the same parent and are of the same component type (example Linear), then the name attribute MUST be provided for all Lower Level components of the same element type to differentiate between the similar components.
+
+When provided, name MUST be unique for all Lower Level components of a parent Component.
+
+
 
 \paragraph{\texttt{nativeName}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The common name normally associated with a specific physical or logical part of a piece of equipment.
+
+nativeName is an optional attribute.
 
 \paragraph{\texttt{sampleInterval}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab An optional attribute that is an indication provided by a piece of equipment describing the interval in milliseconds between the completion of the reading of the data associated with the Component element until the beginning of the
+next sampling of that data. This indication is reported as the number of milliseconds between data captures.
+
+This information may be used by client software applications to understand how often information from a piece of equipment for a specific Component element is expected to be refreshed.
+
+The refresh rate for data from all Lower Level Component elements will be the same as for the parent Component element unless specifically overridden by another sampleInterval provided for the Lower Level Component element.
+
+If the value of sampleInterval is less than one millisecond, the value will be represented as a floating-point number. For example, an interval of 100 microseconds would be 0.1.
 
 \paragraph{\texttt{sampleRate}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab DEPRECATED in MTConnect Version 1.2.
+
+Replaced by sampleInterval.
 
 \paragraph{\texttt{uuid}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab A unique identifier for this element.
+
+uuid is an optional attribute.
+
+The value provided for the uuid MUST be unique amongst all uuid identifiers used in an MTConnect installation.
+
+For example, this may be a combination of the manufacturer’s code and serial number. The uuid SHOULD be alphanumeric and not exceed 255 characters.
+
 
 \paragraph{\texttt{hasDescription}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab An element that can contain any descriptive content.
 
 \paragraph{\texttt{hasComposition}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab A container for the Composition elements (defined in Section 6 - Composition Type Structural Elements) associated with this Component element.
 
 \paragraph{\texttt{hasComponent}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab A container for Lower Level Component elements associated with this parent Component.
 
 \paragraph{\texttt{hasConfiguration}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{isComponentOf}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab An element that contains technical information about a piece of equipment describing its physical layout or functional characteristics.
 
 \paragraph{\texttt{observes}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab A container for the Data Entities (defined in Section 8 - Listing of Data Items) associated with this Component element.
 
 \paragraph{\texttt{hasDataItemRef}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{isReferenceFor}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab A container for the Reference elements associated with this Component element.
 
 \paragraph{\texttt{hasComponentRef}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab A container for the Reference elements associated with this Component element.
 
 \paragraph{\texttt{madeObservation}}\mbox{}
 \newline\tab Placeholder for documentation!
 \FloatBarrier
-\subsubsection[ComponentRef]{ComponentRef \\ {\small Subtype of Reference}}
-  \label{type:ComponentRef}
+\subsubsection[Device]{Device \\ {\small Subtype of Component}}
+  \label{type:Device}
 
 \FloatBarrier
 
-Placeholder for documentation!
+The primary container element for each piece of equipment. Device is organized within the Devices container. There MAY be multiple Device elements in a document.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of ComponentRef}}
-  \label{properties:ComponentRef}
+  \caption{\texttt{Properties of Device}}
+  \label{properties:Device}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+\texttt{<<deprecated>> iso841Class} & \texttt{string} & 0..1 \\
+\texttt{name} & \texttt{string} & 1 \\
+\texttt{uuid} & \texttt{NMTOKEN} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[DataItemRef]{DataItemRef \\ {\small Subtype of Reference}}
-  \label{type:DataItemRef}
 
-\FloatBarrier
-
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of DataItemRef}}
-  \label{properties:DataItemRef}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table}
-\FloatBarrier
-
+\paragraph{\texttt{iso841Class}}\mbox{}
+\newline\tab DEPRECATED in MTConnect Version 1.1.
 \FloatBarrier
 \subsubsection{Description}
   \label{type:Description}
 
 \FloatBarrier
 
-Placeholder for documentation!
+Description can contain any descriptive content about an element. This element is defined to contain mixed content and additional elements (indicated by the any element) MAY be added to extend the schema for Description.
 
 \begin{table}[ht]
 \centering 
@@ -154,17 +167,19 @@ Placeholder for documentation!
 
 
 \paragraph{\texttt{manufacturer}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The name of the manufacturer of the physical or logical part of a piece of equipment represented by the Component element.
 
 \paragraph{\texttt{model}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The model description of the physical part or logical function of a piece of equipment represented by the Component element.
 
 \paragraph{\texttt{serialNumber}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The serial number associated with the physical part or logical function of a piece of equipment represented by the Component element.
 
 \paragraph{\texttt{station}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The station where the physical part or logical function of a piece of equipment represented by the Component element is located when it is part of a manufacturing unit or cell with multiple stations.
 
 \paragraph{\texttt{value}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The content of Description MAY include any additional descriptive information the implementer chooses to include regarding the Component element. 
+
+This content SHOULD be limited to information not included elsewhere in the MTConnectDevices document.
 \FloatBarrier

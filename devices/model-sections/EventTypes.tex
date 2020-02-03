@@ -1,4 +1,4 @@
-% Generated 2020-01-29 13:56:33 -0500
+% Generated 2020-02-03 17:13:43 -0500
 \subsection{EventTypes} \label{model:EventTypes}
 \subsubsection[ActiveAxes]{ActiveAxes \\ {\small Subtype of Event}}
   \label{type:ActiveAxes}
@@ -39,6 +39,7 @@ Represents the operational state of an apparatus for moving or controlling a mec
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{ACTUATOR_STATE} & 1 \\
+\texttt{result} & \texttt{ActuatorStateEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -127,6 +128,7 @@ Represents the {term:Agent}'s ability to communicate with the data source.
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{AVAILABILITY} & 1 \\
+\texttt{result} & \texttt{AvailabilityEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -151,6 +153,7 @@ Describes the way the axes will be associated to each other.
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{AXIS_COUPLING} & 1 \\
+\texttt{result} & \texttt{AxisCouplingEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -261,6 +264,7 @@ An indicator of the state of the axis lockout function when power has been remov
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{AXIS_INTERLOCK} & 1 \\
+\texttt{result} & \texttt{ActuatorStateEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -283,6 +287,7 @@ An indicator of the controlled state of a {model:Linear} or {model:Rotary} compo
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{AXIS_STATE} & 1 \\
+\texttt{result} & \texttt{AxisStateEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -349,6 +354,7 @@ An indication of the state of an interlock function or control logic state inten
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{CHUCK_INTERLOCK} & 1 \\
+\texttt{result} & \texttt{ActuatorStateEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -395,6 +401,7 @@ An indication of the operating state of a mechanism that holds a part or stock m
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{CHUCK_STATE} & 1 \\
+\texttt{result} & \texttt{ChuckStateEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -625,6 +632,7 @@ The current operating mode of the {model:Controller} component.
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{CONTROLLER_MODE} & 1 \\
+\texttt{result} & \texttt{ControllerModeEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -647,6 +655,7 @@ A setting or operator selection that changes the behavior of a piece of equipmen
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{CONTROLLER_MODE_OVERRIDE} & 1 \\
+\texttt{result} & \texttt{ControllerModeOverrideEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -996,6 +1005,7 @@ The operational state of a {model:DOOR} type component or composition element.
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{DOOR_STATE} & 1 \\
+\texttt{result} & \texttt{ChuckStateEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1018,6 +1028,7 @@ The current state of the emergency stop signal for a piece of equipment, control
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{EMERGENCY_STOP} & 1 \\
+\texttt{result} & \texttt{EmergencyStopEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1040,6 +1051,7 @@ An indication of whether the end of a piece of bar stock being feed by a bar fee
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{END_OF_BAR} & 1 \\
+\texttt{result} & \texttt{EndOfBarEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1107,6 +1119,7 @@ An indication that a piece of equipment, or a sub-part of a piece of equipment, 
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{EQUIPMENT_MODE} & 1 \\
+\texttt{result} & \texttt{ControllerModeOverrideEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1239,6 +1252,7 @@ The execution status of the {model:Controller}.
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{EXECUTION} & 1 \\
+\texttt{result} & \texttt{ExecutionEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1261,6 +1275,7 @@ The current intended production status of the device or component.
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{FUNCTIONAL_MODE} & 1 \\
+\texttt{result} & \texttt{FunctionalModeEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1437,6 +1452,7 @@ An indication of the operational state of an {model:Interface} component.
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{INTERFACE_STATE} & 1 \\
+\texttt{result} & \texttt{InterfaceStateEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2234,6 +2250,7 @@ Describes the operational relationship between a {model:Path} {term:Structural E
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{PATH_MODE} & 1 \\
+\texttt{result} & \texttt{PathModeEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2256,6 +2273,7 @@ The indication of the status of the source of energy for a {term:Structural Elem
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{POWER_STATE} & 1 \\
+\texttt{result} & \texttt{ControllerModeOverrideEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2480,6 +2498,7 @@ An indication of the status of the {model:Controller} components program editing
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{PROGRAM_EDIT} & 1 \\
+\texttt{result} & \texttt{ProgramEditEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2752,6 +2771,7 @@ The current operating mode for a {model:Rotary} type axis.
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{ROTARY_MODE} & 1 \\
+\texttt{result} & \texttt{RotaryModeEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2819,6 +2839,7 @@ An indication of the status of the spindle for a piece of equipment when power h
 \rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{SPINDLE_INTERLOCK} & 1 \\
+\texttt{result} & \texttt{ActuatorStateEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2873,7 +2894,7 @@ An identifier for the tool group associated with a specific tool. Commonly used 
 
 \FloatBarrier
 
-*DEPRECATED* in Version 1.2.0.   See {model:TOOL_ASSET_ID}. &DEPRECATED:The identifier of the tool currently in use for a given {model:Path}.&
+*DEPRECATED* in Version 1.2.0.   See {model:TOOL_ASSET_ID}. *DEPRECATED:The identifier of the tool currently in use for a given {model:Path}.*
 
 \begin{table}[ht]
 \centering 
