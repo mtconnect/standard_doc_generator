@@ -40,14 +40,18 @@ DeviceModels = ['Components',
 				'DataItems',
 				'ConditionTypes',
 				'EventTypes',
-				'SampleTypes',
-				'Configuration',
+				'SampleTypes'
+				]
+				
+ConfigurationModels = ['Configuration',
 				'CoordinateSystems',
 				'Motion',
 				'Relationships',
 				'SensorConfiguration',
-				'Specifications',
-				'Profile']
+				'Specifications'
+				]
+
+ProfileModels = ['Profile']
 
 DeviceDirectory = File.join(File.dirname(__FILE__),'..','devices')
 DeviceDocumentFile = File.join(File.dirname(__FILE__),'..','devices','devices.tex')

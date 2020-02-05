@@ -289,19 +289,26 @@ EOT
   
   
   def generate_subtypes(f)
-	return if @is_subtype == true
+	return if @is_subtype == true or @subtypes.length == 0
+
+	f.puts "Subtypes of \\texttt{#{escape_name}} are : \n\n"
+	
+    f.puts <<EOT
+\\begin{itemize}
+
+EOT
 	
 	@subtypes.each do |subtype|
-	  	section_name = "[#{subtype.escape_name}]{#{subtype.escape_name} \\\\ {\\small Subtype of #{escape_name}}}"
+	  	subtype_name = subtype.escape_name.split(escape_name)[0]
 	  
-    f.puts <<EOT
-\\paragraph#{section_name}\\mbox{}
-  \\label{type:#{subtype.name}}
 
-\\FloatBarrier
-EOT
-	 f.puts "\n#{subtype.documentation}\n\n"
+	f.puts "\\item \\texttt{#{subtype_name}} : #{subtype.documentation}\n\n"
+	 
 	end
+    f.puts <<EOT
+\\end{itemize}
+
+EOT
 
   end
 
@@ -331,7 +338,7 @@ EOT
 EOT
       
       @literals.each do |lit|
-        f.puts "\\texttt{#{lit.name}} & #{lit.description.gsub(/(\^)2/,"$^2$")} \\\\"
+        f.puts "\\texttt{#{lit.name}} & #{lit.description.gsub(/(\^)/,"\\^{}")} \\\\"
       end
         
       f.puts <<EOT
