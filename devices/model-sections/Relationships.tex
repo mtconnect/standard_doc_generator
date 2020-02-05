@@ -1,0 +1,178 @@
+% Generated 2020-02-05 07:16:58 -0500
+\subsection{Relationships} \label{model:Relationships}
+\subsubsection{Relationship}
+  \label{type:Relationship}
+
+\FloatBarrier
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Relationship}}
+  \label{properties:Relationship}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{criticality} & \texttt{criticalityType} & 0..1 \\
+\texttt{id} & \texttt{ID} & 1 \\
+\texttt{name} & \texttt{string} & 0..1 \\
+\texttt{type} & \texttt{RelationshipType} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+\paragraph{\texttt{criticality}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{criticalityType} Enumeration}
+  \label{enum:criticalityType}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{CRITICAL} & Placeholder for documentation! \\
+\texttt{NONCRITICAL} & Placeholder for documentation! \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
+
+\paragraph{\texttt{id}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{name}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{type}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{RelationshipType} Enumeration}
+  \label{enum:RelationshipType}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{PARENT} & Placeholder for documentation! \\
+\texttt{CHILD} & Placeholder for documentation! \\
+\texttt{PEER} & Placeholder for documentation! \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
+\FloatBarrier
+\subsubsection[ComponentRelationship]{ComponentRelationship \\ {\small Subtype of Relationship}}
+  \label{type:ComponentRelationship}
+
+\FloatBarrier
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ComponentRelationship}}
+  \label{properties:ComponentRelationship}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{idRef} & \texttt{ID} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+\paragraph{\texttt{idRef}}\mbox{}
+\newline\tab Placeholder for documentation!
+\FloatBarrier
+\subsubsection[DeviceRelationship]{DeviceRelationship \\ {\small Subtype of Relationship}}
+  \label{type:DeviceRelationship}
+
+\FloatBarrier
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of DeviceRelationship}}
+  \label{properties:DeviceRelationship}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{deviceUuidRef} & \texttt{NMTOKEN} & 1 \\
+\texttt{href} & \texttt{xlinkhref} & 0..1 \\
+\texttt{role} & \texttt{roleType} & 0..1 \\
+\texttt{xlink:type} & \texttt{xlinktype} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+\paragraph{\texttt{deviceUuidRef}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{href}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{role}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{roleType} Enumeration}
+  \label{enum:roleType}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{SYSTEM} & Placeholder for documentation! \\
+\texttt{AUXILIARY} & Placeholder for documentation! \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
+
+\paragraph{\texttt{xlink:type}}\mbox{}
+\newline\tab Placeholder for documentation!
+\FloatBarrier
+\subsubsection[Relationships]{Relationships \\ {\small Subtype of Configuration}}
+  \label{type:Relationships}
+
+\FloatBarrier
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Relationships}}
+  \label{properties:Relationships}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{isRelatedTo} & \texttt{Relationship} & 1..* \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+\paragraph{\texttt{isRelatedTo}}\mbox{}
+\newline\tab Placeholder for documentation!
+\FloatBarrier

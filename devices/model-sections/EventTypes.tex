@@ -1,4 +1,4 @@
-% Generated 2020-02-03 17:13:43 -0500
+% Generated 2020-02-05 07:16:58 -0500
 \subsection{EventTypes} \label{model:EventTypes}
 \subsubsection[ActiveAxes]{ActiveAxes \\ {\small Subtype of Event}}
   \label{type:ActiveAxes}
@@ -12,11 +12,11 @@ The set of axes currently associated with a {model:Path} or {model:Controller} {
   \caption{\texttt{Properties of ActiveAxes}}
   \label{properties:ActiveAxes}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{ACTIVE_AXES} & 1 \\
+\texttt{type} & \texttt{ACTIVE_AXES} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -34,12 +34,12 @@ Represents the operational state of an apparatus for moving or controlling a mec
   \caption{\texttt{Properties of ActuatorState}}
   \label{properties:ActuatorState}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{ACTUATOR_STATE} & 1 \\
-\texttt{result} & \texttt{ActuatorStateEnum} & 0..1 \\
+\texttt{type} & \texttt{ACTUATOR_STATE} \\
+\texttt{result} & \texttt{ActuatorStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -57,11 +57,11 @@ Represents the operational state of an apparatus for moving or controlling a mec
   \caption{\texttt{Properties of Alarm}}
   \label{properties:Alarm}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{ALARM} & 1 \\
+\texttt{type} & \texttt{ALARM} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -79,11 +79,11 @@ The value of the {term:CDATA} for the event *MUST* be the {model:assetId} of the
   \caption{\texttt{Properties of AssetChanged}}
   \label{properties:AssetChanged}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{ASSET_CHANGED} & 1 \\
+\texttt{type} & \texttt{ASSET_CHANGED} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -101,11 +101,11 @@ The value of the {term:CDATA} for the event *MUST* be the {model:assetId} of the
   \caption{\texttt{Properties of AssetRemoved}}
   \label{properties:AssetRemoved}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{ASSET_REMOVED} & 1 \\
+\texttt{type} & \texttt{ASSET_REMOVED} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -123,12 +123,12 @@ Represents the {term:Agent}'s ability to communicate with the data source.
   \caption{\texttt{Properties of Availability}}
   \label{properties:Availability}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{AVAILABILITY} & 1 \\
-\texttt{result} & \texttt{AvailabilityEnum} & 0..1 \\
+\texttt{type} & \texttt{AVAILABILITY} \\
+\texttt{result} & \texttt{AvailabilityEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -148,12 +148,12 @@ Describes the way the axes will be associated to each other.
   \caption{\texttt{Properties of AxisCoupling}}
   \label{properties:AxisCoupling}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{AXIS_COUPLING} & 1 \\
-\texttt{result} & \texttt{AxisCouplingEnum} & 0..1 \\
+\texttt{type} & \texttt{AXIS_COUPLING} \\
+\texttt{result} & \texttt{AxisCouplingEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -171,80 +171,35 @@ The value of a signal or calculation issued to adjust the feedrate of an individ
   \caption{\texttt{Properties of AxisFeedrateOverride}}
   \label{properties:AxisFeedrateOverride}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{AXIS_FEEDRATE_OVERRIDE} & 1 \\
+\texttt{type} & \texttt{AXIS_FEEDRATE_OVERRIDE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[JogAxisFeedrateOverride]{JogAxisFeedrateOverride \\ {\small Subtype of AxisFeedrateOverride}}
+\paragraph[JogAxisFeedrateOverride]{JogAxisFeedrateOverride \\ {\small Subtype of AxisFeedrateOverride}}\mbox{}
   \label{type:JogAxisFeedrateOverride}
 
 \FloatBarrier
 
 The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of JogAxisFeedrateOverride}}
-  \label{properties:JogAxisFeedrateOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{JOG} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[ProgrammedAxisFeedrateOverride]{ProgrammedAxisFeedrateOverride \\ {\small Subtype of AxisFeedrateOverride}}
+\paragraph[ProgrammedAxisFeedrateOverride]{ProgrammedAxisFeedrateOverride \\ {\small Subtype of AxisFeedrateOverride}}\mbox{}
   \label{type:ProgrammedAxisFeedrateOverride}
 
 \FloatBarrier
 
 The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ProgrammedAxisFeedrateOverride}}
-  \label{properties:ProgrammedAxisFeedrateOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{PROGRAMMED} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[RapidAxisFeedrateOverride]{RapidAxisFeedrateOverride \\ {\small Subtype of AxisFeedrateOverride}}
+\paragraph[RapidAxisFeedrateOverride]{RapidAxisFeedrateOverride \\ {\small Subtype of AxisFeedrateOverride}}\mbox{}
   \label{type:RapidAxisFeedrateOverride}
 
 \FloatBarrier
 
 The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of RapidAxisFeedrateOverride}}
-  \label{properties:RapidAxisFeedrateOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{RAPID} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[AxisInterlock]{AxisInterlock \\ {\small Subtype of Event}}
@@ -259,12 +214,12 @@ An indicator of the state of the axis lockout function when power has been remov
   \caption{\texttt{Properties of AxisInterlock}}
   \label{properties:AxisInterlock}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{AXIS_INTERLOCK} & 1 \\
-\texttt{result} & \texttt{ActuatorStateEnum} & 0..1 \\
+\texttt{type} & \texttt{AXIS_INTERLOCK} \\
+\texttt{result} & \texttt{ActuatorStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -282,12 +237,12 @@ An indicator of the controlled state of a {model:Linear} or {model:Rotary} compo
   \caption{\texttt{Properties of AxisState}}
   \label{properties:AxisState}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{AXIS_STATE} & 1 \\
-\texttt{result} & \texttt{AxisStateEnum} & 0..1 \\
+\texttt{type} & \texttt{AXIS_STATE} \\
+\texttt{result} & \texttt{AxisStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -305,11 +260,11 @@ The line of code or command being executed by a {model:Controller} {term:Structu
   \caption{\texttt{Properties of Block}}
   \label{properties:Block}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{BLOCK} & 1 \\
+\texttt{type} & \texttt{BLOCK} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -327,11 +282,11 @@ The total count of the number of blocks of program code that have been executed 
   \caption{\texttt{Properties of BlockCount}}
   \label{properties:BlockCount}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{BLOCK_COUNT} & 1 \\
+\texttt{type} & \texttt{BLOCK_COUNT} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -349,18 +304,17 @@ An indication of the state of an interlock function or control logic state inten
   \caption{\texttt{Properties of ChuckInterlock}}
   \label{properties:ChuckInterlock}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{CHUCK_INTERLOCK} & 1 \\
-\texttt{result} & \texttt{ActuatorStateEnum} & 0..1 \\
+\texttt{type} & \texttt{CHUCK_INTERLOCK} \\
+\texttt{result} & \texttt{ActuatorStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[ManualUnclampChuckInterlock]{ManualUnclampChuckInterlock \\ {\small Subtype of ChuckInterlock}}
+\paragraph[ManualUnclampChuckInterlock]{ManualUnclampChuckInterlock \\ {\small Subtype of ChuckInterlock}}\mbox{}
   \label{type:ManualUnclampChuckInterlock}
 
 \FloatBarrier
@@ -368,20 +322,6 @@ An indication of the state of an interlock function or control logic state inten
 An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
  The {term:Valid Data Value} *MUST* be {model:ACTIVE} or {model:INACTIVE}. 
  When {model:MANUAL_UNCLAMP} is {model:ACTIVE}, it is expected that a chuck cannot be unclamped until {model:MANUAL_UNCLAMP} is set to {model:INACTIVE}. 
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ManualUnclampChuckInterlock}}
-  \label{properties:ManualUnclampChuckInterlock}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{MANUAL_UNCLAMP} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[ChuckState]{ChuckState \\ {\small Subtype of Event}}
@@ -396,12 +336,12 @@ An indication of the operating state of a mechanism that holds a part or stock m
   \caption{\texttt{Properties of ChuckState}}
   \label{properties:ChuckState}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{CHUCK_STATE} & 1 \\
-\texttt{result} & \texttt{ChuckStateEnum} & 0..1 \\
+\texttt{type} & \texttt{CHUCK_STATE} \\
+\texttt{result} & \texttt{ChuckStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -419,11 +359,11 @@ Service to close a chuck.
   \caption{\texttt{Properties of CloseChuck}}
   \label{properties:CloseChuck}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{CLOSE_CHUCK} & 1 \\
+\texttt{type} & \texttt{CLOSE_CHUCK} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -441,11 +381,11 @@ Service to close a door.
   \caption{\texttt{Properties of CloseDoor}}
   \label{properties:CloseDoor}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{CLOSE_DOOR} & 1 \\
+\texttt{type} & \texttt{CLOSE_DOOR} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -463,11 +403,11 @@ Service to close a door.
   \caption{\texttt{Properties of Code}}
   \label{properties:Code}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{CODE} & 1 \\
+\texttt{type} & \texttt{CODE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -485,17 +425,16 @@ An indication of the operating condition of a mechanism represented by a {model:
   \caption{\texttt{Properties of CompositionState}}
   \label{properties:CompositionState}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{COMPOSITION_STATE} & 1 \\
+\texttt{type} & \texttt{COMPOSITION_STATE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[ActionCompositionState]{ActionCompositionState \\ {\small Subtype of CompositionState}}
+\paragraph[ActionCompositionState]{ActionCompositionState \\ {\small Subtype of CompositionState}}\mbox{}
   \label{type:ActionCompositionState}
 
 \FloatBarrier
@@ -504,22 +443,7 @@ An indication of the operating state of a mechanism represented by a {model:Comp
  The operating state indicates whether the {model:Composition} element is activated or disabled. 
  The {term:Valid Data Value} *MUST* be {model:ACTIVE} or {model:INACTIVE}.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ActionCompositionState}}
-  \label{properties:ActionCompositionState}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{ACTION} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[LateralCompositionState]{LateralCompositionState \\ {\small Subtype of CompositionState}}
+\paragraph[LateralCompositionState]{LateralCompositionState \\ {\small Subtype of CompositionState}}\mbox{}
   \label{type:LateralCompositionState}
 
 \FloatBarrier
@@ -528,22 +452,7 @@ An indication of the position of a mechanism that may move in a lateral directio
  The position information indicates whether the {model:Composition} element is positioned to the right, to the left, or is in transition.  
  The {term:Valid Data Value} *MUST* be {model:RIGHT}, {model:LEFT}, or {model:TRANSITIONING}.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of LateralCompositionState}}
-  \label{properties:LateralCompositionState}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{LATERAL} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[MotionCompositionState]{MotionCompositionState \\ {\small Subtype of CompositionState}}
+\paragraph[MotionCompositionState]{MotionCompositionState \\ {\small Subtype of CompositionState}}\mbox{}
   \label{type:MotionCompositionState}
 
 \FloatBarrier
@@ -552,22 +461,7 @@ An indication of the open or closed state of a mechanism.   The mechanism is rep
  The operating state indicates whether the state of the {model:Composition} element is open, closed, or unlatched.   
  The {term:Valid Data Value} *MUST* be {model:OPEN}, {model:UNLATCHED}, or {model:CLOSED}.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of MotionCompositionState}}
-  \label{properties:MotionCompositionState}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{MOTION} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[SwitchedCompositionState]{SwitchedCompositionState \\ {\small Subtype of CompositionState}}
+\paragraph[SwitchedCompositionState]{SwitchedCompositionState \\ {\small Subtype of CompositionState}}\mbox{}
   \label{type:SwitchedCompositionState}
 
 \FloatBarrier
@@ -576,22 +470,7 @@ An indication of the activation state of a mechanism represented by a {model:Com
  The activation state indicates whether the {model:Composition} element is activated or not.
  The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of SwitchedCompositionState}}
-  \label{properties:SwitchedCompositionState}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{SWITCHED} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[VerticalCompositionState]{VerticalCompositionState \\ {\small Subtype of CompositionState}}
+\paragraph[VerticalCompositionState]{VerticalCompositionState \\ {\small Subtype of CompositionState}}\mbox{}
   \label{type:VerticalCompositionState}
 
 \FloatBarrier
@@ -599,20 +478,6 @@ An indication of the activation state of a mechanism represented by a {model:Com
 An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a {model:Composition} type component. 
  The position information indicates whether the {model:Composition} element is positioned to the top, to the bottom, or is in transition.  
  The {term:Valid Data Value} *MUST* be {model:UP}, {model:DOWN}, or {model:TRANSITIONING}.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of VerticalCompositionState}}
-  \label{properties:VerticalCompositionState}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{VERTICAL} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[ControllerMode]{ControllerMode \\ {\small Subtype of Event}}
@@ -627,12 +492,12 @@ The current operating mode of the {model:Controller} component.
   \caption{\texttt{Properties of ControllerMode}}
   \label{properties:ControllerMode}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{CONTROLLER_MODE} & 1 \\
-\texttt{result} & \texttt{ControllerModeEnum} & 0..1 \\
+\texttt{type} & \texttt{CONTROLLER_MODE} \\
+\texttt{result} & \texttt{ControllerModeEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -650,18 +515,17 @@ A setting or operator selection that changes the behavior of a piece of equipmen
   \caption{\texttt{Properties of ControllerModeOverride}}
   \label{properties:ControllerModeOverride}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{CONTROLLER_MODE_OVERRIDE} & 1 \\
-\texttt{result} & \texttt{ControllerModeOverrideEnum} & 0..1 \\
+\texttt{type} & \texttt{CONTROLLER_MODE_OVERRIDE} \\
+\texttt{result} & \texttt{ControllerModeOverrideEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[DryRunControllerModeOverride]{DryRunControllerModeOverride \\ {\small Subtype of ControllerModeOverride}}
+\paragraph[DryRunControllerModeOverride]{DryRunControllerModeOverride \\ {\small Subtype of ControllerModeOverride}}\mbox{}
   \label{type:DryRunControllerModeOverride}
 
 \FloatBarrier
@@ -670,47 +534,7 @@ A setting or operator selection used to execute a test mode to confirm the execu
  The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}. 
  When {model:DRY_RUN} is {model:ON}, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of DryRunControllerModeOverride}}
-  \label{properties:DryRunControllerModeOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{DRY_RUN} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[SingleBlockControllerModeOverride]{SingleBlockControllerModeOverride \\ {\small Subtype of ControllerModeOverride}}
-  \label{type:SingleBlockControllerModeOverride}
-
-\FloatBarrier
-
-A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}.
- Program execution is paused after each {model:BLOCK} of code is executed when {model:SINGLE_BLOCK} is {model:ON}.   
- When {model:SINGLE_BLOCK} is {model:ON}, {model:EXECUTION} *MUST* change to {model:INTERRUPTED} after completion of each {model:BLOCK} of code. 
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of SingleBlockControllerModeOverride}}
-  \label{properties:SingleBlockControllerModeOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{SINGLE_BLOCK} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[MachineAxisLockControllerModeOverride]{MachineAxisLockControllerModeOverride \\ {\small Subtype of ControllerModeOverride}}
+\paragraph[MachineAxisLockControllerModeOverride]{MachineAxisLockControllerModeOverride \\ {\small Subtype of ControllerModeOverride}}\mbox{}
   \label{type:MachineAxisLockControllerModeOverride}
 
 \FloatBarrier
@@ -719,22 +543,7 @@ A setting or operator selection that changes the behavior of the controller on a
  The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}. 
  When {model:MACHINE_AXIS_LOCK} is {model:ON}, program execution continues normally, but no equipment motion occurs 
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of MachineAxisLockControllerModeOverride}}
-  \label{properties:MachineAxisLockControllerModeOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{MACHINE_AXIS_LOCK} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[OptionalStopControllerModeOverride]{OptionalStopControllerModeOverride \\ {\small Subtype of ControllerModeOverride}}
+\paragraph[OptionalStopControllerModeOverride]{OptionalStopControllerModeOverride \\ {\small Subtype of ControllerModeOverride}}\mbox{}
   \label{type:OptionalStopControllerModeOverride}
 
 \FloatBarrier
@@ -745,22 +554,17 @@ A setting or operator selection that changes the behavior of the controller on a
  In the case of a G-Code program, a program {model:BLOCK} containing a M01 code designates the command for an {model:OPTIONAL_STOP}. 
  {model:EXECUTION} *MUST* change to {model:OPTIONAL_STOP} after a program block specifying an optional stop is executed and the {model:OPTIONAL_STOP} selection is {model:ON}.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of OptionalStopControllerModeOverride}}
-  \label{properties:OptionalStopControllerModeOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{OPTIONAL_STOP} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+\paragraph[SingleBlockControllerModeOverride]{SingleBlockControllerModeOverride \\ {\small Subtype of ControllerModeOverride}}\mbox{}
+  \label{type:SingleBlockControllerModeOverride}
 
 \FloatBarrier
-\subsubsection[ToolChangeStopControllerModeOverride]{ToolChangeStopControllerModeOverride \\ {\small Subtype of ControllerModeOverride}}
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}.
+ Program execution is paused after each {model:BLOCK} of code is executed when {model:SINGLE_BLOCK} is {model:ON}.   
+ When {model:SINGLE_BLOCK} is {model:ON}, {model:EXECUTION} *MUST* change to {model:INTERRUPTED} after completion of each {model:BLOCK} of code. 
+
+\paragraph[ToolChangeStopControllerModeOverride]{ToolChangeStopControllerModeOverride \\ {\small Subtype of ControllerModeOverride}}\mbox{}
   \label{type:ToolChangeStopControllerModeOverride}
 
 \FloatBarrier
@@ -769,20 +573,6 @@ A setting or operator selection that changes the behavior of the controller on a
  The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}. 
  Program execution is paused when a command is executed requesting a cutting tool to be changed. 
  {model:EXECUTION} *MUST* change to {model:INTERRUPTED} after completion of the command requesting a cutting tool to be changed and {model:TOOL_CHANGE_STOP} is {model:ON}.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ToolChangeStopControllerModeOverride}}
-  \label{properties:ToolChangeStopControllerModeOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{TOOL_CHANGE_STOP} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[CoupledAxes]{CoupledAxes \\ {\small Subtype of Event}}
@@ -797,11 +587,11 @@ Refers to the set of associated axes.
   \caption{\texttt{Properties of CoupledAxes}}
   \label{properties:CoupledAxes}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{COUPLED_AXES} & 1 \\
+\texttt{type} & \texttt{COUPLED_AXES} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -821,80 +611,35 @@ The time and date code associated with a material or other physical item.
   \caption{\texttt{Properties of DateCode}}
   \label{properties:DateCode}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{DATE_CODE} & 1 \\
+\texttt{type} & \texttt{DATE_CODE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[ManufactureDateCode]{ManufactureDateCode \\ {\small Subtype of DateCode}}
-  \label{type:ManufactureDateCode}
-
-\FloatBarrier
-
-The time and date code relating to the production of a material or other physical item.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ManufactureDateCode}}
-  \label{properties:ManufactureDateCode}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{MANUFACTURE} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[ExpirationDateCode]{ExpirationDateCode \\ {\small Subtype of DateCode}}
+\paragraph[ExpirationDateCode]{ExpirationDateCode \\ {\small Subtype of DateCode}}\mbox{}
   \label{type:ExpirationDateCode}
 
 \FloatBarrier
 
 The time and date code relating to the expiration or end of useful life for a material or other physical item.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ExpirationDateCode}}
-  \label{properties:ExpirationDateCode}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{EXPIRATION} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[FirstUseDateCode]{FirstUseDateCode \\ {\small Subtype of DateCode}}
+\paragraph[FirstUseDateCode]{FirstUseDateCode \\ {\small Subtype of DateCode}}\mbox{}
   \label{type:FirstUseDateCode}
 
 \FloatBarrier
 
 The time and date code relating the first use of a material or other physical item.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of FirstUseDateCode}}
-  \label{properties:FirstUseDateCode}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{FIRST_USE} & 1 \\
-\end{tabu}
-\end{table}
+\paragraph[ManufactureDateCode]{ManufactureDateCode \\ {\small Subtype of DateCode}}\mbox{}
+  \label{type:ManufactureDateCode}
+
 \FloatBarrier
+
+The time and date code relating to the production of a material or other physical item.
 
 \FloatBarrier
 \subsubsection[DeviceUuid]{DeviceUuid \\ {\small Subtype of Event}}
@@ -911,11 +656,11 @@ The identifier of another piece of equipment that is temporarily associated with
   \caption{\texttt{Properties of DeviceUuid}}
   \label{properties:DeviceUuid}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{DEVICE_UUID} & 1 \\
+\texttt{type} & \texttt{DEVICE_UUID} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -933,59 +678,29 @@ The direction of motion.
   \caption{\texttt{Properties of Direction}}
   \label{properties:Direction}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{DIRECTION} & 1 \\
+\texttt{type} & \texttt{DIRECTION} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[RotaryDirection]{RotaryDirection \\ {\small Subtype of Direction}}
-  \label{type:RotaryDirection}
-
-\FloatBarrier
-
-The rotational direction of a rotary motion using the right hand rule convention.
- The {term:Valid Data Value} *MUST* be {model:CLOCKWISE} or {model:COUNTER_CLOCKWISE}.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of RotaryDirection}}
-  \label{properties:RotaryDirection}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{ROTARY} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[LinearDirection]{LinearDirection \\ {\small Subtype of Direction}}
+\paragraph[LinearDirection]{LinearDirection \\ {\small Subtype of Direction}}\mbox{}
   \label{type:LinearDirection}
 
 \FloatBarrier
 
 The direction of motion of a linear motion.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of LinearDirection}}
-  \label{properties:LinearDirection}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{LINEAR} & 1 \\
-\end{tabu}
-\end{table}
+\paragraph[RotaryDirection]{RotaryDirection \\ {\small Subtype of Direction}}\mbox{}
+  \label{type:RotaryDirection}
+
 \FloatBarrier
+
+The rotational direction of a rotary motion using the right hand rule convention.
+ The {term:Valid Data Value} *MUST* be {model:CLOCKWISE} or {model:COUNTER_CLOCKWISE}.
 
 \FloatBarrier
 \subsubsection[DoorState]{DoorState \\ {\small Subtype of Event}}
@@ -1000,12 +715,12 @@ The operational state of a {model:DOOR} type component or composition element.
   \caption{\texttt{Properties of DoorState}}
   \label{properties:DoorState}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{DOOR_STATE} & 1 \\
-\texttt{result} & \texttt{ChuckStateEnum} & 0..1 \\
+\texttt{type} & \texttt{DOOR_STATE} \\
+\texttt{result} & \texttt{ChuckStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1023,12 +738,12 @@ The current state of the emergency stop signal for a piece of equipment, control
   \caption{\texttt{Properties of EmergencyStop}}
   \label{properties:EmergencyStop}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{EMERGENCY_STOP} & 1 \\
-\texttt{result} & \texttt{EmergencyStopEnum} & 0..1 \\
+\texttt{type} & \texttt{EMERGENCY_STOP} \\
+\texttt{result} & \texttt{EmergencyStopEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1046,60 +761,30 @@ An indication of whether the end of a piece of bar stock being feed by a bar fee
   \caption{\texttt{Properties of EndOfBar}}
   \label{properties:EndOfBar}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{END_OF_BAR} & 1 \\
-\texttt{result} & \texttt{EndOfBarEnum} & 0..1 \\
+\texttt{type} & \texttt{END_OF_BAR} \\
+\texttt{result} & \texttt{EndOfBarEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[PrimaryEndOfBar]{PrimaryEndOfBar \\ {\small Subtype of EndOfBar}}
-  \label{type:PrimaryEndOfBar}
-
-\FloatBarrier
-
-Specific applications *MAY* reference one or more locations on a piece of bar stock as the indication for the {model:END_OF_BAR}. The main or most important location *MUST* be designated as the {model:PRIMARY} indication for the {model:END_OF_BAR}.   
- If no {model:subType} is specified, {model:PRIMARY} *MUST* be the default {model:END_OF_BAR} indication.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of PrimaryEndOfBar}}
-  \label{properties:PrimaryEndOfBar}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{PRIMARY} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[AuxiliaryEndOfBar]{AuxiliaryEndOfBar \\ {\small Subtype of EndOfBar}}
+\paragraph[AuxiliaryEndOfBar]{AuxiliaryEndOfBar \\ {\small Subtype of EndOfBar}}\mbox{}
   \label{type:AuxiliaryEndOfBar}
 
 \FloatBarrier
 
 When multiple locations on a piece of bar stock are referenced as the indication for the {model:END_OF_BAR}, the additional location(s) *MUST* be designated as {model:AUXILIARY} indication(s) for the {model:END_OF_BAR}.  
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of AuxiliaryEndOfBar}}
-  \label{properties:AuxiliaryEndOfBar}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{AUXILIARY} & 1 \\
-\end{tabu}
-\end{table}
+\paragraph[PrimaryEndOfBar]{PrimaryEndOfBar \\ {\small Subtype of EndOfBar}}\mbox{}
+  \label{type:PrimaryEndOfBar}
+
 \FloatBarrier
+
+Specific applications *MAY* reference one or more locations on a piece of bar stock as the indication for the {model:END_OF_BAR}. The main or most important location *MUST* be designated as the {model:PRIMARY} indication for the {model:END_OF_BAR}.   
+ If no {model:subType} is specified, {model:PRIMARY} *MUST* be the default {model:END_OF_BAR} indication.
 
 \FloatBarrier
 \subsubsection[EquipmentMode]{EquipmentMode \\ {\small Subtype of Event}}
@@ -1114,125 +799,50 @@ An indication that a piece of equipment, or a sub-part of a piece of equipment, 
   \caption{\texttt{Properties of EquipmentMode}}
   \label{properties:EquipmentMode}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{EQUIPMENT_MODE} & 1 \\
-\texttt{result} & \texttt{ControllerModeOverrideEnum} & 0..1 \\
+\texttt{type} & \texttt{EQUIPMENT_MODE} \\
+\texttt{result} & \texttt{ControllerModeOverrideEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[LoadedEquipmentMode]{LoadedEquipmentMode \\ {\small Subtype of EquipmentMode}}
-  \label{type:LoadedEquipmentMode}
-
-\FloatBarrier
-
-Subparts of a piece of equipment are under load.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of LoadedEquipmentMode}}
-  \label{properties:LoadedEquipmentMode}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{LOADED} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[WorkingEquipmentMode]{WorkingEquipmentMode \\ {\small Subtype of EquipmentMode}}
-  \label{type:WorkingEquipmentMode}
-
-\FloatBarrier
-
-A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of WorkingEquipmentMode}}
-  \label{properties:WorkingEquipmentMode}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{WORKING} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[OperatingEquipmentMode]{OperatingEquipmentMode \\ {\small Subtype of EquipmentMode}}
-  \label{type:OperatingEquipmentMode}
-
-\FloatBarrier
-
-A piece of equipment are powered or performing any activity.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of OperatingEquipmentMode}}
-  \label{properties:OperatingEquipmentMode}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{OPERATING} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[PoweredEquipmentMode]{PoweredEquipmentMode \\ {\small Subtype of EquipmentMode}}
-  \label{type:PoweredEquipmentMode}
-
-\FloatBarrier
-
-Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of PoweredEquipmentMode}}
-  \label{properties:PoweredEquipmentMode}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{POWERED} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[DelayEquipmentMode]{DelayEquipmentMode \\ {\small Subtype of EquipmentMode}}
+\paragraph[DelayEquipmentMode]{DelayEquipmentMode \\ {\small Subtype of EquipmentMode}}\mbox{}
   \label{type:DelayEquipmentMode}
 
 \FloatBarrier
 
 A piece of equipment waiting for an event or an action to occur.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of DelayEquipmentMode}}
-  \label{properties:DelayEquipmentMode}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{DELAY} & 1 \\
-\end{tabu}
-\end{table}
+\paragraph[LoadedEquipmentMode]{LoadedEquipmentMode \\ {\small Subtype of EquipmentMode}}\mbox{}
+  \label{type:LoadedEquipmentMode}
+
 \FloatBarrier
+
+Subparts of a piece of equipment are under load.
+
+\paragraph[OperatingEquipmentMode]{OperatingEquipmentMode \\ {\small Subtype of EquipmentMode}}\mbox{}
+  \label{type:OperatingEquipmentMode}
+
+\FloatBarrier
+
+A piece of equipment are powered or performing any activity.
+
+\paragraph[PoweredEquipmentMode]{PoweredEquipmentMode \\ {\small Subtype of EquipmentMode}}\mbox{}
+  \label{type:PoweredEquipmentMode}
+
+\FloatBarrier
+
+Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
+
+\paragraph[WorkingEquipmentMode]{WorkingEquipmentMode \\ {\small Subtype of EquipmentMode}}\mbox{}
+  \label{type:WorkingEquipmentMode}
+
+\FloatBarrier
+
+A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
 
 \FloatBarrier
 \subsubsection[Execution]{Execution \\ {\small Subtype of Event}}
@@ -1247,12 +857,12 @@ The execution status of the {model:Controller}.
   \caption{\texttt{Properties of Execution}}
   \label{properties:Execution}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{EXECUTION} & 1 \\
-\texttt{result} & \texttt{ExecutionEnum} & 0..1 \\
+\texttt{type} & \texttt{EXECUTION} \\
+\texttt{result} & \texttt{ExecutionEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1270,12 +880,12 @@ The current intended production status of the device or component.
   \caption{\texttt{Properties of FunctionalMode}}
   \label{properties:FunctionalMode}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{FUNCTIONAL_MODE} & 1 \\
-\texttt{result} & \texttt{FunctionalModeEnum} & 0..1 \\
+\texttt{type} & \texttt{FUNCTIONAL_MODE} \\
+\texttt{result} & \texttt{FunctionalModeEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1293,146 +903,56 @@ The measurement of the hardness of a material.
   \caption{\texttt{Properties of Hardness}}
   \label{properties:Hardness}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{HARDNESS} & 1 \\
+\texttt{type} & \texttt{HARDNESS} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[RockwellHardness]{RockwellHardness \\ {\small Subtype of Hardness}}
-  \label{type:RockwellHardness}
-
-\FloatBarrier
-
-A scale to measure the resistance to deformation of a surface.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of RockwellHardness}}
-  \label{properties:RockwellHardness}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{ROCKWELL} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[VickersHardness]{VickersHardness \\ {\small Subtype of Hardness}}
-  \label{type:VickersHardness}
-
-\FloatBarrier
-
-A scale to measure the resistance to deformation of a surface.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of VickersHardness}}
-  \label{properties:VickersHardness}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{VICKERS} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[ShoreHardness]{ShoreHardness \\ {\small Subtype of Hardness}}
-  \label{type:ShoreHardness}
-
-\FloatBarrier
-
-A scale to measure the resistance to deformation of a surface.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ShoreHardness}}
-  \label{properties:ShoreHardness}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{SHORE} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[BrinellHardness]{BrinellHardness \\ {\small Subtype of Hardness}}
+\paragraph[BrinellHardness]{BrinellHardness \\ {\small Subtype of Hardness}}\mbox{}
   \label{type:BrinellHardness}
 
 \FloatBarrier
 
 A scale to measure the resistance to deformation of a surface.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of BrinellHardness}}
-  \label{properties:BrinellHardness}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{BRINELL} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[LeebHardness]{LeebHardness \\ {\small Subtype of Hardness}}
+\paragraph[LeebHardness]{LeebHardness \\ {\small Subtype of Hardness}}\mbox{}
   \label{type:LeebHardness}
 
 \FloatBarrier
 
 A scale to measure the elasticity of a surface.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of LeebHardness}}
-  \label{properties:LeebHardness}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{LEEB} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[MohsHardness]{MohsHardness \\ {\small Subtype of Hardness}}
+\paragraph[MohsHardness]{MohsHardness \\ {\small Subtype of Hardness}}\mbox{}
   \label{type:MohsHardness}
 
 \FloatBarrier
 
 A scale to measure the resistance to scratching of a surface.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of MohsHardness}}
-  \label{properties:MohsHardness}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{MOHS} & 1 \\
-\end{tabu}
-\end{table}
+\paragraph[RockwellHardness]{RockwellHardness \\ {\small Subtype of Hardness}}\mbox{}
+  \label{type:RockwellHardness}
+
 \FloatBarrier
+
+A scale to measure the resistance to deformation of a surface.
+
+\paragraph[ShoreHardness]{ShoreHardness \\ {\small Subtype of Hardness}}\mbox{}
+  \label{type:ShoreHardness}
+
+\FloatBarrier
+
+A scale to measure the resistance to deformation of a surface.
+
+\paragraph[VickersHardness]{VickersHardness \\ {\small Subtype of Hardness}}\mbox{}
+  \label{type:VickersHardness}
+
+\FloatBarrier
+
+A scale to measure the resistance to deformation of a surface.
 
 \FloatBarrier
 \subsubsection[InterfaceState]{InterfaceState \\ {\small Subtype of Event}}
@@ -1447,12 +967,12 @@ An indication of the operational state of an {model:Interface} component.
   \caption{\texttt{Properties of InterfaceState}}
   \label{properties:InterfaceState}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{INTERFACE_STATE} & 1 \\
-\texttt{result} & \texttt{InterfaceStateEnum} & 0..1 \\
+\texttt{type} & \texttt{INTERFACE_STATE} \\
+\texttt{result} & \texttt{InterfaceStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1470,58 +990,28 @@ An indication of the operational state of an {model:Interface} component.
   \caption{\texttt{Properties of Line}}
   \label{properties:Line}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{LINE} & 1 \\
+\texttt{type} & \texttt{LINE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[MaximumLine]{MaximumLine \\ {\small Subtype of Line}}
+\paragraph[MaximumLine]{MaximumLine \\ {\small Subtype of Line}}\mbox{}
   \label{type:MaximumLine}
 
 \FloatBarrier
 
 Maximum value of a data entity or attribute.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of MaximumLine}}
-  \label{properties:MaximumLine}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{MAXIMUM} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[MinimumLine]{MinimumLine \\ {\small Subtype of Line}}
+\paragraph[MinimumLine]{MinimumLine \\ {\small Subtype of Line}}\mbox{}
   \label{type:MinimumLine}
 
 \FloatBarrier
 
 The minimum value of a data entity or attribute.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of MinimumLine}}
-  \label{properties:MinimumLine}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{MINIMUM} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[LineLabel]{LineLabel \\ {\small Subtype of Event}}
@@ -1536,11 +1026,11 @@ An optional identifier for a {model:BLOCK} of code in a {model:PROGRAM}.
   \caption{\texttt{Properties of LineLabel}}
   \label{properties:LineLabel}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{LINE_LABEL} & 1 \\
+\texttt{type} & \texttt{LINE_LABEL} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1558,58 +1048,28 @@ A reference to the position of a block of program code within a control program.
   \caption{\texttt{Properties of LineNumber}}
   \label{properties:LineNumber}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{LINE_NUMBER} & 1 \\
+\texttt{type} & \texttt{LINE_NUMBER} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[AbsoluteLineNumber]{AbsoluteLineNumber \\ {\small Subtype of LineNumber}}
+\paragraph[AbsoluteLineNumber]{AbsoluteLineNumber \\ {\small Subtype of LineNumber}}\mbox{}
   \label{type:AbsoluteLineNumber}
 
 \FloatBarrier
 
 The position of a block of program code relative to the beginning of the control program.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of AbsoluteLineNumber}}
-  \label{properties:AbsoluteLineNumber}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{ABSOLUTE} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[IncrementalLineNumber]{IncrementalLineNumber \\ {\small Subtype of LineNumber}}
+\paragraph[IncrementalLineNumber]{IncrementalLineNumber \\ {\small Subtype of LineNumber}}\mbox{}
   \label{type:IncrementalLineNumber}
 
 \FloatBarrier
 
 The position of a block of program code relative to the occurrence of the last {model:LINE_LABEL} encountered in the control program.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of IncrementalLineNumber}}
-  \label{properties:IncrementalLineNumber}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{INCREMENTAL} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Material]{Material \\ {\small Subtype of Event}}
@@ -1624,11 +1084,11 @@ The identifier of a material used or consumed in the manufacturing process.
   \caption{\texttt{Properties of Material}}
   \label{properties:Material}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{MATERIAL} & 1 \\
+\texttt{type} & \texttt{MATERIAL} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1646,11 +1106,11 @@ Service to change the type of material or product being loaded or fed to a piece
   \caption{\texttt{Properties of MaterialChange}}
   \label{properties:MaterialChange}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{MATERIAL_CHANGE} & 1 \\
+\texttt{type} & \texttt{MATERIAL_CHANGE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1668,11 +1128,11 @@ Service to advance material or feed product to a piece of equipment from a conti
   \caption{\texttt{Properties of MaterialFeed}}
   \label{properties:MaterialFeed}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{MATERIAL_FEED} & 1 \\
+\texttt{type} & \texttt{MATERIAL_FEED} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1692,58 +1152,28 @@ Identifies the layers of material applied to a part or product as part of an add
   \caption{\texttt{Properties of MaterialLayer}}
   \label{properties:MaterialLayer}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{MATERIAL_LAYER} & 1 \\
+\texttt{type} & \texttt{MATERIAL_LAYER} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[ActualMaterialLayer]{ActualMaterialLayer \\ {\small Subtype of MaterialLayer}}
+\paragraph[ActualMaterialLayer]{ActualMaterialLayer \\ {\small Subtype of MaterialLayer}}\mbox{}
   \label{type:ActualMaterialLayer}
 
 \FloatBarrier
 
 The measured value of the data item type given by a sensor or encoder.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ActualMaterialLayer}}
-  \label{properties:ActualMaterialLayer}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{ACTUAL} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[TargetMaterialLayer]{TargetMaterialLayer \\ {\small Subtype of MaterialLayer}}
+\paragraph[TargetMaterialLayer]{TargetMaterialLayer \\ {\small Subtype of MaterialLayer}}\mbox{}
   \label{type:TargetMaterialLayer}
 
 \FloatBarrier
 
 The desired measure or count for a data item value.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of TargetMaterialLayer}}
-  \label{properties:TargetMaterialLayer}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{TARGET} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[MaterialLoad]{MaterialLoad \\ {\small Subtype of Event}}
@@ -1758,11 +1188,11 @@ Service to load a piece of material or product.
   \caption{\texttt{Properties of MaterialLoad}}
   \label{properties:MaterialLoad}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{MATERIAL_LOAD} & 1 \\
+\texttt{type} & \texttt{MATERIAL_LOAD} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1780,11 +1210,11 @@ Service to remove or retract material or product.
   \caption{\texttt{Properties of MaterialRetract}}
   \label{properties:MaterialRetract}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{MATERIAL_RETRACT} & 1 \\
+\texttt{type} & \texttt{MATERIAL_RETRACT} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1802,11 +1232,11 @@ Service to unload a piece of material or product.
   \caption{\texttt{Properties of MaterialUnload}}
   \label{properties:MaterialUnload}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{MATERIAL_UNLOAD} & 1 \\
+\texttt{type} & \texttt{MATERIAL_UNLOAD} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1824,11 +1254,11 @@ Any text string of information to be transferred from a piece of equipment to a 
   \caption{\texttt{Properties of Message}}
   \label{properties:Message}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{MESSAGE} & 1 \\
+\texttt{type} & \texttt{MESSAGE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1846,11 +1276,11 @@ Service to open a chuck.
   \caption{\texttt{Properties of OpenChuck}}
   \label{properties:OpenChuck}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{OPEN_CHUCK} & 1 \\
+\texttt{type} & \texttt{OPEN_CHUCK} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1868,11 +1298,11 @@ Service to open a door.
   \caption{\texttt{Properties of OpenDoor}}
   \label{properties:OpenDoor}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{OPEN_DOOR} & 1 \\
+\texttt{type} & \texttt{OPEN_DOOR} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1890,11 +1320,11 @@ The identifier of the person currently responsible for operating the piece of eq
   \caption{\texttt{Properties of OperatorId}}
   \label{properties:OperatorId}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{OPERATOR_ID} & 1 \\
+\texttt{type} & \texttt{OPERATOR_ID} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1912,11 +1342,11 @@ The identifier for a pallet.
   \caption{\texttt{Properties of PalletId}}
   \label{properties:PalletId}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PALLET_ID} & 1 \\
+\texttt{type} & \texttt{PALLET_ID} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1934,11 +1364,11 @@ Service to change the part or product associated with a piece of equipment to a 
   \caption{\texttt{Properties of PartChange}}
   \label{properties:PartChange}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PART_CHANGE} & 1 \\
+\texttt{type} & \texttt{PART_CHANGE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1956,124 +1386,49 @@ The count of parts produced.
   \caption{\texttt{Properties of PartCount}}
   \label{properties:PartCount}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PART_COUNT} & 1 \\
+\texttt{type} & \texttt{PART_COUNT} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[AllPartCount]{AllPartCount \\ {\small Subtype of PartCount}}
+\paragraph[AllPartCount]{AllPartCount \\ {\small Subtype of PartCount}}\mbox{}
   \label{type:AllPartCount}
 
 \FloatBarrier
 
 The count of all the parts produced.  If the subtype is not given, this is the default.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of AllPartCount}}
-  \label{properties:AllPartCount}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{ALL} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[GoodPartCount]{GoodPartCount \\ {\small Subtype of PartCount}}
-  \label{type:GoodPartCount}
-
-\FloatBarrier
-
-Indicates the count of correct parts made.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of GoodPartCount}}
-  \label{properties:GoodPartCount}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{GOOD} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[BadPartCount]{BadPartCount \\ {\small Subtype of PartCount}}
+\paragraph[BadPartCount]{BadPartCount \\ {\small Subtype of PartCount}}\mbox{}
   \label{type:BadPartCount}
 
 \FloatBarrier
 
 Indicates the count of incorrect parts produced.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of BadPartCount}}
-  \label{properties:BadPartCount}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{BAD} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[TargetPartCount]{TargetPartCount \\ {\small Subtype of PartCount}}
-  \label{type:TargetPartCount}
+\paragraph[GoodPartCount]{GoodPartCount \\ {\small Subtype of PartCount}}\mbox{}
+  \label{type:GoodPartCount}
 
 \FloatBarrier
 
-The desired measure or count for a data item value.
+Indicates the count of correct parts made.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of TargetPartCount}}
-  \label{properties:TargetPartCount}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{TARGET} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[RemainingPartCount]{RemainingPartCount \\ {\small Subtype of PartCount}}
+\paragraph[RemainingPartCount]{RemainingPartCount \\ {\small Subtype of PartCount}}\mbox{}
   \label{type:RemainingPartCount}
 
 \FloatBarrier
 
 Remaining measure of an object or an action.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of RemainingPartCount}}
-  \label{properties:RemainingPartCount}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{REMAINING} & 1 \\
-\end{tabu}
-\end{table}
+\paragraph[TargetPartCount]{TargetPartCount \\ {\small Subtype of PartCount}}\mbox{}
+  \label{type:TargetPartCount}
+
 \FloatBarrier
+
+The desired measure or count for a data item value.
 
 \FloatBarrier
 \subsubsection[PartDetect]{PartDetect \\ {\small Subtype of Event}}
@@ -2090,11 +1445,11 @@ An indication designating whether a part or work piece has been detected or is p
   \caption{\texttt{Properties of PartDetect}}
   \label{properties:PartDetect}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PART_DETECT} & 1 \\
+\texttt{type} & \texttt{PART_DETECT} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2112,11 +1467,11 @@ An identifier of a part in a manufacturing operation.
   \caption{\texttt{Properties of PartId}}
   \label{properties:PartId}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PART_ID} & 1 \\
+\texttt{type} & \texttt{PART_ID} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2135,11 +1490,11 @@ An identifier of a part or product moving through the manufacturing process.
   \caption{\texttt{Properties of PartNumber}}
   \label{properties:PartNumber}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PART_NUMBER} & 1 \\
+\texttt{type} & \texttt{PART_NUMBER} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2157,80 +1512,35 @@ The value of a signal or calculation issued to adjust the feedrate for the axes 
   \caption{\texttt{Properties of PathFeedrateOverride}}
   \label{properties:PathFeedrateOverride}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PATH_FEEDRATE_OVERRIDE} & 1 \\
+\texttt{type} & \texttt{PATH_FEEDRATE_OVERRIDE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[JogPathFeedrateOverride]{JogPathFeedrateOverride \\ {\small Subtype of PathFeedrateOverride}}
+\paragraph[JogPathFeedrateOverride]{JogPathFeedrateOverride \\ {\small Subtype of PathFeedrateOverride}}\mbox{}
   \label{type:JogPathFeedrateOverride}
 
 \FloatBarrier
 
 The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of JogPathFeedrateOverride}}
-  \label{properties:JogPathFeedrateOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{JOG} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[ProgrammedPathFeedrateOverride]{ProgrammedPathFeedrateOverride \\ {\small Subtype of PathFeedrateOverride}}
+\paragraph[ProgrammedPathFeedrateOverride]{ProgrammedPathFeedrateOverride \\ {\small Subtype of PathFeedrateOverride}}\mbox{}
   \label{type:ProgrammedPathFeedrateOverride}
 
 \FloatBarrier
 
 The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ProgrammedPathFeedrateOverride}}
-  \label{properties:ProgrammedPathFeedrateOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{PROGRAMMED} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[RapidPathFeedrateOverride]{RapidPathFeedrateOverride \\ {\small Subtype of PathFeedrateOverride}}
+\paragraph[RapidPathFeedrateOverride]{RapidPathFeedrateOverride \\ {\small Subtype of PathFeedrateOverride}}\mbox{}
   \label{type:RapidPathFeedrateOverride}
 
 \FloatBarrier
 
 The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of RapidPathFeedrateOverride}}
-  \label{properties:RapidPathFeedrateOverride}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{RAPID} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[PathMode]{PathMode \\ {\small Subtype of Event}}
@@ -2245,12 +1555,12 @@ Describes the operational relationship between a {model:Path} {term:Structural E
   \caption{\texttt{Properties of PathMode}}
   \label{properties:PathMode}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PATH_MODE} & 1 \\
-\texttt{result} & \texttt{PathModeEnum} & 0..1 \\
+\texttt{type} & \texttt{PATH_MODE} \\
+\texttt{result} & \texttt{PathModeEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2268,59 +1578,29 @@ The indication of the status of the source of energy for a {term:Structural Elem
   \caption{\texttt{Properties of PowerState}}
   \label{properties:PowerState}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{POWER_STATE} & 1 \\
-\texttt{result} & \texttt{ControllerModeOverrideEnum} & 0..1 \\
+\texttt{type} & \texttt{POWER_STATE} \\
+\texttt{result} & \texttt{ControllerModeOverrideEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[LinePowerState]{LinePowerState \\ {\small Subtype of PowerState}}
-  \label{type:LinePowerState}
-
-\FloatBarrier
-
-The state of the power source for the {term:Structural Element}.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of LinePowerState}}
-  \label{properties:LinePowerState}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{LINE} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[ControlPowerState]{ControlPowerState \\ {\small Subtype of PowerState}}
+\paragraph[ControlPowerState]{ControlPowerState \\ {\small Subtype of PowerState}}\mbox{}
   \label{type:ControlPowerState}
 
 \FloatBarrier
 
 The state of the enabling signal or control logic that enables or disables the function or operation of the {term:Structural Element}.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ControlPowerState}}
-  \label{properties:ControlPowerState}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{CONTROL} & 1 \\
-\end{tabu}
-\end{table}
+\paragraph[LinePowerState]{LinePowerState \\ {\small Subtype of PowerState}}\mbox{}
+  \label{type:LinePowerState}
+
 \FloatBarrier
+
+The state of the power source for the {term:Structural Element}.
 
 \FloatBarrier
 \subsubsection[PowerStatus]{PowerStatus \\ {\small Subtype of Event}}
@@ -2335,11 +1615,11 @@ The state of the enabling signal or control logic that enables or disables the f
   \caption{\texttt{Properties of PowerStatus}}
   \label{properties:PowerStatus}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{POWER_STATUS} & 1 \\
+\texttt{type} & \texttt{POWER_STATUS} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2359,80 +1639,35 @@ The time and date associated with an activity or event.
   \caption{\texttt{Properties of ProcessTime}}
   \label{properties:ProcessTime}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PROCESS_TIME} & 1 \\
+\texttt{type} & \texttt{PROCESS_TIME} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[StartProcessTime]{StartProcessTime \\ {\small Subtype of ProcessTime}}
-  \label{type:StartProcessTime}
-
-\FloatBarrier
-
-The time and date associated with the beginning of an activity or event.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of StartProcessTime}}
-  \label{properties:StartProcessTime}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{START} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[CompleteProcessTime]{CompleteProcessTime \\ {\small Subtype of ProcessTime}}
+\paragraph[CompleteProcessTime]{CompleteProcessTime \\ {\small Subtype of ProcessTime}}\mbox{}
   \label{type:CompleteProcessTime}
 
 \FloatBarrier
 
 Completion of an action.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of CompleteProcessTime}}
-  \label{properties:CompleteProcessTime}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{COMPLETE} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+\paragraph[StartProcessTime]{StartProcessTime \\ {\small Subtype of ProcessTime}}\mbox{}
+  \label{type:StartProcessTime}
 
 \FloatBarrier
-\subsubsection[TargetCompletionProcessTime]{TargetCompletionProcessTime \\ {\small Subtype of ProcessTime}}
+
+The time and date associated with the beginning of an activity or event.
+
+\paragraph[TargetCompletionProcessTime]{TargetCompletionProcessTime \\ {\small Subtype of ProcessTime}}\mbox{}
   \label{type:TargetCompletionProcessTime}
 
 \FloatBarrier
 
 The projected time and date associated with the end or completion of an activity or event.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of TargetCompletionProcessTime}}
-  \label{properties:TargetCompletionProcessTime}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{TARGET_COMPLETION} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Program]{Program \\ {\small Subtype of Event}}
@@ -2447,11 +1682,11 @@ The name of the logic or motion program being executed by the {model:Controller}
   \caption{\texttt{Properties of Program}}
   \label{properties:Program}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PROGRAM} & 1 \\
+\texttt{type} & \texttt{PROGRAM} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2470,11 +1705,11 @@ A comment or non-executable statement in the control program.
   \caption{\texttt{Properties of ProgramComment}}
   \label{properties:ProgramComment}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PROGRAM_COMMENT} & 1 \\
+\texttt{type} & \texttt{PROGRAM_COMMENT} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2493,12 +1728,12 @@ An indication of the status of the {model:Controller} components program editing
   \caption{\texttt{Properties of ProgramEdit}}
   \label{properties:ProgramEdit}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PROGRAM_EDIT} & 1 \\
-\texttt{result} & \texttt{ProgramEditEnum} & 0..1 \\
+\texttt{type} & \texttt{PROGRAM_EDIT} \\
+\texttt{result} & \texttt{ProgramEditEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2518,11 +1753,11 @@ The name of the program being edited.
   \caption{\texttt{Properties of ProgramEditName}}
   \label{properties:ProgramEditName}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PROGRAM_EDIT_NAME} & 1 \\
+\texttt{type} & \texttt{PROGRAM_EDIT_NAME} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2540,11 +1775,11 @@ The non-executable header section of the control program.
   \caption{\texttt{Properties of ProgramHeader}}
   \label{properties:ProgramHeader}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PROGRAM_HEADER} & 1 \\
+\texttt{type} & \texttt{PROGRAM_HEADER} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2562,80 +1797,35 @@ The Uniform Resource Identifier (URI) for the source file associated with {model
   \caption{\texttt{Properties of ProgramLocation}}
   \label{properties:ProgramLocation}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PROGRAM_LOCATION} & 1 \\
+\texttt{type} & \texttt{PROGRAM_LOCATION} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[ScheduleProgramLocation]{ScheduleProgramLocation \\ {\small Subtype of ProgramLocation}}
-  \label{type:ScheduleProgramLocation}
-
-\FloatBarrier
-
-The identity of a control program that is used to specify the order of execution of other programs.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ScheduleProgramLocation}}
-  \label{properties:ScheduleProgramLocation}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{SCHEDULE} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[MainProgramLocation]{MainProgramLocation \\ {\small Subtype of ProgramLocation}}
-  \label{type:MainProgramLocation}
-
-\FloatBarrier
-
-The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of MainProgramLocation}}
-  \label{properties:MainProgramLocation}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{MAIN} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[ActiveProgramLocation]{ActiveProgramLocation \\ {\small Subtype of ProgramLocation}}
+\paragraph[ActiveProgramLocation]{ActiveProgramLocation \\ {\small Subtype of ProgramLocation}}\mbox{}
   \label{type:ActiveProgramLocation}
 
 \FloatBarrier
 
 The value of the {term:Data Entity} that is engaging.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ActiveProgramLocation}}
-  \label{properties:ActiveProgramLocation}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{ACTIVE} & 1 \\
-\end{tabu}
-\end{table}
+\paragraph[MainProgramLocation]{MainProgramLocation \\ {\small Subtype of ProgramLocation}}\mbox{}
+  \label{type:MainProgramLocation}
+
 \FloatBarrier
+
+The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+\paragraph[ScheduleProgramLocation]{ScheduleProgramLocation \\ {\small Subtype of ProgramLocation}}\mbox{}
+  \label{type:ScheduleProgramLocation}
+
+\FloatBarrier
+
+The identity of a control program that is used to specify the order of execution of other programs.
 
 \FloatBarrier
 \subsubsection[ProgramLocationType]{ProgramLocationType \\ {\small Subtype of Event}}
@@ -2652,80 +1842,35 @@ Defines whether the logic or motion program defined by {model:PROGRAM} is being 
   \caption{\texttt{Properties of ProgramLocationType}}
   \label{properties:ProgramLocationType}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PROGRAM_LOCATION_TYPE} & 1 \\
+\texttt{type} & \texttt{PROGRAM_LOCATION_TYPE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[ScheduleProgramLocationType]{ScheduleProgramLocationType \\ {\small Subtype of ProgramLocationType}}
-  \label{type:ScheduleProgramLocationType}
-
-\FloatBarrier
-
-The identity of a control program that is used to specify the order of execution of other programs.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ScheduleProgramLocationType}}
-  \label{properties:ScheduleProgramLocationType}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{SCHEDULE} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[MainProgramLocationType]{MainProgramLocationType \\ {\small Subtype of ProgramLocationType}}
-  \label{type:MainProgramLocationType}
-
-\FloatBarrier
-
-The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of MainProgramLocationType}}
-  \label{properties:MainProgramLocationType}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{MAIN} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[ActiveProgramLocationType]{ActiveProgramLocationType \\ {\small Subtype of ProgramLocationType}}
+\paragraph[ActiveProgramLocationType]{ActiveProgramLocationType \\ {\small Subtype of ProgramLocationType}}\mbox{}
   \label{type:ActiveProgramLocationType}
 
 \FloatBarrier
 
 The value of the {term:Data Entity} that is engaging.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ActiveProgramLocationType}}
-  \label{properties:ActiveProgramLocationType}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{ACTIVE} & 1 \\
-\end{tabu}
-\end{table}
+\paragraph[MainProgramLocationType]{MainProgramLocationType \\ {\small Subtype of ProgramLocationType}}\mbox{}
+  \label{type:MainProgramLocationType}
+
 \FloatBarrier
+
+The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+\paragraph[ScheduleProgramLocationType]{ScheduleProgramLocationType \\ {\small Subtype of ProgramLocationType}}\mbox{}
+  \label{type:ScheduleProgramLocationType}
+
+\FloatBarrier
+
+The identity of a control program that is used to specify the order of execution of other programs.
 
 \FloatBarrier
 \subsubsection[ProgramNestLevel]{ProgramNestLevel \\ {\small Subtype of Event}}
@@ -2744,11 +1889,11 @@ An indication of the nesting level within a control program that is associated w
   \caption{\texttt{Properties of ProgramNestLevel}}
   \label{properties:ProgramNestLevel}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{PROGRAM_NEST_LEVEL} & 1 \\
+\texttt{type} & \texttt{PROGRAM_NEST_LEVEL} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2766,12 +1911,12 @@ The current operating mode for a {model:Rotary} type axis.
   \caption{\texttt{Properties of RotaryMode}}
   \label{properties:RotaryMode}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{ROTARY_MODE} & 1 \\
-\texttt{result} & \texttt{RotaryModeEnum} & 0..1 \\
+\texttt{type} & \texttt{ROTARY_MODE} \\
+\texttt{result} & \texttt{RotaryModeEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2790,11 +1935,11 @@ The value of a command issued to adjust the programmed velocity for a {model:Rot
   \caption{\texttt{Properties of RotaryVelocityOverride}}
   \label{properties:RotaryVelocityOverride}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{ROTARY_VELOCITY_OVERRIDE} & 1 \\
+\texttt{type} & \texttt{ROTARY_VELOCITY_OVERRIDE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2812,11 +1957,11 @@ The serial number associated with a {model:Component}, {model:Asset}, or {model:
   \caption{\texttt{Properties of SerialNumber}}
   \label{properties:SerialNumber}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{SERIAL_NUMBER} & 1 \\
+\texttt{type} & \texttt{SERIAL_NUMBER} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2834,12 +1979,12 @@ An indication of the status of the spindle for a piece of equipment when power h
   \caption{\texttt{Properties of SpindleInterlock}}
   \label{properties:SpindleInterlock}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{SPINDLE_INTERLOCK} & 1 \\
-\texttt{result} & \texttt{ActuatorStateEnum} & 0..1 \\
+\texttt{type} & \texttt{SPINDLE_INTERLOCK} \\
+\texttt{result} & \texttt{ActuatorStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2857,11 +2002,11 @@ The identifier of an individual tool asset.The {term:Valid Data Value} *MUST* be
   \caption{\texttt{Properties of ToolAssetId}}
   \label{properties:ToolAssetId}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{TOOL_ASSET_ID} & 1 \\
+\texttt{type} & \texttt{TOOL_ASSET_ID} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2879,11 +2024,11 @@ An identifier for the tool group associated with a specific tool. Commonly used 
   \caption{\texttt{Properties of ToolGroup}}
   \label{properties:ToolGroup}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{TOOL_GROUP} & 1 \\
+\texttt{type} & \texttt{TOOL_GROUP} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2901,11 +2046,11 @@ An identifier for the tool group associated with a specific tool. Commonly used 
   \caption{\texttt{Properties of ToolId}}
   \label{properties:ToolId}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{TOOL_ID} & 1 \\
+\texttt{type} & \texttt{TOOL_ID} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2924,11 +2069,11 @@ The identifier assigned by the {model:Controller} component to a cutting tool wh
   \caption{\texttt{Properties of ToolNumber}}
   \label{properties:ToolNumber}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{TOOL_NUMBER} & 1 \\
+\texttt{type} & \texttt{TOOL_NUMBER} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -2946,58 +2091,28 @@ A reference to the tool offset variables applied to the active cutting tool asso
   \caption{\texttt{Properties of ToolOffset}}
   \label{properties:ToolOffset}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{TOOL_OFFSET} & 1 \\
+\texttt{type} & \texttt{TOOL_OFFSET} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[RadialToolOffset]{RadialToolOffset \\ {\small Subtype of ToolOffset}}
-  \label{type:RadialToolOffset}
-
-\FloatBarrier
-
-A reference to a radial type tool offset variable.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of RadialToolOffset}}
-  \label{properties:RadialToolOffset}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{RADIAL} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[LengthToolOffset]{LengthToolOffset \\ {\small Subtype of ToolOffset}}
+\paragraph[LengthToolOffset]{LengthToolOffset \\ {\small Subtype of ToolOffset}}\mbox{}
   \label{type:LengthToolOffset}
 
 \FloatBarrier
 
 A reference to a length type tool offset variable.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of LengthToolOffset}}
-  \label{properties:LengthToolOffset}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{LENGTH} & 1 \\
-\end{tabu}
-\end{table}
+\paragraph[RadialToolOffset]{RadialToolOffset \\ {\small Subtype of ToolOffset}}\mbox{}
+  \label{type:RadialToolOffset}
+
 \FloatBarrier
+
+A reference to a radial type tool offset variable.
 
 \FloatBarrier
 \subsubsection[User]{User \\ {\small Subtype of Event}}
@@ -3012,80 +2127,35 @@ The identifier of the person currently responsible for operating the piece of eq
   \caption{\texttt{Properties of User}}
   \label{properties:User}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{USER} & 1 \\
+\texttt{type} & \texttt{USER} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[OperatorUser]{OperatorUser \\ {\small Subtype of User}}
-  \label{type:OperatorUser}
-
-\FloatBarrier
-
-The identifier of the person currently responsible for operating the piece of equipment.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of OperatorUser}}
-  \label{properties:OperatorUser}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{OPERATOR} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-\FloatBarrier
-\subsubsection[MaintenanceUser]{MaintenanceUser \\ {\small Subtype of User}}
+\paragraph[MaintenanceUser]{MaintenanceUser \\ {\small Subtype of User}}\mbox{}
   \label{type:MaintenanceUser}
 
 \FloatBarrier
 
 Action related to maintenance on the piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of MaintenanceUser}}
-  \label{properties:MaintenanceUser}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{MAINTENANCE} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+\paragraph[OperatorUser]{OperatorUser \\ {\small Subtype of User}}\mbox{}
+  \label{type:OperatorUser}
 
 \FloatBarrier
-\subsubsection[SetUpUser]{SetUpUser \\ {\small Subtype of User}}
+
+The identifier of the person currently responsible for operating the piece of equipment.
+
+\paragraph[SetUpUser]{SetUpUser \\ {\small Subtype of User}}\mbox{}
   \label{type:SetUpUser}
 
 \FloatBarrier
 
 The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of SetUpUser}}
-  \label{properties:SetUpUser}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{subType} & \texttt{SET_UP} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
 \FloatBarrier
 \subsubsection[Variable]{Variable \\ {\small Subtype of Event}}
@@ -3100,11 +2170,11 @@ A data value whose meaning may change over time due to changes in the opertion o
   \caption{\texttt{Properties of Variable}}
   \label{properties:Variable}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{VARIABLE} & 1 \\
+\texttt{type} & \texttt{VARIABLE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -3124,11 +2194,11 @@ An indication of the reason that {model:EXECUTION} is reporting a value of {mode
   \caption{\texttt{Properties of WaitState}}
   \label{properties:WaitState}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{WAIT_STATE} & 1 \\
+\texttt{type} & \texttt{WAIT_STATE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -3146,11 +2216,11 @@ A string like piece or filament of relatively rigid or flexible material provide
   \caption{\texttt{Properties of Wire}}
   \label{properties:Wire}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{WIRE} & 1 \\
+\texttt{type} & \texttt{WIRE} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -3168,11 +2238,11 @@ A reference to the offset variables for a work piece or part associated with a {
   \caption{\texttt{Properties of WorkOffset}}
   \label{properties:WorkOffset}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{WORK_OFFSET} & 1 \\
+\texttt{type} & \texttt{WORK_OFFSET} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -3191,11 +2261,11 @@ The identifier for the current workholding or part clamp in use by a piece of eq
   \caption{\texttt{Properties of WorkholdingId}}
   \label{properties:WorkholdingId}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{WORKHOLDING_ID} & 1 \\
+\texttt{type} & \texttt{WORKHOLDING_ID} \\
 \end{tabu}
 \end{table}
 \FloatBarrier

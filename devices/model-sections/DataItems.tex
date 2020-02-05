@@ -1,4 +1,4 @@
-% Generated 2020-02-03 17:13:43 -0500
+% Generated 2020-02-05 07:16:58 -0500
 \subsection{DataItems} \label{model:DataItems}
 \subsubsection{Constraints}
   \label{type:Constraints}
@@ -14,7 +14,7 @@ Placeholder for documentation!
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{<<deprecated>> Filter} & \texttt{FilterEnum} & 0..1 \\
 \texttt{Maximum} & \texttt{float} & 0..1 \\
@@ -72,7 +72,7 @@ Placeholder for documentation!
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{category} & \texttt{CategoryEnum} & 1 \\
 \texttt{compositionId} & \texttt{ID} & 0..1 \\
@@ -88,15 +88,12 @@ Placeholder for documentation!
 \texttt{subType} & \texttt{string} & 0..1 \\
 \texttt{type} & \texttt{string} & 1 \\
 \texttt{units} & \texttt{UnitEnum} & 0..1 \\
-\texttt{isObservedBy} & \texttt{Component} & 1 \\
 \texttt{representation} & \texttt{RepresentationEnum} & 0..1 \\
-\texttt{hasSource} & \texttt{Source} & 0..1 \\
-\texttt{hasConstraint} & \texttt{Constraints} & 0..1 \\
-\texttt{hasFilter} & \texttt{Filter} & 0..* \\
-\texttt{hasInitialValue} & \texttt{InitialValue} & 0..1 \\
-\texttt{hasResetTrigger} & \texttt{ResetTrigger} & 0..1 \\
-\texttt{isReferenceFor} & \texttt{Component} & 0..1 \\
-\texttt{hasObservation} & \texttt{Observation} & 0..* \\
+\texttt{Source} & \texttt{Source} & 0..1 \\
+\texttt{Constraints} & \texttt{Constraints} & 0..1 \\
+\texttt{Filters} & \texttt{Filter} & 0..* \\
+\texttt{InitialValue} & \texttt{InitialValue} & 0..1 \\
+\texttt{ResetTrigger} & \texttt{ResetTrigger} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -297,9 +294,6 @@ Placeholder for documentation!
 \end{table} 
 \FloatBarrier
 
-\paragraph{\texttt{isObservedBy}}\mbox{}
-\newline\tab A container for the Data Entities (defined in Section 8 - Listing of Data Items) associated with this Component element.
-
 \paragraph{\texttt{representation}}\mbox{}
 \newline\tab Placeholder for documentation!
 
@@ -322,25 +316,19 @@ Placeholder for documentation!
 \end{table} 
 \FloatBarrier
 
-\paragraph{\texttt{hasSource}}\mbox{}
+\paragraph{\texttt{Source}}\mbox{}
 \newline\tab Placeholder for documentation!
 
-\paragraph{\texttt{hasConstraint}}\mbox{}
+\paragraph{\texttt{Constraints}}\mbox{}
 \newline\tab Placeholder for documentation!
 
-\paragraph{\texttt{hasFilter}}\mbox{}
+\paragraph{\texttt{Filters}}\mbox{}
 \newline\tab Placeholder for documentation!
 
-\paragraph{\texttt{hasInitialValue}}\mbox{}
+\paragraph{\texttt{InitialValue}}\mbox{}
 \newline\tab Placeholder for documentation!
 
-\paragraph{\texttt{hasResetTrigger}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{isReferenceFor}}\mbox{}
-\newline\tab A container for the Reference elements associated with this Component element.
-
-\paragraph{\texttt{hasObservation}}\mbox{}
+\paragraph{\texttt{ResetTrigger}}\mbox{}
 \newline\tab Placeholder for documentation!
 \FloatBarrier
 \subsubsection{Filter}
@@ -357,7 +345,7 @@ Placeholder for documentation!
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{FilterEnum} & 1 \\
 \end{tabu}
@@ -398,7 +386,7 @@ Placeholder for documentation!
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{value} & \texttt{T} & 1 \\
 \end{tabu}
@@ -423,7 +411,7 @@ Placeholder for documentation!
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{ResetTriggerEnum} & 1 \\
 \end{tabu}
@@ -472,7 +460,7 @@ Placeholder for documentation!
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {ValueType} & {Multiplicity} \\
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{componentId} & \texttt{ID} & 0..1 \\
 \texttt{compositionId} & \texttt{ID} & 0..1 \\

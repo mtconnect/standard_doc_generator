@@ -1,0 +1,161 @@
+% Generated 2020-02-05 07:16:58 -0500
+\subsection{CoordinateSystems} \label{model:CoordinateSystems}
+\subsubsection[CoordinateSystem]{CoordinateSystem \\ {\small Subtype of Configuration}}
+  \label{type:CoordinateSystem}
+
+\FloatBarrier
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CoordinateSystem}}
+  \label{properties:CoordinateSystem}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{Transformation} & \texttt{Transformation} & 0..1 \\
+\texttt{id} & \texttt{ID} & 1 \\
+\texttt{name} & \texttt{string} & 0..1 \\
+\texttt{parentId} & \texttt{IDREF} & 0..1 \\
+\texttt{type} & \texttt{CoordinateSystemTypeEnum} & 1 \\
+\texttt{Location} & \texttt{Location} & 0..1 \\
+\texttt{kinematicsIdRef} & \texttt{IDREF} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+\paragraph{\texttt{Transformation}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{id}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{name}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{parentId}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{type}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{CoordinateSystemTypeEnum} Enumeration}
+  \label{enum:CoordinateSystemTypeEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{WORLD} & Stationary coordinate system referenced to earth, which is independent of the robot motion.
+
+[SOURCE: ISO 8373:2012, 4.7.1]
+
+The origin of the world coordinate system, O0, shall be defined by the users in accordance with their requirements. The +Z0 axis is collinear but in the opposite direction to the acceleration of gravity vector. The +X0 axis shall be defined by the users in accordance with their requirements
+
+[ISO 9787:2013(E) 5.1] \\
+\texttt{BASE} & coordinate system referenced to the base mounting surface
+
+[SOURCE: ISO 8373:2012, 4.7.2] \\
+\texttt{WORKPIECE} & Placeholder for documentation! \\
+\texttt{OBJECT} & Placeholder for documentation! \\
+\texttt{TASK} & coordinate system referenced to the site of the task, denoted by Ok - Xk - Yk - Zk
+
+[SOURCE: ISO 14539:2000, 3.3.5] \\
+\texttt{MECHANICAL_INTERFACE} & coordinate system referenced to the mechanical interface
+
+[SOURCE: ISO 8373:2012, 4.7.3] \\
+\texttt{TOOL} & coordinate system referenced to the tool or to the end effector attached to the mechanical interface
+
+[SOURCE: ISO 8373:2012, 4.7.5] \\
+\texttt{GRIPPER} & Placeholder for documentation! \\
+\texttt{PLATFORM} & Placeholder for documentation! \\
+\texttt{JOINT} & Placeholder for documentation! \\
+\texttt{MACHINE} & Placeholder for documentation! \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
+
+\paragraph{\texttt{Location}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{kinematicsIdRef}}\mbox{}
+\newline\tab Placeholder for documentation!
+\FloatBarrier
+\subsubsection{Location}
+  \label{type:Location}
+
+\FloatBarrier
+
+Placeholder for documentation!
+
+\FloatBarrier
+\subsubsection{Rotation}
+  \label{type:Rotation}
+
+\FloatBarrier
+
+Rotations about X, Y, and Z axes are expressed in the following way:
+
+  + or – A about X axis;
+  + or – B about Y axis;
+  + or – C about Z axis.
+
+Positive A, B and C are in the directions to advance right-hand screws in the positive X, Y and Z directions,
+respectively.
+General rotations are expressed by the combination of individual rotations.
+
+[ISO 9787:2013(E)]
+
+\FloatBarrier
+\subsubsection{Transformation}
+  \label{type:Transformation}
+
+\FloatBarrier
+
+All coordinate systems described in this International Standard are defined by the orthogonal right-hand rule.
+
+[ISO 9787:2013(E)]
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Transformation}}
+  \label{properties:Transformation}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{translation} & \texttt{Translation} & 0..1 \\
+\texttt{rottion} & \texttt{Rotation} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+\paragraph{\texttt{translation}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{rottion}}\mbox{}
+\newline\tab Placeholder for documentation!
+\FloatBarrier
+\subsubsection{Translation}
+  \label{type:Translation}
+
+\FloatBarrier
+
+Translations along X, Y, and Z axes are expressed in the following way: 
+  + or – x along X axis;
+  + or – y along Y axis;
+  + or – z along Z axis.
+
+[ISO 9787:2013(E)]
+
+\FloatBarrier
