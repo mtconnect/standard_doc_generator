@@ -29,13 +29,15 @@ module Extensions
   def get_multiplicity(r)
     lower = upper = '1'
     if r.at('upperValue')
-      upper = r.at('upperValue')['value']
+      upper = r.at('upperValue')['value']	
+	  upper = '0' unless upper
     end
     
     if r.at('lowerValue')
       lower = r.at('lowerValue')['value']
       lower = '0' unless lower
     end
+
 
     # $logger.debug "  Multiplicity for #{r.to_s}: #{lower} #{upper}"
 
