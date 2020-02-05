@@ -1,4 +1,4 @@
-% Generated 2020-02-05 10:44:45 -0500
+% Generated 2020-02-05 14:03:21 -0500
 \subsection{Compositions} \label{model:Compositions}
 \subsubsection[Composition]{Composition \\ {\small Subtype of Component}}
   \label{type:Composition}
@@ -16,10 +16,84 @@ Placeholder for documentation!
 \hline
 \rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{sampleInterval} & \texttt{integer} & 0.. \\
-\texttt{sampleRate} & \texttt{float} & 0.. \\
+\texttt{nativeName} & \texttt{string} & 0 \\
+\texttt{sampleInterval} & \texttt{integer} & 0 \\
+\texttt{type} & \texttt{CompositionTypeEnum} & 1 \\
+\texttt{sampleRate} & \texttt{float} & 0 \\
+\texttt{id} & \texttt{ID} & 1 \\
+\texttt{uuid} & \texttt{NMTOKEN} & 0..1 \\
+\texttt{name} & \texttt{NMTOKEN} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
+
+\paragraph{\texttt{type}}\mbox{}
+\newline\tab The type of either a {term:Structural Element} or a {model:DataItem} being measured.
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{CompositionTypeEnum} Enumeration}
+  \label{enum:CompositionTypeEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{ACTUATOR} & A mechanism for moving or controlling a mechanical part of a piece of equipment.   
+ It takes energy usually provided by air, electric current, or liquid and converts the energy into some kind of motion.  \\
+\texttt{AMPLIFIER} & An electronic component or circuit for amplifying power, electric current, or voltage. \\
+\texttt{BALLSCREW} & A mechanical structure for transforming rotary motion into linear motion. \\
+\texttt{BELT} & An endless flexible band used to transmit motion for a piece of equipment or to convey materials and objects. \\
+\texttt{BRAKE} & A mechanism for slowing or stopping a moving object by the absorption or transfer of the energy of momentum, usually by means of friction, electrical force, or magnetic force. \\
+\texttt{CHAIN} & An interconnected series of objects that band together and are used to transmit motion for a piece of equipment or to convey materials and objects. \\
+\texttt{CHOPPER} & A mechanism used to break material into smaller pieces. \\
+\texttt{CHUCK} & A mechanism that holds a part, stock material, or any other item in place. \\
+\texttt{CHUTE} & An inclined channel for conveying material. \\
+\texttt{CIRCUIT_BREAKER} & A mechanism for interrupting an electric circuit. \\
+\texttt{CLAMP} & A mechanism used to strengthen, support, or fasten objects in place. \\
+\texttt{COMPRESSOR} & A pump or other mechanism for reducing volume and increasing pressure of gases in order to condense the gases to drive pneumatically powered pieces of equipment. \\
+\texttt{DOOR} & A mechanical mechanism or closure that can cover a physical access portal into a piece of equipment allowing or restricting access to other parts of the equipment. \\
+\texttt{DRAIN} & A mechanism that allows material to flow for the purpose of drainage from, for example, a vessel or tank. \\
+\texttt{ENCODER} & A mechanism used to measure rotary position. \\
+\texttt{EXPOSURE_UNIT} & A mechanism for emitting a type of radiation \\
+\texttt{EXTRUSION_UNIT} & A mechanism for dispensing liquid or powered materials \\
+\texttt{FAN} & Any mechanism for producing a current of air. \\
+\texttt{FILTER} & Any substance or structure through which liquids or gases are passed to remove suspended impurities or to recover solids. \\
+\texttt{GALVANOMOTOR} & An electromechanical actuator that produces deflection of a beam of light or energy in response to electric current through its coil in a magnetic field. \\
+\texttt{GRIPPER} & A mechanism that holds a part, stock material, or any other item in place. \\
+\texttt{HOPPER} & A chamber or bin in which materials are stored temporarily, typically being filled through the top and dispensed through the bottom. \\
+\texttt{LINEAR_POSITION_FEEDBACK} & A mechanism that measures linear motion or position. \\
+\texttt{MOTOR} & A mechanism that converts electrical, pneumatic, or hydraulic energy into mechanical energy. \\
+\texttt{OIL} & A viscous liquid. \\
+\texttt{POWER_SUPPLY} & A unit that provides power to electric mechanisms. \\
+\texttt{PULLEY} & A mechanism or wheel that turns in a frame or block and serves to change the direction of or to transmit force. \\
+\texttt{PUMP} & An apparatus raising, driving, exhausting, or compressing fluids or gases by means of a piston, plunger, or set of rotating vanes. \\
+\texttt{REEL} & A rotary storage unit for material \\
+\texttt{SENSING_ELEMENT} & A mechanism that provides a signal or measured value. \\
+\texttt{SPREADER} & A mechanism for flattening or spreading materials \\
+\texttt{STORAGE_BATTERY} & A component consisting of one or more cells, in which chemical energy is converted into electricity and used as a source of power.  \\
+\texttt{SWITCH} & A mechanism for turning on or off an electric current or for making or breaking a circuit. \\
+\texttt{TABLE} & A surface for holding an object or material \\
+\texttt{TANK} & A receptacle or container for holding material. \\
+\texttt{TENSIONER} & A mechanism that provides or applies a stretch or strain to another mechanism. \\
+\texttt{TRANSFORMER} & A mechanism that transforms electric energy from a source to a secondary circuit. \\
+\texttt{VALVE} & Any mechanism for halting or controlling the flow of a liquid, gas, or other material through a passage, pipe, inlet, or outlet. \\
+\texttt{VAT} & A container for liquid or powdered materials \\
+\texttt{WATER} & A fluid. \\
+\texttt{WIRE} & A string like piece or filament of relatively rigid or flexible material provided in a variety of diameters. \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
+
+\paragraph{\texttt{id}}\mbox{}
+\newline\tab The unique identifier for this element.
+
+\paragraph{\texttt{uuid}}\mbox{}
+\newline\tab The unique identifier for an XML element.
+
+\paragraph{\texttt{name}}\mbox{}
+\newline\tab The name of an element or a piece of equipment.
 \FloatBarrier

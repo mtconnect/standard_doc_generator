@@ -1,4 +1,4 @@
-% Generated 2020-02-05 10:44:45 -0500
+% Generated 2020-02-05 14:03:21 -0500
 \subsection{EventTypes} \label{model:EventTypes}
 \subsubsection[ActiveAxes]{ActiveAxes \\ {\small Subtype of Event}}
   \label{type:ActiveAxes}
@@ -431,7 +431,7 @@ An indication of the operating state of a mechanism that holds a part or stock m
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{CHUCK_STATE} \\
-\texttt{result} & \texttt{ChuckStateEnum} \\
+\texttt{result} & \texttt{LatchedStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -440,8 +440,8 @@ An indication of the operating state of a mechanism that holds a part or stock m
  Enumerated \texttt{result} values for \texttt{ChuckState} are:
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{ChuckStateEnum} Enumeration}
-  \label{enum:ChuckStateEnum}
+  \caption{\texttt{LatchedStateEnum} Enumeration}
+  \label{enum:LatchedStateEnum}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|X|} \everyrow{\hline}
 \hline
@@ -627,7 +627,7 @@ A setting or operator selection that changes the behavior of a piece of equipmen
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{CONTROLLER_MODE_OVERRIDE} \\
-\texttt{result} & \texttt{ControllerModeOverrideEnum} \\
+\texttt{result} & \texttt{OnOffEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -636,8 +636,8 @@ A setting or operator selection that changes the behavior of a piece of equipmen
  Enumerated \texttt{result} values for \texttt{ControllerModeOverride} are:
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{ControllerModeOverrideEnum} Enumeration}
-  \label{enum:ControllerModeOverrideEnum}
+  \caption{\texttt{OnOffEnum} Enumeration}
+  \label{enum:OnOffEnum}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|X|} \everyrow{\hline}
 \hline
@@ -811,7 +811,7 @@ The operational state of a {model:DOOR} type component or composition element.
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{DOOR_STATE} \\
-\texttt{result} & \texttt{ChuckStateEnum} \\
+\texttt{result} & \texttt{LatchedStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -820,7 +820,7 @@ The operational state of a {model:DOOR} type component or composition element.
  Enumerated \texttt{result} values for \texttt{DoorState} are:
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{ChuckStateEnum} Enumeration}
+  \caption{\texttt{LatchedStateEnum} Enumeration}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|X|} \everyrow{\hline}
 \hline
@@ -889,7 +889,7 @@ An indication of whether the end of a piece of bar stock being feed by a bar fee
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{END_OF_BAR} \\
-\texttt{result} & \texttt{EndOfBarEnum} \\
+\texttt{result} & \texttt{YesNoEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -898,8 +898,8 @@ An indication of whether the end of a piece of bar stock being feed by a bar fee
  Enumerated \texttt{result} values for \texttt{EndOfBar} are:
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{EndOfBarEnum} Enumeration}
-  \label{enum:EndOfBarEnum}
+  \caption{\texttt{YesNoEnum} Enumeration}
+  \label{enum:YesNoEnum}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|X|} \everyrow{\hline}
 \hline
@@ -939,7 +939,7 @@ An indication that a piece of equipment, or a sub-part of a piece of equipment, 
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{EQUIPMENT_MODE} \\
-\texttt{result} & \texttt{ControllerModeOverrideEnum} \\
+\texttt{result} & \texttt{OnOffEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -948,7 +948,7 @@ An indication that a piece of equipment, or a sub-part of a piece of equipment, 
  Enumerated \texttt{result} values for \texttt{EquipmentMode} are:
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{ControllerModeOverrideEnum} Enumeration}
+  \caption{\texttt{OnOffEnum} Enumeration}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|X|} \everyrow{\hline}
 \hline
@@ -1120,7 +1120,7 @@ An indication of the operational state of an {model:Interface} component.
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{INTERFACE_STATE} \\
-\texttt{result} & \texttt{InterfaceStateEnum} \\
+\texttt{result} & \texttt{EnabledStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1129,8 +1129,8 @@ An indication of the operational state of an {model:Interface} component.
  Enumerated \texttt{result} values for \texttt{InterfaceState} are:
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{InterfaceStateEnum} Enumeration}
-  \label{enum:InterfaceStateEnum}
+  \caption{\texttt{EnabledStateEnum} Enumeration}
+  \label{enum:EnabledStateEnum}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|X|} \everyrow{\hline}
 \hline
@@ -1725,7 +1725,7 @@ The indication of the status of the source of energy for a {term:Structural Elem
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{POWER_STATE} \\
-\texttt{result} & \texttt{ControllerModeOverrideEnum} \\
+\texttt{result} & \texttt{OnOffEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1734,7 +1734,7 @@ The indication of the status of the source of energy for a {term:Structural Elem
  Enumerated \texttt{result} values for \texttt{PowerState} are:
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{ControllerModeOverrideEnum} Enumeration}
+  \caption{\texttt{OnOffEnum} Enumeration}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|X|} \everyrow{\hline}
 \hline
@@ -1877,7 +1877,7 @@ An indication of the status of the {model:Controller} components program editing
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{PROGRAM_EDIT} \\
-\texttt{result} & \texttt{ProgramEditEnum} \\
+\texttt{result} & \texttt{ActiveStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -1886,8 +1886,8 @@ An indication of the status of the {model:Controller} components program editing
  Enumerated \texttt{result} values for \texttt{ProgramEdit} are:
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{ProgramEditEnum} Enumeration}
-  \label{enum:ProgramEditEnum}
+  \caption{\texttt{ActiveStateEnum} Enumeration}
+  \label{enum:ActiveStateEnum}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|X|} \everyrow{\hline}
 \hline
