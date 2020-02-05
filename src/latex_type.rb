@@ -136,90 +136,84 @@ class LatexType < Type
     end
   end
 
-  def generate_constraints(f, obj = self)
-    unless obj.constraints.empty?
-      f.puts "\\paragraph{Constraints}\n"
-      obj.constraints.each do |c|
-        f.puts "\\begin{itemize}"
-        f.puts "\\item Constraint \\texttt{#{c.name}}: "
-        f.puts "   \\indent \\begin{lstlisting}"
-        f.puts c.specification
-        f.puts "\\end{lstlisting}"
-        f.puts "Documentation: #{c.documentation}" if c.documentation
-        f.puts "\n\\end{itemize}"
+  def generate_attribute_docs(f, header)
+  
+	if not relations.empty? and relations[0].name == 'Supertype' and @model.name.split('Type')[0] == relations[0].final_target.type.name
+	  generate_types(f,header)
+	  return
+	end
+
+
+    $logger.info "Generating docs for #{@name}"
+    relations_with_documentation =
+      @relations.select do |r|
+        $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target.type.nil?
+        (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and @model.name.split('Type')[0] != r.final_target.type.name and r.visibility == 'public'
       end
-    end
 
-    unless obj.invariants.empty?
-      f.puts "\n\\paragraph{Static values for #{obj.name}}\n"
+    unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
 
-      f.puts <<EOT
+f.puts <<EOT
 \\begin{table}[ht]
 \\centering 
-  \\caption{\\texttt{#{escape_name}::#{obj.name}} Values}
+  \\caption{\\texttt{#{header} of #{@name}}}
+  \\label{properties:#{@name}}
 \\tabulinesep=3pt
-\\begin{tabu} to 6in {|l|l|} \\everyrow{\\hline}
+\\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
 \\hline
-\\rowfont\\bfseries {Name} & {Value} \\\\
+\\rowfont\\bfseries {#{header}} & {Value} & {Multiplicity} \\\\
 \\tabucline[1.5pt]{}
 EOT
-
-      obj.invariants.each do |name, value|
-        f.puts "\\texttt{#{name}} & \\texttt{#{value}} \\\\"
-      end
-      
-      f.puts <<EOT
-\\end{tabu}
-\\end{table} 
-EOT
-
-      
-      f.puts "\\begin{itemize}"
-      obj.invariants.each do |k, v|
-        f.puts "\\item Property \\texttt{#{k}}: \\texttt{#{v}}"
-      end
-      f.puts "\\end{itemize}"
-    end
-
-    if obj.equal?(self)
-      @relations.each do |r|
-        generate_constraints(f, r)
-      end
-    end
-  end
-
-  def generate_subtype(f, c)
-    t = c.is_a_type?('BaseVariableType') ? 'VariableType' : 'ObjectType'
-    f.puts "HasSubtype & #{t} & \\multicolumn{2}{l}{#{c.escape_name}} & \\multicolumn{2}{|l|}{#{c.reference}} \\\\"
-  end
-
-  def generate_children(f)
-    cs = @children.dup.select { |t| t.model.name !~ /Example/ }
-    l = cs.pop(22)
-    l.each do |c|
-      generate_subtype(f, c)
-    end
-    
-    while !cs.empty?
-      f.puts <<EOT
-\\multicolumn{6}{|l|}{Continued...} \\\\
+  
+	  relations_with_documentation.each do |r|
+		if r.name == 'Supertype'
+		  next
+		end
+		stereo = r.stereotype ? "<<#{r.stereotype}>> " : nil
+		
+		name = r.association_name ? r.association_name : r.name
+		
+		if r.redefinesProperty and r.default
+		  f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.default}} & #{r.multiplicity} \\\\"
+        else
+		  f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
+		end
+	  end
+        
+f.puts <<EOT
 \\end{tabu}
 \\end{table}
-\\begin{table}[ht]
-\\fontsize{9pt}{11pt}\\selectfont
-\\tabulinesep=3pt
-\\begin{tabu} to 6in {#{ROW_FORMAT}} \\everyrow{\\hline}
-\\hline
-\\rowfont \\bfseries References & NodeClass & BrowseName & DataType & Type\\-Definition & {Modeling\\-Rule} \\\\
-EOT
-      l = cs.pop(22)
-      l.each do |c|
-        generate_subtype(f, c)
-      end
-    end
-  end
+\\FloatBarrier
 
-  def generate_attribute_docs(f, header)
+EOT
+
+	  relations_with_documentation.each do |r|
+		if r.name == 'Supertype'
+		  next
+		elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
+			
+			name = r.association_name ? r.association_name : r.name
+			f.puts "\n\\paragraph{\\texttt{#{name}}}\\mbox{}\n"
+			if r.association_doc
+			  f.puts "\\newline\\tab #{r.association_doc}\n"
+			else r.documentation
+			  f.puts "\\newline\\tab #{r.documentation}\n"
+			end
+			
+			if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty
+			  r.target.type.generate_enumerations(f)
+			  f.puts "\\FloatBarrier"
+			end
+		end
+	  end
+	end    
+  end
+  
+  
+  
+  
+  
+   def generate_types(f, header)
     $logger.info "Generating docs for #{@name}"
     relations_with_documentation =
       @relations.select do |r|
@@ -237,9 +231,9 @@ f.puts <<EOT
   \\caption{\\texttt{#{header} of #{@name}}}
   \\label{properties:#{@name}}
 \\tabulinesep=3pt
-\\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
+\\begin{tabu} to 6in {|l|l|} \\everyrow{\\hline}
 \\hline
-\\rowfont\\bfseries {#{header}} & {ValueType} & {Multiplicity} \\\\
+\\rowfont\\bfseries {#{header}} & {Value} \\\\
 \\tabucline[1.5pt]{}
 EOT
   
@@ -249,10 +243,12 @@ EOT
 		end
 		stereo = r.stereotype ? "<<#{r.stereotype}>> " : nil
 		
+		name = r.association_name ? r.association_name : r.name
+		
 		if r.redefinesProperty and r.default
-		  f.puts "\\texttt{#{stereo}#{r.name}} & \\texttt{#{r.default}} & #{r.multiplicity} \\\\"
+		  f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.default.gsub(/(\^)2/,"$^2$")}} \\\\"
         else
-		  f.puts "\\texttt{#{stereo}#{r.name}} & \\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
+		  f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.final_target.type.name}} \\\\"
 		end
 	  end
         
@@ -267,7 +263,9 @@ EOT
 		if r.name == 'Supertype'
 		  next
 		elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
-			f.puts "\n\\paragraph{\\texttt{#{r.name}}}\\mbox{}\n"
+			
+			name = r.association_name ? r.association_name : r.name
+			f.puts "\n\\paragraph{\\texttt{#{name}}}\\mbox{}\n"
 			if r.association_doc
 			  f.puts "\\newline\\tab #{r.association_doc}\n"
 			else r.documentation
@@ -283,76 +281,31 @@ EOT
 	end    
   end
   
-  def generate_operations(f)
-    if !@operations.empty?
-      f.puts "\\paragraph{Operations}\n"
-      
-      f.puts "\\begin{itemize}"
-      @operations.each do |name, docs|
-        f.print "  \\item \\texttt{#{name}("
-        f.print ")}"
-        if false
-          f.puts "\\\\\n    Specification:"
-          f.puts "   \\indent \\begin{lstlisting}"
-          f.puts specs
-          f.puts "\\end{lstlisting}"          
-        end
-        if docs
-          f.puts "\\newline    Documentation: #{docs}"
-        end
-        f.puts
-      end
-      f.puts "\\end{itemize}"
-    end
+  
+  
+  
+  
+  
+  
+  
+  def generate_subtypes(f)
+	return if @is_subtype == true
+	
+	@subtypes.each do |subtype|
+	  	section_name = "[#{subtype.escape_name}]{#{subtype.escape_name} \\\\ {\\small Subtype of #{escape_name}}}"
+	  
+    f.puts <<EOT
+\\paragraph#{section_name}\\mbox{}
+  \\label{type:#{subtype.name}}
+
+\\FloatBarrier
+EOT
+	 f.puts "\n#{subtype.documentation}\n\n"
+	end
+
   end
 
-  def generate_type_table(f)
-    f.puts <<EOT
-\\begin{table}[ht]
-\\centering 
-  \\caption{\\texttt{#{escape_name}} Definition}
-  \\label{table:#{@name}}
-\\fontsize{9pt}{11pt}\\selectfont
-\\tabulinesep=3pt
-\\begin{tabu} to 6in {#{ROW_FORMAT}} \\everyrow{\\hline}
-\\hline
-\\rowfont\\bfseries {Attribute} & \\multicolumn{5}{|l|}{Value} \\\\
-\\tabucline[1.5pt]{}
-BrowseName & \\multicolumn{5}{|l|}{#{@name}} \\\\
-IsAbstract & \\multicolumn{5}{|l|}{#{@abstract.to_s.capitalize}} \\\\
-EOT
-
-    if is_variable?
-      v = get_attribute_like('ValueRank')
-      f.puts "ValueRank & \\multicolumn{5}{|l|}{#{v.default}} \\\\"
-      a = get_attribute_like('DataType') || 'BaseVariableType'
-      f.puts "DataType & \\multicolumn{5}{|l|}{#{a.target.type.name}} \\\\"
-    elsif is_reference?
-      a = get_attribute_like('Symmetric')
-      t = a.default || 'false'
-      f.puts "Symmetric & \\multicolumn{5}{|l|}{#{t}} \\\\"
-    end
-
-    f.puts <<EOT
-\\tabucline[1.5pt]{}
-\\rowfont \\bfseries References & NodeClass & BrowseName & DataType & Type\\-Definition & {Modeling\\-Rule} \\\\
-EOT
-
-    generate_supertype(f)
-    generate_children(f)
-
-    @mixin.mixin_relations(f) if @mixin
-    
-    generate_relations(f)
-
-    f.puts <<EOT
-\\end{tabu}
-\\end{table} 
-
-
-EOT
-  end
-
+  
   def generate_enumerations(f)
     if @type == 'uml:Enumeration'
       $logger.debug "***** =====> Generating Enumerations for #{@name}"
@@ -378,7 +331,7 @@ EOT
 EOT
       
       @literals.each do |lit|
-        f.puts "\\texttt{#{lit.name}} & #{lit.description} \\\\"
+        f.puts "\\texttt{#{lit.name}} & #{lit.description.gsub(/(\^)2/,"$^2$")} \\\\"
       end
         
       f.puts <<EOT
@@ -426,29 +379,6 @@ EOT
   end
 
   def generate_data_type(f)
-      f.puts <<EOT
-\\begin{table}[ht]
-\\centering 
-  \\caption{\\texttt{#{escape_name}} DataType}
-  \\label{data-type:#{@name}}
-\\tabulinesep=3pt
-\\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
-\\hline
-\\rowfont\\bfseries {Field} & {Type} & {Optional} \\\\
-\\tabucline[1.5pt]{}
-EOT
-
-      @relations.each do |r|
-        array = '[]' if r.is_array?
-        optional = r.is_optional? ? 'Optional' : 'Mandatory'
-        f.puts "\\texttt{#{r.name}} & \\texttt{#{r.target.type.name}#{array}} & \\texttt{#{optional}} \\\\"
-      end
-        
-      f.puts <<EOT
-\\end{tabu}
-\\end{table} 
-
-EOT
 
       generate_attribute_docs(f, "Data Type Fields")
   end
@@ -498,9 +428,8 @@ EOT
   def generate_class(f)
      
     generate_attribute_docs(f, "Properties")
-    generate_operations(f)
-    generate_constraints(f)
-    generate_dependencies(f)    
+    generate_dependencies(f) 
+	generate_subtypes(f)
   end
      
   def generate_latex(f = STDOUT)
@@ -511,7 +440,6 @@ EOT
 		else
 			"{#{escape_name}}"
 		end
-
 
     f.puts <<EOT
 \\subsubsection#{section_name}

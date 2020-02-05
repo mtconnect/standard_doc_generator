@@ -6,10 +6,12 @@ require 'extensions'
 class Type
   include Extensions
   
-  attr_reader :name, :id, :type, :model, :parent, :children, :relations, :stereotype,
-              :constraints, :extended, :literals, :invariants, :classifier, :assoc, :xmi
+  attr_reader :name, :id, :type, :model, :parent, :children, :relations, :stereotype, :is_subtype,
+              :constraints, :extended, :literals, :invariants, :classifier, :assoc, :xmi, :subtypes
   attr_accessor :documentation
 
+  attr_writer :is_subtype
+  
   class Literal
     attr_reader :name, :value, :description
     
@@ -197,13 +199,17 @@ class Type
     end
   end
 
+ 
+
   def initialize(model, e)
     @xmi = e
     @id = e['xmi:id']
 
     @name = e['name']
+	
+	@subtypes = []
 
-    
+    @is_subtype = false
     @documentation = xmi_documentation(e) || ''
 
     

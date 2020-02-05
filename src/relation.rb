@@ -58,7 +58,7 @@ module Relation
   class Relation
     include Extensions
     
-    attr_reader :id, :name, :type, :xmi, :multiplicity,
+    attr_reader :id, :name, :type, :xmi, :multiplicity, 
                 :source, :target, :owner, :stereotype, :visibility, :association_name,
                 :constraints, :invariants, :assoc, :redefinesProperty, :default, :association_doc
     attr_accessor :documentation

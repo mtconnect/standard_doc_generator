@@ -19,6 +19,9 @@ class LatexModel < Model
 
   def self.generate_latex(f, model)
     if @@models[model]
+	  if model.end_with?('Types')
+		@@models[model].generate_subtypes(model)
+	  end
       @@models[model].generate_latex(f)
     else
       $logger.fatal "Cannot find model: #{model}"
@@ -47,10 +50,28 @@ class LatexModel < Model
   end
 
 
+  def generate_subtypes(model)
+	list_of_types = []
+	
+	@types.each do |type|
+	  list_of_types << type.id
+	end
+	
+	@types.each do |type|
+        if not (type.parent.nil? or type.parent.model != self)
+          type.relations.each do |rel|
+			if list_of_types.include?(rel.final_target.type.id)
+				rel.final_target.type.subtypes << type
+				type.is_subtype = true
+			end
+		  end
+        end
+      end
+  end
 
   def recurse_types(f, type)
-    if  type.type == 'uml:Class' or type.type == 'uml:Stereotype' or
-        type.type == 'uml:DataType' # or type.type == 'uml:AssociationClass'
+    if  (type.type == 'uml:Class' or type.type == 'uml:Stereotype' or # type.type == 'uml:AssociationClass' or
+        type.type == 'uml:DataType') and type.is_subtype != true
       type.generate_latex(f) 
     end
 

@@ -38,7 +38,7 @@ class Model
 
     comment = e.at('./ownedComment')
     @documentation = comment['body'].gsub(/<[\/]?[a-z]+>/, '') if comment
-    
+
     @@models[@name] = self
   end
 
