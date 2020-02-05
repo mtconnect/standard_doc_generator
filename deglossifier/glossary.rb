@@ -230,7 +230,7 @@ end
 CSV.open(File.join($root, 'dataitemtype_enums.csv'), 'w') do |csv|
   csv << ['Owner', 'Name', 'Description']
   Observable.types.each do |name, observable|
-    if observable.type and !observable.abstract?
+    if observable.type and !observable.abstract? and observable.parent.abstract?
       csv << ["DataTypes::#{observable.kind}Enum", observable.type, observable.description]
     end
   end
@@ -283,3 +283,10 @@ CSV.open(File.join($root, 'observation_enum_values.csv'), 'w') do |enums|
   end
 end
 
+
+CSV.open(File.join($root, 'terms.csv'), 'w') do |terms|
+  terms << ['Owner', 'Name', 'Descriptionn']
+  $parser.terms.sort.each do |g|
+    terms << ['Glossary', g.name_property.to_s, g.description]
+  end
+end
