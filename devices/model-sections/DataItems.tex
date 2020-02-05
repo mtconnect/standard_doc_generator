@@ -1,4 +1,4 @@
-% Generated 2020-02-05 07:16:58 -0500
+% Generated 2020-02-05 10:44:45 -0500
 \subsection{DataItems} \label{model:DataItems}
 \subsubsection{Constraints}
   \label{type:Constraints}
@@ -100,7 +100,7 @@ Placeholder for documentation!
 
 
 \paragraph{\texttt{category}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab Specifies the kind of information provided by a data item.
 
 Placeholder for documentation!
 
@@ -121,10 +121,10 @@ Placeholder for documentation!
 \FloatBarrier
 
 \paragraph{\texttt{compositionId}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The identifier attribute of the {model:Composition} element that the reported data is most closely associated.
 
 \paragraph{\texttt{coordinateSystem}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab For measured values relative to a coordinate system like {model:POSITION}, the coordinate system being used may be reported.
 
 Placeholder for documentation!
 
@@ -144,19 +144,27 @@ Placeholder for documentation!
 \FloatBarrier
 
 \paragraph{\texttt{discrete}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab An indication signifying whether each value reported for the {term:Data Entity} is significant and whether duplicate values are to be suppressed.
+  
+ The value defined *MUST* be either {model:true} or {model:false} - an XML boolean type.
+  
+ {model:true} indicates that each update to the {term:Data Entity}'s value is significant and duplicate values *MUSTNOT* be suppressed.
+  
+ {model:false} indicates that duplicated values *MUST* be suppressed.
+  
+ If a value is not defined for {model:discrete}, the default value *MUST* be {model:false}.
 
 \paragraph{\texttt{id}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The unique identifier for this element.
 
 \paragraph{\texttt{name}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The name of an element or a piece of equipment.
 
 \paragraph{\texttt{nativeScale}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab {model:nativeScale} *MAY* be used to convert the reported value to represent the original measured value.
 
 \paragraph{\texttt{nativeUnits}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The native units of measurement for the reported value of the data item.
 
 Placeholder for documentation!
 
@@ -205,13 +213,13 @@ Placeholder for documentation!
 \FloatBarrier
 
 \paragraph{\texttt{sampleRate}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The rate at which successive samples of a data item are recorded by a piece of equipment.
 
 \paragraph{\texttt{significantDigits}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The number of significant digits in the reported value.
 
 \paragraph{\texttt{statistic}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab Describes the type of statistical calculation performed on a series of data samples to provide the reported data value.
 
 Placeholder for documentation!
 
@@ -238,13 +246,13 @@ Placeholder for documentation!
 \FloatBarrier
 
 \paragraph{\texttt{subType}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab A sub-categorization of the data item {model:type}.
 
 \paragraph{\texttt{type}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The type of either a {term:Structural Element} or a {model:DataItem} being measured.
 
 \paragraph{\texttt{units}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The unit of measurement for the reported value of the data item.
 
 Placeholder for documentation!
 
@@ -295,7 +303,11 @@ Placeholder for documentation!
 \FloatBarrier
 
 \paragraph{\texttt{representation}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab Description of a means to interpret data consisting of multiple data points or samples reported as a single value.  
+ {model:representation} is an optional attribute.  
+ {model:representation} will define a unique format for each set of data.  
+ {model:representation} for {model:TIME_SERIES}, {model:DISCRETE ( *DEPRECATED* in _Version 1.5_)}, and {model:VALUE} are defined in *CITETITLE:MTCPart2* _Section 7.2.2.12_.  
+ If {model:representation} is not specified, it *MUST* be determined to be {model:VALUE}.
 
 Placeholder for documentation!
 
@@ -472,13 +484,13 @@ Placeholder for documentation!
 
 
 \paragraph{\texttt{componentId}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The identifier attribute of the {model:Component} element that represents the physical part of a piece of equipment where the data represented by the {model:DataItem} element originated.
 
 \paragraph{\texttt{compositionId}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The identifier attribute of the {model:Composition} element that the reported data is most closely associated.
 
 \paragraph{\texttt{dataItemId}}\mbox{}
-\newline\tab Placeholder for documentation!
+\newline\tab The identifier attribute of the {model:DataItem} that represents the originally measured value of the data referenced by this data item.
 
 \paragraph{\texttt{Value}}\mbox{}
 \newline\tab Placeholder for documentation!

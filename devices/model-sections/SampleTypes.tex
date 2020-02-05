@@ -1,4 +1,4 @@
-% Generated 2020-02-05 07:16:58 -0500
+% Generated 2020-02-05 10:44:46 -0500
 \subsection{SampleTypes} \label{model:SampleTypes}
 \subsubsection[Acceleration]{Acceleration \\ {\small Subtype of Sample}}
   \label{type:Acceleration}
@@ -16,7 +16,7 @@ The measurement of the rate of change of velocity.
 \hline
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER/SECOND$^2$} \\
+\texttt{units} & \texttt{MILLIMETER/SECOND\^{}2} \\
 \texttt{type} & \texttt{ACCELERATION} \\
 \end{tabu}
 \end{table}
@@ -68,33 +68,19 @@ The measurement of electrical current.
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualAmperage]{ActualAmperage \\ {\small Subtype of Amperage}}\mbox{}
-  \label{type:ActualAmperage}
+Subtypes of \texttt{Amperage} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[AlternatingAmperage]{AlternatingAmperage \\ {\small Subtype of Amperage}}\mbox{}
-  \label{type:AlternatingAmperage}
+\item \texttt{Alternating} : The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
 
-\FloatBarrier
+\item \texttt{Direct} : The measurement of DC current or voltage.
 
-The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
+\item \texttt{Target} : The desired measure or count for a data item value.
 
-\paragraph[DirectAmperage]{DirectAmperage \\ {\small Subtype of Amperage}}\mbox{}
-  \label{type:DirectAmperage}
-
-\FloatBarrier
-
-The measurement of DC current or voltage.
-
-\paragraph[TargetAmperage]{TargetAmperage \\ {\small Subtype of Amperage}}\mbox{}
-  \label{type:TargetAmperage}
-
-\FloatBarrier
-
-The desired measure or count for a data item value.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[Angle]{Angle \\ {\small Subtype of Sample}}
@@ -119,19 +105,15 @@ The measurement of angular position.
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualAngle]{ActualAngle \\ {\small Subtype of Angle}}\mbox{}
-  \label{type:ActualAngle}
+Subtypes of \texttt{Angle} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedAngle]{CommandedAngle \\ {\small Subtype of Angle}}\mbox{}
-  \label{type:CommandedAngle}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
-
-A value specified by the {model:Controller} type component.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[AngularAcceleration]{AngularAcceleration \\ {\small Subtype of Sample}}
@@ -150,7 +132,7 @@ The measurement rate of change of angular velocity.
 \hline
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{units} & \texttt{DEGREE/SECOND$^2$} \\
+\texttt{units} & \texttt{DEGREE/SECOND\^{}2} \\
 \texttt{type} & \texttt{ANGULAR_ACCELERATION} \\
 \end{tabu}
 \end{table}
@@ -202,47 +184,23 @@ The measurement of the feedrate of a linear axis.
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualAxisFeedrate]{ActualAxisFeedrate \\ {\small Subtype of AxisFeedrate}}\mbox{}
-  \label{type:ActualAxisFeedrate}
+Subtypes of \texttt{AxisFeedrate} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedAxisFeedrate]{CommandedAxisFeedrate \\ {\small Subtype of AxisFeedrate}}\mbox{}
-  \label{type:CommandedAxisFeedrate}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
+\item \texttt{Jog} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
-A value specified by the {model:Controller} type component.
+\item \texttt{Override} : The operators overridden value.
 
-\paragraph[JogAxisFeedrate]{JogAxisFeedrate \\ {\small Subtype of AxisFeedrate}}\mbox{}
-  \label{type:JogAxisFeedrate}
+\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-\FloatBarrier
+\item \texttt{Rapid} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
 
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
-
-\paragraph[OverrideAxisFeedrate]{OverrideAxisFeedrate \\ {\small Subtype of AxisFeedrate}}\mbox{}
-  \label{type:OverrideAxisFeedrate}
-
-\FloatBarrier
-
-The operators overridden value.
-
-\paragraph[ProgrammedAxisFeedrate]{ProgrammedAxisFeedrate \\ {\small Subtype of AxisFeedrate}}\mbox{}
-  \label{type:ProgrammedAxisFeedrate}
-
-\FloatBarrier
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\paragraph[RapidAxisFeedrate]{RapidAxisFeedrate \\ {\small Subtype of AxisFeedrate}}\mbox{}
-  \label{type:RapidAxisFeedrate}
-
-\FloatBarrier
-
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[CapacityFluid]{CapacityFluid \\ {\small Subtype of Sample}}
@@ -382,26 +340,17 @@ The speed difference (relative velocity) between the cutting mechanism and the s
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualCuttingSpeed]{ActualCuttingSpeed \\ {\small Subtype of CuttingSpeed}}\mbox{}
-  \label{type:ActualCuttingSpeed}
+Subtypes of \texttt{CuttingSpeed} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedCuttingSpeed]{CommandedCuttingSpeed \\ {\small Subtype of CuttingSpeed}}\mbox{}
-  \label{type:CommandedCuttingSpeed}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
+\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-A value specified by the {model:Controller} type component.
-
-\paragraph[ProgrammedCuttingSpeed]{ProgrammedCuttingSpeed \\ {\small Subtype of CuttingSpeed}}\mbox{}
-  \label{type:ProgrammedCuttingSpeed}
-
-\FloatBarrier
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[Density]{Density \\ {\small Subtype of Sample}}
@@ -443,25 +392,21 @@ The rate of change in spatial volume of material deposited in an additive manufa
 \hline
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
-\texttt{units} & \texttt{CUBIC_MILLIMETER/SECOND$^2$} \\
+\texttt{units} & \texttt{CUBIC_MILLIMETER/SECOND\^{}2} \\
 \texttt{type} & \texttt{DEPOSITION_ACCELERATION_VOLUMETRIC} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualDepositionAccelerationVolumetric]{ActualDepositionAccelerationVolumetric \\ {\small Subtype of DepositionAccelerationVolumetric}}\mbox{}
-  \label{type:ActualDepositionAccelerationVolumetric}
+Subtypes of \texttt{DepositionAccelerationVolumetric} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedDepositionAccelerationVolumetric]{CommandedDepositionAccelerationVolumetric \\ {\small Subtype of DepositionAccelerationVolumetric}}\mbox{}
-  \label{type:CommandedDepositionAccelerationVolumetric}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
-
-A value specified by the {model:Controller} type component.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[DepositionDensity]{DepositionDensity \\ {\small Subtype of Sample}}
@@ -486,19 +431,15 @@ The density of the material deposited in an additive manufacturing process per u
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualDepositionDensity]{ActualDepositionDensity \\ {\small Subtype of DepositionDensity}}\mbox{}
-  \label{type:ActualDepositionDensity}
+Subtypes of \texttt{DepositionDensity} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedDepositionDensity]{CommandedDepositionDensity \\ {\small Subtype of DepositionDensity}}\mbox{}
-  \label{type:CommandedDepositionDensity}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
-
-A value specified by the {model:Controller} type component.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[DepositionMass]{DepositionMass \\ {\small Subtype of Sample}}
@@ -523,19 +464,15 @@ The mass of the material deposited in an additive manufacturing process.
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualDepositionMass]{ActualDepositionMass \\ {\small Subtype of DepositionMass}}\mbox{}
-  \label{type:ActualDepositionMass}
+Subtypes of \texttt{DepositionMass} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedDepositionMass]{CommandedDepositionMass \\ {\small Subtype of DepositionMass}}\mbox{}
-  \label{type:CommandedDepositionMass}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
-
-A value specified by the {model:Controller} type component.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[DepositionRateVolumetric]{DepositionRateVolumetric \\ {\small Subtype of Sample}}
@@ -560,19 +497,15 @@ The rate at which a spatial volume of material is deposited in an additive manuf
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualDepositionRateVolumetric]{ActualDepositionRateVolumetric \\ {\small Subtype of DepositionRateVolumetric}}\mbox{}
-  \label{type:ActualDepositionRateVolumetric}
+Subtypes of \texttt{DepositionRateVolumetric} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedDepositionRateVolumetric]{CommandedDepositionRateVolumetric \\ {\small Subtype of DepositionRateVolumetric}}\mbox{}
-  \label{type:CommandedDepositionRateVolumetric}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
-
-A value specified by the {model:Controller} type component.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[DepositionVolume]{DepositionVolume \\ {\small Subtype of Sample}}
@@ -597,19 +530,15 @@ The spatial volume of material to be deposited in an additive manufacturing proc
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualDepositionVolume]{ActualDepositionVolume \\ {\small Subtype of DepositionVolume}}\mbox{}
-  \label{type:ActualDepositionVolume}
+Subtypes of \texttt{DepositionVolume} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedDepositionVolume]{CommandedDepositionVolume \\ {\small Subtype of DepositionVolume}}\mbox{}
-  \label{type:CommandedDepositionVolume}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
-
-A value specified by the {model:Controller} type component.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[Displacement]{Displacement \\ {\small Subtype of Sample}}
@@ -680,40 +609,21 @@ The measurement of the amount of time a piece of equipment or a sub-part of a pi
 \end{table}
 \FloatBarrier
 
-\paragraph[DelayEquipmentTimer]{DelayEquipmentTimer \\ {\small Subtype of EquipmentTimer}}\mbox{}
-  \label{type:DelayEquipmentTimer}
+Subtypes of \texttt{EquipmentTimer} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-A piece of equipment waiting for an event or an action to occur.
+\item \texttt{Delay} : A piece of equipment waiting for an event or an action to occur.
 
-\paragraph[LoadedEquipmentTimer]{LoadedEquipmentTimer \\ {\small Subtype of EquipmentTimer}}\mbox{}
-  \label{type:LoadedEquipmentTimer}
+\item \texttt{Loaded} : Subparts of a piece of equipment are under load.
 
-\FloatBarrier
+\item \texttt{Operating} : A piece of equipment are powered or performing any activity.
 
-Subparts of a piece of equipment are under load.
+\item \texttt{Powered} : Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
 
-\paragraph[OperatingEquipmentTimer]{OperatingEquipmentTimer \\ {\small Subtype of EquipmentTimer}}\mbox{}
-  \label{type:OperatingEquipmentTimer}
+\item \texttt{Working} : A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
 
-\FloatBarrier
-
-A piece of equipment are powered or performing any activity.
-
-\paragraph[PoweredEquipmentTimer]{PoweredEquipmentTimer \\ {\small Subtype of EquipmentTimer}}\mbox{}
-  \label{type:PoweredEquipmentTimer}
-
-\FloatBarrier
-
-Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
-
-\paragraph[WorkingEquipmentTimer]{WorkingEquipmentTimer \\ {\small Subtype of EquipmentTimer}}\mbox{}
-  \label{type:WorkingEquipmentTimer}
-
-\FloatBarrier
-
-A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[FillLevel]{FillLevel \\ {\small Subtype of Sample}}
@@ -829,26 +739,17 @@ The measurement of the length of an object.
 \end{table}
 \FloatBarrier
 
-\paragraph[RemainingLength]{RemainingLength \\ {\small Subtype of Length}}\mbox{}
-  \label{type:RemainingLength}
+Subtypes of \texttt{Length} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-Remaining measure of an object or an action.
+\item \texttt{Remaining} : Remaining measure of an object or an action.
 
-\paragraph[StandardLength]{StandardLength \\ {\small Subtype of Length}}\mbox{}
-  \label{type:StandardLength}
+\item \texttt{Standard} : The standard or original length of an object.
 
-\FloatBarrier
+\item \texttt{Useable} : The remaining useable length of an object.
 
-The standard or original length of an object.
-
-\paragraph[UseableLength]{UseableLength \\ {\small Subtype of Length}}\mbox{}
-  \label{type:UseableLength}
-
-\FloatBarrier
-
-The remaining useable length of an object.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[Level]{Level \\ {\small Subtype of Sample}}
@@ -987,47 +888,23 @@ The measurement of the feedrate for the axes, or a single axis, associated with 
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualPathFeedrate]{ActualPathFeedrate \\ {\small Subtype of PathFeedrate}}\mbox{}
-  \label{type:ActualPathFeedrate}
+Subtypes of \texttt{PathFeedrate} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedPathFeedrate]{CommandedPathFeedrate \\ {\small Subtype of PathFeedrate}}\mbox{}
-  \label{type:CommandedPathFeedrate}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
+\item \texttt{Jog} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
-A value specified by the {model:Controller} type component.
+\item \texttt{Override} : The operators overridden value.
 
-\paragraph[JogPathFeedrate]{JogPathFeedrate \\ {\small Subtype of PathFeedrate}}\mbox{}
-  \label{type:JogPathFeedrate}
+\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-\FloatBarrier
+\item \texttt{Rapid} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
 
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
-
-\paragraph[OverridePathFeedrate]{OverridePathFeedrate \\ {\small Subtype of PathFeedrate}}\mbox{}
-  \label{type:OverridePathFeedrate}
-
-\FloatBarrier
-
-The operators overridden value.
-
-\paragraph[ProgrammedPathFeedrate]{ProgrammedPathFeedrate \\ {\small Subtype of PathFeedrate}}\mbox{}
-  \label{type:ProgrammedPathFeedrate}
-
-\FloatBarrier
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\paragraph[RapidPathFeedrate]{RapidPathFeedrate \\ {\small Subtype of PathFeedrate}}\mbox{}
-  \label{type:RapidPathFeedrate}
-
-\FloatBarrier
-
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[PathFeedratePerRevolution]{PathFeedratePerRevolution \\ {\small Subtype of Sample}}
@@ -1052,26 +929,17 @@ The feedrate for the axes, or a single axis.
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualPathFeedratePerRevolution]{ActualPathFeedratePerRevolution \\ {\small Subtype of PathFeedratePerRevolution}}\mbox{}
-  \label{type:ActualPathFeedratePerRevolution}
+Subtypes of \texttt{PathFeedratePerRevolution} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedPathFeedratePerRevolution]{CommandedPathFeedratePerRevolution \\ {\small Subtype of PathFeedratePerRevolution}}\mbox{}
-  \label{type:CommandedPathFeedratePerRevolution}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
+\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-A value specified by the {model:Controller} type component.
-
-\paragraph[ProgrammedPathFeedratePerRevolution]{ProgrammedPathFeedratePerRevolution \\ {\small Subtype of PathFeedratePerRevolution}}\mbox{}
-  \label{type:ProgrammedPathFeedratePerRevolution}
-
-\FloatBarrier
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[PathPosition]{PathPosition \\ {\small Subtype of Sample}}
@@ -1096,33 +964,19 @@ A measured or calculated position of a control point associated with a {model:Co
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualPathPosition]{ActualPathPosition \\ {\small Subtype of PathPosition}}\mbox{}
-  \label{type:ActualPathPosition}
+Subtypes of \texttt{PathPosition} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedPathPosition]{CommandedPathPosition \\ {\small Subtype of PathPosition}}\mbox{}
-  \label{type:CommandedPathPosition}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
+\item \texttt{Probe} : The position provided by a measurement probe.
 
-A value specified by the {model:Controller} type component.
+\item \texttt{Target} : The desired measure or count for a data item value.
 
-\paragraph[ProbePathPosition]{ProbePathPosition \\ {\small Subtype of PathPosition}}\mbox{}
-  \label{type:ProbePathPosition}
-
-\FloatBarrier
-
-The position provided by a measurement probe.
-
-\paragraph[TargetPathPosition]{TargetPathPosition \\ {\small Subtype of PathPosition}}\mbox{}
-  \label{type:TargetPathPosition}
-
-\FloatBarrier
-
-The desired measure or count for a data item value.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[Position]{Position \\ {\small Subtype of Sample}}
@@ -1147,33 +1001,19 @@ A measured or calculated position of a {model:Component} element as reported by 
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualPosition]{ActualPosition \\ {\small Subtype of Position}}\mbox{}
-  \label{type:ActualPosition}
+Subtypes of \texttt{Position} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedPosition]{CommandedPosition \\ {\small Subtype of Position}}\mbox{}
-  \label{type:CommandedPosition}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
+\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-A value specified by the {model:Controller} type component.
+\item \texttt{Target} : The desired measure or count for a data item value.
 
-\paragraph[ProgrammedPosition]{ProgrammedPosition \\ {\small Subtype of Position}}\mbox{}
-  \label{type:ProgrammedPosition}
-
-\FloatBarrier
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\paragraph[TargetPosition]{TargetPosition \\ {\small Subtype of Position}}\mbox{}
-  \label{type:TargetPosition}
-
-\FloatBarrier
-
-The desired measure or count for a data item value.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[PowerFactor]{PowerFactor \\ {\small Subtype of Sample}}
@@ -1244,19 +1084,15 @@ The measurement of the amount of time a piece of equipment has performed differe
 \end{table}
 \FloatBarrier
 
-\paragraph[DelayProcessTimer]{DelayProcessTimer \\ {\small Subtype of ProcessTimer}}\mbox{}
-  \label{type:DelayProcessTimer}
+Subtypes of \texttt{ProcessTimer} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-A piece of equipment waiting for an event or an action to occur.
+\item \texttt{Delay} : A piece of equipment waiting for an event or an action to occur.
 
-\paragraph[ProcessProcessTimer]{ProcessProcessTimer \\ {\small Subtype of ProcessTimer}}\mbox{}
-  \label{type:ProcessProcessTimer}
+\item \texttt{Process} : The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
 
-\FloatBarrier
-
-The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[Resistance]{Resistance \\ {\small Subtype of Sample}}
@@ -1304,33 +1140,19 @@ The measurement of the rotational speed of a rotary axis.
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualRotaryVelocity]{ActualRotaryVelocity \\ {\small Subtype of RotaryVelocity}}\mbox{}
-  \label{type:ActualRotaryVelocity}
+Subtypes of \texttt{RotaryVelocity} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedRotaryVelocity]{CommandedRotaryVelocity \\ {\small Subtype of RotaryVelocity}}\mbox{}
-  \label{type:CommandedRotaryVelocity}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
+\item \texttt{Override} : The operators overridden value.
 
-A value specified by the {model:Controller} type component.
+\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-\paragraph[OverrideRotaryVelocity]{OverrideRotaryVelocity \\ {\small Subtype of RotaryVelocity}}\mbox{}
-  \label{type:OverrideRotaryVelocity}
-
-\FloatBarrier
-
-The operators overridden value.
-
-\paragraph[ProgrammedRotaryVelocity]{ProgrammedRotaryVelocity \\ {\small Subtype of RotaryVelocity}}\mbox{}
-  \label{type:ProgrammedRotaryVelocity}
-
-\FloatBarrier
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[SoundLevel]{SoundLevel \\ {\small Subtype of Sample}}
@@ -1355,40 +1177,21 @@ The measurement of a sound level or sound pressure level relative to atmospheric
 \end{table}
 \FloatBarrier
 
-\paragraph[AScaleSoundLevel]{AScaleSoundLevel \\ {\small Subtype of SoundLevel}}\mbox{}
-  \label{type:AScaleSoundLevel}
+Subtypes of \texttt{SoundLevel} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-A Scale weighting factor.   This is the default weighting factor if no factor is specified
+\item \texttt{AScale} : A Scale weighting factor.   This is the default weighting factor if no factor is specified
 
-\paragraph[BScaleSoundLevel]{BScaleSoundLevel \\ {\small Subtype of SoundLevel}}\mbox{}
-  \label{type:BScaleSoundLevel}
+\item \texttt{BScale} : B Scale weighting factor
 
-\FloatBarrier
+\item \texttt{CScale} : C Scale weighting factor
 
-B Scale weighting factor
+\item \texttt{DScale} : D Scale weighting factor
 
-\paragraph[CScaleSoundLevel]{CScaleSoundLevel \\ {\small Subtype of SoundLevel}}\mbox{}
-  \label{type:CScaleSoundLevel}
+\item \texttt{NoScale} : No weighting factor on the frequency scale
 
-\FloatBarrier
-
-C Scale weighting factor
-
-\paragraph[DScaleSoundLevel]{DScaleSoundLevel \\ {\small Subtype of SoundLevel}}\mbox{}
-  \label{type:DScaleSoundLevel}
-
-\FloatBarrier
-
-D Scale weighting factor
-
-\paragraph[NoScaleSoundLevel]{NoScaleSoundLevel \\ {\small Subtype of SoundLevel}}\mbox{}
-  \label{type:NoScaleSoundLevel}
-
-\FloatBarrier
-
-No weighting factor on the frequency scale
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[SpindleSpeed]{SpindleSpeed \\ {\small Subtype of Sample}}
@@ -1413,26 +1216,17 @@ No weighting factor on the frequency scale
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualSpindleSpeed]{ActualSpindleSpeed \\ {\small Subtype of SpindleSpeed}}\mbox{}
-  \label{type:ActualSpindleSpeed}
+Subtypes of \texttt{SpindleSpeed} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[CommandedSpindleSpeed]{CommandedSpindleSpeed \\ {\small Subtype of SpindleSpeed}}\mbox{}
-  \label{type:CommandedSpindleSpeed}
+\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
 
-\FloatBarrier
+\item \texttt{Override} : The operators overridden value.
 
-A value specified by the {model:Controller} type component.
-
-\paragraph[OverrideSpindleSpeed]{OverrideSpindleSpeed \\ {\small Subtype of SpindleSpeed}}\mbox{}
-  \label{type:OverrideSpindleSpeed}
-
-\FloatBarrier
-
-The operators overridden value.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[Strain]{Strain \\ {\small Subtype of Sample}}
@@ -1664,33 +1458,19 @@ The measurement of electrical potential between two points.
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualVoltage]{ActualVoltage \\ {\small Subtype of Voltage}}\mbox{}
-  \label{type:ActualVoltage}
+Subtypes of \texttt{Voltage} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[AlternatingVoltage]{AlternatingVoltage \\ {\small Subtype of Voltage}}\mbox{}
-  \label{type:AlternatingVoltage}
+\item \texttt{Alternating} : The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
 
-\FloatBarrier
+\item \texttt{Direct} : The measurement of DC current or voltage.
 
-The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
+\item \texttt{Target} : The desired measure or count for a data item value.
 
-\paragraph[DirectVoltage]{DirectVoltage \\ {\small Subtype of Voltage}}\mbox{}
-  \label{type:DirectVoltage}
-
-\FloatBarrier
-
-The measurement of DC current or voltage.
-
-\paragraph[TargetVoltage]{TargetVoltage \\ {\small Subtype of Voltage}}\mbox{}
-  \label{type:TargetVoltage}
-
-\FloatBarrier
-
-The desired measure or count for a data item value.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[VolumeFluid]{VolumeFluid \\ {\small Subtype of Sample}}
@@ -1715,19 +1495,15 @@ The fluid volume of an object or container.
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualVolumeFluid]{ActualVolumeFluid \\ {\small Subtype of VolumeFluid}}\mbox{}
-  \label{type:ActualVolumeFluid}
+Subtypes of \texttt{VolumeFluid} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[ConsumedVolumeFluid]{ConsumedVolumeFluid \\ {\small Subtype of VolumeFluid}}\mbox{}
-  \label{type:ConsumedVolumeFluid}
+\item \texttt{Consumed} : The amount of bulk material consumed from an object or container during a manufacturing process.
 
-\FloatBarrier
-
-The amount of bulk material consumed from an object or container during a manufacturing process.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[VolumeSpatial]{VolumeSpatial \\ {\small Subtype of Sample}}
@@ -1752,19 +1528,15 @@ The geometric volume of an object or container.
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualVolumeSpatial]{ActualVolumeSpatial \\ {\small Subtype of VolumeSpatial}}\mbox{}
-  \label{type:ActualVolumeSpatial}
+Subtypes of \texttt{VolumeSpatial} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[ConsumedVolumeSpatial]{ConsumedVolumeSpatial \\ {\small Subtype of VolumeSpatial}}\mbox{}
-  \label{type:ConsumedVolumeSpatial}
+\item \texttt{Consumed} : The amount of bulk material consumed from an object or container during a manufacturing process.
 
-\FloatBarrier
-
-The amount of bulk material consumed from an object or container during a manufacturing process.
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[Wattage]{Wattage \\ {\small Subtype of Sample}}
@@ -1789,18 +1561,14 @@ The measurement of power flowing through or dissipated by an electrical circuit 
 \end{table}
 \FloatBarrier
 
-\paragraph[ActualWattage]{ActualWattage \\ {\small Subtype of Wattage}}\mbox{}
-  \label{type:ActualWattage}
+Subtypes of \texttt{Wattage} are : 
 
-\FloatBarrier
+\begin{itemize}
 
-The measured value of the data item type given by a sensor or encoder.
+\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
 
-\paragraph[TargetWattage]{TargetWattage \\ {\small Subtype of Wattage}}\mbox{}
-  \label{type:TargetWattage}
+\item \texttt{Target} : The desired measure or count for a data item value.
 
-\FloatBarrier
-
-The desired measure or count for a data item value.
+\end{itemize}
 
 \FloatBarrier
