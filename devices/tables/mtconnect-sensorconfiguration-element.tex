@@ -1,0 +1,30 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{MTConnect SensorConfiguration Element} \label{table:mtconnect-sensorconfiguration-element} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:mtconnect-sensorconfiguration-element}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{sensorconfiguration}
+&
+An element that can contain descriptive content defining the configuration information for \gls{sensor}.
+\newline For \gls{sensor}, the valid configuration is \gls{sensorconfiguration} which provides data from a subset of items commonly found in a transducer electronic data sheet for sensors and actuators called
+TEDS.
+\newline TEDS formats are defined in IEEE 1451.0 and 1451.4 transducer interface standards (ref 15 and 16, respectively).
+\newline MTConnect does not support all of the data represented in the TEDS data, nor does it duplicate the function of the TEDS data sheets. 
+&
+0..1 \\
+\hline
+
+
+\end{longtabu}

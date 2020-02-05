@@ -1,0 +1,44 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Attributes for Source} \label{table:attributes-for-source} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:attributes-for-source}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{componentid} 
+&
+\glsentrydesc{componentid}
+\newline A \gls{valid data value} reported for \gls{componentid} \MUST be the value of the \gls{id} attribute for the \gls{component} element identified.\newline \gls{componentid} is an optional attribute.
+&
+0..1\\
+\hline
+
+\gls{dataitemid} 
+&
+\glsentrydesc{dataitemid}
+\newline A \gls{valid data value} reported for \gls{dataitemid} \MUST be the value of the \gls{id} attribute for the \gls{dataitem} element identified.
+\newline \gls{dataitemid} is an optional attribute.
+&
+0..1\\
+\hline
+
+\gls{compositionid} 
+&
+The identifier attribute of the \gls{composition} element that represents the physical part of a piece of equipment where the data represented by the \gls{dataitem} element originated.
+\newline A \gls{valid data value} reported for \gls{compositionid} \MUST be the value of the \gls{id} attribute for the \gls{composition} element identified.
+\newline \gls{compositionid} is an optional attribute.
+&
+0..1\\
+\hline
+
+\end{longtabu}

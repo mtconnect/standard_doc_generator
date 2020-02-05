@@ -54,6 +54,13 @@ class LatexParser
         end
       end
 
+      if e.has_key? :category
+        @indexes[e.category.to_s.to_sym] << e
+      elsif !e.kind
+        @indexes[:term] << e
+      end
+
+
       name = e.name.to_s
       @entries[name] = e
       @entries[e.name_property.to_s] = e unless e.name_property.to_s.start_with?(/[a-z]/)
@@ -70,7 +77,7 @@ class LatexParser
 
     puts "Entries: #{@entries.length}"
     @indexes.each do |kind, list|
-      puts "  #{kind}: #{list.count}"
+      puts "  #{kind.inspect}: #{list.count}"
     end
   end
 

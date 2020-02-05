@@ -1,0 +1,62 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Elements for Constraints} \label{table:elements-for-constraints} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:elements-for-constraints}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+
+\gls{value}
+&
+\gls{value} represents a single data value that is expected to be reported for a \gls{dataitem} element.
+\newline The data value is provided in the \gls{cdata} for this element and may be any numeric or text content.
+\newline When there are multiple data values that may be expected to be reported for a \gls{dataitem} element, multiple \gls{value} elements may be defined.
+\newline In the case where only one \gls{value} element is defined, the data returned in response to a \gls{current request} or \gls{sample request} request \MUST be the data value defined for \gls{value} element.
+\newline \gls{value} \MUSTNOT be used in conjunction with any other \gls{constraint} elements.
+&
+0..* \\
+\hline
+
+\gls{maximum}
+&
+If the data reported for a data item is a range of numeric values, the expected value reported \MAY be described with an upper limit defined by this constraint.
+\newline The data value is provided in the \gls{cdata} for this element and \MUST be a value using the same units as the reported data. 
+&
+0..1 \\
+\hline
+
+\gls{minimum}
+&
+If the data reported for a data item is a range of numeric values, the expected value reported \MAY be described with a lower limit defined by this constraint.
+\newline The data value is provided in the \gls{cdata} for this element and \MUST be a value using the same units as the reported data. 
+&
+0..1 \\
+\hline
+
+\gls{nominal}
+&
+The target or expected value for this data item.
+\newline The data value is provided in the \gls{cdata} for this element and \MUST be a value using the same units as the reported data. 
+&
+0..1 \\
+\hline
+
+
+\deprecated{\gls{filter}}
+&
+\DEPRECATED in Version 1.4 – Moved to the \gls{filters} element of a \gls{dataitem}.
+\newline \deprecated{If the data reported for a DataItem is a numeric value, a new value MUST NOT be reported if the change from the last reported value is less than the delta given as the CDATA of this element. Filter is an abstract type XML element. As such, Filter will never appear in the XML document, but will be replaced by a Filter type. The only currently supported Filter type is MINIMUM_DELTA. The CDATA MUST be an absolute value using the same Units as the reported data. Additional filter types MAY be supported in the future.}
+&
+0..1 \notesign
+\\ \hline
+
+\end{longtabu}
