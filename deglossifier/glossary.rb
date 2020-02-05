@@ -290,3 +290,30 @@ CSV.open(File.join($root, 'terms.csv'), 'w') do |terms|
     terms << ['Glossary', g.name_property.to_s, g.description]
   end
 end
+
+# Find attributes...
+
+owners = {
+  'Error' => 'Protocols::MTConnect::MTConnectErrors',
+  'Channel' => 'Configuration::SensorConfiguration',
+  'Component' => 'Components',
+  'Composition' => 'Components::Compositions',
+  'DataItem' => 'DataItems',
+  'Description' => 'Components',
+  'Device' => 'Components',
+  'Reference' => 'References',
+  'Source' => 'DataItems',
+}
+
+CSV.open(File.join($root, 'attribtues.csv'), 'w') do |csv|
+  csv << ['Owner', 'Name', 'Description']
+  $parser.elements.each do |e|
+    if e.has_key?(:attributes)
+      e.attributes.to_s.split(',').each do |a|
+        attr = $parser[a]
+        cls = e.name_property.to_s
+        csv << ["#{owners[cls]}::#{cls}", attr.name_property.to_s, attr.description]
+      end
+    end
+  end
+end
