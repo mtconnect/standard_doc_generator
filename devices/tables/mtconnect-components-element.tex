@@ -1,0 +1,27 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{MTConnect Components Element} \label{table:mtconnect-components-element} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:mtconnect-components-element}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{components}
+&
+\glsentrydesc{components}
+\newline If a \gls{components} XML element is provided, then only one \gls{components} element \MUST be defined for a \gls{device} element.
+&
+0..1 \\
+\hline
+
+
+\end{longtabu}

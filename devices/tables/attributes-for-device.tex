@@ -1,0 +1,82 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Attributes for Device} \label{table:attributes-for-device} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:attributes-for-device}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{id} 
+&
+\glsentrydesc{id}
+\newline \gls{id} is a required attribute.
+\newline An \gls{id} \MUST be unique across all the \gls{id} attributes in the document.
+\newline An XML ID-type.
+&
+1 \\
+\hline
+
+\gls{nativename}
+&
+The common name normally associated with this piece of equipment.
+\newline \gls{nativename} is an optional attribute. 
+&
+0..1 \\
+\hline
+
+\gls{sampleinterval} 
+& 
+An optional attribute that is an indication provided by a piece of equipment describing the interval in milliseconds between the completion of the reading of the data associated with the \gls{device} element until the beginning of the next sampling of that data. This indication is reported as the number of milliseconds between data captures.
+\newline This information may be used by client software applications to understand how often information from a piece of equipment is expected to be refreshed.
+\newline The refresh rate for all data from the piece of equipment will be the same as for the \gls{device} element unless specifically overridden by another \gls{sampleinterval} provided for a \gls{component} of the \gls{device} element.
+\newline If the value of \gls{sampleinterval} is less than one millisecond, the value will be represented as a floating-point number. For example, an interval of 100 microseconds would be 0.1.
+& 
+0..1 \notesign \notesign \\
+\hline
+
+\deprecated{\gls{samplerate}}
+&
+\DEPRECATED in MTConnect Version 1.2. Replaced by \gls{sampleinterval}.
+&
+0..1 \notesign \notesign \notesign \\
+\hline
+
+
+\deprecated{\gls{iso841class}}
+&
+\DEPRECATED in MTConnect Version 1.1.
+&
+0..1 \notesign \notesign \notesign \\
+\hline
+
+\gls{uuid}
+&
+A unique identifier for this XML element.
+\newline \gls{uuid} is a required attribute. 
+\newline The uuid \MUST be unique amongst all uuid identifiers used in an MTConnect installation. 
+\newline For example, this may be a combination of the manufacturer’s code and serial number. The \gls{uuid} \SHOULD be alphanumeric and not exceed 255 characters.
+\newline An \gls{nmtoken} XML type.
+&
+1 \notesign \\
+\hline
+
+\gls{name}
+&
+The name of the piece of equipment represented by the \gls{device} element. 
+\newline \gls{name} is a required attribute.
+\newline This name \MUST be unique for each \gls{device} XML element defined in the \gls{mtconnectdevices} document.
+\newline An \gls{nmtoken} XML type.
+&
+1 \\
+\hline
+
+\end{longtabu}

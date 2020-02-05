@@ -1,0 +1,40 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Attributes for  Channel} \label{table:attributes-for-channel} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:attributes-for-channel}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{number} 
+&
+A unique identifier that will only refer to a specific \gls{sensing element}.
+\newline \gls{number} is a required attribute.
+\newline For example, this can be the manufacturer code and the serial number.
+\newline \gls{number} \SHOULD be alphanumeric and not exceeding 255
+characters.
+\newline An \gls{nmtoken} XML type.
+&
+1 \\
+\hline
+
+\gls{name}
+&
+The \gls{name} of the \gls{sensing element}.
+\newline \gls{name} is an optional attribute.
+\newline \gls{name} \SHOULD be unique within the \gls{sensor unit} to allow for easier data integration. 
+\newline An \gls{nmtoken} XML type.
+&
+0..1 \\
+\hline
+
+\end{longtabu}

@@ -1,0 +1,51 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Elements for Channel} \label{table:elements-for-channel} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:elements-for-channel}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+
+\gls{description}
+&
+An XML element that can contain any descriptive content.
+\newline The \gls{cdata} of \gls{description} \MAY include any additional descriptive information the implementer chooses to include regarding a \gls{sensor element}.
+
+&
+0..1 \\
+\hline
+
+\gls{calibrationdate}
+&
+Date upon which the \gls{sensor unit} was last calibrated to the \gls{sensor element}.
+\newline The data value for \gls{calibrationdate} is provided in the \gls{cdata} for this element and \MUST be represented in the W3C ISO 8601 format.
+&
+0..1 \\
+\hline
+
+\gls{nextcalibrationdate}
+&
+Date upon which the \gls{sensor element} is next scheduled to be calibrated with the \gls{sensor unit}.
+\newline The data value for \gls{nextcalibrationdate} is provided in the \gls{cdata} for this element and \MUST be represented in the W3C ISO 8601 format.
+&
+0..1 \\
+\hline
+
+\gls{calibrationinitials}
+&
+\glsentrydesc{calibrationinitials}
+\newline The data value for \gls{calibrationinitials} is provided in the \gls{cdata} for this element and \MAY be any numeric or text content.
+&
+0..1 \\
+\hline
+
+\end{longtabu}

@@ -1,0 +1,166 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Attributes for DataItem} \label{table:attributes-for-dataitem} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:attributes-for-dataitem}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+
+\gls{name}
+&
+The name of the data item.
+\newline \gls{name} is provided as an additional human readable identifier for this data item in addition to the \gls{id}.
+\newline \gls{name} is an optional attribute and will be implementation dependent.
+\newline An \gls{nmtoken} XML type.
+&
+0..1 \\
+\hline
+
+\gls{id} 
+&
+\glsentrydesc{id}
+\newline \gls{id} is a required attribute.
+\newline The \gls{id} attribute \MUST be unique within the
+\gls{mtconnectdevices} document.
+\newline An XML ID-type.
+&
+1 \\
+\hline
+
+\gls{type}
+&
+The type of data being measured.
+\newline \gls{type} is a required attribute.
+\newline Examples of types are \gls{position sample}, \gls{velocity sample}, \gls{angle sample}, \gls{block event}, and \gls{rotaryvelocity sample}.
+&
+1 \\
+\hline
+
+\gls{subtype}
+&
+A sub-categorization of the data item \gls{type}.
+\newline \gls{subtype} is an optional attribute.
+\newline For example, the \gls{subtype} of \gls{position sample} can be \gls{actual subtype} or \gls{commanded subtype}.
+\newline Not all \gls{type} attributes have a \gls{subtype}. 
+&
+0..1 \\
+\hline
+
+\gls{statistic}
+&
+Describes the type of statistical calculation performed on a series of data samples to provide the reported data value.
+\newline \gls{statistic} is an optional attribute.
+\newline Examples of \gls{statistic} are \gls{average}, \gls{minimum value}, \gls{maximum value}, \gls{rootmeansquare}, \gls{range}, \gls{median}, \gls{mode}, and \gls{standarddeviation}.
+&
+0..1 \\
+\hline
+
+\gls{units}
+&
+The unit of measurement for the reported value of the data item.
+\newline \gls{units} is an optional attribute.
+\newline Data items in the \gls{sample} category \MUST report the standard units for the measured values.
+\newline See \sect{units Attribute for DataItem} for a list of available standard units identified in the MTConnect Standard.
+&
+0..1 \\
+\hline
+
+\gls{nativeunits}
+&
+The native units of measurement for the reported value of the data item.
+\newline \gls{nativeunits} is an optional attribute.
+\newline See \sect{nativeUnits Attribute for DataItem} for a list of available native units identified in the MTConnect Standard.
+&
+0..1 \\
+\hline
+
+\gls{nativescale}
+&
+The \gls{nativeunits} may not be scaled to directly represent the original measured value. \gls{nativescale} \MAY be used to convert the reported value to represent the original measured value.
+\newline \gls{nativescale} is an optional attribute.
+\newline As an example, the \gls{nativeunits} may be reported as
+\gls{gallonperminute}. The measured value may actually be in 1000  \gls{gallonperminute}. The value of the reported data \MAY be divided by the \gls{nativescale} to convert the reported value to its original measured value and units.
+\newline If provided, the value \MUST be numeric.
+&
+0..1 \\
+\hline
+
+\gls{category}
+&
+\glsentrydesc{category}
+\newline \gls{category} is a required attribute.
+\newline The available options are \gls{sample}, \gls{event}, or \gls{condition}.
+&
+1 \\
+\hline
+
+\gls{coordinatesystem}
+&
+\glsentrydesc{coordinatesystem}
+\newline \gls{coordinatesystem} is an optional attribute.
+\newline The available values for \gls{coordinatesystem} are \gls{work} and \gls{machine}.
+&
+0..1 \\
+\hline
+
+\gls{compositionid}
+&
+The identifier attribute of the \gls{composition} element that the reported data is most closely associated.
+\newline \gls{compositionid} is an optional attribute. 
+&
+0..1 \\
+\hline
+
+\gls{samplerate}
+&
+The rate at which successive samples of a data item are recorded by a piece of equipment.
+\newline \gls{samplerate} is an optional attribute.
+\newline \gls{samplerate} is expressed in terms of samples per second.
+\newline If the \gls{samplerate} is smaller than one, the number can be represented as a floating point number.
+\newline For example, a rate 1 per 10 seconds would be 0.1
+&
+0..1\\
+\hline
+
+\gls{representation}
+&
+Description of a means to interpret data consisting of multiple data points or as a single value.
+\newline     
+\newline \gls{representation} is an optional attribute.
+\newline \gls{representation} defines the unique format for each set of data.
+\newline \gls{representation} for \gls{timeseries representation}, \gls{discrete representation}, \gls{dataset}, and \gls{value representation} are defined in \sect{representation Attribute for DataItem}.
+\newline If \gls{representation} is not specified, it \MUST be determined to be \gls{value representation}.
+&
+0..1 \\
+\hline
+
+\gls{significantdigits}
+&
+The number of significant digits in the reported value.
+\newline \gls{significantdigits} is an optional attribute.
+\newline This \SHOULD be specified for all numeric values.
+&
+0..1 \\
+\hline
+
+
+
+\gls{discrete}
+&
+An indication signifying whether each value reported for the \gls{data entity} is significant and whether duplicate values are to be suppressed.
+\newline The value defined \MUST be either \gls{true removed} or \gls{false removed} - an XML boolean type.
+\newline \gls{true removed} indicates that each update to the \gls{data entity}'s value is significant and duplicate values \MUSTNOT be suppressed.
+\newline \gls{false removed} indicates that duplicated values \MUST be suppressed.
+\newline If a value is not defined for \gls{discrete}, the default value \MUST be \gls{false removed}.
+&
+0..1 \\
+\hline\end{longtabu}

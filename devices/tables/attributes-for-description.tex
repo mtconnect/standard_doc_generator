@@ -1,0 +1,50 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Attributes for Description} \label{table:attributes-for-description} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:attributes-for-description}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+
+\gls{manufacturer}
+&
+The name of the manufacturer of the piece of equipment represented by the \gls{device} element. 
+\newline \gls{manufacturer} is an optional attribute.
+&
+0..1 \\
+\hline
+
+\gls{model}
+&
+The model description of the piece of equipment represented by the \gls{device} element.
+\newline \gls{model} is an optional attribute.
+&
+0..1 \\
+\hline
+
+\gls{serialnumber}
+&
+The serial number associated with piece of equipment represented by the \gls{device} element. 
+\newline \gls{serialnumber} is an optional attribute.
+&
+0..1 \\
+\hline
+
+\gls{station}
+&
+The station where the equipment represented by the \gls{device} element is located when it is part of a manufacturing unit or cell with multiple stations. 
+\newline \gls{station} is an optional attribute.
+&
+0..1 \\
+\hline
+
+\end{longtabu}

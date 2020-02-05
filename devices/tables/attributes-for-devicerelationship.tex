@@ -1,0 +1,100 @@
+
+\begin{longtabu} to \textwidth{|l|X[3l]|l|}
+\caption{Attributes for DeviceRelationship} \label{table:attributes-for-devicerelationship} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:attributes-for-devicerelationship}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+ 
+
+
+
+
+\gls{id}
+&
+The unique identifier for this \gls{devicerelationship}.
+\newline \gls{id} is a required attribute.
+\newline The \gls{id} attribute \MUST be unique within the \gls{mtconnectdevices} document.
+\newline An XML ID-type.
+&
+1 \\
+\hline
+
+\gls{name}
+&
+The name associated with this \gls{devicerelationship}.
+\newline \gls{name} is provided as an additional human readable identifier for this \gls{devicerelationship}.
+\newline \gls{name} is an optional attribute.
+\newline An \gls{nmtoken} XML type.
+&
+0..1 \\
+\hline
+
+\gls{type}
+&
+Defines the authority that this piece of equipment has relative to the associated piece of equipment.
+\newline \gls{type} is a required attribute.
+\newline The value provided for \gls{type} \MUST be one of the following values:
+\newline \tab \gls{parent}:  This piece of equipment functions as a parent in the relationship with the associated piece of equipment.
+\newline  \tab \gls{child}:  This piece of equipment functions as a child in the relationship with the associated piece of equipment.
+\newline  \tab \gls{peer}:  This piece of equipment functions as a peer which provides equal functionality and capabilities in the relationship with the associated piece of equipment.
+&
+1 \\
+\hline
+
+\gls{criticality}
+&
+Defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
+\newline \gls{criticality} is an optional attribute.
+\newline The value provided for \gls{criticality} \MUST be one of the following values:
+\newline \tab \gls{critical}:  The services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
+\newline  \tab \gls{noncritical}:  The services or functions provided by the associated piece of equipment is not required for the operation of this piece of equipment.
+&
+0..1 \\
+\hline
+
+\gls{deviceuuidref}
+&
+A reference to the associated piece of equipment.
+\newline The value provided for \gls{deviceuuidref} \MUST be the value provided for the \gls{uuid} attribute of the \gls{device} element of the associated piece of equipment.
+\newline \gls{deviceuuidref} is a required attribute.
+\newline An \gls{nmtoken} XML type.
+&
+1 \\
+\hline
+
+\gls{role}
+&
+Defines the services or capabilities that the referenced piece of equipment provides relative to this piece of equipment.
+\newline \gls{role} is an optional attribute.
+\newline The value provided for \gls{role} \MUST be one of the following values:
+\newline  \tab \gls{system condition}:  The associated piece of equipment performs the functions of a \cfont{System} for this piece of equipment.  In MTConnect, \cfont{System} provides utility type services to support the operation of a piece of equipment and these services are required for the operation of a piece of equipment.
+\newline  \tab \gls{auxiliary subtype}:  The associated piece of equipment performs the functions as an \cfont{Auxiliary} for this piece of equipment.  In MTConnect, \cfont{Auxiliary} extends the capabilities of a piece of equipment, but is not required for the equipment to function.
+&
+0..1 \\
+\hline
+
+\gls{href}
+&
+A URI identifying the \gls{agent} that is publishing information for the associated piece of equipment. \gls{href} \MUST also include the UUID for that specific piece of equipment.
+\newline \gls{href} is of type \cfont{xlink:href} from the W3C XLink specification: (https://www.w3.org/TR/xlink11/).
+\newline \gls{href} is an optional attribute.
+&
+0..1 \\
+\hline
+
+\gls{xlink:type}
+&
+The XLink \cfont{type} attribute \MUST have a fixed value of \cfont{locator} as defined in W3C XLink 1.1 https://www.w3.org/TR/xlink11/ \textit{section 5.4 Locator Attribute (\gls{href})}.
+\newline If the \gls{href} attribute is provided, it \MUST conform to the URI syntactic rules as defined in IETF RFC 3986 for Uniform Resource Identifiers. (https://www.ietf.org/rfc/rfc3986.txt)
+&
+0..1 \\\hline
+\hline\end{longtabu}

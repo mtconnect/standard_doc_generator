@@ -1,0 +1,61 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Elements for Component} \label{table:elements-for-component} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:elements-for-component}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{description}
+&
+An element that can contain any descriptive content.
+&
+0..1 \\
+\hline
+
+\gls{configuration}
+&
+\glsentrydesc{configuration}
+&
+0..1 \\
+\hline
+
+\gls{dataitems}
+&
+A container for the \glspl{data entity} (defined in \sect{Listing of Data Items}) associated with this \gls{component} element.
+&
+0..1 \notesign \\
+\hline
+
+\gls{components}
+&
+A container for \gls{lower level} \gls{component} XML elements associated with this parent \gls{component}.
+&
+0..1 \notesign \\
+\hline
+
+\gls{compositions}
+&
+A container for the \gls{composition} elements (defined in \sect{Composition Type Structural Elements}) associated with this \gls{component} element. 
+&
+0..1 \\
+\hline
+
+\gls{references}
+&
+A container for the \gls{reference} elements associated with this
+\gls{component} element.
+&
+0..1 \notesign \\
+\hline
+
+\end{longtabu}

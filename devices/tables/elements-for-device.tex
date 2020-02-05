@@ -1,0 +1,60 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Elements for Device} \label{table:elements-for-device} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:elements-for-device}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{description}
+&
+An XML element that can contain any descriptive content.
+&
+0..1 \\
+\hline
+
+\gls{configuration}
+&
+\glsentrydesc{configuration}
+&
+0..1 \\
+\hline
+
+\gls{dataitems}
+&
+A container for the \glspl{data entity} (See \sect{Data Entities for Device} and \sect{Listing of Data Items} for more detail) provided by this \gls{device} element.
+&
+1 \notesign \\
+\hline
+
+\gls{components}
+&
+A container for the \gls{component} elements associated with this \gls{device} element.
+&
+0..1 \\
+\hline
+
+\gls{compositions}
+&
+A container for the \gls{composition} elements associated with this \gls{device} element. 
+&
+0..1 \\
+\hline
+
+\gls{references}
+&
+A container for the \gls{reference} elements associated with this \gls{device} element.
+&
+0..1 \\
+\hline
+
+\end{longtabu}
