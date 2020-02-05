@@ -238,15 +238,15 @@ f.puts <<EOT
 EOT
   
 	  relations_with_documentation.each do |r|
-		if r.name == 'Supertype'
+		name = r.association_name ? r.association_name : r.name		
+		
+		if name == 'Supertype'
 		  next
 		end
 		stereo = r.stereotype ? "<<#{r.stereotype}>> " : nil
-		
-		name = r.association_name ? r.association_name : r.name
-		
+			
 		if r.redefinesProperty and r.default
-		  f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.default.gsub(/(\^)2/,"$^2$")}} \\\\"
+		  f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.default.gsub(/(\^)/,"\\^{}")}} \\\\"
         else
 		  f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.final_target.type.name}} \\\\"
 		end
@@ -260,11 +260,12 @@ f.puts <<EOT
 EOT
 
 	  relations_with_documentation.each do |r|
-		if r.name == 'Supertype'
+		name = r.association_name ? r.association_name : r.name
+		
+		if name == 'Supertype'
 		  next
 		elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
 			
-			name = r.association_name ? r.association_name : r.name
 			f.puts "\n\\paragraph{\\texttt{#{name}}}\\mbox{}\n"
 			if r.association_doc
 			  f.puts "\\newline\\tab #{r.association_doc}\n"
@@ -272,8 +273,16 @@ EOT
 			  f.puts "\\newline\\tab #{r.documentation}\n"
 			end
 			
-			if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty
+			if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty 
 			  r.target.type.generate_enumerations(f)
+			  f.puts "\\FloatBarrier"
+			end
+			
+		
+		elsif r.redefinesProperty and name == 'result'
+			if name == 'result'
+			  f.puts "\n Enumerated \\texttt{result} values for \\texttt{#{@name}} are:\n"
+			  r.final_target.type.generate_enumerations(f, false)
 			  f.puts "\\FloatBarrier"
 			end
 		end
@@ -313,11 +322,12 @@ EOT
   end
 
   
-  def generate_enumerations(f)
+  def generate_enumerations(f, new_section = true)
     if @type == 'uml:Enumeration'
       $logger.debug "***** =====> Generating Enumerations for #{@name}"
       
-      generate_documentation(f)
+      generate_documentation(f) if new_section
+
 
       f.puts <<EOT
 \\begin{table}[ht]
