@@ -279,11 +279,28 @@ EOT
 			end
 			
 		
-		elsif r.redefinesProperty and name == 'result'
+		elsif r.redefinesProperty and (name == 'result' or (name == 'type' and not r.default))
 			if name == 'result'
 			  f.puts "\n Enumerated \\texttt{result} values for \\texttt{#{@name}} are:\n"
 			  r.final_target.type.generate_enumerations(f, false)
 			  f.puts "\\FloatBarrier"
+			elsif name == 'type'
+			  f.puts "\n Enumerated \\texttt{type}s for \\texttt{#{@name}} are:\n"
+			  
+			  f.puts <<EOT
+\\begin{itemize}
+
+EOT
+	
+      r.final_target.type.literals.each do |lit|
+        f.puts "\\item \\texttt{#{lit.name}} : #{lit.description.gsub(/(\^)/,"\\^{}")} \n\n"
+      end
+        
+
+    f.puts <<EOT
+\\end{itemize}
+
+EOT
 			end
 		end
 	  end

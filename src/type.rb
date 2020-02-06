@@ -98,7 +98,7 @@ class Type
 
     def method_missing(m, *args, &block)
       unless @type
-        raise "!!! Calling #{m} on unresolved type #{@tid}"
+        #raise "!!! Calling #{m} on unresolved type #{@tid}" #TODO: template parameters
       else
         @type.send(m, *args, &block)
       end

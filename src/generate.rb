@@ -14,6 +14,8 @@ require 'nokogiri'
 require 'treetop'
 
 Options = {}
+Directory = {}
+DocumentFile ={}
 parser = OptionParser.new do |opts|
   opts.banner = "Usage: generate.rb [options] [docs|nodeset]"
 
@@ -38,9 +40,7 @@ DeviceModels = ['Components',
 				'Compositions',
 				'CompositionTypes',
 				'DataItems',
-				'ConditionTypes',
-				'EventTypes',
-				'SampleTypes'
+				'DataItemTypes'
 				]
 				
 ConfigurationModels = ['Configuration',
@@ -53,8 +53,18 @@ ConfigurationModels = ['Configuration',
 
 ProfileModels = ['Profile']
 
-DeviceDirectory = File.join(File.dirname(__FILE__),'..','devices')
-DeviceDocumentFile = File.join(File.dirname(__FILE__),'..','devices','devices.tex')
+ObservationModels = ['Observations',
+				'ConditionTypes',
+				'EventTypes',
+				'SampleTypes'
+				]
+
+
+Directory['Device'] = File.join(File.dirname(__FILE__),'..','devices')
+DocumentFile['Device'] = File.join(File.dirname(__FILE__),'..','devices','devices.tex')
+
+Directory['Observation'] = File.join(File.dirname(__FILE__),'..','observations')
+DocumentFile['Observation'] = File.join(File.dirname(__FILE__),'..','observations','observations.tex')
 
 xmiDoc = nil
 File.open(File.join(File.dirname(__FILE__), '..', 'MTConnect SysML Model.xml')) do |xmi|
