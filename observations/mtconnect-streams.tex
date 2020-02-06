@@ -1,0 +1,782 @@
+\section{Structural Elements for MTConnectStreams}
+\label{sec:Structural Elements for MTConnectStreams}
+\lstset{numbers=left,xleftmargin=2em}
+
+\glspl{structural element} are XML elements that form the logical structure for the \gls{mtconnectstreams} XML document.  These elements are used to organize the information and data that is reported by an \gls{agent} for a piece of equipment.  See \fig{streams-data-structure} for an overview of the \glspl{structural element} used in an \gls{mtconnectstreams} document.
+
+The first, or highest level, \gls{structural element} in an \gls{mtconnectstreams} XML document is \gls{streams}. \gls{streams} is a container type XML element used to group the data reported from one or more pieces of equipment into a single XML document.  \gls{streams} \must always appear in the \gls{mtconnectstreams} document.
+
+\gls{devicestream} is the next \gls{structural element} in the \gls{mtconnectstreams} document. \gls{devicestream} is also a XML container type element.   A separate \gls{devicestream} container is used to organize the information and data reported by each piece of equipment represented in the \gls{mtconnectstreams} document.  There \must be at least one \gls{devicestream} element in the \gls{streams} container.  
+
+A \gls{devicestream} element provides the data reported by a piece of equipment.  Each \gls{devicestream} element \must contain the attributes \gls{name} and \gls{uuid} to correlate the \gls{devicestream} with a specific \gls{device} defined in the \gls{mtconnectdevices} document.  Once the \gls{devicestream} element is associated with a specific piece of equipment based on this identity, all data reported by that piece of equipment is directly associated with that unique identity and that association does not need to be repeated for every piece of data reported.  A client software application may then directly relate the information provided in the \gls{mtconnectdevices} document with the data provided in the \gls{mtconnectstreams} document based on this identity.
+
+\gls{componentstream} is the next level XML element in the \gls{mtconnectstreams} document.  \gls{componentstream} is also a container type XML element.   There \must be a separate \gls{componentstream} XML element for each of the \glspl{structural element} (\gls{device} elements, \gls{top level} \gls{component} elements, or \gls{lower level} \gls{component} elements) defined for that piece of equipment in the associated \gls{mtconnectdevices} XML document.  A \gls{componentstream} representing a \gls{structural element} will only appear if there is data reported for that \gls{structural element}.  (Note:  See \citetitle{MTCPart2} of the MTConnect Standard for a description of the \glspl{structural element} for a piece of equipment).   
+
+There are three (3) \glspl{structural element} – \gls{samples}, \gls{events}, and \gls{conditions} at the next level of the \gls{mtconnectstreams} document.  Each one of these \glspl{structural element} is a container type XML element.  These \glspl{structural element} group the data reported for each component of a piece of equipment according to the \gls{data entity} categories defined in \citetitle{MTCPart2}, Sections 7 and 8.  
+
+\begin{itemize}
+
+\item \gls{samples} contains \gls{sample category} category \glspl{data entity} defined in the \gls{mtconnectdevices} XML document (See \citetitle{MTCPart2}, Section 8.1)
+
+\item \gls{events} contains \gls{event category} category \glspl{data entity} defined in the \gls{mtconnectdevices} XML document (See \citetitle{MTCPart2}, Section 8.2)
+
+\item \gls{conditions} contains \gls{condition category} category \glspl{data entity} defined in the \gls{mtconnectdevices} XML document (See \citetitle{MTCPart2}, Section 8.3)
+\end{itemize}
+
+There \must be at least one of \gls{samples}, \gls{events}, or \gls{conditions} elements in each \gls{componentstream} container. 
+
+\fig{streams-data-structure} XML tree structure illustrates the various \glspl{structural element} used to organize the data reported by a piece of equipment and the relationship between these elements. 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/streams-data-structure.png}
+  \caption{Streams Data Structure}
+  \label{fig:streams-data-structure}
+\end{figure}
+
+\lst{example-of-devicestream} is a sample from an \gls{mtconnectstreams} XML document that contains the response from an \gls{agent} representing two pieces of equipment, \textit{mill-1} and \textit{mill-2}. The data from each piece of equipment is reported in a separate \gls{devicestream} container. 
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example of  DeviceStream},label={lst:example-of-devicestream}]
+<MTConnectStreams ...>
+  <Header ... />
+  <Streams>
+    <DeviceStream name="mill-1" uuid="1">
+      <ComponentStream component="Device" name="mill-1"
+          componentId="d1">
+        <Events>
+          <Availability dataItemId="avail1" name="avail"
+              sequence="5"
+              timestamp="2010-04-06T06:19:35.153141">
+            AVAILABLE</Availability>
+        </Events>
+      </ComponentStream>
+    </DeviceStream>
+    <DeviceStream name="mill-2" uuid="2">
+      <ComponentStream component="Device" name="mill-2"
+          componentId="d2">
+        <Events>
+          <Availability dataItemId="avail2" name="avail" 
+              sequence="15"
+              timestamp="2010-04-06T06:19:35.153141">
+            AVAILABLE</Availability>
+        </Events>
+      </ComponentStream>
+    </DeviceStream>
+  </Streams>
+</MTConnectStreams>
+\end{lstlisting}
+
+In \lst{example-of-devicestream}, it should be noted that the \glspl{sequence number} are unique across the two pieces of equipment. Client software applications \MUSTNOT assume that the \gls{events} and \gls{samples} sequence numbers are strictly in sequence. All sequence numbers \MAYNOT be included. For instance, such a case would occur when HTTP filtering is applied to the request and the \gls{sample category}, \gls{event category}, and \gls{condition category} data types for other components are not returned. Another case would occur when an \gls{agent} is supporting more than one piece of equipment and data from only one piece of equipment is requested. Refer to MTConnect Standard \citetitle{MTCPart1}, \textit{Section 5} for more information on \glspl{sequence number}.
+
+
+\subsection{Streams}
+
+\gls{streams} is a container type XML element that \must contain only \gls{devicestream} elements.  \gls{streams} \may contain any number of \gls{devicestream} elements.  If there is no data to be reported for a request for data, an \gls{mtconnectstreams} document \must be returned with an empty \gls{streams} container.  \glspl{data entity} \maynot be directly associated with the \gls{streams} container.
+
+The XML schema in \fig{streams-schema-diagram} represents the structure of the \gls{streams} XML element.   
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.75\textwidth]{figures/streams-schema-diagram.png}
+  \caption{Streams Schema Diagram}
+  \label{fig:streams-schema-diagram}
+\end{figure}
+
+\FloatBarrier
+
+\input{tables/mtconnect-streams-element.tex}
+
+\pagebreak
+
+\subsection{DeviceStream}\label{sec:DeviceStream}
+
+\gls{devicestream} is a XML container that organizes data reported from a single piece of equipment.  A \gls{devicestream} element \must be provided for each piece of equipment reporting data in an \gls{mtconnectstreams} document.
+
+A \gls{devicestream} \may contain any number of \gls{componentstream} elements; limited to one for each component element represented in the \gls{mtconnectdevices} document.  If the response to the request for data from an \gls{agent} does not contain any data for a specific piece of equipment, an empty \gls{devicestream} element \may be created to indicate that the piece of equipment exists, but there was no data available.  In this case, there will be no \gls{componentstream} elements provided. 
+
+\input{tables/mtconnect-devicestream-element.tex}
+
+\subsubsection{XML Schema for DeviceStream}
+
+The XML schema in \fig{devicestream-schema-diagram} represents the structure of the \gls{devicestream} XML element showing the attributes defined for \gls{devicestream} and the elements that \may be associated with \gls{devicestream}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/devicestream-schema-diagram.png}
+  \caption{DeviceStream Schema Diagram}
+  \label{fig:devicestream-schema-diagram}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Attributes for DeviceStream}
+
+\tbl{attributes-for-devicestream} defines the attributes that \must be provided to uniquely identify each specific piece of equipment associated with the information provided in each \gls{devicestream}.
+
+\input{tables/attributes-for-devicestream.tex}
+
+\subsubsection{Elements for DeviceStream}
+
+\tbl{elements-for-devicestream} lists the XML element(s) that \may be provided in the \gls{devicestream} XML element.  
+
+\input{tables/elements-for-devicestream.tex}
+
+\subsection{ComponentStream}\label{sec:ComponentStream}
+
+\gls{componentstream} is a XML container that organizes the data associated with each \gls{structural element} (\gls{device} element, \gls{top level} \gls{component}, or \gls{lower level} \gls{component} element) defined for that piece of equipment in the associated \gls{mtconnectdevices} XML document.  The data reported in each \gls{componentstream} element \must be grouped into individual XML containers based on the value of the \gls{category} attribute (\gls{sample category}, \gls{event category}, or \gls{condition category}) defined for each \gls{data entity} in the \gls{mtconnectdevices} XML document.  These containers are \gls{samples}, \gls{events}, and \gls{conditions}.   
+
+\subsubsection{XML Schema for ComponentStream}
+
+The XML schema in \fig{componentstream-schema-diagram} represents the structure of a \gls{componentstream} XML element showing the attributes defined for \gls{componentstream} and the elements that \may be associated with \gls{componentstream}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/componentstream-schema-diagram.png}
+  \caption{ComponentStream Schema Diagram}
+  \label{fig:componentstream-schema-diagram}
+\end{figure}
+
+\FloatBarrier
+
+\gls{componentstream} is similar to \gls{devicestream} in that the attributes uniquely identify the \gls{structural element} with which the data reported is directly associated.  This information does not have to be repeated for each \gls{data entity}.   In the case of the \gls{devicestream}, the attributes uniquely identify the piece of equipment associated with the data.   In the case of the \gls{componentstream}, the attributes identify the specific \gls{structural element} within a piece of equipment associated with each \gls{data entity}.  
+
+\subsubsection{Attributes for ComponentStream}
+
+The \tbl{attributes-for-componentstream} defines the attributes used to uniquely identify the specific \gls{structural element}(s) of a piece of equipment associated with the data reported in the \gls{mtconnectstreams} document.  
+
+\input{tables/attributes-for-componentstream.tex}
+
+\subsubsection{Elements for ComponentStream}
+
+In the \gls{componentstream} container, an \gls{agent} \must organize the data reported in each \gls{componentstream} into individual \gls{samples}, \gls{events}, or \gls{conditions} XML containers based on the value of the \gls{category} attribute (i.e., \gls{sample category}, \gls{event category}, or \gls{condition category}) defined for each \gls{data entity} defined in the \gls{mtconnectdevices} XML document.
+
+Each \gls{componentstream} element \must include at least one \gls{events}, \gls{samples}, or \gls{conditions} XML container element.   \glspl{data entity} returned in each of the \gls{componentstream} container elements are defined in the \tbl{elements-for-componentstream}. 
+
+\input{tables/elements-for-componentstream.tex}
+
+\begin{note}
+Note: \notesign The \gls{componentstream} element \must contain at least one of these element types.
+
+\end{note}
+
+\section{Data Entities}\label{sec:Data Entities}
+
+When a piece of equipment reports values associated with \gls{dataitem} elements defined in the \gls{mtconnectdevices} document, that information is organized as \glspl{data entity} in the \gls{mtconnectstreams} document.   These \glspl{data entity} are organized in containers within each \gls{componentstream} element based on the \gls{category} attribute defined for the corresponding \gls{dataitem} in the \gls{mtconnectdevices} document:
+
+\tab \gls{dataitem} elements defined with a \gls{category} attribute of \gls{sample category} in the \gls{mtconnectdevices} document are mapped to the \gls{samples} XML container in the associated \gls{componentstream} element.
+
+\tab \gls{dataitem} elements defined with a \gls{category} attribute of \gls{event category} in the \gls{mtconnectdevices} document are mapped to the \gls{events} XML container in the associated \gls{componentstream} element.
+
+\tab \gls{dataitem} elements defined with a \gls{category} attribute of \gls{condition category} in the \gls{mtconnectdevices} document are mapped to the \gls{conditions} XML container in the associated \gls{componentstream} element.
+
+The XML tree in \fig{componentstream-xml-tree-diagram} demonstrates how \glspl{data entity} are organized in these containers.  
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/componentstream-xml-tree-diagram.png}
+  \caption{ComponentStream XML Tree Diagram}
+  \label{fig:componentstream-xml-tree-diagram}
+\end{figure}
+\FloatBarrier
+
+\lst{example-of-mtconnectstreams} is an illustration of the structure of an XML document demonstrating how \glspl{data entity} are reported in a \gls{mtconnectstreams} document:
+
+\newpage
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example of  MTConnectStreams},label={lst:example-of-mtconnectstreams}]
+<MTConnectStreams>
+  <Header/>
+  <Streams>
+    <DeviceStream>
+      <ComponentStream>
+        <Samples>
+          <Sample/>
+          <Sample/>
+        </Samples>
+        <Events>
+          <Event/>
+          <Event/>
+        </Events>
+        <Condition>
+          <Condition/>
+          <Condition/>
+        </Condition>
+      </ComponentStream>
+      <ComponentStream>
+        <Samples>
+          <Sample/>
+          <Sample/>
+        </Samples>
+        <Events>
+          <Event/>
+          <Event/>
+        </Events>
+        <Condition>
+          <Condition/>
+          <Condition/>
+        </Condition>
+      </ComponentStream>
+    </DeviceStream>
+  </Streams>
+</MTConnectStreams>
+\end{lstlisting}
+
+\begin{note}
+Note: There are no specific requirements defining the sequence in which the \gls{componentstream} XML elements are organized in the \gls{mtconnectstreams} document.  They \may be organized in any sequence based on the implementation of an \gls{agent}.  The sequence in which the \gls{componentstream} XML elements appear does not impact the ability for a client software application to interpret the information that it receives in the document.
+
+\end{note}
+
+When an \gls{agent} responds to a  \gls{current httprequest} HTTP request, the information returned in the \gls{mtconnectstreams} document \must include the most current value for every \gls{data entity} defined in the \gls{mtconnectdevices} document subject to any filtering included within the request.
+
+When an \gls{agent} responds to a \gls{sample httprequest} HTTP request, the information returned in the \gls{mtconnectstreams} document \must include the occurrences for each \gls{data entity} that are available to an \gls{agent} subject to filtering and the count parameter included within the request (see \citetitle{MTCPart1} for a full definition of the protocol). 
+
+\subsection{Element Names for Data Entities}
+
+In the \gls{mtconnectdevices} document, \glspl{data entity} are grouped as \gls{dataitem} XML elements within each \gls{device}, \gls{top level} \gls{component}, and \gls{lower level} \gls{component} \gls{structural element}.  The \glspl{data entity} reported in the \gls{mtconnectstreams} document associated with each of these \glspl{structural element} are represented with an \gls{element name} based on the \gls{category} and \gls{type} defined for each of the \gls{dataitem} elements in the \gls{mtconnectdevices} document.
+
+\subsubsection{Element Names when MTConnectDevices category is SAMPLE or EVENT}
+
+The \glspl{data entity} reported in the \gls{mtconnectstreams} document associated with each \gls{dataitem} element defined in the \gls{mtconnectdevices} document with a \gls{category} attribute of \gls{sample category} or \gls{event category} \must be identified in the \gls{mtconnectstreams} document with an \gls{element name} derived from the \gls{type} attribute defined for that \gls{dataitem} element in the \gls{mtconnectdevices} document.
+
+\lst{example-of-dataitem-in-mtconnectdevices} describes the most common method used to derive the \gls{element name} for a \gls{data entity} reported in the \gls{mtconnectstreams} document from the information describing that \gls{dataitem} element in the \gls{mtconnectdevices} document:
+
+\ulheading{DataItem Represented in the MTConnectDevices Document}
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={DataItem Represented in MTConnectDevices Document},label={lst:example-of-dataitem-in-mtconnectdevices}]
+<DataItem type="AXIS_FEEDRATE" id="xf" name="Xfrt"
+    category="SAMPLE" units="MILLIMETER/SECOND"
+    nativeUnits="MILLIMETER/SECOND/>
+\end{lstlisting}
+
+\begin{itemize}
+\item \gls{dataitem}:  The XML \gls{element name} for this \gls{data entity}.  
+
+\begin{note}
+Note:  \gls{element name} must not be confused with the name attribute for the data item element.
+
+\end{note}
+
+\item \gls{type}, \gls{category}, \gls{units}, and \gls{nativeunits}:  Attributes that provide additional information regarding each data item in the \gls{mtconnectdevices} document.  
+\end{itemize}
+
+\ulheading{Response Format reported in the MTConnectStreams Document}
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Response Format reported in the MTConnectStreams Document},label={lst:example-of-dataitem-in-mtconnectstreams}]
+<AxisFeedrate name="Xfrt" sequence="61315517"  
+    timestamp="2016-07-28T02:06:01.364428Z" 
+    dataItemId="xf">10.83333</AxisFeedrate>
+\end{lstlisting}
+
+\begin{itemize}
+\item \gls{axisfeedrate sample}:  The \gls{element name} provided in the \gls{mtconnectstreams} response format for the data item. The \gls{element name} for a data item is defined by the \gls{type} attribute of \gls{axisfeedrate sample} in the \gls{mtconnectdevices} document.  The \gls{element name} \must be provided in Pascal case format (first letter of each word is capitalized).  
+\end{itemize}
+
+\subsubsection{Changes to Element Names when representation attribute is used}
+
+The \gls{element name} for a \gls{data entity} reported in the \gls{mtconnectstreams} document is extended when the \gls{representation} attribute is used to further describe that \gls{dataitem} element in the \gls{mtconnectdevices} document.
+
+
+
+\subsubsection{Element Names when MTConnectDevices category is CONDITION}
+
+\glspl{data entity} defined in the \gls{mtconnectdevices} document with a \gls{category} attribute of \gls{condition category} are reported with an \gls{element name} that is defined differently from other \gls{data entity} \glspl{type}.  The \gls{element name} for these \glspl{data entity} are defined based on the \gls{fault state} (\gls{normal}, \gls{warning}, or \gls{fault}) associated with each \gls{data entity} at the time that a value for that \gls{data entity} is reported.  See \sect{Element Names for Condition} and \sect{Unavailability of Fault State for Condition} for details on how these \glspl{data entity} are reported in the \gls{mtconnectstreams} document.
+
+\subsection{Samples Container}
+
+\gls{samples} is a XML container type element.   \gls{samples} organizes the \glspl{data entity} returned in the \gls{mtconnectstreams} XML document for those \gls{dataitem} elements defined with a \gls{category} attribute of \gls{sample category} in the \gls{mtconnectdevices} document.
+
+A separate \gls{samples} container will be provided for the data returned for the \gls{dataitem} elements associated with each \gls{structural element} of a piece of equipment defined in the \gls{mtconnectdevices} document.
+
+\input{tables/mtconnect-samples-element.tex}
+
+\subsection{Sample Data Entities}
+
+A \gls{sample} XML element provides the information and data reported from a piece of equipment for those \gls{dataitem} elements defined with a \gls{category} attribute of \gls{sample category} in the \gls{mtconnectdevices} document.
+
+\gls{sample} is an abstract type XML element and will never appear directly in the \gls{mtconnectstreams} XML document.  As an abstract \gls{type} XML element, \gls{sample} will be replaced in the XML document by a specific \gls{type} of \gls{sample} specified by the \gls{element name} for that \gls{data entity}.  The different \glspl{type} of \gls{sample} elements are defined in \sect{Sample Element Names}.  Examples of XML elements representing \gls{sample} include \glselementname{pathposition sample}, \glselementname{temperature sample}. 
+
+\input{tables/mtconnect-sample-element.tex}
+
+\subsubsection{XML Schema Structure for Sample}
+
+The XML schema in \fig{sample-schema-diagram} represents the structure of a \gls{sample} XML element showing the attributes defined for \gls{sample} elements.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/sample-schema-diagram.png}
+  \caption{Sample Schema Diagram}
+  \label{fig:sample-schema-diagram}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Attributes for Sample}
+
+The \tbl{attributes-for-sample} defines the attributes used to provide additional information for a \gls{sample} XML element.   
+
+\input{tables/attributes-for-sample.tex}
+
+\newpage
+
+\paragraph{duration Attribute for Sample}\mbox{}
+
+\gls{sample} elements that represent the result of a computed value of a statistic \must contain a \gls{duration} attribute.  For these \glspl{data entity}, the \gls{timestamp} associated with the \gls{sample} \must reference the time the data collection was completed.  \gls{timestamp} \MUSTNOT represent any other time associated with the data collection or the calculation of the statistic.  The actual time the interval began can be computed by subtracting the \gls{duration} from the \gls{timestamp}.
+
+Two \gls{sample} elements \may have overlapping time periods when statistics are computed at different frequencies.  For example, there may be two \glspl{data entity} reporting a statistic representing the average value for the readings of the same measured signal calculated over one and five minute intervals.  These \glspl{data entity} can both have the same start time for their calculations (e.g., 05:10:00), but the \gls{timestamp} and \gls{duration} will be 05:11:00 and 60 seconds, respectively, for the \gls{data entity} reporting the one-minute average and 05:15:00 and 300 seconds, respectively, for the \gls{data entity} reporting the five-minute average.  This allows for varying statistical methods to be applied with different interval lengths each having different values for the \gls{timestamp} and \gls{duration} attributes.  
+
+\paragraph{resetTriggered Attribute for Sample}\mbox{}
+
+Some \glspl{data entity} \may have their reported value reset to an initial value.  These reset actions may be based upon a specific elapsed time or may be triggered by a physical or logical reset action that causes the reset to occur.   Examples of \glspl{data entity} that \may have their reported value reset to an initial value are \glspl{data entity} representing a counter, a timer, or a statistic.
+
+\gls{resettriggered} defines the \gls{type} of reset action that caused the value of the reported data to be reset.  The value reported for \gls{resettriggered} \may be defined by the \gls{resettrigger} element for the \gls{data entity} in the \gls{mtconnectdevices} document that this \gls{sample} element represents.  If the \gls{resettrigger} element is not defined in the \gls{mtconnectdevices} document, a \gls{resettriggered} attribute \should be reported in the \gls{mtconnectstreams} document if the \gls{type} of reset action can be determined and reported by the piece of equipment.
+
+\gls{resettriggered} \must only be reported for the first occurrence of a \gls{data entity} after a reset action has occurred and \mustnot be provided for any other occurrence of the \gls{data entity} reported in a \gls{mtconnectstreams} document.  When a reset occurs, the piece of equipment \must report an occurrence of the \gls{data entity} that was reset even if that occurrence of the \gls{data entity} would normally be suppressed based on the filtering criteria established in the \gls{mtconnectdevices} document that this \gls{sample} element represents.
+
+The \tbl{values-for-resettriggered} provides the values that \may be reported for \gls{resettriggered}:    
+
+\input{tables/values-for-resettriggered.tex}
+
+\subsubsection{Response for SAMPLE category DataItem Elements with a representation Attribute of TIME\_SERIES}
+\label{sec:Response for SAMPLE category DataItem Elements with a representation Attribute of TIME_SERIES}
+
+\gls{sample category} category \gls{dataitem} elements defined in the \gls{mtconnectdevices} document with a \gls{representation} attribute of \gls{timeseries representation} \must be represented in the \gls{mtconnectstreams} document as \gls{sample} elements that report data that includes multiple values representing a series of readings of a measured value taken at a specific sample rate.   Such a \gls{dataitem} element can be defined for collecting high frequency readings of a measured value and then providing the entire series of values to a client software application as the data reported for a single \gls{data entity}.  In this case, the \gls{samplecount} and \gls{samplerate} attributes \must be provided. 
+
+\begin{note}
+Note: \gls{samplecount} is an attribute that \must only be provided for \gls{sample} elements that represent \gls{sample category} category \gls{dataitem} elements defined in the \gls{mtconnectdevices} document with a \gls{representation} attribute of \gls{timeseries representation}.  
+
+\end{note}
+
+The \gls{cdata} provided for the \gls{data entity} \must be a series of space delimited floating-point numbers.  The number of values \must match the \gls{samplecount}.  
+
+\paragraph{XML Schema Structure for Sample when reporting Time Series Data}\mbox{}
+
+The XML schema in \fig{abstimeseries-schema-diagram}  represents the extended structure of a \gls{sample} XML element that represents a \gls{sample category} category \gls{dataitem} element defined in the \gls{mtconnectdevices} document with a \gls{representation} attribute of \gls{timeseries representation}. 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/abstimeseries-schema-diagram.png}
+  \caption{AbsTimeSeries Schema Diagram}
+  \label{fig:abstimeseries-schema-diagram}
+\end{figure}
+\FloatBarrier
+
+\begin{note}
+Note: The \gls{abstimeseries} element shown in the XML schema is an abstract type element and will be replaced in the \gls{mtconnectstreams} document by the \gls{element name} derived from the \gls{type} attribute defined for the associated \gls{dataitem} element defined in the \gls{mtconnectdevices} document.
+
+\end{note}
+
+\paragraph{Attributes for a Sample when reporting Time Series Data}\mbox{}
+
+\tbl{mtconnect-samplecount-attribute} defines the additional attribute provided for a \gls{sample} XML element that represents a \gls{sample category} category \gls{dataitem} element defined in the \gls{mtconnectdevices} document with a representation attribute of \gls{timeseries representation}. 
+
+\input{tables/mtconnect-samplecount-attribute.tex}
+
+\subsubsection{Response for SAMPLE category DataItem Elements with a representation attribute of DATA_SET}
+\label{sec:Response for SAMPLE category DataItem Elements with a representation attribute of DATA_SET}
+
+\gls{sample category} category \gls{dataitem} elements defined in the \gls{mtconnectdevices} document with a \gls{representation} attribute of \gls{dataset} \MUST be represented in the \gls{mtconnectstreams} document as \gls{sample} XML Elements reported as a  \gls{data set} of \glspl{key-value pair}. \gls{dataset} provides the capability to report a set of related data values as a single \gls{data entity}.
+
+The \gls{sample} XML Element acts as a container for \gls{entry} elements to provide a \gls{data set} of \glspl{key-value pair} where each \gls{key model} attribute of the \gls{entry} \MUST be unique and acts as the identity of the \gls{key-value pair}. The CDATA of the \gls{entry} element represents the value portion of the \gls{key-value pair} and has the same constraints as the \gls{data entity} type defined for the \gls{dataitem} \gls{type}.
+
+\paragraph{XML Schema Structure for Sample when reporting Data Set data}\mbox{}
+\label{sec:XML Schema Structure for Sample when reporting Data Set data}
+
+\fig{sample-data-set-schema-diagram} represents the XML schema of a \gls{sample} XML element that represents a \gls{sample category} category \gls{dataitem} element defined in the \gls{mtconnectdevices} document with a \gls{representation} attribute of \gls{dataset}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figures/sample-data-set-schema-diagram.png}
+  \caption{Sample Data Set Schema Diagram}
+  \label{fig:sample-data-set-schema-diagram}
+\end{figure}
+\FloatBarrier
+
+\paragraph{Attributes for Sample when reporting Data Set data}\mbox{}
+\label{sec:Attributes for Sample when reporting Data Set data}
+
+\tbl{attributes-for-dataset} defines the additional attribute provided for a \gls{sample} XML element that represents a \gls{sample category} category \gls{dataitem} element defined in the \gls{mtconnectdevices} document with a \gls{representation} attribute of \gls{dataset}.
+
+\input{tables/attributes-for-dataset.tex}
+
+\paragraph{Elements for Sample when reporting Data Set data}\mbox{}
+\label{sec:Elements for Sample when reporting Data Set data}
+
+\tbl{elements-for-dataset} defines the elements provided for a \gls{sample} XML element that represents a \gls{sample category} category \gls{dataitem} element defined in the \gls{mtconnectdevices} document with a \gls{representation} attribute of \gls{dataset}. \gls{entry} is the only child element that \MAY be associated with a \gls{data entity} with a \gls{representation} attribute of \gls{dataset}. Each \gls{entry} element represents a unique \gls{key-value pair}. 
+
+\input{tables/elements-for-dataset.tex}
+
+\subparagraph{XML Schema Structure for Entry Element for a Data Entity}\mbox{}
+\label{sec:XML Schema Structure for Entry Element for a Data Entity}
+
+\fig{entry-element-schema-diagram} represents the XML Schema structure for a \gls{entry} XML element that represents the information published for a \gls{key-value pair}. Any number of \gls{entry} elements \MAY be provided for a \gls{data entity} defined with a \gls{representation} attribute of \gls{dataset}. 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/entry-element-schema-diagram.png}
+  \caption{Entry Element Schema Diagram}
+  \label{fig:entry-element-schema-diagram}
+\end{figure}
+\FloatBarrier
+
+\begin{note}
+Note: The \cfont{VariableDataSet} element shown in the XML schema is an example that illustrates the schema for a \gls{data entity} element and its associated \gls{entry} elements representing a \gls{data set}.
+
+\end{note}
+
+The following example demonstrates how multiple \glspl{key-value pair}, each defined by an \gls{entry} element, are structured in a \gls{mtconnectstreams} document.
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example of multiple key-value pairs Reported for a Data Entity},label={lst:example-of-multiple-key-value-pairs-reported-for-a-data-entity}]
+  <VariableDataSet timestamp="..." sequence="..." count="2">
+    <Entry key="a101">100.21</Entry>
+    <Entry key="a102">609</Entry>
+    <Entry key="a103" removed="true" />
+  </VariableDataSet>
+\end{lstlisting}
+
+\subparagraph{Attributes for Entry Element for a Data Entity}\mbox{}
+\label{sec:Attributes for Entry Element for a Data Entity}
+
+The \tbl{attributes-for-entry} defines the attributes provided for a \gls{entry} XML element. 
+
+\input{tables/attributes-for-entry.tex}
+
+
+\subsubsection{Valid Data Values for Sample}
+
+All \gls{sample} elements reported in an \gls{mtconnectstreams} XML document \must provide a value in the \gls{cdata} of the \gls{data entity}.
+
+The value returned in the \gls{cdata} \must be reported as either a \gls{valid data value} representing the information reported from a piece of equipment or \gls{unavailable value} when a \gls{valid data value} cannot be determined.
+
+The \gls{valid data value} reported for a \gls{sample} represents the reading of the value of a continuously variable or analog data source.
+
+The \gls{representation} attribute for a \gls{sample category} category \gls{dataitem} element defined in the \gls{mtconnectdevices} document specifies how an \gls{agent} \must record instances of the data associated with that data item and how often that data \must be reported as a \gls{sample} element in the \gls{mtconnectstreams} document.
+
+The data reported for a \gls{sample} element associated with a \gls{sample category} category \gls{dataitem} element with a \gls{representation} of \gls{value representation} can be measured at any point-in-time and \must always produce a result with a single data value.  
+
+\begin{note}
+Note: If a \gls{representation} attribute is not specified in the \gls{mtconnectdevices} document for a \gls{dataitem} element, it \must be assumed that the data reported in the \gls{mtconnectstreams} document for the \gls{data entity} has a \gls{representation} type of \gls{value representation}.
+
+\end{note}
+
+In the case of a \gls{sample} element associated with a \gls{sample category} category \gls{dataitem} element with a \gls{representation} attribute of \gls{timeseries representation}, the data provided \must be a series of data values representing multiple sequential samples of the measured value that will be provided only at the end of the completion of a sampling period.   (See Section \sect{Response for SAMPLE category DataItem Elements with a representation Attribute of TIME_SERIES} for more information on \gls{timeseries representation} type data).
+
+In the case of a \gls{sample} element associated with a \gls{sample category} category \gls{dataitem} element with a \gls{representation} attribute of \gls{dataset}, the data reported for each \gls{key-value pair} \MUST be provided in the same \glspl{valid data value} and units as specified by the \gls{type} attribute for the \gls{dataitem} element.
+
+When an \gls{agent} responds to a \gls{current request}, the information returned in the \gls{mtconnectstreams} document for a \gls{data entity} defined to represent a \gls{data set} \MUST include the full set of \glspl{key-value pair} that are valid for that \gls{data entity}. If the \gls{current request} includes an \gls{at query} \textit{query parameter}, the \gls{agent} \MUST provide the set of \glspl{key-value pair} that are valid at the specified \gls{sequence number}.
+
+When an \gls{agent} responds to a \gls{sample request}, the information returned in the \gls{mtconnectstreams} document for a \gls{data entity} defined to represent a \gls{data set} \MUST include only those \glspl{key-value pair} that are valid for the \gls{data entity} at each \gls{sequence number}. 
+
+Data values provided for a \gls{sample} \must always be a floating-point number.   In the MTConnect Standard, floating-point numbers are defined as XML xs:float \gls{type} numbers as defined by W3C.  Any of the following number formats are valid XML floating \gls{type} numbers: 1267.43233E12, -1E4, 12.78e-2, 12, 137.2847, 0, and INF.  
+
+\begin{note}
+Note: For some \gls{sample} elements, the \gls{valid data value} \may be restricted to specific formats.  See Section 6.1 of this document for a description of any restrictions of the acceptable format for \gls{valid data value}.
+
+\end{note}
+
+For \gls{sample} elements, a client software application can determine the appropriate accuracy of the value reported for the \gls{data entity} by applying the significantDigits attribute defined for the corresponding \gls{dataitem} element defined in the \gls{mtconnectdevices} document.
+
+The \gls{valid data value} reported as \gls{cdata} for a \gls{sample} element \must be formatted as part of the content between the element tags in the XML element representing that \gls{data entity}.  As an example, a \glselementname{position sample} is formatted as shown in \lst{example-of-sample-position}.
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example showing CDATA of a DataItem Element},label={lst:example-of-sample-position}]
+<Position sequence="112" name="Xabs"
+    timestamp="2016-07-28T02:06:01.364428Z" 
+    dataItemId="10">123.3333</Position>
+\end{lstlisting}
+
+In this example, the 123.3333 is the \gls{cdata} for \glselementname{position sample}.   All \gls{cdata} in a \gls{sample} element is typed, which means that the value reported for the \gls{data entity} \must be formatted as defined in Section 6.1 for each \gls{data entity} so that it can be validated.
+
+\subsubsection{Unavailability of Valid Data Values for Sample}
+
+If an \gls{agent} cannot determine a \gls{valid data value} for a \gls{sample} element, the value returned for the \gls{cdata} for the \gls{data entity} \must be reported as \gls{unavailable value}.
+
+\lst{example-of-cdata-unavailable} demonstrates how an \gls{agent} reports the value for a \gls{sample} in the \gls{cdata} when it is unable to determine a \gls{valid data value}:  
+
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example of CDATA when Data Entity is  UNAVAILABLE},label={lst:example-of-cdata-unavailable}]
+<Samples>
+  <PathPosition dataItemId="p2"
+      timestamp="2009-03-04T19:45:50.458305"
+      subType="ACTUAL" name="Zact"
+      sequence="15065113">UNAVAILABLE</PathPosition>
+  <Temperature dataItemId="t6"
+      timestamp="2009-03-04T19:45:50.458305" name="temp" 
+      sequence="150651134">UNAVAILABLE</Temperature>
+</Samples>
+\end{lstlisting}
+
+\subsection{Events Container}
+
+\gls{events} is a XML container type element.  \gls{events} organizes the \glspl{data entity} returned in the \gls{mtconnectstreams} XML document for those \gls{dataitem} elements defined with a \gls{category} attribute of \gls{event category} in the \gls{mtconnectdevices} document.
+
+A separate \gls{events} container will be provided for the data returned for the \gls{dataitem} elements associated with each \gls{structural element} of a piece of equipment defined in the \gls{mtconnectdevices} document.
+
+
+\input{tables/mtconnect-events-element.tex}
+
+\subsection{Event Data Entities}
+
+An \gls{event} XML element provides the information and data provided from a piece of equipment for those \gls{dataitem} elements defined with a \gls{category} attribute of \gls{event category} in the \gls{mtconnectdevices} document.
+
+\gls{event} is an abstract \gls{type} XML element and will never appear directly in the \gls{mtconnectstreams} XML document.  As an abstract \gls{type} XML element, \gls{event} will be replaced in the XML document by a specific \gls{type} of \gls{event} specified by the \gls{element name} for that \gls{data entity}.  The different \glspl{type} of \gls{event} elements are defined in \sect{Event Element Names}.  Examples of XML elements representing \gls{event} include \glselementname{block event} and \glselementname{execution event}.
+
+\gls{event} is similar to \gls{sample}, but its value can change with unpredictable frequency.  \gls{events} do not report intermediate values.  As an example, when \glselementname{availability event} transitions from \gls{unavailable value} to \gls{available value}, there is no intermediate state that can be inferred.
+
+\gls{event} elements \may report data values defined by a controlled vocabulary as specified in \sect{Event Element Names}, by numeric values, or by a character string representing text or a message provided by the piece of equipment. 
+
+
+\input{tables/mtconnect-event-element.tex}
+
+\subsubsection{XML Schema Structure for Event}
+
+The XML schema in \fig{event-schema-diagram} represents the structure of an \gls{event} XML element showing the attributes defined for \gls{event} elements.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/event-schema-diagram.png}
+  \caption{Event Schema Diagram}
+  \label{fig:event-schema-diagram}
+\end{figure}
+
+\FloatBarrier
+
+\subsubsection{Attributes for Event}
+
+\tbl{attributes-for-event} defines the attributes that \may be used to provide additional information for an \gls{event} XML element.
+
+\input{tables/attributes-for-event.tex}
+
+  
+
+\subsubsection{Response for EVENT category DataItem Elements with a representation attribute of DATA_SET}
+\label{sec:Response for EVENT category DataItem Elements with a representation attribute of DATA_SET}
+
+The behavior of \gls{event category} category \gls{dataitem} elements defined in the \gls{mtconnectdevices} document with a \gls{representation} attribute of \gls{dataset} function exactly the same as \gls{sample category} category \gls{dataitem} elements with a \gls{representation} attribute of \gls{dataset}. Refer to \sect{Response for SAMPLE category DataItem Elements with a representation attribute of DATA_SET} for details on \gls{dataitem} elements with a \gls{representation} attribute of \gls{dataset}.  
+
+
+\subsubsection{Valid Data Values for Event}
+
+\gls{event} elements reported in an \gls{mtconnectstreams} XML document \must provide a value in the \gls{cdata} of the \gls{data entity}.
+
+The value reported in the \gls{cdata} \must be reported as either a \gls{valid data value} representing the information reported from a piece of equipment or \gls{unavailable value} when a \gls{valid data value} cannot be determined.
+
+The \gls{valid data value} reported for an \gls{event} represents a distinct piece of information provided from a piece of equipment.  Unlike \gls{sample}, \gls{event} does not report intermediate values that vary over time.  \gls{event} reports information that, when provided at any specific point in time, represents the current state of the piece of equipment.
+
+The \gls{representation} attribute for an \gls{event category} category data item defined in the \gls{mtconnectdevices} document specifies how an \gls{agent} \must record instances of data associated with that data item and how that data \must be reported as an \gls{event} element in the \gls{mtconnectstreams} document.
+
+The data reported for an \gls{event} element associated with an \gls{event category} category data item with a \gls{representation} attribute of \gls{value representation} \must be either an integer, a floating-point number, a descriptive value (text string) representing one of two or more state values defined for that data item, or a text string representing a message.
+
+If a \gls{representation} attribute is not specified for a data item in an \gls{mtconnectdevices} document, the designation for the \gls{representation} attribute \must be interpreted as \gls{value representation}.
+
+In the case of an \gls{event} element associated with a \gls{event category} category \gls{dataitem} element with a \gls{representation} attribute of \gls{dataset}, the data reported for each \gls{key-value pair} \MUST be provided in the same \glspl{valid data value} and units as specified by the \gls{type} attribute for the \gls{dataitem} element.
+
+When an \gls{agent} responds to a \gls{current request}, the information returned in the \gls{mtconnectstreams} document for a \gls{data entity} defined to represent a \gls{data set} \MUST include the full set of \glspl{key-value pair} that are valid for that \gls{data entity}. If the \gls{current request} includes an \gls{at query} \textit{query parameter}, the \gls{agent} \MUST provide the set of \glspl{key-value pair} that are valid at the specified \gls{sequence number}.
+
+When an \gls{agent} responds to a \gls{sample request}, the information returned in the \gls{mtconnectstreams} document for a \gls{data entity} defined to represent a \gls{data set} \MUST include only those \glspl{key-value pair} that are valid for the \gls{data entity} at each \gls{sequence number}
+The \gls{valid data value} reported as CDATA for an \gls{event} element \must be formatted as part of the content between the element tags in the XML element representing that \gls{data entity}.  As an example, \gls{event} elements are formatted as shown in \lst{example-of-event-element}:
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example of Event Element},label={lst:example-of-event-element}]
+<PartCount dataItemId="pc4" 
+    timestamp="2009-02-26T02:02:36.48303"
+    name="pcount" sequence="185">238</PartCount>
+<ControllerMode dataItemId="p3" 
+    timestamp="2009-02-26T02:02:35.716224"
+    name="mode" sequence="192">AUTOMATIC</ControllerMode>
+    <Block dataItemId="cn2" name="block" sequence="206"
+        timestamp="2009-02-26T02:02:37.394055">G0Z1</Block>
+\end{lstlisting}
+
+
+In these examples, \cfont{238} is the \gls{cdata} for \glselementname{partcount} and is a numeric value; \gls{automatic value} is the \gls{cdata} for the \glselementname{controllermode event} and is a descriptive value representing a state for the \gls{data entity}; and \cfont{G0Z1} is a text string representing a message describing the program code associated with the \glselementname{block event} \gls{data entity}. 
+
+\subsubsection{Unavailability of Valid Data Value for Event}
+
+If an \gls{agent} cannot determine a \gls{valid data value} for an \gls{event} element, the value returned for the \gls{cdata} for the \gls{data entity} \must be reported as \gls{unavailable value}.
+
+The example in \lst{example-of-event-element-unavailable} demonstrates how an \gls{agent} reports the value for an \gls{event} in the \gls{cdata} when it is unable to determine a \gls{valid data value}:  
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example of Event Element when data value is UNAVAILABLE},label={lst:example-of-event-element-unavailable}]
+<Events>
+  <ControllerMode dataItemId="p3" 
+      timestamp="2009-02-26T02:02:35.716224" name="mode"
+      sequence="182">UNAVAILABLE</ControllerMode>
+</Events>
+\end{lstlisting}
+
+
+\subsection{Condition Container}
+
+\gls{conditions} is a XML container type element.  \gls{conditions} organizes the \glspl{data entity} returned in the \gls{mtconnectstreams} XML document for those \gls{dataitem} elements defined with a \gls{category} attribute of \gls{condition category} in the \gls{mtconnectdevices} document.
+
+A separate \gls{conditions} container will be provided for the data returned for the \gls{dataitem} elements associated with each \gls{structural element} of a piece of equipment defined in the \gls{mtconnectdevices} document.
+
+\input{tables/mtconnect-condition-element-container.tex}
+
+\subsection{Condition Data Entity}\label{sec:Condition Data Entity}
+
+A \gls{condition} XML element provides the information and data provided from a piece of equipment for those \gls{dataitem} elements defined with a \gls{category} attribute of \gls{condition category} in the \gls{mtconnectdevices} document.  
+
+\gls{condition} provides information reported by a piece of equipment describing its health and ability to function.
+
+\gls{condition} is an abstract type XML element and will never appear directly in the \gls{mtconnectstreams} XML document.  As an abstract type XML element, \gls{condition} will be replaced in the XML document by a \gls{data entity} representing the \gls{condition category} category \gls{dataitem} element defined in the \gls{mtconnectdevices} document that this \gls{condition} element represents.
+
+The \glspl{data entity} represented by \gls{condition} are structured differently than the \glspl{data entity} representing \gls{sample} and \gls{event}.   The \gls{element name} for each \gls{condition} element reported in the \gls{mtconnectstreams} document defines the \gls{fault state} of the \gls{data entity}.  A \gls{condition} element is identified by the \gls{structural element} to which it is associated, along with the \gls{type} and \gls{dataitemid} defined for the element.  \sect{Types of Condition Elements} provides details on the different \glspl{type} of \gls{condition} elements.
+
+\input{tables/mtconnect-condition-element.tex}
+
+\gls{condition category} type \gls{dataitem} elements defined in the \gls{mtconnectdevices} document \may report multiple simultaneous \glspl{fault state} in the \gls{mtconnectstreams} document.  This is unlike a \gls{sample category} or \gls{event category} \gls{dataitem} element that can only report a single occurrence of a \gls{sample} or \gls{event} element in the \gls{mtconnectstreams} document at any one point in time.
+
+For example, a controller on a piece of equipment may detect and report multiple format errors in a motion program.   Each error represents a separate \gls{fault state} from the controller.   Each \gls{fault state} is represented as a separate \gls{condition} element in the \gls{mtconnectstreams} document since each \gls{fault state} \must be identified and tracked individually in the document.
+
+\subsubsection{Element Names for Condition}\label{sec:Element Names for Condition}
+
+\gls{condition} elements are reported differently from other \gls{data entity} \glspl{type}.  The \gls{element name} reported for a \gls{condition} element represents the \gls{fault state} (\gls{normal}, \gls{warning}, or \gls{fault}) associated with each \gls{condition}.
+
+Examples of XML elements representing \gls{condition} elements for each of the possible \glspl{fault state} are shown in \lst{example-of-condition-element-fault-states}:
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example of Condition Element Fault States},label={lst:example-of-condition-element-fault-states}]
+<Normal type="MOTION_PROGRAM" dataItemId="cc2" sequence="25"
+    timestamp="2010-04-06T06:19:35.153141"</Normal>
+<Fault type="COMMUNICATIONS" dataItemId="cc1" sequence="26"
+    nativeCode="IO1231" timestamp="2010-04-
+    06T06:19:35.153141">Communications error</Fault>
+<Warning type="LOGIC_PROGRAM" dataItemId="pm6" sequence="32"
+    timestamp="2010-04-06T06:19:35.153141"<Warning/>
+\end{lstlisting}
+
+\subsubsection{XML Schema Structure for Condition}
+
+The XML schema in \fig{condition-schema-diagram} represents the structure of a \gls{condition} XML element showing the attributes defined for \gls{condition} elements.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.6\textwidth]{figures/condition-schema-diagram.png}
+  \caption{Condition Schema Diagram}
+  \label{fig:condition-schema-diagram}
+\end{figure}
+\FloatBarrier
+
+\subsubsection{Attributes for Condition}
+
+\tbl{attributes-for-condition} defines the attributes used to provide additional information for a \gls{condition} XML element.
+
+\input{tables/attributes-for-condition.tex}
+
+\paragraph{qualifier Attribute for Condition}\mbox{}
+
+Many \gls{condition} elements report the \gls{fault state} associated with the measured value of a process variable.
+
+\gls{qualifier} provides an indication whether the measured value is above or below an expected value of a process variable.
+
+As an example, a \gls{condition} element with a \gls{type} attribute of \gls{amperage sample} may differentiate between a higher than expected amperage and a lower than expected amperage by using the \gls{qualifier} attribute.
+
+When a \gls{qualifier} of either \gls{high} or \gls{low} is used with \gls{fault} and \gls{warning}, the \glspl{fault state} can be differentiated as follows:
+
+\quad \gls{fault},\gls{low}
+
+\quad \gls{warning},\gls{low}
+
+\quad \gls{normal}
+
+\quad \gls{warning},\gls{high}
+
+\quad \gls{fault},\gls{high}
+     
+\lst{example-of-condition-using-qualifier} is an example of an XML element representing \gls{condition} using \gls{qualifier}:
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example of a Condition Element using qualifier},label={lst:example-of-condition-using-qualifier}]
+<Warning type="FILL_LEVEL" dataItemId="pm6" 
+    qualifier="HIGH" sequence="32" 
+    timestamp="2009-11-13T08:32:18">...</Warning>
+\end{lstlisting}
+
+\subsubsection{Valid Data Value for Condition}
+
+\gls{condition} elements reported in an \gls{mtconnectstreams} XML document \may provide a value in the \gls{cdata} of the \gls{data entity} when additional information regarding the \gls{fault state} is available.
+
+A \gls{valid data value} for the \gls{cdata} included in a \gls{condition} element \may be any text string.   A \gls{valid data value} is not required to be reported for a \gls{condition} category \gls{data entity}.  The \gls{fault state} and the attributes provided in a \gls{condition} element \may be sufficient to fully describe the \gls{data entity}.
+
+The \gls{valid data value} reported as \gls{cdata} for a \gls{condition} element \must be formatted as part of the content between the element tags in the XML element representing that \gls{data entity}.  As an example, \gls{condition} elements are formatted as shown in \lst{example-of-cdata-for-condition}:
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example of CDATA for Condition},label={lst:example-of-cdata-for-condition}]
+<Warning type="FILL_LEVEL" dataItemId="pm6" 
+    qualifier="HIGH" sequence="32" timestamp=
+    "2009-11-13T08:32:18">Fill Level on Tank
+    #12 is reaching a high level</Warning>
+\end{lstlisting}
+
+In this example, the “Fill Level on Tank \#12 is reaching a high level" is the \gls{cdata} for the \gls{data entity}.
+
+\subsection{Unavailability of Fault State for Condition}\label{sec:Unavailability of Fault State for Condition}
+
+When an \gls{agent} cannot determine a valid \gls{fault state} for a \gls{condition} element, it \must report the \gls{element name} for the \gls{data entity} as Unavailable.
+
+\lst{example-of-condition-when-fault-state-is-unavailable} demonstrates how an \gls{agent} reports a \gls{condition} category \gls{data entity} when it is unable to determine a valid \gls{fault state}:
+
+\begin{lstlisting}[firstnumber=1,escapechar=|,%
+    caption={Example of Condition when Fault State is UNAVAILABLE},label={lst:example-of-condition-when-fault-state-is-unavailable}]
+<Unavailable type="MOTION_PROGRAM" dataItemId="cc2" 
+    sequence="25" timestamp=
+    "2009-11-13T08:32:18">...</Unavailable>
+<Unavailable type="COMMUNICATIONS" dataItemId="cc1" 
+    sequence="26" timestamp=
+    "2009-11-13T08:32:18">...</Unavailable>
+<Unavailable type="LOGIC_PROGRAM" dataItemId="cc3"
+    sequence="28" timestamp=
+    "2009-11-13T08:32:18">...</Unavailable>
+<Unavailable type="LOGIC_PROGRAM" dataItemId="pm6"
+    sequence="32" timestamp=
+    "2009-11-13T08:32:18">...</Unavailable>
+\end{lstlisting}
+
+\section{Listing of Data Entities}\label{sec:Listing of Data Entities}
+
+\glspl{data entity} that report data in \gls{mtconnectstreams} documents are represented by \gls{sample}, \gls{event}, or \gls{condition} elements based upon the \gls{category} and \gls{type} attributes defined for the corresponding \gls{dataitem} XML element in the \gls{mtconnectdevices} document.
+
+Each \gls{data entity} in the \gls{mtconnectstreams} document has an \gls{element name}, as defined in the following sections, based upon the corresponding \gls{category} attribute defined for that \gls{dataitem} element in the \gls{mtconnectdevices} document.
+
+\subsection{Sample Element Names}\label{sec:Sample Element Names}
+
+\tbl{element-names-sample} lists the XML elements that can be placed in the \gls{samples} container of the \gls{componentstream} element.
+
+The \tbl{element-names-sample} shows both the \gls{type} attribute for each \gls{sample category} category \gls{dataitem} element as defined in the \gls{mtconnectdevices} document and the corresponding \gls{element name} for the \gls{data entity} that \must be reported as a \gls{sample} element in the \gls{mtconnectstreams} document. 
+
+\input{tables/element-names-sample.tex}
+
+\begin{note}
+Note: The \gls{sample} response format \must be extended when the \gls{representation} attribute for the data item is \gls{timeseries representation}.  See \sect{Response for SAMPLE category DataItem Elements with a representation Attribute of TIME_SERIES} for details on extending the response format.
+
+\end{note}
+
+\subsection{Event Element Names}
+\label{sec:Event Element Names}
+
+\tbl{element-names-event} lists the XML elements that can be placed in the \gls{events} container of the \gls{componentstream} element.
+
+The \tbl{element-names-sample} shows both the \gls{type} for each \gls{event category} category \gls{dataitem} element defined in the \gls{mtconnectdevices} document and the corresponding \gls{element name} for the \gls{data entity} that \must be reported as an \gls{event} element in the \gls{mtconnectstreams} document.
+
+The table also defines the \gls{valid data value} for those \gls{event} \gls{type} data items where the reported values are restricted to a \gls{controlled vocabulary}.
+
+\input{tables/element-names-event.tex}
+
+
+
+\subsection{Types of Condition Elements}
+\label{sec:Types of Condition Elements}
+
+As described in \sect{Condition Data Entity}, \gls{condition} \glspl{data entity} are reported differently from other data item \glspl{type}.  They are reported based on the \gls{fault state} for each \gls{condition}.  Unlike \gls{sample} and \gls{event} data items that are identified by their \gls{element name}, \gls{condition} data items are defined by the \gls{type} and \gls{subtype} (where applicable) attributes defined for each \gls{condition}.
+
+The \gls{type} and \gls{subtype} (where applicable) attributes for a \gls{condition} element \may be any of the \gls{type} and \gls{subtype} attributes defined for \gls{sample category} category or \gls{event category} category data item listed in the \gls{device information model}.
+
+Table \sect{Element Names for Condition} lists additional \gls{condition} \glspl{data entity} that have been defined to represent the health and fault status of \glspl{structural element}.  The table defines the \gls{type} attribute for each of these additional \gls{condition} category elements that \may be reported in the \gls{mtconnectstreams} document.  
+
+\input{tables/element-names-condition.tex}
+

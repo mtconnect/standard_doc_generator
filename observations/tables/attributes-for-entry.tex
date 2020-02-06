@@ -1,0 +1,39 @@
+
+\begin{longtabu} to \textwidth{|l|X[3l]|l|}
+\caption{Attributes for Entry} \label{table:attributes-for-entry} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:attributes-for-entry}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+ 
+
+
+
+
+\gls{key model}
+&
+A unique identifier for each \gls{key-value pair}.
+\newline The value provided for \gls{key model} \MUST be unique in any given set of \gls{entry} elements.
+\newline The value provided for \gls{key model} \MUST be a XML NMTOKEN type.
+&
+1 \\
+\hline
+
+\gls{removed}
+&
+A indicator defining whether a specific \gls{key-value pair} has been removed from the set of \glspl{key-value pair} associated with this \gls{data set}.
+\newline \gls{removed} is an XML Boolean type that \MUST have a value of \gls{true removed} or \gls{false removed}.
+\newline \gls{true removed} indicates that the \gls{key-value pair} has been removed from the \gls{data set}.
+\newline \gls{false removed} indicates that the \gls{key-value pair} has not been removed from the \gls{data set}.
+\newline If not specified, the default value for \gls{removed} is \gls{false removed}
+&
+0..1 \\
+\hline\end{longtabu}

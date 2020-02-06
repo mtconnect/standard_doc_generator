@@ -1,0 +1,28 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{MTConnect Event Element} \label{table:mtconnect-event-element} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:mtconnect-event-element}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{event}
+&
+\glsentrydesc{event} 
+\newline \gls{event} is an abstract type XML element. It is replaced in the
+\gls{mtconnectstreams} document by a specific type of \gls{event} element.
+\newline There \MAY be multiple types of \gls{event} elements in a \glspl{event} container.
+&
+1..* \\
+\hline
+
+\end{longtabu}

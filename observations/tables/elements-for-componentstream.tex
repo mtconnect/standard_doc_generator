@@ -1,0 +1,45 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Elements for ComponentStream} \label{table:elements-for-componentstream} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:elements-for-componentstream}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+
+\gls{samples}
+&
+An XML container type element.
+\newline \gls{samples} organizes the \gls{sample category} type \glspl{data entity} defined in the \gls{mtconnectdevices} document that are reported in each
+\gls{componentstream} XML element.
+&
+0..1 \notesign \\
+\hline
+
+\gls{events}
+&
+An XML container type element.
+\newline \gls{events} organizes the \gls{event category} type \glspl{data entity} defined in the \gls{mtconnectdevices} document that are reported in each
+\gls{componentstream} XML element.
+&
+0..1 \notesign \\
+\hline
+
+\gls{conditions}
+&
+An XML container type element.
+\newline \gls{conditions} organizes the \gls{condition category} type \glspl{data entity} defined in the \gls{mtconnectdevices} document that are reported in each
+\gls{componentstream} XML element.
+&
+0..1 \notesign \\
+\hline
+
+\end{longtabu}

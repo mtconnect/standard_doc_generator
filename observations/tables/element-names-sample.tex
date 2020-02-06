@@ -1,0 +1,531 @@
+
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |X[2.5l]|X[3l]|X[3l]|}
+\caption{Element Names for Sample} 
+\label{table:element-names-sample} \\
+
+\hline
+DataItem Type & Element Name & Description\\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:element-names-sample}: \nameref{table:element-names-sample}}\\
+\hline
+DataItem Type & Element Name & Description\\
+\hline
+\endhead
+
+
+\gls{acceleration sample}
+&
+\glselementname{acceleration sample}
+&
+\glsentrydesc{acceleration sample}
+\newline \glselementname{acceleration sample} \MUST be reported in units of \glsunits{acceleration sample}.
+\\ \hline 
+
+\gls{accumulatedtime sample}
+&
+\glselementname{accumulatedtime sample}
+&
+\glsentrydesc{accumulatedtime sample}
+\newline \glselementname{accumulatedtime sample} \MUST be reported in units of \glsunits{acceleration sample}.
+\newline \DEPRECATIONWARNING:  May be deprecated in the future. Recommend using \glselementname{processtimer sample} and \glselementname{equipmenttimer sample}.
+\\ \hline 
+
+\gls{amperage sample}
+&
+\glselementname{amperage sample}
+& \glsentrydesc{amperage sample}
+\newline Subtypes of \glselementname{amperage sample} are \gls{alternating subtype}, \gls{direct subtype}, \gls{actual subtype}, and  \gls{target subtype}. 
+\newline If a \gls{subtype} is not specified, the reported value for the data \MUST default to the \gls{subtype} of \gls{actual subtype}.
+\newline \glselementname{amperage sample} \MUST be reported in units of \glsunits{amperage sample}.
+\\ \hline 
+
+\gls{angle sample}
+&
+\glselementname{angle sample} 
+&
+\glsentrydesc{angle sample}
+\newline Subtypes of \glselementname{angle sample} are \gls{actual subtype} and \gls{commanded subtype}.
+\newline If a \gls{subtype} is not specified, the reported value for the data \MUST default to the \gls{subtype} of \gls{actual subtype}.
+\newline \glselementname{angle sample} \MUST be reported in units of \glsunits{angle sample}.
+\\ \hline 
+
+\gls{angularacceleration sample}
+&
+\glselementname{angularacceleration sample} 
+&
+\glsentrydesc{angularacceleration sample}
+\newline \glselementname{angularacceleration sample} \MUST be reported in
+units of \glsunits{angularacceleration sample}.
+\\ \hline 
+
+\gls{angularvelocity sample}
+&
+\glselementname{angularvelocity sample}
+& \glsentrydesc{angularvelocity sample}
+\newline \glselementname{angularvelocity sample} \MUST be reported in units
+of \glsunits{angularvelocity sample}.
+\\ \hline 
+
+\gls{axisfeedrate sample}
+&
+\glselementname{axisfeedrate sample}
+& \glsentrydesc{axisfeedrate sample}
+\newline Subtypes of \glselementname{axisfeedrate sample} are \gls{actual subtype}, \gls{commanded subtype}, \gls{jog subtype}, \gls{programmed subtype}, and \gls{rapid subtype}.
+\newline If a \gls{subtype} is not specified, the reported value
+for the data \MUST default to the \gls{subtype} of \gls{programmed subtype}.
+\newline \glselementname{axisfeedrate sample} \MUST be reported in units of
+\glsunits{axisfeedrate sample}.
+\\ \hline 
+
+\gls{capacityfluid sample}
+&
+\glselementname{capacityfluid sample}
+&
+The fluid capacity of an object or container.
+\newline \glselementname{capacityfluid sample} \MUST be reported in units of \gls{milliliter}. \\
+\hline
+
+\gls{capacityspatial sample}
+&
+\glselementname{capacityspatial sample}
+&
+The geometric capacity of an object or container.
+\newline \glselementname{capacityspatial sample} \MUST be reported in units of \gls{cubicmillimeter}. \\
+\hline
+
+\gls{clocktime sample}
+&
+\glselementname{clocktime sample}
+& \glsentrydesc{clocktime sample}
+\newline \glselementname{clocktime sample} \must be reported in W3C ISO 8601 format of \glsunits{clocktime sample}.
+\\ \hline 
+
+\gls{concentration sample}
+&
+\glselementname{concentration sample}
+&
+\glsentrydesc{concentration sample}
+\newline \glselementname{concentration sample} \MUST be reported in units of \glsunits{concentration sample}.
+\\ \hline 
+
+\gls{conductivity sample}
+&
+\glselementname{conductivity sample}
+&
+\glsentrydesc{conductivity sample}
+\newline \glselementname{conductivity sample} \MUST be reported in units of \glsunits{conductivity sample}.
+\\ \hline 
+
+\gls{cuttingspeed sample}
+&
+\glselementname{cuttingspeed sample}
+&
+The speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on.
+\newline Subtypes of \gls{cuttingspeed sample} are \gls{actual subtype}, \gls{commanded subtype}, and \gls{programmed subtype}.
+\newline If no \gls{subtype} is specified, the reported value must default to \gls{programmed subtype}.
+\newline \glselementname{cuttingspeed sample} is reported in units of \gls{millimeterpersecond}. \\
+\hline
+
+\gls{density sample}
+&
+\glselementname{density sample}
+&
+The volumetric mass of a material per unit volume of that material.
+\newline \glselementname{density sample} \MUST be reported in units of \gls{milligrampercubicmillimeter}. \\
+\hline
+
+\gls{depositionaccelerationvolumetric sample}
+&
+\hspace{0pt}\glselementname{depositionaccelerationvolumetric sample}
+&
+The rate of change in spatial volume of material deposited in an additive manufacturing process.
+\newline Subtypes of \glselementname{depositionaccelerationvolumetric sample} are \gls{actual subtype} and \gls{commanded subtype}.
+\newline If a \gls{subtype} is not specified, the reported value for the data \MUST default to the subtype of \gls{actual subtype}.
+\newline \hspace{0pt}\glselementname{depositionaccelerationvolumetric sample} \MUST be reported in units of \gls{cubicmillimeterpersecondsquared}. \\
+\hline
+
+\gls{depositiondensity sample}
+&
+\glselementname{depositiondensity sample}
+&
+The density of the material deposited in an additive manufacturing process per unit of volume.
+\newline Subtypes of \glselementname{depositiondensity sample} are \gls{actual subtype} and \gls{commanded subtype}.
+\newline If a \gls{subtype} is not specified, the reported value for the data \MUST default to the subtype of \gls{actual subtype}.
+\newline \glselementname{depositiondensity sample} \MUST be reported in units of \gls{milligrampercubicmillimeter}. \\
+\hline
+
+\gls{depositionmass sample}
+&
+\glselementname{depositionmass sample}
+&
+The mass of the material deposited in an additive manufacturing process.
+\newline Subtypes of \glselementname{depositionmass sample} are \gls{actual subtype} and \gls{commanded subtype}.
+\newline If a \gls{subtype} is not specified, the reported value for the data \MUST default to the subtype of \gls{actual subtype}.
+\newline \glselementname{depositionmass sample} \MUST be reported in units of \gls{milligram}. \\
+\hline
+
+\gls{depositionratevolumetric sample}
+&
+\glselementname{depositionratevolumetric sample}
+&
+The rate at which a spatial volume of material is deposited in an additive manufacturing process.
+\newline Subtypes of \glselementname{depositionratevolumetric sample} are \gls{actual subtype} and \gls{commanded subtype}.
+\newline If a \gls{subtype} is not specified, the reported value for the data \MUST default to the subtype of \gls{actual subtype}.
+\newline \hspace{0pt}\glselementname{depositionratevolumetric sample} \MUST be reported in units of \gls{cubicmillimeterpersecond}. \\
+\hline
+
+\gls{depositionvolume sample}
+&
+\glselementname{depositionvolume sample}
+&
+The spatial volume of material deposited in an additive manufacturing process.
+\newline Subtypes of \glselementname{depositionvolume sample} are \gls{actual subtype} and \gls{commanded subtype}.
+\newline If a \gls{subtype} is not specified, the reported value for the data \MUST default to the subtype of \gls{actual subtype}.
+\newline \glselementname{depositionvolume sample} \MUST be reported in units of \gls{cubicmillimeter}. \\
+\hline
+
+\gls{displacement sample}
+&
+\glselementname{displacement sample}
+&
+\glsentrydesc{displacement sample}
+\newline \glselementname{displacement sample} \MUST be reported in units of \glsunits{displacement sample}.
+\\ \hline 
+
+\gls{electricalenergy sample}
+&
+\glselementname{electricalenergy sample}
+&
+\glsentrydesc{electricalenergy sample}
+\newline \glselementname{electricalenergy sample} \MUST be reported in units of \glsunits{electricalenergy sample}.
+\\ \hline 
+
+\gls{equipmenttimer sample}
+&
+\glselementname{equipmenttimer sample}
+&
+\glsentrydesc{equipmenttimer sample}
+\newline Subtypes of \glselementname{equipmenttimer sample} are \gls{loaded subtype}, \gls{working subtype}, \gls{operating subtype}, \gls{powered subtype}, and \gls{delay subtype}.
+\newline A \gls{subtype} \MUST always be specified.
+\newline \glselementname{equipmenttimer sample} \MUST be reported in units of \glsunits{equipmenttimer sample}.
+\\ \hline 
+
+\gls{filllevel sample}
+&
+\glselementname{filllevel sample}
+&
+\glsentrydesc{filllevel sample}
+\newline \glselementname{filllevel sample} \MUST be reported in units of \glsunits{filllevel sample}.
+\\ \hline 
+
+\gls{flow sample}
+& 
+\glselementname{flow sample}
+&
+\glsentrydesc{flow sample}
+\newline \glselementname{flow sample} \MUST be reported in units of \glsunits{flow sample}.
+\\ \hline 
+
+\gls{frequency sample}
+&
+\glselementname{frequency sample}
+&
+\glsentrydesc{frequency sample}
+\newline \glselementname{frequency sample} \MUST be reported in units of \glsunits{frequency sample}.
+\\ \hline 
+
+\gls{globalposition sample} & \glselementname{globalposition sample} & \glsentrydesc{globalposition sample} \\ \hline 
+
+\gls{length sample}
+&
+\glselementname{length sample}
+&
+\glsentrydesc{length sample}
+\newline Subtypes of \glselementname{length sample} are \gls{standard subtype},
+\gls{remaining subtype}, and \gls{useable subtype}.
+\newline If a \gls{subtype} is not specified, the reported value
+for the data \MUST default to the \gls{subtype} of
+\gls{remaining subtype}.
+\newline \glselementname{length sample} \MUST be reported in units of \glsunits{length sample}.
+\\ \hline 
+
+\gls{level sample} & \glselementname{level sample} & \glsentrydesc{level sample} \\ \hline 
+
+\gls{linearforce sample}
+&
+\glselementname{linearforce sample}
+&
+\glsentrydesc{linearforce sample}
+\newline \glselementname{linearforce sample} \MUST be reported in units of \glsunits{linearforce sample}.
+\\ \hline 
+
+\gls{load sample}
+&
+\glselementname{load sample}
+&
+\glsentrydesc{load sample}
+\newline \glselementname{load sample} \MUST be reported in units of \glsunits{load sample}.
+\\ \hline 
+
+\gls{mass sample}
+&
+\glselementname{mass sample}
+&
+\glsentrydesc{mass sample}
+\newline \glselementname{mass sample} \MUST be reported in units of \glsunits{mass sample}.
+\\ \hline 
+
+\gls{pathfeedrate sample}
+&
+\glselementname{pathfeedrate sample}
+&
+\glsentrydesc{pathfeedrate sample}
+\newline Subtypes of \glselementname{pathfeedrate sample} are \gls{actual subtype},
+\gls{commanded subtype},\gls{jog subtype}, \gls{programmed subtype}, and \gls{rapid subtype}.
+\newline If a \gls{subtype} is not specified, the reported value
+for the data \MUST default to the \gls{subtype} of
+\gls{programmed subtype}.
+\newline \glselementname{pathfeedrate sample} \MUST be reported in units of \glsunits{pathfeedrate sample}.
+\\ \hline 
+
+\gls{pathfeedrateperrevolution sample}
+&
+\hspace{0pt}\glselementname{pathfeedrateperrevolution sample}
+&
+The feedrate for the axes, or a single axis.
+\newline \hspace{0pt}\glselementname{pathfeedrateperrevolution sample} is reported in units of \gls{millimeterperrevolution}.
+\newline Subtypes of \glselementname{pathfeedrateperrevolution sample} are \gls{actual subtype}, \gls{commanded subtype}, and \gls{programmed subtype}. \\
+\hline
+
+\gls{pathposition sample}
+&
+\glselementname{pathposition sample}
+&
+A measured or calculated position of a control point reported by a piece of equipment expressed in \gls{work} coordinates. The coordinate system will revert to \gls{machine} coordinates if \gls{work} coordinates are not available. 
+\newline Subtypes of \glselementname{pathposition sample} are \gls{actual subtype}, \gls{programmed subtype}, \gls{commanded subtype}, \gls{target subtype}, and \gls{probe subtype}. 
+\newline If a \gls{subtype} is not specified, the reported value for the data \MUST default to the subtype of \gls{actual subtype}. \newline \glselementname{pathposition sample} \MUST be reported as a set of space-delimited floating-point numbers representing a point in 3-D space. The position of the control point \MUST be reported in units of \gls{millimeter} and listed in order of X, Y, and Z referenced to the coordinate system of the piece of equipment. \\
+\hline 
+
+\gls{pathposition sample}
+(Continued)
+&
+\glselementname{pathposition sample}
+&
+An example of the value reported for \glselementname{pathposition sample} would be: 
+\newline <PathPosition ...>10.123 55.232 100.981 </PathPosition> Where X = 10.123, Y = 55.232, and Z=100.981. 
+\\ \hline
+
+\gls{ph sample}
+&
+\glselementname{ph sample}
+&
+\glsentrydesc{ph sample}
+\newline \glselementname{ph sample} \MUST be reported in units of \glsunits{ph sample}.
+\\ \hline 
+
+\gls{position sample}
+&
+\glselementname{position sample}
+&
+\glsentrydesc{position sample}
+\newline Subtypes of \glselementname{position sample} are \gls{actual subtype},
+\gls{commanded subtype}, \gls{programmed subtype}, and \gls{target subtype}.
+\newline If a \gls{subtype} is not specified, the reported value
+for the data \MUST default to the \gls{subtype} of
+\gls{actual subtype}.
+\newline When \glselementname{position sample} is provided representing a
+measured value for the physical axes of the piece of equipment, the data \MUST be provided in \gls{machine} coordinates.
+\newline When \glselementname{position sample} is provided representing a
+logical or calculated position, the data \MUST be provided in \gls{work} coordinates and is associated with a \gls{path} element of the equipment controller.
+\newline \glselementname{position sample} \MUST be reported in units of \glsunits{position sample}.
+\\ \hline 
+
+\gls{powerfactor sample}
+&
+\glselementname{powerfactor sample}
+&
+\glsentrydesc{powerfactor sample}
+\newline \glselementname{powerfactor sample} \MUST be reported in units of \glsunits{powerfactor sample}.
+\\ \hline 
+
+\gls{pressure sample}
+&
+\glselementname{pressure sample}
+&
+\glsentrydesc{pressure sample}
+\glsentrydesc{pressure sample}
+\newline \glselementname{pressure sample} \MUST be reported in units of \glsunits{pressure sample}.
+\\ \hline 
+
+\gls{processtimer sample}
+&
+\glselementname{processtimer sample}
+&
+\glsentrydesc{processtimer sample}
+\newline Subtypes of \glselementname{processtimer sample} are \gls{process subtype}, and \gls{delay subtype}.
+\newline A \gls{subtype} \MUST always be specified.
+\newline \glselementname{processtimer sample} \MUST be reported in units of \glsunits{processtimer sample}.
+\\ \hline 
+
+\gls{resistance sample}
+&
+\glselementname{resistance sample}
+&
+\glsentrydesc{resistance sample}
+\newline \glselementname{resistance sample} \MUST be reported in units of \glsunits{resistance sample}.
+\\ \hline 
+
+\gls{rotaryvelocity sample}
+&
+\glselementname{rotaryvelocity sample}
+&
+\glsentrydesc{rotaryvelocity sample}
+\newline Subtypes of \glselementname{rotaryvelocity sample} are \gls{actual subtype},
+\gls{commanded subtype} and \gls{programmed subtype}.
+\newline If a \gls{subtype} is not specified, the reported value
+for the data \MUST default to the \gls{subtype} of
+\gls{actual subtype}.
+\newline \glselementname{rotaryvelocity sample} \MUST be reported in units of \glsunits{rotaryvelocity sample}.
+\\ \hline 
+
+\gls{soundlevel sample}
+&
+\glselementname{soundlevel sample}
+&
+\glsentrydesc{soundlevel sample}
+\newline Subtypes of \glselementname{soundlevel sample} are \gls{noscale subtype},
+\gls{ascale subtype}, \gls{bscale subtype}, \gls{cscale subtype} and \gls{dscale subtype}.
+\newline If a \gls{subtype} is not specified, the reported value
+for the data \MUST default to the \gls{subtype} of
+\gls{noscale subtype}.
+\newline \glselementname{soundlevel sample} \MUST be reported in units of \glsunits{soundlevel sample}.
+\\ \hline 
+
+\gls{spindlespeed sample} & \glselementname{spindlespeed sample} & \glsentrydesc{spindlespeed sample} \\ \hline 
+
+\gls{strain sample}
+&
+\glselementname{strain sample}
+&
+\glsentrydesc{strain sample}
+\newline \glselementname{strain sample} \MUST be reported in units of \glsunits{strain sample}.
+\\ \hline 
+
+\gls{temperature sample}
+&
+\glselementname{temperature sample}
+&
+\glsentrydesc{temperature sample}
+\newline \glselementname{temperature sample} \MUST be reported in units of \glsunits{temperature sample}.
+\\ \hline 
+
+\gls{tension sample}
+&
+\glselementname{tension sample}
+&
+\glsentrydesc{tension sample}
+\newline \glselementname{tension sample} \MUST be reported in units of \glsunits{tension sample}.
+\\ \hline 
+
+\gls{tilt sample}
+&
+\glselementname{tilt sample}
+&
+\glsentrydesc{tilt sample}
+\newline \glselementname{tilt sample} \MUST be reported in units of \glsunits{tilt sample}.
+\\ \hline 
+
+\gls{torque sample}
+&
+\glselementname{torque sample}
+&
+\glsentrydesc{torque sample}
+\newline \glselementname{torque sample} \MUST be reported in units of \glsunits{torque sample}.
+\\ \hline 
+
+\gls{velocity sample}
+&
+\glselementname{velocity sample}
+&
+\glsentrydesc{velocity sample}
+\newline When provided as the \glselementname{velocity sample} of the \gls{axes} \gls{component}, it represents the value of the velocity vector for all given axes, similar to \glselementname{pathfeedrate sample}.
+\newline When provided as the \glselementname{velocity sample} of an individual \cfont{Axis} \gls{component}, it represents the value of the
+velocity for that specific axis with no influence of the relative velocity of any other axes.
+\newline \glselementname{velocity sample} \MUST be reported in units of \glsunits{velocity sample}.
+\\ \hline 
+
+\gls{viscosity sample}
+&
+\glselementname{viscosity sample}
+&
+\glsentrydesc{viscosity sample}
+\newline \glselementname{viscosity sample} \MUST be reported in units of \glsunits{viscosity sample}.
+\\ \hline 
+
+\gls{voltage sample}
+&
+\glselementname{voltage sample}
+&
+\glsentrydesc{voltage sample}
+\newline Subtypes of \glselementname{voltage sample} are \gls{alternating subtype}, \gls{direct subtype}, \gls{actual subtype} and \gls{target subtype}.
+\newline If a \gls{subtype} is not specified, the reported value
+for the data \MUST default to the \gls{subtype} of
+\gls{actual subtype}.
+\newline \glselementname{voltage sample} \MUST be reported in units of \glsunits{voltage sample}.
+\\ \hline 
+
+\gls{voltampere sample}
+&
+\glselementname{voltampere sample}
+&
+\glsentrydesc{voltampere sample}
+\newline \glselementname{voltampere sample} \MUST be reported in units of \glsunits{voltampere sample}.
+\\ \hline 
+
+\gls{voltamperereactive sample}
+&
+\glselementname{voltamperereactive sample}
+&
+\glsentrydesc{voltamperereactive sample} 
+\newline \glselementname{voltamperereactive sample} \MUST be reported in units of \glsunits{voltamperereactive sample}.
+\\ \hline 
+
+\gls{volumefluid sample}
+&
+\glselementname{volumefluid sample}
+&
+The fluid volume of an object or container.
+\newline Subtypes of \glselementname{volumefluid sample} are \gls{actual subtype} and \gls{consumed subtype}.
+\newline If a \gls{subtype} is not specified, the reported value for the data \MUST default to the subtype of \gls{actual subtype}.
+\newline \glselementname{volumefluid sample} \MUST be reported in units of \gls{milliliter}. \\
+\hline
+
+\gls{volumespatial sample}
+&
+\glselementname{volumespatial sample}
+&
+The geometric volume of an object or container.
+\newline Subtypes of \glselementname{volumespatial sample} are \gls{actual subtype} and \gls{consumed subtype}.
+\newline If a \gls{subtype} is not specified, the reported value for the data \MUST default to the subtype of \gls{actual subtype}.
+\newline \glselementname{volumespatial sample} \MUST be reported in units of \gls{cubicmillimeter}. \\
+\hline
+
+\gls{wattage sample}
+&
+\glselementname{wattage sample}
+&
+\glsentrydesc{wattage sample}
+\newline Subtypes of \glselementname{wattage sample} are \gls{actual subtype} and \gls{target subtype}.
+\newline If a \gls{subtype} is not specified, the reported value
+for the data \MUST default to the \gls{subtype} of
+\gls{actual subtype}.
+\newline \glselementname{wattage sample} \MUST be reported in units of \glsunits{wattage sample}.
+\\ \hline 
+
+
+\end{longtabu}

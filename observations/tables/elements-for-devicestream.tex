@@ -1,0 +1,32 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Elements for DeviceStream} \label{table:elements-for-devicestream} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:elements-for-devicestream}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{componentstream}
+&
+\glsentrydesc{componentstream}
+\newline Any number of \gls{componentstream} elements \MAY be provided
+in a \gls{devicestream} container.
+\newline There \MUST be a separate \gls{componentstream} XML element
+for each of the \glspl{structural element} (\gls{device} elements, \gls{top level}
+\gls{component} elements, or \gls{lower level} \gls{component} elements)
+defined for that piece of equipment in the associated \gls{mtconnectdevices} XML document. A \gls{componentstream}
+representing a \gls{structural element} will only appear if there is data reported for that \gls{structural element}. 
+&
+0..* \\
+\hline
+
+\end{longtabu}

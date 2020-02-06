@@ -1,0 +1,33 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{MTConnect sampleCount Attribute} \label{table:mtconnect-samplecount-attribute} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:mtconnect-samplecount-attribute}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{samplecount}
+&
+The number of readings reported in the data returned for the \gls{dataitem}
+element defined in the \gls{mtconnectdevices} document that this
+\gls{sample} element represents.
+\newline \gls{samplecount} is an optional attribute.
+\newline \gls{samplecount} \MUST be provided when the representation
+attribute of the \gls{dataitem} element is \gls{timeseries representation}.
+\newline \gls{samplecount} \MUSTNOT be provided when the
+\gls{representation} attribute is defined as \gls{discrete representation} or \gls{value representation}, or
+when it is not defined.
+&
+0..1 \\
+\hline
+
+\end{longtabu}

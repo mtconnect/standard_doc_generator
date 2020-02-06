@@ -1,0 +1,27 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{MTConnect DeviceStream Element} \label{table:mtconnect-devicestream-element} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:mtconnect-devicestream-element}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+
+\gls{devicestream}
+&
+\glsentrydesc{devicestream}
+\newline There \MAY be one or more \gls{devicestream} elements in a
+\gls{streams} container; one for each piece of equipment represented in
+the \gls{mtconnectstreams} document. 
+&
+0..* \\ \hline
+
+\end{longtabu}
