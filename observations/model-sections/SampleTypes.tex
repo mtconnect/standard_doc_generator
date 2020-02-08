@@ -1,4 +1,4 @@
-% Generated 2020-02-06 13:56:54 -0500
+% Generated 2020-02-08 15:51:57 -0800
 \subsection{SampleTypes} \label{model:SampleTypes}
 \subsubsection[Acceleration]{Acceleration \\ {\small Subtype of Sample}}
   \label{type:Acceleration}
@@ -68,17 +68,16 @@ The measurement of electrical current.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{Amperage} are : 
+Subtypes of \texttt{Amperage} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
+\item \texttt{ALTERNATING} : The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
 
-\item \texttt{Alternating} : The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
+\item \texttt{DIRECT} : The measurement of DC current or voltage.
 
-\item \texttt{Direct} : The measurement of DC current or voltage.
-
-\item \texttt{Target} : The desired measure or count for a data item value.
+\item \texttt{TARGET} : The desired measure or count for a data item value.
 
 \end{itemize}
 
@@ -105,13 +104,12 @@ The measurement of angular position.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{Angle} are : 
+Subtypes of \texttt{Angle} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
 \end{itemize}
 
@@ -184,21 +182,20 @@ The measurement of the feedrate of a linear axis.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{AxisFeedrate} are : 
+Subtypes of \texttt{AxisFeedrate} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{JOG} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
-\item \texttt{Jog} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
+\item \texttt{OVERRIDE} : The operators overridden value.
 
-\item \texttt{Override} : The operators overridden value.
+\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\item \texttt{Rapid} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+\item \texttt{RAPID} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
 
 \end{itemize}
 
@@ -340,15 +337,14 @@ The speed difference (relative velocity) between the cutting mechanism and the s
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{CuttingSpeed} are : 
+Subtypes of \texttt{CuttingSpeed} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
-
-\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
+\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
 \end{itemize}
 
@@ -398,13 +394,12 @@ The rate of change in spatial volume of material deposited in an additive manufa
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{DepositionAccelerationVolumetric} are : 
+Subtypes of \texttt{DepositionAccelerationVolumetric} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
 \end{itemize}
 
@@ -431,13 +426,12 @@ The density of the material deposited in an additive manufacturing process per u
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{DepositionDensity} are : 
+Subtypes of \texttt{DepositionDensity} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
 \end{itemize}
 
@@ -464,13 +458,12 @@ The mass of the material deposited in an additive manufacturing process.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{DepositionMass} are : 
+Subtypes of \texttt{DepositionMass} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
 \end{itemize}
 
@@ -497,13 +490,12 @@ The rate at which a spatial volume of material is deposited in an additive manuf
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{DepositionRateVolumetric} are : 
+Subtypes of \texttt{DepositionRateVolumetric} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
 \end{itemize}
 
@@ -530,13 +522,12 @@ The spatial volume of material to be deposited in an additive manufacturing proc
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{DepositionVolume} are : 
+Subtypes of \texttt{DepositionVolume} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
 \end{itemize}
 
@@ -609,19 +600,18 @@ The measurement of the amount of time a piece of equipment or a sub-part of a pi
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{EquipmentTimer} are : 
+Subtypes of \texttt{EquipmentTimer} are :
 
 \begin{itemize}
+\item \texttt{DELAY} : A piece of equipment waiting for an event or an action to occur.
 
-\item \texttt{Delay} : A piece of equipment waiting for an event or an action to occur.
+\item \texttt{LOADED} : Subparts of a piece of equipment are under load.
 
-\item \texttt{Loaded} : Subparts of a piece of equipment are under load.
+\item \texttt{OPERATING} : A piece of equipment are powered or performing any activity.
 
-\item \texttt{Operating} : A piece of equipment are powered or performing any activity.
+\item \texttt{POWERED} : Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
 
-\item \texttt{Powered} : Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
-
-\item \texttt{Working} : A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
+\item \texttt{WORKING} : A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
 
 \end{itemize}
 
@@ -739,15 +729,14 @@ The measurement of the length of an object.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{Length} are : 
+Subtypes of \texttt{Length} are :
 
 \begin{itemize}
+\item \texttt{REMAINING} : Remaining measure of an object or an action.
 
-\item \texttt{Remaining} : Remaining measure of an object or an action.
+\item \texttt{STANDARD} : The standard or original length of an object.
 
-\item \texttt{Standard} : The standard or original length of an object.
-
-\item \texttt{Useable} : The remaining useable length of an object.
+\item \texttt{USEABLE} : The remaining useable length of an object.
 
 \end{itemize}
 
@@ -888,21 +877,20 @@ The measurement of the feedrate for the axes, or a single axis, associated with 
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{PathFeedrate} are : 
+Subtypes of \texttt{PathFeedrate} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{JOG} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
-\item \texttt{Jog} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
+\item \texttt{OVERRIDE} : The operators overridden value.
 
-\item \texttt{Override} : The operators overridden value.
+\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\item \texttt{Rapid} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+\item \texttt{RAPID} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
 
 \end{itemize}
 
@@ -929,15 +917,14 @@ The feedrate for the axes, or a single axis.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{PathFeedratePerRevolution} are : 
+Subtypes of \texttt{PathFeedratePerRevolution} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
-
-\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
+\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
 \end{itemize}
 
@@ -964,17 +951,16 @@ A measured or calculated position of a control point associated with a {model:Co
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{PathPosition} are : 
+Subtypes of \texttt{PathPosition} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{PROBE} : The position provided by a measurement probe.
 
-\item \texttt{Probe} : The position provided by a measurement probe.
-
-\item \texttt{Target} : The desired measure or count for a data item value.
+\item \texttt{TARGET} : The desired measure or count for a data item value.
 
 \end{itemize}
 
@@ -1001,17 +987,16 @@ A measured or calculated position of a {model:Component} element as reported by 
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{Position} are : 
+Subtypes of \texttt{Position} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\item \texttt{Target} : The desired measure or count for a data item value.
+\item \texttt{TARGET} : The desired measure or count for a data item value.
 
 \end{itemize}
 
@@ -1084,13 +1069,12 @@ The measurement of the amount of time a piece of equipment has performed differe
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{ProcessTimer} are : 
+Subtypes of \texttt{ProcessTimer} are :
 
 \begin{itemize}
+\item \texttt{DELAY} : A piece of equipment waiting for an event or an action to occur.
 
-\item \texttt{Delay} : A piece of equipment waiting for an event or an action to occur.
-
-\item \texttt{Process} : The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
+\item \texttt{PROCESS} : The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
 
 \end{itemize}
 
@@ -1140,17 +1124,16 @@ The measurement of the rotational speed of a rotary axis.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{RotaryVelocity} are : 
+Subtypes of \texttt{RotaryVelocity} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
+\item \texttt{OVERRIDE} : The operators overridden value.
 
-\item \texttt{Override} : The operators overridden value.
-
-\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
+\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
 \end{itemize}
 
@@ -1177,19 +1160,18 @@ The measurement of a sound level or sound pressure level relative to atmospheric
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{SoundLevel} are : 
+Subtypes of \texttt{SoundLevel} are :
 
 \begin{itemize}
+\item \texttt{A_SCALE} : A Scale weighting factor.   This is the default weighting factor if no factor is specified
 
-\item \texttt{AScale} : A Scale weighting factor.   This is the default weighting factor if no factor is specified
+\item \texttt{B_SCALE} : B Scale weighting factor
 
-\item \texttt{BScale} : B Scale weighting factor
+\item \texttt{C_SCALE} : C Scale weighting factor
 
-\item \texttt{CScale} : C Scale weighting factor
+\item \texttt{D_SCALE} : D Scale weighting factor
 
-\item \texttt{DScale} : D Scale weighting factor
-
-\item \texttt{NoScale} : No weighting factor on the frequency scale
+\item \texttt{NO_SCALE} : No weighting factor on the frequency scale
 
 \end{itemize}
 
@@ -1216,15 +1198,14 @@ Subtypes of \texttt{SoundLevel} are :
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{SpindleSpeed} are : 
+Subtypes of \texttt{SpindleSpeed} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
+\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
 
-\item \texttt{Commanded} : A value specified by the {model:Controller} type component.
-
-\item \texttt{Override} : The operators overridden value.
+\item \texttt{OVERRIDE} : The operators overridden value.
 
 \end{itemize}
 
@@ -1458,17 +1439,16 @@ The measurement of electrical potential between two points.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{Voltage} are : 
+Subtypes of \texttt{Voltage} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
+\item \texttt{ALTERNATING} : The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
 
-\item \texttt{Alternating} : The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
+\item \texttt{DIRECT} : The measurement of DC current or voltage.
 
-\item \texttt{Direct} : The measurement of DC current or voltage.
-
-\item \texttt{Target} : The desired measure or count for a data item value.
+\item \texttt{TARGET} : The desired measure or count for a data item value.
 
 \end{itemize}
 
@@ -1495,13 +1475,12 @@ The fluid volume of an object or container.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{VolumeFluid} are : 
+Subtypes of \texttt{VolumeFluid} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{Consumed} : The amount of bulk material consumed from an object or container during a manufacturing process.
+\item \texttt{CONSUMED} : The amount of bulk material consumed from an object or container during a manufacturing process.
 
 \end{itemize}
 
@@ -1528,13 +1507,12 @@ The geometric volume of an object or container.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{VolumeSpatial} are : 
+Subtypes of \texttt{VolumeSpatial} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{Consumed} : The amount of bulk material consumed from an object or container during a manufacturing process.
+\item \texttt{CONSUMED} : The amount of bulk material consumed from an object or container during a manufacturing process.
 
 \end{itemize}
 
@@ -1561,13 +1539,12 @@ The measurement of power flowing through or dissipated by an electrical circuit 
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{Wattage} are : 
+Subtypes of \texttt{Wattage} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{Target} : The desired measure or count for a data item value.
+\item \texttt{TARGET} : The desired measure or count for a data item value.
 
 \end{itemize}
 

@@ -1,11 +1,11 @@
-% Generated 2020-02-06 13:56:54 -0500
+% Generated 2020-02-08 15:51:57 -0800
 \subsection{EventTypes} \label{model:EventTypes}
 \subsubsection[ActiveAxes]{ActiveAxes \\ {\small Subtype of Event}}
   \label{type:ActiveAxes}
 
 \FloatBarrier
 
-The set of axes currently associated with a {model:Path} or {model:Controller} {term:Structural Element}.
+The result is a space delimited list of axes names.
 
 \begin{table}[ht]
 \centering 
@@ -230,15 +230,14 @@ The value of a signal or calculation issued to adjust the feedrate of an individ
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{AxisFeedrateOverride} are : 
+Subtypes of \texttt{AxisFeedrateOverride} are :
 
 \begin{itemize}
+\item \texttt{JOG} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
-\item \texttt{Jog} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
+\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\item \texttt{Rapid} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+\item \texttt{RAPID} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
 
 \end{itemize}
 
@@ -403,11 +402,10 @@ An indication of the state of an interlock function or control logic state inten
 \end{tabu}
 \end{table} 
 \FloatBarrier
-Subtypes of \texttt{ChuckInterlock} are : 
+Subtypes of \texttt{ChuckInterlock} are :
 
 \begin{itemize}
-
-\item \texttt{ManualUnclamp} : An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
+\item \texttt{MANUAL_UNCLAMP} : An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
  The {term:Valid Data Value} *MUST* be {model:ACTIVE} or {model:INACTIVE}. 
  When {model:MANUAL_UNCLAMP} is {model:ACTIVE}, it is expected that a chuck cannot be unclamped until {model:MANUAL_UNCLAMP} is set to {model:INACTIVE}. 
 
@@ -541,27 +539,26 @@ An indication of the operating condition of a mechanism represented by a {model:
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{CompositionState} are : 
+Subtypes of \texttt{CompositionState} are :
 
 \begin{itemize}
-
-\item \texttt{Action} : An indication of the operating state of a mechanism represented by a {model:Composition} type component.
+\item \texttt{ACTION} : An indication of the operating state of a mechanism represented by a {model:Composition} type component.
  The operating state indicates whether the {model:Composition} element is activated or disabled. 
  The {term:Valid Data Value} *MUST* be {model:ACTIVE} or {model:INACTIVE}.
 
-\item \texttt{Lateral} : An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a {model:Composition} type component. 
+\item \texttt{LATERAL} : An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a {model:Composition} type component. 
  The position information indicates whether the {model:Composition} element is positioned to the right, to the left, or is in transition.  
  The {term:Valid Data Value} *MUST* be {model:RIGHT}, {model:LEFT}, or {model:TRANSITIONING}.
 
-\item \texttt{Motion} : An indication of the open or closed state of a mechanism.   The mechanism is represented by a {model:Composition} type component. 
+\item \texttt{MOTION} : An indication of the open or closed state of a mechanism.   The mechanism is represented by a {model:Composition} type component. 
  The operating state indicates whether the state of the {model:Composition} element is open, closed, or unlatched.   
  The {term:Valid Data Value} *MUST* be {model:OPEN}, {model:UNLATCHED}, or {model:CLOSED}.
 
-\item \texttt{Switched} : An indication of the activation state of a mechanism represented by a {model:Composition} type component.
+\item \texttt{SWITCHED} : An indication of the activation state of a mechanism represented by a {model:Composition} type component.
  The activation state indicates whether the {model:Composition} element is activated or not.
  The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}.
 
-\item \texttt{Vertical} : An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a {model:Composition} type component. 
+\item \texttt{VERTICAL} : An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a {model:Composition} type component. 
  The position information indicates whether the {model:Composition} element is positioned to the top, to the bottom, or is in transition.  
  The {term:Valid Data Value} *MUST* be {model:UP}, {model:DOWN}, or {model:TRANSITIONING}.
 
@@ -648,30 +645,29 @@ A setting or operator selection that changes the behavior of a piece of equipmen
 \end{tabu}
 \end{table} 
 \FloatBarrier
-Subtypes of \texttt{ControllerModeOverride} are : 
+Subtypes of \texttt{ControllerModeOverride} are :
 
 \begin{itemize}
-
-\item \texttt{DryRun} : A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
+\item \texttt{DRY_RUN} : A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
  The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}. 
  When {model:DRY_RUN} is {model:ON}, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
 
-\item \texttt{MachineAxisLock} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+\item \texttt{MACHINE_AXIS_LOCK} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
  The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}. 
  When {model:MACHINE_AXIS_LOCK} is {model:ON}, program execution continues normally, but no equipment motion occurs 
 
-\item \texttt{OptionalStop} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+\item \texttt{OPTIONAL_STOP} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
  The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}.
  The program execution is stopped after a specific program block is executed when {model:OPTIONAL_STOP} is {model:ON}.    
  In the case of a G-Code program, a program {model:BLOCK} containing a M01 code designates the command for an {model:OPTIONAL_STOP}. 
  {model:EXECUTION} *MUST* change to {model:OPTIONAL_STOP} after a program block specifying an optional stop is executed and the {model:OPTIONAL_STOP} selection is {model:ON}.
 
-\item \texttt{SingleBlock} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+\item \texttt{SINGLE_BLOCK} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
  The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}.
  Program execution is paused after each {model:BLOCK} of code is executed when {model:SINGLE_BLOCK} is {model:ON}.   
  When {model:SINGLE_BLOCK} is {model:ON}, {model:EXECUTION} *MUST* change to {model:INTERRUPTED} after completion of each {model:BLOCK} of code. 
 
-\item \texttt{ToolChangeStop} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+\item \texttt{TOOL_CHANGE_STOP} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
  The {term:Valid Data Value} *MUST* be {model:ON} or {model:OFF}. 
  Program execution is paused when a command is executed requesting a cutting tool to be changed. 
  {model:EXECUTION} *MUST* change to {model:INTERRUPTED} after completion of the command requesting a cutting tool to be changed and {model:TOOL_CHANGE_STOP} is {model:ON}.
@@ -724,15 +720,14 @@ The time and date code associated with a material or other physical item.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{DateCode} are : 
+Subtypes of \texttt{DateCode} are :
 
 \begin{itemize}
+\item \texttt{EXPIRATION} : The time and date code relating to the expiration or end of useful life for a material or other physical item.
 
-\item \texttt{Expiration} : The time and date code relating to the expiration or end of useful life for a material or other physical item.
+\item \texttt{FIRST_USE} : The time and date code relating the first use of a material or other physical item.
 
-\item \texttt{FirstUse} : The time and date code relating the first use of a material or other physical item.
-
-\item \texttt{Manufacture} : The time and date code relating to the production of a material or other physical item.
+\item \texttt{MANUFACTURE} : The time and date code relating to the production of a material or other physical item.
 
 \end{itemize}
 
@@ -782,13 +777,12 @@ The direction of motion.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{Direction} are : 
+Subtypes of \texttt{Direction} are :
 
 \begin{itemize}
+\item \texttt{LINEAR} : The direction of motion of a linear motion.
 
-\item \texttt{Linear} : The direction of motion of a linear motion.
-
-\item \texttt{Rotary} : The rotational direction of a rotary motion using the right hand rule convention.
+\item \texttt{ROTARY} : The rotational direction of a rotary motion using the right hand rule convention.
  The {term:Valid Data Value} *MUST* be {model:CLOCKWISE} or {model:COUNTER_CLOCKWISE}.
 
 \end{itemize}
@@ -910,13 +904,12 @@ An indication of whether the end of a piece of bar stock being feed by a bar fee
 \end{tabu}
 \end{table} 
 \FloatBarrier
-Subtypes of \texttt{EndOfBar} are : 
+Subtypes of \texttt{EndOfBar} are :
 
 \begin{itemize}
+\item \texttt{AUXILIARY} : When multiple locations on a piece of bar stock are referenced as the indication for the {model:END_OF_BAR}, the additional location(s) *MUST* be designated as {model:AUXILIARY} indication(s) for the {model:END_OF_BAR}.  
 
-\item \texttt{Auxiliary} : When multiple locations on a piece of bar stock are referenced as the indication for the {model:END_OF_BAR}, the additional location(s) *MUST* be designated as {model:AUXILIARY} indication(s) for the {model:END_OF_BAR}.  
-
-\item \texttt{Primary} : Specific applications *MAY* reference one or more locations on a piece of bar stock as the indication for the {model:END_OF_BAR}. The main or most important location *MUST* be designated as the {model:PRIMARY} indication for the {model:END_OF_BAR}.   
+\item \texttt{PRIMARY} : Specific applications *MAY* reference one or more locations on a piece of bar stock as the indication for the {model:END_OF_BAR}. The main or most important location *MUST* be designated as the {model:PRIMARY} indication for the {model:END_OF_BAR}.   
  If no {model:subType} is specified, {model:PRIMARY} *MUST* be the default {model:END_OF_BAR} indication.
 
 \end{itemize}
@@ -959,19 +952,18 @@ An indication that a piece of equipment, or a sub-part of a piece of equipment, 
 \end{tabu}
 \end{table} 
 \FloatBarrier
-Subtypes of \texttt{EquipmentMode} are : 
+Subtypes of \texttt{EquipmentMode} are :
 
 \begin{itemize}
+\item \texttt{DELAY} : A piece of equipment waiting for an event or an action to occur.
 
-\item \texttt{Delay} : A piece of equipment waiting for an event or an action to occur.
+\item \texttt{LOADED} : Subparts of a piece of equipment are under load.
 
-\item \texttt{Loaded} : Subparts of a piece of equipment are under load.
+\item \texttt{OPERATING} : A piece of equipment are powered or performing any activity.
 
-\item \texttt{Operating} : A piece of equipment are powered or performing any activity.
+\item \texttt{POWERED} : Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
 
-\item \texttt{Powered} : Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
-
-\item \texttt{Working} : A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
+\item \texttt{WORKING} : A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
 
 \end{itemize}
 
@@ -1084,21 +1076,20 @@ The measurement of the hardness of a material.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{Hardness} are : 
+Subtypes of \texttt{Hardness} are :
 
 \begin{itemize}
+\item \texttt{BRINELL} : A scale to measure the resistance to deformation of a surface.
 
-\item \texttt{Brinell} : A scale to measure the resistance to deformation of a surface.
+\item \texttt{LEEB} : A scale to measure the elasticity of a surface.
 
-\item \texttt{Leeb} : A scale to measure the elasticity of a surface.
+\item \texttt{MOHS} : A scale to measure the resistance to scratching of a surface.
 
-\item \texttt{Mohs} : A scale to measure the resistance to scratching of a surface.
+\item \texttt{ROCKWELL} : A scale to measure the resistance to deformation of a surface.
 
-\item \texttt{Rockwell} : A scale to measure the resistance to deformation of a surface.
+\item \texttt{SHORE} : A scale to measure the resistance to deformation of a surface.
 
-\item \texttt{Shore} : A scale to measure the resistance to deformation of a surface.
-
-\item \texttt{Vickers} : A scale to measure the resistance to deformation of a surface.
+\item \texttt{VICKERS} : A scale to measure the resistance to deformation of a surface.
 
 \end{itemize}
 
@@ -1163,13 +1154,12 @@ An indication of the operational state of an {model:Interface} component.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{Line} are : 
+Subtypes of \texttt{Line} are :
 
 \begin{itemize}
+\item \texttt{MAXIMUM} : Maximum value of a data entity or attribute.
 
-\item \texttt{Maximum} : Maximum value of a data entity or attribute.
-
-\item \texttt{Minimum} : The minimum value of a data entity or attribute.
+\item \texttt{MINIMUM} : The minimum value of a data entity or attribute.
 
 \end{itemize}
 
@@ -1217,13 +1207,12 @@ A reference to the position of a block of program code within a control program.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{LineNumber} are : 
+Subtypes of \texttt{LineNumber} are :
 
 \begin{itemize}
+\item \texttt{ABSOLUTE} : The position of a block of program code relative to the beginning of the control program.
 
-\item \texttt{Absolute} : The position of a block of program code relative to the beginning of the control program.
-
-\item \texttt{Incremental} : The position of a block of program code relative to the occurrence of the last {model:LINE_LABEL} encountered in the control program.
+\item \texttt{INCREMENTAL} : The position of a block of program code relative to the occurrence of the last {model:LINE_LABEL} encountered in the control program.
 
 \end{itemize}
 
@@ -1317,13 +1306,12 @@ Identifies the layers of material applied to a part or product as part of an add
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{MaterialLayer} are : 
+Subtypes of \texttt{MaterialLayer} are :
 
 \begin{itemize}
+\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
-\item \texttt{Actual} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{Target} : The desired measure or count for a data item value.
+\item \texttt{TARGET} : The desired measure or count for a data item value.
 
 \end{itemize}
 
@@ -1547,19 +1535,18 @@ The count of parts produced.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{PartCount} are : 
+Subtypes of \texttt{PartCount} are :
 
 \begin{itemize}
+\item \texttt{ALL} : The count of all the parts produced.  If the subtype is not given, this is the default.
 
-\item \texttt{All} : The count of all the parts produced.  If the subtype is not given, this is the default.
+\item \texttt{BAD} : Indicates the count of incorrect parts produced.
 
-\item \texttt{Bad} : Indicates the count of incorrect parts produced.
+\item \texttt{GOOD} : Indicates the count of correct parts made.
 
-\item \texttt{Good} : Indicates the count of correct parts made.
+\item \texttt{REMAINING} : Remaining measure of an object or an action.
 
-\item \texttt{Remaining} : Remaining measure of an object or an action.
-
-\item \texttt{Target} : The desired measure or count for a data item value.
+\item \texttt{TARGET} : The desired measure or count for a data item value.
 
 \end{itemize}
 
@@ -1654,15 +1641,14 @@ The value of a signal or calculation issued to adjust the feedrate for the axes 
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{PathFeedrateOverride} are : 
+Subtypes of \texttt{PathFeedrateOverride} are :
 
 \begin{itemize}
+\item \texttt{JOG} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
 
-\item \texttt{Jog} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
+\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
-\item \texttt{Programmed} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\item \texttt{Rapid} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+\item \texttt{RAPID} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
 
 \end{itemize}
 
@@ -1745,13 +1731,12 @@ The indication of the status of the source of energy for a {term:Structural Elem
 \end{tabu}
 \end{table} 
 \FloatBarrier
-Subtypes of \texttt{PowerState} are : 
+Subtypes of \texttt{PowerState} are :
 
 \begin{itemize}
+\item \texttt{CONTROL} : The state of the enabling signal or control logic that enables or disables the function or operation of the {term:Structural Element}.
 
-\item \texttt{Control} : The state of the enabling signal or control logic that enables or disables the function or operation of the {term:Structural Element}.
-
-\item \texttt{Line} : The state of the power source for the {term:Structural Element}.
+\item \texttt{LINE} : The state of the power source for the {term:Structural Element}.
 
 \end{itemize}
 
@@ -1801,15 +1786,14 @@ The time and date associated with an activity or event.
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{ProcessTime} are : 
+Subtypes of \texttt{ProcessTime} are :
 
 \begin{itemize}
+\item \texttt{COMPLETE} : Completion of an action.
 
-\item \texttt{Complete} : Completion of an action.
+\item \texttt{START} : The time and date associated with the beginning of an activity or event.
 
-\item \texttt{Start} : The time and date associated with the beginning of an activity or event.
-
-\item \texttt{TargetCompletion} : The projected time and date associated with the end or completion of an activity or event.
+\item \texttt{TARGET_COMPLETION} : The projected time and date associated with the end or completion of an activity or event.
 
 \end{itemize}
 
@@ -1967,15 +1951,14 @@ The Uniform Resource Identifier (URI) for the source file associated with {model
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{ProgramLocation} are : 
+Subtypes of \texttt{ProgramLocation} are :
 
 \begin{itemize}
+\item \texttt{ACTIVE} : The value of the {term:Data Entity} that is engaging.
 
-\item \texttt{Active} : The value of the {term:Data Entity} that is engaging.
+\item \texttt{MAIN} : The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
 
-\item \texttt{Main} : The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
-
-\item \texttt{Schedule} : The identity of a control program that is used to specify the order of execution of other programs.
+\item \texttt{SCHEDULE} : The identity of a control program that is used to specify the order of execution of other programs.
 
 \end{itemize}
 
@@ -2003,15 +1986,14 @@ Defines whether the logic or motion program defined by {model:PROGRAM} is being 
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{ProgramLocationType} are : 
+Subtypes of \texttt{ProgramLocationType} are :
 
 \begin{itemize}
+\item \texttt{ACTIVE} : The value of the {term:Data Entity} that is engaging.
 
-\item \texttt{Active} : The value of the {term:Data Entity} that is engaging.
+\item \texttt{MAIN} : The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
 
-\item \texttt{Main} : The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
-
-\item \texttt{Schedule} : The identity of a control program that is used to specify the order of execution of other programs.
+\item \texttt{SCHEDULE} : The identity of a control program that is used to specify the order of execution of other programs.
 
 \end{itemize}
 
@@ -2275,13 +2257,12 @@ A reference to the tool offset variables applied to the active cutting tool asso
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{ToolOffset} are : 
+Subtypes of \texttt{ToolOffset} are :
 
 \begin{itemize}
+\item \texttt{LENGTH} : A reference to a length type tool offset variable.
 
-\item \texttt{Length} : A reference to a length type tool offset variable.
-
-\item \texttt{Radial} : A reference to a radial type tool offset variable.
+\item \texttt{RADIAL} : A reference to a radial type tool offset variable.
 
 \end{itemize}
 
@@ -2307,15 +2288,14 @@ The identifier of the person currently responsible for operating the piece of eq
 \end{table}
 \FloatBarrier
 
-Subtypes of \texttt{User} are : 
+Subtypes of \texttt{User} are :
 
 \begin{itemize}
+\item \texttt{MAINTENANCE} : Action related to maintenance on the piece of equipment.
 
-\item \texttt{Maintenance} : Action related to maintenance on the piece of equipment.
+\item \texttt{OPERATOR} : The identifier of the person currently responsible for operating the piece of equipment.
 
-\item \texttt{Operator} : The identifier of the person currently responsible for operating the piece of equipment.
-
-\item \texttt{SetUp} : The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
+\item \texttt{SET_UP} : The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
 
 \end{itemize}
 
@@ -2348,8 +2328,6 @@ A data value whose meaning may change over time due to changes in the opertion o
 \FloatBarrier
 
 An indication of the reason that {model:EXECUTION} is reporting a value of {model:WAIT}.
-  
- The {term:Valid Data Value} *MUST* be {model:POWERING_UP}, {model:POWERING_DOWN}, {model:PART_LOAD}, {model:PART_UNLOAD}, {model:TOOL_LOAD}, {model:TOOL_UNLOAD}, {model:MATERIAL_LOAD}, {model:MATERIAL_UNLOAD}, {model:SECONDARY_PROCESS}, {model:PAUSING}, or {model:RESUMING}.
 
 \begin{table}[ht]
 \centering 
@@ -2361,10 +2339,36 @@ An indication of the reason that {model:EXECUTION} is reporting a value of {mode
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{WAIT_STATE} \\
+\texttt{result} & \texttt{WaitStateEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
+
+ Enumerated \texttt{result} values for \texttt{WaitState} are:
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{WaitStateEnum} Enumeration}
+  \label{enum:WaitStateEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{POWERING_UP} & An indication that execution is waiting while the equipment is powering up and is not currently available to begin producing parts or products. \\
+\texttt{POWERING_DOWN} & An indication that the execution is waiting while the equipment is powering down but has not fully reached a stopped state. \\
+\texttt{PART_LOAD} & An indication that the execution is waiting while one or more discrete workpieces are being loaded. \\
+\texttt{PART_UNLOAD} & An indication that the execution is waiting while one or more discrete workpieces are being unloaded. \\
+\texttt{TOOL_LOAD} & An indication that the execution is waiting while a tool or tooling is being loaded. \\
+\texttt{TOOL_UNLOAD} & An indication that the execution is waiting while a tool or tooling is being unloaded. \\
+\texttt{MATERIAL_LOAD} & An indication that the execution is waiting while material is being loaded. \\
+\texttt{MATERIAL_UNLOAD} & An indication that the execution is waiting while material is being unloaded. \\
+\texttt{SECONDARY_PROCESS} & An indication that the execution is waiting while another process is completed before the execution can resume. \\
+\texttt{PAUSING} & An indication that the execution is waiting while the equipment is pausing but the piece of equipment has not yet reached a fully paused state. \\
+\texttt{RESUMING} & An indication that the execution is waiting while the equipment is resuming the production cycle but has not yet resumed execution. \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \FloatBarrier
 \subsubsection[Wire]{Wire \\ {\small Subtype of Event}}
   \label{type:Wire}
