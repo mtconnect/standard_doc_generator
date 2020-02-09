@@ -1,4 +1,4 @@
-% Generated 2020-02-08 16:21:41 -0800
+% Generated 2020-02-08 16:28:54 -0800
 \subsection{Observations} \label{model:Observations}
 \subsubsection{DataSet}
   \label{type:DataSet}
@@ -9,12 +9,12 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of DataSet}}
+  \caption{\texttt{Property of DataSet}}
   \label{properties:DataSet}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{count} & \texttt{integer} & 1 \\
 \texttt{Entry} & \texttt{Entry} & 0..* \\
@@ -42,12 +42,12 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Discrete}}
+  \caption{\texttt{Property of Discrete}}
   \label{properties:Discrete}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{observationDiscrete} & \texttt{} & 1 \\
 \end{tabu}
@@ -67,12 +67,12 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Entry}}
+  \caption{\texttt{Property of Entry}}
   \label{properties:Entry}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{key} & \texttt{ID} & 1 \\
 \texttt{removed} & \texttt{boolean} & 0..1 \\
@@ -104,12 +104,12 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Observation}}
+  \caption{\texttt{Property of Observation}}
   \label{properties:Observation}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{compositionId} & \texttt{ID} & 0..1 \\
 \texttt{dataItemId} & \texttt{ID} & 1 \\
@@ -186,12 +186,12 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Condition}}
+  \caption{\texttt{Property of Condition}}
   \label{properties:Condition}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{nativeCode} & \texttt{string} & 0..1 \\
 \texttt{nativeSeverity} & \texttt{string} & 0..1 \\
@@ -292,12 +292,12 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Event}}
+  \caption{\texttt{Property of Event}}
   \label{properties:Event}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{resetTriggered} & \texttt{ResetTriggeredEnum} & 0..1 \\
 \texttt{Events} & \texttt{ProtocolStack} & 1 \\
@@ -366,12 +366,12 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Sample}}
+  \caption{\texttt{Property of Sample}}
   \label{properties:Sample}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{duration} & \texttt{second} & 0..1 \\
 \texttt{resetTriggered} & \texttt{ResetTriggeredEnum} & 0..1 \\
@@ -479,12 +479,12 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of ProtocolStack}}
+  \caption{\texttt{Property of ProtocolStack}}
   \label{properties:ProtocolStack}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{Condition} & \texttt{Condition} & 0..* \\
 \texttt{Samples} & \texttt{Sample} & 0..* \\
@@ -512,12 +512,12 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of TimeSeries}}
+  \caption{\texttt{Property of TimeSeries}}
   \label{properties:TimeSeries}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Properties} & {Value} & {Multiplicity} \\
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{sampleCount} & \texttt{integer} & 1 \\
 \texttt{observationTimeSeries} & \texttt{} & 1 \\

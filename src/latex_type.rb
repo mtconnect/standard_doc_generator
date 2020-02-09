@@ -161,7 +161,7 @@ class LatexType < Type
 \\tabulinesep=3pt
 \\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
 \\hline
-\\rowfont\\bfseries {#{header}} & {Value} & {Multiplicity} \\\\
+\\rowfont\\bfseries {#{header}} & {Type} & {Multiplicity} \\\\
 \\tabucline[1.5pt]{}
 EOT
       
@@ -403,7 +403,7 @@ EOT
   end
 
   def generate_data_type(f)
-    generate_attribute_docs(f, "Data Type Fields")
+    generate_attribute_docs(f, "Field")
   end
 
   def generate_class_diagram
@@ -450,7 +450,7 @@ EOT
 
   def generate_class(f)
   
-    generate_attribute_docs(f, "Properties")
+    generate_attribute_docs(f, "Property")
     generate_dependencies(f) 
     generate_subtypes(f)
   end
