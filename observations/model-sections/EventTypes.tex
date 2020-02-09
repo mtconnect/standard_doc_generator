@@ -1,4 +1,4 @@
-% Generated 2020-02-08 15:51:57 -0800
+% Generated 2020-02-08 16:21:41 -0800
 \subsection{EventTypes} \label{model:EventTypes}
 \subsubsection[ActiveAxes]{ActiveAxes \\ {\small Subtype of Event}}
   \label{type:ActiveAxes}
@@ -909,8 +909,11 @@ Subtypes of \texttt{EndOfBar} are :
 \begin{itemize}
 \item \texttt{AUXILIARY} : When multiple locations on a piece of bar stock are referenced as the indication for the {model:END_OF_BAR}, the additional location(s) *MUST* be designated as {model:AUXILIARY} indication(s) for the {model:END_OF_BAR}.  
 
-\item \texttt{PRIMARY} : Specific applications *MAY* reference one or more locations on a piece of bar stock as the indication for the {model:END_OF_BAR}. The main or most important location *MUST* be designated as the {model:PRIMARY} indication for the {model:END_OF_BAR}.   
- If no {model:subType} is specified, {model:PRIMARY} *MUST* be the default {model:END_OF_BAR} indication.
+\item \texttt{PRIMARY} : Specific applications *MAY* reference one or more locations on a piece of bar stock as the indication for the {model:END_OF_BAR}. 
+
+The main or most important location *MUST* be designated as the {model:PRIMARY} indication for the {model:END_OF_BAR}.
+
+If no {model:subType} is specified, {model:PRIMARY} *MUST* be the default {model:END_OF_BAR} indication.
 
 \end{itemize}
 
@@ -1557,8 +1560,7 @@ Subtypes of \texttt{PartCount} are :
 \FloatBarrier
 
 An indication designating whether a part or work piece has been detected or is present.
-  
- The {term:Valid Data Value} *MUST* be {model:PRESENT} or {model:NOT_PRESENT}.
+
 
 \begin{table}[ht]
 \centering 
@@ -1570,10 +1572,27 @@ An indication designating whether a part or work piece has been detected or is p
 \rowfont\bfseries {Properties} & {Value} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{PART_DETECT} \\
+\texttt{result} & \texttt{PartDetectEnum} \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
+
+ Enumerated \texttt{result} values for \texttt{PartDetect} are:
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{PartDetectEnum} Enumeration}
+  \label{enum:PartDetectEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{PRESENT} & If a part or work piece has been detected or is present. \\
+\texttt{NOT_PRESENT} & If a part or work piece is not detected or is not present. \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
 \FloatBarrier
 \subsubsection[PartId]{PartId \\ {\small Subtype of Event}}
   \label{type:PartId}
