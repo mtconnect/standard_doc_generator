@@ -73,6 +73,21 @@ module Document
   end
 end
 
+class String
+  def plural
+    case self
+    when /(o|s|ss|ch|x)$/
+      "#{self}es"
+
+    when /y$/
+      "#{self.slice(0...-1)}ies"
+
+    else
+      "#{self}s"
+    end
+  end
+end
+
 class LatexType < Type
   include Diagram
   include Document
@@ -156,7 +171,7 @@ class LatexType < Type
       f.puts <<-EOT
 \\begin{table}[ht]
 \\centering 
-  \\caption{\\texttt{#{header} of #{@name}}}
+  \\caption{\\texttt{#{header.plural} of #{@name}}}
   \\label{properties:#{@name}}
 \\tabulinesep=3pt
 \\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
@@ -228,7 +243,7 @@ EOT
       f.puts <<-EOT
 \\begin{table}[ht]
 \\centering 
-  \\caption{\\texttt{#{header} of #{@name}}}
+  \\caption{\\texttt{#{header.plural} of #{@name}}}
   \\label{properties:#{@name}}
 \\tabulinesep=3pt
 \\begin{tabu} to 6in {|l|l|} \\everyrow{\\hline}

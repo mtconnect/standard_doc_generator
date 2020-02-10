@@ -1,4 +1,4 @@
-% Generated 2020-02-08 16:28:54 -0800
+% Generated 2020-02-09 16:19:45 -0800
 \subsection{Components} \label{model:Components}
 \subsubsection{Component}
   \label{type:Component}
@@ -9,7 +9,7 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Property of Component}}
+  \caption{\texttt{Properties of Component}}
   \label{properties:Component}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
@@ -27,8 +27,7 @@ Placeholder for documentation!
 \texttt{Components} & \texttt{Component} & 0..* \\
 \texttt{Configuration} & \texttt{Configuration} & 0..* \\
 \texttt{DataItems} & \texttt{DataItem} & 0..* \\
-\texttt{DataItemRef} & \texttt{DataItem} & 0..1 \\
-\texttt{ComponentRef} & \texttt{Component} & 0..1 \\
+\texttt{References} & \texttt{Reference} & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -67,10 +66,7 @@ Placeholder for documentation!
 \paragraph{\texttt{DataItems}}\mbox{}
 \newline\tab Placeholder for documentation!
 
-\paragraph{\texttt{DataItemRef}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{ComponentRef}}\mbox{}
+\paragraph{\texttt{References}}\mbox{}
 \newline\tab Placeholder for documentation!
 \FloatBarrier
 \subsubsection[Device]{Device \\ {\small Subtype of Component}}
@@ -82,7 +78,7 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Property of Device}}
+  \caption{\texttt{Properties of Device}}
   \label{properties:Device}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
@@ -109,7 +105,7 @@ Placeholder for documentation!
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Property of Description}}
+  \caption{\texttt{Properties of Description}}
   \label{properties:Description}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}

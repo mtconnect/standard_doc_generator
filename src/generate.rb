@@ -36,11 +36,13 @@ $logger.formatter = proc do |severity, datetime, progname, msg|
 end
 
 DeviceModels = ['Components',
+                
 				'ComponentTypes',
 				'Compositions',
 				'CompositionTypes',
 				'DataItems',
-				'DataItemTypes'
+				'DataItemTypes',
+                                'References'
 				]
 				
 ConfigurationModels = ['Configuration',
