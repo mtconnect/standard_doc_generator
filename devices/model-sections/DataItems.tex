@@ -1,5 +1,86 @@
-% Generated 2020-02-09 16:19:45 -0800
+% Generated 2020-02-28 19:23:51 -0500
 \subsection{DataItems} \label{model:DataItems}
+\subsubsection{CellDefinition}
+  \label{type:CellDefinition}
+
+\FloatBarrier
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of CellDefinition}}
+  \label{properties:CellDefinition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} & 0..1 \\
+\texttt{key} & \texttt{string} & 1 \\
+\texttt{Description} & \texttt{Description} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+\paragraph{\texttt{units}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{UnitEnum} Enumeration}
+  \label{enum:UnitEnum}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Name} & {Description} \\
+\tabucline[1.5pt]{}
+\texttt{AMPERE} & Amps \\
+\texttt{CELSIUS} & Degrees Celsius \\
+\texttt{COUNT} & A count of something. \\
+\texttt{DECIBEL} & Sound Level \\
+\texttt{DEGREE} & Angle in degrees \\
+\texttt{DEGREE/SECOND} & Angular degrees per second \\
+\texttt{DEGREE/SECOND\^2} & Angular acceleration in degrees per second squared \\
+\texttt{HERTZ} & Frequency measured in cycles per second \\
+\texttt{JOULE} & A measurement of energy. \\
+\texttt{KILOGRAM} & Kilograms \\
+\texttt{LITER} & Measurement of volume of a fluid \\
+\texttt{LITER/SECOND} & Liters per second \\
+\texttt{MICRO_RADIAN} & Measurement of Tilt \\
+\texttt{MILLIMETER} & Millimeters \\
+\texttt{MILLIMETER_3D} & A point in space identified by X, Y, and Z positions and represented by a space-delimited set of numbers each expressed in millimeters. \\
+\texttt{MILLIMETER/REVOLUTION} & Millimeters per revolution. \\
+\texttt{MILLIMETER/SECOND} & Millimeters per second \\
+\texttt{MILLIMETER/SECOND\^2} & Acceleration in millimeters per second squared \\
+\texttt{NEWTON} & Force in Newtons \\
+\texttt{NEWTON_METER} & Torque, a unit for force times distance. \\
+\texttt{OHM} & Measure of Electrical Resistance \\
+\texttt{PASCAL} & Pressure in Newtons per square meter \\
+\texttt{PASCAL_SECOND} & Measurement of Viscosity \\
+\texttt{PERCENT} & Percentage \\
+\texttt{PH} & A measure of the acidity or alkalinity of a solution. \\
+\texttt{REVOLUTION/MINUTE} & Revolutions per minute \\
+\texttt{SECOND} & A measurement of time. \\
+\texttt{SIEMENS/METER} & A measurement of Electrical Conductivity \\
+\texttt{VOLT} & Volts \\
+\texttt{VOLT_AMPERE} & The measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA). \\
+\texttt{VOLT_AMPERE_REACTIVE} & The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR). \\
+\texttt{WATT} & Watts \\
+\texttt{WATT_SECOND} & Measurement of electrical energy, equal to one Joule \\
+\end{tabu}
+\end{table} 
+\FloatBarrier
+
+\paragraph{\texttt{key}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{Description}}\mbox{}
+\newline\tab Placeholder for documentation!
+\FloatBarrier
 \subsubsection{Constraints}
   \label{type:Constraints}
 
@@ -88,12 +169,14 @@ Placeholder for documentation!
 \texttt{subType} & \texttt{string} & 0..1 \\
 \texttt{type} & \texttt{string} & 1 \\
 \texttt{units} & \texttt{UnitEnum} & 0..1 \\
+\texttt{DataItems} & \texttt{Component} & 1 \\
 \texttt{representation} & \texttt{RepresentationEnum} & 0..1 \\
 \texttt{Source} & \texttt{Source} & 0..1 \\
 \texttt{Constraints} & \texttt{Constraints} & 0..1 \\
 \texttt{Filters} & \texttt{Filter} & 0..* \\
 \texttt{InitialValue} & \texttt{InitialValue} & 0..1 \\
 \texttt{ResetTrigger} & \texttt{ResetTrigger} & 0..1 \\
+\texttt{hasTableDefinition} & \texttt{TableDefinition} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -259,7 +342,6 @@ Placeholder for documentation!
 \begin{table}[ht]
 \centering 
   \caption{\texttt{UnitEnum} Enumeration}
-  \label{enum:UnitEnum}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|X|} \everyrow{\hline}
 \hline
@@ -302,6 +384,9 @@ Placeholder for documentation!
 \end{table} 
 \FloatBarrier
 
+\paragraph{\texttt{DataItems}}\mbox{}
+\newline\tab Placeholder for documentation!
+
 \paragraph{\texttt{representation}}\mbox{}
 \newline\tab Description of a means to interpret data consisting of multiple data points or samples reported as a single value.  
  {model:representation} is an optional attribute.  
@@ -341,6 +426,9 @@ Placeholder for documentation!
 \newline\tab Placeholder for documentation!
 
 \paragraph{\texttt{ResetTrigger}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{hasTableDefinition}}\mbox{}
 \newline\tab Placeholder for documentation!
 \FloatBarrier
 \subsubsection{Filter}
@@ -493,5 +581,34 @@ Placeholder for documentation!
 \newline\tab The identifier attribute of the {model:DataItem} that represents the originally measured value of the data referenced by this data item.
 
 \paragraph{\texttt{Value}}\mbox{}
+\newline\tab Placeholder for documentation!
+\FloatBarrier
+\subsubsection{TableDefinition}
+  \label{type:TableDefinition}
+
+\FloatBarrier
+
+Placeholder for documentation!
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of TableDefinition}}
+  \label{properties:TableDefinition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{hasCellDefinition} & \texttt{CellDefinition} & 1..* \\
+\texttt{Description} & \texttt{Description} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+\paragraph{\texttt{hasCellDefinition}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{Description}}\mbox{}
 \newline\tab Placeholder for documentation!
 \FloatBarrier

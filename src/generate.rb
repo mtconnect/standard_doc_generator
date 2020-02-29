@@ -61,12 +61,20 @@ ObservationModels = ['Observations',
 				'SampleTypes'
 				]
 
+AssetModels = ['AssetModel',
+				'CuttingToolModel',
+				'CuttingItemModel'
+				]		
+
 
 Directory['Device'] = File.join(File.dirname(__FILE__),'..','devices')
 DocumentFile['Device'] = File.join(File.dirname(__FILE__),'..','devices','devices.tex')
 
 Directory['Observation'] = File.join(File.dirname(__FILE__),'..','observations')
 DocumentFile['Observation'] = File.join(File.dirname(__FILE__),'..','observations','observations.tex')
+
+Directory['AssetModel'] = File.join(File.dirname(__FILE__),'..','assets')
+DocumentFile['AssetModel'] = File.join(File.dirname(__FILE__),'..','assets','assets.tex')
 
 xmiDoc = nil
 File.open(File.join(File.dirname(__FILE__), '..', 'MTConnect SysML Model.xml')) do |xmi|
@@ -77,9 +85,10 @@ end
 $namespaces = Hash[xmiDoc.namespaces.map { |k, v| [k.split(':').last, v] }]
 
 SkipModels = Set.new
-SkipModels.add('AssetModel')
 SkipModels.add('CSV Imports')
 SkipModels.add('Simulation')
+SkipModels.add('Glossary')
+SkipModels.add('MTConnect')
 
 
 unless ARGV.first

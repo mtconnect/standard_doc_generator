@@ -1,0 +1,43 @@
+% Generated 2020-02-28 19:23:52 -0500
+\subsection{AssetModel} \label{model:AssetModel}
+\subsubsection{Asset}
+  \label{type:Asset}
+
+\FloatBarrier
+
+An Asset is something that is used in the manufacturing process, but is not permanently associated with a single piece of equipment, can be removed from the piece of equipment without compromising its function, and can be associated with other pieces of equipment during its lifecycle.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Asset}}
+  \label{properties:Asset}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{assetId} & \texttt{ID} & 1 \\
+\texttt{deviceUuid} & \texttt{NMTOKEN} & 1 \\
+\texttt{removed} & \texttt{boolean} & 0..1 \\
+\texttt{timestamp} & \texttt{dateTime} & 1 \\
+\texttt{Description} & \texttt{Description} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+\paragraph{\texttt{assetId}}\mbox{}
+\newline\tab The unique identifier for an Asset.
+
+\paragraph{\texttt{deviceUuid}}\mbox{}
+\newline\tab The piece of equipment's uuid that supplied the Asset's data.
+
+\paragraph{\texttt{removed}}\mbox{}
+\newline\tab An indicator that the Asset has been removed from the piece of equipment.
+
+\paragraph{\texttt{timestamp}}\mbox{}
+\newline\tab The point in time time the Asset data was last modified.
+
+\paragraph{\texttt{Description}}\mbox{}
+\newline\tab Placeholder for documentation!
+\FloatBarrier

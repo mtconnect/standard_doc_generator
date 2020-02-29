@@ -1,0 +1,106 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Purpose of This Document}{2}{section.1}%
+\contentsline {section}{\numberline {2}Terminology and Conventions}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Glossary}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Acronyms}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}MTConnect References}{4}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Assets Model}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}AssetModel}{5}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Asset}{5}{subsubsection.3.1.1}%
+\contentsline {paragraph}{\numberline {3.1.1.1}\texttt {assetId}}{5}{paragraph.3.1.1.1}%
+\contentsline {paragraph}{\numberline {3.1.1.2}\texttt {deviceUuid}}{5}{paragraph.3.1.1.2}%
+\contentsline {paragraph}{\numberline {3.1.1.3}\texttt {removed}}{5}{paragraph.3.1.1.3}%
+\contentsline {paragraph}{\numberline {3.1.1.4}\texttt {timestamp}}{5}{paragraph.3.1.1.4}%
+\contentsline {paragraph}{\numberline {3.1.1.5}\texttt {Description}}{6}{paragraph.3.1.1.5}%
+\contentsline {subsection}{\numberline {3.2}CuttingToolModel}{6}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}CuttingTool}{6}{subsubsection.3.2.1}%
+\contentsline {paragraph}{\numberline {3.2.1.1}\texttt {manufacturers}}{6}{paragraph.3.2.1.1}%
+\contentsline {paragraph}{\numberline {3.2.1.2}\texttt {serialNumber}}{6}{paragraph.3.2.1.2}%
+\contentsline {paragraph}{\numberline {3.2.1.3}\texttt {toolId}}{6}{paragraph.3.2.1.3}%
+\contentsline {paragraph}{\numberline {3.2.1.4}\texttt {CuttingToolLifeCycle}}{7}{paragraph.3.2.1.4}%
+\contentsline {paragraph}{\numberline {3.2.1.5}\texttt {CuttingToolArchetypeReference}}{7}{paragraph.3.2.1.5}%
+\contentsline {paragraph}{\numberline {3.2.1.6}\texttt {CuttingToolDefinition}}{7}{paragraph.3.2.1.6}%
+\contentsline {subsubsection}{\numberline {3.2.2}CuttingToolArchetype}{7}{subsubsection.3.2.2}%
+\contentsline {paragraph}{\numberline {3.2.2.1}\texttt {manufacturers}}{7}{paragraph.3.2.2.1}%
+\contentsline {paragraph}{\numberline {3.2.2.2}\texttt {serialNumber}}{7}{paragraph.3.2.2.2}%
+\contentsline {paragraph}{\numberline {3.2.2.3}\texttt {toolId}}{8}{paragraph.3.2.2.3}%
+\contentsline {paragraph}{\numberline {3.2.2.4}\texttt {CuttingToolDefinition}}{8}{paragraph.3.2.2.4}%
+\contentsline {paragraph}{\numberline {3.2.2.5}\texttt {CuttingToolLifeCycle}}{8}{paragraph.3.2.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.3}CuttingToolArchetypeReference}{8}{subsubsection.3.2.3}%
+\contentsline {paragraph}{\numberline {3.2.3.1}\texttt {source}}{8}{paragraph.3.2.3.1}%
+\contentsline {paragraph}{\numberline {3.2.3.2}\texttt {value}}{8}{paragraph.3.2.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.4}CuttingToolDefinition}{8}{subsubsection.3.2.4}%
+\contentsline {paragraph}{\numberline {3.2.4.1}\texttt {format}}{9}{paragraph.3.2.4.1}%
+\contentsline {paragraph}{\numberline {3.2.4.2}\texttt {value}}{9}{paragraph.3.2.4.2}%
+\contentsline {subsubsection}{\numberline {3.2.5}CuttingToolLifeCycle}{9}{subsubsection.3.2.5}%
+\contentsline {paragraph}{\numberline {3.2.5.1}\texttt {ConnectionCodeMachineSide}}{10}{paragraph.3.2.5.1}%
+\contentsline {paragraph}{\numberline {3.2.5.2}\texttt {ProgramToolGroup}}{10}{paragraph.3.2.5.2}%
+\contentsline {paragraph}{\numberline {3.2.5.3}\texttt {ProgramToolNumber}}{10}{paragraph.3.2.5.3}%
+\contentsline {paragraph}{\numberline {3.2.5.4}\texttt {ProcessFeedRate}}{10}{paragraph.3.2.5.4}%
+\contentsline {paragraph}{\numberline {3.2.5.5}\texttt {ToolLife}}{10}{paragraph.3.2.5.5}%
+\contentsline {paragraph}{\numberline {3.2.5.6}\texttt {ToolLife}}{11}{paragraph.3.2.5.6}%
+\contentsline {paragraph}{\numberline {3.2.5.7}\texttt {ProcessSpindleSpeed}}{11}{paragraph.3.2.5.7}%
+\contentsline {paragraph}{\numberline {3.2.5.8}\texttt {ToolLife}}{11}{paragraph.3.2.5.8}%
+\contentsline {paragraph}{\numberline {3.2.5.9}\texttt {CutterStatus}}{11}{paragraph.3.2.5.9}%
+\contentsline {paragraph}{\numberline {3.2.5.10}\texttt {CuttingItems}}{11}{paragraph.3.2.5.10}%
+\contentsline {paragraph}{\numberline {3.2.5.11}\texttt {Measurements}}{11}{paragraph.3.2.5.11}%
+\contentsline {paragraph}{\numberline {3.2.5.12}\texttt {ReconditionCount}}{11}{paragraph.3.2.5.12}%
+\contentsline {paragraph}{\numberline {3.2.5.13}\texttt {Location}}{11}{paragraph.3.2.5.13}%
+\contentsline {subsubsection}{\numberline {3.2.6}Location}{12}{subsubsection.3.2.6}%
+\contentsline {paragraph}{\numberline {3.2.6.1}\texttt {negativeOverlap}}{12}{paragraph.3.2.6.1}%
+\contentsline {paragraph}{\numberline {3.2.6.2}\texttt {positiveOverlap}}{12}{paragraph.3.2.6.2}%
+\contentsline {paragraph}{\numberline {3.2.6.3}\texttt {type}}{12}{paragraph.3.2.6.3}%
+\contentsline {subsubsection}{\numberline {3.2.7}Measurement}{13}{subsubsection.3.2.7}%
+\contentsline {paragraph}{\numberline {3.2.7.1}\texttt {code}}{13}{paragraph.3.2.7.1}%
+\contentsline {paragraph}{\numberline {3.2.7.2}\texttt {maximum}}{15}{paragraph.3.2.7.2}%
+\contentsline {paragraph}{\numberline {3.2.7.3}\texttt {minimum}}{15}{paragraph.3.2.7.3}%
+\contentsline {paragraph}{\numberline {3.2.7.4}\texttt {nativeUnits}}{15}{paragraph.3.2.7.4}%
+\contentsline {paragraph}{\numberline {3.2.7.5}\texttt {nominal}}{17}{paragraph.3.2.7.5}%
+\contentsline {paragraph}{\numberline {3.2.7.6}\texttt {significantDigits}}{17}{paragraph.3.2.7.6}%
+\contentsline {paragraph}{\numberline {3.2.7.7}\texttt {units}}{17}{paragraph.3.2.7.7}%
+\contentsline {subsubsection}{\numberline {3.2.8}ProcessFeedRate}{19}{subsubsection.3.2.8}%
+\contentsline {paragraph}{\numberline {3.2.8.1}\texttt {maximum}}{19}{paragraph.3.2.8.1}%
+\contentsline {paragraph}{\numberline {3.2.8.2}\texttt {minimum}}{19}{paragraph.3.2.8.2}%
+\contentsline {paragraph}{\numberline {3.2.8.3}\texttt {nominal}}{19}{paragraph.3.2.8.3}%
+\contentsline {subsubsection}{\numberline {3.2.9}ProcessSpindleSpeed}{19}{subsubsection.3.2.9}%
+\contentsline {paragraph}{\numberline {3.2.9.1}\texttt {maximum}}{20}{paragraph.3.2.9.1}%
+\contentsline {paragraph}{\numberline {3.2.9.2}\texttt {minimum}}{20}{paragraph.3.2.9.2}%
+\contentsline {paragraph}{\numberline {3.2.9.3}\texttt {nominal}}{20}{paragraph.3.2.9.3}%
+\contentsline {subsubsection}{\numberline {3.2.10}ReconditionCount}{20}{subsubsection.3.2.10}%
+\contentsline {paragraph}{\numberline {3.2.10.1}\texttt {maximumCount}}{20}{paragraph.3.2.10.1}%
+\contentsline {subsubsection}{\numberline {3.2.11}Status}{20}{subsubsection.3.2.11}%
+\contentsline {paragraph}{\numberline {3.2.11.1}\texttt {value}}{21}{paragraph.3.2.11.1}%
+\contentsline {subsubsection}{\numberline {3.2.12}ToolLife}{21}{subsubsection.3.2.12}%
+\contentsline {paragraph}{\numberline {3.2.12.1}\texttt {countDirection}}{22}{paragraph.3.2.12.1}%
+\contentsline {paragraph}{\numberline {3.2.12.2}\texttt {initial}}{22}{paragraph.3.2.12.2}%
+\contentsline {paragraph}{\numberline {3.2.12.3}\texttt {limit}}{22}{paragraph.3.2.12.3}%
+\contentsline {paragraph}{\numberline {3.2.12.4}\texttt {warning}}{22}{paragraph.3.2.12.4}%
+\contentsline {subsection}{\numberline {3.3}CuttingItemModel}{22}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}CuttingItem}{23}{subsubsection.3.3.1}%
+\contentsline {paragraph}{\numberline {3.3.1.1}\texttt {Description}}{23}{paragraph.3.3.1.1}%
+\contentsline {paragraph}{\numberline {3.3.1.2}\texttt {grade}}{23}{paragraph.3.3.1.2}%
+\contentsline {paragraph}{\numberline {3.3.1.3}\texttt {indices}}{23}{paragraph.3.3.1.3}%
+\contentsline {paragraph}{\numberline {3.3.1.4}\texttt {itemId}}{23}{paragraph.3.3.1.4}%
+\contentsline {paragraph}{\numberline {3.3.1.5}\texttt {Locus}}{24}{paragraph.3.3.1.5}%
+\contentsline {paragraph}{\numberline {3.3.1.6}\texttt {manufacturers}}{24}{paragraph.3.3.1.6}%
+\contentsline {paragraph}{\numberline {3.3.1.7}\texttt {ProgramToolGroup}}{24}{paragraph.3.3.1.7}%
+\contentsline {paragraph}{\numberline {3.3.1.8}\texttt {CutterStatus}}{24}{paragraph.3.3.1.8}%
+\contentsline {paragraph}{\numberline {3.3.1.9}\texttt {ItemLife}}{24}{paragraph.3.3.1.9}%
+\contentsline {paragraph}{\numberline {3.3.1.10}\texttt {ItemLife}}{24}{paragraph.3.3.1.10}%
+\contentsline {paragraph}{\numberline {3.3.1.11}\texttt {ItemLife}}{24}{paragraph.3.3.1.11}%
+\contentsline {paragraph}{\numberline {3.3.1.12}\texttt {Measurements}}{24}{paragraph.3.3.1.12}%
+\contentsline {subsubsection}{\numberline {3.3.2}ItemLife}{25}{subsubsection.3.3.2}%
+\contentsline {paragraph}{\numberline {3.3.2.1}\texttt {countDirection}}{25}{paragraph.3.3.2.1}%
+\contentsline {paragraph}{\numberline {3.3.2.2}\texttt {initial}}{25}{paragraph.3.3.2.2}%
+\contentsline {paragraph}{\numberline {3.3.2.3}\texttt {limit}}{25}{paragraph.3.3.2.3}%
+\contentsline {paragraph}{\numberline {3.3.2.4}\texttt {warning}}{25}{paragraph.3.3.2.4}%
+\contentsline {section}{Appendices}{26}{paragraph.3.3.2.4}%
+\contentsline {subsection}{\numberline {A}Bibliography}{26}{subsection.Alph0.1}%
+\contentsline {subsection}{\numberline {B}Additional Illustrations}{28}{subsection.Alph0.2}%
+\contentsline {subsection}{\numberline {C}Cutting Tool Example}{32}{subsection.Alph0.3}%
+\contentsline {subsubsection}{\numberline {C.1}Shell Mill}{32}{subsubsection.Alph0.3.1}%
+\contentsline {subsubsection}{\numberline {C.2}Step Drill}{35}{subsubsection.Alph0.3.2}%
+\contentsline {subsubsection}{\numberline {C.3}Shell Mill with Individual Loci}{37}{subsubsection.Alph0.3.3}%
+\contentsline {subsubsection}{\numberline {C.4}Drill with Individual Loci}{39}{subsubsection.Alph0.3.4}%
+\contentsline {subsubsection}{\numberline {C.5}Shell Mill with Different Inserts on First Row}{41}{subsubsection.Alph0.3.5}%

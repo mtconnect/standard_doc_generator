@@ -34,6 +34,17 @@ File.open(DocumentFile['Observation'], 'w') do |f|
   ObservationModels.each do |m|
     LatexModel.generate_latex(f, m)
   end
-
 end
 
+
+$logger.info "\nGenerating Assets LaTex to #{DocumentFile['AssetModel']}"
+File.open(DocumentFile['AssetModel'], 'w') do |f|
+  f.puts "% Generated #{Time.now}"
+  
+  f.puts "\\section{Assets Model}\n"
+  LatexModel.directory = Directory['AssetModel']
+  AssetModels.each do |m|
+	puts "Generating for #{m}"
+    LatexModel.generate_latex(f, m)
+  end
+end

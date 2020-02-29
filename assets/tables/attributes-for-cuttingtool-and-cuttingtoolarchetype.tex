@@ -1,0 +1,81 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Attributes for CuttingTool and CuttingToolArchetype} \label{table:attributes-for-cuttingtool-and-cuttingtoolarchetype} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:attributes-for-cuttingtool-and-cuttingtoolarchetype}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+
+\gls{timestamp}
+&
+The time this \gls{mtconnect asset} was last modified. Always given in UTC. The \gls{timestamp} \MUST be provided in UTC (Universal Time Coordinate, also known as GMT). This is the time the \gls{asset} data was last modified.
+\newline \gls{timestamp} is a required attribute.
+&
+1 \\
+\hline
+ 
+\gls{assetid}
+&
+The unique identifier of the instance of this tool. This will be the
+same as the \gls{toolid} and \gls{serialnumber} in most cases. The \gls{assetid} \SHOULD be the combination of the \gls{toolid} and \gls{serialnumber} as in \gls{toolid}. \gls{serialnumber} or an equivalent implementation dependent identification scheme.
+\newline \gls{assetid} is a required attribute.
+\newline \gls{assetid} is a permanent identifier that will be associated with an \gls{mtconnect asset} for its entire life.
+&
+1 \\
+\hline
+
+\gls{serialnumber}
+&
+The unique identifier for this assembly. This is defined as an XML string type and is implementation dependent.
+\newline \gls{serialnumber} is a required attribute.
+&
+1 \\
+\hline
+
+\gls{toolid}
+&
+The identifier for a class of Cutting Tools. This is defined as an XML string type and is implementation dependent.
+\newline \gls{toolid} is a required attribute.
+&
+1 \\
+\hline
+
+\gls{deviceuuid}
+&
+\glsentrydesc{deviceuuid}
+&
+1 \\
+\hline
+
+\gls{manufacturers}
+&
+An optional attribute referring to the manufacturer(s) of this Cutting
+Tool, for this element, this will reference the Tool Item and Adaptive
+Items specifically. The Cutting Items manufacturers’ will be an
+attribute of the \gls{cuttingitem} elements. The representation will be a
+comma (,) delimited list of manufacturer names. This can be any
+series of numbers and letters as defined by the XML type \cfont{string}.
+&
+0..1 \\
+\hline
+
+\gls{removed}
+&
+This is an indicator that the Cutting Tool has been removed from the piece of equipment.
+\newline \gls{removed} is a required attribute.
+\newline If the \gls{mtconnect asset} is marked as removed, it will not be visible to the client application unless the \cfont{includeRemoved=true} parameter is provided in the URL. If this attribute is not present it \MUST be assumed to be \cfont{false}. The value is an \cfont{xsi:boolean} type and \MUST be \cfont{true} or \cfont{false}.
+&
+0..1 \\
+\hline
+
+
+\end{longtabu}

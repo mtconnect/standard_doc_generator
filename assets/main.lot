@@ -1,0 +1,25 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\contentsline {table}{\numberline {1}{\ignorespaces \texttt {Properties of Asset}\relax }}{5}{table.caption.3}%
+\contentsline {table}{\numberline {2}{\ignorespaces \texttt {Properties of CuttingTool}\relax }}{6}{table.caption.4}%
+\contentsline {table}{\numberline {3}{\ignorespaces \texttt {Properties of CuttingToolArchetype}\relax }}{7}{table.caption.5}%
+\contentsline {table}{\numberline {4}{\ignorespaces \texttt {Properties of CuttingToolArchetypeReference}\relax }}{8}{table.caption.6}%
+\contentsline {table}{\numberline {5}{\ignorespaces \texttt {Properties of CuttingToolDefinition}\relax }}{9}{table.caption.7}%
+\contentsline {table}{\numberline {6}{\ignorespaces \texttt {FormatType} Enumeration\relax }}{9}{table.caption.8}%
+\contentsline {table}{\numberline {7}{\ignorespaces \texttt {Properties of CuttingToolLifeCycle}\relax }}{10}{table.caption.9}%
+\contentsline {table}{\numberline {8}{\ignorespaces \texttt {Properties of Location}\relax }}{12}{table.caption.10}%
+\contentsline {table}{\numberline {9}{\ignorespaces \texttt {LocationType} Enumeration\relax }}{12}{table.caption.11}%
+\contentsline {table}{\numberline {10}{\ignorespaces \texttt {Properties of Measurement}\relax }}{13}{table.caption.12}%
+\contentsline {table}{\numberline {11}{\ignorespaces \texttt {CodeEnum} Enumeration\relax }}{14}{table.caption.13}%
+\contentsline {table}{\numberline {12}{\ignorespaces \texttt {NativeUnitEnum} Enumeration\relax }}{16}{table.caption.14}%
+\contentsline {table}{\numberline {13}{\ignorespaces \texttt {UnitEnum} Enumeration\relax }}{18}{table.caption.15}%
+\contentsline {table}{\numberline {14}{\ignorespaces \texttt {Properties of ProcessFeedRate}\relax }}{19}{table.caption.16}%
+\contentsline {table}{\numberline {15}{\ignorespaces \texttt {Properties of ProcessSpindleSpeed}\relax }}{19}{table.caption.17}%
+\contentsline {table}{\numberline {16}{\ignorespaces \texttt {Properties of ReconditionCount}\relax }}{20}{table.caption.18}%
+\contentsline {table}{\numberline {17}{\ignorespaces \texttt {Properties of Status}\relax }}{20}{table.caption.19}%
+\contentsline {table}{\numberline {18}{\ignorespaces \texttt {CutterStatusType} Enumeration\relax }}{21}{table.caption.20}%
+\contentsline {table}{\numberline {19}{\ignorespaces \texttt {Properties of ToolLife}\relax }}{22}{table.caption.21}%
+\contentsline {table}{\numberline {20}{\ignorespaces \texttt {CountDirectionType} Enumeration\relax }}{22}{table.caption.22}%
+\contentsline {table}{\numberline {21}{\ignorespaces \texttt {Properties of CuttingItem}\relax }}{23}{table.caption.23}%
+\contentsline {table}{\numberline {22}{\ignorespaces \texttt {Properties of ItemLife}\relax }}{25}{table.caption.24}%
+\contentsline {table}{\numberline {23}{\ignorespaces \texttt {CountDirectionType} Enumeration\relax }}{25}{table.caption.25}%

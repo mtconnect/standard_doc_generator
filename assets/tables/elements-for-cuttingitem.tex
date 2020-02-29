@@ -1,0 +1,48 @@
+
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Elements for CuttingItem} \label{table:elements-for-cuttingitem} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:elements-for-cuttingitem}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+
+\gls{description}	
+&
+A free-form description of the Cutting Item.
+&
+0..1 \\
+\hline
+
+\gls{locus cuttingitem}	
+&
+\glsentrydesc{locus cuttingitem}
+&
+0..1 \\
+\hline
+
+\gls{itemlife cuttingitem}	
+&
+\glsentrydesc{itemlife cuttingitem}
+&
+0..3 \\
+\hline
+
+\glspl{measurement}	
+&
+A collection of measurements relating to this Cutting Item.
+&
+0..1 \\
+\hline
+
+\end{longtabu}
+
