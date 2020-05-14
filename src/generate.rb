@@ -35,15 +35,19 @@ $logger.formatter = proc do |severity, datetime, progname, msg|
   "#{severity}: #{msg}\n"
 end
 
-DeviceModels = ['Components',
-                
-				'ComponentTypes',
-				'Compositions',
-				'CompositionTypes',
-				'DataItems',
-				'DataItemTypes',
-                                'References'
-				]
+DeviceModels = ['Devices',
+				'Components',
+				'ComponentTypes']
+				
+CompositionModels = ['Compositions',
+				'CompositionTypes']
+				
+DataItemModels = ['DataItems',
+				'DataItemElements',
+				'DefinitionElements',
+				'DataItemTypes']
+				
+ReferenceModels = ['References']
 				
 ConfigurationModels = ['Configuration',
 				'CoordinateSystems',
@@ -64,7 +68,9 @@ ObservationModels = ['Observations',
 AssetModels = ['AssetModel',
 				'CuttingToolModel',
 				'CuttingItemModel'
-				]		
+				]	
+
+Glossary = ['Glossary']					
 
 
 Directory['Device'] = File.join(File.dirname(__FILE__),'..','devices')
@@ -73,8 +79,11 @@ DocumentFile['Device'] = File.join(File.dirname(__FILE__),'..','devices','device
 Directory['Observation'] = File.join(File.dirname(__FILE__),'..','observations')
 DocumentFile['Observation'] = File.join(File.dirname(__FILE__),'..','observations','observations.tex')
 
-Directory['AssetModel'] = File.join(File.dirname(__FILE__),'..','assets')
-DocumentFile['AssetModel'] = File.join(File.dirname(__FILE__),'..','assets','assets.tex')
+Directory['Asset'] = File.join(File.dirname(__FILE__),'..','assets')
+DocumentFile['Asset'] = File.join(File.dirname(__FILE__),'..','assets','assets.tex')
+
+Directory['Glossary'] = File.join(File.dirname(__FILE__),'..','devices')
+DocumentFile['Glossary'] = File.join(File.dirname(__FILE__),'..','devices','mtc-terms.tex')
 
 xmiDoc = nil
 File.open(File.join(File.dirname(__FILE__), '..', 'MTConnect SysML Model.xml')) do |xmi|
@@ -87,8 +96,9 @@ $namespaces = Hash[xmiDoc.namespaces.map { |k, v| [k.split(':').last, v] }]
 SkipModels = Set.new
 SkipModels.add('CSV Imports')
 SkipModels.add('Simulation')
-SkipModels.add('Glossary')
 SkipModels.add('MTConnect')
+SkipModels.add('Glossary')
+SkipModels.add('Protocols')
 
 
 unless ARGV.first
