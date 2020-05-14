@@ -159,10 +159,18 @@ module Relation
       v = a.at("./#{ele}")
       if v
         if v['xmi:type'] == 'uml:LiteralBoolean'
-          v['value'] || 'false'
+          return v['value'] || 'false'
         else
-          v['value']
+		  b = v.at(".//body")
+          if b
+			return b.text
+		  elsif v['value']
+		    return v['value']
+		  end
         end
+		if v['instance']
+		  return a.document.root.at("//*[@xmi:id='#{v['instance']}']")['name']
+		end
       end
     end
   end
@@ -201,8 +209,20 @@ module Relation
       aid = r['association']
       assoc = r.document.at("//packagedElement[@xmi:id='#{aid}']")
 	  
-	  @association_doc = xmi_documentation(assoc)
 	  @association_name = assoc['name']
+	  
+	  member_end = assoc.at('./memberEnd')  
+	  if member_end
+		target_end = r.document.at("//ownedAttribute[@xmi:id='#{member_end["xmi:idref"]}']")
+		if target_end
+			target_element = r.document.at("//packagedElement[@xmi:id='#{target_end["type"]}']")
+			if target_element['name'] == @association_name and target_element.at('./ownedComment')
+				@association_doc = target_element.at('./ownedComment')['body']
+			end
+		end
+	  end
+	  
+	  @association_doc = xmi_documentation(assoc) if xmi_documentation(assoc).size>1
 	  
       src = assoc.at('./ownedEnd')
 	  return if not src
