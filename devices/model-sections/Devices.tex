@@ -1,0 +1,48 @@
+% Generated 2020-05-14 16:42:03 -0400
+\subsection{Devices} \label{sec:Devices}
+
+\gls{devices} \MUST \gls{organize} one or more \gls{device} elements.
+
+
+\subsubsection{Device}
+  \label{sec:Device}
+
+
+A \gls{device} is a \gls{component} that represents a piece of equipment that produces \glspl{observation} about itself. It \glspl{organize} its parts as \gls{components}.
+
+A \gls{device} \MUST have a \gls{name} and \gls{uuid} attribute to identify itself. 
+
+A \gls{device} \MUST have the following \gls{dataitems}: \gls{availability event}, \gls{assetchanged event}, and \gls{assetremoved event}.
+
+See \sect{Component} for details on the \gls{device} model. 
+
+
+
+\paragraph{Attributes of Device}\mbox{}
+\label{sec:Attributes of Device}
+
+\tbl{attributes of Device} lists the attributes of \texttt{Device}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Device}}
+  \label{table:attributes of Device}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{iso841Class} & \texttt{string} & 0..1 \\
+\texttt{name} & \texttt{string} & 1 \\
+\texttt{uuid} & \texttt{NMTOKEN} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Device}:
+
+\begin{itemize}
+\item \texttt{iso841Class} : 
+\end{itemize}
+\FloatBarrier

@@ -1,20 +1,26 @@
-% Generated 2020-02-28 19:23:51 -0500
-\subsection{Motion} \label{model:Motion}
+% Generated 2020-05-14 16:42:03 -0400
+\subsection{Motion} \label{sec:Motion}
+
 \subsubsection{Axis}
-  \label{type:Axis}
+  \label{sec:Axis}
 
-\FloatBarrier
 
-Placeholder for documentation!
+
+
+
+\paragraph{Attributes of Axis}\mbox{}
+\label{sec:Attributes of Axis}
+
+\tbl{attributes of Axis} lists the attributes of \texttt{Axis}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Axis}}
-  \label{properties:Axis}
+  \caption{Attributes of Axis}}
+  \label{table:attributes of Axis}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{axis} & \texttt{UnitVector} & 1 \\
 \end{tabu}
@@ -22,126 +28,120 @@ Placeholder for documentation!
 \FloatBarrier
 
 
-\paragraph{\texttt{axis}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection[Motion]{Motion \\ {\small Subtype of Configuration}}
-  \label{type:Motion}
+Descriptions for attributes of \texttt{Axis}:
 
+\begin{itemize}
+\item \texttt{axis} : 
+\end{itemize}
 \FloatBarrier
 
-Placeholder for documentation!
+\subsubsection{Motion}
+  \label{sec:Motion}
+
+
+
+
+
+\paragraph{Attributes of Motion}\mbox{}
+\label{sec:Attributes of Motion}
+
+\tbl{attributes of Motion} lists the attributes of \texttt{Motion}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Motion}}
-  \label{properties:Motion}
+  \caption{Attributes of Motion}}
+  \label{table:attributes of Motion}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{actuation} & \texttt{ActuationTypeEnum} & 1 \\
-\texttt{cooridnateSystemId} & \texttt{IDREF} & 1 \\
+\texttt{cooridnateSystemIdRef} & \texttt{IDREF} & 1 \\
 \texttt{id} & \texttt{ID} & 1 \\
-\texttt{kinematicsId} & \texttt{IDREF} & 0..1 \\
+\texttt{parentIdRef} & \texttt{IDREF} & 0..1 \\
 \texttt{type} & \texttt{MotionTypes} & 1 \\
-\texttt{Axis} & \texttt{Axis} & 1 \\
-\texttt{Origin} & \texttt{Origin} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-\paragraph{\texttt{actuation}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for attributes of \texttt{Motion}:
 
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{ActuationTypeEnum} Enumeration}
-  \label{enum:ActuationTypeEnum}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\begin{itemize}
+\item \texttt{actuation} : 
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X|}
+  \caption{ActuationTypeEnum Enumeration}
+  \label{enum:ActuationTypeEnum} \\
 \hline
-\rowfont\bfseries {Name} & {Description} \\
-\tabucline[1.5pt]{}
-\texttt{DIRECT} & Placeholder for documentation! \\
-\texttt{DERIVATIVE} & Placeholder for documentation! \\
-\texttt{VIRTUAL} & Placeholder for documentation! \\
-\texttt{FIXED} & Placeholder for documentation! \\
-\end{tabu}
-\end{table} 
-\FloatBarrier
-
-\paragraph{\texttt{cooridnateSystemId}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{id}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{kinematicsId}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{type}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{MotionTypes} Enumeration}
-  \label{enum:MotionTypes}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+Name & Description \\
 \hline
-\rowfont\bfseries {Name} & {Description} \\
-\tabucline[1.5pt]{}
-\texttt{PRISMATIC} & Placeholder for documentation! \\
-\texttt{REVOLUTE} & Placeholder for documentation! \\
-\texttt{TWIST} & Placeholder for documentation! \\
-\texttt{REVOLVE} & Placeholder for documentation! \\
-\end{tabu}
-\end{table} 
+\endfirsthead
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \texttt{ActuationTypeEnum} Enumeration} \\
+\hline
+Name & Description \\
+\hline
+\endhead
+\texttt{DIRECT} &  \\ \hline
+\texttt{DERIVATIVE} &  \\ \hline
+\texttt{VIRTUAL} &  \\ \hline
+\texttt{FIXED} &  \\ \hline
+\end{longtabu}
 \FloatBarrier
+\item \texttt{cooridnateSystemIdRef} : 
+\item \texttt{id} : 
+\item \texttt{parentIdRef} : 
+\item \texttt{type} : 
+\end{itemize}
 
-\paragraph{\texttt{Axis}}\mbox{}
-\newline\tab Placeholder for documentation!
+\paragraph{Elements of Motion}\mbox{}
+\label{sec:Elements of Motion}
 
-\paragraph{\texttt{Origin}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection{Origin}
-  \label{type:Origin}
-
-\FloatBarrier
-
-Placeholder for documentation!
+\tbl{elements of Motion} lists the elements of \texttt{Motion}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Origin}}
-  \label{properties:Origin}
+  \caption{Elements of Motion}}
+  \label{table:elements of Motion}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+\texttt{Axis} & \texttt{Axis} & 1 \\
+\texttt{Origin} & \texttt{Origin} & 0..1 \\
 \texttt{Transformation} & \texttt{Transformation} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-\paragraph{\texttt{Transformation}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for elements of \texttt{Motion}:
+
+\begin{itemize}
+\item \texttt{Axis} : 
+\item \texttt{Origin} : 
+\item \texttt{Transformation} : All coordinate systems described in this International Standard are defined by the orthogonal right-hand rule.
+
+[ISO 9787:2013(E)]
+\end{itemize}
 \FloatBarrier
+
 \subsubsection{UnitVector}
-  \label{type:UnitVector}
+  \label{sec:UnitVector}
+
+
+
 
 \FloatBarrier
 
-Placeholder for documentation!
+\subsubsection{space}
+  \label{sec:space}
+
+
+
 
 \FloatBarrier

@@ -1,109 +1,123 @@
-% Generated 2020-02-28 19:23:51 -0500
-\subsection{CoordinateSystems} \label{model:CoordinateSystems}
-\subsubsection[CoordinateSystem]{CoordinateSystem \\ {\small Subtype of Configuration}}
-  \label{type:CoordinateSystem}
+% Generated 2020-05-14 16:42:03 -0400
+\subsection{CoordinateSystems} \label{sec:CoordinateSystems}
 
-\FloatBarrier
+\subsubsection{CoordinateSystem}
+  \label{sec:CoordinateSystem}
 
-Placeholder for documentation!
+
+
+
+
+\paragraph{Attributes of CoordinateSystem}\mbox{}
+\label{sec:Attributes of CoordinateSystem}
+
+\tbl{attributes of CoordinateSystem} lists the attributes of \texttt{CoordinateSystem}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of CoordinateSystem}}
-  \label{properties:CoordinateSystem}
+  \caption{Attributes of CoordinateSystem}}
+  \label{table:attributes of CoordinateSystem}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Transformation} & \texttt{Transformation} & 0..1 \\
 \texttt{id} & \texttt{ID} & 1 \\
 \texttt{name} & \texttt{string} & 0..1 \\
-\texttt{parentId} & \texttt{IDREF} & 0..1 \\
+\texttt{nativeName} & \texttt{string} & 0..1 \\
+\texttt{parentIdRef} & \texttt{IDREF} & 0..1 \\
 \texttt{type} & \texttt{CoordinateSystemTypeEnum} & 1 \\
-\texttt{Location} & \texttt{Location} & 0..1 \\
-\texttt{kinematicsIdRef} & \texttt{IDREF} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-\paragraph{\texttt{Transformation}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for attributes of \texttt{CoordinateSystem}:
 
-\paragraph{\texttt{id}}\mbox{}
-\newline\tab Placeholder for documentation!
+\begin{itemize}
+\item \texttt{id} : 
+\item \texttt{name} : 
+\item \texttt{nativeName} : 
+\item \texttt{parentIdRef} : 
+\item \texttt{type} : 
+\end{itemize}
 
-\paragraph{\texttt{name}}\mbox{}
-\newline\tab Placeholder for documentation!
+\paragraph{Elements of CoordinateSystem}\mbox{}
+\label{sec:Elements of CoordinateSystem}
 
-\paragraph{\texttt{parentId}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{type}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-Placeholder for documentation!
+\tbl{elements of CoordinateSystem} lists the elements of \texttt{CoordinateSystem}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{CoordinateSystemTypeEnum} Enumeration}
-  \label{enum:CoordinateSystemTypeEnum}
+  \caption{Elements of CoordinateSystem}}
+  \label{table:elements of CoordinateSystem}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Name} & {Description} \\
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{WORLD} & Stationary coordinate system referenced to earth, which is independent of the robot motion.
-
-[SOURCE: ISO 8373:2012, 4.7.1]
-
-The origin of the world coordinate system, O0, shall be defined by the users in accordance with their requirements. The +Z0 axis is collinear but in the opposite direction to the acceleration of gravity vector. The +X0 axis shall be defined by the users in accordance with their requirements
-
-[ISO 9787:2013(E) 5.1] \\
-\texttt{BASE} & coordinate system referenced to the base mounting surface
-
-[SOURCE: ISO 8373:2012, 4.7.2] \\
-\texttt{WORKPIECE} & Placeholder for documentation! \\
-\texttt{OBJECT} & Placeholder for documentation! \\
-\texttt{TASK} & coordinate system referenced to the site of the task, denoted by Ok - Xk - Yk - Zk
-
-[SOURCE: ISO 14539:2000, 3.3.5] \\
-\texttt{MECHANICAL_INTERFACE} & coordinate system referenced to the mechanical interface
-
-[SOURCE: ISO 8373:2012, 4.7.3] \\
-\texttt{TOOL} & coordinate system referenced to the tool or to the end effector attached to the mechanical interface
-
-[SOURCE: ISO 8373:2012, 4.7.5] \\
-\texttt{GRIPPER} & Placeholder for documentation! \\
-\texttt{PLATFORM} & Placeholder for documentation! \\
-\texttt{MACHINE} & Placeholder for documentation! \\
-\texttt{JOINT} & coordinate system referenced to the joint axes (4.3), the joint coordinates of which are defined relative to the preceding joint coordinates or to some other coordinate system
-
-[ISO 8373:2012(E/F) 4.7.4] \\
-\texttt{CAMERA} & Placeholder for documentation! \\
+\texttt{Location} & \texttt{Origin} & 0..1 \\
+\texttt{Transformation} & \texttt{Transformation} & 0..1 \\
 \end{tabu}
-\end{table} 
+\end{table}
 \FloatBarrier
 
-\paragraph{\texttt{Location}}\mbox{}
-\newline\tab Placeholder for documentation!
 
-\paragraph{\texttt{kinematicsIdRef}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for elements of \texttt{CoordinateSystem}:
+
+\begin{itemize}
+\item \texttt{Location} : 
+\item \texttt{Transformation} : All coordinate systems described in this International Standard are defined by the orthogonal right-hand rule.
+
+[ISO 9787:2013(E)]
+\end{itemize}
 \FloatBarrier
-\subsubsection{Location}
-  \label{type:Location}
+
+\subsubsection{CoordinateSystems}
+  \label{sec:CoordinateSystems}
+
+
+
+
+
+\paragraph{Attributes of CoordinateSystems}\mbox{}
+\label{sec:Attributes of CoordinateSystems}
+
+\tbl{attributes of CoordinateSystems} lists the attributes of \texttt{CoordinateSystems}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of CoordinateSystems}}
+  \label{table:attributes of CoordinateSystems}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{coordinateSystem} & \texttt{CoordinateSystem} & 1..* \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{CoordinateSystems}:
+
+\begin{itemize}
+\item \texttt{coordinateSystem} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Origin}
+  \label{sec:Origin}
+
+
+
 
 \FloatBarrier
 
-Placeholder for documentation!
-
-\FloatBarrier
 \subsubsection{Rotation}
-  \label{type:Rotation}
+  \label{sec:Rotation}
 
-\FloatBarrier
 
 Rotations about X, Y, and Z axes are expressed in the following way:
 
@@ -118,41 +132,116 @@ General rotations are expressed by the combination of individual rotations.
 [ISO 9787:2013(E)]
 
 \FloatBarrier
-\subsubsection{Transformation}
-  \label{type:Transformation}
 
-\FloatBarrier
+\subsubsection{Rotation}
+  \label{sec:Rotation}
 
-All coordinate systems described in this International Standard are defined by the orthogonal right-hand rule.
 
-[ISO 9787:2013(E)]
+
+
+
+\paragraph{Attributes of Rotation}\mbox{}
+\label{sec:Attributes of Rotation}
+
+\tbl{attributes of Rotation} lists the attributes of \texttt{Rotation}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Transformation}}
-  \label{properties:Transformation}
+  \caption{Attributes of Rotation}}
+  \label{table:attributes of Rotation}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{translation} & \texttt{Translation} & 0..1 \\
-\texttt{rottion} & \texttt{Rotation} & 0..1 \\
+\texttt{value} & \texttt{Rotation} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-\paragraph{\texttt{translation}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for attributes of \texttt{Rotation}:
 
-\paragraph{\texttt{rottion}}\mbox{}
-\newline\tab Placeholder for documentation!
+\begin{itemize}
+\item \texttt{value} : 
+\end{itemize}
 \FloatBarrier
+
+\subsubsection{Transformation}
+  \label{sec:Transformation}
+
+
+All coordinate systems described in this International Standard are defined by the orthogonal right-hand rule.
+
+[ISO 9787:2013(E)]
+
+
+\paragraph{Elements of Transformation}\mbox{}
+\label{sec:Elements of Transformation}
+
+\tbl{elements of Transformation} lists the elements of \texttt{Transformation}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of Transformation}}
+  \label{table:elements of Transformation}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{Translation} & \texttt{Translation} & 0..1 \\
+\texttt{Rotation} & \texttt{Rotation} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \texttt{Transformation}:
+
+\begin{itemize}
+\item \texttt{Translation} : 
+\item \texttt{Rotation} : 
+\end{itemize}
+\FloatBarrier
+
 \subsubsection{Translation}
-  \label{type:Translation}
+  \label{sec:Translation}
 
+
+
+
+
+\paragraph{Attributes of Translation}\mbox{}
+\label{sec:Attributes of Translation}
+
+\tbl{attributes of Translation} lists the attributes of \texttt{Translation}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Translation}}
+  \label{table:attributes of Translation}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{value} & \texttt{Translation} & 1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
+
+
+Descriptions for attributes of \texttt{Translation}:
+
+\begin{itemize}
+\item \texttt{value} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Translation}
+  \label{sec:Translation}
+
 
 Translations along X, Y, and Z axes are expressed in the following way: 
   + or – x along X axis;

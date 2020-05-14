@@ -1,17 +1,33 @@
-% Generated 2020-02-28 19:23:51 -0500
-\subsection{ComponentTypes} \label{model:ComponentTypes}
-\subsubsection[Actuator]{Actuator \\ {\small Subtype of Component}}
-  \label{type:Actuator}
+% Generated 2020-05-14 16:42:03 -0400
+\subsection{ComponentTypes} \label{sec:ComponentTypes}
 
-\FloatBarrier
+\gls{component} \glspl{structural element} are XML containers used to represent physical parts or logical functions of a piece of equipment.
+
+\gls{component} \glspl{structural element} are defined into two major categories:
+
+\begin{itemize}
+
+\item \gls{top level} \gls{component} elements are used to group the \glspl{structural element} representing the most significant physical or logical functions of a piece of equipment.  The \gls{top level} \gls{component} elements provided in an \gls{mtconnectdevices} document \should be restricted to those defined in \tbl{elements-toplevel-for-component}.  However, these \gls{top level} \gls{component} elements \may also be used as \gls{lower level} \gls{component} elements; as required.
+
+\item \gls{lower level} \gls{component} elements are used to describe the sub-parts of the parent \gls{component} to provide more clarity and granularity to the physical or logical structure of the \gls{top level} \gls{component} elements.
+\end{itemize}
+
+This section of the \glspl{device information model} provides guidance for the most common relationships between \gls{top level} \gls{component} elements and \gls{lower level} child components.  However, all \gls{component} elements \may be used in any configuration, as required, to fully describe a piece of equipment.
+
+As described in \sect{Structural Elements for MTConnectDevices}, \gls{component} is an abstract type \gls{structural element} within the \glspl{device information model} and will never appear directly in the \gls{mtconnectdevices} XML document.  As abstract type XML elements, \gls{component} will be replaced in the XML document by a specific \gls{component} type.
+
+
+\subsubsection{Actuator}
+  \label{sec:Actuator}
+
 
 Redefined as a piece of equipment with the ability to be represented as a {term:Lower Level} component of a parent {model:Component} element or as a {model:Composition} element. See {model:ACTUATOR}
 
 \FloatBarrier
-\subsubsection[Auxiliaries]{Auxiliaries \\ {\small Subtype of Component}}
-  \label{type:Auxiliaries}
 
-\FloatBarrier
+\subsubsection{Auxiliaries}
+  \label{sec:Auxiliaries}
+
 
 An XML container used to organize information for {term:Lower Level} elements representing functional sub-systems that provide supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
 
@@ -35,10 +51,10 @@ Subtypes of \texttt{Auxiliaries} are :
 \end{itemize}
 
 \FloatBarrier
-\subsubsection[Axes]{Axes \\ {\small Subtype of Component}}
-  \label{type:Axes}
 
-\FloatBarrier
+\subsubsection{Axes}
+  \label{sec:Axes}
+
 
 An XML container used to organize the {term:Structural Elements} of a piece of equipment that perform linear or rotational motion.
 
@@ -52,10 +68,10 @@ Subtypes of \texttt{Axes} are :
 \end{itemize}
 
 \FloatBarrier
-\subsubsection[Controller]{Controller \\ {\small Subtype of Component}}
-  \label{type:Controller}
 
-\FloatBarrier
+\subsubsection{Controller}
+  \label{sec:Controller}
+
 
 An XML container used to organize information about an intelligent or computational function within a piece of equipment.
 
@@ -67,58 +83,50 @@ Subtypes of \texttt{Controller} are :
 \end{itemize}
 
 \FloatBarrier
-\subsubsection[Deposition]{Deposition \\ {\small Subtype of Component}}
-  \label{type:Deposition}
 
-\FloatBarrier
+\subsubsection{Deposition}
+  \label{sec:Deposition}
+
 
 {model:Deposition} is an XML container that represents the information for a system that manages the addition of material or state change of material being performed in an additive manufacturing process.  For example, this could describe the portion of a piece of equipment that manages a material extrusion process or a vat polymerization process.
 
 \FloatBarrier
-\subsubsection[Door]{Door \\ {\small Subtype of Component}}
-  \label{type:Door}
 
-\FloatBarrier
+\subsubsection{Door}
+  \label{sec:Door}
+
 
 {model:Door} is an XML container that represents the information for a mechanical mechanism or closure that can cover.
 
 \FloatBarrier
-\subsubsection[EndEffector]{EndEffector \\ {\small Subtype of Component}}
-  \label{type:EndEffector}
 
-\FloatBarrier
+\subsubsection{Interface}
+  \label{sec:Interface}
 
-{model:EndEffector} is an XML container that represents the information for those functions that form the last link segment of a piece of equipment. It is the part of a piece of equipment that interacts with the manufacturing process.
-
-\FloatBarrier
-\subsubsection[Interface]{Interface \\ {\small Subtype of Component}}
-  \label{type:Interface}
-
-\FloatBarrier
 
 Each {model:Interface} contains {term:Data Entities} available from the piece of equipment that may be needed to coordinate activities with associated pieces of equipment.
 
 \FloatBarrier
-\subsubsection[Interfaces]{Interfaces \\ {\small Subtype of Component}}
-  \label{type:Interfaces}
 
-\FloatBarrier
+\subsubsection{Interfaces}
+  \label{sec:Interfaces}
+
 
 An XML container that organizes information used to coordinate actions and activities between pieces of equipment that communicate information between each other.
 
 \FloatBarrier
-\subsubsection[Power]{Power \\ {\small Subtype of Component}}
-  \label{type:Power}
 
-\FloatBarrier
+\subsubsection{Power}
+  \label{sec:Power}
+
 
 {model:Power} was *DEPRECATED* in MTConnect Version 1.1 and was replaced by the {term:Data Entity} called {model:AVAILABILITY}.
 
 \FloatBarrier
-\subsubsection[Resources]{Resources \\ {\small Subtype of Component}}
-  \label{type:Resources}
 
-\FloatBarrier
+\subsubsection{Resources}
+  \label{sec:Resources}
+
 
 An XML container used to organize information for {term:Lower Level} elements representing types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location. {model:Resources} also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
 
@@ -133,10 +141,27 @@ Subtypes of \texttt{Resources} are :
 \end{itemize}
 
 \FloatBarrier
-\subsubsection[Systems]{Systems \\ {\small Subtype of Component}}
-  \label{type:Systems}
+
+\subsubsection{Structure}
+  \label{sec:Structure}
+
+
+Organizes static structural components of the machine.
+
+Subtypes of \texttt{Structure} are :
+
+\begin{itemize}
+\item \texttt{Link} : 
+
+\item \texttt{Table} : 
+
+\end{itemize}
 
 \FloatBarrier
+
+\subsubsection{Systems}
+  \label{sec:Systems}
+
 
 An XML container used to organize information for {term:Lower Level} elements representing the major sub-systems that are permanently integrated into a piece of equipment.
 
@@ -151,6 +176,8 @@ Subtypes of \texttt{Systems} are :
 
 \item \texttt{Enclosure} : {model:Enclosure} is an XML container that represents the information for a structure used to contain or isolate a piece of equipment or area.
 
+\item \texttt{EndEffector} : {model:EndEffector} is an XML container that represents the information for those functions that form the last link segment of a piece of equipment. It is the part of a piece of equipment that interacts with the manufacturing process.
+
 \item \texttt{Feeder} : {model:Feeder} is an XML container that represents the information for a system that manages the delivery of materials within a piece of equipment.
 
 \item \texttt{Hydraulic} : {model:Hydraulic} is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized liquid throughout the piece of equipment.
@@ -162,6 +189,8 @@ Subtypes of \texttt{Systems} are :
 \item \texttt{ProcessPower} : {model:ProcessPower} is an XML container that represents the information for a power source associated with a piece of equipment that supplies energy to the manufacturing process separate from the {model:Electric} system.
 
 \item \texttt{Protective} : Protective is an XML container that represents the information for those functions that detect or prevent harm or damage to equipment or personnel.
+
+\item \texttt{WorkEnvelope} : {model:WorkEnvelope} *organizes* information about the physical process execution space within a piece of equipment.
 
 \end{itemize}
 

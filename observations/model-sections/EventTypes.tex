@@ -1,4 +1,4 @@
-% Generated 2020-02-28 19:23:51 -0500
+% Generated 2020-05-04 10:03:15 -0400
 \subsection{EventTypes} \label{model:EventTypes}
 \subsubsection[ActiveAxes]{ActiveAxes \\ {\small Subtype of Event}}
   \label{type:ActiveAxes}
@@ -81,6 +81,49 @@ Represents the operational state of an apparatus for moving or controlling a mec
 \end{tabu}
 \end{table}
 \FloatBarrier
+
+\FloatBarrier
+\subsubsection[Application]{Application \\ {\small Subtype of Event}}
+  \label{type:Application}
+
+\FloatBarrier
+
+The application on a component.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Application}}
+  \label{properties:Application}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{Application} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{Application} are :
+
+\begin{itemize}
+\item \texttt{InstallDateApplication} : The date the hardware or software was installed.
+
+\item \texttt{LicenseApplication} : The license code to validate or activate the hardware or software.
+
+\item \texttt{ManufacturerApplication} : The corporate identity for the maker of the hardware or software.
+
+\item \texttt{ReleaseDateApplication} : The date the hardware or software was released for general use.
+
+\item \texttt{VersionApplication} : The version of the hardware or software.
+
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[AssetChanged]{AssetChanged \\ {\small Subtype of Event}}
@@ -976,7 +1019,7 @@ Subtypes of \texttt{EquipmentMode} are :
 
 \FloatBarrier
 
-The execution status of the {model:Controller}.
+The execution status of the {model:Component}.
 
 \begin{table}[ht]
 \centering 
@@ -1015,6 +1058,49 @@ The execution status of the {model:Controller}.
 \end{tabu}
 \end{table} 
 \FloatBarrier
+\FloatBarrier
+\subsubsection[Firmware]{Firmware \\ {\small Subtype of Event}}
+  \label{type:Firmware}
+
+\FloatBarrier
+
+The embedded software of a component.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Firmware}}
+  \label{properties:Firmware}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{Firmware} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{Firmware} are :
+
+\begin{itemize}
+\item \texttt{InstallDateFirmware} : The date the hardware or software was installed.
+
+\item \texttt{LicenseFirmware} : The license code to validate or activate the hardware or software.
+
+\item \texttt{ManufacturerFirmware} : The corporate identity for the maker of the hardware or software.
+
+\item \texttt{ReleaseDateFirmware} : The date the hardware or software was released for general use.
+
+\item \texttt{VersionFirmware} : The version of the hardware or software.
+
+\end{itemize}
+
 \FloatBarrier
 \subsubsection[FunctionalMode]{FunctionalMode \\ {\small Subtype of Event}}
   \label{type:FunctionalMode}
@@ -1097,6 +1183,49 @@ Subtypes of \texttt{Hardness} are :
 \end{itemize}
 
 \FloatBarrier
+\subsubsection[Hardware]{Hardware \\ {\small Subtype of Event}}
+  \label{type:Hardware}
+
+\FloatBarrier
+
+The hardware of a component.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Hardware}}
+  \label{properties:Hardware}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{Hardware} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{Hardware} are :
+
+\begin{itemize}
+\item \texttt{InstallDateHardware} : The date the hardware or software was installed.
+
+\item \texttt{LicenseHardware} : The license code to validate or activate the hardware or software.
+
+\item \texttt{ManufacturerHardware} : The corporate identity for the maker of the hardware or software.
+
+\item \texttt{ReleaseDateHardware} : The date the hardware or software was released for general use.
+
+\item \texttt{VersionHardware} : The version of the hardware or software.
+
+\end{itemize}
+
+\FloatBarrier
 \subsubsection[InterfaceState]{InterfaceState \\ {\small Subtype of Event}}
   \label{type:InterfaceState}
 
@@ -1135,6 +1264,49 @@ An indication of the operational state of an {model:Interface} component.
 \end{tabu}
 \end{table} 
 \FloatBarrier
+\FloatBarrier
+\subsubsection[Library]{Library \\ {\small Subtype of Event}}
+  \label{type:Library}
+
+\FloatBarrier
+
+The software library on a component.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Library}}
+  \label{properties:Library}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{Library} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{Library} are :
+
+\begin{itemize}
+\item \texttt{InstallDateLibrary} : The date the hardware or software was installed.
+
+\item \texttt{LicenseLibrary} : The license code to validate or activate the hardware or software.
+
+\item \texttt{ManufacturerLibrary} : The corporate identity for the maker of the hardware or software.
+
+\item \texttt{ReleaseDateLibrary} : The date the hardware or software was released for general use.
+
+\item \texttt{VersionLibrary} : The version of the hardware or software.
+
+\end{itemize}
+
 \FloatBarrier
 \subsubsection[Line]{Line \\ {\small Subtype of Event}}
   \label{type:Line}
@@ -1407,6 +1579,53 @@ Any text string of information to be transferred from a piece of equipment to a 
 \FloatBarrier
 
 \FloatBarrier
+\subsubsection[Network]{Network \\ {\small Subtype of Event}}
+  \label{type:Network}
+
+\FloatBarrier
+
+Network details of a component.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Network}}
+  \label{properties:Network}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{Network} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{Network} are :
+
+\begin{itemize}
+\item \texttt{GatewayNetwork} : The Gateway for the component network.
+
+\item \texttt{IPv4AddressNetwork} : The IPV4 network address of the component.
+
+\item \texttt{IPv6AddressNetwork} : The IPV6 network address of the component.
+
+\item \texttt{MacAddressNetwork} : Media Access Control Address. The unique physical address of the network hardware.
+
+\item \texttt{SubnetMaskNetwork} : The SubNet mask for the component network.
+
+\item \texttt{VLanIdNetwork} : The layer2 Virtual Local Network (VLAN) ID for the component network.
+
+\item \texttt{WirelessNetwork} : Identifies whether the connection type is wireless.
+
+\end{itemize}
+
+\FloatBarrier
 \subsubsection[OpenChuck]{OpenChuck \\ {\small Subtype of Event}}
   \label{type:OpenChuck}
 
@@ -1449,6 +1668,49 @@ Service to open a door.
 \end{tabu}
 \end{table}
 \FloatBarrier
+
+\FloatBarrier
+\subsubsection[OperatingSystem]{OperatingSystem \\ {\small Subtype of Event}}
+  \label{type:OperatingSystem}
+
+\FloatBarrier
+
+The Operating System of a component.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of OperatingSystem}}
+  \label{properties:OperatingSystem}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{OperatingSystem} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{OperatingSystem} are :
+
+\begin{itemize}
+\item \texttt{InstallDateOperatingSystem} : The date the hardware or software was installed.
+
+\item \texttt{LicenseOperatingSystem} : The license code to validate or activate the hardware or software.
+
+\item \texttt{ManufacturerOperatingSystem} : The corporate identity for the maker of the hardware or software.
+
+\item \texttt{ReleaseDateOperatingSystem} : The date the hardware or software was released for general use.
+
+\item \texttt{VersionOperatingSystem} : The version of the hardware or software.
+
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[OperatorId]{OperatorId \\ {\small Subtype of Event}}
@@ -1522,7 +1784,7 @@ Service to change the part or product associated with a piece of equipment to a 
 
 \FloatBarrier
 
-The count of parts produced.
+The aggregate count of parts.
 
 \begin{table}[ht]
 \centering 
@@ -1541,15 +1803,15 @@ The count of parts produced.
 Subtypes of \texttt{PartCount} are :
 
 \begin{itemize}
-\item \texttt{ALL} : The count of all the parts produced.  If the subtype is not given, this is the default.
+\item \texttt{ALL} : The number of parts produced. 
 
-\item \texttt{BAD} : Indicates the count of incorrect parts produced.
+\item \texttt{BAD} : The number of parts produced that do not conform to specification.
 
-\item \texttt{GOOD} : Indicates the count of correct parts made.
+\item \texttt{GOOD} : The number of parts produced that conform to specification.
 
-\item \texttt{REMAINING} : Remaining measure of an object or an action.
+\item \texttt{REMAINING} : The number of remaining or in-stock parts to be produced.
 
-\item \texttt{TARGET} : The desired measure or count for a data item value.
+\item \texttt{TARGET} : The number of projected or planned parts to be produced.
 
 \end{itemize}
 
@@ -1948,6 +2210,17 @@ The non-executable header section of the control program.
 \end{table}
 \FloatBarrier
 
+Subtypes of \texttt{ProgramHeader} are :
+
+\begin{itemize}
+\item \texttt{ACTIVE} : The value of the {term:Data Entity} that is engaging.
+
+\item \texttt{MAIN} : The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+\item \texttt{SCHEDULE} : The identity of a control program that is used to specify the order of execution of other programs.
+
+\end{itemize}
+
 \FloatBarrier
 \subsubsection[ProgramLocation]{ProgramLocation \\ {\small Subtype of Event}}
   \label{type:ProgramLocation}
@@ -2104,6 +2377,35 @@ The value of a command issued to adjust the programmed velocity for a {model:Rot
 \end{tabu}
 \end{table}
 \FloatBarrier
+
+\FloatBarrier
+\subsubsection[Rotation]{Rotation \\ {\small Subtype of Event}}
+  \label{type:Rotation}
+
+\FloatBarrier
+
+A three space angular rotation relative to a coordinate system.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Rotation}}
+  \label{properties:Rotation}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\texttt{units} & \texttt{UnitEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{Rotation} are:
+\begin{itemize}
+
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[SerialNumber]{SerialNumber \\ {\small Subtype of Event}}
@@ -2282,6 +2584,35 @@ Subtypes of \texttt{ToolOffset} are :
 \item \texttt{LENGTH} : A reference to a length type tool offset variable.
 
 \item \texttt{RADIAL} : A reference to a radial type tool offset variable.
+
+\end{itemize}
+
+\FloatBarrier
+\subsubsection[Translation]{Translation \\ {\small Subtype of Event}}
+  \label{type:Translation}
+
+\FloatBarrier
+
+A three space linear translation relative to a coordinate system.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Translation}}
+  \label{properties:Translation}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\texttt{units} & \texttt{UnitEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{Translation} are:
+\begin{itemize}
 
 \end{itemize}
 

@@ -1,27 +1,66 @@
-% Generated 2020-02-28 19:23:51 -0500
-\subsection{Components} \label{model:Components}
+% Generated 2020-05-14 16:42:03 -0400
+\subsection{Components} \label{sec:Components}
+
+\gls{components} groups information describing physical parts or logical functions of a piece of equipment.   \gls{components} contains one or more \gls{component} elements.
+
+
 \subsubsection{Component}
-  \label{type:Component}
+  \label{sec:Component}
 
-\FloatBarrier
 
-Placeholder for documentation!
+A \gls{component} organizes information describing a physical part or logical function of a piece of equipment.
+
+
+\paragraph{Attributes of Component}\mbox{}
+\label{sec:Attributes of Component}
+
+\tbl{attributes of Component} lists the attributes of \texttt{Component}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Component}}
-  \label{properties:Component}
+  \caption{Attributes of Component}}
+  \label{table:attributes of Component}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{id} & \texttt{ID} & 1 \\
 \texttt{name} & \texttt{string} & 0..1 \\
 \texttt{nativeName} & \texttt{string} & 0..1 \\
 \texttt{sampleInterval} & \texttt{integer} & 0..1 \\
-\texttt{<<deprecated>> sampleRate} & \texttt{float} & 0..1 \\
+\texttt{sampleRate} & \texttt{float} & 0..1 \\
 \texttt{uuid} & \texttt{NMTOKEN} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Component}:
+
+\begin{itemize}
+\item \texttt{id} : The unique identifier for this element.
+\item \texttt{name} : The name of an element or a piece of equipment.
+\item \texttt{nativeName} : The common name normally associated with a piece of equipment or an element.
+\item \texttt{sampleInterval} : An optional attribute that is an indication provided by a piece of equipment describing the interval in milliseconds between the completion of the reading of the data associated with the {model:Device} element until the beginning of the next sampling of that data.
+\item \texttt{sampleRate} : 
+\item \texttt{uuid} : The unique identifier for an XML element.
+\end{itemize}
+
+\paragraph{Elements of Component}\mbox{}
+\label{sec:Elements of Component}
+
+\tbl{elements of Component} lists the elements of \texttt{Component}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of Component}}
+  \label{table:elements of Component}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
 \texttt{Description} & \texttt{Description} & 0..1 \\
 \texttt{Compositions} & \texttt{Composition} & 0..* \\
 \texttt{Components} & \texttt{Component} & 0..* \\
@@ -33,84 +72,38 @@ Placeholder for documentation!
 \FloatBarrier
 
 
-\paragraph{\texttt{id}}\mbox{}
-\newline\tab The unique identifier for this element.
+Descriptions for elements of \texttt{Component}:
 
-\paragraph{\texttt{name}}\mbox{}
-\newline\tab The name of an element or a piece of equipment.
-
-\paragraph{\texttt{nativeName}}\mbox{}
-\newline\tab The common name normally associated with a piece of equipment or an element.
-
-\paragraph{\texttt{sampleInterval}}\mbox{}
-\newline\tab An optional attribute that is an indication provided by a piece of equipment describing the interval in milliseconds between the completion of the reading of the data associated with the {model:Device} element until the beginning of the next sampling of that data.
-
-\paragraph{\texttt{sampleRate}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{uuid}}\mbox{}
-\newline\tab The unique identifier for an XML element.
-
-\paragraph{\texttt{Description}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{Compositions}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{Components}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{Configuration}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{DataItems}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{References}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection[Device]{Device \\ {\small Subtype of Component}}
-  \label{type:Device}
-
+\begin{itemize}
+\item \texttt{Description} : An element that can contain any descriptive content.
+\item \texttt{Compositions} : \gls{compositions} \glspl{organize} \gls{composition} elements.
+\item \texttt{Components} : \gls{components} \glspl{organize} \gls{component} elements.
+\item \texttt{Configuration} : \gls{configuration} contains technical information about a piece of equipment describing its physical layout or functional characteristics.
+\item \texttt{DataItems} : \gls{dataitems} \glspl{organize} \gls{dataitem} elements. See \sect{DataItems}
+\item \texttt{References} : \gls{references} \glspl{organize} \gls{reference} elements associated with this \gls{component} element.
+\end{itemize}
 \FloatBarrier
 
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Device}}
-  \label{properties:Device}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{<<deprecated>> iso841Class} & \texttt{string} & 0..1 \\
-\texttt{name} & \texttt{string} & 1 \\
-\texttt{uuid} & \texttt{NMTOKEN} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-\paragraph{\texttt{iso841Class}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
 \subsubsection{Description}
-  \label{type:Description}
+  \label{sec:Description}
 
-\FloatBarrier
 
-Placeholder for documentation!
+An element that can contain any descriptive content.
+
+
+\paragraph{Attributes of Description}\mbox{}
+\label{sec:Attributes of Description}
+
+\tbl{attributes of Description} lists the attributes of \texttt{Description}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Description}}
-  \label{properties:Description}
+  \caption{Attributes of Description}}
+  \label{table:attributes of Description}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{manufacturer} & \texttt{string} & 0..1 \\
 \texttt{model} & \texttt{string} & 0..1 \\
@@ -122,18 +115,13 @@ Placeholder for documentation!
 \FloatBarrier
 
 
-\paragraph{\texttt{manufacturer}}\mbox{}
-\newline\tab The name of the manufacturer of the physical or logical part of a piece of equipment represented by an XML element.
+Descriptions for attributes of \texttt{Description}:
 
-\paragraph{\texttt{model}}\mbox{}
-\newline\tab The model description of the physical part or logical function of a piece of equipment represented by this XML element.
-
-\paragraph{\texttt{serialNumber}}\mbox{}
-\newline\tab The serial number associated with a piece of equipment.
-
-\paragraph{\texttt{station}}\mbox{}
-\newline\tab The station where the physical part or logical function of a piece of equipment is located when it is part of a manufacturing unit or cell with multiple stations.
-
-\paragraph{\texttt{value}}\mbox{}
-\newline\tab Placeholder for documentation!
+\begin{itemize}
+\item \texttt{manufacturer} : The name of the manufacturer of the physical or logical part of a piece of equipment represented by an XML element.
+\item \texttt{model} : The model description of the physical part or logical function of a piece of equipment represented by this XML element.
+\item \texttt{serialNumber} : The serial number associated with a piece of equipment.
+\item \texttt{station} : The station where the physical part or logical function of a piece of equipment is located when it is part of a manufacturing unit or cell with multiple stations.
+\item \texttt{value} : 
+\end{itemize}
 \FloatBarrier

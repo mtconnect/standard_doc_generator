@@ -1,4 +1,4 @@
-% Generated 2020-02-28 19:23:51 -0500
+% Generated 2020-05-04 10:03:15 -0400
 \subsection{Observations} \label{model:Observations}
 \subsubsection{Cell}
   \label{type:Cell}
@@ -7,6 +7,27 @@
 
 Placeholder for documentation!
 
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Cell}}
+  \label{properties:Cell}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{key} & \texttt{ID} & 1 \\
+\texttt{value} & \texttt{T} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+\paragraph{\texttt{key}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{value}}\mbox{}
+\newline\tab Placeholder for documentation!
 \FloatBarrier
 \subsubsection{DataSet}
   \label{type:DataSet}
@@ -26,7 +47,6 @@ Placeholder for documentation!
 \tabucline[1.5pt]{}
 \texttt{count} & \texttt{integer} & 1 \\
 \texttt{Entry} & \texttt{Entry} & 0..* \\
-\texttt{observationDataSet} & \texttt{} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -36,9 +56,6 @@ Placeholder for documentation!
 \newline\tab Placeholder for documentation!
 
 \paragraph{\texttt{Entry}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{observationDataSet}}\mbox{}
 \newline\tab Placeholder for documentation!
 \FloatBarrier
 \subsubsection{Discrete}
@@ -85,6 +102,7 @@ Placeholder for documentation!
 \texttt{key} & \texttt{ID} & 1 \\
 \texttt{removed} & \texttt{boolean} & 0..1 \\
 \texttt{Entry} & \texttt{DataSet} & 1 \\
+\texttt{hasCell} & \texttt{Cell} & 0..* \\
 \texttt{value} & \texttt{T} & 0..1 \\
 \end{tabu}
 \end{table}
@@ -98,6 +116,9 @@ Placeholder for documentation!
 \newline\tab Placeholder for documentation!
 
 \paragraph{\texttt{Entry}}\mbox{}
+\newline\tab Placeholder for documentation!
+
+\paragraph{\texttt{hasCell}}\mbox{}
 \newline\tab Placeholder for documentation!
 
 \paragraph{\texttt{value}}\mbox{}
@@ -507,38 +528,17 @@ Placeholder for documentation!
 \hline
 \rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{tableEntry} & \texttt{TableEntry} & 1 \\
+\texttt{hasEntry} & \texttt{Entry} & 0..* \\
+\texttt{count} & \texttt{integer} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-\paragraph{\texttt{tableEntry}}\mbox{}
+\paragraph{\texttt{hasEntry}}\mbox{}
 \newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection{TableEntry}
-  \label{type:TableEntry}
 
-\FloatBarrier
-
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of TableEntry}}
-  \label{properties:TableEntry}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{cell} & \texttt{Cell} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-\paragraph{\texttt{cell}}\mbox{}
+\paragraph{\texttt{count}}\mbox{}
 \newline\tab Placeholder for documentation!
 \FloatBarrier
 \subsubsection{TimeSeries}

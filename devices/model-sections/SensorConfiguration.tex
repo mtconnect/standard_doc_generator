@@ -1,65 +1,94 @@
-% Generated 2020-02-28 19:23:51 -0500
-\subsection{SensorConfiguration} \label{model:SensorConfiguration}
+% Generated 2020-05-14 16:42:03 -0400
+\subsection{SensorConfiguration} \label{sec:SensorConfiguration}
+
 \subsubsection{Channel}
-  \label{type:Channel}
+  \label{sec:Channel}
 
-\FloatBarrier
 
-Placeholder for documentation!
+
+
+
+\paragraph{Attributes of Channel}\mbox{}
+\label{sec:Attributes of Channel}
+
+\tbl{attributes of Channel} lists the attributes of \texttt{Channel}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Channel}}
-  \label{properties:Channel}
+  \caption{Attributes of Channel}}
+  \label{table:attributes of Channel}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{name} & \texttt{NMTOKEN} & 0..1 \\
+\texttt{number} & \texttt{NMTOKEN} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Channel}:
+
+\begin{itemize}
+\item \texttt{name} : The name of an element or a piece of equipment.
+\item \texttt{number} : A unique identifier that will only refer to a specific {term:sensing element}.
+\end{itemize}
+
+\paragraph{Elements of Channel}\mbox{}
+\label{sec:Elements of Channel}
+
+\tbl{elements of Channel} lists the elements of \texttt{Channel}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of Channel}}
+  \label{table:elements of Channel}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{CalibrationDate} & \texttt{dateTime} & 0..1 \\
 \texttt{CalibrationInitials} & \texttt{string} & 0..1 \\
-\texttt{name} & \texttt{NMTOKEN} & 0..1 \\
 \texttt{NextCalibrationDate} & \texttt{dateTime} & 0..1 \\
-\texttt{number} & \texttt{NMTOKEN} & 1 \\
 \texttt{Description} & \texttt{Description} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-\paragraph{\texttt{CalibrationDate}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for elements of \texttt{Channel}:
 
-\paragraph{\texttt{CalibrationInitials}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{name}}\mbox{}
-\newline\tab The name of an element or a piece of equipment.
-
-\paragraph{\texttt{NextCalibrationDate}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{number}}\mbox{}
-\newline\tab A unique identifier that will only refer to a specific {term:sensing element}.
-
-\paragraph{\texttt{Description}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection[SensorConfiguration]{SensorConfiguration \\ {\small Subtype of Configuration}}
-  \label{type:SensorConfiguration}
-
+\begin{itemize}
+\item \texttt{CalibrationDate} : 
+\item \texttt{CalibrationInitials} : 
+\item \texttt{NextCalibrationDate} : 
+\item \texttt{Description} : An element that can contain any descriptive content.
+\end{itemize}
 \FloatBarrier
 
-Placeholder for documentation!
+\subsubsection{SensorConfiguration}
+  \label{sec:SensorConfiguration}
+
+
+
+
+
+\paragraph{Elements of SensorConfiguration}\mbox{}
+\label{sec:Elements of SensorConfiguration}
+
+\tbl{elements of SensorConfiguration} lists the elements of \texttt{SensorConfiguration}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of SensorConfiguration}}
-  \label{properties:SensorConfiguration}
+  \caption{Elements of SensorConfiguration}}
+  \label{table:elements of SensorConfiguration}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{CalibrationDate} & \texttt{dateTime} & 0..1 \\
 \texttt{CalibrationInitials} & \texttt{string} & 0..1 \\
@@ -71,18 +100,13 @@ Placeholder for documentation!
 \FloatBarrier
 
 
-\paragraph{\texttt{CalibrationDate}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for elements of \texttt{SensorConfiguration}:
 
-\paragraph{\texttt{CalibrationInitials}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{FirmwareVersion}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{NextCalibrationDate}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{Channels}}\mbox{}
-\newline\tab Placeholder for documentation!
+\begin{itemize}
+\item \texttt{CalibrationDate} : 
+\item \texttt{CalibrationInitials} : 
+\item \texttt{FirmwareVersion} : 
+\item \texttt{NextCalibrationDate} : 
+\item \texttt{Channels} : 
+\end{itemize}
 \FloatBarrier

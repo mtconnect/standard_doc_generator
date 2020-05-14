@@ -1,379 +1,220 @@
-% Generated 2020-02-28 19:23:51 -0500
-\subsection{Specifications} \label{model:Specifications}
-\subsubsection{AbstractSpecification}
-  \label{type:AbstractSpecification}
+% Generated 2020-05-14 16:42:03 -0400
+\subsection{Specifications} \label{sec:Specifications}
 
-\FloatBarrier
+\subsubsection{Characteristic}
+  \label{sec:Characteristic}
 
-Placeholder for documentation!
 
-\FloatBarrier
-\subsubsection[Specification]{Specification \\ {\small Subtype of AbstractSpecification}}
-  \label{type:Specification}
 
-\FloatBarrier
 
-Placeholder for documentation!
+
+\paragraph{Attributes of Characteristic}\mbox{}
+\label{sec:Attributes of Characteristic}
+
+\tbl{attributes of Characteristic} lists the attributes of \texttt{Characteristic}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Specification}}
-  \label{properties:Specification}
+  \caption{Attributes of Characteristic}}
+  \label{table:attributes of Characteristic}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{value} & \texttt{float} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Characteristic}:
+
+\begin{itemize}
+\item \texttt{value} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Rated}
+  \label{sec:Rated}
+
+
+
+
+\FloatBarrier
+
+\subsubsection{Minimum}
+  \label{sec:Minimum}
+
+
+
+
+\FloatBarrier
+
+\subsubsection{Maximum}
+  \label{sec:Maximum}
+
+
+
+
+\FloatBarrier
+
+\subsubsection{GearRatio}
+  \label{sec:GearRatio}
+
+
+
+
+
+\paragraph{Attributes of GearRatio}\mbox{}
+\label{sec:Attributes of GearRatio}
+
+\tbl{attributes of GearRatio} lists the attributes of \texttt{GearRatio}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of GearRatio}}
+  \label{table:attributes of GearRatio}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{number} & \texttt{integer} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{GearRatio}:
+
+\begin{itemize}
+\item \texttt{number} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Nominal}
+  \label{sec:Nominal}
+
+
+
+
+\FloatBarrier
+
+\subsubsection{DutyCycle}
+  \label{sec:DutyCycle}
+
+
+
+
+
+\paragraph{Attributes of DutyCycle}\mbox{}
+\label{sec:Attributes of DutyCycle}
+
+\tbl{attributes of DutyCycle} lists the attributes of \texttt{DutyCycle}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of DutyCycle}}
+  \label{table:attributes of DutyCycle}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{duration} & \texttt{float} & 1 \\
+\texttt{peak} & \texttt{float} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{DutyCycle}:
+
+\begin{itemize}
+\item \texttt{duration} : 
+\item \texttt{peak} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Specification}
+  \label{sec:Specification}
+
+
+
+
+
+\paragraph{Attributes of Specification}\mbox{}
+\label{sec:Attributes of Specification}
+
+\tbl{attributes of Specification} lists the attributes of \texttt{Specification}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Specification}}
+  \label{table:attributes of Specification}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{type} & \texttt{DataItemTypeEnum} & 1 \\
 \texttt{subType} & \texttt{DataItemSubTypeEnum} & 0..1 \\
 \texttt{dataItemIdRef} & \texttt{IDREF} & 0..1 \\
-\texttt{specificationValue} & \texttt{SpecificationValue} & 1..* \\
 \texttt{units} & \texttt{UnitEnum} & 0..1 \\
 \texttt{compositionIdRef} & \texttt{IDREF} & 0..1 \\
+\texttt{hasCharacteristic} & \texttt{Characteristic} & 0..* \\
+\texttt{name} & \texttt{string} & 0..1 \\
+\texttt{coordinateSystemIdRef} & \texttt{IDREF} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-\paragraph{\texttt{type}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for attributes of \texttt{Specification}:
 
-Placeholder for documentation!
+\begin{itemize}
+\item \texttt{type} : 
+\item \texttt{subType} : 
+\item \texttt{dataItemIdRef} : 
+\item \texttt{units} : 
+\item \texttt{compositionIdRef} : 
+\item \texttt{hasCharacteristic} : 
+\item \texttt{name} : 
+\item \texttt{coordinateSystemIdRef} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Specifications}
+  \label{sec:Specifications}
+
+
+
+
+
+\paragraph{Attributes of Specifications}\mbox{}
+\label{sec:Attributes of Specifications}
+
+\tbl{attributes of Specifications} lists the attributes of \texttt{Specifications}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{DataItemTypeEnum} Enumeration}
-  \label{enum:DataItemTypeEnum}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Name} & {Description} \\
-\tabucline[1.5pt]{}
-\end{tabu}
-\end{table} 
-\FloatBarrier
-
-\paragraph{\texttt{subType}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{DataItemSubTypeEnum} Enumeration}
-  \label{enum:DataItemSubTypeEnum}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Name} & {Description} \\
-\tabucline[1.5pt]{}
-\texttt{ABSOLUTE} & The position of a block of program code relative to the beginning of the control program. \\
-\texttt{ACTION} & An indication of the operating state of a mechanism represented by a composition type component.
- The operating state indicates whether the composition element is activated or disabled. 
- The valid data value must be active value or inactive value. \\
-\texttt{ACTUAL} & The measured value of the data item type given by a sensor or encoder. \\
-\texttt{ALL} & The count of all the parts produced.  If the subtype is not given, this is the default. \\
-\texttt{ALTERNATING} & The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage.  \\
-\texttt{A_SCALE} & A Scale weighting factor.   This is the default weighting factor if no factor is specified \\
-\texttt{AUXILIARY} & When multiple locations on a piece of bar stock are referenced as the indication for the endofbar event, the additional location(s) must be designated as auxiliary subtype indication(s) for the endofbar event.   \\
-\texttt{BAD} & Indicates the count of incorrect parts produced. \\
-\texttt{BRINELL} & A scale to measure the resistance to deformation of a surface. \\
-\texttt{B_SCALE} & B Scale weighting factor \\
-\texttt{COMMANDED} & A value specified by the controller type component. \\
-\texttt{CONSUMED} & The amount of bulk material consumed from an object or container during a manufacturing process. \\
-\texttt{CONTROL} & The state of the enabling signal or control logic that enables or disables the function or operation of the structural element. \\
-\texttt{C_SCALE} & C Scale weighting factor \\
-\texttt{DELAY} & A piece of equipment waiting for an event or an action to occur. \\
-\texttt{DIRECT} & The measurement of DC current or voltage. \\
-\texttt{DRY_RUN} & A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
- The valid data value must be on value or off value. 
- When dryrun subtype is on value, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended. \\
-\texttt{D_SCALE} & D Scale weighting factor \\
-\texttt{EXPIRATION} & The time and date code relating to the expiration or end of useful life for a material or other physical item. \\
-\texttt{FIRST_USE} & The time and date code relating the first use of a material or other physical item. \\
-\texttt{GOOD} & Indicates the count of correct parts made. \\
-\texttt{INCREMENTAL} & The position of a block of program code relative to the occurrence of the last linelabel event encountered in the control program. \\
-\texttt{JOG} & The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the axes.  \\
-\texttt{LATERAL} & An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a composition type component. 
- The position information indicates whether the composition element is positioned to the right, to the left, or is in transition.  
- The valid data value must be right value, left value, or transitioning value. \\
-\texttt{LEEB} & A scale to measure the elasticity of a surface. \\
-\texttt{LENGTH} & A reference to a length type tool offset variable. \\
-\texttt{LINE} & The state of the power source for the structural element. \\
-\texttt{LINEAR} & The direction of motion of a linear motion. \\
-\texttt{LOADED} & Subparts of a piece of equipment are under load. \\
-\texttt{MACHINE_AXIS_LOCK} & A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value. 
- When machineaxislock subtype is on value, program execution continues normally, but no equipment motion occurs  \\
-\texttt{MAIN} & The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs. \\
-\texttt{MAINTENANCE} & Action related to maintenance on the piece of equipment. \\
-\texttt{MANUAL_UNCLAMP} & An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
- The valid data value must be active value or inactive value. 
- When manualunclamp subtype is active value, it is expected that a chuck cannot be unclamped until manualunclamp subtype is set to inactive value.  \\
-\texttt{MANUFACTURE} & The time and date code relating to the production of a material or other physical item. \\
-\texttt{MAXIMUM} & Maximum value of a data entity or attribute. \\
-\texttt{MINIMUM} & The minimum value of a data entity or attribute. \\
-\texttt{MOHS} & A scale to measure the resistance to scratching of a surface. \\
-\texttt{MOTION} & An indication of the open or closed state of a mechanism.   The mechanism is represented by a composition type component. 
- The operating state indicates whether the state of the composition element is open, closed, or unlatched.   
- The valid data value must be open value, unlatched value, or closed value. \\
-\texttt{NO_SCALE} & No weighting factor on the frequency scale \\
-\texttt{OPERATING} & A piece of equipment are powered or performing any activity. \\
-\texttt{OPERATOR} & The identifier of the person currently responsible for operating the piece of equipment. \\
-\texttt{OPTIONAL_STOP} & A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value.
- The program execution is stopped after a specific program block is executed when optionalstop subtype is on value.    
- In the case of a G-Code program, a program block event containing a M01 code designates the command for an optionalstop subtype. 
- execution event must change to optionalstop subtype after a program block specifying an optional stop is executed and the optionalstop subtype selection is on value. \\
-\texttt{OVERRIDE} & DEPRECATED: The operators overridden value. \\
-\texttt{POWERED} & Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered. \\
-\texttt{PRIMARY} & Specific applications MAY reference one or more locations on a piece of bar stock as the indication for the endofbar event. The main or most important location must be designated as the primary subtype indication for the endofbar event.   
- If no subtype is specified, primary subtype must be the default endofbar event indication. \\
-\texttt{PROBE} & The position provided by a measurement probe. \\
-\texttt{PROCESS} & The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts. \\
-\texttt{PROGRAMMED} & The value of a signal or calculation specified by a logic or motion program or set by a switch. \\
-\texttt{RADIAL} & A reference to a radial type tool offset variable. \\
-\texttt{RAPID} & The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode. \\
-\texttt{REMAINING} & Remaining measure of an object or an action. \\
-\texttt{ROCKWELL} & A scale to measure the resistance to deformation of a surface. \\
-\texttt{ROTARY} & The rotational direction of a rotary motion using the right hand rule convention.
- The valid data value must be clockwise value or counterclockwise value. \\
-\texttt{SCHEDULE} & The identity of a control program that is used to specify the order of execution of other programs. \\
-\texttt{SET_UP} & The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production. \\
-\texttt{SHORE} & A scale to measure the resistance to deformation of a surface. \\
-\texttt{SINGLE_BLOCK} & A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value.
- Program execution is paused after each block event of code is executed when singleblock subtype is on value.   
- When singleblock subtype is on value, execution event must change to interrupted value after completion of each block event of code.  \\
-\texttt{STANDARD} & The standard or original length of an object. \\
-\texttt{START} & The time and date associated with the beginning of an activity or event. \\
-\texttt{SWITCHED} & An indication of the activation state of a mechanism represented by a composition type component.
- The activation state indicates whether the composition element is activated or not.
- The valid data value must be on value or off value. \\
-\texttt{TARGET} & The desired measure or count for a data item value. \\
-\texttt{TARGET_COMPLETION} & The projected time and date associated with the end or completion of an activity or event. \\
-\texttt{TOOL_CHANGE_STOP} & A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value. 
- Program execution is paused when a command is executed requesting a cutting tool to be changed. 
- execution event must change to interrupted value after completion of the command requesting a cutting tool to be changed and toolchangestop subtype is on value. \\
-\texttt{USEABLE} & The remaining useable length of an object. \\
-\texttt{VERTICAL} & An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a composition type component. 
- The position information indicates whether the composition element is positioned to the top, to the bottom, or is in transition.  
- The valid data value must be up value, down value, or transitioning value. \\
-\texttt{VICKERS} & A scale to measure the resistance to deformation of a surface. \\
-\texttt{WORKING} & A piece of equipment performing any activity, the equipment is active and performing a function under load or not. \\
-\end{tabu}
-\end{table} 
-\FloatBarrier
-
-\paragraph{\texttt{dataItemIdRef}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{specificationValue}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{units}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{UnitEnum} Enumeration}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Name} & {Description} \\
-\tabucline[1.5pt]{}
-\texttt{AMPERE} & Amps \\
-\texttt{CELSIUS} & Degrees Celsius \\
-\texttt{COUNT} & A count of something. \\
-\texttt{DECIBEL} & Sound Level \\
-\texttt{DEGREE} & Angle in degrees \\
-\texttt{DEGREE/SECOND} & Angular degrees per second \\
-\texttt{DEGREE/SECOND\^2} & Angular acceleration in degrees per second squared \\
-\texttt{HERTZ} & Frequency measured in cycles per second \\
-\texttt{JOULE} & A measurement of energy. \\
-\texttt{KILOGRAM} & Kilograms \\
-\texttt{LITER} & Measurement of volume of a fluid \\
-\texttt{LITER/SECOND} & Liters per second \\
-\texttt{MICRO_RADIAN} & Measurement of Tilt \\
-\texttt{MILLIMETER} & Millimeters \\
-\texttt{MILLIMETER_3D} & A point in space identified by X, Y, and Z positions and represented by a space-delimited set of numbers each expressed in millimeters. \\
-\texttt{MILLIMETER/REVOLUTION} & Millimeters per revolution. \\
-\texttt{MILLIMETER/SECOND} & Millimeters per second \\
-\texttt{MILLIMETER/SECOND\^2} & Acceleration in millimeters per second squared \\
-\texttt{NEWTON} & Force in Newtons \\
-\texttt{NEWTON_METER} & Torque, a unit for force times distance. \\
-\texttt{OHM} & Measure of Electrical Resistance \\
-\texttt{PASCAL} & Pressure in Newtons per square meter \\
-\texttt{PASCAL_SECOND} & Measurement of Viscosity \\
-\texttt{PERCENT} & Percentage \\
-\texttt{PH} & A measure of the acidity or alkalinity of a solution. \\
-\texttt{REVOLUTION/MINUTE} & Revolutions per minute \\
-\texttt{SECOND} & A measurement of time. \\
-\texttt{SIEMENS/METER} & A measurement of Electrical Conductivity \\
-\texttt{VOLT} & Volts \\
-\texttt{VOLT_AMPERE} & The measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA). \\
-\texttt{VOLT_AMPERE_REACTIVE} & The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR). \\
-\texttt{WATT} & Watts \\
-\texttt{WATT_SECOND} & Measurement of electrical energy, equal to one Joule \\
-\end{tabu}
-\end{table} 
-\FloatBarrier
-
-\paragraph{\texttt{compositionIdRef}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection{SpecificationValue}
-  \label{type:SpecificationValue}
-
-\FloatBarrier
-
-Placeholder for documentation!
-
-\FloatBarrier
-\subsubsection[Constraint]{Constraint \\ {\small Subtype of SpecificationValue}}
-  \label{type:Constraint}
-
-\FloatBarrier
-
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Constraint}}
-  \label{properties:Constraint}
+  \caption{Attributes of Specifications}}
+  \label{table:attributes of Specifications}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{value} & \texttt{float} & 1 \\
+\texttt{specification} & \texttt{Specification} & 1..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-\paragraph{\texttt{value}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection[Rated]{Rated \\ {\small Subtype of Constraint}}
-  \label{type:Rated}
+Descriptions for attributes of \texttt{Specifications}:
 
-\FloatBarrier
-
-Placeholder for documentation!
-
-\FloatBarrier
-\subsubsection[Minimum]{Minimum \\ {\small Subtype of Constraint}}
-  \label{type:Minimum}
-
-\FloatBarrier
-
-Placeholder for documentation!
-
-\FloatBarrier
-\subsubsection[Maximum]{Maximum \\ {\small Subtype of Constraint}}
-  \label{type:Maximum}
-
-\FloatBarrier
-
-Placeholder for documentation!
-
-\FloatBarrier
-\subsubsection[Nominal]{Nominal \\ {\small Subtype of Constraint}}
-  \label{type:Nominal}
-
-\FloatBarrier
-
-Placeholder for documentation!
-
-\FloatBarrier
-\subsubsection[GearSpecification]{GearSpecification \\ {\small Subtype of SpecificationValue}}
-  \label{type:GearSpecification}
-
-\FloatBarrier
-
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of GearSpecification}}
-  \label{properties:GearSpecification}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{number} & \texttt{integer} & 1 \\
-\texttt{gearRatio} & \texttt{float} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-\paragraph{\texttt{number}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{gearRatio}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection[DutyCycle]{DutyCycle \\ {\small Subtype of SpecificationValue}}
-  \label{type:DutyCycle}
-
-\FloatBarrier
-
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of DutyCycle}}
-  \label{properties:DutyCycle}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{duration} & \texttt{float} & 1 \\
-\texttt{peak} & \texttt{float} & 1 \\
-\texttt{value} & \texttt{float} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-\paragraph{\texttt{duration}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{peak}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{value}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection[Specifications]{Specifications \\ {\small Subtype of Configuration}}
-  \label{type:Specifications}
-
-\FloatBarrier
-
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Specifications}}
-  \label{properties:Specifications}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{specification} & \texttt{AbstractSpecification} & 1..* \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-\paragraph{\texttt{specification}}\mbox{}
-\newline\tab Placeholder for documentation!
+\begin{itemize}
+\item \texttt{specification} : 
+\end{itemize}
 \FloatBarrier
