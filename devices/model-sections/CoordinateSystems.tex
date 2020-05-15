@@ -1,11 +1,11 @@
-% Generated 2020-05-14 16:42:03 -0400
+% Generated 2020-05-15 16:48:20 -0400
 \subsection{CoordinateSystems} \label{sec:CoordinateSystems}
 
 \subsubsection{CoordinateSystem}
   \label{sec:CoordinateSystem}
 
 
-
+A \gls{coordinatesystem new} is a reference system that associates a unique set of n parameters with each point in an n-dimensional space. \textit{Ref: ISO 10303-218:2004}
 
 
 \paragraph{Attributes of CoordinateSystem}\mbox{}
@@ -35,11 +35,11 @@
 Descriptions for attributes of \texttt{CoordinateSystem}:
 
 \begin{itemize}
-\item \texttt{id} : 
-\item \texttt{name} : 
-\item \texttt{nativeName} : 
-\item \texttt{parentIdRef} : 
-\item \texttt{type} : 
+\item \texttt{id} : The unique identifier for this element.
+\item \texttt{name} : The name of the coordinate system.
+\item \texttt{nativeName} : The manufacturer's name or users name for the coordinate system.
+\item \texttt{parentIdRef} : A pointer to the \gls{id} attribute of the parent \gls{coordinatesystem new}.
+\item \texttt{type} : The type of coordinate system.
 \end{itemize}
 
 \paragraph{Elements of CoordinateSystem}\mbox{}
@@ -56,7 +56,7 @@ Descriptions for attributes of \texttt{CoordinateSystem}:
 \hline
 \rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Location} & \texttt{Origin} & 0..1 \\
+\texttt{Origin} & \texttt{Origin} & 0..1 \\
 \texttt{Transformation} & \texttt{Transformation} & 0..1 \\
 \end{tabu}
 \end{table}
@@ -66,10 +66,8 @@ Descriptions for attributes of \texttt{CoordinateSystem}:
 Descriptions for elements of \texttt{CoordinateSystem}:
 
 \begin{itemize}
-\item \texttt{Location} : 
-\item \texttt{Transformation} : All coordinate systems described in this International Standard are defined by the orthogonal right-hand rule.
-
-[ISO 9787:2013(E)]
+\item \texttt{Origin} : The coordinates of the origin position of a coordinate system.
+\item \texttt{Transformation} :  The process of transforming to the origin position of the coordinate system from a parent coordinate system using \glselementname{translation event} and \glselementname{rotation event}.
 \end{itemize}
 \FloatBarrier
 
@@ -77,33 +75,33 @@ Descriptions for elements of \texttt{CoordinateSystem}:
   \label{sec:CoordinateSystems}
 
 
+\gls{coordinatesystems} \glspl{organize} \gls{coordinatesystem new} elements for a \gls{component} and its children.
 
 
+\paragraph{Elements of CoordinateSystems}\mbox{}
+\label{sec:Elements of CoordinateSystems}
 
-\paragraph{Attributes of CoordinateSystems}\mbox{}
-\label{sec:Attributes of CoordinateSystems}
-
-\tbl{attributes of CoordinateSystems} lists the attributes of \texttt{CoordinateSystems}.
+\tbl{elements of CoordinateSystems} lists the elements of \texttt{CoordinateSystems}.
 
 \begin{table}[ht]
 \centering 
-  \caption{Attributes of CoordinateSystems}}
-  \label{table:attributes of CoordinateSystems}
+  \caption{Elements of CoordinateSystems}}
+  \label{table:elements of CoordinateSystems}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{coordinateSystem} & \texttt{CoordinateSystem} & 1..* \\
+\texttt{CoordinateSystem} & \texttt{CoordinateSystem} & 1..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{CoordinateSystems}:
+Descriptions for elements of \texttt{CoordinateSystems}:
 
 \begin{itemize}
-\item \texttt{coordinateSystem} : 
+\item \texttt{CoordinateSystem} : 
 \end{itemize}
 \FloatBarrier
 
@@ -111,25 +109,7 @@ Descriptions for attributes of \texttt{CoordinateSystems}:
   \label{sec:Origin}
 
 
-
-
-\FloatBarrier
-
-\subsubsection{Rotation}
-  \label{sec:Rotation}
-
-
-Rotations about X, Y, and Z axes are expressed in the following way:
-
-  + or – A about X axis;
-  + or – B about Y axis;
-  + or – C about Z axis.
-
-Positive A, B and C are in the directions to advance right-hand screws in the positive X, Y and Z directions,
-respectively.
-General rotations are expressed by the combination of individual rotations.
-
-[ISO 9787:2013(E)]
+The coordinates of the origin position of a coordinate system.
 
 \FloatBarrier
 
@@ -137,6 +117,7 @@ General rotations are expressed by the combination of individual rotations.
   \label{sec:Rotation}
 
 
+Rotations about X, Y, and Z axes are expressed in A, B, and C respectively within a 3-dimensional vector. 
 
 
 
@@ -171,9 +152,7 @@ Descriptions for attributes of \texttt{Rotation}:
   \label{sec:Transformation}
 
 
-All coordinate systems described in this International Standard are defined by the orthogonal right-hand rule.
-
-[ISO 9787:2013(E)]
+ The process of transforming to the origin position of the coordinate system from a parent coordinate system using \glselementname{translation event} and \glselementname{rotation event}.
 
 
 \paragraph{Elements of Transformation}\mbox{}
@@ -200,8 +179,9 @@ All coordinate systems described in this International Standard are defined by t
 Descriptions for elements of \texttt{Transformation}:
 
 \begin{itemize}
-\item \texttt{Translation} : 
-\item \texttt{Rotation} : 
+\item \texttt{Translation} : Translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
+\item \texttt{Rotation} : Rotations about X, Y, and Z axes are expressed in A, B, and C respectively within a 3-dimensional vector. 
+
 \end{itemize}
 \FloatBarrier
 
@@ -209,7 +189,7 @@ Descriptions for elements of \texttt{Transformation}:
   \label{sec:Translation}
 
 
-
+Translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
 
 
 \paragraph{Attributes of Translation}\mbox{}
@@ -237,17 +217,4 @@ Descriptions for attributes of \texttt{Translation}:
 \begin{itemize}
 \item \texttt{value} : 
 \end{itemize}
-\FloatBarrier
-
-\subsubsection{Translation}
-  \label{sec:Translation}
-
-
-Translations along X, Y, and Z axes are expressed in the following way: 
-  + or – x along X axis;
-  + or – y along Y axis;
-  + or – z along Z axis.
-
-[ISO 9787:2013(E)]
-
 \FloatBarrier

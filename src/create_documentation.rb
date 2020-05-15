@@ -31,7 +31,7 @@ end
 
 
 def section_intro(f,root_model,section_package_name, section_name)
-  f.puts "\\section{#{section_name}}\n\\label{sec:#{section_name}}\n"
+  f.puts "\n\\section{#{section_name}}\n\\label{sec:#{section_name}}\n"
   f.puts get_section_documentation(root_model, section_package_name, section_name)
 end
 

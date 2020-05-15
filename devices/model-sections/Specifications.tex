@@ -1,4 +1,4 @@
-% Generated 2020-05-14 16:42:03 -0400
+% Generated 2020-05-15 16:48:20 -0400
 \subsection{Specifications} \label{sec:Specifications}
 
 \subsubsection{Characteristic}
@@ -47,7 +47,7 @@ Descriptions for attributes of \texttt{Characteristic}:
   \label{sec:Minimum}
 
 
-
+A numeric lower limit constraint.
 
 \FloatBarrier
 
@@ -55,7 +55,7 @@ Descriptions for attributes of \texttt{Characteristic}:
   \label{sec:Maximum}
 
 
-
+A numeric upper limit constraint.
 
 \FloatBarrier
 
@@ -97,7 +97,7 @@ Descriptions for attributes of \texttt{GearRatio}:
   \label{sec:Nominal}
 
 
-
+The numeric target or expected value.
 
 \FloatBarrier
 
@@ -141,7 +141,7 @@ Descriptions for attributes of \texttt{DutyCycle}:
   \label{sec:Specification}
 
 
-
+\gls{specification} elements define information describing the design characteristics for a piece of equipment.
 
 
 \paragraph{Attributes of Specification}\mbox{}
@@ -174,14 +174,14 @@ Descriptions for attributes of \texttt{DutyCycle}:
 Descriptions for attributes of \texttt{Specification}:
 
 \begin{itemize}
-\item \texttt{type} : 
-\item \texttt{subType} : 
-\item \texttt{dataItemIdRef} : 
-\item \texttt{units} : 
-\item \texttt{compositionIdRef} : 
+\item \texttt{type} : Same as \gls{dataitem} type. See \sect{DataItemTypes}.
+\item \texttt{subType} : Same as \gls{dataitem} subtypes. See \sect{Attributes of DataItem}.
+\item \texttt{dataItemIdRef} : A reference to the \gls{id} attribute of the \gls{dataitem} associated with this element.
+\item \texttt{units} : Same as \gls{dataitem} units. See {section:Attribute of DataItem}.
+\item \texttt{compositionIdRef} : A reference to the \gls{id} attribute of the \gls{composition} associated with this element.
 \item \texttt{hasCharacteristic} : 
-\item \texttt{name} : 
-\item \texttt{coordinateSystemIdRef} : 
+\item \texttt{name} : The \gls{name} provides additional meaning and differentiates between \gls{specifications}.
+\item \texttt{coordinateSystemIdRef} : References the \gls{coordinatesystem new} for geometric \gls{specification} elements.
 \end{itemize}
 \FloatBarrier
 
@@ -189,7 +189,7 @@ Descriptions for attributes of \texttt{Specification}:
   \label{sec:Specifications}
 
 
-
+\gls{specifications} \glspl{organize} \gls{specification} elements for a \gls{component}.
 
 
 \paragraph{Attributes of Specifications}\mbox{}

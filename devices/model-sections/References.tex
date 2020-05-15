@@ -1,11 +1,14 @@
-% Generated 2020-05-14 16:42:03 -0400
+% Generated 2020-05-15 16:48:20 -0400
 \subsection{References} \label{sec:References}
+
+\gls{references} \glspl{organize} \gls{reference} elements.
+
 
 \subsubsection{Reference}
   \label{sec:Reference}
 
 
-
+\gls{reference} is a pointer to information that is associated with another \gls{structural element} defined elsewhere for a piece of equipment.
 
 
 \paragraph{Attributes of Reference}\mbox{}
@@ -41,7 +44,7 @@ Descriptions for attributes of \texttt{Reference}:
   \label{sec:DataItemRef}
 
 
-
+\gls{dataitemref} is a pointer to a \gls{data entity} associated with another \gls{structural element} defined for a piece of equipment.  \gls{dataitemref} allows the data associated with a data item defined in another \gls{structural element} to be directly associated with this element.
 
 
 \paragraph{Attributes of DataItemRef}\mbox{}
@@ -67,7 +70,7 @@ Descriptions for attributes of \texttt{Reference}:
 Descriptions for attributes of \texttt{DataItemRef}:
 
 \begin{itemize}
-\item \texttt{idRef} : 
+\item \texttt{idRef} : A pointer to the \gls{id} attribute of the \gls{dataitem} that contains the information to be associated with this element.
 \end{itemize}
 \FloatBarrier
 
@@ -75,7 +78,7 @@ Descriptions for attributes of \texttt{DataItemRef}:
   \label{sec:ComponentRef}
 
 
-
+\gls{componentref} is a pointer to all of the information associated with another \gls{structural element} defined for a piece of equipment.  \gls{componentref} allows all of the information (\gls{lower level} \gls{components} and all \glspl{data entity}) that is associated with the other \gls{structural element} to be directly associated with this element.
 
 
 \paragraph{Attributes of ComponentRef}\mbox{}
@@ -101,6 +104,6 @@ Descriptions for attributes of \texttt{DataItemRef}:
 Descriptions for attributes of \texttt{ComponentRef}:
 
 \begin{itemize}
-\item \texttt{idRef} : 
+\item \texttt{idRef} : A pointer to the \gls{id} attribute of the \gls{component} that contains the information to be associated with this element.
 \end{itemize}
 \FloatBarrier

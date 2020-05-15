@@ -53,7 +53,7 @@ ConfigurationModels = ['Configuration',
 				'CoordinateSystems',
 				'Motion',
 				'Relationships',
-				'SensorConfiguration',
+				'Sensor',
 				'Specifications'
 				]
 

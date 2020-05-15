@@ -1,4 +1,5 @@
-% Generated 2020-05-14 16:42:03 -0400
+% Generated 2020-05-15 16:48:20 -0400
+
 \section{Devices Information Model}
 \label{sec:Devices Information Model}
 The \gls{device information model} provides a representation of the physical and logical configuration for a piece of equipment used for a manufacturing process or for any other purpose.  It also provides the definition of data that may be reported by that equipment. 
@@ -21,6 +22,7 @@ The \glspl{structural element} and \glspl{data entity} in the \gls{mtconnectdevi
 Note:  The \gls{mtconnect standard} also defines the information model for \glspl{asset}.  An \gls{asset} is something that is used in the manufacturing process, but is not permanently associated with a single piece of equipment, can be removed from the piece of equipment without compromising its function, and can be associated with other pieces of equipment during its lifecycle.  See \citetitle{MTCPart40} for more details on \glspl{asset}.
 
 \end{note}
+
 \section{Structural Elements for MTConnectDevices}
 \label{sec:Structural Elements for MTConnectDevices}
 \glspl{structural element} are \gls{xml} elements that form the logical structure for the \gls{mtconnectdevices} \gls{xml} document.  These elements are used to organize information that represents the physical and logical architecture of a piece of equipment.  Refer to \fig{mtconnect-devices-structural-elements} for an overview of the \glspl{structural element} used in an \gls{mtconnectdevices} document.
@@ -49,6 +51,7 @@ This parent-child relationship can continue to any depth required to fully defin
 \input model-sections/Devices.tex
 \input model-sections/Components.tex
 \input model-sections/ComponentTypes.tex
+
 \section{Compositions}
 \label{sec:Compositions}
 \gls{composition} \glspl{structural element} are used to describe the lowest level physical building blocks of a piece of equipment contained within a \gls{component}. By referencing a specific \gls{composition} element, further clarification and meaning to data associated with a specific \gls{component} can be achieved.
@@ -60,6 +63,7 @@ Both \gls{component} and \gls{composition} elements are \gls{lower level} child 
 \gls{composition} elements represent the lowest level physical part of a piece of equipment.  They \mustnot be further defined with \gls{lower level} \gls{component} elements and they \mustnot have \glspl{data entity} directly associated with them.   They do provide additional information that can be used to enhance the specificity of \glspl{data entity} associated with the parent \gls{component}.
 \input model-sections/Compositions.tex
 \input model-sections/CompositionTypes.tex
+
 \section{DataItems}
 \label{sec:DataItems}
 In the \gls{mtconnectdevices} \gls{xml} document, \glspl{data entity} are \gls{xml} elements that describe data that can be reported by a piece of equipment and are associated with \gls{device} and \gls{component} \glspl{structural element}.   While the \glspl{data entity} describe the data that can be reported by a piece of equipment in the \gls{mtconnectdevices} document, the actual data values are provided in the \gls{streams information model}.   See \citetitle{MTCPart3} for detail on the reported values.
@@ -73,19 +77,24 @@ When \glspl{data entity} are associated with a \gls{structural element}, they ar
 \input model-sections/DataItemElements.tex
 \input model-sections/DefinitionElements.tex
 \input model-sections/DataItemTypes.tex
+
 \section{References}
 \label{sec:References}
+\gls{references} organizes pointers to information defined elsewhere for a piece of equipment.
 
+\gls{references} may be modeled as part of a \gls{device}, \gls{component} or \gls{interface component} type \gls{structural element}.
 \input model-sections/References.tex
+
 \section{Configuration}
 \label{sec:Configuration}
-
+This section provides semantic information for \gls{configuration} and its types.
 \input model-sections/Configuration.tex
 \input model-sections/CoordinateSystems.tex
 \input model-sections/Motion.tex
 \input model-sections/Relationships.tex
-\input model-sections/SensorConfiguration.tex
+\input model-sections/Sensor.tex
 \input model-sections/Specifications.tex
+
 \section{MTConnect Profile}
 \label{sec:MTConnect Profile}
 
