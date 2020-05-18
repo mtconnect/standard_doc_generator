@@ -32,6 +32,35 @@ UnitEnum,VOLT_AMPERE,"The measurement of the apparent power in an electrical cir
 UnitEnum,VOLT_AMPERE_REACTIVE,The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR).
 UnitEnum,WATT,Watts
 UnitEnum,WATT_SECOND,"Measurement of electrical energy, equal to one Joule"
+NativeUnitEnum,CENTIPOISE,A measure of Viscosity
+NativeUnitEnum,DEGREE/MINUTE,Rotational velocity in degrees per minute
+NativeUnitEnum,FAHRENHEIT,Temperature in Fahrenheit
+NativeUnitEnum,FOOT,Feet
+NativeUnitEnum,FOOT_3D,"A point in space identified by X, Y, and Z positions and represented by a space-delimited set of numbers each expressed in feet."
+NativeUnitEnum,FOOT/MINUTE,Feet per minute
+NativeUnitEnum,FOOT/SECOND,Feet per second
+NativeUnitEnum,FOOT/SECOND^2,Acceleration in feet per second squared
+NativeUnitEnum,GALLON/MINUTE,Gallons per minute.
+NativeUnitEnum,INCH,Inches
+NativeUnitEnum,INCH_3D,"A point in space identified by X, Y, and Z positions and represented by a space-delimited set of numbers each expressed in inches."
+NativeUnitEnum,INCH/MINUTE,Inches per minute
+NativeUnitEnum,INCH/SECOND,Inches per second
+NativeUnitEnum,INCH/SECOND^2,Acceleration in inches per second squared
+NativeUnitEnum,INCH_POUND,A measure of torque in inch pounds.
+NativeUnitEnum,KELVIN,A measurement of temperature
+NativeUnitEnum,KILOWATT,A measurement in kilowatt.
+NativeUnitEnum,KILOWATT_HOUR,Kilowatt hours which is 3.6 mega joules.
+NativeUnitEnum,LITER,Measurement of volume of a fluid
+NativeUnitEnum,LITER/MINUTE,Measurement of rate of flow of a fluid
+NativeUnitEnum,MILLIMETER/MINUTE,Velocity in millimeters per minute
+NativeUnitEnum,OTHER,Unsupported units
+NativeUnitEnum,POUND,US pounds
+NativeUnitEnum,POUND/INCH^2,Pressure in pounds per square inch (PSI).
+NativeUnitEnum,RADIAN,Angle in radians
+NativeUnitEnum,RADIAN/MINUTE,Velocity in radians per minute.
+NativeUnitEnum,RADIAN/SECOND,Velocity in radians per second
+NativeUnitEnum,RADIAN/SECOND^2,Rotational acceleration in radian per second squared
+NativeUnitEnum,REVOLUTION/SECOND,Rotational velocity in revolution per second
 DataItemSubTypeEnum,ABSOLUTE,The position of a block of program code relative to the beginning of the control program.
 DataItemSubTypeEnum,ACTION,"An indication of the operating state of a mechanism represented by a {model:Composition} type component.
  The operating state indicates whether the {model:Composition} element is activated or disabled. 

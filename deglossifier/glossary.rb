@@ -22,6 +22,9 @@ CSV.open(File.join($root, 'enumerations.csv'), 'w') do |csv|
   $parser.units.sort.each do |u|
     csv << ['UnitEnum', u.name_property, u.description]
   end
+  $parser.nativeUnits.sort.each do |u|
+    csv << ['NativeUnitEnum', u.name_property, u.description]
+  end
   $parser.subtypes.sort.each do |u|
     csv << ['DataItemSubTypeEnum', u.name_property, u.description]
   end
@@ -316,4 +319,35 @@ CSV.open(File.join($root, 'attribtues.csv'), 'w') do |csv|
       end
     end
   end
+end
+
+CSV.open(File.join($root, 'code_values.csv'), 'w') do |types|  
+  types << ['Owner', 'Name', 'OwnedComment']
+  $parser.models.each do |e|
+    if e.has_key?(:code)      
+      types << ['AssetModel::CuttingToolModel::CodeEnum', e.code, e.description]
+    end
+  end  
+end
+
+
+CSV.open(File.join($root, 'measurement_classes.csv'), 'w') do |types|  
+  types << ['Owner', 'Name', 'OwnedComment']
+  $parser.models.each do |e|
+    if e.has_key?(:code)      
+      types << ['AssetModel::CuttingToolModel::Measurements', e.name_property.to_s, e.description]
+    end
+  end  
+end
+
+parent = 'AssetModel::CuttingToolModel::Measurements'
+
+CSV.open(File.join($root, 'measurement_codes.csv'), 'w') do |attrs|  
+  attrs << ['Owner', 'Name', 'AttrType', 'Visibility', 'True', 'Value', 'Redefines']
+  $parser.models.each do |e|
+    if e.has_key?(:code)      
+      attrs << ["#{parent}::#{e.name_property.to_s}", 'code', "AssetModel::CuttingToolModel::CodeEnum", 'public', 'true', e.code, "#{parent}::Measurement::code"]
+                 
+    end
+  end  
 end
