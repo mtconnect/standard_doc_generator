@@ -35,21 +35,25 @@ $logger.formatter = proc do |severity, datetime, progname, msg|
   "#{severity}: #{msg}\n"
 end
 
-DeviceModels = ['Components',
-                
-				'ComponentTypes',
-				'Compositions',
-				'CompositionTypes',
-				'DataItems',
-				'DataItemTypes',
-                                'References'
-				]
+DeviceModels = ['Devices',
+				'Components',
+				'ComponentTypes']
+				
+CompositionModels = ['Compositions',
+				'CompositionTypes']
+				
+DataItemModels = ['DataItems',
+				'DataItemElements',
+				'DefinitionElements',
+				'DataItemTypes']
+				
+ReferenceModels = ['References']
 				
 ConfigurationModels = ['Configuration',
 				'CoordinateSystems',
 				'Motion',
 				'Relationships',
-				'SensorConfiguration',
+				'Sensor',
 				'Specifications'
 				]
 
@@ -61,12 +65,25 @@ ObservationModels = ['Observations',
 				'SampleTypes'
 				]
 
+AssetModels = ['AssetModel',
+				'CuttingToolModel',
+				'CuttingItemModel'
+				]	
+
+Glossary = ['Glossary']					
+
 
 Directory['Device'] = File.join(File.dirname(__FILE__),'..','devices')
 DocumentFile['Device'] = File.join(File.dirname(__FILE__),'..','devices','devices.tex')
 
 Directory['Observation'] = File.join(File.dirname(__FILE__),'..','observations')
 DocumentFile['Observation'] = File.join(File.dirname(__FILE__),'..','observations','observations.tex')
+
+Directory['Asset'] = File.join(File.dirname(__FILE__),'..','assets')
+DocumentFile['Asset'] = File.join(File.dirname(__FILE__),'..','assets','assets.tex')
+
+Directory['Glossary'] = File.join(File.dirname(__FILE__),'..','devices')
+DocumentFile['Glossary'] = File.join(File.dirname(__FILE__),'..','devices','mtc-terms.tex')
 
 xmiDoc = nil
 File.open(File.join(File.dirname(__FILE__), '..', 'MTConnect SysML Model.xml')) do |xmi|
@@ -77,9 +94,11 @@ end
 $namespaces = Hash[xmiDoc.namespaces.map { |k, v| [k.split(':').last, v] }]
 
 SkipModels = Set.new
-SkipModels.add('AssetModel')
 SkipModels.add('CSV Imports')
 SkipModels.add('Simulation')
+SkipModels.add('MTConnect')
+SkipModels.add('Glossary')
+SkipModels.add('Protocols')
 
 
 unless ARGV.first

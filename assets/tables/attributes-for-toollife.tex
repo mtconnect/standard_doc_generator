@@ -1,0 +1,60 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Attributes for ToolLife} \label{table:attributes-for-toollife} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:attributes-for-toollife}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+
+\gls{type}
+&
+The type of tool life being accumulated. \gls{minutes type}, \gls{partcount}, or \gls{wear type}.
+\newline \gls{type} is a required attribute.
+&
+1 \\
+\hline
+ 
+\gls{countdirection}
+&
+\glsentrydesc{countdirection}
+ The value \MUST be one of \gls{up value} or \gls{down value}.
+\newline \gls{countdirection} is a required attribute.
+&
+1 \\
+\hline
+
+\gls{warning toollife}
+&
+\glsentrydesc{warning toollife}
+\newline \gls{warning toollife} is an optional attribute.
+&
+0..1 \\
+\hline
+
+\gls{limit}
+&
+The end of life limit for this tool. If the \gls{countdirection} is \gls{down value}, the point at which this tool should be expired, usually zero. If the \gls{countdirection} is \gls{up value}, this is the upper limit for which this tool should be expired.
+\newline \gls{limit} is an optional attribute.
+&
+0..1 \\
+\hline
+
+\gls{initial}
+&
+The initial life of the tool when it is new.
+\newline \gls{initial} is an optional attribute.
+&
+0..1 \\
+\hline
+
+
+\end{longtabu}

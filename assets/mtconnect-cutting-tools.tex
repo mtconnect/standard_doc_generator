@@ -1,0 +1,481 @@
+\section{CuttingTool Information model}
+The \gls{cuttingtool} \gls{information model} illustrated in \fig{cuttingtool-schema} has the identical structure as the \gls{cuttingtoolarchetype} \gls{information model} except for the XML element \gls{cuttingtooldefinition} that has been \DEPRECATED in the \gls{cuttingtool} schema.
+
+\subsection{Attributes for CuttingTool}
+Refer to \sect{Common Attributes for CuttingTool and CuttingToolArchetype} for a full description of the \glspl{attribute} for \gls{cuttingtool} \gls{information model}.
+
+\subsection{Elements for CuttingTool}
+The elements associated with \gls{cuttingtool} are given below.    The elements \MUST be provided in the order shown in \tbl{elements-for-cuttingtool} as prescribed by XML.
+
+\input{tables/elements-for-cuttingtool.tex}
+
+\subsubsection{CuttingToolLifeCycle Elements for CuttingTool Only}
+
+The following \gls{cuttingtoollifecycle} elements are used only in the \gls{cuttingtool} \gls{information model} and are not part of the \gls{cuttingtoolarchetype} \gls{information model}. Refer to \sect{Common Entity CuttingToolLifeCycle} for a complete description of the remaining elements for \gls{cuttingtoollifecycle} that are common in both \glspl{information model}.  Refer also to the \gls{cuttingtoollifecycle} schema illustrated in \fig{cuttingtoollifecycle-schema}.
+
+\paragraph{CutterStatus Element for CuttingToolLifeCycle}\mbox{}
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.7}{
+  \includegraphics[width=1.0\textwidth]{figures/cutterstatus-schema.png}
+  }
+  \caption{CutterStatus Schema}
+  \label{fig:cutterstatus-schema}
+\end{figure}
+
+\FloatBarrier
+
+The elements of the \gls{cutterstatus} element can be a combined set of \gls{status cutterstatus} elements.  The \gls{mtconnect standard} allows any set of statuses to be combined, but only certain combinations make sense.  A \gls{cuttingtool} \SHOULD not be both \gls{new status} and \gls{used status} at the same time.  There are no rules in the schema to enforce this, but this is left to the implementer.  The following combinations \MUSTNOT occur: 
+
+\begin{itemize}
+    \item \gls{new status} \MUSTNOT be used with \gls{used status}, \gls{reconditioned status}, or \gls{expired status}.
+    \item \gls{unknown status} \MUSTNOT be used with any other status. 
+    \item \gls{allocated status} and \gls{unallocated status} \MUSTNOT be used together.
+    \item \gls{available value} and \gls{unavailable value} \MUSTNOT be used together.
+    \item If the tool is \gls{expired status}, \gls{broken status}, or \gls{notregistered status} it \MUSTNOT be \gls{available value}.
+    \item All other combinations are allowed.
+\end{itemize}
+
+\input{tables/elements-for-cutterstatus.tex}
+
+\subparagraph{Status Element for CutterStatus} \mbox{}
+
+One of the values for the status of the \gls{cuttingtool}.
+
+\input{tables/values-for-status.tex}
+
+\pagebreak
+
+\paragraph{ToolLife Element for CuttingToolLifeCycle}\mbox{}
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.5}{
+  \includegraphics[width=1.0\textwidth]{figures/toollife-schema.png}
+  }
+  \caption{ToolLife Schema}
+  \label{fig:toollife-schema}
+\end{figure}
+
+\FloatBarrier
+
+The value is the current value for the \gls{toollife}.  The value \MUST be a number.  \gls{toollife} is an option element which can have three types, either minutes for time based, part count for parts based, or wear based using a distance measure.  One \gls{toollife} element can appear for each type, but there cannot be two entries of the same type.  Additional types can be added in the future.
+
+\pagebreak
+
+\subparagraph{Attributes for ToolLife}\mbox{}
+
+\gls{toollife} has the following attributes that can be used to indicate the behavior of the tool life management mechanism.
+
+\input{tables/attributes-for-toollife.tex}
+
+\subparagraph{type Attribute for ToolLife}\mbox{}
+
+The value of \gls{type} must be one of the following:
+
+\input{tables/values-for-type-toollife.tex}
+
+\subparagraph{countDirection Attribute for ToolLife}\mbox{}
+
+The value of \gls{countdirection} must be one of the following:
+
+\input{tables/values-for-countdirection-toollife.tex}
+
+\paragraph{Location Element for CuttingToolLifeCycle}\mbox{}
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.5}{
+  \includegraphics[width=1.0\textwidth]{figures/location-schema.png}
+  }
+  \caption{Location Schema}
+  \label{fig:location-schema}
+\end{figure}
+
+\FloatBarrier
+
+\gls{location} element identifies the specific location where a tool resides in a piece of equipment tool storage or in a tool crib.  This can be any series of numbers and letters as defined by the \gls{xml} type \gls{nmtoken}.  When a \gls{pot type} or \gls{station type} type is used, the value \MUST be a numeric value.  If a \gls{negativeoverlap} or the \gls{positiveoverlap} is provided, the tool reserves additional locations on either side, otherwise if they are not given, no additional locations are required for this tool.  If the pot occupies the first or last location, a rollover to the beginning or the end of the index-able values may occur.  For example, if there are 64 pots and the tool is in pot 64 with a \gls{positiveoverlap} of 1, the first pot \MAY be occupied as well.
+
+\subparagraph{Attributes for Location}\mbox{}
+
+\input{tables/attributes-for-location.tex}
+
+\subparagraph{type Attribute for Location}\mbox{}
+
+The type of location being identified.
+
+\input{tables/values-for-type-location.tex}
+
+\subparagraph{postiveOverlap Attribute for Location}\mbox{}
+
+The number of locations at higher index values that the \gls{cuttingtool} occupies due to interference.	 The value \MUST be an integer.  If not provided it is assumed to be 0. 
+
+\subparagraph{negativeOverlap Attribute for Location}\mbox{}
+
+The number of locations at lower index values that the \gls{cuttingtool} occupies due to interference. The value \MUST be an integer.  If not provided it is not assumed to be 0.
+
+The tool number assigned in the part program and is used for cross referencing this tool information with the process parameters.	 The value \MUST be an integer.
+
+\paragraph{ReconditionCount Element for CuttingToolLifeCycle}\mbox{}
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.7}{
+  \includegraphics[width=1.0\textwidth]{figures/reconditioncount-schema.png}
+  }
+  \caption{ReconditionCount Schema}
+  \label{fig:reconditioncount-schema}
+\end{figure}
+
+\FloatBarrier
+
+This element \MUST contain an integer value as the \gls{cdata} that represents the number of times the cutter has been reconditioned. 
+
+\subparagraph{Attributes for ReconditionCount}\mbox{}
+
+\input{tables/attributes-for-reconditioncount.tex}
+
+\pagebreak
+
+\subsubsection{CuttingToolArchetypeReference Element for Cutting Tool}\mbox{}
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.7}{
+  \includegraphics[width=1.0\textwidth]{figures/cuttingtoolarchetypereference-schema.png}
+  }
+  \caption{CuttingToolArcheTypeReference Schema}
+  \label{fig:cuttingtoolarchetypereference-schema}
+\end{figure}
+
+\FloatBarrier
+
+This optional element references another \gls{mtconnect asset} document providing the static geometries and nominal values for all the measurements. This reduces the amount of data duplication as well as providing a mechanism for asset definitions to be provided before complete measurement has occurred.
+
+\paragraph{source Attribute for CuttingToolArcheTypeReference}\mbox{}
+
+\input{tables/attributes-for-cuttingtoolarchetypereference.tex}
+
+\section{Common Entity CuttingToolLifeCycle}
+\label{sec:Common Entity CuttingToolLifeCycle}
+
+\subsection{CuttingToolLifeCycle}
+\label{sec:CuttingToolLifeCycle}
+
+The life cycle refers to the data pertaining to the application or the use of the tool.  This data is provided by various pieces of equipment (i.e. machine tool, presetter) and statistical process control applications.  Life cycle data will not remain static, but will change periodically when a tool is used or measured.  The life cycle has three conceptual parts; \gls{cuttingtool} and \gls{cuttingitem} identity, properties, and measurements.  A measurement is defined as a constrained value that is reported in defined units and as a W3C floating point format.
+
+The \gls{cuttingtoollifecycle} contains data for the entire tool assembly.  The specific \glspl{cuttingitem} that are part of the \gls{cuttingtoollifecycle} are contained in the \glspl{cuttingitem} element.  Each Cutting Item has similar properties as the assembly; identity, properties, and \glspl{measurement}.
+
+The units for all \glspl{measurement} have been predefined in the \gls{mtconnect standard} and will be consistent with \citetitle{MTCPart2} and \citetitle{MTCPart3}.  This means that all lengths and distances will be given in millimeters and all angular measures will be given in degrees.  Quantities like \gls{processspindlespeed} will be given in RPM, the same as the \gls{rotaryvelocity sample} in \citetitle{MTCPart3}.
+
+\subsubsection{XML Schema Structure for CuttingToolLifeCycle}
+
+The \gls{cuttingtoollifecycle} schema shown in \fig{cuttingtoollifecycle-schema} is used in both the \gls{cuttingtoolarchetype} and \gls{cuttingtool} \glspl{information model}.  The only difference is that the elements \gls{cutterstatus}, \gls{toollife}, \gls{location}, and \gls{reconditioncount} are used only in the \gls{cuttingtool} \gls{information model}.
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{.4}{
+  \includegraphics[width=1\textwidth]{figures/cuttingtoollifecycle-schema.png}}
+  \caption{CuttingToolLifeCycle Schema}
+  \label{fig:cuttingtoollifecycle-schema}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Elements for CuttingToolLifeCycle}
+
+The elements associated with this Cutting Tool are given in \tbl{elements-for-cuttingtoollifecycle}. The elements \MUST be provided in the following order as prescribed by XML.
+
+\input{tables/elements-for-cuttingtoollifecycle.tex}
+
+\subsubsection{ProgramToolGroup Element for CuttingToolLifeCycle}
+
+The optional identifier for the group of Cutting Tools when multiple tools can be used interchangeably. This is defined as an XML string type and is implementation dependent. 
+
+\subsubsection{ProgramToolNumber Element for CuttingToolLifeCycle}
+
+The tool number assigned in the part program and is used for cross referencing this tool information with the process parameters. The value \MUST be an integer.
+
+\pagebreak 
+
+\subsubsection{ProcessSpindleSpeed Element for CuttingToolLifeCycle}
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{.7}{
+  \includegraphics[width=1.0\textwidth]{figures/processspindlespeed-schema.png}
+  }
+  \caption{ProcessSpindleSpeed Schema}
+  \label{fig:processspindlespeed-schema}
+\end{figure}
+
+\FloatBarrier
+
+The \gls{processspindlespeed} \MUST be specified in revolutions/minute (RPM).  The \gls{cdata} \MAY contain the nominal process target spindle speed if available.  The maximum and minimum speeds \MAY be provided as attributes.  If \gls{processspindlespeed} is provided, at least one value of \gls{maximum attribute}, \gls{nominal attribute}, or \gls{minimum attribute} \MUST be specified.
+
+\paragraph{Attributes for ProcessSpindleSpeed}\mbox{}
+
+\input{tables/attributes-for-processspindlespeed.tex}
+
+\clearpage
+
+\subsubsection{ProcessFeedRate Element for CuttingToolLifeCycle}
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{.7}{
+  \includegraphics[width=1.0\textwidth]{figures/processfeedrate-schema.png}
+  }
+  \caption{ProcessFeedRate Schema}
+  \label{fig:processfeedrate-schema}
+\end{figure}
+
+\FloatBarrier
+
+The \gls{processfeedrate} \MUST be specified in millimeters/second (mm/s).  The \gls{cdata} \MAY contain the nominal process target feed rate if available.  The maximum and minimum rates MAY be provided as attributes.  If \gls{processfeedrate} is provided, at least one value of \gls{maximum attribute}, \gls{nominal attribute}, or \gls{minimum attribute} \MUST be specified.
+
+\paragraph{Attributes for ProcessFeedRate}\mbox{}
+
+\input{tables/attributes-for-processfeedrate.tex}
+
+
+\subsubsection{ConnectionCodeMachineSide Element for CuttingToolLifeCycle}
+
+This is an optional identifier for implementation specific connection component of the Cutting Tool on the machine side.  Code: \cfont{CCMS}.  The \gls{cdata} \MAY be any valid string according to the referenced connection code standards.
+
+\subsubsection{xs:any Element for CuttingToolLifeCycle}
+
+Utilizing the new capability in \gls{xml schema} Version 1.1, there are extension points where an additional element can be added to the document without being part of a substitution group.  The new elements have the restriction that they \MUSTNOT be part of the \gls{mtconnect} \gls{namespace} and \MUSTNOT be one of the predefined elements mentioned above.
+
+This allows one to add additional properties to the \gls{cuttingtool} without having to change the definition of the \gls{cuttingtool} or modify the standard. The new capabilities were introduced in Version 1.3 of the \gls{mtconnect standard} and necessitate using Version 1.1 of \gls{xml schema} to make use of this form of extensible properties. 
+
+\subsubsection{Measurements Element for CuttingToolLifeCycle}
+
+The \glspl{measurement} element is a collection of one or more constrained scalar values associated with this Cutting Tool.  The \gls{xml} element \MUST be a type extension of the base types \gls{commonmeasurement} or \gls{assemblymeasurement}.  The following section defines the abstract \gls{measurement} type used in both \gls{cuttingtoollifecycle} and \gls{cuttingitem}.  This subsequent sections describe the \gls{assemblymeasurement} types followed by the \gls{cuttingitemmeasurement} types.
+
+A \gls{measurement} is specific to the tool management policy at a particular shop.  The tool zero reference point or gauge line will be different depending on the particular implementation and will be assumed to be consistent within the shop.  \gls{mtconnect standard} does not standardize the manufacturing process or the definition of the zero point. 
+
+\pagebreak
+
+\subsubsection{Measurement}
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.5}{
+  \includegraphics[width=1.0\textwidth]{figures/measurement-schema.png}
+  }
+  \caption{Measurement Schema}
+  \label{fig:measurement-schema}
+\end{figure}
+
+\FloatBarrier
+
+A \gls{measurement} \MUST be a scalar floating-point value that \MAY be constrained to a maximum and minimum value.  Since the \gls{cuttingtoollifecycle}’s main responsibility is to track aspects of the tool that change over its use in the shop, \gls{mtconnect} represents the current value of the \gls{measurement} \MUST be in the \gls{cdata} (text between the start and end element) as the most current valid value.
+
+The \gls{minimum attribute} and \gls{maximum attribute} \MAY be supplied if they are known or relevant to the \gls{measurement}.  A \gls{nominal attribute} value \MAY be provided to show the reference value for this \gls{measurement}.
+
+There are three abstract subtypes of  \gls{measurement}: \gls{commonmeasurement}, \gls{assemblymeasurement}, and \gls{cuttingitemmeasurement}.  These abstract types \MUSTNOT appear in an \gls{mtconnectassets} document, but are used in the schema as a way to separate which measurements \MAY appear in the different sections of the document.  Only subtypes that have extended these types \MAY appear in the \gls{mtconnectassets} XML.
+
+\Glspl{measurement} in the \gls{cuttingtoollifecycle} section \MUST refer to the entire assembly and not to an individual \gls{cuttingitem}. \gls{cuttingitem} measurements \MUST be located in the measurements associated with the individual \gls{cuttingitem}.
+
+\Glspl{measurement}  \MAY provide an optional \gls{units} attribute to reinforce the given units.  The units \MUST always be given in the predefined MTConnect units.  If \gls{units} are provided, they are only for documentation purposes.  \gls{nativeunits} \MAY optionally be provided to indicate the original units provided for the measurements. 
+
+\paragraph{Attributes for Measurement}\mbox{}
+
+\input{tables/attributes-for-measurement.tex}
+
+\paragraph{Measurement Subtypes for CuttingToolLifeCycle}\mbox{}
+
+These \glspl{measurement} for \gls{cuttingtool} are specific to the entire assembly and \MUSTNOT be used for the \gls{measurement}  pertaining to a \gls{cuttingitem}. \fig{cutting-tool-measurement-1} and \fig{cutting-tool-measurement-2} will be used to reference the assembly specific \glspl{measurement}.
+
+The Code in \tbl{measurement-subtypes-for-cuttingtool} will refer to the acronyms in the diagrams. We will be referring to many diagrams to disambiguate all measurements of the \gls{cuttingtool} and \gls{cuttingitem}. 
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.7}{
+  \includegraphics[width=1.0\textwidth]{figures/cutting-tool-measurement-1.png}
+  }
+  \caption{Cutting Tool Measurement Diagram 1}
+  \label{fig:cutting-tool-measurement-1}
+\end{figure}
+
+\FloatBarrier
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.7}{
+  \includegraphics[width=1.0\textwidth]{figures/cutting-tool-measurement-2.png}
+  }
+  \caption{Cutting Tool Measurement Diagram 2}
+  \label{fig:cutting-tool-measurement-2}
+\end{figure}
+
+\FloatBarrier
+
+\input{tables/measurement-subtypes-for-cuttingtool.tex}
+
+\subsubsection{CuttingItems Element for CuttingToolLifeCycle}
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{.5}{
+  \includegraphics[width=1.0\textwidth]{figures/cuttingitems-schema.png}
+  }
+  \caption{CuttingItems Schema}
+  \label{fig:cuttingitems-schema}
+\end{figure}
+
+\FloatBarrier
+
+An optional collection of \glspl{cuttingitem} that \SHOULD be provided for each independent edge or insert.  If the \glspl{cuttingitem} are not present; it indicates there is no specific information with respect to each of the \glspl{cuttingitem}.  This does not imply there are no \glspl{cuttingitem} – there \MUST be at least one \gls{cuttingitem} – but there is no specific information.
+
+\paragraph{Attributes for CuttingItems}\mbox{}
+
+\input{tables/attributes-for-cuttingitems.tex}
+
+
+\subsubsection{CuttingItem}
+
+A \gls{cuttingitem} is the portion of the tool that physically removes the material from the workpiece by shear deformation.  The Cutting Item can be either a single piece of material attached to the \gls{cuttingitem} or it can be one or more separate pieces of material attached to the \gls{cuttingitem} using a permanent or removable attachment.  A \gls{cuttingitem} can be comprised of one or more cutting edges.  \glspl{cuttingitem} include: replaceable inserts, brazed tips and the cutting portions of solid \glspl{cuttingtool}.
+
+MTConnect Standard considers \glspl{cuttingitem} as part of the \gls{cuttingtool}.  A \glspl{cuttingitem} \MUSTNOT exist in MTConnect unless it is attached to a \gls{cuttingtool}.  Some of the measurements, such as \gls{functionallength}, \MUST be made with reference to the entire \gls{cuttingtool} to be meaningful.  
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{.5}{
+  \includegraphics[width=1\textwidth]{figures/cuttingitem-schema.png}
+  }
+  \caption{CuttingItem Schema}
+  \label{fig:cuttingitem-schema}
+\end{figure}
+
+\FloatBarrier
+
+\paragraph{Attributes for CuttingItem}\mbox{}
+
+\input{tables/attributes-for-cuttingitem.tex}
+
+\subparagraph{indices Attribute for CuttingItem}\mbox{}
+
+An identifier that indicates the \gls{cuttingitem} or \glspl{cuttingitem} these data are associated with.  The value \MUST be a single number ("1") or a comma separated set of individual elements ("1,2,3,4"), or as a inclusive range of values as in ("1-10") or any combination of ranges and numbers as in "1-4,6-10,22".  There \MUSTNOT be spaces or non-integer values in the text representation. 
+
+Indices \SHOULD start numbering with the inserts or \gls{cuttingitem} furthest from the gauge line and increasing in value as the items get closer to the gauge line. Items at the same distance \MAY be arbitrarily numbered.
+
+\subparagraph{itemId Attribute for CuttingItem}\mbox{}
+
+The manufactures’ identifier for this \gls{cuttingitem} that \MAY be its catalog or reference number.  The value \MUST be an XML \gls{nmtoken} value of numbers and letters.
+
+\subparagraph{manufacturers Attribute for CuttingItem}\mbox{}
+
+This optional element references the manufacturers of this tool.  At this level the manufacturers will reference the \gls{cuttingitem} specifically.  The representation will be a comma (,) delimited list of manufacturer names.  This can be any series of numbers and letters as defined by the XML type \cfont{string}.
+
+\subparagraph{grade Attribute for CuttingItem}\mbox{}
+
+This provides an implementation specific designation for the material composition of this \gls{cuttingitem}.
+
+\paragraph{Elements for CuttingItem}\mbox{}
+
+\input{tables/elements-for-cuttingitem.tex}
+
+\subparagraph{Description Element for CuttingItem}\mbox{}
+
+An optional free form text description of this \gls{cuttingitem}. 
+
+\subparagraph{Locus Element for CuttingItem}\mbox{}
+
+Locus represents the location of the \gls{cuttingitem} with respect to the Cutting Tool.  For clarity, the words \cfont{FLUTE}, \cfont{INSERT}, and \cfont{CARTRIDGE} \SHOULD be used to assist in noting the location of a \gls{cuttingitem}.  The \gls{locus cuttingitem} \MAY be any free form text, but \SHOULD adhere to the following rules: 
+
+\begin{itemize}
+    \item  The location numbering \SHOULD start at the furthest \gls{cuttingitem} (\#1) and work it’s way back to the Cutting Item closest to the gauge line. 
+    \item Flutes \SHOULD be identified as such using the word \cfont{FLUTE}:. For example: 
+    \tab \cfont{FLUTE}: 1, \cfont{INSERT}: 2 - would indicate the first flute and the second furthest insert from the end of the tool on that flute.
+    \item Other designations such as \cfont{CARTRIDGE} \MAY be included, but should be identified using upper case and followed by a colon (:).
+\end{itemize}
+
+\subparagraph{ItemLife Element for CuttingItem}\mbox{}
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.5}{
+  \includegraphics[width=1.0\textwidth]{figures/itemlife-schema.png}
+  }
+  \caption{ItemLife Schema}
+  \label{fig:itemlife-schema}
+\end{figure}
+
+\FloatBarrier
+
+The value is the current value for the \gls{toollife}.  The value \MUST be a number. \gls{toollife} is an option element which can have three types, either minutes for time based, part count for parts based, or wear based using a distance measure.  One tool life can appear for each type, but there cannot be two entries of the same type.  Additional types can be added in the future.
+
+\subparagraph{Attributes for ItemLife}\mbox{}
+
+These is an optional attribute that can be used to further classify the operation type.
+
+\input{tables/attributes-for-itemlife.tex}
+
+\subparagraph{type Attribute for ItemLife}\mbox{}
+
+The value of type must be one of the following:
+
+\input{tables/values-for-type-itemlife.tex}
+
+\subparagraph{countDirection Attribute for ItemLife}\mbox{}
+
+The value of type must be one of the following:
+
+\input{tables/values-for-countdirection-itemlife.tex}
+
+\paragraph{Measurement Subtypes for CuttingItem}\mbox{}
+
+These \glspl{measurement} for \gls{cuttingitem} are specific to an individual gls{cuttingitem} and \MUSTNOT be used for the  \glspl{measurement} pertaining to an assembly.  The \fig{cutting-tool}, \fig{cutting-item}, \fig{cutting-item-measurement-diagram-3} and \fig{cutting-item-drive-angle} will be used to for reference for the \gls{cuttingitem} specific \glspl{measurement} .
+
+The Code in \tbl{measurement-subtypes-for-cuttingitem} will refer to the acronym in the diagram.  We will be referring to many diagrams to disambiguate all  \glspl{measurement} of the \glspl{cuttingtool} and \glspl{cuttingitem}.  We will present a few here; please refer to Appendix B for additional reference material.
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.7}{
+  \includegraphics[width=1.0\textwidth]{figures/cutting-tool.png}
+  }
+  \caption{Cutting Tool}
+  \label{fig:cutting-tool}
+\end{figure}
+
+\FloatBarrier
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.7}{
+  \includegraphics[width=1.0\textwidth]{figures/cutting-item.png}
+  }
+  \caption{Cutting Item}
+  \label{fig:cutting-item}
+\end{figure}
+
+\FloatBarrier
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.7}{
+  \includegraphics[width=1.0\textwidth]{figures/cutting-item-measurement-diagram-3.png}
+  }
+  \caption{Cutting Item Measurement Diagram 3}
+  \label{fig:cutting-item-measurement-diagram-3}
+\end{figure}
+
+\FloatBarrier
+
+\begin{figure}[ht]
+  \centering
+  \scalebox{0.3}{
+  \includegraphics[width=1.0\textwidth]{figures/cutting-item-drive-angle.png}
+  }
+  \caption{Cutting Item Drive Angle}
+  \label{fig:cutting-item-drive-angle}
+\end{figure}
+
+\FloatBarrier
+
+The \gls{cuttingitem} \glspl{measurement} in \tbl{measurement-subtypes-for-cuttingitem} will refer the \fig{cutting-tool}, \fig{cutting-item}, \fig{cutting-item-measurement-diagram-3} and \fig{cutting-item-drive-angle}.
+
+\input{tables/measurement-subtypes-for-cuttingitem.tex}

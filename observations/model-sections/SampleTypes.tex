@@ -1,4 +1,4 @@
-% Generated 2020-02-09 16:19:45 -0800
+% Generated 2020-05-04 10:03:15 -0400
 \subsection{SampleTypes} \label{model:SampleTypes}
 \subsubsection[Acceleration]{Acceleration \\ {\small Subtype of Sample}}
   \label{type:Acceleration}
@@ -78,6 +78,87 @@ Subtypes of \texttt{Amperage} are :
 \item \texttt{DIRECT} : The measurement of DC current or voltage.
 
 \item \texttt{TARGET} : The desired measure or count for a data item value.
+
+\end{itemize}
+
+\FloatBarrier
+\subsubsection[AmperageAC]{AmperageAC \\ {\small Subtype of Sample}}
+  \label{type:AmperageAC}
+
+\FloatBarrier
+
+The measurement of an electrical current that reverses direction at regular short intervals.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of AmperageAC}}
+  \label{properties:AmperageAC}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{AmperageAC} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{AmperageAC} are :
+
+\begin{itemize}
+\item \texttt{ActualAmperageAC} : The measured amperage within an electrical circuit.
+
+\item \texttt{CommandedAmperageAC} : The value for a current as specified by a component. 
+
+\item \texttt{ProgrammedAmperageAC} : The value for a current as specified by a logic or motion program or set by a switch.
+
+\end{itemize}
+
+\FloatBarrier
+\subsubsection[AmperageDC]{AmperageDC \\ {\small Subtype of Sample}}
+  \label{type:AmperageDC}
+
+\FloatBarrier
+
+The measurement of an electric current flowing in one direction only.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of AmperageDC}}
+  \label{properties:AmperageDC}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{AmperageDC} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{AmperageDC} are :
+
+\begin{itemize}
+\item \texttt{ActualAmperageDC} : The measured amperage within an electrical circuit.
+
+\item \texttt{CommandedAmperageDC} : The value for a current as specified by a component. 
+The {model:COMMANDED} current is a calculated value that includes adjustments and overrides.
+
+\item \texttt{ProgrammedAmperageDC} : The value for a current as specified by a logic or motion program or set by a switch.
 
 \end{itemize}
 
@@ -532,6 +613,35 @@ Subtypes of \texttt{DepositionVolume} are :
 \end{itemize}
 
 \FloatBarrier
+\subsubsection[Diameter]{Diameter \\ {\small Subtype of Sample}}
+  \label{type:Diameter}
+
+\FloatBarrier
+
+The measured dimension of a diameter.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Diameter}}
+  \label{properties:Diameter}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{Diameter} are:
+\begin{itemize}
+
+\end{itemize}
+
+\FloatBarrier
 \subsubsection[Displacement]{Displacement \\ {\small Subtype of Sample}}
   \label{type:Displacement}
 
@@ -707,6 +817,120 @@ The measurement of the number of occurrences of a repeating event per unit time.
 \FloatBarrier
 
 \FloatBarrier
+\subsubsection[HumidityAbsolute]{HumidityAbsolute \\ {\small Subtype of Sample}}
+  \label{type:HumidityAbsolute}
+
+\FloatBarrier
+
+The amount of water vapor expressed in grams per cubic meter.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of HumidityAbsolute}}
+  \label{properties:HumidityAbsolute}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{HumidityAbsolute} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{HumidityAbsolute} are :
+
+\begin{itemize}
+\item \texttt{ActualHumidityAbsolute} : The measured value.
+
+\item \texttt{CommandedHumidityAbsolute} : The commanded value.
+
+\end{itemize}
+
+\FloatBarrier
+\subsubsection[HumidityRelative]{HumidityRelative \\ {\small Subtype of Sample}}
+  \label{type:HumidityRelative}
+
+\FloatBarrier
+
+The amount of water vapor present expressed as a percent to reach saturation at the same temperature.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of HumidityRelative}}
+  \label{properties:HumidityRelative}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{HumidityRelative} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{HumidityRelative} are :
+
+\begin{itemize}
+\item \texttt{ActualHumidityRelative} : The measured value.
+
+\item \texttt{CommandedHumidityRelative} : The commanded value.
+
+\end{itemize}
+
+\FloatBarrier
+\subsubsection[HumiditySpecific]{HumiditySpecific \\ {\small Subtype of Sample}}
+  \label{type:HumiditySpecific}
+
+\FloatBarrier
+
+The ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of HumiditySpecific}}
+  \label{properties:HumiditySpecific}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{HumiditySpecific} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{HumiditySpecific} are :
+
+\begin{itemize}
+\item \texttt{ActualHumiditySpecific} : The measured value.
+
+\item \texttt{CommandedHumiditySpecific} : The commanded value.
+
+\end{itemize}
+
+\FloatBarrier
 \subsubsection[Length]{Length \\ {\small Subtype of Sample}}
   \label{type:Length}
 
@@ -830,6 +1054,44 @@ The measurement of the mass of an object(s) or an amount of material.
 \end{tabu}
 \end{table}
 \FloatBarrier
+
+\FloatBarrier
+\subsubsection[Orientation]{Orientation \\ {\small Subtype of Sample}}
+  \label{type:Orientation}
+
+\FloatBarrier
+
+A measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of Orientation}}
+  \label{properties:Orientation}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{Orientation} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{Orientation} are :
+
+\begin{itemize}
+\item \texttt{ActualOrientation} : The measured value.
+
+\item \texttt{CommandedOrientation} : The commanded value.
+
+\end{itemize}
 
 \FloatBarrier
 \subsubsection[PH]{PH \\ {\small Subtype of Sample}}
@@ -1453,6 +1715,86 @@ Subtypes of \texttt{Voltage} are :
 \end{itemize}
 
 \FloatBarrier
+\subsubsection[VoltageAC]{VoltageAC \\ {\small Subtype of Sample}}
+  \label{type:VoltageAC}
+
+\FloatBarrier
+
+The measurement of the electrical potential between two points in an electrical circuit in which the current periodically reverses direction.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of VoltageAC}}
+  \label{properties:VoltageAC}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{VoltageAC} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{VoltageAC} are :
+
+\begin{itemize}
+\item \texttt{ActualVoltageAC} : The measured voltage within an electrical circuit.
+
+\item \texttt{CommandedVoltageAC} : The value for a voltage as specified by a {model:Controller} component.
+
+\item \texttt{ProgrammedVoltageAC} : The value for a voltage as specified by a logic or motion program or set by a switch.
+
+\end{itemize}
+
+\FloatBarrier
+\subsubsection[VoltageDC]{VoltageDC \\ {\small Subtype of Sample}}
+  \label{type:VoltageDC}
+
+\FloatBarrier
+
+The measurement of the electrical potential between two points in an electrical circuit in which the current is unidirectional.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of VoltageDC}}
+  \label{properties:VoltageDC}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{VoltageDC} are:
+\begin{itemize}
+
+\end{itemize}
+
+Subtypes of \texttt{VoltageDC} are :
+
+\begin{itemize}
+\item \texttt{ActualVoltageDC} : The measured voltage within an electrical circuit.
+
+\item \texttt{CommandedVoltageDC} : The value for a voltage as specified by a {model:Controller} component.
+
+\item \texttt{ProgrammedVoltageDC} : The value for a voltage as specified by a logic or motion program or set by a switch.
+
+\end{itemize}
+
+\FloatBarrier
 \subsubsection[VolumeFluid]{VolumeFluid \\ {\small Subtype of Sample}}
   \label{type:VolumeFluid}
 
@@ -1545,6 +1887,93 @@ Subtypes of \texttt{Wattage} are :
 \item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
 
 \item \texttt{TARGET} : The desired measure or count for a data item value.
+
+\end{itemize}
+
+\FloatBarrier
+\subsubsection[XDimension]{XDimension \\ {\small Subtype of Sample}}
+  \label{type:XDimension}
+
+\FloatBarrier
+
+Measured dimension of an entity relative to the X direction of the referenced coordinate system.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of XDimension}}
+  \label{properties:XDimension}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{XDimension} are:
+\begin{itemize}
+
+\end{itemize}
+
+\FloatBarrier
+\subsubsection[YDimension]{YDimension \\ {\small Subtype of Sample}}
+  \label{type:YDimension}
+
+\FloatBarrier
+
+Measured dimension of an entity relative to the Y direction of the referenced coordinate system.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of YDimension}}
+  \label{properties:YDimension}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{YDimension} are:
+\begin{itemize}
+
+\end{itemize}
+
+\FloatBarrier
+\subsubsection[ZDimension]{ZDimension \\ {\small Subtype of Sample}}
+  \label{type:ZDimension}
+
+\FloatBarrier
+
+Measured dimension of an entity relative to the Z direction of the referenced coordinate system.
+
+\begin{table}[ht]
+\centering 
+  \caption{\texttt{Properties of ZDimension}}
+  \label{properties:ZDimension}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Property} & {Value} \\
+\tabucline[1.5pt]{}
+\texttt{units} & \texttt{UnitEnum} \\
+\texttt{type} & \texttt{DataItemTypeEnum} \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+ Enumerated \texttt{type}s for \texttt{ZDimension} are:
+\begin{itemize}
 
 \end{itemize}
 

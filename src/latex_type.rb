@@ -168,19 +168,44 @@ class LatexType < Type
 
     unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
 
+
+      attributes = relations_with_documentation.select do |a| 
+		if a.association_name
+		    /[[:lower:]]/.match(a.association_name[0])
+		else 
+			/[[:lower:]]/.match(a.name[0])
+		end
+	  end
+
+	  elements = relations_with_documentation.select do |a| 
+		if a.association_name
+		    /[[:upper:]]/.match(a.association_name[0])
+		else 
+			/[[:upper:]]/.match(a.name[0])
+		end
+	  end
+
+	  unless attributes.empty?
+
       f.puts <<-EOT
+
+\\paragraph{Attributes of #{@name}}\\mbox{}
+\\label{sec:Attributes of #{@name}}
+
+\\tbl{attributes of #{@name}} lists the attributes of \\texttt{#{@name}}.
+
 \\begin{table}[ht]
 \\centering 
-  \\caption{\\texttt{#{header.plural} of #{@name}}}
-  \\label{properties:#{@name}}
+  \\caption{Attributes of #{@name}}}
+  \\label{table:attributes of #{@name}}
 \\tabulinesep=3pt
 \\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
 \\hline
-\\rowfont\\bfseries {#{header}} & {Type} & {Multiplicity} \\\\
+\\rowfont\\bfseries {Attribute} & {Type} & {Multiplicity} \\\\
 \\tabucline[1.5pt]{}
 EOT
       
-      relations_with_documentation.each do |r|
+      attributes.each do |r|
         if r.name == 'Supertype'
           next
         end
@@ -202,17 +227,85 @@ EOT
 
 EOT
 
-      relations_with_documentation.each do |r|
+	  f.puts "\nDescriptions for attributes of \\texttt{#{@name}}:\n\n"
+	  f.puts "\\begin{itemize}\n"
+      attributes.each do |r|
         if r.name == 'Supertype'
           next
         elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
           
           name = r.association_name ? r.association_name : r.name
-          f.puts "\n\\paragraph{\\texttt{#{name}}}\\mbox{}\n"
           if r.association_doc
-            f.puts "\\newline\\tab #{r.association_doc}\n"
+            f.puts "\\item \\texttt{#{name}} : #{r.association_doc}\n"
           else r.documentation
-            f.puts "\\newline\\tab #{r.documentation}\n"
+            f.puts "\\item \\texttt{#{name}} : #{r.documentation}\n"
+          end
+          
+          if r.target.type.type == 'uml:Enumeration' and name != "type" and !$enums.include?(r.final_target.type.name)
+            r.target.type.generate_enumerations(f)
+            f.puts "\\FloatBarrier\n"
+			$enums << r.final_target.type.name
+          end
+        end
+      end
+
+	  f.puts "\\end{itemize}\n"
+	  end
+	
+	  unless elements.empty? or (elements[0].name == 'Supertype' and elements.length == 1)
+
+      f.puts <<-EOT
+
+\\paragraph{Elements of #{@name}}\\mbox{}
+\\label{sec:Elements of #{@name}}
+
+\\tbl{elements of #{@name}} lists the elements of \\texttt{#{@name}}.
+
+\\begin{table}[ht]
+\\centering 
+  \\caption{Elements of #{@name}}}
+  \\label{table:elements of #{@name}}
+\\tabulinesep=3pt
+\\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
+\\hline
+\\rowfont\\bfseries {Association Name} & {Element} & {Multiplicity} \\\\
+\\tabucline[1.5pt]{}
+EOT
+      
+      elements.each do |r|
+        if r.name == 'Supertype'
+          next
+        end
+        stereo = r.stereotype ? "<<#{r.stereotype}>> " : nil
+        
+        name = r.association_name ? r.association_name : r.name
+        
+        if r.redefinesProperty and r.default
+          f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.default}} & #{r.multiplicity} \\\\"
+        else
+          f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
+        end
+      end
+      
+      f.puts <<-EOT
+\\end{tabu}
+\\end{table}
+\\FloatBarrier
+
+EOT
+
+	  f.puts "\nDescriptions for elements of \\texttt{#{@name}}:\n\n"
+	  f.puts "\\begin{itemize}\n"
+      elements.each do |r|
+        if r.name == 'Supertype'
+          next
+        elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
+          
+          name = r.association_name ? r.association_name : r.name
+          if r.association_doc
+            f.puts "\\item \\texttt{#{name}} : #{r.association_doc}\n"
+          else r.documentation
+            f.puts "\\item \\texttt{#{name}} : #{r.documentation}\n"
           end
           
           if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty
@@ -221,6 +314,10 @@ EOT
           end
         end
       end
+	  f.puts "\\end{itemize}\n"
+
+	  end
+
     end    
   end
   
@@ -239,6 +336,8 @@ EOT
     
 
     unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
+
+	if relations_with_documentation.size>2
 
       f.puts <<-EOT
 \\begin{table}[ht]
@@ -263,7 +362,7 @@ EOT
         if r.redefinesProperty and r.default
           f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.default.gsub(/(\^)/,"\\^{}")}} \\\\"
         else
-                  f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.final_target.type.name}} \\\\"
+          f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.final_target.type.name}} \\\\"
         end
       end
 
@@ -273,6 +372,7 @@ f.puts <<-EOT
 \\FloatBarrier
 
 EOT
+  end
 
   relations_with_documentation.each do |r|
     name = r.association_name ? r.association_name : r.name
@@ -282,6 +382,8 @@ EOT
     elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
       
       f.puts "\n\\paragraph{\\texttt{#{name}}}\\mbox{}\n"
+	  f.puts "\\label{sec:#{name}}\n\n"
+
       if r.association_doc
         f.puts "\\newline\\tab #{r.association_doc}\n"
       else r.documentation
@@ -299,7 +401,7 @@ EOT
         r.final_target.type.generate_enumerations(f, false)
         f.puts "\\FloatBarrier"
       elsif name == 'type'
-        f.puts "\n Enumerated \\texttt{type}s for \\texttt{#{@name}} are:\n"
+        f.puts "\n Enumerated \\texttt{type} for \\texttt{#{@name}} are:\n"
         
         f.puts <<-EOT
 \\begin{itemize}
@@ -308,6 +410,19 @@ EOT
       
         r.final_target.type.literals.each do |lit|
           f.puts "\\item \\texttt{#{lit.name}} : #{lit.description.gsub(/(\^)/,"\\^{}")} \n\n" # "
+		  
+		  unless !$dataitem_types.key?(toTitleCase(lit.name)) or $dataitem_types[toTitleCase(lit.name)].empty?
+			f.puts "Subtypes of \\texttt{#{lit.name}} are: \n"
+			$dataitem_types[toTitleCase(lit.name)].each do |subtype|
+				subtype.relations.each do |relation|
+					if relation.name == 'subType'
+						subtype_name = relation.default
+						f.puts "\\newline\\tab \\texttt{#{subtype_name}} : #{subtype.documentation} \n"
+						break
+					end
+				end
+			end
+		  end
         end
         
 
@@ -344,38 +459,40 @@ EOT
   end
 
 
-def generate_enumerations(f, new_section = true)
+def generate_enumerations(f)
   if @type == 'uml:Enumeration'
     $logger.debug "***** =====> Generating Enumerations for #{@name}"
-    
-    generate_documentation(f) if new_section
-
 
     f.puts <<-EOT
-\\begin{table}[ht]
-\\centering 
-  \\caption{\\texttt{#{escape_name}} Enumeration}
+\\tabulinesep = 5pt
+\\begin{longtabu} to \\textwidth {
+    |l|X|}
+  \\caption{#{escape_name} Enumeration}
 EOT
     unless @@labels.include?(@name)
-      f.puts "  \\label{enum:#{@name}}"
+      f.puts "  \\label{enum:#{@name}} \\\\"
       @@labels.add(@name)
     end
 
     f.puts <<-EOT
-\\tabulinesep=3pt
-\\begin{tabu} to 6in {|l|X|} \\everyrow{\\hline}
 \\hline
-\\rowfont\\bfseries {Name} & {Description} \\\\
-\\tabucline[1.5pt]{}
+Name & Description \\\\
+\\hline
+\\endfirsthead
+\\hline
+\\multicolumn{2}{|c|}{Continuation of Table \\texttt{#{escape_name}} Enumeration} \\\\
+\\hline
+Name & Description \\\\
+\\hline
+\\endhead
 EOT
     
     @literals.each do |lit|
-      f.puts "\\texttt{#{lit.name}} & #{lit.description.gsub(/(\^)/,"\\^{}")} \\\\"
+      f.puts "\\texttt{#{lit.name}} & #{lit.description.gsub(/(\^)/,"\\^{}")} \\\\ \\hline"
       end
         
       f.puts <<-EOT
-\\end{tabu}
-\\end{table} 
+\\end{longtabu}
 EOT
     end
   end
@@ -473,17 +590,16 @@ EOT
   def generate_latex(f = STDOUT)
     # puts "--- Generating #{@name} #{@stereotype}"
     return if @name =~ /Factory/ or @stereotype =~ /metaclass/
-    section_name = if defined?(@relations[0].name) and @relations[0].name == 'Supertype' 
+    section_name = if defined?(@relations[0].name) and @relations[0].name == 'Supertype' and false #Subtype subscript?
       "[#{escape_name}]{#{escape_name} \\\\ {\\small Subtype of #{@relations[0].final_target.type.name}}}"
     else
       "{#{escape_name}}"
     end
 
     f.puts <<-EOT
-\\subsubsection#{section_name}
-  \\label{type:#{@name}}
+\n\\subsubsection#{section_name}
+  \\label{sec:#{@name}}
 
-\\FloatBarrier
 EOT
   
     generate_diagram(f)
@@ -499,4 +615,18 @@ EOT
 
     # generate_class_diagram    
   end
+
+  def toTitleCase(uppercase)
+	titlecase = ""
+	uppercase_split = uppercase.split('_')
+	uppercase_split.each do |word|
+		if word.length>2
+			titlecase += word[0] + word[1..-1].downcase!
+		else 
+			titlecase += word
+		end
+	end
+	return titlecase
+  end
+
 end

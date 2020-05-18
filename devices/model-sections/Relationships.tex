@@ -1,20 +1,26 @@
-% Generated 2020-02-09 16:19:45 -0800
-\subsection{Relationships} \label{model:Relationships}
+% Generated 2020-05-15 16:48:20 -0400
+\subsection{Relationships} \label{sec:Relationships}
+
 \subsubsection{Relationship}
-  \label{type:Relationship}
+  \label{sec:Relationship}
 
-\FloatBarrier
 
-Placeholder for documentation!
+\gls{relationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
+
+
+\paragraph{Attributes of Relationship}\mbox{}
+\label{sec:Attributes of Relationship}
+
+\tbl{attributes of Relationship} lists the attributes of \texttt{Relationship}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Relationship}}
-  \label{properties:Relationship}
+  \caption{Attributes of Relationship}}
+  \label{table:attributes of Relationship}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{criticality} & \texttt{criticalityType} & 0..1 \\
 \texttt{id} & \texttt{ID} & 1 \\
@@ -25,68 +31,55 @@ Placeholder for documentation!
 \FloatBarrier
 
 
-\paragraph{\texttt{criticality}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for attributes of \texttt{Relationship}:
 
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{criticalityType} Enumeration}
-  \label{enum:criticalityType}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\begin{itemize}
+\item \texttt{criticality} : Defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X|}
+  \caption{criticalityType Enumeration}
+  \label{enum:criticalityType} \\
 \hline
-\rowfont\bfseries {Name} & {Description} \\
-\tabucline[1.5pt]{}
-\texttt{CRITICAL} & Placeholder for documentation! \\
-\texttt{NONCRITICAL} & Placeholder for documentation! \\
-\end{tabu}
-\end{table} 
-\FloatBarrier
-
-\paragraph{\texttt{id}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{name}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-\paragraph{\texttt{type}}\mbox{}
-\newline\tab Placeholder for documentation!
-
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{RelationshipType} Enumeration}
-  \label{enum:RelationshipType}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+Name & Description \\
 \hline
-\rowfont\bfseries {Name} & {Description} \\
-\tabucline[1.5pt]{}
-\texttt{PARENT} & Placeholder for documentation! \\
-\texttt{CHILD} & Placeholder for documentation! \\
-\texttt{PEER} & Placeholder for documentation! \\
-\end{tabu}
-\end{table} 
+\endfirsthead
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \texttt{criticalityType} Enumeration} \\
+\hline
+Name & Description \\
+\hline
+\endhead
+\texttt{CRITICAL} & The services or functions provided by the associated element is required for the operation of this element. \\ \hline
+\texttt{NONCRITICAL} & The services or functions provided by the associated element is not required for the operation of this element. \\ \hline
+\end{longtabu}
 \FloatBarrier
+\item \texttt{id} : The unique identifier for this \gls{relationship}.
+\item \texttt{name} : The name associated with this \gls{relationship}.
+\item \texttt{type} : Defines the authority that this piece of equipment has relative to the associated piece of equipment.
+\end{itemize}
 \FloatBarrier
-\subsubsection[ComponentRelationship]{ComponentRelationship \\ {\small Subtype of Relationship}}
-  \label{type:ComponentRelationship}
 
-\FloatBarrier
+\subsubsection{ComponentRelationship}
+  \label{sec:ComponentRelationship}
 
-Placeholder for documentation!
+
+\gls{componentrelationship} describes the association between two components within a piece of equipment that function independently but together perform a capability or service within a piece of equipment.
+
+
+\paragraph{Attributes of ComponentRelationship}\mbox{}
+\label{sec:Attributes of ComponentRelationship}
+
+\tbl{attributes of ComponentRelationship} lists the attributes of \texttt{ComponentRelationship}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of ComponentRelationship}}
-  \label{properties:ComponentRelationship}
+  \caption{Attributes of ComponentRelationship}}
+  \label{table:attributes of ComponentRelationship}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{idRef} & \texttt{ID} & 1 \\
 \end{tabu}
@@ -94,24 +87,33 @@ Placeholder for documentation!
 \FloatBarrier
 
 
-\paragraph{\texttt{idRef}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection[DeviceRelationship]{DeviceRelationship \\ {\small Subtype of Relationship}}
-  \label{type:DeviceRelationship}
+Descriptions for attributes of \texttt{ComponentRelationship}:
 
+\begin{itemize}
+\item \texttt{idRef} : A reference to the associated component element.
+\end{itemize}
 \FloatBarrier
 
-Placeholder for documentation!
+\subsubsection{DeviceRelationship}
+  \label{sec:DeviceRelationship}
+
+
+\gls{devicerelationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
+
+
+\paragraph{Attributes of DeviceRelationship}\mbox{}
+\label{sec:Attributes of DeviceRelationship}
+
+\tbl{attributes of DeviceRelationship} lists the attributes of \texttt{DeviceRelationship}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of DeviceRelationship}}
-  \label{properties:DeviceRelationship}
+  \caption{Attributes of DeviceRelationship}}
+  \label{table:attributes of DeviceRelationship}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{deviceUuidRef} & \texttt{NMTOKEN} & 1 \\
 \texttt{href} & \texttt{xlinkhref} & 0..1 \\
@@ -122,50 +124,60 @@ Placeholder for documentation!
 \FloatBarrier
 
 
-\paragraph{\texttt{deviceUuidRef}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for attributes of \texttt{DeviceRelationship}:
 
-\paragraph{\texttt{href}}\mbox{}
-\newline\tab Placeholder for documentation!
+\begin{itemize}
+\item \texttt{deviceUuidRef} : A reference to the associated piece of equipment. 
 
-\paragraph{\texttt{role}}\mbox{}
-\newline\tab Placeholder for documentation!
+\item \texttt{href} : A URI identifying the \gls{agent} that is publishing information for the associated piece of equipment. \gls{href} \MUST also include the UUID for that specific piece of equipment.
 
-Placeholder for documentation!
-
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{roleType} Enumeration}
-  \label{enum:roleType}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|X|} \everyrow{\hline}
+\gls{href} is of type \cfont{xlink:href} from the W3C XLink specification: (https://www.w3.org/TR/xlink11/).
+\item \texttt{role} : Defines the services or capabilities that the referenced piece of equipment provides relative to this piece of equipment.
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X|}
+  \caption{roleType Enumeration}
+  \label{enum:roleType} \\
 \hline
-\rowfont\bfseries {Name} & {Description} \\
-\tabucline[1.5pt]{}
-\texttt{SYSTEM} & Placeholder for documentation! \\
-\texttt{AUXILIARY} & Placeholder for documentation! \\
-\end{tabu}
-\end{table} 
+Name & Description \\
+\hline
+\endfirsthead
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \texttt{roleType} Enumeration} \\
+\hline
+Name & Description \\
+\hline
+\endhead
+\texttt{SYSTEM} & The associated element performs the functions of a \cfont{System} for this element. \\ \hline
+\texttt{AUXILIARY} & The associated element performs the functions as an \cfont{Auxiliary} for this element. \\ \hline
+\end{longtabu}
+\FloatBarrier
+\item \texttt{xlink:type} : The XLink \cfont{type} attribute \MUST have a fixed value of \cfont{locator} as defined in W3C XLink 1.1 https://www.w3.org/TR/xlink11/ \textit{section 5.4 Locator Attribute (\gls{href})}.
+
+If the \gls{href} attribute is provided, it \MUST conform to the URI syntactic rules as defined in IETF RFC 3986 for Uniform Resource Identifiers. (https://www.ietf.org/rfc/rfc3986.txt)
+\end{itemize}
 \FloatBarrier
 
-\paragraph{\texttt{xlink:type}}\mbox{}
-\newline\tab Placeholder for documentation!
-\FloatBarrier
-\subsubsection[Relationships]{Relationships \\ {\small Subtype of Configuration}}
-  \label{type:Relationships}
+\subsubsection{Relationships}
+  \label{sec:Relationships}
 
-\FloatBarrier
 
-Placeholder for documentation!
+\gls{relationships} \glspl{organize} \gls{relationship} elements.
+
+
+\paragraph{Attributes of Relationships}\mbox{}
+\label{sec:Attributes of Relationships}
+
+\tbl{attributes of Relationships} lists the attributes of \texttt{Relationships}.
 
 \begin{table}[ht]
 \centering 
-  \caption{\texttt{Properties of Relationships}}
-  \label{properties:Relationships}
+  \caption{Attributes of Relationships}}
+  \label{table:attributes of Relationships}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Property} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \texttt{isRelatedTo} & \texttt{Relationship} & 1..* \\
 \end{tabu}
@@ -173,6 +185,9 @@ Placeholder for documentation!
 \FloatBarrier
 
 
-\paragraph{\texttt{isRelatedTo}}\mbox{}
-\newline\tab Placeholder for documentation!
+Descriptions for attributes of \texttt{Relationships}:
+
+\begin{itemize}
+\item \texttt{isRelatedTo} : 
+\end{itemize}
 \FloatBarrier

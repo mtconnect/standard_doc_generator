@@ -28,6 +28,15 @@ class LatexModel < Model
       exit @@models[model]
     end
   end
+  
+  def self.generate_glossary(f, model)
+    if @@models[model]
+      @@models[model].generate_glossary(f)
+    else
+      $logger.fatal "Cannot find model: #{model}"
+      exit @@models[model]
+    end
+  end
 
   def generate_latex(f)
     file = "model-sections/#{short_name}.tex"
@@ -35,12 +44,27 @@ class LatexModel < Model
     File.open(File.join(@@directory,"model-sections",short_name+".tex"), "w") do |fs|
       $logger.info "Generating model #{@name}"
       fs.puts "% Generated #{Time.now}"
-      fs.puts "\\subsection{#{@name}} \\label{model:#{short_name}}"
+      fs.puts "\\subsection{#{@name}} \\label{sec:#{short_name}}"
       
       generate_diagram(fs)
       
       generate_documentation(fs)
       
+      @types.each do |type|
+        if type.parent.nil? or type.parent.model != self
+          recurse_types(fs, type)
+        end
+      end
+    end
+  end
+  
+  def generate_glossary(f)
+    file = "model-sections/#{short_name}.tex"
+
+    File.open(File.join(@@directory,"model-sections",short_name+".tex"), "w") do |fs|
+      $logger.info "% Generating glossary #{@name}"
+      fs.puts "% Generated #{Time.now}"
+   
       @types.each do |type|
         if type.parent.nil? or type.parent.model != self
           recurse_types(fs, type)
