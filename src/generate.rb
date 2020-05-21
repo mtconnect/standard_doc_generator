@@ -45,7 +45,7 @@ CompositionModels = ['Compositions',
 				
 DataItemModels = ['DataItems',
 				'Elements for DataItem',
-				'Elements for DataItem',
+				'Elements for Definition',
 				'DataItem Types']
 				
 ReferenceModels = ['References']
