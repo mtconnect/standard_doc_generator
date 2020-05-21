@@ -35,17 +35,18 @@ $logger.formatter = proc do |severity, datetime, progname, msg|
   "#{severity}: #{msg}\n"
 end
 
+#Part 2 Documentation
 DeviceModels = ['Devices',
 				'Components',
-				'ComponentTypes']
+				'Component Types']
 				
 CompositionModels = ['Compositions',
-				'CompositionTypes']
+				'Composition Types']
 				
 DataItemModels = ['DataItems',
-				'DataItemElements',
-				'DefinitionElements',
-				'DataItemTypes']
+				'Elements for DataItem',
+				'Elements for DataItem',
+				'DataItem Types']
 				
 ReferenceModels = ['References']
 				
@@ -59,17 +60,26 @@ ConfigurationModels = ['Configuration',
 
 ProfileModels = ['Profile']
 
+#Part 3 Documentation
 ObservationModels = ['Observations',
-				'ConditionTypes',
-				'EventTypes',
-				'SampleTypes'
+				'Representation']
+
+
+ObservationTypes = ['Condition Types',
+				'Event Types',
+				'Sample Types'
 				]
 
-AssetModels = ['AssetModel',
-				'CuttingToolModel',
-				'CuttingItemModel'
-				]	
 
+#Part 4 Documentation
+AssetModels = ['Asset',
+				'CuttingTool',
+				'CuttingItem'
+				]
+
+
+#Part 1 Documentation
+Protocols = ['MTConnect Protocol']
 Glossary = ['Glossary']					
 
 
@@ -98,7 +108,6 @@ SkipModels.add('CSV Imports')
 SkipModels.add('Simulation')
 SkipModels.add('MTConnect')
 SkipModels.add('Glossary')
-SkipModels.add('Protocols')
 
 
 unless ARGV.first
