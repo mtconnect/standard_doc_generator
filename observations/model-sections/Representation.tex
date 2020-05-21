@@ -1,0 +1,270 @@
+% Generated 2020-05-20 17:19:31 -0400
+\subsection{Representation} \label{sec:Representation}
+
+\subsubsection{Cell}
+  \label{sec:Cell}
+
+
+
+
+
+\paragraph{Attributes of Cell}\mbox{}
+\label{sec:Attributes of Cell}
+
+\tbl{attributes of Cell} lists the attributes of \texttt{Cell}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Cell}
+  \label{table:attributes of Cell}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{key} & \texttt{ID} & 1 \\
+\texttt{value} & \texttt{T} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Cell}:
+
+\begin{itemize}
+\item \texttt{key} : 
+\item \texttt{value} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{DataSet}
+  \label{sec:DataSet}
+
+
+
+
+
+\paragraph{Attributes of DataSet}\mbox{}
+\label{sec:Attributes of DataSet}
+
+\tbl{attributes of DataSet} lists the attributes of \texttt{DataSet}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of DataSet}
+  \label{table:attributes of DataSet}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{count} & \texttt{integer} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{DataSet}:
+
+\begin{itemize}
+\item \texttt{count} : 
+\end{itemize}
+
+\paragraph{Elements of DataSet}\mbox{}
+\label{sec:Elements of DataSet}
+
+\tbl{elements of DataSet} lists the elements of \texttt{DataSet}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of DataSet}
+  \label{table:elements of DataSet}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{Entry} & \texttt{Entry} & 0..* \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \texttt{DataSet}:
+
+\begin{itemize}
+\item \texttt{Entry} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Discrete}
+  \label{sec:Discrete}
+
+
+
+
+
+\paragraph{Attributes of Discrete}\mbox{}
+\label{sec:Attributes of Discrete}
+
+\tbl{attributes of Discrete} lists the attributes of \texttt{Discrete}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Discrete}
+  \label{table:attributes of Discrete}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{observationDiscrete} & \texttt{} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Discrete}:
+
+\begin{itemize}
+\item \texttt{observationDiscrete} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Entry}
+  \label{sec:Entry}
+
+
+
+
+
+\paragraph{Attributes of Entry}\mbox{}
+\label{sec:Attributes of Entry}
+
+\tbl{attributes of Entry} lists the attributes of \texttt{Entry}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Entry}
+  \label{table:attributes of Entry}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{key} & \texttt{ID} & 1 \\
+\texttt{removed} & \texttt{boolean} & 0..1 \\
+\texttt{hasCell} & \texttt{Cell} & 0..* \\
+\texttt{value} & \texttt{T} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Entry}:
+
+\begin{itemize}
+\item \texttt{key} : 
+\item \texttt{removed} : 
+\item \texttt{hasCell} : 
+\item \texttt{value} : 
+\end{itemize}
+
+\paragraph{Elements of Entry}\mbox{}
+\label{sec:Elements of Entry}
+
+\tbl{elements of Entry} lists the elements of \texttt{Entry}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of Entry}
+  \label{table:elements of Entry}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{Entry} & \texttt{DataSet} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \texttt{Entry}:
+
+\begin{itemize}
+\item \texttt{Entry} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Table}
+  \label{sec:Table}
+
+
+
+
+
+\paragraph{Attributes of Table}\mbox{}
+\label{sec:Attributes of Table}
+
+\tbl{attributes of Table} lists the attributes of \texttt{Table}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Table}
+  \label{table:attributes of Table}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{hasEntry} & \texttt{Entry} & 0..* \\
+\texttt{count} & \texttt{integer} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Table}:
+
+\begin{itemize}
+\item \texttt{hasEntry} : 
+\item \texttt{count} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{TimeSeries}
+  \label{sec:TimeSeries}
+
+
+
+
+
+\paragraph{Attributes of TimeSeries}\mbox{}
+\label{sec:Attributes of TimeSeries}
+
+\tbl{attributes of TimeSeries} lists the attributes of \texttt{TimeSeries}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of TimeSeries}
+  \label{table:attributes of TimeSeries}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{sampleCount} & \texttt{integer} & 1 \\
+\texttt{observationTimeSeries} & \texttt{} & 1..* \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{TimeSeries}:
+
+\begin{itemize}
+\item \texttt{sampleCount} : 
+\item \texttt{observationTimeSeries} : 
+\end{itemize}
+\FloatBarrier

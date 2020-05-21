@@ -1,5 +1,5 @@
-% Generated 2020-05-15 16:48:20 -0400
-\subsection{DataItemTypes} \label{sec:DataItemTypes}
+% Generated 2020-05-20 17:19:31 -0400
+\subsection{DataItem Types} \label{sec:DataItemTypes}
 
 In the MTConnect Standard, \gls{dataitem} elements are defined and organized based upon the \gls{category} and \gls{type} attributes.  The \gls{category} attribute provides a high level grouping for \gls{dataitem} elements based on the kind of information that is reported by the data item.
 
@@ -37,7 +37,7 @@ Many types of data items provide two forms of data: a value (reported as either 
 All \gls{dataitem} types in the \gls{sample category} category \may have associated \gls{condition category} states.  \gls{condition category} states indicate whether the value for the data is within an expected range and \must be reported as \gls{normal}, or the value is unexpected or out of tolerance for the data and a \gls{warning} or \gls{fault} \must be provided.
 
 
- Enumerated \texttt{type} for \texttt{Condition} are:
+ \texttt{type} for \texttt{Condition} are:
 \begin{itemize}
 
 \item \texttt{COMMUNICATIONS} : An indication that the piece of equipment has experienced a communications failure. 
@@ -71,7 +71,7 @@ Subtypes of \texttt{HARDWARE} are:
 An \gls{event category} is information that, when provided at any specific point in time, represents the current state of the piece of equipment.
 
 
- Enumerated \texttt{type} for \texttt{Event} are:
+ \texttt{type} for \texttt{Event} are:
 \begin{itemize}
 
 \item \texttt{ACTIVE_AXES} : The set of axes currently associated with a {model:Path} or {model:Controller} {term:Structural Element}. 
@@ -414,7 +414,7 @@ The types of \gls{dataitem} elements in the \gls{sample category} category repor
 This data can be measured at any point-in-time and will always produce a result.
 
 
- Enumerated \texttt{type} for \texttt{Sample} are:
+ \texttt{type} for \texttt{Sample} are:
 \begin{itemize}
 
 \item \texttt{ACCELERATION} : The measurement of the rate of change of velocity. 

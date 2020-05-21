@@ -1,5 +1,16 @@
-% Generated 2020-02-28 19:23:52 -0500
-\section{Assets Model}
-\input model-sections/AssetModel.tex
-\input model-sections/CuttingToolModel.tex
-\input model-sections/CuttingItemModel.tex
+% Generated 2020-05-20 17:19:31 -0400
+
+\section{Assets Information Model}
+\label{sec:Assets Information Model}
+The MTConnect Standard supports a simple distributed storage mechanism that allows applications and equipment to share and exchange complex information models in a similar way to a distributed data store.  The \gls{asset information model} associates each electronic \gls{mtconnectassets} document with a unique identifier and allows for some predefined mechanisms to find, create, request, updated, and delete these electronic documents in a way that provides for consistency across multiple pieces of equipment.
+
+The protocol provides a limited mechanism of accessing \glspl{mtconnect asset} using the following properties: \gls{assetid}, \gls{asset} type (element name of \gls{asset} root), and the piece of equipment associated with the \gls{asset}.  These access strategies will provide the following services and answer the following questions: What \glspl{asset} are from a particular piece of equipment?  What are the \glspl{asset} of a particular type? What \glspl{asset} is stored for a given \gls{assetid}?
+
+Although these mechanisms are provided, an \gls{agent} should not be considered a data store or a system of reference.  The \gls{agent} is providing an ephemeral storage capability that will temporarily manage the data for applications wishing to communicate and manage data as need-ed by the various processes.  An application cannot rely on an \gls{agent} for long term persistence or durability since the \gls{agent} is only required to temporarily store the \gls{asset} data and may require an-other system to provide the source data upon initialization.  An \gls{agent} is always providing the best-known equipment centric view of the data given the limitations of that piece of equipment.
+
+\section{Asset}
+\label{sec:Asset}
+
+\input model-sections/Asset.tex
+\input model-sections/CuttingTool.tex
+\input model-sections/CuttingItem.tex

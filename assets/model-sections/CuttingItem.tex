@@ -1,0 +1,127 @@
+% Generated 2020-05-20 17:19:31 -0400
+\subsection{CuttingItem} \label{sec:CuttingItem}
+
+A \gls{cuttingitem} is the portion of the tool that physically removes the material from the workpiece by shear deformation.  The Cutting Item can be either a single piece of material attached to the \gls{cuttingitem} or it can be one or more separate pieces of material attached to the \gls{cuttingitem} using a permanent or removable attachment.  A \gls{cuttingitem} can be comprised of one or more cutting edges.  \glspl{cuttingitem} include: replaceable inserts, brazed tips and the cutting portions of solid \glspl{cuttingtool}.
+
+MTConnect Standard considers \glspl{cuttingitem} as part of the \gls{cuttingtool}.  A \glspl{cuttingitem} \MUSTNOT exist in MTConnect unless it is attached to a \gls{cuttingtool}.  Some of the measurements, such as \gls{functionallength}, \MUST be made with reference to the entire \gls{cuttingtool} to be meaningful.
+
+
+\subsubsection{CuttingItem}
+  \label{sec:CuttingItem}
+
+
+A CuttingItem is the portion of the tool that physically removes the material from the workpiece by shear deformation.
+
+
+\paragraph{Attributes of CuttingItem}\mbox{}
+\label{sec:Attributes of CuttingItem}
+
+\tbl{attributes of CuttingItem} lists the attributes of \texttt{CuttingItem}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of CuttingItem}
+  \label{table:attributes of CuttingItem}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{grade} & \texttt{string} & 0..1 \\
+\texttt{indices} & \texttt{string} & 1 \\
+\texttt{itemId} & \texttt{ID} & 0..1 \\
+\texttt{manufacturers} & \texttt{string} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{CuttingItem}:
+
+\begin{itemize}
+\item \texttt{grade} : The material composition for this Cutting Item.
+\item \texttt{indices} : The number or numbers representing the individual Cutting Item or items on the tool.
+\item \texttt{itemId} : The manufacturer identifier of this Cutting Item.
+\item \texttt{manufacturers} : The manufacturers of the Cutting Item or Tool.
+\end{itemize}
+
+\paragraph{Elements of CuttingItem}\mbox{}
+\label{sec:Elements of CuttingItem}
+
+\tbl{elements of CuttingItem} lists the elements of \texttt{CuttingItem}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of CuttingItem}
+  \label{table:elements of CuttingItem}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{Description} & \texttt{string} & 0..1 \\
+\texttt{Locus} & \texttt{string} & 0..1 \\
+\texttt{ProgramToolGroup} & \texttt{string} & 0..1 \\
+\texttt{CutterStatus} & \texttt{Status} & 1..* \\
+\texttt{ItemLife} & \texttt{ItemLife} & 0..1 \\
+\texttt{ItemLife} & \texttt{ItemLife} & 0..1 \\
+\texttt{ItemLife} & \texttt{ItemLife} & 0..1 \\
+\texttt{Measurements} & \texttt{Measurement} & 0..* \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \texttt{CuttingItem}:
+
+\begin{itemize}
+\item \texttt{Description} : A free-form description of the Cutting Item.
+\item \texttt{Locus} : A free form description of the location on the Cutting Tool.
+\item \texttt{ProgramToolGroup} : The tool group this item is assigned in the part program.
+\item \texttt{CutterStatus} : 
+\item \texttt{ItemLife} : The life of this Cutting Item.
+\item \texttt{ItemLife} : The life of this Cutting Item.
+\item \texttt{ItemLife} : The life of this Cutting Item.
+\item \texttt{Measurements} : A collection of measurements relating to this Cutting Item.
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{ItemLife}
+  \label{sec:ItemLife}
+
+
+The life of this Cutting Item.
+
+
+\paragraph{Attributes of ItemLife}\mbox{}
+\label{sec:Attributes of ItemLife}
+
+\tbl{attributes of ItemLife} lists the attributes of \texttt{ItemLife}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of ItemLife}
+  \label{table:attributes of ItemLife}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{countDirection} & \texttt{CountDirectionType} & 1 \\
+\texttt{initial} & \texttt{float} & 0..1 \\
+\texttt{limit} & \texttt{string} & 0..1 \\
+\texttt{warning} & \texttt{float} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{ItemLife}:
+
+\begin{itemize}
+\item \texttt{countDirection} : Indicates if the item life counts from zero to maximum or maximum to zero.
+\item \texttt{initial} : The initial life of the item when it is new
+\item \texttt{limit} : The end of life limit for this item.
+\item \texttt{warning} : The point at which a item life warning will be raised.
+\end{itemize}
+\FloatBarrier

@@ -1,0 +1,655 @@
+% Generated 2020-05-20 17:19:31 -0400
+\subsection{CuttingTool} \label{sec:CuttingTool}
+
+The \gls{cuttingtool} \gls{information model} illustrated in \fig{cuttingtool-schema} has the identical structure as the \gls{cuttingtoolarchetype} \gls{information model} except for the XML element \gls{cuttingtooldefinition} that has been \DEPRECATED in the \gls{cuttingtool} schema.
+
+
+\subsubsection{CuttingTool}
+  \label{sec:CuttingTool}
+
+
+A CuttingTool physically removes the material from the workpiece by shear deformation.
+
+
+\paragraph{Attributes of CuttingTool}\mbox{}
+\label{sec:Attributes of CuttingTool}
+
+\tbl{attributes of CuttingTool} lists the attributes of \texttt{CuttingTool}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of CuttingTool}
+  \label{table:attributes of CuttingTool}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{manufacturers} & \texttt{string} & 0..1 \\
+\texttt{serialNumber} & \texttt{string} & 1 \\
+\texttt{toolId} & \texttt{string} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{CuttingTool}:
+
+\begin{itemize}
+\item \texttt{manufacturers} : The manufacturers of the Cutting Item or Tool.
+\item \texttt{serialNumber} : The unique identifier for this assembly.
+\item \texttt{toolId} : The identifier for a class of cutting tools.
+\end{itemize}
+
+\paragraph{Elements of CuttingTool}\mbox{}
+\label{sec:Elements of CuttingTool}
+
+\tbl{elements of CuttingTool} lists the elements of \texttt{CuttingTool}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of CuttingTool}
+  \label{table:elements of CuttingTool}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{CuttingToolLifeCycle} & \texttt{CuttingToolLifeCycle} & 0..1 \\
+\texttt{CuttingToolArchetypeReference} & \texttt{CuttingToolArchetypeReference} & 0..1 \\
+\texttt{CuttingToolDefinition} & \texttt{CuttingToolDefinition} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \texttt{CuttingTool}:
+
+\begin{itemize}
+\item \texttt{CuttingToolLifeCycle} : Data regarding the use of the cutting tool.
+\item \texttt{CuttingToolArchetypeReference} : CuttingToolArchetypeReference has reference information about the assetId and/or the URL of the data source of CuttingToolArchetype.
+\item \texttt{CuttingToolDefinition} : Reference to an ISO 13399.
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{CuttingToolArchetype}
+  \label{sec:CuttingToolArchetype}
+
+
+The CuttingToolArchetype represents the static cutting tool geometries and nominal values as one would expect from a tool catalog.
+
+
+\paragraph{Attributes of CuttingToolArchetype}\mbox{}
+\label{sec:Attributes of CuttingToolArchetype}
+
+\tbl{attributes of CuttingToolArchetype} lists the attributes of \texttt{CuttingToolArchetype}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of CuttingToolArchetype}
+  \label{table:attributes of CuttingToolArchetype}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{manufacturers} & \texttt{string} & 0..1 \\
+\texttt{serialNumber} & \texttt{string} & 1 \\
+\texttt{toolId} & \texttt{string} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{CuttingToolArchetype}:
+
+\begin{itemize}
+\item \texttt{manufacturers} : 
+\item \texttt{serialNumber} : The unique identifier for this assembly.
+\item \texttt{toolId} : The identifier for a class of cutting tools.
+\end{itemize}
+
+\paragraph{Elements of CuttingToolArchetype}\mbox{}
+\label{sec:Elements of CuttingToolArchetype}
+
+\tbl{elements of CuttingToolArchetype} lists the elements of \texttt{CuttingToolArchetype}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of CuttingToolArchetype}
+  \label{table:elements of CuttingToolArchetype}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{CuttingToolDefinition} & \texttt{CuttingToolDefinition} & 0..1 \\
+\texttt{CuttingToolLifeCycle} & \texttt{CuttingToolLifeCycle} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \texttt{CuttingToolArchetype}:
+
+\begin{itemize}
+\item \texttt{CuttingToolDefinition} : Reference to an ISO 13399.
+\item \texttt{CuttingToolLifeCycle} : Data regarding the use of the cutting tool.
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{CuttingToolArchetypeReference}
+  \label{sec:CuttingToolArchetypeReference}
+
+
+CuttingToolArchetypeReference has reference information about the assetId and/or the URL of the data source of CuttingToolArchetype.
+
+
+\paragraph{Attributes of CuttingToolArchetypeReference}\mbox{}
+\label{sec:Attributes of CuttingToolArchetypeReference}
+
+\tbl{attributes of CuttingToolArchetypeReference} lists the attributes of \texttt{CuttingToolArchetypeReference}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of CuttingToolArchetypeReference}
+  \label{table:attributes of CuttingToolArchetypeReference}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{source} & \texttt{string} & 0..1 \\
+\texttt{value} & \texttt{CuttingToolArchetype} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{CuttingToolArchetypeReference}:
+
+\begin{itemize}
+\item \texttt{source} : The URL of the CuttingToolArchetype Information Model.
+\item \texttt{value} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{CuttingToolDefinition}
+  \label{sec:CuttingToolDefinition}
+
+
+Reference to an ISO 13399.
+
+
+\paragraph{Attributes of CuttingToolDefinition}\mbox{}
+\label{sec:Attributes of CuttingToolDefinition}
+
+\tbl{attributes of CuttingToolDefinition} lists the attributes of \texttt{CuttingToolDefinition}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of CuttingToolDefinition}
+  \label{table:attributes of CuttingToolDefinition}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{format} & \texttt{FormatType} & 0..1 \\
+\texttt{value} & \texttt{string} & 0..* \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{CuttingToolDefinition}:
+
+\begin{itemize}
+\item \texttt{format} : Identifies the expected representation of the enclosed data.
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X|}
+  \caption{FormatType Enumeration}
+  \label{enum:FormatType} \\
+\hline
+Name & Description \\
+\hline
+\endfirsthead
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \texttt{FormatType} Enumeration} \\
+\hline
+Name & Description \\
+\hline
+\endhead
+\texttt{EXPRESS} & The document will confirm to the ISO 10303 Part 21 standard. \\ \hline
+\texttt{TEXT} & The document will be a text representation of the tool data. \\ \hline
+\texttt{UNDEFINED} & The document will be provided in an undefined format. \\ \hline
+\texttt{XML} & The default value for the definition. The content will be an XML document. \\ \hline
+\end{longtabu}
+\FloatBarrier
+\item \texttt{value} : 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{CuttingToolLifeCycle}
+  \label{sec:CuttingToolLifeCycle}
+
+
+Data regarding the use of the cutting tool.
+
+
+\paragraph{Elements of CuttingToolLifeCycle}\mbox{}
+\label{sec:Elements of CuttingToolLifeCycle}
+
+\tbl{elements of CuttingToolLifeCycle} lists the elements of \texttt{CuttingToolLifeCycle}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of CuttingToolLifeCycle}
+  \label{table:elements of CuttingToolLifeCycle}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{ConnectionCodeMachineSide} & \texttt{string} & 0..1 \\
+\texttt{ProgramToolGroup} & \texttt{string} & 0..1 \\
+\texttt{ProgramToolNumber} & \texttt{integer} & 0..1 \\
+\texttt{ProcessFeedRate} & \texttt{ProcessFeedRate} & 0..1 \\
+\texttt{ToolLife} & \texttt{ToolLife} & 0..1 \\
+\texttt{ToolLife} & \texttt{ToolLife} & 0..1 \\
+\texttt{ProcessSpindleSpeed} & \texttt{ProcessSpindleSpeed} & 0..1 \\
+\texttt{ToolLife} & \texttt{ToolLife} & 0..1 \\
+\texttt{CutterStatus} & \texttt{Status} & 1..* \\
+\texttt{CuttingItems} & \texttt{CuttingItem} & 0..* \\
+\texttt{Measurements} & \texttt{Measurement} & 0..* \\
+\texttt{ReconditionCount} & \texttt{ReconditionCount} & 0..1 \\
+\texttt{Location} & \texttt{Location} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \texttt{CuttingToolLifeCycle}:
+
+\begin{itemize}
+\item \texttt{ConnectionCodeMachineSide} : Identifier for the capability to connect any Component of the cutting tool together, except Assembly Items, on the machine side. Code: CCMS
+\item \texttt{ProgramToolGroup} : The tool group this tool is assigned in the part program.
+\item \texttt{ProgramToolNumber} : The number of the tool as referenced in the part program.
+\item \texttt{ProcessFeedRate} : The constrained process feed rate for this tool in mm/s.
+\item \texttt{ToolLife} : The cutting tool life as related to this assembly.
+\item \texttt{ToolLife} : The cutting tool life as related to this assembly.
+\item \texttt{ProcessSpindleSpeed} : The constrained process spindle speed for this tool.
+\item \texttt{ToolLife} : The cutting tool life as related to this assembly.
+\item \texttt{CutterStatus} : 
+\item \texttt{CuttingItems} : 
+\item \texttt{Measurements} : 
+\item \texttt{ReconditionCount} : The number of times this cutter has been reconditioned.
+\item \texttt{Location} : The Pot or Spindle the cutting tool currently resides in.
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Location}
+  \label{sec:Location}
+
+
+The Pot or Spindle the cutting tool currently resides in.
+
+
+\paragraph{Attributes of Location}\mbox{}
+\label{sec:Attributes of Location}
+
+\tbl{attributes of Location} lists the attributes of \texttt{Location}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Location}
+  \label{table:attributes of Location}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{negativeOverlap} & \texttt{integer} & 0..1 \\
+\texttt{positiveOverlap} & \texttt{integer} & 0..1 \\
+\texttt{type} & \texttt{LocationType} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Location}:
+
+\begin{itemize}
+\item \texttt{negativeOverlap} : The number of location at lower index values from this location.
+\item \texttt{positiveOverlap} : The number of locations at higher index value from this location.
+\item \texttt{type} : The type of location being identified. 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Measurement}
+  \label{sec:Measurement}
+
+
+A constrained scalar value associated with this cutting tool.
+
+
+\paragraph{Attributes of Measurement}\mbox{}
+\label{sec:Attributes of Measurement}
+
+\tbl{attributes of Measurement} lists the attributes of \texttt{Measurement}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Measurement}
+  \label{table:attributes of Measurement}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{code} & \texttt{CodeEnum} & 1 \\
+\texttt{maximum} & \texttt{float} & 0..1 \\
+\texttt{minimum} & \texttt{float} & 0..1 \\
+\texttt{nativeUnits} & \texttt{NativeUnitEnum} & 0..1 \\
+\texttt{nominal} & \texttt{float} & 0..1 \\
+\texttt{significantDigits} & \texttt{integer} & 0..1 \\
+\texttt{units} & \texttt{UnitEnum} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Measurement}:
+
+\begin{itemize}
+\item \texttt{code} : A shop specific code for this measurement. ISO 13399 codes MAY be used for these codes as well.
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X|}
+  \caption{CodeEnum Enumeration}
+  \label{enum:CodeEnum} \\
+\hline
+Name & Description \\
+\hline
+\endfirsthead
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \texttt{CodeEnum} Enumeration} \\
+\hline
+Name & Description \\
+\hline
+\endhead
+\texttt{BDX} & The largest diameter of the body of a Tool Item. \\ \hline
+\texttt{LBX} & The distance measured along the X axis from that point of the item closest to the workpiece, including the Cutting Item for a Tool Item but excluding a protruding locking mechanism for an Adaptive Item, to either the front of the flange on a flanged body or the beginning of the connection interface feature on the machine side for cylindrical or prismatic shanks. \\ \hline
+\texttt{APMX} & The maximum engagement of the cutting edge or edges with the workpiece measured perpendicular to the feed motion. \\ \hline
+\texttt{DC} & The maximum diameter of a circle on which the defined point Pk of each of the master inserts is located on a Tool Item. The normal of the machined peripheral surface points towards the axis of the Cutting Tool. \\ \hline
+\texttt{DF} & The dimension between two parallel tangents on the outside edge of a flange. \\ \hline
+\texttt{OAL} & The largest length dimension of the Cutting Tool including the master insert where applicable. \\ \hline
+\texttt{DMM} & The dimension of the diameter of a cylindrical portion of a Tool Item or an Adaptive Item that can participate in a connection. \\ \hline
+\texttt{H} & The dimension of the height of the shank. \\ \hline
+\texttt{LS} & The dimension of the length of the shank. \\ \hline
+\texttt{LUX} & Maximum length of a Cutting Tool that can be used in a particular cutting operation including the non-cutting portions of the tool. \\ \hline
+\texttt{LPR} & The dimension from the yz-plane to the furthest point of the Tool Item or Adaptive Item measured in the -X direction. \\ \hline
+\texttt{WT} & The total weight of the Cutting Tool in grams. The force exerted by the mass of the Cutting Tool. \\ \hline
+\texttt{LF} & The distance from the gauge plane or from the end of the shank to the furthest point on the tool, if a gauge plane does not exist, to the cutting reference point determined by the main function of the tool. The {model:CuttingTool} functional length will be the length of the entire tool, not a single Cutting Item. Each {model:CuttingItem} can have an independent {model:FunctionalLength} represented in its measurements.  \\ \hline
+\texttt{CRP} & The theoretical sharp point of the Cutting Tool from which the major functional dimensions are taken. \\ \hline
+\texttt{L} & The theoretical length of the cutting edge of a Cutting Item over sharp corners. \\ \hline
+\texttt{DRVA} & Angle between the driving mechanism locator on a Tool Item and the main cutting edge. \\ \hline
+\texttt{WF} & The distance between the cutting reference point and the rear backing surface of a turning tool or the axis of a boring bar. \\ \hline
+\texttt{IC} & The diameter of a circle to which all edges of a equilateral and round regular insert are tangential. \\ \hline
+\texttt{SIG} & The angle between the major cutting edge and the same cutting edge rotated by 180 degrees about the tool axis. \\ \hline
+\texttt{KAPR} & The angle between the tool cutting edge plane and the tool feed plane measured in a plane parallel the xy-plane. \\ \hline
+\texttt{PSIR} & The angle between the tool cutting edge plane and a plane perpendicular to the tool feed plane measured in a plane parallel the xy-plane. \\ \hline
+\texttt{N/A} & The angle of the tool with respect to the workpiece for a given process. The value is application specific. \\ \hline
+\texttt{BS} & The measure of the length of a wiper edge of a Cutting Item. \\ \hline
+\texttt{SDLx} & The length of a portion of a stepped tool that is related to a corresponding cutting diameter measured from the cutting reference point of that cutting diameter to the point on the next cutting edge at which the diameter starts to change. \\ \hline
+\texttt{STAx} & The angle between a major edge on a step of a stepped tool and the same cutting edge rotated 180 degrees about its tool axis. \\ \hline
+\texttt{DCx} & The diameter of a circle on which the defined point Pk located on this Cutting Tool. The normal of the machined peripheral surface points towards the axis of the Cutting Tool. \\ \hline
+\texttt{HF} & The distance from the basal plane of the Tool Item to the cutting point. \\ \hline
+\texttt{RE} & The nominal radius of a rounded corner measured in the X Y-plane. \\ \hline
+\texttt{LFx} & The distance from the gauge plane or from the end of the shank of the Cutting Tool, if a gauge plane does not exist, to the cutting reference point determined by the main function of the tool. This measurement will be with reference to the Cutting Tool and *MUSTNOT* exist without a Cutting Tool. \\ \hline
+\texttt{BCH} & The flat length of a chamfer. \\ \hline
+\texttt{CHW} & The width of the chamfer. \\ \hline
+\texttt{W1} & W1 is used for the insert width when an inscribed circle diameter is not practical. \\ \hline
+\end{longtabu}
+\FloatBarrier
+\item \texttt{maximum} : The maximum value for this measurement. 
+\item \texttt{minimum} : The minimum value for this measurement. 
+\item \texttt{nativeUnits} : The units the measurement was originally recorded in.
+\item \texttt{nominal} : The as advertised value for this measurement.
+\item \texttt{significantDigits} : The number of significant digits in the reported value. 
+\item \texttt{units} : The units for the measurements. 
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{ProcessFeedRate}
+  \label{sec:ProcessFeedRate}
+
+
+The constrained process feed rate for this tool in mm/s.
+
+
+\paragraph{Attributes of ProcessFeedRate}\mbox{}
+\label{sec:Attributes of ProcessFeedRate}
+
+\tbl{attributes of ProcessFeedRate} lists the attributes of \texttt{ProcessFeedRate}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of ProcessFeedRate}
+  \label{table:attributes of ProcessFeedRate}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{maximum} & \texttt{float} & 0..1 \\
+\texttt{minimum} & \texttt{float} & 0..1 \\
+\texttt{nominal} & \texttt{float} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{ProcessFeedRate}:
+
+\begin{itemize}
+\item \texttt{maximum} : The upper bound for the tool’s process target feedrate.
+\item \texttt{minimum} : The lower bound for the tools feedrate.
+\item \texttt{nominal} : The nominal feedrate the tool is designed to operate at.
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{ProcessSpindleSpeed}
+  \label{sec:ProcessSpindleSpeed}
+
+
+The constrained process spindle speed for this tool.
+
+
+\paragraph{Attributes of ProcessSpindleSpeed}\mbox{}
+\label{sec:Attributes of ProcessSpindleSpeed}
+
+\tbl{attributes of ProcessSpindleSpeed} lists the attributes of \texttt{ProcessSpindleSpeed}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of ProcessSpindleSpeed}
+  \label{table:attributes of ProcessSpindleSpeed}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{maximum} & \texttt{float} & 0..1 \\
+\texttt{minimum} & \texttt{float} & 0..1 \\
+\texttt{nominal} & \texttt{float} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{ProcessSpindleSpeed}:
+
+\begin{itemize}
+\item \texttt{maximum} : The upper bound for the tool’s target spindle speed.
+\item \texttt{minimum} : The lower bound for the tools spindle speed.
+\item \texttt{nominal} : The nominal speed the tool is designed to operate at.
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{ReconditionCount}
+  \label{sec:ReconditionCount}
+
+
+The number of times this cutter has been reconditioned.
+
+
+\paragraph{Attributes of ReconditionCount}\mbox{}
+\label{sec:Attributes of ReconditionCount}
+
+\tbl{attributes of ReconditionCount} lists the attributes of \texttt{ReconditionCount}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of ReconditionCount}
+  \label{table:attributes of ReconditionCount}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{maximumCount} & \texttt{integer} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{ReconditionCount}:
+
+\begin{itemize}
+\item \texttt{maximumCount} : The maximum number of times this tool may be reconditioned.
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{Status}
+  \label{sec:Status}
+
+
+The status of the cutting tool.
+
+
+\paragraph{Attributes of Status}\mbox{}
+\label{sec:Attributes of Status}
+
+\tbl{attributes of Status} lists the attributes of \texttt{Status}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Status}
+  \label{table:attributes of Status}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{value} & \texttt{CutterStatusType} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Status}:
+
+\begin{itemize}
+\item \texttt{value} : The status value of the cutting tool.
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X|}
+  \caption{CutterStatusType Enumeration}
+  \label{enum:CutterStatusType} \\
+\hline
+Name & Description \\
+\hline
+\endfirsthead
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \texttt{CutterStatusType} Enumeration} \\
+\hline
+Name & Description \\
+\hline
+\endhead
+\texttt{NEW} & A new tool that has not been used or first use. Marks the start of the tool history. \\ \hline
+\texttt{AVAILABLE} & Indicates the tool is available for use. If this is not present, the tool is currently not ready to be used. \\ \hline
+\texttt{UNAVAILABLE} & Indicates the tool is unavailable for use in metal removal. If this is not present, the tool is currently not ready to be used. \\ \hline
+\texttt{ALLOCATED} & Indicates if this tool is has been committed to a piece of equipment for use and is not available for use in any other piece of equipment. \\ \hline
+\texttt{UNALLOCATED} & Indicates this cutting tool has not been committed to a process and can be allocated. \\ \hline
+\texttt{MEASURED} & The tool has been measured. \\ \hline
+\texttt{RECONDITIONED} & The Cutting Tool has been reconditioned. \\ \hline
+\texttt{USED} & The cutting tool is in process and has remaining tool life. \\ \hline
+\texttt{EXPIRED} & The cutting tool has reached the end of its useful life. \\ \hline
+\texttt{BROKEN} & Premature tool failure. \\ \hline
+\texttt{NOT_REGISTERED} & This cutting tool cannot be used until it is entered into the system. \\ \hline
+\texttt{UNKNOWN} & The cutting tool is an indeterminate state. This is the default value. \\ \hline
+\end{longtabu}
+\FloatBarrier
+\end{itemize}
+\FloatBarrier
+
+\subsubsection{ToolLife}
+  \label{sec:ToolLife}
+
+
+The cutting tool life as related to this assembly.
+
+
+\paragraph{Attributes of ToolLife}\mbox{}
+\label{sec:Attributes of ToolLife}
+
+\tbl{attributes of ToolLife} lists the attributes of \texttt{ToolLife}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of ToolLife}
+  \label{table:attributes of ToolLife}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{countDirection} & \texttt{CountDirectionType} & 1 \\
+\texttt{initial} & \texttt{float} & 0..1 \\
+\texttt{limit} & \texttt{float} & 0..1 \\
+\texttt{warning} & \texttt{float} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{ToolLife}:
+
+\begin{itemize}
+\item \texttt{countDirection} : Indicates if the tool life counts from zero to maximum or maximum to zero.
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X|}
+  \caption{CountDirectionType Enumeration}
+  \label{enum:CountDirectionType} \\
+\hline
+Name & Description \\
+\hline
+\endfirsthead
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \texttt{CountDirectionType} Enumeration} \\
+\hline
+Name & Description \\
+\hline
+\endhead
+\texttt{UP} & The tool life counts up from zero to the maximum. \\ \hline
+\texttt{DOWN} & The tool life counts down from the maximum to zero. \\ \hline
+\end{longtabu}
+\FloatBarrier
+\item \texttt{initial} : The initial life of the tool when it is new.
+\item \texttt{limit} : The end of life limit for this tool.
+\item \texttt{warning} : The point at which a tool life warning will be raised.
+\end{itemize}
+\FloatBarrier

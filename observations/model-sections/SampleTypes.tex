@@ -1,1980 +1,806 @@
-% Generated 2020-05-04 10:03:15 -0400
-\subsection{SampleTypes} \label{model:SampleTypes}
-\subsubsection[Acceleration]{Acceleration \\ {\small Subtype of Sample}}
-  \label{type:Acceleration}
+% Generated 2020-05-20 17:19:31 -0400
+\subsection{Sample Types} \label{sec:SampleTypes}
 
-\FloatBarrier
+\subsubsection{Acceleration}
+  \label{sec:Acceleration}
+
 
 The measurement of the rate of change of velocity.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Acceleration}}
-  \label{properties:Acceleration}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER/SECOND\^{}2} \\
-\texttt{type} & \texttt{ACCELERATION} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Acceleration} is: \texttt{MILLIMETER/SECOND\^{}2}.
 
 \FloatBarrier
-\subsubsection[AccumulatedTime]{AccumulatedTime \\ {\small Subtype of Sample}}
-  \label{type:AccumulatedTime}
 
-\FloatBarrier
+\subsubsection{AccumulatedTime}
+  \label{sec:AccumulatedTime}
+
 
 The measurement of accumulated time for an activity or event.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of AccumulatedTime}}
-  \label{properties:AccumulatedTime}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{SECOND} \\
-\texttt{type} & \texttt{ACCUMULATED_TIME} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{AccumulatedTime} is: \texttt{SECOND}.
 
 \FloatBarrier
-\subsubsection[Amperage]{Amperage \\ {\small Subtype of Sample}}
-  \label{type:Amperage}
 
-\FloatBarrier
+\subsubsection{Amperage}
+  \label{sec:Amperage}
+
 
 The measurement of electrical current.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Amperage}}
-  \label{properties:Amperage}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{AMPERE} \\
-\texttt{type} & \texttt{AMPERAGE} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{Amperage} is: \texttt{AMPERE}.
+
+
+Subtypes of Amperage are: \texttt{ACTUAL}, \texttt{ALTERNATING}, \texttt{DIRECT}, \texttt{TARGET} and \texttt{TARGET}. 
 \FloatBarrier
 
-Subtypes of \texttt{Amperage} are :
+\subsubsection{AmperageAC}
+  \label{sec:AmperageAC}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{ALTERNATING} : The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
-
-\item \texttt{DIRECT} : The measurement of DC current or voltage.
-
-\item \texttt{TARGET} : The desired measure or count for a data item value.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[AmperageAC]{AmperageAC \\ {\small Subtype of Sample}}
-  \label{type:AmperageAC}
-
-\FloatBarrier
 
 The measurement of an electrical current that reverses direction at regular short intervals.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of AmperageAC}}
-  \label{properties:AmperageAC}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{AmperageAC} is: \texttt{AMPERE}.
+
+
+Subtypes of AmperageAC are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\subsubsection{AmperageDC}
+  \label{sec:AmperageDC}
 
- Enumerated \texttt{type}s for \texttt{AmperageAC} are:
-\begin{itemize}
-
-\end{itemize}
-
-Subtypes of \texttt{AmperageAC} are :
-
-\begin{itemize}
-\item \texttt{ActualAmperageAC} : The measured amperage within an electrical circuit.
-
-\item \texttt{CommandedAmperageAC} : The value for a current as specified by a component. 
-
-\item \texttt{ProgrammedAmperageAC} : The value for a current as specified by a logic or motion program or set by a switch.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[AmperageDC]{AmperageDC \\ {\small Subtype of Sample}}
-  \label{type:AmperageDC}
-
-\FloatBarrier
 
 The measurement of an electric current flowing in one direction only.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of AmperageDC}}
-  \label{properties:AmperageDC}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{AmperageDC} is: \texttt{AMPERE}.
+
+
+Subtypes of AmperageDC are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\subsubsection{Angle}
+  \label{sec:Angle}
 
- Enumerated \texttt{type}s for \texttt{AmperageDC} are:
-\begin{itemize}
-
-\end{itemize}
-
-Subtypes of \texttt{AmperageDC} are :
-
-\begin{itemize}
-\item \texttt{ActualAmperageDC} : The measured amperage within an electrical circuit.
-
-\item \texttt{CommandedAmperageDC} : The value for a current as specified by a component. 
-The {model:COMMANDED} current is a calculated value that includes adjustments and overrides.
-
-\item \texttt{ProgrammedAmperageDC} : The value for a current as specified by a logic or motion program or set by a switch.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[Angle]{Angle \\ {\small Subtype of Sample}}
-  \label{type:Angle}
-
-\FloatBarrier
 
 The measurement of angular position.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Angle}}
-  \label{properties:Angle}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{DEGREE} \\
-\texttt{type} & \texttt{ANGLE} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{Angle} is: \texttt{DEGREE}.
+
+
+Subtypes of Angle are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
-Subtypes of \texttt{Angle} are :
+\subsubsection{AngularAcceleration}
+  \label{sec:AngularAcceleration}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[AngularAcceleration]{AngularAcceleration \\ {\small Subtype of Sample}}
-  \label{type:AngularAcceleration}
-
-\FloatBarrier
 
 The measurement rate of change of angular velocity.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of AngularAcceleration}}
-  \label{properties:AngularAcceleration}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{DEGREE/SECOND\^{}2} \\
-\texttt{type} & \texttt{ANGULAR_ACCELERATION} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{AngularAcceleration} is: \texttt{DEGREE/SECOND\^{}2}.
 
 \FloatBarrier
-\subsubsection[AngularVelocity]{AngularVelocity \\ {\small Subtype of Sample}}
-  \label{type:AngularVelocity}
 
-\FloatBarrier
+\subsubsection{AngularVelocity}
+  \label{sec:AngularVelocity}
+
 
 The measurement of the rate of change of angular position.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of AngularVelocity}}
-  \label{properties:AngularVelocity}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{DEGREE/SECOND} \\
-\texttt{type} & \texttt{ANGULAR_VELOCITY} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{AngularVelocity} is: \texttt{DEGREE/SECOND}.
 
 \FloatBarrier
-\subsubsection[AxisFeedrate]{AxisFeedrate \\ {\small Subtype of Sample}}
-  \label{type:AxisFeedrate}
 
-\FloatBarrier
+\subsubsection{AxisFeedrate}
+  \label{sec:AxisFeedrate}
+
 
 The measurement of the feedrate of a linear axis.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of AxisFeedrate}}
-  \label{properties:AxisFeedrate}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER/SECOND} \\
-\texttt{type} & \texttt{AXIS_FEEDRATE} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{AxisFeedrate} is: \texttt{MILLIMETER/SECOND}.
+
+
+Subtypes of AxisFeedrate are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{JOG}, \texttt{OVERRIDE}, \texttt{PROGRAMMED}, \texttt{RAPID} and \texttt{RAPID}. 
 \FloatBarrier
 
-Subtypes of \texttt{AxisFeedrate} are :
+\subsubsection{CapacityFluid}
+  \label{sec:CapacityFluid}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\item \texttt{JOG} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
-
-\item \texttt{OVERRIDE} : The operators overridden value.
-
-\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\item \texttt{RAPID} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[CapacityFluid]{CapacityFluid \\ {\small Subtype of Sample}}
-  \label{type:CapacityFluid}
-
-\FloatBarrier
 
 The fluid capacity of an object or container.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of CapacityFluid}}
-  \label{properties:CapacityFluid}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLILITER} \\
-\texttt{type} & \texttt{CAPACITY_FLUID} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{CapacityFluid} is: \texttt{MILLILITER}.
 
 \FloatBarrier
-\subsubsection[CapacitySpatial]{CapacitySpatial \\ {\small Subtype of Sample}}
-  \label{type:CapacitySpatial}
 
-\FloatBarrier
+\subsubsection{CapacitySpatial}
+  \label{sec:CapacitySpatial}
+
 
 The geometric capacity of an object or container.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of CapacitySpatial}}
-  \label{properties:CapacitySpatial}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{CUBIC_MILLIMETER} \\
-\texttt{type} & \texttt{CAPACITY_SPATIAL} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{CapacitySpatial} is: \texttt{CUBIC_MILLIMETER}.
 
 \FloatBarrier
-\subsubsection[ClockTime]{ClockTime \\ {\small Subtype of Sample}}
-  \label{type:ClockTime}
 
-\FloatBarrier
+\subsubsection{ClockTime}
+  \label{sec:ClockTime}
+
 
 The value provided by a timing device at a specific point in time.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ClockTime}}
-  \label{properties:ClockTime}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{yyyy-mm-ddthh:mm:ss.ffff} \\
-\texttt{type} & \texttt{CLOCK_TIME} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{ClockTime} is: \texttt{yyyy-mm-ddthh:mm:ss.ffff}.
 
 \FloatBarrier
-\subsubsection[Concentration]{Concentration \\ {\small Subtype of Sample}}
-  \label{type:Concentration}
 
-\FloatBarrier
+\subsubsection{Concentration}
+  \label{sec:Concentration}
+
 
 The measurement of the percentage of one component within a mixture of components
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Concentration}}
-  \label{properties:Concentration}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{PERCENT} \\
-\texttt{type} & \texttt{CONCENTRATION} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Concentration} is: \texttt{PERCENT}.
 
 \FloatBarrier
-\subsubsection[Conductivity]{Conductivity \\ {\small Subtype of Sample}}
-  \label{type:Conductivity}
 
-\FloatBarrier
+\subsubsection{Conductivity}
+  \label{sec:Conductivity}
+
 
 The measurement of the ability of a material to conduct electricity.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Conductivity}}
-  \label{properties:Conductivity}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{SIEMENS/METER} \\
-\texttt{type} & \texttt{CONDUCTIVITY} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Conductivity} is: \texttt{SIEMENS/METER}.
 
 \FloatBarrier
-\subsubsection[CuttingSpeed]{CuttingSpeed \\ {\small Subtype of Sample}}
-  \label{type:CuttingSpeed}
 
-\FloatBarrier
+\subsubsection{CuttingSpeed}
+  \label{sec:CuttingSpeed}
+
 
 The speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of CuttingSpeed}}
-  \label{properties:CuttingSpeed}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER/SECOND} \\
-\texttt{type} & \texttt{CUTTING_SPEED} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{CuttingSpeed} is: \texttt{MILLIMETER/SECOND}.
+
+
+Subtypes of CuttingSpeed are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
-Subtypes of \texttt{CuttingSpeed} are :
+\subsubsection{Density}
+  \label{sec:Density}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[Density]{Density \\ {\small Subtype of Sample}}
-  \label{type:Density}
-
-\FloatBarrier
 
 The volumetric mass of a material per unit volume of that material.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Density}}
-  \label{properties:Density}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIGRAM/CUBIC_MILLIMETER} \\
-\texttt{type} & \texttt{DENSITY} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Density} is: \texttt{MILLIGRAM/CUBIC_MILLIMETER}.
 
 \FloatBarrier
-\subsubsection[DepositionAccelerationVolumetric]{DepositionAccelerationVolumetric \\ {\small Subtype of Sample}}
-  \label{type:DepositionAccelerationVolumetric}
 
-\FloatBarrier
+\subsubsection{DepositionAccelerationVolumetric}
+  \label{sec:DepositionAccelerationVolumetric}
+
 
 The rate of change in spatial volume of material deposited in an additive manufacturing process.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of DepositionAccelerationVolumetric}}
-  \label{properties:DepositionAccelerationVolumetric}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{CUBIC_MILLIMETER/SECOND\^{}2} \\
-\texttt{type} & \texttt{DEPOSITION_ACCELERATION_VOLUMETRIC} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{DepositionAccelerationVolumetric} is: \texttt{CUBIC_MILLIMETER/SECOND\^{}2}.
+
+
+Subtypes of DepositionAccelerationVolumetric are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
-Subtypes of \texttt{DepositionAccelerationVolumetric} are :
+\subsubsection{DepositionDensity}
+  \label{sec:DepositionDensity}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[DepositionDensity]{DepositionDensity \\ {\small Subtype of Sample}}
-  \label{type:DepositionDensity}
-
-\FloatBarrier
 
 The density of the material deposited in an additive manufacturing process per unit of volume.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of DepositionDensity}}
-  \label{properties:DepositionDensity}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIGRAM/CUBIC_MILLIMETER} \\
-\texttt{type} & \texttt{DEPOSITION_DENSITY} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{DepositionDensity} is: \texttt{MILLIGRAM/CUBIC_MILLIMETER}.
+
+
+Subtypes of DepositionDensity are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
-Subtypes of \texttt{DepositionDensity} are :
+\subsubsection{DepositionMass}
+  \label{sec:DepositionMass}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[DepositionMass]{DepositionMass \\ {\small Subtype of Sample}}
-  \label{type:DepositionMass}
-
-\FloatBarrier
 
 The mass of the material deposited in an additive manufacturing process.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of DepositionMass}}
-  \label{properties:DepositionMass}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIGRAM} \\
-\texttt{type} & \texttt{DEPOSITION_MASS} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{DepositionMass} is: \texttt{MILLIGRAM}.
+
+
+Subtypes of DepositionMass are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
-Subtypes of \texttt{DepositionMass} are :
+\subsubsection{DepositionRateVolumetric}
+  \label{sec:DepositionRateVolumetric}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[DepositionRateVolumetric]{DepositionRateVolumetric \\ {\small Subtype of Sample}}
-  \label{type:DepositionRateVolumetric}
-
-\FloatBarrier
 
 The rate at which a spatial volume of material is deposited in an additive manufacturing process.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of DepositionRateVolumetric}}
-  \label{properties:DepositionRateVolumetric}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{CUBIC_MILLIMETER/SECOND} \\
-\texttt{type} & \texttt{DEPOSITION_RATE_VOLUMETRIC} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{DepositionRateVolumetric} is: \texttt{CUBIC_MILLIMETER/SECOND}.
+
+
+Subtypes of DepositionRateVolumetric are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
-Subtypes of \texttt{DepositionRateVolumetric} are :
+\subsubsection{DepositionVolume}
+  \label{sec:DepositionVolume}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[DepositionVolume]{DepositionVolume \\ {\small Subtype of Sample}}
-  \label{type:DepositionVolume}
-
-\FloatBarrier
 
 The spatial volume of material to be deposited in an additive manufacturing process.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of DepositionVolume}}
-  \label{properties:DepositionVolume}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{CUBIC_MILLIMETER} \\
-\texttt{type} & \texttt{DEPOSITION_VOLUME} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{DepositionVolume} is: \texttt{CUBIC_MILLIMETER}.
+
+
+Subtypes of DepositionVolume are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
-Subtypes of \texttt{DepositionVolume} are :
+\subsubsection{Diameter}
+  \label{sec:Diameter}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[Diameter]{Diameter \\ {\small Subtype of Sample}}
-  \label{type:Diameter}
-
-\FloatBarrier
 
 The measured dimension of a diameter.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Diameter}}
-  \label{properties:Diameter}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
-
- Enumerated \texttt{type}s for \texttt{Diameter} are:
-\begin{itemize}
-
-\end{itemize}
+Units for \texttt{Diameter} is: \texttt{MILLIMETER}.
 
 \FloatBarrier
-\subsubsection[Displacement]{Displacement \\ {\small Subtype of Sample}}
-  \label{type:Displacement}
 
-\FloatBarrier
+\subsubsection{Displacement}
+  \label{sec:Displacement}
+
 
 The measurement of the change in position of an object.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Displacement}}
-  \label{properties:Displacement}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER} \\
-\texttt{type} & \texttt{DISPLACEMENT} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Displacement} is: \texttt{MILLIMETER}.
 
 \FloatBarrier
-\subsubsection[ElectricalEnergy]{ElectricalEnergy \\ {\small Subtype of Sample}}
-  \label{type:ElectricalEnergy}
 
-\FloatBarrier
+\subsubsection{ElectricalEnergy}
+  \label{sec:ElectricalEnergy}
+
 
 The measurement of electrical energy consumption by a component.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ElectricalEnergy}}
-  \label{properties:ElectricalEnergy}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{WATT_SECOND} \\
-\texttt{type} & \texttt{ELECTRICAL_ENERGY} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{ElectricalEnergy} is: \texttt{WATT_SECOND}.
 
 \FloatBarrier
-\subsubsection[EquipmentTimer]{EquipmentTimer \\ {\small Subtype of Sample}}
-  \label{type:EquipmentTimer}
 
-\FloatBarrier
+\subsubsection{EquipmentTimer}
+  \label{sec:EquipmentTimer}
+
 
 The measurement of the amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of EquipmentTimer}}
-  \label{properties:EquipmentTimer}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{SECOND} \\
-\texttt{type} & \texttt{EQUIPMENT_TIMER} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{EquipmentTimer} is: \texttt{SECOND}.
+
+
+Subtypes of EquipmentTimer are: \texttt{DELAY}, \texttt{LOADED}, \texttt{OPERATING}, \texttt{POWERED}, \texttt{WORKING} and \texttt{WORKING}. 
 \FloatBarrier
 
-Subtypes of \texttt{EquipmentTimer} are :
+\subsubsection{FillLevel}
+  \label{sec:FillLevel}
 
-\begin{itemize}
-\item \texttt{DELAY} : A piece of equipment waiting for an event or an action to occur.
-
-\item \texttt{LOADED} : Subparts of a piece of equipment are under load.
-
-\item \texttt{OPERATING} : A piece of equipment are powered or performing any activity.
-
-\item \texttt{POWERED} : Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
-
-\item \texttt{WORKING} : A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[FillLevel]{FillLevel \\ {\small Subtype of Sample}}
-  \label{type:FillLevel}
-
-\FloatBarrier
 
 The measurement of the amount of a substance remaining compared to the planned maximum amount of that substance.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of FillLevel}}
-  \label{properties:FillLevel}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{PERCENT} \\
-\texttt{type} & \texttt{FILL_LEVEL} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{FillLevel} is: \texttt{PERCENT}.
 
 \FloatBarrier
-\subsubsection[Flow]{Flow \\ {\small Subtype of Sample}}
-  \label{type:Flow}
 
-\FloatBarrier
+\subsubsection{Flow}
+  \label{sec:Flow}
+
 
 The measurement of the rate of flow of a fluid.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Flow}}
-  \label{properties:Flow}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{LITER/SECOND} \\
-\texttt{type} & \texttt{FLOW} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Flow} is: \texttt{LITER/SECOND}.
 
 \FloatBarrier
-\subsubsection[Frequency]{Frequency \\ {\small Subtype of Sample}}
-  \label{type:Frequency}
 
-\FloatBarrier
+\subsubsection{Frequency}
+  \label{sec:Frequency}
+
 
 The measurement of the number of occurrences of a repeating event per unit time.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Frequency}}
-  \label{properties:Frequency}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{HERTZ} \\
-\texttt{type} & \texttt{FREQUENCY} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Frequency} is: \texttt{HERTZ}.
 
 \FloatBarrier
-\subsubsection[GlobalPosition]{GlobalPosition \\ {\small Subtype of Sample}}
-  \label{type:GlobalPosition}
 
-\FloatBarrier
+\subsubsection{GlobalPosition}
+  \label{sec:GlobalPosition}
+
 
 *DEPRECATED* in Version 1.1
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of GlobalPosition}}
-  \label{properties:GlobalPosition}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{type} & \texttt{GLOBAL_POSITION} \\
-\end{tabu}
-\end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[HumidityAbsolute]{HumidityAbsolute \\ {\small Subtype of Sample}}
-  \label{type:HumidityAbsolute}
+\subsubsection{HumidityAbsolute}
+  \label{sec:HumidityAbsolute}
 
-\FloatBarrier
 
 The amount of water vapor expressed in grams per cubic meter.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of HumidityAbsolute}}
-  \label{properties:HumidityAbsolute}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{HumidityAbsolute} is: \texttt{GRAM/CUBIC_METER}.
+
+
+Subtypes of HumidityAbsolute are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\subsubsection{HumidityRelative}
+  \label{sec:HumidityRelative}
 
- Enumerated \texttt{type}s for \texttt{HumidityAbsolute} are:
-\begin{itemize}
-
-\end{itemize}
-
-Subtypes of \texttt{HumidityAbsolute} are :
-
-\begin{itemize}
-\item \texttt{ActualHumidityAbsolute} : The measured value.
-
-\item \texttt{CommandedHumidityAbsolute} : The commanded value.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[HumidityRelative]{HumidityRelative \\ {\small Subtype of Sample}}
-  \label{type:HumidityRelative}
-
-\FloatBarrier
 
 The amount of water vapor present expressed as a percent to reach saturation at the same temperature.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of HumidityRelative}}
-  \label{properties:HumidityRelative}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{HumidityRelative} is: \texttt{PERCENT}.
+
+
+Subtypes of HumidityRelative are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\subsubsection{HumiditySpecific}
+  \label{sec:HumiditySpecific}
 
- Enumerated \texttt{type}s for \texttt{HumidityRelative} are:
-\begin{itemize}
-
-\end{itemize}
-
-Subtypes of \texttt{HumidityRelative} are :
-
-\begin{itemize}
-\item \texttt{ActualHumidityRelative} : The measured value.
-
-\item \texttt{CommandedHumidityRelative} : The commanded value.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[HumiditySpecific]{HumiditySpecific \\ {\small Subtype of Sample}}
-  \label{type:HumiditySpecific}
-
-\FloatBarrier
 
 The ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of HumiditySpecific}}
-  \label{properties:HumiditySpecific}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{HumiditySpecific} is: \texttt{PERCENT}.
+
+
+Subtypes of HumiditySpecific are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\subsubsection{Length}
+  \label{sec:Length}
 
- Enumerated \texttt{type}s for \texttt{HumiditySpecific} are:
-\begin{itemize}
-
-\end{itemize}
-
-Subtypes of \texttt{HumiditySpecific} are :
-
-\begin{itemize}
-\item \texttt{ActualHumiditySpecific} : The measured value.
-
-\item \texttt{CommandedHumiditySpecific} : The commanded value.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[Length]{Length \\ {\small Subtype of Sample}}
-  \label{type:Length}
-
-\FloatBarrier
 
 The measurement of the length of an object.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Length}}
-  \label{properties:Length}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER} \\
-\texttt{type} & \texttt{LENGTH} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{Length} is: \texttt{MILLIMETER}.
+
+
+Subtypes of Length are: \texttt{REMAINING}, \texttt{STANDARD}, \texttt{USEABLE} and \texttt{USEABLE}. 
 \FloatBarrier
 
-Subtypes of \texttt{Length} are :
+\subsubsection{Level}
+  \label{sec:Level}
 
-\begin{itemize}
-\item \texttt{REMAINING} : Remaining measure of an object or an action.
-
-\item \texttt{STANDARD} : The standard or original length of an object.
-
-\item \texttt{USEABLE} : The remaining useable length of an object.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[Level]{Level \\ {\small Subtype of Sample}}
-  \label{type:Level}
-
-\FloatBarrier
 
 *DEPRECATED* in Version 1.2.  See {model:FILL_LEVEL}
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Level}}
-  \label{properties:Level}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{type} & \texttt{LEVEL} \\
-\end{tabu}
-\end{table}
 \FloatBarrier
 
-\FloatBarrier
-\subsubsection[LinearForce]{LinearForce \\ {\small Subtype of Sample}}
-  \label{type:LinearForce}
+\subsubsection{LinearForce}
+  \label{sec:LinearForce}
 
-\FloatBarrier
 
 The measurement of the push or pull introduced by an actuator or exerted on an object.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of LinearForce}}
-  \label{properties:LinearForce}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{NEWTON} \\
-\texttt{type} & \texttt{LINEAR_FORCE} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{LinearForce} is: \texttt{NEWTON}.
 
 \FloatBarrier
-\subsubsection[Load]{Load \\ {\small Subtype of Sample}}
-  \label{type:Load}
 
-\FloatBarrier
+\subsubsection{Load}
+  \label{sec:Load}
+
 
 The measurement of the actual versus the standard rating of a piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Load}}
-  \label{properties:Load}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{PERCENT} \\
-\texttt{type} & \texttt{LOAD} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Load} is: \texttt{PERCENT}.
 
 \FloatBarrier
-\subsubsection[Mass]{Mass \\ {\small Subtype of Sample}}
-  \label{type:Mass}
 
-\FloatBarrier
+\subsubsection{Mass}
+  \label{sec:Mass}
+
 
 The measurement of the mass of an object(s) or an amount of material.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Mass}}
-  \label{properties:Mass}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{KILOGRAM} \\
-\texttt{type} & \texttt{MASS} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Mass} is: \texttt{KILOGRAM}.
 
 \FloatBarrier
-\subsubsection[Orientation]{Orientation \\ {\small Subtype of Sample}}
-  \label{type:Orientation}
 
-\FloatBarrier
+\subsubsection{Orientation}
+  \label{sec:Orientation}
+
 
 A measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Orientation}}
-  \label{properties:Orientation}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{Orientation} is: \texttt{DEGREE_3D}.
+
+
+Subtypes of Orientation are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\subsubsection{PH}
+  \label{sec:PH}
 
- Enumerated \texttt{type}s for \texttt{Orientation} are:
-\begin{itemize}
-
-\end{itemize}
-
-Subtypes of \texttt{Orientation} are :
-
-\begin{itemize}
-\item \texttt{ActualOrientation} : The measured value.
-
-\item \texttt{CommandedOrientation} : The commanded value.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[PH]{PH \\ {\small Subtype of Sample}}
-  \label{type:PH}
-
-\FloatBarrier
 
 A measure of the acidity or alkalinity of a solution.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of PH}}
-  \label{properties:PH}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{PH} \\
-\texttt{type} & \texttt{PH} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{PH} is: \texttt{PH}.
 
 \FloatBarrier
-\subsubsection[PathFeedrate]{PathFeedrate \\ {\small Subtype of Sample}}
-  \label{type:PathFeedrate}
 
-\FloatBarrier
+\subsubsection{PathFeedrate}
+  \label{sec:PathFeedrate}
+
 
 The measurement of the feedrate for the axes, or a single axis, associated with a {model:Path} component-a vector.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of PathFeedrate}}
-  \label{properties:PathFeedrate}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER/SECOND} \\
-\texttt{type} & \texttt{PATH_FEEDRATE} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{PathFeedrate} is: \texttt{MILLIMETER/SECOND}.
+
+
+Subtypes of PathFeedrate are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{JOG}, \texttt{OVERRIDE}, \texttt{PROGRAMMED}, \texttt{RAPID} and \texttt{RAPID}. 
 \FloatBarrier
 
-Subtypes of \texttt{PathFeedrate} are :
+\subsubsection{PathFeedratePerRevolution}
+  \label{sec:PathFeedratePerRevolution}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\item \texttt{JOG} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {model:Axes}. 
-
-\item \texttt{OVERRIDE} : The operators overridden value.
-
-\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\item \texttt{RAPID} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[PathFeedratePerRevolution]{PathFeedratePerRevolution \\ {\small Subtype of Sample}}
-  \label{type:PathFeedratePerRevolution}
-
-\FloatBarrier
 
 The feedrate for the axes, or a single axis.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of PathFeedratePerRevolution}}
-  \label{properties:PathFeedratePerRevolution}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER/REVOLUTION} \\
-\texttt{type} & \texttt{PATH_FEEDRATE_PER_REVOLUTION} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{PathFeedratePerRevolution} is: \texttt{MILLIMETER/REVOLUTION}.
+
+
+Subtypes of PathFeedratePerRevolution are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
-Subtypes of \texttt{PathFeedratePerRevolution} are :
+\subsubsection{PathPosition}
+  \label{sec:PathPosition}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[PathPosition]{PathPosition \\ {\small Subtype of Sample}}
-  \label{type:PathPosition}
-
-\FloatBarrier
 
 A measured or calculated position of a control point associated with a {model:Controller} element, or {model:Path} element if provided, of a piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of PathPosition}}
-  \label{properties:PathPosition}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER_3D} \\
-\texttt{type} & \texttt{PATH_POSITION} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{PathPosition} is: \texttt{MILLIMETER_3D}.
+
+
+Subtypes of PathPosition are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROBE}, \texttt{TARGET} and \texttt{TARGET}. 
 \FloatBarrier
 
-Subtypes of \texttt{PathPosition} are :
+\subsubsection{Position}
+  \label{sec:Position}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\item \texttt{PROBE} : The position provided by a measurement probe.
-
-\item \texttt{TARGET} : The desired measure or count for a data item value.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[Position]{Position \\ {\small Subtype of Sample}}
-  \label{type:Position}
-
-\FloatBarrier
 
 A measured or calculated position of a {model:Component} element as reported by a piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Position}}
-  \label{properties:Position}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER} \\
-\texttt{type} & \texttt{POSITION} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{Position} is: \texttt{MILLIMETER}.
+
+
+Subtypes of Position are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED}, \texttt{TARGET} and \texttt{TARGET}. 
 \FloatBarrier
 
-Subtypes of \texttt{Position} are :
+\subsubsection{PowerFactor}
+  \label{sec:PowerFactor}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\item \texttt{TARGET} : The desired measure or count for a data item value.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[PowerFactor]{PowerFactor \\ {\small Subtype of Sample}}
-  \label{type:PowerFactor}
-
-\FloatBarrier
 
 The measurement of the ratio of real power flowing to a load to the apparent power in that AC circuit.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of PowerFactor}}
-  \label{properties:PowerFactor}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{PERCENT} \\
-\texttt{type} & \texttt{POWER_FACTOR} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{PowerFactor} is: \texttt{PERCENT}.
 
 \FloatBarrier
-\subsubsection[Pressure]{Pressure \\ {\small Subtype of Sample}}
-  \label{type:Pressure}
 
-\FloatBarrier
+\subsubsection{Pressure}
+  \label{sec:Pressure}
+
 
 The measurement of force per unit area exerted by a gas or liquid.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Pressure}}
-  \label{properties:Pressure}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{PASCAL} \\
-\texttt{type} & \texttt{PRESSURE} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Pressure} is: \texttt{PASCAL}.
 
 \FloatBarrier
-\subsubsection[ProcessTimer]{ProcessTimer \\ {\small Subtype of Sample}}
-  \label{type:ProcessTimer}
 
-\FloatBarrier
+\subsubsection{ProcessTimer}
+  \label{sec:ProcessTimer}
+
 
 The measurement of the amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ProcessTimer}}
-  \label{properties:ProcessTimer}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{SECOND} \\
-\texttt{type} & \texttt{PROCESS_TIMER} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{ProcessTimer} is: \texttt{SECOND}.
+
+
+Subtypes of ProcessTimer are: \texttt{DELAY} and \texttt{PROCESS}. 
 \FloatBarrier
 
-Subtypes of \texttt{ProcessTimer} are :
+\subsubsection{Resistance}
+  \label{sec:Resistance}
 
-\begin{itemize}
-\item \texttt{DELAY} : A piece of equipment waiting for an event or an action to occur.
-
-\item \texttt{PROCESS} : The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[Resistance]{Resistance \\ {\small Subtype of Sample}}
-  \label{type:Resistance}
-
-\FloatBarrier
 
 The measurement of the degree to which a substance opposes the passage of an electric current.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Resistance}}
-  \label{properties:Resistance}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{OHM} \\
-\texttt{type} & \texttt{RESISTANCE} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Resistance} is: \texttt{OHM}.
 
 \FloatBarrier
-\subsubsection[RotaryVelocity]{RotaryVelocity \\ {\small Subtype of Sample}}
-  \label{type:RotaryVelocity}
 
-\FloatBarrier
+\subsubsection{RotaryVelocity}
+  \label{sec:RotaryVelocity}
+
 
 The measurement of the rotational speed of a rotary axis.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of RotaryVelocity}}
-  \label{properties:RotaryVelocity}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{REVOLUTION/MINUTE} \\
-\texttt{type} & \texttt{ROTARY_VELOCITY} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{RotaryVelocity} is: \texttt{REVOLUTION/MINUTE}.
+
+
+Subtypes of RotaryVelocity are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{OVERRIDE}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
-Subtypes of \texttt{RotaryVelocity} are :
+\subsubsection{SoundLevel}
+  \label{sec:SoundLevel}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\item \texttt{OVERRIDE} : The operators overridden value.
-
-\item \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[SoundLevel]{SoundLevel \\ {\small Subtype of Sample}}
-  \label{type:SoundLevel}
-
-\FloatBarrier
 
 The measurement of a sound level or sound pressure level relative to atmospheric pressure.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of SoundLevel}}
-  \label{properties:SoundLevel}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{DECIBEL} \\
-\texttt{type} & \texttt{SOUND_LEVEL} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{SoundLevel} is: \texttt{DECIBEL}.
+
+
+Subtypes of SoundLevel are: \texttt{A_SCALE}, \texttt{B_SCALE}, \texttt{C_SCALE}, \texttt{D_SCALE}, \texttt{NO_SCALE} and \texttt{NO_SCALE}. 
 \FloatBarrier
 
-Subtypes of \texttt{SoundLevel} are :
+\subsubsection{SpindleSpeed}
+  \label{sec:SpindleSpeed}
 
-\begin{itemize}
-\item \texttt{A_SCALE} : A Scale weighting factor.   This is the default weighting factor if no factor is specified
-
-\item \texttt{B_SCALE} : B Scale weighting factor
-
-\item \texttt{C_SCALE} : C Scale weighting factor
-
-\item \texttt{D_SCALE} : D Scale weighting factor
-
-\item \texttt{NO_SCALE} : No weighting factor on the frequency scale
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[SpindleSpeed]{SpindleSpeed \\ {\small Subtype of Sample}}
-  \label{type:SpindleSpeed}
-
-\FloatBarrier
 
 *DEPRECATED* in Version 1.2.  Replaced by {model:ROTARY_VELOCITY}
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of SpindleSpeed}}
-  \label{properties:SpindleSpeed}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{REVOLUTION/MINUTE} \\
-\texttt{type} & \texttt{SPINDLE_SPEED} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{SpindleSpeed} is: \texttt{REVOLUTION/MINUTE}.
+
+
+Subtypes of SpindleSpeed are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{OVERRIDE} and \texttt{OVERRIDE}. 
 \FloatBarrier
 
-Subtypes of \texttt{SpindleSpeed} are :
+\subsubsection{Strain}
+  \label{sec:Strain}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{COMMANDED} : A value specified by the {model:Controller} type component.
-
-\item \texttt{OVERRIDE} : The operators overridden value.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[Strain]{Strain \\ {\small Subtype of Sample}}
-  \label{type:Strain}
-
-\FloatBarrier
 
 The measurement of the amount of deformation per unit length of an object when a load is applied.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Strain}}
-  \label{properties:Strain}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{PERCENT} \\
-\texttt{type} & \texttt{STRAIN} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Strain} is: \texttt{PERCENT}.
 
 \FloatBarrier
-\subsubsection[Temperature]{Temperature \\ {\small Subtype of Sample}}
-  \label{type:Temperature}
 
-\FloatBarrier
+\subsubsection{Temperature}
+  \label{sec:Temperature}
+
 
 The measurement of temperature.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Temperature}}
-  \label{properties:Temperature}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{CELSIUS} \\
-\texttt{type} & \texttt{TEMPERATURE} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Temperature} is: \texttt{CELSIUS}.
 
 \FloatBarrier
-\subsubsection[Tension]{Tension \\ {\small Subtype of Sample}}
-  \label{type:Tension}
 
-\FloatBarrier
+\subsubsection{Tension}
+  \label{sec:Tension}
+
 
 The measurement of a force that stretches or elongates an object.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Tension}}
-  \label{properties:Tension}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{NEWTON} \\
-\texttt{type} & \texttt{TENSION} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Tension} is: \texttt{NEWTON}.
 
 \FloatBarrier
-\subsubsection[Tilt]{Tilt \\ {\small Subtype of Sample}}
-  \label{type:Tilt}
 
-\FloatBarrier
+\subsubsection{Tilt}
+  \label{sec:Tilt}
+
 
 The measurement of angular displacement.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Tilt}}
-  \label{properties:Tilt}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MICRO_RADIAN} \\
-\texttt{type} & \texttt{TILT} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Tilt} is: \texttt{MICRO_RADIAN}.
 
 \FloatBarrier
-\subsubsection[Torque]{Torque \\ {\small Subtype of Sample}}
-  \label{type:Torque}
 
-\FloatBarrier
+\subsubsection{Torque}
+  \label{sec:Torque}
+
 
 The measurement of the turning force exerted on an object or by an object.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Torque}}
-  \label{properties:Torque}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{NEWTON_METER} \\
-\texttt{type} & \texttt{TORQUE} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Torque} is: \texttt{NEWTON_METER}.
 
 \FloatBarrier
-\subsubsection[Velocity]{Velocity \\ {\small Subtype of Sample}}
-  \label{type:Velocity}
 
-\FloatBarrier
+\subsubsection{Velocity}
+  \label{sec:Velocity}
+
 
 The measurement of the rate of change of position of a {model:Component}.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Velocity}}
-  \label{properties:Velocity}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLIMETER/SECOND} \\
-\texttt{type} & \texttt{VELOCITY} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Velocity} is: \texttt{MILLIMETER/SECOND}.
 
 \FloatBarrier
-\subsubsection[Viscosity]{Viscosity \\ {\small Subtype of Sample}}
-  \label{type:Viscosity}
 
-\FloatBarrier
+\subsubsection{Viscosity}
+  \label{sec:Viscosity}
+
 
 The measurement of a fluids resistance to flow.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Viscosity}}
-  \label{properties:Viscosity}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{PASCAL_SECOND} \\
-\texttt{type} & \texttt{VISCOSITY} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{Viscosity} is: \texttt{PASCAL_SECOND}.
 
 \FloatBarrier
-\subsubsection[VoltAmpere]{VoltAmpere \\ {\small Subtype of Sample}}
-  \label{type:VoltAmpere}
 
-\FloatBarrier
+\subsubsection{VoltAmpere}
+  \label{sec:VoltAmpere}
+
 
 The measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA).
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of VoltAmpere}}
-  \label{properties:VoltAmpere}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{VOLT_AMPERE} \\
-\texttt{type} & \texttt{VOLT_AMPERE} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{VoltAmpere} is: \texttt{VOLT_AMPERE}.
 
 \FloatBarrier
-\subsubsection[VoltAmpereReactive]{VoltAmpereReactive \\ {\small Subtype of Sample}}
-  \label{type:VoltAmpereReactive}
 
-\FloatBarrier
+\subsubsection{VoltAmpereReactive}
+  \label{sec:VoltAmpereReactive}
+
 
 The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR).
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of VoltAmpereReactive}}
-  \label{properties:VoltAmpereReactive}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{VOLT_AMPERE_REACTIVE} \\
-\texttt{type} & \texttt{VOLT_AMPERE_REACTIVE} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+
+Units for \texttt{VoltAmpereReactive} is: \texttt{VOLT_AMPERE_REACTIVE}.
 
 \FloatBarrier
-\subsubsection[Voltage]{Voltage \\ {\small Subtype of Sample}}
-  \label{type:Voltage}
 
-\FloatBarrier
+\subsubsection{Voltage}
+  \label{sec:Voltage}
+
 
 The measurement of electrical potential between two points.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Voltage}}
-  \label{properties:Voltage}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{VOLT} \\
-\texttt{type} & \texttt{VOLTAGE} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{Voltage} is: \texttt{VOLT}.
+
+
+Subtypes of Voltage are: \texttt{ACTUAL}, \texttt{ALTERNATING}, \texttt{DIRECT}, \texttt{TARGET} and \texttt{TARGET}. 
 \FloatBarrier
 
-Subtypes of \texttt{Voltage} are :
+\subsubsection{VoltageAC}
+  \label{sec:VoltageAC}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{ALTERNATING} : The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
-
-\item \texttt{DIRECT} : The measurement of DC current or voltage.
-
-\item \texttt{TARGET} : The desired measure or count for a data item value.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[VoltageAC]{VoltageAC \\ {\small Subtype of Sample}}
-  \label{type:VoltageAC}
-
-\FloatBarrier
 
 The measurement of the electrical potential between two points in an electrical circuit in which the current periodically reverses direction.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of VoltageAC}}
-  \label{properties:VoltageAC}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{VoltageAC} is: \texttt{VOLT}.
+
+
+Subtypes of VoltageAC are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\subsubsection{VoltageDC}
+  \label{sec:VoltageDC}
 
- Enumerated \texttt{type}s for \texttt{VoltageAC} are:
-\begin{itemize}
-
-\end{itemize}
-
-Subtypes of \texttt{VoltageAC} are :
-
-\begin{itemize}
-\item \texttt{ActualVoltageAC} : The measured voltage within an electrical circuit.
-
-\item \texttt{CommandedVoltageAC} : The value for a voltage as specified by a {model:Controller} component.
-
-\item \texttt{ProgrammedVoltageAC} : The value for a voltage as specified by a logic or motion program or set by a switch.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[VoltageDC]{VoltageDC \\ {\small Subtype of Sample}}
-  \label{type:VoltageDC}
-
-\FloatBarrier
 
 The measurement of the electrical potential between two points in an electrical circuit in which the current is unidirectional.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of VoltageDC}}
-  \label{properties:VoltageDC}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{VoltageDC} is: \texttt{VOLT}.
+
+
+Subtypes of VoltageDC are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\subsubsection{VolumeFluid}
+  \label{sec:VolumeFluid}
 
- Enumerated \texttt{type}s for \texttt{VoltageDC} are:
-\begin{itemize}
-
-\end{itemize}
-
-Subtypes of \texttt{VoltageDC} are :
-
-\begin{itemize}
-\item \texttt{ActualVoltageDC} : The measured voltage within an electrical circuit.
-
-\item \texttt{CommandedVoltageDC} : The value for a voltage as specified by a {model:Controller} component.
-
-\item \texttt{ProgrammedVoltageDC} : The value for a voltage as specified by a logic or motion program or set by a switch.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[VolumeFluid]{VolumeFluid \\ {\small Subtype of Sample}}
-  \label{type:VolumeFluid}
-
-\FloatBarrier
 
 The fluid volume of an object or container.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of VolumeFluid}}
-  \label{properties:VolumeFluid}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{MILLILITER} \\
-\texttt{type} & \texttt{VOLUME_FLUID} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{VolumeFluid} is: \texttt{MILLILITER}.
+
+
+Subtypes of VolumeFluid are: \texttt{ACTUAL} and \texttt{CONSUMED}. 
 \FloatBarrier
 
-Subtypes of \texttt{VolumeFluid} are :
+\subsubsection{VolumeSpatial}
+  \label{sec:VolumeSpatial}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{CONSUMED} : The amount of bulk material consumed from an object or container during a manufacturing process.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[VolumeSpatial]{VolumeSpatial \\ {\small Subtype of Sample}}
-  \label{type:VolumeSpatial}
-
-\FloatBarrier
 
 The geometric volume of an object or container.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of VolumeSpatial}}
-  \label{properties:VolumeSpatial}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{CUBIC_MILLIMETER} \\
-\texttt{type} & \texttt{VOLUME_SPATIAL} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{VolumeSpatial} is: \texttt{CUBIC_MILLIMETER}.
+
+
+Subtypes of VolumeSpatial are: \texttt{ACTUAL} and \texttt{CONSUMED}. 
 \FloatBarrier
 
-Subtypes of \texttt{VolumeSpatial} are :
+\subsubsection{Wattage}
+  \label{sec:Wattage}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{CONSUMED} : The amount of bulk material consumed from an object or container during a manufacturing process.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[Wattage]{Wattage \\ {\small Subtype of Sample}}
-  \label{type:Wattage}
-
-\FloatBarrier
 
 The measurement of power flowing through or dissipated by an electrical circuit or piece of equipment.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of Wattage}}
-  \label{properties:Wattage}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{WATT} \\
-\texttt{type} & \texttt{WATTAGE} \\
-\end{tabu}
-\end{table}
+
+Units for \texttt{Wattage} is: \texttt{WATT}.
+
+
+Subtypes of Wattage are: \texttt{ACTUAL} and \texttt{TARGET}. 
 \FloatBarrier
 
-Subtypes of \texttt{Wattage} are :
+\subsubsection{XDimension}
+  \label{sec:XDimension}
 
-\begin{itemize}
-\item \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder.
-
-\item \texttt{TARGET} : The desired measure or count for a data item value.
-
-\end{itemize}
-
-\FloatBarrier
-\subsubsection[XDimension]{XDimension \\ {\small Subtype of Sample}}
-  \label{type:XDimension}
-
-\FloatBarrier
 
 Measured dimension of an entity relative to the X direction of the referenced coordinate system.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of XDimension}}
-  \label{properties:XDimension}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
-
- Enumerated \texttt{type}s for \texttt{XDimension} are:
-\begin{itemize}
-
-\end{itemize}
+Units for \texttt{XDimension} is: \texttt{MILLIMETER}.
 
 \FloatBarrier
-\subsubsection[YDimension]{YDimension \\ {\small Subtype of Sample}}
-  \label{type:YDimension}
 
-\FloatBarrier
+\subsubsection{YDimension}
+  \label{sec:YDimension}
+
 
 Measured dimension of an entity relative to the Y direction of the referenced coordinate system.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of YDimension}}
-  \label{properties:YDimension}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
-
- Enumerated \texttt{type}s for \texttt{YDimension} are:
-\begin{itemize}
-
-\end{itemize}
+Units for \texttt{YDimension} is: \texttt{MILLIMETER}.
 
 \FloatBarrier
-\subsubsection[ZDimension]{ZDimension \\ {\small Subtype of Sample}}
-  \label{type:ZDimension}
 
-\FloatBarrier
+\subsubsection{ZDimension}
+  \label{sec:ZDimension}
+
 
 Measured dimension of an entity relative to the Z direction of the referenced coordinate system.
 
-\begin{table}[ht]
-\centering 
-  \caption{\texttt{Properties of ZDimension}}
-  \label{properties:ZDimension}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Property} & {Value} \\
-\tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} \\
-\texttt{type} & \texttt{DataItemTypeEnum} \\
-\end{tabu}
-\end{table}
-\FloatBarrier
 
-
- Enumerated \texttt{type}s for \texttt{ZDimension} are:
-\begin{itemize}
-
-\end{itemize}
+Units for \texttt{ZDimension} is: \texttt{MILLIMETER}.
 
 \FloatBarrier

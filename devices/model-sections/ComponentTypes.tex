@@ -1,5 +1,5 @@
-% Generated 2020-05-15 16:48:20 -0400
-\subsection{ComponentTypes} \label{sec:ComponentTypes}
+% Generated 2020-05-20 17:19:30 -0400
+\subsection{Component Types} \label{sec:ComponentTypes}
 
 \gls{component} \glspl{structural element} are XML containers used to represent physical parts or logical functions of a piece of equipment.
 
@@ -31,25 +31,6 @@ Redefined as a piece of equipment with the ability to be represented as a {term:
 
 An XML container used to organize information for {term:Lower Level} elements representing functional sub-systems that provide supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
 
-Subtypes of \texttt{Auxiliaries} are :
-
-\begin{itemize}
-\item \texttt{BarFeeder} : {model:BarFeeder} is an XML container that represents the information for a unit involved in delivering bar stock to a piece of equipment.
-
-\item \texttt{Environmental} : {model:Environmental} is an XML container that represents the information for a unit or function involved in monitoring, managing, or conditioning the environment around or within a piece of equipment.
-
-\item \texttt{Loader} : {model:Loader} is an XML container that represents the information for a unit comprised of all the parts involved in moving and distributing materials, parts, tooling, and other items to or from a piece of equipment.
-
-\item \texttt{Sensor} : The {term:sensor unit} is modeled as a {term:Lower Level} {model:Component} called {model:Sensor}.
-
-\item \texttt{ToolingDelivery} : {model:ToolingDelivery} is an XML container that represents the information for a unit involved in managing, positioning, storing, and delivering tooling within a piece of equipment.
-
-
-\item \texttt{WasteDisposal} : {model:WasteDisposal} is an XML container that represents the information for a unit comprised of all the parts involved in removing manufacturing byproducts from a piece of equipment.
-
-
-\end{itemize}
-
 \FloatBarrier
 
 \subsubsection{Axes}
@@ -57,15 +38,6 @@ Subtypes of \texttt{Auxiliaries} are :
 
 
 An XML container used to organize the {term:Structural Elements} of a piece of equipment that perform linear or rotational motion.
-
-Subtypes of \texttt{Axes} are :
-
-\begin{itemize}
-\item \texttt{Linear} : A {model:Linear} axis represents the movement of a physical piece of equipment, or a portion of the equipment, in a straight line. 
-
-\item \texttt{Rotary} : A {model:Rotary} axis represents any non-linear or rotary movement of a physical piece of equipment or a portion of the equipment.
-
-\end{itemize}
 
 \FloatBarrier
 
@@ -75,13 +47,8 @@ Subtypes of \texttt{Axes} are :
 
 An XML container used to organize information about an intelligent or computational function within a piece of equipment.
 
-Subtypes of \texttt{Controller} are :
 
-\begin{itemize}
-\item \texttt{Path} : {model:Path} is an XML container that represents the information for an independent operation or function within a {model:Controller}.
-
-\end{itemize}
-
+Subtype of Controller is: .
 \FloatBarrier
 
 \subsubsection{Deposition}
@@ -130,16 +97,6 @@ An XML container that organizes information used to coordinate actions and activ
 
 An XML container used to organize information for {term:Lower Level} elements representing types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location. {model:Resources} also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
 
-Subtypes of \texttt{Resources} are :
-
-\begin{itemize}
-\item \texttt{Materials} : {model:Materials} is an XML container that provides information about materials or other items consumed or used by the piece of equipment for production of parts, materials, or other types of goods.
-
-\item \texttt{Personnel} : {model:Personnel} is an XML container that provides information about an individual or individuals who either control, support, or otherwise interface with a piece of equipment.
-
-
-\end{itemize}
-
 \FloatBarrier
 
 \subsubsection{Structure}
@@ -148,15 +105,6 @@ Subtypes of \texttt{Resources} are :
 
 Organizes static structural components of the machine.
 
-Subtypes of \texttt{Structure} are :
-
-\begin{itemize}
-\item \texttt{Link} : 
-
-\item \texttt{Table} : 
-
-\end{itemize}
-
 \FloatBarrier
 
 \subsubsection{Systems}
@@ -164,34 +112,5 @@ Subtypes of \texttt{Structure} are :
 
 
 An XML container used to organize information for {term:Lower Level} elements representing the major sub-systems that are permanently integrated into a piece of equipment.
-
-Subtypes of \texttt{Systems} are :
-
-\begin{itemize}
-\item \texttt{Coolant} : {model:Coolant} is an XML container that represents the information for a system comprised of all the parts involved in distribution and management of fluids that remove heat from a piece of equipment.
-
-\item \texttt{Dielectric} : {model:Dielectric} is an XML container that represents the information for a system that manages a chemical mixture used in a manufacturing process being performed at that piece of equipment.
-
-\item \texttt{Electric} : {model:Electric} is an XML container that represents the information for the main power supply for device piece of equipment and the distribution of that power throughout the equipment.
-
-\item \texttt{Enclosure} : {model:Enclosure} is an XML container that represents the information for a structure used to contain or isolate a piece of equipment or area.
-
-\item \texttt{EndEffector} : {model:EndEffector} is an XML container that represents the information for those functions that form the last link segment of a piece of equipment. It is the part of a piece of equipment that interacts with the manufacturing process.
-
-\item \texttt{Feeder} : {model:Feeder} is an XML container that represents the information for a system that manages the delivery of materials within a piece of equipment.
-
-\item \texttt{Hydraulic} : {model:Hydraulic} is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized liquid throughout the piece of equipment.
-
-\item \texttt{Lubrication} : {model:Lubrication} is an XML container that represents the information for a system comprised of all the parts involved in distribution and management of fluids used to lubricate portions of the piece of equipment.
-
-\item \texttt{Pneumatic} : {model:Pneumatic} is an XML container that represents the information for a system comprised of all the parts involved in moving and distributing pressurized gas throughout the piece of equipment.
-
-\item \texttt{ProcessPower} : {model:ProcessPower} is an XML container that represents the information for a power source associated with a piece of equipment that supplies energy to the manufacturing process separate from the {model:Electric} system.
-
-\item \texttt{Protective} : Protective is an XML container that represents the information for those functions that detect or prevent harm or damage to equipment or personnel.
-
-\item \texttt{WorkEnvelope} : {model:WorkEnvelope} *organizes* information about the physical process execution space within a piece of equipment.
-
-\end{itemize}
 
 \FloatBarrier
