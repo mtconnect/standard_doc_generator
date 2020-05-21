@@ -153,9 +153,11 @@ class LatexType < Type
 
   def generate_attribute_docs(f, header)
     
-    if not relations.empty? and relations[0].name == 'Supertype' and @model.name.split('Type')[0] == relations[0].final_target.type.name
-      generate_types(f,header)
-      return
+    if not relations.empty? and relations[0].name == 'Supertype' and @model.name and relations[0].final_target.type.name
+        if @model.name.split(' ')[0] == relations[0].final_target.type.name
+	      generate_types(f,header) 
+          return
+		end
     end
 
 
@@ -196,7 +198,7 @@ class LatexType < Type
 
 \\begin{table}[ht]
 \\centering 
-  \\caption{Attributes of #{@name}}}
+  \\caption{Attributes of #{@name}}
   \\label{table:attributes of #{@name}}
 \\tabulinesep=3pt
 \\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
@@ -214,7 +216,7 @@ EOT
         name = r.association_name ? r.association_name : r.name
         
         if r.redefinesProperty and r.default
-          f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.default}} & #{r.multiplicity} \\\\"
+          f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.default.gsub(/(\^)/,"\\^{}")}} & #{r.multiplicity} \\\\"
         else
           f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
         end
@@ -237,7 +239,7 @@ EOT
           name = r.association_name ? r.association_name : r.name
           if r.association_doc
             f.puts "\\item \\texttt{#{name}} : #{r.association_doc}\n"
-          else r.documentation
+          elsif r.documentation
             f.puts "\\item \\texttt{#{name}} : #{r.documentation}\n"
           end
           
@@ -263,7 +265,7 @@ EOT
 
 \\begin{table}[ht]
 \\centering 
-  \\caption{Elements of #{@name}}}
+  \\caption{Elements of #{@name}}
   \\label{table:elements of #{@name}}
 \\tabulinesep=3pt
 \\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
@@ -337,42 +339,6 @@ EOT
 
     unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
 
-	if relations_with_documentation.size>2
-
-      f.puts <<-EOT
-\\begin{table}[ht]
-\\centering 
-  \\caption{\\texttt{#{header.plural} of #{@name}}}
-  \\label{properties:#{@name}}
-\\tabulinesep=3pt
-\\begin{tabu} to 6in {|l|l|} \\everyrow{\\hline}
-\\hline
-\\rowfont\\bfseries {#{header}} & {Value} \\\\
-\\tabucline[1.5pt]{}
-EOT
-      
-      relations_with_documentation.each do |r|
-        name = r.association_name ? r.association_name : r.name         
-        
-        if name == 'Supertype'
-          next
-        end
-        stereo = r.stereotype ? "<<#{r.stereotype}>> " : nil
-        
-        if r.redefinesProperty and r.default
-          f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.default.gsub(/(\^)/,"\\^{}")}} \\\\"
-        else
-          f.puts "\\texttt{#{stereo}#{name}} & \\texttt{#{r.final_target.type.name}} \\\\"
-        end
-      end
-
-f.puts <<-EOT
-\\end{tabu}
-\\end{table}
-\\FloatBarrier
-
-EOT
-  end
 
   relations_with_documentation.each do |r|
     name = r.association_name ? r.association_name : r.name
@@ -392,16 +358,15 @@ EOT
       
       if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty 
         r.target.type.generate_enumerations(f)
-        f.puts "\\FloatBarrier"
       end
       
-    elsif r.redefinesProperty and (name == 'result' or (name == 'type' and not r.default))
+    elsif r.redefinesProperty
       if name == 'result'
-        f.puts "\n Enumerated \\texttt{result} values for \\texttt{#{@name}} are:\n"
-        r.final_target.type.generate_enumerations(f, false)
+        f.puts "\nThe value of \\texttt{#{@name}} \\MUST be one of the following: \n\n"
+        r.final_target.type.generate_enumerations(f)
         f.puts "\\FloatBarrier"
-      elsif name == 'type'
-        f.puts "\n Enumerated \\texttt{type} for \\texttt{#{@name}} are:\n"
+      elsif name == 'type' and not r.default
+        f.puts "\n \\texttt{type} for \\texttt{#{@name}} are:\n"
         
         f.puts <<-EOT
 \\begin{itemize}
@@ -430,6 +395,8 @@ EOT
 \\end{itemize}
 
 EOT
+	  elsif name == 'units' and r.default
+	    f.puts "\nUnits for \\texttt{#{@name}} is: \\texttt{#{r.default.gsub(/(\^)/,"\\^{}")}}.\n\n"
           end
         end
       end
@@ -439,6 +406,7 @@ EOT
   def generate_subtypes(f)
     return if @is_subtype == true or @subtypes.length == 0
 
+	if @model.name.include?("DataItem")
     f.puts <<-EOT
 Subtypes of \\texttt{#{escape_name}} are :
 
@@ -456,6 +424,34 @@ EOT
       
     end
     f.puts "\\end{itemize}\n\n"
+
+	elsif @model.name.include?("Types")
+	  if @subtypes.size>0
+		subtypes_array = []
+		@subtypes.each do |subtype|
+		  subtypes_array << "\\texttt{#{subtype.relation("subType").default}}" if defined?(subtype.relation("subType").default)
+		end
+		if subtypes_array.size>2
+	      f.puts "\nSubtypes of #{@name} are: #{subtypes_array[0..-1].join(", ")} and #{subtypes_array[-1]}. \n"
+		elsif subtypes_array.size==2
+		  f.puts "\nSubtypes of #{@name} are: #{subtypes_array[0]} and #{subtypes_array[-1]}. \n"
+		elsif subtypes.size==1
+		  f.puts "\nSubtype of #{@name} is: #{subtypes_array[0]}.\n"
+		end
+		
+	  end
+	  @subtypes.each do |subtype|
+	    subtype_name = subtype.escape_name
+		subtype.relations.each do |r|
+		  name = r.association_name ? r.association_name : r.name
+		  if r.redefinesProperty and name == 'result'
+			f.puts "\nThe value fof \\texttt{#{@name}} when \\texttt{subType} is \\texttt{#{subtype.relation("subType").default}} \\MUST be one of the following: \n\n"
+			r.final_target.type.generate_enumerations(f)
+			f.puts "\\FloatBarrier"
+		  end
+		end	
+      end
+	end
   end
 
 
