@@ -6,19 +6,20 @@ LatexModel.new(RootModel).find_definitions
 
 $dataitem_types = {}
 
-LatexModel.models['SampleTypes'].types.each do |type|
+LatexModel.models['Sample Types'].types.each do |type|
 	$dataitem_types[type.name] = []
 	type.children.each do |subtype|
 		$dataitem_types[type.name] << subtype
 	end
 end
 
-LatexModel.models['EventTypes'].types.each do |type|
+LatexModel.models['Event Types'].types.each do |type|
 	$dataitem_types[type.name] = []
 	type.children.each do |subtype|
 		$dataitem_types[type.name] << subtype
 	end
 end
+
 
 def get_section_documentation(root_model,section_package_name, section_name)
 	section_model = root_model.at("//packagedElement[@name='#{section_package_name}']")
@@ -76,14 +77,21 @@ File.open(DocumentFile['Device'], 'w') do |f|
 end
 
 
-=begin
+
 $logger.info "\nGenerating Observations LaTex to #{DocumentFile['Observation']}"
 File.open(DocumentFile['Observation'], 'w') do |f|
   f.puts "% Generated #{Time.now}"
   
-  f.puts "\\section{Observations Model}\n"
+  section_intro(f,RootModel, "Supporting Documents", "Observations Information Model")
+  
+  section_intro(f,RootModel, ObservationModels[0], ObservationModels[0])
   LatexModel.directory = Directory['Observation']
   ObservationModels.each do |m|
+    LatexModel.generate_latex(f, m)
+  end
+  
+  section_intro(f,RootModel, "Observation Types", "Observation Types")
+  ObservationTypes.each do |m|
     LatexModel.generate_latex(f, m)
   end
 end
@@ -93,7 +101,9 @@ $logger.info "\nGenerating Assets LaTex to #{DocumentFile['Asset']}"
 File.open(DocumentFile['Asset'], 'w') do |f|
   f.puts "% Generated #{Time.now}"
   
-  f.puts "\\section{Assets}\n"
+  section_intro(f,RootModel, "Supporting Documents", "Assets Information Model")
+  
+  section_intro(f,RootModel, AssetModels[0], AssetModels[0])
   LatexModel.directory = Directory['Asset']
   AssetModels.each do |m|
 	puts "Generating for #{m}"
@@ -101,6 +111,8 @@ File.open(DocumentFile['Asset'], 'w') do |f|
   end
 end
 
+
+=begin
 $logger.info "\nGenerating Glossary LaTex to #{DocumentFile['Glossary']}"
 File.open(DocumentFile['Glossary'], 'w') do |f|
   f.puts "% Generated #{Time.now}"
