@@ -1,4 +1,9 @@
+require 'markdown_parser'
+
 module Extensions
+
+  include MarkDownParser
+  
   def xmi_stereotype(e)
     id = e['xmi:id']
     type = e['xmi:type']
@@ -23,7 +28,8 @@ module Extensions
 
   def xmi_documentation(e)
     comment = e.at('./ownedComment')
-    comment ? comment['body'] ? comment['body'].gsub(/<[\/]?[a-z]+>/, '') : ""  : ""
+    comment ? comment['body'] ? format_markdown(comment['body']) : ""  : "" #.gsub(/<[\/]?[a-z]+>/, '')
+
   end
 
   def get_multiplicity(r)
