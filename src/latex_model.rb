@@ -59,18 +59,12 @@ class LatexModel < Model
   end
   
   def generate_glossary(f)
-    file = "model-sections/#{short_name}.tex"
-
-    File.open(File.join(@@directory,"model-sections",short_name+".tex"), "w") do |fs|
-      $logger.info "% Generating glossary #{@name}"
-      fs.puts "% Generated #{Time.now}"
-   
       @types.each do |type|
         if type.parent.nil? or type.parent.model != self
-          recurse_types(fs, type)
+          recurse_terms(f, type)
         end
       end
-    end
+
   end
 
 
@@ -103,4 +97,12 @@ class LatexModel < Model
       recurse_types(f, t) if t.model == self
     end
   end  
+   
+  def recurse_terms(f, type)
+	type.generate_glossary_docs(f)
+
+    type.children.each do |t|
+      recurse_terms(f, t) if t.model == self
+    end
+  end 
 end
