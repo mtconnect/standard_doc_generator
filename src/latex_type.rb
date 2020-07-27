@@ -73,21 +73,6 @@ module Document
   end
 end
 
-class String
-  def plural
-    case self
-    when /(o|s|ss|ch|x)$/
-      "#{self}es"
-
-    when /y$/
-      "#{self.slice(0...-1)}ies"
-
-    else
-      "#{self}s"
-    end
-  end
-end
-
 class LatexType < Type
   include Diagram
   include Document
@@ -112,45 +97,12 @@ class LatexType < Type
     end
   end
 
-  def mixin_relations(f)
-    @parent.mixin_relations(f) if @parent
-    generate_relations(f)
-  end
-
   def hyphenate(s)
     s.gsub(/([a-z])([A-Z])/, '\1\\-\2').
       gsub(/(MT)([A-Z])/, '\1\\-\2')
   end
 
   
-
-  def generate_relations(f)
-    # puts "Generating relations for #{@name}"
-    @relations.each do |r|
-      if r.is_reference?
-        begin
-          # puts "  Ref: '#{r.name}' '#{r.stereotype}' '#{r.final_target.type.name}' #{r.target_node_name} #{r.is_derived?}"
-          next if r.is_derived? or (r.stereotype and r.stereotype =~ /Attribute/)  
-          
-          array = '[]' if r.is_array?
-          
-          if r.is_property? or r.is_folder?
-            type_info = "#{hyphenate(r.final_target.type.name)}#{array} & #{hyphenate(r.target_node_name)}"
-          elsif r.target.type.is_variable?
-            type_info = "#{hyphenate(r.target.type.variable_data_type.name)}#{array} & #{hyphenate(r.target_node_name)}"
-          else
-            type_info = "\\multicolumn{2}{l|}{#{r.target_node_name}#{array}}"
-          end
-
-          f.puts "#{hyphenate(r.reference_type)} & #{r.target.type.base_type} & #{hyphenate(r.browse_name)} & #{type_info} & #{r.rule} \\\\"
-        rescue
-          $logger.error "#{$!}: #{@name}::#{r.name} #{r.final_target.name} #{r.final_target.type_id} #{r.final_target.type}"
-          raise 
-        end
-      end
-    end
-  end
-
   def generate_attribute_docs(f, header)
     
     if not relations.empty? and relations[0].name == 'Supertype' and @model.name and relations[0].final_target.type.name
@@ -170,11 +122,11 @@ class LatexType < Type
 
     unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
 
-
+	  $logger.info "#{relations_with_documentation[1].name}"
       attributes = relations_with_documentation.select do |a| 
 		if a.association_name
 		    /[[:lower:]]/.match(a.association_name[0])
-		else 
+		else
 			/[[:lower:]]/.match(a.name[0])
 		end
 	  end
@@ -182,7 +134,7 @@ class LatexType < Type
 	  elements = relations_with_documentation.select do |a| 
 		if a.association_name
 		    /[[:upper:]]/.match(a.association_name[0])
-		else 
+		else
 			/[[:upper:]]/.match(a.name[0])
 		end
 	  end
@@ -337,7 +289,7 @@ EOT
 
     
 
-    unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
+    unless relations_with_documentation.empty? #or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
 
 
   relations_with_documentation.each do |r|
@@ -493,43 +445,6 @@ EOT
     end
   end
 
-  def generate_dependencies(f)
-
-    deps = dependencies.select { |d|
-      d.target.type.stereotype.nil? or not (d.target.type.stereotype =~ /Factory/)
-    }
-
-    if !deps.empty? or @mixin
-      f.puts "\\paragraph{Dependencies and Relationships}"
-
-      f.puts "\n\\begin{itemize}"
-      
-      deps.each do |dep|
-        target = dep.target
-        
-        if dep.stereotype and dep.stereotype == 'values' and
-          target.type.type == 'uml:Enumeration'
-          
-          #f.puts "\\item \\textbf{Allowable Values} for \\texttt{#{target.type.name}}"
-          f.puts "\\FloatBarrier"
-          target.type.generate_enumerations(f)
-          f.puts "\\FloatBarrier"
-        else
-          f.puts "\\item Dependency on #{target.type.name}\n\n"
-          rel = dep.stereotype && dep.stereotype
-          if rel
-            f.puts "This class relates to \\texttt{#{target.type.name}} (#{target.type.reference}) for a(n) \\texttt{#{rel}} relationship.\n\n"
-          else
-            $logger.error "Cannot find stereo for #{@name}::#{dep.name} to #{target.type.name}"
-          end
-        end
-      end
-
-      f.puts "\\item Mixes in \\texttt{#{@mixin.escape_name}}, see #{@mixin.reference}" if @mixin
-      f.puts "\\end{itemize}"
-    end
-  end
-
   def generate_data_type(f)
     generate_attribute_docs(f, "Field")
   end
@@ -579,7 +494,6 @@ EOT
   def generate_class(f)
   
     generate_attribute_docs(f, "Property")
-    generate_dependencies(f) 
     generate_subtypes(f)
   end
 
@@ -610,6 +524,17 @@ EOT
     f.puts "\\FloatBarrier"
 
     # generate_class_diagram    
+  end
+
+
+  def generate_glossary_docs(f)
+	f.puts <<-EOT
+\n\\newglossaryentry{#{@name}}
+{
+    name={#{@name}},
+	description={#{@documentation}}
+}
+EOT
   end
 
   def toTitleCase(uppercase)
