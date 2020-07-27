@@ -1,4 +1,4 @@
-% Generated 2020-05-20 17:19:31 -0400
+% Generated 2020-07-16 16:38:17 +0530
 \subsection{Event Types} \label{sec:EventTypes}
 
 \subsubsection{ActiveAxes}
@@ -16,7 +16,7 @@ The result is a space delimited list of axes names.
 Represents the operational state of an apparatus for moving or controlling a mechanism or system.
 
 
-The value of \texttt{result} attribute for \texttt{ActuatorState} \MUST be one of the following: 
+The value of \texttt{ActuatorState} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -80,7 +80,7 @@ The value of the {term:CDATA} for the event *MUST* be the {model:assetId} of the
 Represents the {term:Agent}'s ability to communicate with the data source.
 
 
-The value of \texttt{result} attribute for \texttt{Availability} \MUST be one of the following: 
+The value of \texttt{Availability} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -112,7 +112,7 @@ Describes the way the axes will be associated to each other.
  This is used in conjunction with {model:COUPLED_AXES} to indicate the way they are interacting.
 
 
-The value of \texttt{result} attribute for \texttt{AxisCoupling} \MUST be one of the following: 
+The value of \texttt{AxisCoupling} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -154,7 +154,7 @@ Subtypes of AxisFeedrateOverride are: \texttt{JOG}, \texttt{PROGRAMMED}, \texttt
 An indicator of the state of the axis lockout function when power has been removed and the axis is allowed to move freely.
 
 
-The value of \texttt{result} attribute for \texttt{AxisInterlock} \MUST be one of the following: 
+The value of \texttt{AxisInterlock} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -183,7 +183,7 @@ Name & Description \\
 An indicator of the controlled state of a {model:Linear} or {model:Rotary} component representing an axis.
 
 
-The value of \texttt{result} attribute for \texttt{AxisState} \MUST be one of the following: 
+The value of \texttt{AxisState} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -231,7 +231,7 @@ The total count of the number of blocks of program code that have been executed 
 An indication of the state of an interlock function or control logic state intended to prevent the associated {model:CHUCK} component from being operated.
 
 
-The value of \texttt{result} attribute for \texttt{ChuckInterlock} \MUST be one of the following: 
+The value of \texttt{ChuckInterlock} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -262,7 +262,7 @@ Subtype of ChuckInterlock is: \texttt{MANUAL_UNCLAMP}.
 An indication of the operating state of a mechanism that holds a part or stock material during a manufacturing process. It may also represent a mechanism that holds any other mechanism in place within a piece of equipment.
 
 
-The value of \texttt{result} attribute for \texttt{ChuckState} \MUST be one of the following: 
+The value of \texttt{ChuckState} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -327,7 +327,7 @@ Subtypes of CompositionState are: \texttt{ACTION}, \texttt{LATERAL}, \texttt{MOT
 The current operating mode of the {model:Controller} component.
 
 
-The value of \texttt{result} attribute for \texttt{ControllerMode} \MUST be one of the following: 
+The value of \texttt{ControllerMode} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -360,7 +360,7 @@ Name & Description \\
 A setting or operator selection that changes the behavior of a piece of equipment.
 
 
-The value of \texttt{result} attribute for \texttt{ControllerModeOverride} \MUST be one of the following: 
+The value of \texttt{ControllerModeOverride} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -424,7 +424,7 @@ The direction of motion.
 
 Subtypes of Direction are: \texttt{LINEAR} and \texttt{ROTARY}. 
 
-The value of \texttt{result} attribute for \texttt{Direction} when \texttt{subType} is \texttt{LINEAR} \MUST be one of the following: 
+The value fof \texttt{Direction} when \texttt{subType} is \texttt{LINEAR} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -447,7 +447,7 @@ Name & Description \\
 \end{longtabu}
 \FloatBarrier
 
-The value of \texttt{result} attribute for \texttt{Direction} when \texttt{subType} is \texttt{ROTARY} \MUST be one of the following: 
+The value fof \texttt{Direction} when \texttt{subType} is \texttt{ROTARY} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -478,7 +478,7 @@ Name & Description \\
 The operational state of a {model:DOOR} type component or composition element.
 
 
-The value of \texttt{result} attribute for \texttt{DoorState} \MUST be one of the following: 
+The value of \texttt{DoorState} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -508,7 +508,7 @@ Name & Description \\
 The current state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment.
 
 
-The value of \texttt{result} attribute for \texttt{EmergencyStop} \MUST be one of the following: 
+The value of \texttt{EmergencyStop} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -538,7 +538,7 @@ Name & Description \\
 An indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached.
 
 
-The value of \texttt{result} attribute for \texttt{EndOfBar} \MUST be one of the following: 
+The value of \texttt{EndOfBar} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -570,7 +570,7 @@ Subtypes of EndOfBar are: \texttt{AUXILIARY} and \texttt{PRIMARY}.
 An indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities.
 
 
-The value of \texttt{result} attribute for \texttt{EquipmentMode} \MUST be one of the following: 
+The value of \texttt{EquipmentMode} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -601,7 +601,7 @@ Subtypes of EquipmentMode are: \texttt{DELAY}, \texttt{LOADED}, \texttt{OPERATIN
 The execution status of the {model:Component}.
 
 
-The value of \texttt{result} attribute for \texttt{Execution} \MUST be one of the following: 
+The value of \texttt{Execution} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -647,7 +647,7 @@ Subtypes of Firmware are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \texttt{MANUF
 The current intended production status of the device or component.
 
 
-The value of \texttt{result} attribute for \texttt{FunctionalMode} \MUST be one of the following: 
+The value of \texttt{FunctionalMode} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -700,7 +700,7 @@ Subtypes of Hardware are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \texttt{MANUF
 An indication of the operational state of an {model:Interface} component.
 
 
-The value of \texttt{result} attribute for \texttt{InterfaceState} \MUST be one of the following: 
+The value of \texttt{InterfaceState} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -838,7 +838,7 @@ Network details of a component.
 
 Subtypes of Network are: \texttt{GATEWAY}, \texttt{IPV4_ADDRESS}, \texttt{IPV6_ADDRESS}, \texttt{MAC_ADDRESS}, \texttt{SUBNET_MASK}, \texttt{VLAN_ID}, \texttt{WIRELESS} and \texttt{WIRELESS}. 
 
-The value of \texttt{result} attribute for \texttt{Network} when \texttt{subType} is \texttt{WIRELESS} \MUST be one of the following: 
+The value fof \texttt{Network} when \texttt{subType} is \texttt{WIRELESS} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -928,7 +928,7 @@ An indication designating whether a part or work piece has been detected or is p
 
 
 
-The value of \texttt{result} attribute for \texttt{PartDetect} \MUST be one of the following: 
+The value of \texttt{PartDetect} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -985,7 +985,7 @@ Subtypes of PathFeedrateOverride are: \texttt{JOG}, \texttt{PROGRAMMED}, \texttt
 Describes the operational relationship between a {model:Path} {term:Structural Element} and another {model:Path} {term:Structural Element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
 
 
-The value of \texttt{result} attribute for \texttt{PathMode} \MUST be one of the following: 
+The value of \texttt{PathMode} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -1017,7 +1017,7 @@ Name & Description \\
 The indication of the status of the source of energy for a {term:Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the {term:Structural Element} to perform its functions.
 
 
-The value of \texttt{result} attribute for \texttt{PowerState} \MUST be one of the following: 
+The value of \texttt{PowerState} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -1086,7 +1086,7 @@ An indication of the status of the {model:Controller} components program editing
  On many controls, a program can be edited while another program is currently being executed.
 
 
-The value of \texttt{result} attribute for \texttt{ProgramEdit} \MUST be one of the following: 
+The value of \texttt{ProgramEdit} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -1171,7 +1171,7 @@ An indication of the nesting level within a control program that is associated w
 The current operating mode for a {model:Rotary} type axis.
 
 
-The value of \texttt{result} attribute for \texttt{RotaryMode} \MUST be one of the following: 
+The value of \texttt{RotaryMode} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -1230,7 +1230,7 @@ The serial number associated with a {model:Component}, {model:Asset}, or {model:
 An indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate.
 
 
-The value of \texttt{result} attribute for \texttt{SpindleInterlock} \MUST be one of the following: 
+The value of \texttt{SpindleInterlock} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -1331,7 +1331,7 @@ A data value whose meaning may change over time due to changes in the opertion o
 An indication of the reason that {model:EXECUTION} is reporting a value of {model:WAIT}.
 
 
-The value of \texttt{result} attribute for \texttt{WaitState} \MUST be one of the following: 
+The value of \texttt{WaitState} \MUST be one of the following: 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {

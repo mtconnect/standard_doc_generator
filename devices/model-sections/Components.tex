@@ -1,14 +1,14 @@
-% Generated 2020-05-20 17:19:30 -0400
+% Generated 2020-07-27 15:21:27 +0530
 \subsection{Components} \label{sec:Components}
 
-\gls{components} groups information describing physical parts or logical functions of a piece of equipment.   \gls{components} contains one or more \gls{component} elements.
+{block:Components} groups information describing physical parts or logical functions of a piece of equipment.   {block:Components} {term:organizes} one or more {block:Component} elements. 
 
 
 \subsubsection{Component}
   \label{sec:Component}
 
 
-A \gls{component} organizes information describing a physical part or logical function of a piece of equipment.
+A {block:Component} organizes information describing a physical part or logical function of a piece of equipment.
 
 
 \paragraph{Attributes of Component}\mbox{}
@@ -29,7 +29,7 @@ A \gls{component} organizes information describing a physical part or logical fu
 \texttt{name} & \texttt{string} & 0..1 \\
 \texttt{nativeName} & \texttt{string} & 0..1 \\
 \texttt{sampleInterval} & \texttt{integer} & 0..1 \\
-\texttt{sampleRate} & \texttt{float} & 0..1 \\
+\texttt{<<deprecated>> sampleRate} & \texttt{float} & 0..1 \\
 \texttt{uuid} & \texttt{NMTOKEN} & 0..1 \\
 \end{tabu}
 \end{table}
@@ -42,7 +42,7 @@ Descriptions for attributes of \texttt{Component}:
 \item \texttt{id} : The unique identifier for this element.
 \item \texttt{name} : The name of an element or a piece of equipment.
 \item \texttt{nativeName} : The common name normally associated with a piece of equipment or an element.
-\item \texttt{sampleInterval} : An optional attribute that is an indication provided by a piece of equipment describing the interval in milliseconds between the completion of the reading of the data associated with the {model:Device} element until the beginning of the next sampling of that data.
+\item \texttt{sampleInterval} : An optional attribute that is an indication provided by a piece of equipment describing the interval in milliseconds between the completion of the reading of the data associated with the {block:Device} element until the beginning of the next sampling of that data.
 \item \texttt{sampleRate} : 
 \item \texttt{uuid} : The unique identifier for an XML element.
 \end{itemize}
@@ -76,11 +76,11 @@ Descriptions for elements of \texttt{Component}:
 
 \begin{itemize}
 \item \texttt{Description} : An element that can contain any descriptive content.
-\item \texttt{Compositions} : \gls{compositions} \glspl{organize} \gls{composition} elements.
-\item \texttt{Components} : \gls{components} \glspl{organize} \gls{component} elements.
-\item \texttt{Configuration} : \gls{configuration} contains technical information about a piece of equipment describing its physical layout or functional characteristics.
-\item \texttt{DataItems} : \gls{dataitems} \glspl{organize} \gls{dataitem} elements. See \sect{DataItems}
-\item \texttt{References} : \gls{references} \glspl{organize} \gls{reference} elements associated with this \gls{component} element.
+\item \texttt{Compositions} : {block:Compositions} {term:organizes} {block:Composition} elements.
+\item \texttt{Components} : {block:Components} {term:organizes} {block:Component} elements.
+\item \texttt{Configuration} : {block:Configuration} contains technical information about a piece of equipment describing its physical layout or functional characteristics.
+\item \texttt{DataItems} : {block:DataItems} {term:organizes} {block:DataItem} elements. See {ref:DataItems}
+\item \texttt{References} : {block:References} {term:organizes} {block:Reference} elements associated with this {block:Component} element.
 \end{itemize}
 \FloatBarrier
 

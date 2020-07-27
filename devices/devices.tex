@@ -1,51 +1,51 @@
-% Generated 2020-05-20 17:19:30 -0400
+% Generated 2020-07-27 15:21:26 +0530
 
 \section{Devices Information Model}
 \label{sec:Devices Information Model}
-The \gls{device information model} provides a representation of the physical and logical configuration for a piece of equipment used for a manufacturing process or for any other purpose.  It also provides the definition of data that may be reported by that equipment. 
+The {term:Devices Information Model} provides a representation of the physical and logical configuration for a piece of equipment used for a manufacturing process or for any other purpose.  It also provides the definition of data that may be reported by that equipment. 
 
-Using information defined in the \gls{device information model}, a software application can determine the configuration and reporting capabilities of a piece of equipment.  To do this, the software application issues a \gls{probe request} (defined in \citetitle{MTCPart1} \textit{Section 8.1.1}) to an \gls{agent} associated with a piece of equipment. An \gls{agent} responds to the \gls{probe request} with an \gls{mtconnectdevices} \gls{xml} document that contains information describing both the physical and logical structure of the piece of equipment and a detailed description of each \gls{data entity} that can be reported by the \gls{agent} associated with the piece of equipment.   This information allows the client software application to interpret the document and to extract the data with the same meaning, value, and context that it had at its original source.  
+Using information defined in the {term:Devices Information Model}, a software application can determine the configuration and reporting capabilities of a piece of equipment.  To do this, the software application issues a {term:Probe Request} (defined in \citetitle{MTCPart1} {cite:Section 8.1.1}) to an {term:Agent} associated with a piece of equipment. An {term:Agent} responds to the {term:Probe Request} with an {block:MTConnectDevices} {term:normalfont XML} document that contains information describing both the physical and logical structure of the piece of equipment and a detailed description of each {term:Data Entity} that can be reported by the {term:Agent} associated with the piece of equipment.   This information allows the client software application to interpret the document and to extract the data with the same meaning, value, and context that it had at its original source.  
 
-The \gls{mtconnectdevices} \gls{xml} document is comprised of two sections: \gls{header} and \gls{devices}.
+The {block:MTConnectDevices} {term:normalfont XML} document is comprised of two sections: {block:Header} and {block:Devices}.
 
-The \gls{header} section contains protocol related information as defined in \citetitle{MTCPart1} \textit{Section 6.5.1}.
+The {block:Header} section contains protocol related information as defined in \citetitle{MTCPart1} {cite:Section 6.5.1}.
 
-The \gls{devices} section of the \gls{mtconnectdevices} document contains a \gls{device} \gls{xml} container for each piece of equipment described in the document.   Each \gls{device} container is comprised of two primary types of \gls{xml} elements - \glspl{structural element} and \glspl{data entity}.  
+The {block:Devices} section of the {block:MTConnectDevices} document contains a {block:Device} {term:normalfont XML} container for each piece of equipment described in the document.   Each {block:Device} container is comprised of two primary types of {term:normalfont XML} elements - {term:Structural Elements} and {term:Data Entities}.  
 
-\glspl{structural element} are defined as \gls{xml} elements that organize information that represents the physical and logical parts and sub-parts of a piece of equipment (See \sect{Structural Elements for MTConnectDevices} for more details).  
+{term:Structural Elements} are defined as {term:normalfont XML} elements that organize information that represents the physical and logical parts and sub-parts of a piece of equipment (See {ref:Structural Elements for MTConnectDevices} for more details).  
 
-\glspl{data entity} are defined as \gls{xml} elements that describe data that can be reported by a piece of equipment.  In the \gls{device information model}, \glspl{data entity} are defined as \gls{dataitem} elements (See \sect{Data Entities for Device} and \sect{Listing of Data Items}).
+{term:Data Entities} are defined as {term:normalfont XML} elements that describe data that can be reported by a piece of equipment.  In the {term:Devices Information Model}, {term:Data Entities} are defined as {block:DataItem} elements (See {ref:Data Entities for Device} and {ref:Listing of Data Items}).
 
-The \glspl{structural element} and \glspl{data entity} in the \gls{mtconnectdevices} document provide information representing the physical and logical structure for a piece of equipment and the types of data that the piece of equipment can report relative to that structure.   The \gls{mtconnectdevices} document does not contain values for the data types reported by the piece of equipment.  The \gls{mtconnectstreams} document defined in \citetitle{MTCPart3} provides the data values that are reported by the piece of equipment.   As such, most \glspl{structural element} and \glspl{data entity} in the \gls{mtconnectdevices} document do not contain \gls{cdata}.  \gls{xml} elements that provide values or information in the \gls{cdata} will be specifically identified in \sect{Structural Elements for MTConnectDevices}, \sect{Data Entities for Device}, and \sect{Sensors}.
+The {term:Structural Elements} and {term:Data Entities} in the {block:MTConnectDevices} document provide information representing the physical and logical structure for a piece of equipment and the types of data that the piece of equipment can report relative to that structure.   The {block:MTConnectDevices} document does not contain values for the data types reported by the piece of equipment.  The {block:MTConnectStreams} document defined in \citetitle{MTCPart3} provides the data values that are reported by the piece of equipment.   As such, most {term:Structural Elements} and {term:Data Entities} in the {block:MTConnectDevices} document do not contain {term:normalfont CDATA}.  {term:normalfont XML} elements that provide values or information in the {term:normalfont CDATA} will be specifically identified in {ref:Structural Elements for MTConnectDevices}, {ref:Data Entities for Device}, and {ref:Sensors}.
 
 \begin{note}
-Note:  The \gls{mtconnect standard} also defines the information model for \glspl{asset}.  An \gls{asset} is something that is used in the manufacturing process, but is not permanently associated with a single piece of equipment, can be removed from the piece of equipment without compromising its function, and can be associated with other pieces of equipment during its lifecycle.  See \citetitle{MTCPart40} for more details on \glspl{asset}.
+Note:  The {term:MTConnect Standard} also defines the information model for {term:Assets}.  An {term:Asset} is something that is used in the manufacturing process, but is not permanently associated with a single piece of equipment, can be removed from the piece of equipment without compromising its function, and can be associated with other pieces of equipment during its lifecycle.  See \citetitle{MTCPart40} for more details on {term:Assets}.
 
 \end{note}
 
 \section{Structural Elements for MTConnectDevices}
 \label{sec:Structural Elements for MTConnectDevices}
-\glspl{structural element} are \gls{xml} elements that form the logical structure for the \gls{mtconnectdevices} \gls{xml} document.  These elements are used to organize information that represents the physical and logical architecture of a piece of equipment.  Refer to \fig{mtconnect-devices-structural-elements} for an overview of the \glspl{structural element} used in an \gls{mtconnectdevices} document.
+{term:Structural Elements} are {term:normalfont XML} elements that form the logical structure for the {block:MTConnectDevices} {term:normalfont XML} document.  These elements are used to organize information that represents the physical and logical architecture of a piece of equipment.  Refer to {ref:mtconnect-devices-structural-elements} for an overview of the {term:Structural Elements} used in an {block:MTConnectDevices} document.
 
-A variety of \glspl{structural element} are defined to describe a piece of equipment.  Some of these elements \MUST always appear in the \gls{mtconnectdevices} \gls{xml} document, while others are optional and \may be used, as required, to provide additional structure.
+A variety of {term:Structural Elements} are defined to describe a piece of equipment.  Some of these elements **\MUST** always appear in the {block:MTConnectDevices} {term:normalfont XML} document, while others are optional and **\may** be used, as required, to provide additional structure.
 
-The first, or highest level, \gls{structural element} in a \gls{mtconnectdevices} \gls{xml} document is \gls{devices}. \gls{devices} is a container type \gls{xml} element used to group one or more pieces of equipment into a single \gls{xml} document.  \gls{devices} \MUST always appear in the \gls{mtconnectdevices} document.
+The first, or highest level, {term:Structural Element} in a {block:MTConnectDevices} {term:normalfont XML} document is {block:Devices}. {block:Devices} is a container type {term:normalfont XML} element used to group one or more pieces of equipment into a single {term:normalfont XML} document.  {block:Devices} **\MUST** always appear in the {block:MTConnectDevices} document.
 
-\gls{device} is the next \gls{structural element} in the \gls{mtconnectdevices} \gls{xml} document. \gls{device} is also a container type \gls{xml} element. A separate \gls{device} container is used to identify each piece of equipment represented in the \gls{mtconnectdevices} document. Each \gls{device} container provides information on the physical and logical structure of the piece of equipment and the data associated with that equipment. \gls{device} can also represent any logical grouping of pieces of equipment that function as a unit or any other data source that provides data through a \gls{agent}.
+{block:Device} is the next {term:Structural Element} in the {block:MTConnectDevices} {term:normalfont XML} document. {block:Device} is also a container type {term:normalfont XML} element. A separate {block:Device} container is used to identify each piece of equipment represented in the {block:MTConnectDevices} document. Each {block:Device} container provides information on the physical and logical structure of the piece of equipment and the data associated with that equipment. {block:Device} can also represent any logical grouping of pieces of equipment that function as a unit or any other data source that provides data through a {term:Agent}.
 
-One or more \gls{device} element(s) \MUST always appear in an \gls{mtconnectdevices} document.
+One or more {block:Device} element(s) **\MUST** always appear in an {block:MTConnectDevices} document.
 
-\gls{components} is the next \gls{structural element} in the \gls{mtconnectdevices} \gls{xml} document. \gls{components} is also a container type XML element. \gls{components} is used to group information describing \gls{lower level} physical parts or logical functions of a piece of equipment.
+{block:Components} is the next {term:Structural Element} in the {block:MTConnectDevices} {term:normalfont XML} document. {block:Components} is also a container type XML element. {block:Components} is used to group information describing {term:Lower Level} physical parts or logical functions of a piece of equipment.
 
-If the \gls{components} container appears in the XML document, it \MUST contain one or more \gls{component} type XML elements.
+If the {block:Components} container appears in the XML document, it **\MUST** contain one or more {block:Component} type XML elements.
 
-\gls{component} is the next level of \gls{structural element} in the \gls{mtconnectdevices} \gls{xml} document. \gls{component} is both an abstract type \gls{xml} element and a container type element. 
+{block:Component} is the next level of {term:Structural Element} in the {block:MTConnectDevices} {term:normalfont XML} document. {block:Component} is both an abstract type {term:normalfont XML} element and a container type element. 
 
-As an abstract type element, \gls{component} will never appear in the \gls{xml} document describing a piece of equipment and will be replaced by a specific \gls{component} type defined in \sect{Component Structural Elements}. Each \gls{component} type is also a container type element. As a container, the \gls{component} type element is used to organize information describing \gls{lower level} \glspl{structural element} or \glspl{data entity} associated with the \gls{component}.
+As an abstract type element, {block:Component} will never appear in the {term:normalfont XML} document describing a piece of equipment and will be replaced by a specific {block:Component} type defined in {ref:Component Structural Elements}. Each {block:Component} type is also a container type element. As a container, the {block:Component} type element is used to organize information describing {term:Lower Level} {term:Structural Elements} or {term:Data Entities} associated with the {block:Component}.
 
-If \gls{lower level} \glspl{structural element} are described, these elements are by definition child \gls{component} elements of a parent \gls{component}. At this next level, the \gls{lower level} child \gls{component} elements are grouped into an \gls{xml} container called \gls{components}.
+If {term:Lower Level} {term:Structural Elements} are described, these elements are by definition child {block:Component} elements of a parent {block:Component}. At this next level, the {term:Lower Level} child {block:Component} elements are grouped into an {term:normalfont XML} container called {block:Components}.
  
-This \gls{lower level} \gls{components} container is comprised of one or more child \gls{component} \gls{xml} elements representing the sub-parts of the parent \gls{component}. Just like the parent \gls{component} element, the child \gls{component} element is an abstract type \gls{xml} element and will never appear in the \gls{xml} document – only the different \gls{lower level} child \gls{component} types will appear.
+This {term:Lower Level} {block:Components} container is comprised of one or more child {block:Component} {term:normalfont XML} elements representing the sub-parts of the parent {block:Component}. Just like the parent {block:Component} element, the child {block:Component} element is an abstract type {term:normalfont XML} element and will never appear in the {term:normalfont XML} document – only the different {term:Lower Level} child {block:Component} types will appear.
 
 This parent-child relationship can continue to any depth required to fully define a piece of equipment.
 \input model-sections/Devices.tex
@@ -54,40 +54,40 @@ This parent-child relationship can continue to any depth required to fully defin
 
 \section{Compositions}
 \label{sec:Compositions}
-\gls{composition} \glspl{structural element} are used to describe the lowest level physical building blocks of a piece of equipment contained within a \gls{component}. By referencing a specific \gls{composition} element, further clarification and meaning to data associated with a specific \gls{component} can be achieved.
+{block:Composition} {term:Structural Elements} are used to describe the lowest level physical building blocks of a piece of equipment contained within a {block:Component}. By referencing a specific {block:Composition} element, further clarification and meaning to data associated with a specific {block:Component} can be achieved.
 
-Both \gls{component} and \gls{composition} elements are \gls{lower level} child \gls{component} \gls{xml} elements representing the sub-parts of the parent \gls{component}.  However, there are distinct differences between \gls{component} and \gls{composition} type elements.
+Both {block:Component} and {block:Composition} elements are {term:Lower Level} child {block:Component} {term:normalfont XML} elements representing the sub-parts of the parent {block:Component}.  However, there are distinct differences between {block:Component} and {block:Composition} type elements.
 
-\gls{component} elements may be further defined with \gls{lower level} \gls{component} elements and may have associated \glspl{data entity}.
+{block:Component} elements may be further defined with {term:Lower Level} {block:Component} elements and may have associated {term:Data Entities}.
 
-\gls{composition} elements represent the lowest level physical part of a piece of equipment.  They \mustnot be further defined with \gls{lower level} \gls{component} elements and they \mustnot have \glspl{data entity} directly associated with them.   They do provide additional information that can be used to enhance the specificity of \glspl{data entity} associated with the parent \gls{component}.
+{block:Composition} elements represent the lowest level physical part of a piece of equipment.  They **\must**not be further defined with {term:Lower Level} {block:Component} elements and they **\must**not have {term:Data Entities} directly associated with them.   They do provide additional information that can be used to enhance the specificity of {term:Data Entities} associated with the parent {block:Component}.
 \input model-sections/Compositions.tex
 \input model-sections/CompositionTypes.tex
 
 \section{DataItems}
 \label{sec:DataItems}
-In the \gls{mtconnectdevices} \gls{xml} document, \glspl{data entity} are \gls{xml} elements that describe data that can be reported by a piece of equipment and are associated with \gls{device} and \gls{component} \glspl{structural element}.   While the \glspl{data entity} describe the data that can be reported by a piece of equipment in the \gls{mtconnectdevices} document, the actual data values are provided in the \gls{streams information model}.   See \citetitle{MTCPart3} for detail on the reported values.
+In the {block:MTConnectDevices} {term:normalfont XML} document, {term:Data Entities} are {term:normalfont XML} elements that describe data that can be reported by a piece of equipment and are associated with {block:Device} and {block:Component} {term:Structural Elements}.   While the {term:Data Entities} describe the data that can be reported by a piece of equipment in the {block:MTConnectDevices} document, the actual data values are provided in the {term:Streams Information Model}.   See \citetitle{MTCPart3} for detail on the reported values.
 
-Each \gls{data entity} \should be modeled in the \gls{mtconnectdevices} document such that it is associated with the \gls{structural element} that the reported data directly applies.
+Each {term:Data Entity} **\should** be modeled in the {block:MTConnectDevices} document such that it is associated with the {term:Structural Element} that the reported data directly applies.
 
-When \glspl{data entity} are associated with a \gls{structural element}, they are organized in a \gls{dataitems} \gls{xml} element.   \gls{dataitems} is a container type \gls{xml} element.  \gls{dataitems} provides the structure for organizing individual \gls{dataitem} elements that represent each \gls{data entity}. The \gls{dataitems} container is comprised of one or more \gls{dataitem} type \gls{xml} element(s).
+When {term:Data Entities} are associated with a {term:Structural Element}, they are organized in a {block:DataItems} {term:normalfont XML} element.   {block:DataItems} is a container type {term:normalfont XML} element.  {block:DataItems} provides the structure for organizing individual {block:DataItem} elements that represent each {term:Data Entity}. The {block:DataItems} container is comprised of one or more {block:DataItem} type {term:normalfont XML} element(s).
 
-\gls{dataitem} describes specific types of \glspl{data entity} that represent a numeric value, a functioning state, or a health status reported by a piece of equipment.   \gls{dataitem} provides a detailed description for each \gls{data entity} that is reported; it defines the type of data being reported and an array of optional attributes that further describe that data.   The different types of \gls{dataitem} elements are defined in \sect{Listing of Data Items}.
+{block:DataItem} describes specific types of {term:Data Entities} that represent a numeric value, a functioning state, or a health status reported by a piece of equipment.   {block:DataItem} provides a detailed description for each {term:Data Entity} that is reported; it defines the type of data being reported and an array of optional attributes that further describe that data.   The different types of {block:DataItem} elements are defined in {ref:Listing of Data Items}.
 \input model-sections/DataItems.tex
 \input model-sections/ElementsforDataItem.tex
-\input model-sections/ElementsforDataItem.tex
+\input model-sections/ElementsforDefinition.tex
 \input model-sections/DataItemTypes.tex
 
 \section{References}
 \label{sec:References}
-\gls{references} organizes pointers to information defined elsewhere for a piece of equipment.
+{block:References} organizes pointers to information defined elsewhere for a piece of equipment.
 
-\gls{references} may be modeled as part of a \gls{device}, \gls{component} or \gls{interface component} type \gls{structural element}.
+{block:References} may be modeled as part of a {block:Device}, {block:Component} or {block:Interface} type {term:Structural Element}.
 \input model-sections/References.tex
 
 \section{Configuration}
 \label{sec:Configuration}
-This section provides semantic information for \gls{configuration} and its types.
+This section provides semantic information for {block:Configuration} and its types.
 \input model-sections/Configuration.tex
 \input model-sections/CoordinateSystems.tex
 \input model-sections/Motion.tex

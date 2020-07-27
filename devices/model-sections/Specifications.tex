@@ -1,4 +1,4 @@
-% Generated 2020-05-20 17:19:31 -0400
+% Generated 2020-07-27 15:21:27 +0530
 \subsection{Specifications} \label{sec:Specifications}
 
 \subsubsection{Characteristic}
@@ -141,7 +141,7 @@ Descriptions for attributes of \texttt{DutyCycle}:
   \label{sec:Specification}
 
 
-\gls{specification} elements define information describing the design characteristics for a piece of equipment.
+{block:Specification} elements define information describing the design characteristics for a piece of equipment.
 
 
 \paragraph{Attributes of Specification}\mbox{}
@@ -174,14 +174,14 @@ Descriptions for attributes of \texttt{DutyCycle}:
 Descriptions for attributes of \texttt{Specification}:
 
 \begin{itemize}
-\item \texttt{type} : Same as \gls{dataitem} type. See \sect{DataItemTypes}.
-\item \texttt{subType} : Same as \gls{dataitem} subtypes. See \sect{Attributes of DataItem}.
-\item \texttt{dataItemIdRef} : A reference to the \gls{id} attribute of the \gls{dataitem} associated with this element.
-\item \texttt{units} : Same as \gls{dataitem} units. See {section:Attribute of DataItem}.
-\item \texttt{compositionIdRef} : A reference to the \gls{id} attribute of the \gls{composition} associated with this element.
+\item \texttt{type} : Same as {block:DataItem} type. See {ref:DataItemTypes}.
+\item \texttt{subType} : Same as {block:DataItem} subtypes. See {ref:Attributes of DataItem}.
+\item \texttt{dataItemIdRef} : A reference to the {property:id} attribute of the {block:DataItem} associated with this element.
+\item \texttt{units} : Same as {block:DataItem} units. See {ref:Attribute of DataItem}.
+\item \texttt{compositionIdRef} : A reference to the {property:id} attribute of the {block:Composition} associated with this element.
 \item \texttt{hasCharacteristic} : 
-\item \texttt{name} : The \gls{name} provides additional meaning and differentiates between \gls{specifications}.
-\item \texttt{coordinateSystemIdRef} : References the \gls{coordinatesystem new} for geometric \gls{specification} elements.
+\item \texttt{name} : The {property:name} provides additional meaning and differentiates between {block:Specifications}.
+\item \texttt{coordinateSystemIdRef} : References the {block:CoordinateSystem} for geometric {block:Specification} elements.
 \end{itemize}
 \FloatBarrier
 
@@ -189,7 +189,7 @@ Descriptions for attributes of \texttt{Specification}:
   \label{sec:Specifications}
 
 
-\gls{specifications} \glspl{organize} \gls{specification} elements for a \gls{component}.
+{block:Specifications} {term:organizes} {block:Specification} elements for a {block:Component}.
 
 
 \paragraph{Attributes of Specifications}\mbox{}

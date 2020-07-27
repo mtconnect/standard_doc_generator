@@ -111,8 +111,6 @@ File.open(DocumentFile['Asset'], 'w') do |f|
   end
 end
 
-
-=begin
 $logger.info "\nGenerating Glossary LaTex to #{DocumentFile['Glossary']}"
 File.open(DocumentFile['Glossary'], 'w') do |f|
   f.puts "% Generated #{Time.now}"
@@ -122,4 +120,3 @@ File.open(DocumentFile['Glossary'], 'w') do |f|
     LatexModel.generate_glossary(f, m)
   end
 end
-=end

@@ -1,17 +1,17 @@
-% Generated 2020-05-20 17:19:31 -0400
+% Generated 2020-07-27 15:21:27 +0530
 \subsection{Sensor} \label{sec:Sensor}
 
-\gls{sensor term} is a unique type of a piece of equipment.  A \gls{sensor term} is typically comprised of two major components: a \gls{sensor unit} that provides signal processing, conversion, and communications and the \glspl{sensing element} that provides a signal or measured value.
+{term:Sensor} is a unique type of a piece of equipment.  A {term:Sensor} is typically comprised of two major components: a {term:sensor unit} that provides signal processing, conversion, and communications and the {term:sensing elements} that provides a signal or measured value.
 
-The \gls{sensor unit} is modeled as a \gls{lower level} \gls{component} called \gls{sensor}.  The \gls{sensing element} may be modeled as a \gls{composition} element of a \gls{sensor} element and the measured value would be modeled as a \gls{dataitem} (See \sect{Listing of Data Items} for more information on \gls{dataitem} elements).  Each \gls{sensor unit} may have multiple \glspl{sensing element}; each representing the data for a variety of measured values.
+The {term:sensor unit} is modeled as a {term:Lower Level} {block:Component} called {block:Sensor}.  The {term:sensing element} may be modeled as a {block:Composition} element of a {block:Sensor} element and the measured value would be modeled as a {block:DataItem} (See {ref:Listing of Data Items} for more information on {block:DataItem} elements).  Each {term:sensor unit} may have multiple {term:sensing elements}; each representing the data for a variety of measured values.
 
-Example:  A pressure transducer could be modeled as a \gls{sensor} (\gls{component}) with a \gls{name} = \textit{Pressure Transducer B} and its measured value could be modeled as a \gls{pressure sample} type \gls{dataitem}.
+Example:  A pressure transducer could be modeled as a {block:Sensor} ({block:Component}) with a {property:name} = {cite:Pressure Transducer B} and its measured value could be modeled as a {block:PRESSURE} type {block:DataItem}.
 
-While a \gls{sensor term} may be modeled in the \gls{xml} document in different ways, it will always be modeled to associate the information measured by each \gls{sensor element} with the \gls{structural element} to which the measured value is most closely associated.   
+While a {term:Sensor} may be modeled in the {term:normalfont XML} document in different ways, it will always be modeled to associate the information measured by each {term:sensor element} with the {term:Structural Element} to which the measured value is most closely associated.   
 
 \subsubsection{Sensor Data}
 
-The most basic implementation of a sensor occurs when the \gls{sensing element} itself is not identified in the data model, but the data that is measured by the \gls{sensing element} is provided as a data item associated with a \gls{component}.  An example would be the measured value of the temperature of a spindle motor.  This would be represented as a \gls{dataitem} called \gls{temperature sample} that is associated with the \gls{rotary} type axis element called "C" as shown in \lst{example-of-sensing-element}:
+The most basic implementation of a sensor occurs when the {term:sensing element} itself is not identified in the data model, but the data that is measured by the {term:sensing element} is provided as a data item associated with a {block:Component}.  An example would be the measured value of the temperature of a spindle motor.  This would be represented as a {block:DataItem} called {block:TEMPERATURE} that is associated with the {block:Rotary} type axis element called "C" as shown in {ref:example-of-sensing-element}:
 
 \newpage 
 
@@ -32,7 +32,7 @@ The most basic implementation of a sensor occurs when the \gls{sensing element} 
 </Components>
 \end{lstlisting}
 
-A sensor may measure values associated with any \gls{component} or \gls{device} element.   Some examples of how sensor data may be modeled are represented in \fig{sensor-data-associations}:
+A sensor may measure values associated with any {block:Component} or {block:Device} element.   Some examples of how sensor data may be modeled are represented in {ref:sensor-data-associations}:
 
 \begin{figure}[ht]
   \centering
@@ -44,27 +44,27 @@ A sensor may measure values associated with any \gls{component} or \gls{device} 
 \subsubsection{Sensor Unit}
 \label{sec:Sensor Unit}
 
-A \gls{sensor unit} is an intelligent piece of equipment that manages the functions of one or more \glspl{sensing element}.
+A {term:sensor unit} is an intelligent piece of equipment that manages the functions of one or more {term:sensing elements}.
 
-Typical functions of the \gls{sensor unit} include:
+Typical functions of the {term:sensor unit} include:
 
 \begin{itemize}
-\item convert low level signals from the \glspl{sensing element} into data that can be used by other pieces of equipment.  (Example:  Convert a non-linear millivolt signal from a temperature sensor into a scaled temperature value that can be transmitted to another piece of equipment.)
+\item convert low level signals from the {term:sensing elements} into data that can be used by other pieces of equipment.  (Example:  Convert a non-linear millivolt signal from a temperature sensor into a scaled temperature value that can be transmitted to another piece of equipment.)
 
-\item process \gls{sensing element} data into calculated values.  (Example:  temperature sensor data is converted into calculated values of average temperature, maximum temperature, minimum temperature, etc.)
+\item process {term:sensing element} data into calculated values.  (Example:  temperature sensor data is converted into calculated values of average temperature, maximum temperature, minimum temperature, etc.)
 
-\item provide calibration and configuration information associated with each \gls{sensing element}
+\item provide calibration and configuration information associated with each {term:sensing element}
 
-\item monitor the health and integrity of the \glspl{sensing element} and the \gls{sensor unit}.  (Example:  The \gls{sensor unit} may provide diagnostics on each \gls{sensing element} (e.g., open wire detection) and itself (e.g., measure internal temperature of the \gls{sensor unit}).
+\item monitor the health and integrity of the {term:sensing elements} and the {term:sensor unit}.  (Example:  The {term:sensor unit} may provide diagnostics on each {term:sensing element} (e.g., open wire detection) and itself (e.g., measure internal temperature of the {term:sensor unit}).
 \end{itemize}
 
-Depending on how the \gls{sensor unit} is used, it may be considered as either an independent piece of equipment and modeled in the \gls{xml} document as a \gls{device}, or it may be modeled as a \gls{top level} \gls{component} called \gls{sensor} if it is integral to a piece of equipment.
+Depending on how the {term:sensor unit} is used, it may be considered as either an independent piece of equipment and modeled in the {term:normalfont XML} document as a {block:Device}, or it may be modeled as a {term:Top Level} {block:Component} called {block:Sensor} if it is integral to a piece of equipment.
 
-A \gls{sensor} \may have its own \gls{uuid} so it can be tracked throughout its lifetime.
+A {block:Sensor} **\may** have its own {block:uuid} so it can be tracked throughout its lifetime.
 
-The following examples demonstrate how a \gls{sensor term} may be modeled in the \gls{xml} document differently based on how the \gls{sensor term} functions within the overall piece of equipment
+The following examples demonstrate how a {term:Sensor} may be modeled in the {term:normalfont XML} document differently based on how the {term:Sensor} functions within the overall piece of equipment
 
-Example\#1:   If the \gls{sensor} provides vibration measurement data for the spindle on a piece of equipment, it could be modeled as a \gls{sensor} for rotary axis named C.
+Example\#1:   If the {block:Sensor} provides vibration measurement data for the spindle on a piece of equipment, it could be modeled as a {block:Sensor} for rotary axis named C.
 
 \begin{lstlisting}[firstnumber=1,escapechar=|,%
     caption={Example of Sensor for rotary axis}, label={lst:example-of-sensor}]
@@ -87,9 +87,9 @@ Example\#1:   If the \gls{sensor} provides vibration measurement data for the sp
 </Components>
 \end{lstlisting}
 
-Example\#2:   If a \gls{sensor} provides measurement data for multiple \gls{component} elements within a piece of equipment and is not associated with any particular \gls{component} element, it \may be modeled in the \gls{xml} document as an independent \gls{lower level} \gls{component} and the data associated with measurements are associated with their associated \gls{component} elements.
+Example\#2:   If a {block:Sensor} provides measurement data for multiple {block:Component} elements within a piece of equipment and is not associated with any particular {block:Component} element, it **\may** be modeled in the {term:normalfont XML} document as an independent {term:Lower Level} {block:Component} and the data associated with measurements are associated with their associated {block:Component} elements.
 
-This example represents a \gls{sensor unit} with two \glspl{sensing element}, one measures spindle vibration and the other measures the temperature for the X axis.   The \gls{sensor unit} also has a \gls{sensing element} measuring the internal temperature of the \gls{sensor unit}.
+This example represents a {term:sensor unit} with two {term:sensing elements}, one measures spindle vibration and the other measures the temperature for the X axis.   The {term:sensor unit} also has a {term:sensing element} measuring the internal temperature of the {term:sensor unit}.
 
 \begin{lstlisting}[firstnumber=1,escapechar=|,%
     caption={Example of Sensor Unit with Sensing Element}, label={lst:example-of-sensor-with-sensing-elements}]
@@ -129,15 +129,15 @@ This example represents a \gls{sensor unit} with two \glspl{sensing element}, on
 </Device>
 \end{lstlisting}
 
-When a \gls{sensor} unit is modeled in the \gls{xml} document as a \gls{component} or as a separate piece of equipment, it may provide additional configuration information for the \glspl{sensor element} and the \gls{sensor unit} itself.  
+When a {block:Sensor} unit is modeled in the {term:normalfont XML} document as a {block:Component} or as a separate piece of equipment, it may provide additional configuration information for the {term:sensor elements} and the {term:sensor unit} itself.  
 
-\gls{configuration} data provides information required for maintenance and support of the sensor.
+{block:Configuration} data provides information required for maintenance and support of the sensor.
 
-\gls{configuration} data is only available when the \gls{sensor} unit is modeled as a \gls{component} or a separate piece of equipment. For details on the modeling of configuration data in the \gls{xml} document, see \sect{Configuration for Component}.
+{block:Configuration} data is only available when the {block:Sensor} unit is modeled as a {block:Component} or a separate piece of equipment. For details on the modeling of configuration data in the {term:normalfont XML} document, see {ref:Configuration for Component}.
 
-When \gls{sensor} represents the \gls{sensor unit} for multiple \gls{sensing element}(s), each sensing element is represented by a \gls{channel}.   The \gls{sensor unit} itself and each \gls{channel} representing one \gls{sensing element} \may have its own configuration data.
+When {block:Sensor} represents the {term:sensor unit} for multiple {term:sensing element}(s), each sensing element is represented by a {block:Channel}.   The {term:sensor unit} itself and each {block:Channel} representing one {term:sensing element} **\may** have its own configuration data.
 
-\gls{sensorconfiguration} can contain any descriptive content for a \gls{sensor unit}.  This element is defined to contain mixed content and additional \gls{xml} elements (indicated by the \gls{any} element in \fig{sensorconfiguration-schema-diagram}) \may be added to extend the schema for \gls{sensorconfiguration}.
+{block:SensorConfiguration} can contain any descriptive content for a {term:sensor unit}.  This element is defined to contain mixed content and additional {term:normalfont XML} elements (indicated by the {block:any} element in {ref:sensorconfiguration-schema-diagram}) **\may** be added to extend the schema for {block:SensorConfiguration}.
 
 
 
@@ -145,7 +145,7 @@ When \gls{sensor} represents the \gls{sensor unit} for multiple \gls{sensing ele
   \label{sec:Channel}
 
 
-When \gls{sensor} represents multiple \glspl{sensing element}, each \gls{sensing element} is represented by a \gls{channel} for the \gls{sensor}. 
+When {block:Sensor} represents multiple {term:sensing elements}, each {term:sensing element} is represented by a {block:Channel} for the {block:Sensor}. 
 
 
 \paragraph{Attributes of Channel}\mbox{}
@@ -203,11 +203,11 @@ Descriptions for attributes of \texttt{Channel}:
 Descriptions for elements of \texttt{Channel}:
 
 \begin{itemize}
-\item \texttt{CalibrationDate} : Date upon which the \gls{sensor unit} was last calibrated to the \gls{sensor element}.
+\item \texttt{CalibrationDate} : Date upon which the {term:sensor unit} was last calibrated to the {term:sensor element}.
 \item \texttt{CalibrationInitials} : The initials of the person verifying the validity of the calibration data.
-\item \texttt{NextCalibrationDate} : Date upon which the \gls{sensor element} is next scheduled to be calibrated with the \gls{sensor unit}.
+\item \texttt{NextCalibrationDate} : Date upon which the {term:sensor element} is next scheduled to be calibrated with the {term:sensor unit}.
 \item \texttt{Description} : An element that can contain any descriptive content.
-\item \texttt{Channels} : \gls{channels} \glspl{organize} \gls{channel} elements.
+\item \texttt{Channels} : {block:Channels} {term:organizes} {block:Channel} elements.
 
 \end{itemize}
 \FloatBarrier
@@ -216,7 +216,7 @@ Descriptions for elements of \texttt{Channel}:
   \label{sec:SensorConfiguration}
 
 
-\gls{sensorconfiguration} contains configuration information about a \gls{sensor}.
+{block:SensorConfiguration} contains configuration information about a {block:Sensor}.
 
 
 \paragraph{Elements of SensorConfiguration}\mbox{}
@@ -246,11 +246,11 @@ Descriptions for elements of \texttt{Channel}:
 Descriptions for elements of \texttt{SensorConfiguration}:
 
 \begin{itemize}
-\item \texttt{CalibrationDate} : Date upon which the \gls{sensor unit} was last calibrated.
+\item \texttt{CalibrationDate} : Date upon which the {term:sensor unit} was last calibrated.
 \item \texttt{CalibrationInitials} : The initials of the person verifying the validity of the calibration data.
 \item \texttt{FirmwareVersion} : Version number for the sensor unit as specified by the manufacturer.
-\item \texttt{NextCalibrationDate} : Date upon which the \gls{sensor unit} is next scheduled to be calibrated.
-\item \texttt{Channels} : \gls{channels} \glspl{organize} \gls{channel} elements.
+\item \texttt{NextCalibrationDate} : Date upon which the {term:sensor unit} is next scheduled to be calibrated.
+\item \texttt{Channels} : {block:Channels} {term:organizes} {block:Channel} elements.
 
 \end{itemize}
 \FloatBarrier

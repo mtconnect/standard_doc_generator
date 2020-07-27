@@ -1,20 +1,20 @@
-% Generated 2020-05-20 17:19:30 -0400
+% Generated 2020-07-27 15:21:27 +0530
 \subsection{Devices} \label{sec:Devices}
 
-\gls{devices} \MUST \gls{organize} one or more \gls{device} elements.
+{block:Devices} **\MUST** {term:organize} one or more {block:Device} elements.
 
 
 \subsubsection{Device}
   \label{sec:Device}
 
 
-A \gls{device} is a \gls{component} that represents a piece of equipment that produces \glspl{observation} about itself. It \glspl{organize} its parts as \gls{components}.
+A {block:Device} is a {block:Component} that represents a piece of equipment that produces {term:observations} about itself. It {term:organizes} its parts as {block:Components}.
 
-A \gls{device} \MUST have a \gls{name} and \gls{uuid} attribute to identify itself. 
+A {block:Device} **\MUST** have a {property:name} and {block:uuid} attribute to identify itself. 
 
-A \gls{device} \MUST have the following \gls{dataitems}: \gls{availability event}, \gls{assetchanged event}, and \gls{assetremoved event}.
+A {block:Device} **\MUST** have the following {block:DataItems}: {block:AVAILABILITY}, {block:ASSET}, and {block:ASSET}.
 
-See \sect{Component} for details on the \gls{device} model. 
+See {ref:Component} for details on the {block:Device} model. 
 
 
 
@@ -32,7 +32,7 @@ See \sect{Component} for details on the \gls{device} model.
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{iso841Class} & \texttt{string} & 0..1 \\
+\texttt{<<deprecated>> iso841Class} & \texttt{string} & 0..1 \\
 \texttt{name} & \texttt{string} & 1 \\
 \texttt{uuid} & \texttt{NMTOKEN} & 1 \\
 \end{tabu}

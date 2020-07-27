@@ -107,7 +107,7 @@ SkipModels = Set.new
 SkipModels.add('CSV Imports')
 SkipModels.add('Simulation')
 SkipModels.add('MTConnect')
-SkipModels.add('Glossary')
+#SkipModels.add('Glossary')
 
 
 unless ARGV.first
