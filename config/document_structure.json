@@ -1,0 +1,76 @@
+{
+	"documents": {
+		"part1": {
+			"directory": "protocols",
+			"models": [
+				{
+					"Terminology": ["Glossary"]
+				}
+			]
+		},
+		"part2": {
+			"directory": "devices",
+			"models": [
+				"Devices Information Model",
+				{
+					"Structural Elements for MTConnectDevices": ["Components",
+						"Devices",
+						"Component Types"
+					]
+				},
+				{
+					"Compositions": ["Compositions", "Composition Types"]
+				},
+				{
+					"DataItems": ["DataItems",
+						"Elements for DataItem",
+						"Elements for Definition",
+						"DataItem Types"
+					]
+				},
+				{
+					"References": ["References"]
+				},
+				{
+					"Configuration": ["Configuration",
+						"CoordinateSystems",
+						"Motion",
+						"Relationships",
+						"Sensor",
+						"Specifications"
+					]
+				},
+				{
+					"MTConnect Profile": ["Profile"]
+				}
+			]
+		},
+		"part3": {
+			"directory": "observations",
+			"models": ["Observations Information Model",
+				{
+					"Observations": ["Observations",
+						"Representation"
+					]
+				},
+				{
+					"Observation Types": ["Condition Types",
+						"Event Types",
+						"Sample Types"
+					]
+				}
+			]
+		},
+		"part4": {
+			"directory": "assets",
+			"models": ["Assets Information Model",
+				{
+					"Assets": ["Assets",
+						"CuttingTool",
+						"CuttingItem"
+					]
+				}
+			]
+		}
+	}
+}

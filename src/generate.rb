@@ -10,18 +10,11 @@ require 'model'
 require 'rexml/document'
 require 'rexml/xpath'
 require 'nokogiri'
-
 require 'treetop'
 
 Options = {}
-Directory = {}
-DocumentFile ={}
 parser = OptionParser.new do |opts|
-  opts.banner = "Usage: generate.rb [options] [docs|nodeset]"
-
-  opts.on("-r", "--[no-]clean", "Regenerate Nodeset Ids") do |v|
-    Options[:clean] = v
-  end
+  opts.banner = "Usage: generate.rb [options] [docs]"
 
   opts.on('-d', '--[no-]debug', 'Debug logging') do |v|
     Options[:debug] = v
@@ -34,81 +27,6 @@ $logger.level = Options[:debug] ? Logger::DEBUG : Logger::INFO
 $logger.formatter = proc do |severity, datetime, progname, msg|
   "#{severity}: #{msg}\n"
 end
-
-#Part 2 Documentation
-DeviceModels = ['Devices',
-				'Components',
-				'Component Types']
-				
-CompositionModels = ['Compositions',
-				'Composition Types']
-				
-DataItemModels = ['DataItems',
-				'Elements for DataItem',
-				'Elements for Definition',
-				'DataItem Types']
-				
-ReferenceModels = ['References']
-				
-ConfigurationModels = ['Configuration',
-				'CoordinateSystems',
-				'Motion',
-				'Relationships',
-				'Sensor',
-				'Specifications'
-				]
-
-ProfileModels = ['Profile']
-
-#Part 3 Documentation
-ObservationModels = ['Observations',
-				'Representation']
-
-
-ObservationTypes = ['Condition Types',
-				'Event Types',
-				'Sample Types'
-				]
-
-
-#Part 4 Documentation
-AssetModels = ['Asset',
-				'CuttingTool',
-				'CuttingItem'
-				]
-
-
-#Part 1 Documentation
-Protocols = ['MTConnect Protocol']
-Glossary = ['Glossary']					
-
-
-Directory['Device'] = File.join(File.dirname(__FILE__),'..','devices')
-DocumentFile['Device'] = File.join(File.dirname(__FILE__),'..','devices','devices.tex')
-
-Directory['Observation'] = File.join(File.dirname(__FILE__),'..','observations')
-DocumentFile['Observation'] = File.join(File.dirname(__FILE__),'..','observations','observations.tex')
-
-Directory['Asset'] = File.join(File.dirname(__FILE__),'..','assets')
-DocumentFile['Asset'] = File.join(File.dirname(__FILE__),'..','assets','assets.tex')
-
-Directory['Glossary'] = File.join(File.dirname(__FILE__),'..','devices')
-DocumentFile['Glossary'] = File.join(File.dirname(__FILE__),'..','devices','mtc-terms.tex')
-
-xmiDoc = nil
-File.open(File.join(File.dirname(__FILE__), '..', 'MTConnect SysML Model.xml')) do |xmi|
-  xmiDoc = Nokogiri::XML(xmi).slop!
-  RootModel = xmiDoc.at('//uml:Model')
-end
-
-$namespaces = Hash[xmiDoc.namespaces.map { |k, v| [k.split(':').last, v] }]
-
-SkipModels = Set.new
-SkipModels.add('CSV Imports')
-SkipModels.add('Simulation')
-SkipModels.add('MTConnect')
-#SkipModels.add('Glossary')
-
 
 unless ARGV.first
   $logger.error "The directive docs must be given"
