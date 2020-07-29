@@ -1,77 +1,7 @@
 require 'type'
 require 'set'
-
-module Diagram
-  def png_diagram_name
-    "./diagrams/types/#{short_name}.png"
-  end
-
-  def tex_diagram_name
-    "./diagrams/types/#{short_name}.tex"
-  end
-
-  def png_diagram_file_name
-    "./#{LatexModel.directory}/#{png_diagram_name}"
-  end
-
-  def tex_diagram_file_name
-    "./#{LatexModel.directory}/#{tex_diagram_name}"
-  end
-
-  def png_diagram_exists?
-    File.exists?(png_diagram_file_name)      
-  end
-
-  def tex_diagram_exists?
-    File.exists?(tex_diagram_file_name)
-  end
-  
-  def generate_diagram(f)
-    if tex_diagram_exists?
-      # puts "** Generating png diagrams #{tex_diagram_file_name}"
-
-      f.puts "\n\\input #{tex_diagram_name}\n\n"
-    elsif png_diagram_exists?
-      # puts "** Generating png diagrams #{png_diagram_file_name}"
-      
-      f.puts <<-EOT
-
-\\begin{figure}[ht]
-  \\centering
-    \\includegraphics[width=1.0\\textwidth]{#{png_diagram_name}}
-  \\caption{#{@name} Diagram}
-  \\label{fig:#{short_name}}
-\\end{figure}
-
-\\FloatBarrier
-
-EOT
-    end
-  end
-end
-
-module Document
-  def documentation_name
-    "./type-sections/#{short_name}.tex"
-  end
-
-  def documentation_file_name
-    "./#{LatexModel.directory}/#{documentation_name}"
-  end
-
-
-  def documentation_exists?
-    File.exists?(documentation_file_name)
-  end
-
-  def generate_documentation(f)
-    if documentation_exists?
-      f.puts "\n\\input #{documentation_name}\n\n"
-    elsif @documentation
-      f.puts "\n#{@documentation}\n\n"
-    end
-  end
-end
+require 'documents'
+require 'diagrams'
 
 class LatexType < Type
   include Diagram
@@ -122,7 +52,6 @@ class LatexType < Type
 
     unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
 
-	  $logger.info "#{relations_with_documentation[1].name}"
       attributes = relations_with_documentation.select do |a| 
 		if a.association_name
 		    /[[:lower:]]/.match(a.association_name[0])

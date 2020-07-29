@@ -22,22 +22,17 @@ class LatexModel < Model
 	  if model.end_with?('Types')
 		@@models[model].generate_subtypes(model)
 	  end
-      @@models[model].generate_latex(f)
+	  if model == 'Glossary'
+		@@models[model].generate_glossary(f)
+      else
+		@@models[model].generate_latex(f)
+	  end
     else
       $logger.fatal "Cannot find model: #{model}"
       exit @@models[model]
     end
   end
   
-  def self.generate_glossary(f, model)
-    if @@models[model]
-      @@models[model].generate_glossary(f)
-    else
-      $logger.fatal "Cannot find model: #{model}"
-      exit @@models[model]
-    end
-  end
-
   def generate_latex(f)
     file = "model-sections/#{short_name}.tex"
     f.puts "\\input #{file}"
@@ -59,12 +54,20 @@ class LatexModel < Model
   end
   
   def generate_glossary(f)
-      @types.each do |type|
-        if type.parent.nil? or type.parent.model != self
-          recurse_terms(f, type)
-        end
-      end
+	f.puts <<-EOT
+\n\\printglossary\n
+\n\\printbibliography[title=MTConnect References,keyword=MTC]\n
+\n\\printbibliography[title=Other References,notkeyword=MTC]\n
+\n\\nolinenumbers\n\n\\glsaddallunused\n\n\\nolinenumbers\n\n\\linenumbers\n
+EOT
 
+    File.open(File.join(@@directory,"model-sections",short_name+".tex"), "w") do |fs|
+		@types.each do |type|
+			if type.parent.nil? or type.parent.model != self
+				recurse_terms(fs, type)
+			end
+		end
+	end
   end
 
 
@@ -105,4 +108,21 @@ class LatexModel < Model
       recurse_terms(f, t) if t.model == self
     end
   end 
+
+  def self.generate_subtypes
+	dataitem_types = {}
+	@@models['Sample Types'].types.each do |type|
+	  dataitem_types[type.name] = []
+	  type.children.each do |subtype|
+		dataitem_types[type.name] << subtype
+	  end
+    end
+	@@models['Event Types'].types.each do |type|
+	  dataitem_types[type.name] = []
+	  type.children.each do |subtype|
+		dataitem_types[type.name] << subtype
+	  end
+    end
+	return dataitem_types
+  end
 end
