@@ -1,4 +1,4 @@
-% Generated 2020-07-27 15:21:27 +0530
+% Generated 2020-07-29 16:29:19 +0530
 \subsection{DataItems} \label{sec:DataItems}
 
 {block:DataItems} {term:organizes} {block:DataItem} elements.
@@ -8,7 +8,7 @@
   \label{sec:DataItem}
 
 
-{block:DataItem} describes a piece of information reported about a piece of equipment.
+\block{DataItem} describes a piece of information reported about a piece of equipment.
 
 
 \paragraph{Attributes of DataItem}\mbox{}
@@ -70,8 +70,8 @@ Name & Description \\
 \texttt{CONDITION} &  \\ \hline
 \end{longtabu}
 \FloatBarrier
-\item \texttt{compositionId} : The identifier attribute of the {block:Composition} element that the reported data is most closely associated.
-\item \texttt{coordinateSystem} : For measured values relative to a coordinate system like {block:POSITION}, the coordinate system being used may be reported.
+\item \texttt{compositionId} : The identifier attribute of the \block{Composition} element that the reported data is most closely associated.
+\item \texttt{coordinateSystem} : For measured values relative to a coordinate system like \block{POSITION}, the coordinate system being used may be reported.
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
@@ -91,18 +91,18 @@ Name & Description \\
 \texttt{WORK} &  \\ \hline
 \end{longtabu}
 \FloatBarrier
-\item \texttt{discrete} : An indication signifying whether each value reported for the {term:Data Entity} is significant and whether duplicate values are to be suppressed.
+\item \texttt{discrete} : An indication signifying whether each value reported for the \gls{Data Entity} is significant and whether duplicate values are to be suppressed.
   
- The value defined **MUST** be either {block:true} or {block:false} - an XML boolean type.
+ The value defined **MUST** be either \block{true} or \block{false} - an XML boolean type.
   
- {block:true} indicates that each update to the {term:Data Entity}'s value is significant and duplicate values **MUSTNOT** be suppressed.
+ \block{true} indicates that each update to the \gls{Data Entity}'s value is significant and duplicate values **MUSTNOT** be suppressed.
   
- {block:false} indicates that duplicated values **MUST** be suppressed.
+ \block{false} indicates that duplicated values **MUST** be suppressed.
   
- If a value is not defined for {block:discrete}, the default value **MUST** be {block:false}.
+ If a value is not defined for \block{discrete}, the default value **MUST** be \block{false}.
 \item \texttt{id} : The unique identifier for this element.
 \item \texttt{name} : The name of an element or a piece of equipment.
-\item \texttt{nativeScale} : {block:nativeScale} **MAY** be used to convert the reported value to represent the original measured value.
+\item \texttt{nativeScale} : \block{nativeScale} **MAY** be used to convert the reported value to represent the original measured value.
 \item \texttt{nativeUnits} : The native units of measurement for the reported value of the data item.
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -181,7 +181,7 @@ Name & Description \\
 \texttt{STANDARD_DEVIATION} &  \\ \hline
 \end{longtabu}
 \FloatBarrier
-\item \texttt{subType} : A sub-categorization of the data item {block:type}.
+\item \texttt{subType} : A sub-categorization of the data item \block{type}.
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
@@ -306,7 +306,7 @@ Name & Description \\
 \texttt{MANUFACTURER} & The corporate identity for the maker of the hardware or software \\ \hline
 \end{longtabu}
 \FloatBarrier
-\item \texttt{type} : The type of either a {term:Structural Element} or a {block:DataItem} being measured.
+\item \texttt{type} : The type of either a \gls{Structural Element} or a \block{DataItem} being measured.
 \item \texttt{units} : The unit of measurement for the reported value of the data item.
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -363,10 +363,10 @@ Name & Description \\
 \end{longtabu}
 \FloatBarrier
 \item \texttt{representation} : Description of a means to interpret data consisting of multiple data points or samples reported as a single value.  
- {block:representation} is an optional attribute.  
- {block:representation} will define a unique format for each set of data.  
- {block:representation} for {block:TIME_SERIES}, {block:DISCRETE ( **DEPRECATED** in _Version 1.5_)}, {block:DATA_SET}, {block:TABLE} and {block:VALUE} are defined in **CITETITLE:MTCPart2** _Section 7.2.2.12_.  
- If {block:representation} is not specified, it **MUST** be determined to be {block:VALUE}.
+ \block{representation} is an optional attribute.  
+ \block{representation} will define a unique format for each set of data.  
+ \block{representation} for \block{TIME_SERIES}, \block{DISCRETE ( **DEPRECATED** in _Version 1.5_)}, \block{DATA_SET}, \block{TABLE} and \block{VALUE} are defined in **CITETITLE:MTCPart2** _Section 7.2.2.12_.  
+ If \block{representation} is not specified, it **MUST** be determined to be \block{VALUE}.
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
@@ -389,7 +389,7 @@ Name & Description \\
 \texttt{TABLE} &  \\ \hline
 \end{longtabu}
 \FloatBarrier
-\item \texttt{coordinateSystemIdRef} : The associated {block:CoordinateSystem} context for the {block:DataItem}.
+\item \texttt{coordinateSystemIdRef} : The associated \block{CoordinateSystem} context for the \block{DataItem}.
 \end{itemize}
 
 \paragraph{Elements of DataItem}\mbox{}
@@ -421,8 +421,8 @@ Descriptions for elements of \texttt{DataItem}:
 
 \begin{itemize}
 \item \texttt{Source} : {block:Source} identifies the {block:Component}, {block:DataItem}, or {block:Composition} representing the area of the piece of equipment from which a measured value originates.
-\item \texttt{Constraints} : {block:Constraints} {term:organizes} a set of expected values that can be reported for this {block:DataItem}.
-\item \texttt{Filters} : {block:Filters} {term:organizes} the {block:Filter} elements associated with this {block:DataItem} element. 
+\item \texttt{Constraints} : \block{Constraints} \gls{organizes} a set of expected values that can be reported for this \block{DataItem}.
+\item \texttt{Filters} : \block{Filters} \gls{organizes} the \block{Filter} elements associated with this \block{DataItem} element. 
 \item \texttt{InitialValue} : {block:InitialValue} defines the starting value for a data item as well as the value to be set for the data item after a reset event.
 \item \texttt{ResetTrigger} : {block:ResetTrigger} identifies the type of event that may cause a reset to occur.
 \item \texttt{Definition} : The {block:Definition} defines the meaning of {block:Entry} and {block:Cell} elements associated with the {block:DataItem} when the {property:representation} is either {block:DATA} or {block:TABLE}.

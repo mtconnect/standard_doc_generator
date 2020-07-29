@@ -1,11 +1,11 @@
-% Generated 2020-07-27 15:21:27 +0530
+% Generated 2020-07-29 16:29:20 +0530
 \subsection{Relationships} \label{sec:Relationships}
 
 \subsubsection{Relationship}
   \label{sec:Relationship}
 
 
-{block:Relationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
+\block{Relationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
 
 \paragraph{Attributes of Relationship}\mbox{}
@@ -54,8 +54,8 @@ Name & Description \\
 \texttt{NONCRITICAL} & The services or functions provided by the associated element is not required for the operation of this element. \\ \hline
 \end{longtabu}
 \FloatBarrier
-\item \texttt{id} : The unique identifier for this {block:Relationship}.
-\item \texttt{name} : The name associated with this {block:Relationship}.
+\item \texttt{id} : The unique identifier for this \block{Relationship}.
+\item \texttt{name} : The name associated with this \block{Relationship}.
 \item \texttt{type} : Defines the authority that this piece of equipment has relative to the associated piece of equipment.
 \end{itemize}
 \FloatBarrier
@@ -64,7 +64,7 @@ Name & Description \\
   \label{sec:ComponentRelationship}
 
 
-{block:ComponentRelationship} describes the association between two components within a piece of equipment that function independently but together perform a capability or service within a piece of equipment.
+\block{ComponentRelationship} describes the association between two components within a piece of equipment that function independently but together perform a capability or service within a piece of equipment.
 
 
 \paragraph{Attributes of ComponentRelationship}\mbox{}
@@ -98,7 +98,7 @@ Descriptions for attributes of \texttt{ComponentRelationship}:
   \label{sec:DeviceRelationship}
 
 
-{block:DeviceRelationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
+\block{DeviceRelationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
 
 \paragraph{Attributes of DeviceRelationship}\mbox{}
@@ -129,7 +129,7 @@ Descriptions for attributes of \texttt{DeviceRelationship}:
 \begin{itemize}
 \item \texttt{deviceUuidRef} : A reference to the associated piece of equipment. 
 
-\item \texttt{href} : A URI identifying the {term:Agent} that is publishing information for the associated piece of equipment. {property:href} **\MUST** also include the UUID for that specific piece of equipment.
+\item \texttt{href} : A URI identifying the \gls{Agent} that is publishing information for the associated piece of equipment. {property:href} **\MUST** also include the UUID for that specific piece of equipment.
 
 {property:href} is of type `xlink:href` from the W3C XLink specification: (https://www.w3.org/TR/xlink11/).
 \item \texttt{role} : Defines the services or capabilities that the referenced piece of equipment provides relative to this piece of equipment.
@@ -148,7 +148,7 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{SYSTEM} & The associated element performs the functions of a {block:System} for this element. \\ \hline
+\texttt{SYSTEM} & The associated element performs the functions of a \block{System} for this element. \\ \hline
 \texttt{AUXILIARY} & The associated element performs the functions as an `Auxiliary` for this element. \\ \hline
 \end{longtabu}
 \FloatBarrier
@@ -162,7 +162,7 @@ If the {property:href} attribute is provided, it **\MUST** conform to the URI sy
   \label{sec:Relationships}
 
 
-{block:Relationships} {term:organizes} {block:Relationship} elements.
+\block{Relationships} \gls{organizes} \block{Relationship} elements.
 
 
 \paragraph{Attributes of Relationships}\mbox{}

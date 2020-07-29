@@ -1,46 +1,45 @@
-% Generated 2020-07-16 16:38:17 +0530
 
 \section{Observations Information Model}
 \label{sec:Observations Information Model}
-The \gls{streams information model} provides a representation of the data reported by a piece of equipment used for a manufacturing process, or used for any other purpose.  Additional descriptive information associated with the reported data is defined in the \gls{mtconnectdevices} document, which is described in \citetitle{MTCPart2}.
+The {term:Streams Information Model} provides a representation of the data reported by a piece of equipment used for a manufacturing process, or used for any other purpose.  Additional descriptive information associated with the reported data is defined in the {block:MTConnectDevices} document, which is described in \citetitle{MTCPart2}.
 
-Information defined in the \gls{streams information model} allows a software application to (1) determine the value for \glspl{data entity} returned from a piece of equipment and (2) interpret the data associated with those \glspl{data entity} with the same meaning, value, and context that it had at its original source.  To do this, the software application issues one of two HTTP requests to an \gls{agent} associated with a piece of equipment.  They are:
+Information defined in the {term:Streams Information Model} allows a software application to (1) determine the value for {term:Data Entities} returned from a piece of equipment and (2) interpret the data associated with those {term:Data Entities} with the same meaning, value, and context that it had at its original source.  To do this, the software application issues one of two HTTP requests to an {term:Agent} associated with a piece of equipment.  They are:
 
-
-\begin{itemize}
-\item \gls{sample httprequest}:  Returns a designated number of time stamped \glspl{data entity} from an \gls{agent} associated with a piece of equipment; subject to any HTTP filtering associated with the request.  See \textit{Section 8.3.3} of \citetitle{MTCPart1} of the MTConnect Standard for details on the \gls{sample httprequest} HTTP request.
-
-\item \gls{current httprequest}:  Returns a snapshot of either the most recent values or the values at a given sequence number for all \glspl{data entity} associated with a piece of equipment from an \gls{agent}; subject to any HTTP filtering associated with the request.  See \textit{Section 8.3.2} of \citetitle{MTCPart1} of the MTConnect Standard for details on the \gls{current httprequest} HTTP request.
-\end{itemize}
-
-An \gls{agent} responds to either the \gls{sample httprequest} or \gls{current httprequest} HTTP request with an \linebreak\gls{mtconnectstreams} \gls{xml} document.  This document contains information describing \glspl{data entity} reported by an \gls{agent} associated with a piece of equipment.   A client software application may correlate the information provided in the \gls{mtconnectstreams} \gls{xml} document with the physical and logical structure for that piece of equipment defined in the \gls{mtconnectdevices} document to form a clear and unambiguous understanding of the information provided.  (See details on the structure for a piece of equipment described in \citetitle{MTCPart2}).
-
-The \gls{mtconnectstreams} \gls{xml} document is comprised of two sections: \gls{header} and \gls{streams}.
-
-The \gls{header} section contains protocol related information as defined in \textit{Section 6.5} of \citetitle{MTCPart1} of the MTConnect Standard.
-
-The \gls{streams} section of the \gls{mtconnectstreams} document contains a \linebreak\gls{devicestream} \gls{xml} container for each piece of equipment represented in the document.  Each \gls{devicestream} container is comprised of two primary types of \gls{xml} elements – \glspl{structural element} and \glspl{data entity}.  The contents of the \gls{devicestream} container are described in detail in this document, \citetitle{MTCPart3} of the MTConnect Standard.
-
-\glspl{structural element} are defined for both the \gls{mtconnectdevices} and the \gls{mtconnectstreams} \gls{xml} documents.  These \glspl{structural element} are used to provide a logical organization of the information provided in each document.  While used for a similar purpose, the \glspl{structural element} in the \gls{mtconnectstreams} document are specifically designed to be distinctly different from those in the \gls{mtconnectdevices} document:  
 
 \begin{itemize}
+\item {block:sample}:  Returns a designated number of time stamped {term:Data Entities} from an {term:Agent} associated with a piece of equipment; subject to any HTTP filtering associated with the request.  See {cite:Section 8.3.3} of \citetitle{MTCPart1} of the MTConnect Standard for details on the {block:sample} HTTP request.
 
-\item \gls{mtconnectdevices} document: \glspl{structural element} organize information that represents the physical and logical parts and sub-parts of a piece of equipment.  (See \citetitle{MTCPart2}, Section 4 of the MTConnect Standard for more details on \glspl{structural element} used in the \gls{mtconnectdevices} document).  
-
-\item \gls{mtconnectstreams} document: \glspl{structural element} provide the structure to organize the data returned from a piece of equipment and establishes the proper context for that data.  The \glspl{structural element} specifically defined for use in the \gls{mtconnectstreams} document are \gls{devicestream} (see \sect{DeviceStream}) and \gls{componentstream} (see \sect{ComponentStream}).   
-
-\gls{devicestream} and \gls{componentstream} elements have a direct correlation to each of the \glspl{structural element} defined in the \gls{mtconnectdevices} document.
+\item {block:current}:  Returns a snapshot of either the most recent values or the values at a given sequence number for all {term:Data Entities} associated with a piece of equipment from an {term:Agent}; subject to any HTTP filtering associated with the request.  See {cite:Section 8.3.2} of \citetitle{MTCPart1} of the MTConnect Standard for details on the {block:current} HTTP request.
 \end{itemize}
 
-\glspl{data entity} that describe data reported by a piece of equipment are also defined for both the \gls{mtconnectdevices} and the \gls{mtconnectstreams} \gls{xml} documents.  The \glspl{data entity} provided in both documents directly relate to each other.  However, \glspl{data entity} are used for different purposes in each document:
+An {term:Agent} responds to either the {block:sample} or {block:current} HTTP request with an \linebreak{block:MTConnectStreams} {term:normalfont XML} document.  This document contains information describing {term:Data Entities} reported by an {term:Agent} associated with a piece of equipment.   A client software application may correlate the information provided in the {block:MTConnectStreams} {term:normalfont XML} document with the physical and logical structure for that piece of equipment defined in the {block:MTConnectDevices} document to form a clear and unambiguous understanding of the information provided.  (See details on the structure for a piece of equipment described in \citetitle{MTCPart2}).
+
+The {block:MTConnectStreams} {term:normalfont XML} document is comprised of two sections: {block:Header} and {block:Streams}.
+
+The {block:Header} section contains protocol related information as defined in {cite:Section 6.5} of \citetitle{MTCPart1} of the MTConnect Standard.
+
+The {block:Streams} section of the {block:MTConnectStreams} document contains a \linebreak{block:DeviceStream} {term:normalfont XML} container for each piece of equipment represented in the document.  Each {block:DeviceStream} container is comprised of two primary types of {term:normalfont XML} elements – {term:Structural Elements} and {term:Data Entities}.  The contents of the {block:DeviceStream} container are described in detail in this document, \citetitle{MTCPart3} of the MTConnect Standard.
+
+{term:Structural Elements} are defined for both the {block:MTConnectDevices} and the {block:MTConnectStreams} {term:normalfont XML} documents.  These {term:Structural Elements} are used to provide a logical organization of the information provided in each document.  While used for a similar purpose, the {term:Structural Elements} in the {block:MTConnectStreams} document are specifically designed to be distinctly different from those in the {block:MTConnectDevices} document:  
 
 \begin{itemize}
-\item \gls{mtconnectdevices} document: \gls{data entity} elements define the data that may be returned from a piece of equipment.  \citetitle{MTCPart2}, \textit{Sections 7 and 8} lists the possible \gls{data entity} \gls{xml} elements that can be returned in a \gls{mtconnectdevices} document.  
 
-\item \gls{mtconnectstreams} document: \gls{data entity} elements provide the data reported by a piece of equipment.  This data is organized in separate \gls{componentstream} \gls{xml} containers for each of the \glspl{structural element} defined in the \gls{mtconnectdevices} document associated with the data that is reported by a piece of equipment.  
+\item {block:MTConnectDevices} document: {term:Structural Elements} organize information that represents the physical and logical parts and sub-parts of a piece of equipment.  (See \citetitle{MTCPart2}, Section 4 of the MTConnect Standard for more details on {term:Structural Elements} used in the {block:MTConnectDevices} document).  
+
+\item {block:MTConnectStreams} document: {term:Structural Elements} provide the structure to organize the data returned from a piece of equipment and establishes the proper context for that data.  The {term:Structural Elements} specifically defined for use in the {block:MTConnectStreams} document are {block:DeviceStream} (see {ref:DeviceStream}) and {block:ComponentStream} (see {ref:ComponentStream}).   
+
+{block:DeviceStream} and {block:ComponentStream} elements have a direct correlation to each of the {term:Structural Elements} defined in the {block:MTConnectDevices} document.
 \end{itemize}
 
-Within each \gls{componentstream} \gls{xml} container in the \gls{mtconnectstreams} document, \glspl{data entity} are organized into three types of \gls{xml} container elements - \glspl{sample}, \glspl{event}, and \glspl{condition}.  (See \sect{Data Entities} and \sect{Listing of Data Entities} for more information on these elements.)
+{term:Data Entities} that describe data reported by a piece of equipment are also defined for both the {block:MTConnectDevices} and the {block:MTConnectStreams} {term:normalfont XML} documents.  The {term:Data Entities} provided in both documents directly relate to each other.  However, {term:Data Entities} are used for different purposes in each document:
+
+\begin{itemize}
+\item {block:MTConnectDevices} document: {term:Data Entity} elements define the data that may be returned from a piece of equipment.  \citetitle{MTCPart2}, {cite:Sections 7 and 8} lists the possible {term:Data Entity} {term:normalfont XML} elements that can be returned in a {block:MTConnectDevices} document.  
+
+\item {block:MTConnectStreams} document: {term:Data Entity} elements provide the data reported by a piece of equipment.  This data is organized in separate {block:ComponentStream} {term:normalfont XML} containers for each of the {term:Structural Elements} defined in the {block:MTConnectDevices} document associated with the data that is reported by a piece of equipment.  
+\end{itemize}
+
+Within each {block:ComponentStream} {term:normalfont XML} container in the {block:MTConnectStreams} document, {term:Data Entities} are organized into three types of {term:normalfont XML} container elements - \glspl{sample}, \glspl{event}, and \glspl{condition}.  (See {ref:Data Entities} and {ref:Listing of Data Entities} for more information on these elements.)
 
 
 \section{Observations}
@@ -51,7 +50,7 @@ Within each \gls{componentstream} \gls{xml} container in the \gls{mtconnectstrea
 
 \section{Observation Types}
 \label{sec:Observation Types}
-\gls{observation} elements are represented by \gls{sample}, \gls{event} or \gls{condition} elements based upon the \gls{category} and \gls{type} attributes defined for the corresponding \gls{dataitem}.
+{term:observation} elements are represented by {block:Sample}, {block:Event} or {block:Condition} elements based upon the {property:category} and {property:type} attributes defined for the corresponding {block:DataItem}.
 \input model-sections/ConditionTypes.tex
 \input model-sections/EventTypes.tex
 \input model-sections/SampleTypes.tex

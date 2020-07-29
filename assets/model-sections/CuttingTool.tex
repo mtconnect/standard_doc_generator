@@ -1,7 +1,7 @@
-% Generated 2020-07-16 16:38:17 +0530
+% Generated 2020-07-29 16:29:22 +0530
 \subsection{CuttingTool} \label{sec:CuttingTool}
 
-The \gls{cuttingtool} \gls{information model} illustrated in \fig{cuttingtool-schema} has the identical structure as the \gls{cuttingtoolarchetype} \gls{information model} except for the XML element \gls{cuttingtooldefinition} that has been \DEPRECATED in the \gls{cuttingtool} schema.
+The {block:CuttingTool} {term:Information Model} illustrated in {ref:cuttingtool-schema} has the identical structure as the {block:CuttingToolArchetype} {term:Information Model} except for the XML element {block:CuttingToolDefinition} that has been \DEPRECATED in the {block:CuttingTool} schema.
 
 
 \subsubsection{CuttingTool}
@@ -57,7 +57,7 @@ Descriptions for attributes of \texttt{CuttingTool}:
 \tabucline[1.5pt]{}
 \texttt{CuttingToolLifeCycle} & \texttt{CuttingToolLifeCycle} & 0..1 \\
 \texttt{CuttingToolArchetypeReference} & \texttt{CuttingToolArchetypeReference} & 0..1 \\
-\texttt{CuttingToolDefinition} & \texttt{CuttingToolDefinition} & 0..1 \\
+\texttt{<<deprecated>> CuttingToolDefinition} & \texttt{CuttingToolDefinition} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -391,7 +391,7 @@ Name & Description \\
 \texttt{LUX} & Maximum length of a Cutting Tool that can be used in a particular cutting operation including the non-cutting portions of the tool. \\ \hline
 \texttt{LPR} & The dimension from the yz-plane to the furthest point of the Tool Item or Adaptive Item measured in the -X direction. \\ \hline
 \texttt{WT} & The total weight of the Cutting Tool in grams. The force exerted by the mass of the Cutting Tool. \\ \hline
-\texttt{LF} & The distance from the gauge plane or from the end of the shank to the furthest point on the tool, if a gauge plane does not exist, to the cutting reference point determined by the main function of the tool. The {model:CuttingTool} functional length will be the length of the entire tool, not a single Cutting Item. Each {model:CuttingItem} can have an independent {model:FunctionalLength} represented in its measurements.  \\ \hline
+\texttt{LF} & The distance from the gauge plane or from the end of the shank to the furthest point on the tool, if a gauge plane does not exist, to the cutting reference point determined by the main function of the tool. The \block{CuttingTool} functional length will be the length of the entire tool, not a single Cutting Item. Each \block{CuttingItem} can have an independent \block{FunctionalLength} represented in its measurements.  \\ \hline
 \texttt{CRP} & The theoretical sharp point of the Cutting Tool from which the major functional dimensions are taken. \\ \hline
 \texttt{L} & The theoretical length of the cutting edge of a Cutting Item over sharp corners. \\ \hline
 \texttt{DRVA} & Angle between the driving mechanism locator on a Tool Item and the main cutting edge. \\ \hline
@@ -407,7 +407,7 @@ Name & Description \\
 \texttt{DCx} & The diameter of a circle on which the defined point Pk located on this Cutting Tool. The normal of the machined peripheral surface points towards the axis of the Cutting Tool. \\ \hline
 \texttt{HF} & The distance from the basal plane of the Tool Item to the cutting point. \\ \hline
 \texttt{RE} & The nominal radius of a rounded corner measured in the X Y-plane. \\ \hline
-\texttt{LFx} & The distance from the gauge plane or from the end of the shank of the Cutting Tool, if a gauge plane does not exist, to the cutting reference point determined by the main function of the tool. This measurement will be with reference to the Cutting Tool and *MUSTNOT* exist without a Cutting Tool. \\ \hline
+\texttt{LFx} & The distance from the gauge plane or from the end of the shank of the Cutting Tool, if a gauge plane does not exist, to the cutting reference point determined by the main function of the tool. This measurement will be with reference to the Cutting Tool and **MUSTNOT** exist without a Cutting Tool. \\ \hline
 \texttt{BCH} & The flat length of a chamfer. \\ \hline
 \texttt{CHW} & The width of the chamfer. \\ \hline
 \texttt{W1} & W1 is used for the insert width when an inscribed circle diameter is not practical. \\ \hline

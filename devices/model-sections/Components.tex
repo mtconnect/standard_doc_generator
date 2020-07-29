@@ -1,4 +1,4 @@
-% Generated 2020-07-27 15:21:27 +0530
+% Generated 2020-07-29 16:29:18 +0530
 \subsection{Components} \label{sec:Components}
 
 {block:Components} groups information describing physical parts or logical functions of a piece of equipment.   {block:Components} {term:organizes} one or more {block:Component} elements. 
@@ -8,7 +8,7 @@
   \label{sec:Component}
 
 
-A {block:Component} organizes information describing a physical part or logical function of a piece of equipment.
+A \block{Component} organizes information describing a physical part or logical function of a piece of equipment.
 
 
 \paragraph{Attributes of Component}\mbox{}
@@ -42,7 +42,7 @@ Descriptions for attributes of \texttt{Component}:
 \item \texttt{id} : The unique identifier for this element.
 \item \texttt{name} : The name of an element or a piece of equipment.
 \item \texttt{nativeName} : The common name normally associated with a piece of equipment or an element.
-\item \texttt{sampleInterval} : An optional attribute that is an indication provided by a piece of equipment describing the interval in milliseconds between the completion of the reading of the data associated with the {block:Device} element until the beginning of the next sampling of that data.
+\item \texttt{sampleInterval} : An optional attribute that is an indication provided by a piece of equipment describing the interval in milliseconds between the completion of the reading of the data associated with the \block{Device} element until the beginning of the next sampling of that data.
 \item \texttt{sampleRate} : 
 \item \texttt{uuid} : The unique identifier for an XML element.
 \end{itemize}
@@ -76,11 +76,11 @@ Descriptions for elements of \texttt{Component}:
 
 \begin{itemize}
 \item \texttt{Description} : An element that can contain any descriptive content.
-\item \texttt{Compositions} : {block:Compositions} {term:organizes} {block:Composition} elements.
-\item \texttt{Components} : {block:Components} {term:organizes} {block:Component} elements.
-\item \texttt{Configuration} : {block:Configuration} contains technical information about a piece of equipment describing its physical layout or functional characteristics.
-\item \texttt{DataItems} : {block:DataItems} {term:organizes} {block:DataItem} elements. See {ref:DataItems}
-\item \texttt{References} : {block:References} {term:organizes} {block:Reference} elements associated with this {block:Component} element.
+\item \texttt{Compositions} : \block{Compositions} \gls{organizes} \block{Composition} elements.
+\item \texttt{Components} : \block{Components} \gls{organizes} \block{Component} elements.
+\item \texttt{Configuration} : \block{Configuration} contains technical information about a piece of equipment describing its physical layout or functional characteristics.
+\item \texttt{DataItems} : \block{DataItems} \gls{organizes} \block{DataItem} elements. See \ref{DataItems}
+\item \texttt{References} : \block{References} \gls{organizes} \block{Reference} elements associated with this \block{Component} element.
 \end{itemize}
 \FloatBarrier
 

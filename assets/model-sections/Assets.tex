@@ -1,0 +1,79 @@
+% Generated 2020-07-29 16:29:22 +0530
+\subsection{Assets} \label{sec:Assets}
+
+{block:Assets} {term:organizes} the {block:Asset} elements.
+
+
+\subsubsection{Asset}
+  \label{sec:Asset}
+
+
+<html>
+  <head>
+		<style>
+			p {padding:0px; margin:0px;}
+		</style>
+	</head>
+  <body>
+An Asset&#160;is something that is used in the manufacturing process, but is not permanently associated with a single piece of equipment, can be removed from the piece of equipment without compromising its function, and can be associated with other pieces of equipment during its lifecycle.</body>
+</html>
+
+
+\paragraph{Attributes of Asset}\mbox{}
+\label{sec:Attributes of Asset}
+
+\tbl{attributes of Asset} lists the attributes of \texttt{Asset}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Asset}
+  \label{table:attributes of Asset}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{assetId} & \texttt{ID} & 1 \\
+\texttt{deviceUuid} & \texttt{NMTOKEN} & 1 \\
+\texttt{removed} & \texttt{boolean} & 0..1 \\
+\texttt{timestamp} & \texttt{dateTime} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for attributes of \texttt{Asset}:
+
+\begin{itemize}
+\item \texttt{assetId} : The unique identifier for an Asset.
+\item \texttt{deviceUuid} : The piece of equipment's uuid that supplied the Asset's data.
+\item \texttt{removed} : An indicator that the Asset has been removed from the piece of equipment.
+\item \texttt{timestamp} : The point in time time the Asset data was last modified.
+\end{itemize}
+
+\paragraph{Elements of Asset}\mbox{}
+\label{sec:Elements of Asset}
+
+\tbl{elements of Asset} lists the elements of \texttt{Asset}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of Asset}
+  \label{table:elements of Asset}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{Description} & \texttt{Description} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \texttt{Asset}:
+
+\begin{itemize}
+\item \texttt{Description} : An element that can contain any descriptive content.
+\end{itemize}
+\FloatBarrier

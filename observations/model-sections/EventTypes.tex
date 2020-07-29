@@ -1,4 +1,4 @@
-% Generated 2020-07-16 16:38:17 +0530
+% Generated 2020-07-29 16:29:21 +0530
 \subsection{Event Types} \label{sec:EventTypes}
 
 \subsubsection{ActiveAxes}
@@ -33,8 +33,8 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{ACTIVE} & The value of the {term:Data Entity} that is engaging. \\ \hline
-\texttt{INACTIVE} & The value of the {term:Data Entity} that is not engaging. \\ \hline
+\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
+\texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
 \end{longtabu}
 \FloatBarrier
 \FloatBarrier
@@ -43,7 +43,7 @@ Name & Description \\
   \label{sec:Alarm}
 
 
-*DEPRECATED:* Replaced with {model:CONDITION} category data items in Version 1.1.0.
+**DEPRECATED:** Replaced with \block{CONDITION} category data items in Version 1.1.0.
 
 \FloatBarrier
 
@@ -61,7 +61,7 @@ Subtypes of Application are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \texttt{MA
   \label{sec:AssetChanged}
 
 
-The value of the {term:CDATA} for the event *MUST* be the {model:assetId} of the asset that has been added or changed. There will not be a separate message for new assets.
+The value of the \gls{CDATA} for the event **MUST** be the \block{assetId} of the asset that has been added or changed. There will not be a separate message for new assets.
 
 \FloatBarrier
 
@@ -69,7 +69,7 @@ The value of the {term:CDATA} for the event *MUST* be the {model:assetId} of the
   \label{sec:AssetRemoved}
 
 
-The value of the {term:CDATA} for the event *MUST* be the {model:assetId} of the asset that has been removed. The asset will still be visible if requested with the {model:includeRemoved} parameter as described in the protocol section. When assets are removed they are not moved to the beginning of the most recently modified list.
+The value of the \gls{CDATA} for the event **MUST** be the \block{assetId} of the asset that has been removed. The asset will still be visible if requested with the \block{includeRemoved} parameter as described in the protocol section. When assets are removed they are not moved to the beginning of the most recently modified list.
 
 \FloatBarrier
 
@@ -77,7 +77,7 @@ The value of the {term:CDATA} for the event *MUST* be the {model:assetId} of the
   \label{sec:Availability}
 
 
-Represents the {term:Agent}'s ability to communicate with the data source.
+Represents the \gls{Agent}'s ability to communicate with the data source.
 
 
 The value of \texttt{Availability} \MUST be one of the following: 
@@ -98,7 +98,7 @@ Name & Description \\
 \hline
 \endhead
 \texttt{AVAILABLE} & The value or status of an XML element when it is available. \\ \hline
-\texttt{UNAVAILABLE} & The value of the {term:Data Entity} either when the data is not received or the entity is incapable of providing data. \\ \hline
+\texttt{UNAVAILABLE} & The value of the \gls{Data Entity} either when the data is not received or the entity is incapable of providing data. \\ \hline
 \end{longtabu}
 \FloatBarrier
 \FloatBarrier
@@ -109,7 +109,7 @@ Name & Description \\
 
 Describes the way the axes will be associated to each other. 
   
- This is used in conjunction with {model:COUPLED_AXES} to indicate the way they are interacting.
+ This is used in conjunction with \block{COUPLED_AXES} to indicate the way they are interacting.
 
 
 The value of \texttt{AxisCoupling} \MUST be one of the following: 
@@ -131,8 +131,8 @@ Name & Description \\
 \endhead
 \texttt{TANDEM} & Elements are physically connected to each other and operate as a single unit. \\ \hline
 \texttt{SYNCHRONOUS} & Physical or logical parts which are not physically connected to each other but are operating together. \\ \hline
-\texttt{MASTER} & It provides information or state values that influences the operation of other {model:DataItem} of similar type. \\ \hline
-\texttt{SLAVE} & The axis is a slave to the {model:COUPLED_AXES} \\ \hline
+\texttt{MASTER} & It provides information or state values that influences the operation of other \block{DataItem} of similar type. \\ \hline
+\texttt{SLAVE} & The axis is a slave to the \block{COUPLED_AXES} \\ \hline
 \end{longtabu}
 \FloatBarrier
 \FloatBarrier
@@ -170,8 +170,8 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{ACTIVE} & The value of the {term:Data Entity} that is engaging. \\ \hline
-\texttt{INACTIVE} & The value of the {term:Data Entity} that is not engaging. \\ \hline
+\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
+\texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
 \end{longtabu}
 \FloatBarrier
 \FloatBarrier
@@ -180,7 +180,7 @@ Name & Description \\
   \label{sec:AxisState}
 
 
-An indicator of the controlled state of a {model:Linear} or {model:Rotary} component representing an axis.
+An indicator of the controlled state of a \block{Linear} or \block{Rotary} component representing an axis.
 
 
 The value of \texttt{AxisState} \MUST be one of the following: 
@@ -212,7 +212,7 @@ Name & Description \\
   \label{sec:Block}
 
 
-The line of code or command being executed by a {model:Controller} {term:Structural Element}.
+The line of code or command being executed by a \block{Controller} \gls{Structural Element}.
 
 \FloatBarrier
 
@@ -228,7 +228,7 @@ The total count of the number of blocks of program code that have been executed 
   \label{sec:ChuckInterlock}
 
 
-An indication of the state of an interlock function or control logic state intended to prevent the associated {model:CHUCK} component from being operated.
+An indication of the state of an interlock function or control logic state intended to prevent the associated \block{CHUCK} component from being operated.
 
 
 The value of \texttt{ChuckInterlock} \MUST be one of the following: 
@@ -247,8 +247,8 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{ACTIVE} & The value of the {term:Data Entity} that is engaging. \\ \hline
-\texttt{INACTIVE} & The value of the {term:Data Entity} that is not engaging. \\ \hline
+\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
+\texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
 \end{longtabu}
 \FloatBarrier
 
@@ -306,7 +306,7 @@ Service to close a door.
   \label{sec:Code}
 
 
-*DEPRECATED* in Version 1.1.
+**DEPRECATED** in Version 1.1.
 
 \FloatBarrier
 
@@ -314,7 +314,7 @@ Service to close a door.
   \label{sec:CompositionState}
 
 
-An indication of the operating condition of a mechanism represented by a {model:Composition} type element.
+An indication of the operating condition of a mechanism represented by a \block{Composition} type element.
 
 
 Subtypes of CompositionState are: \texttt{ACTION}, \texttt{LATERAL}, \texttt{MOTION}, \texttt{SWITCHED}, \texttt{VERTICAL} and \texttt{VERTICAL}. 
@@ -324,7 +324,7 @@ Subtypes of CompositionState are: \texttt{ACTION}, \texttt{LATERAL}, \texttt{MOT
   \label{sec:ControllerMode}
 
 
-The current operating mode of the {model:Controller} component.
+The current operating mode of the \block{Controller} component.
 
 
 The value of \texttt{ControllerMode} \MUST be one of the following: 
@@ -344,7 +344,7 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{AUTOMATIC} & The {model:Controller} is configured to automatically execute a program. \\ \hline
+\texttt{AUTOMATIC} & The \block{Controller} is configured to automatically execute a program. \\ \hline
 \texttt{MANUAL} & Operations based on the instructions received from an external source. \\ \hline
 \texttt{MANUAL_DATA_INPUT} & The operator can enter a series of operations for the controller to perform. \\ \hline
 \texttt{SEMI_AUTOMATIC} & The controller  executes a single set of instructions from an active program and then stops until given a command to execute the next set of instructions. \\ \hline
@@ -399,7 +399,7 @@ Refers to the set of associated axes.
 
 The time and date code associated with a material or other physical item.
   
- {model:DATE_CODE} *MUST* be reported in ISO 8601 format.
+ \block{DATE_CODE} **MUST** be reported in ISO 8601 format.
 
 
 Subtypes of DateCode are: \texttt{EXPIRATION}, \texttt{FIRST_USE}, \texttt{MANUFACTURE} and \texttt{MANUFACTURE}. 
@@ -411,7 +411,7 @@ Subtypes of DateCode are: \texttt{EXPIRATION}, \texttt{FIRST_USE}, \texttt{MANUF
 
 The identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function.
   
- The {term:Valid Data Value} *MUST* be a NMTOKEN XML type.
+ The \gls{Valid Data Value} **MUST** be a NMTOKEN XML type.
 
 \FloatBarrier
 
@@ -475,7 +475,7 @@ Name & Description \\
   \label{sec:DoorState}
 
 
-The operational state of a {model:DOOR} type component or composition element.
+The operational state of a \block{DOOR} type component or composition element.
 
 
 The value of \texttt{DoorState} \MUST be one of the following: 
@@ -555,8 +555,8 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{YES} & The {model:END_OF_BAR} has been reached. \\ \hline
-\texttt{NO} & The {model:END_OF_BAR} has not been reached. \\ \hline
+\texttt{YES} & The \block{END_OF_BAR} has been reached. \\ \hline
+\texttt{NO} & The \block{END_OF_BAR} has not been reached. \\ \hline
 \end{longtabu}
 \FloatBarrier
 
@@ -598,7 +598,7 @@ Subtypes of EquipmentMode are: \texttt{DELAY}, \texttt{LOADED}, \texttt{OPERATIN
   \label{sec:Execution}
 
 
-The execution status of the {model:Component}.
+The execution status of the \block{Component}.
 
 
 The value of \texttt{Execution} \MUST be one of the following: 
@@ -619,12 +619,12 @@ Name & Description \\
 \hline
 \endhead
 \texttt{READY} & A component is ready to engage. \\ \hline
-\texttt{ACTIVE} & The value of the {term:Data Entity} that is engaging. \\ \hline
-\texttt{INTERRUPTED} & The action of a {model:Component} has been suspended due to an external signal. \\ \hline
-\texttt{FEED_HOLD} & Motion of a {model:Component} has been commanded to stop at its current position. \\ \hline
+\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
+\texttt{INTERRUPTED} & The action of a \block{Component} has been suspended due to an external signal. \\ \hline
+\texttt{FEED_HOLD} & Motion of a \block{Component} has been commanded to stop at its current position. \\ \hline
 \texttt{STOPPED} & The component is stopped. \\ \hline
 \texttt{OPTIONAL_STOP} & The controllers program has been intentionally stopped \\ \hline
-\texttt{PROGRAM_STOPPED} & The execution of the {model:Controller}'s program has been stopped by a command from within the program. \\ \hline
+\texttt{PROGRAM_STOPPED} & The execution of the \block{Controller}'s program has been stopped by a command from within the program. \\ \hline
 \texttt{PROGRAM_COMPLETED} & The execution of the controllers program has been stopped by a command from within the program. \\ \hline
 \end{longtabu}
 \FloatBarrier
@@ -664,11 +664,11 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{PRODUCTION} & A {term:Structural Element} is currently producing product. \\ \hline
-\texttt{SETUP} & A {term:Structural Element} is being prepared or modified to begin production of product. \\ \hline
-\texttt{TEARDOWN} & Typically, a {term:Structural Element} has completed the production of a product and is being modified or returned to a neutral state such that it may then be prepared to begin production of a different product. \\ \hline
+\texttt{PRODUCTION} & A \gls{Structural Element} is currently producing product. \\ \hline
+\texttt{SETUP} & A \gls{Structural Element} is being prepared or modified to begin production of product. \\ \hline
+\texttt{TEARDOWN} & Typically, a \gls{Structural Element} has completed the production of a product and is being modified or returned to a neutral state such that it may then be prepared to begin production of a different product. \\ \hline
 \texttt{MAINTENANCE} & Action related to maintenance on the piece of equipment. \\ \hline
-\texttt{PROCESS_DEVELOPMENT} & A {term:Structural Element} is being used to prove-out a new process. \\ \hline
+\texttt{PROCESS_DEVELOPMENT} & A \gls{Structural Element} is being used to prove-out a new process. \\ \hline
 \end{longtabu}
 \FloatBarrier
 \FloatBarrier
@@ -697,7 +697,7 @@ Subtypes of Hardware are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \texttt{MANUF
   \label{sec:InterfaceState}
 
 
-An indication of the operational state of an {model:Interface} component.
+An indication of the operational state of an \block{Interface} component.
 
 
 The value of \texttt{InterfaceState} \MUST be one of the following: 
@@ -737,7 +737,7 @@ Subtypes of Library are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \texttt{MANUFA
   \label{sec:Line}
 
 
-*DEPRECATED* in Version 1.4.0.
+**DEPRECATED** in Version 1.4.0.
 
 
 Subtypes of Line are: \texttt{MAXIMUM} and \texttt{MINIMUM}. 
@@ -747,7 +747,7 @@ Subtypes of Line are: \texttt{MAXIMUM} and \texttt{MINIMUM}.
   \label{sec:LineLabel}
 
 
-An optional identifier for a {model:BLOCK} of code in a {model:PROGRAM}.
+An optional identifier for a \block{BLOCK} of code in a \block{PROGRAM}.
 
 \FloatBarrier
 
@@ -791,7 +791,7 @@ Service to advance material or feed product to a piece of equipment from a conti
 
 Identifies the layers of material applied to a part or product as part of an additive manufacturing process.
   
- The {term:Valid Data Value} *MUST* be an integer.
+ The \gls{Valid Data Value} **MUST** be an integer.
 
 
 Subtypes of MaterialLayer are: \texttt{ACTUAL} and \texttt{TARGET}. 
@@ -854,8 +854,8 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{YES} & The {model:END_OF_BAR} has been reached. \\ \hline
-\texttt{NO} & The {model:END_OF_BAR} has not been reached. \\ \hline
+\texttt{YES} & The \block{END_OF_BAR} has been reached. \\ \hline
+\texttt{NO} & The \block{END_OF_BAR} has not been reached. \\ \hline
 \end{longtabu}
 \FloatBarrier
 \FloatBarrier
@@ -964,7 +964,7 @@ An identifier of a part in a manufacturing operation.
 
 
 An identifier of a part or product moving through the manufacturing process. 
- The {term:Valid Data Value} *MUST* be a text string. 
+ The \gls{Valid Data Value} **MUST** be a text string. 
 
 \FloatBarrier
 
@@ -972,7 +972,7 @@ An identifier of a part or product moving through the manufacturing process.
   \label{sec:PathFeedrateOverride}
 
 
-The value of a signal or calculation issued to adjust the feedrate for the axes associated with a {model:Path} component that may represent a single axis or the coordinated movement of multiple axes.
+The value of a signal or calculation issued to adjust the feedrate for the axes associated with a \block{Path} component that may represent a single axis or the coordinated movement of multiple axes.
 
 
 Subtypes of PathFeedrateOverride are: \texttt{JOG}, \texttt{PROGRAMMED}, \texttt{RAPID} and \texttt{RAPID}. 
@@ -982,7 +982,7 @@ Subtypes of PathFeedrateOverride are: \texttt{JOG}, \texttt{PROGRAMMED}, \texttt
   \label{sec:PathMode}
 
 
-Describes the operational relationship between a {model:Path} {term:Structural Element} and another {model:Path} {term:Structural Element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
+Describes the operational relationship between a \block{Path} \gls{Structural Element} and another \block{Path} \gls{Structural Element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
 
 
 The value of \texttt{PathMode} \MUST be one of the following: 
@@ -1003,9 +1003,9 @@ Name & Description \\
 \hline
 \endhead
 \texttt{INDEPENDENT} & The path is operating independently and without the influence of another path. \\ \hline
-\texttt{MASTER} & It provides information or state values that influences the operation of other {model:DataItem} of similar type. \\ \hline
+\texttt{MASTER} & It provides information or state values that influences the operation of other \block{DataItem} of similar type. \\ \hline
 \texttt{SYNCHRONOUS} & Physical or logical parts which are not physically connected to each other but are operating together. \\ \hline
-\texttt{MIRROR} & The axes associated with the path are mirroring the motion of the {model:MASTER} path. \\ \hline
+\texttt{MIRROR} & The axes associated with the path are mirroring the motion of the \block{MASTER} path. \\ \hline
 \end{longtabu}
 \FloatBarrier
 \FloatBarrier
@@ -1014,7 +1014,7 @@ Name & Description \\
   \label{sec:PowerState}
 
 
-The indication of the status of the source of energy for a {term:Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the {term:Structural Element} to perform its functions.
+The indication of the status of the source of energy for a \gls{Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the \gls{Structural Element} to perform its functions.
 
 
 The value of \texttt{PowerState} \MUST be one of the following: 
@@ -1045,7 +1045,7 @@ Subtypes of PowerState are: \texttt{CONTROL} and \texttt{LINE}.
   \label{sec:PowerStatus}
 
 
-*DEPRECATED* in Version 1.1.0.
+**DEPRECATED** in Version 1.1.0.
 
 \FloatBarrier
 
@@ -1055,7 +1055,7 @@ Subtypes of PowerState are: \texttt{CONTROL} and \texttt{LINE}.
 
 The time and date associated with an activity or event.
   
- {model:PROCESS_TIME} *MUST* be reported in ISO 8601 format.
+ \block{PROCESS_TIME} **MUST** be reported in ISO 8601 format.
 
 
 Subtypes of ProcessTime are: \texttt{COMPLETE}, \texttt{START}, \texttt{TARGET_COMPLETION} and \texttt{TARGET_COMPLETION}. 
@@ -1065,7 +1065,7 @@ Subtypes of ProcessTime are: \texttt{COMPLETE}, \texttt{START}, \texttt{TARGET_C
   \label{sec:Program}
 
 
-The name of the logic or motion program being executed by the {model:Controller} component.
+The name of the logic or motion program being executed by the \block{Controller} component.
 
 \FloatBarrier
 
@@ -1074,7 +1074,7 @@ The name of the logic or motion program being executed by the {model:Controller}
 
 
 A comment or non-executable statement in the control program.
- The {term:Valid Data Value} *MUST* be a text string.
+ The \gls{Valid Data Value} **MUST** be a text string.
 
 \FloatBarrier
 
@@ -1082,7 +1082,7 @@ A comment or non-executable statement in the control program.
   \label{sec:ProgramEdit}
 
 
-An indication of the status of the {model:Controller} components program editing mode. 
+An indication of the status of the \block{Controller} components program editing mode. 
  On many controls, a program can be edited while another program is currently being executed.
 
 
@@ -1103,7 +1103,7 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{ACTIVE} & The value of the {term:Data Entity} that is engaging. \\ \hline
+\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
 \texttt{READY} & A component is ready to engage. \\ \hline
 \texttt{NOT_READY} & A component is not ready to engage. \\ \hline
 \end{longtabu}
@@ -1115,8 +1115,8 @@ Name & Description \\
 
 
 The name of the program being edited. 
- This is used in conjunction with {model:PROGRAM_EDIT} when in {model:ACTIVE} state. 
- The {term:Valid Data Value} *MUST* be a text string.
+ This is used in conjunction with \block{PROGRAM_EDIT} when in \block{ACTIVE} state. 
+ The \gls{Valid Data Value} **MUST** be a text string.
 
 \FloatBarrier
 
@@ -1134,7 +1134,7 @@ Subtypes of ProgramHeader are: \texttt{ACTIVE}, \texttt{MAIN}, \texttt{SCHEDULE}
   \label{sec:ProgramLocation}
 
 
-The Uniform Resource Identifier (URI) for the source file associated with {model:PROGRAM}.
+The Uniform Resource Identifier (URI) for the source file associated with \block{PROGRAM}.
 
 
 Subtypes of ProgramLocation are: \texttt{ACTIVE}, \texttt{MAIN}, \texttt{SCHEDULE} and \texttt{SCHEDULE}. 
@@ -1144,9 +1144,9 @@ Subtypes of ProgramLocation are: \texttt{ACTIVE}, \texttt{MAIN}, \texttt{SCHEDUL
   \label{sec:ProgramLocationType}
 
 
-Defines whether the logic or motion program defined by {model:PROGRAM} is being executed from the local memory of the controller or from an outside source.
+Defines whether the logic or motion program defined by \block{PROGRAM} is being executed from the local memory of the controller or from an outside source.
   
- The {term:Valid Data Value} *MUST* be {model:LOCAL} or {model:EXTERNAL}.
+ The \gls{Valid Data Value} **MUST** be \block{LOCAL} or \block{EXTERNAL}.
 
 
 Subtypes of ProgramLocationType are: \texttt{ACTIVE}, \texttt{MAIN}, \texttt{SCHEDULE} and \texttt{SCHEDULE}. 
@@ -1158,9 +1158,9 @@ Subtypes of ProgramLocationType are: \texttt{ACTIVE}, \texttt{MAIN}, \texttt{SCH
 
 An indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed.
   
- If an Initial Value is not defined, the nesting level associated with the highest or initial nesting level of the program *MUST* default to zero (0).
+ If an Initial Value is not defined, the nesting level associated with the highest or initial nesting level of the program **MUST** default to zero (0).
   
- The value reported for {model:PROGRAM_NEST_LEVEL} *MUST* be an integer.
+ The value reported for \block{PROGRAM_NEST_LEVEL} **MUST** be an integer.
 
 \FloatBarrier
 
@@ -1168,7 +1168,7 @@ An indication of the nesting level within a control program that is associated w
   \label{sec:RotaryMode}
 
 
-The current operating mode for a {model:Rotary} type axis.
+The current operating mode for a \block{Rotary} type axis.
 
 
 The value of \texttt{RotaryMode} \MUST be one of the following: 
@@ -1199,8 +1199,8 @@ Name & Description \\
   \label{sec:RotaryVelocityOverride}
 
 
-The value of a command issued to adjust the programmed velocity for a {model:Rotary} type axis.
- This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a {model:Rotary} type axis.
+The value of a command issued to adjust the programmed velocity for a \block{Rotary} type axis.
+ This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a \block{Rotary} type axis.
 
 \FloatBarrier
 
@@ -1219,7 +1219,7 @@ Units for \texttt{Rotation} is: \texttt{DEGREE_3D}.
   \label{sec:SerialNumber}
 
 
-The serial number associated with a {model:Component}, {model:Asset}, or {model:Device}. The {term:Valid Data Value} *MUST* be a text string.
+The serial number associated with a \block{Component}, \block{Asset}, or \block{Device}. The \gls{Valid Data Value} **MUST** be a text string.
 
 \FloatBarrier
 
@@ -1246,8 +1246,8 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{ACTIVE} & The value of the {term:Data Entity} that is engaging. \\ \hline
-\texttt{INACTIVE} & The value of the {term:Data Entity} that is not engaging. \\ \hline
+\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
+\texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
 \end{longtabu}
 \FloatBarrier
 \FloatBarrier
@@ -1256,7 +1256,7 @@ Name & Description \\
   \label{sec:ToolAssetId}
 
 
-The identifier of an individual tool asset.The {term:Valid Data Value} *MUST* be a text string.
+The identifier of an individual tool asset.The \gls{Valid Data Value} **MUST** be a text string.
 
 \FloatBarrier
 
@@ -1272,7 +1272,7 @@ An identifier for the tool group associated with a specific tool. Commonly used 
   \label{sec:ToolId}
 
 
-*DEPRECATED* in Version 1.2.0.   See {model:TOOL_ASSET_ID}. *DEPRECATED:The identifier of the tool currently in use for a given {model:Path}.*
+**DEPRECATED** in Version 1.2.0.   See \block{TOOL_ASSET_ID}. *DEPRECATED:The identifier of the tool currently in use for a given \block{Path}.*
 
 \FloatBarrier
 
@@ -1280,8 +1280,8 @@ An identifier for the tool group associated with a specific tool. Commonly used 
   \label{sec:ToolNumber}
 
 
-The identifier assigned by the {model:Controller} component to a cutting tool when in use by a piece of equipment. 
- The {term:Valid Data Value} *MUST* be a text string.
+The identifier assigned by the \block{Controller} component to a cutting tool when in use by a piece of equipment. 
+ The \gls{Valid Data Value} **MUST** be a text string.
 
 \FloatBarrier
 
@@ -1289,7 +1289,7 @@ The identifier assigned by the {model:Controller} component to a cutting tool wh
   \label{sec:ToolOffset}
 
 
-A reference to the tool offset variables applied to the active cutting tool associated with a {model:Path} in a {model:Controller} type component.
+A reference to the tool offset variables applied to the active cutting tool associated with a \block{Path} in a \block{Controller} type component.
 
 
 Subtypes of ToolOffset are: \texttt{LENGTH} and \texttt{RADIAL}. 
@@ -1328,7 +1328,7 @@ A data value whose meaning may change over time due to changes in the opertion o
   \label{sec:WaitState}
 
 
-An indication of the reason that {model:EXECUTION} is reporting a value of {model:WAIT}.
+An indication of the reason that \block{EXECUTION} is reporting a value of \block{WAIT}.
 
 
 The value of \texttt{WaitState} \MUST be one of the following: 
@@ -1375,7 +1375,7 @@ A string like piece or filament of relatively rigid or flexible material provide
   \label{sec:WorkOffset}
 
 
-A reference to the offset variables for a work piece or part associated with a {model:Path} in a {model:Controller} type component.
+A reference to the offset variables for a work piece or part associated with a \block{Path} in a \block{Controller} type component.
 
 \FloatBarrier
 
@@ -1384,6 +1384,6 @@ A reference to the offset variables for a work piece or part associated with a {
 
 
 The identifier for the current workholding or part clamp in use by a piece of equipment. 
- The {term:Valid Data Value} *MUST* be a text string.
+ The \gls{Valid Data Value} **MUST** be a text string.
 
 \FloatBarrier

@@ -1,4 +1,4 @@
-% Generated 2020-07-27 15:21:27 +0530
+% Generated 2020-07-29 16:29:20 +0530
 \subsection{Sensor} \label{sec:Sensor}
 
 {term:Sensor} is a unique type of a piece of equipment.  A {term:Sensor} is typically comprised of two major components: a {term:sensor unit} that provides signal processing, conversion, and communications and the {term:sensing elements} that provides a signal or measured value.
@@ -145,7 +145,7 @@ When {block:Sensor} represents the {term:sensor unit} for multiple {term:sensing
   \label{sec:Channel}
 
 
-When {block:Sensor} represents multiple {term:sensing elements}, each {term:sensing element} is represented by a {block:Channel} for the {block:Sensor}. 
+When \block{Sensor} represents multiple \gls{sensing elements}, each \gls{sensing element} is represented by a \block{Channel} for the \block{Sensor}. 
 
 
 \paragraph{Attributes of Channel}\mbox{}
@@ -173,7 +173,7 @@ Descriptions for attributes of \texttt{Channel}:
 
 \begin{itemize}
 \item \texttt{name} : The name of an element or a piece of equipment.
-\item \texttt{number} : A unique identifier that will only refer to a specific {term:sensing element}.
+\item \texttt{number} : A unique identifier that will only refer to a specific \gls{sensing element}.
 \end{itemize}
 
 \paragraph{Elements of Channel}\mbox{}
@@ -203,11 +203,11 @@ Descriptions for attributes of \texttt{Channel}:
 Descriptions for elements of \texttt{Channel}:
 
 \begin{itemize}
-\item \texttt{CalibrationDate} : Date upon which the {term:sensor unit} was last calibrated to the {term:sensor element}.
+\item \texttt{CalibrationDate} : Date upon which the \gls{sensor unit} was last calibrated to the \gls{sensor element}.
 \item \texttt{CalibrationInitials} : The initials of the person verifying the validity of the calibration data.
-\item \texttt{NextCalibrationDate} : Date upon which the {term:sensor element} is next scheduled to be calibrated with the {term:sensor unit}.
+\item \texttt{NextCalibrationDate} : Date upon which the \gls{sensor element} is next scheduled to be calibrated with the \gls{sensor unit}.
 \item \texttt{Description} : An element that can contain any descriptive content.
-\item \texttt{Channels} : {block:Channels} {term:organizes} {block:Channel} elements.
+\item \texttt{Channels} : \block{Channels} \gls{organizes} \block{Channel} elements.
 
 \end{itemize}
 \FloatBarrier
@@ -216,7 +216,7 @@ Descriptions for elements of \texttt{Channel}:
   \label{sec:SensorConfiguration}
 
 
-{block:SensorConfiguration} contains configuration information about a {block:Sensor}.
+\block{SensorConfiguration} contains configuration information about a \block{Sensor}.
 
 
 \paragraph{Elements of SensorConfiguration}\mbox{}
@@ -246,11 +246,11 @@ Descriptions for elements of \texttt{Channel}:
 Descriptions for elements of \texttt{SensorConfiguration}:
 
 \begin{itemize}
-\item \texttt{CalibrationDate} : Date upon which the {term:sensor unit} was last calibrated.
+\item \texttt{CalibrationDate} : Date upon which the \gls{sensor unit} was last calibrated.
 \item \texttt{CalibrationInitials} : The initials of the person verifying the validity of the calibration data.
 \item \texttt{FirmwareVersion} : Version number for the sensor unit as specified by the manufacturer.
-\item \texttt{NextCalibrationDate} : Date upon which the {term:sensor unit} is next scheduled to be calibrated.
-\item \texttt{Channels} : {block:Channels} {term:organizes} {block:Channel} elements.
+\item \texttt{NextCalibrationDate} : Date upon which the \gls{sensor unit} is next scheduled to be calibrated.
+\item \texttt{Channels} : \block{Channels} \gls{organizes} \block{Channel} elements.
 
 \end{itemize}
 \FloatBarrier

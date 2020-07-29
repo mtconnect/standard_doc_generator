@@ -1,4 +1,4 @@
-% Generated 2020-07-27 15:21:27 +0530
+% Generated 2020-07-29 16:29:19 +0530
 \subsection{Elements for DataItem} \label{sec:ElementsforDataItem}
 
 This section provides detailed descriptions for the elements of a {block:DataItem}.
@@ -8,7 +8,7 @@ This section provides detailed descriptions for the elements of a {block:DataIte
   \label{sec:Constraints}
 
 
-{block:Constraints} {term:organizes} a set of expected values that can be reported for this {block:DataItem}.
+\block{Constraints} \gls{organizes} a set of expected values that can be reported for this \block{DataItem}.
 
 
 \paragraph{Elements of Constraints}\mbox{}
@@ -69,7 +69,7 @@ Name & Description \\
   \label{sec:Definition}
 
 
-The {block:Definition} defines the meaning of {block:Entry} and {block:Cell} elements associated with the {block:DataItem} when the {property:representation} is either {block:DATA} or {block:TABLE}.
+The \block{Definition} defines the meaning of \block{Entry} and \block{Cell} elements associated with the \block{DataItem} when the {property:representation} is either \block{DATA} or \block{TABLE}.
 
 
 \paragraph{Elements of Definition}\mbox{}
@@ -97,9 +97,9 @@ The {block:Definition} defines the meaning of {block:Entry} and {block:Cell} ele
 Descriptions for elements of \texttt{Definition}:
 
 \begin{itemize}
-\item \texttt{CellDefinitions} : {block:CellDefinitions} {term:organizes} {block:CellDefinition} elements.
+\item \texttt{CellDefinitions} : \block{CellDefinitions} \gls{organizes} \block{CellDefinition} elements.
 \item \texttt{Description} : An element that can contain any descriptive content.
-\item \texttt{EntryDefinitions} : {block:EntryDefinitions} {term:organizes} {block:EntryDefinition} elements.
+\item \texttt{EntryDefinitions} : \block{EntryDefinitions} \gls{organizes} \block{EntryDefinition} elements.
 \end{itemize}
 \FloatBarrier
 
@@ -107,7 +107,7 @@ Descriptions for elements of \texttt{Definition}:
   \label{sec:Filter}
 
 
-{block:Filter} provides a means to control when an {term:Agent} records updated information for a data item. 
+\block{Filter} provides a means to control when an \gls{Agent} records updated information for a data item. 
 
 
 \paragraph{Attributes of Filter}\mbox{}
@@ -141,7 +141,7 @@ Descriptions for attributes of \texttt{Filter}:
   \label{sec:InitialValue}
 
 
-{block:InitialValue} defines the starting value for a data item as well as the value to be set for the data item after a reset event.
+\block{InitialValue} defines the starting value for a data item as well as the value to be set for the data item after a reset event.
 
 
 \paragraph{Attributes of InitialValue}\mbox{}
@@ -175,7 +175,7 @@ Descriptions for attributes of \texttt{InitialValue}:
   \label{sec:ResetTrigger}
 
 
-{block:ResetTrigger} identifies the type of event that may cause a reset to occur.
+\block{ResetTrigger} identifies the type of event that may cause a reset to occur.
 
 
 \paragraph{Attributes of ResetTrigger}\mbox{}
@@ -209,7 +209,7 @@ Descriptions for attributes of \texttt{ResetTrigger}:
   \label{sec:Source}
 
 
-{block:Source} identifies the {block:Component}, {block:DataItem}, or {block:Composition} representing the area of the piece of equipment from which a measured value originates.
+\block{Source} identifies the \block{Component}, \block{DataItem}, or \block{Composition} representing the area of the piece of equipment from which a measured value originates.
 
 
 \paragraph{Attributes of Source}\mbox{}
@@ -237,9 +237,9 @@ Descriptions for attributes of \texttt{ResetTrigger}:
 Descriptions for attributes of \texttt{Source}:
 
 \begin{itemize}
-\item \texttt{componentId} : The identifier attribute of the {block:Component} element that represents the physical part of a piece of equipment where the data represented by the {block:DataItem} element originated.
-\item \texttt{compositionId} : The identifier attribute of the {block:Composition} element that the reported data is most closely associated.
-\item \texttt{dataItemId} : The identifier attribute of the {block:DataItem} that represents the originally measured value of the data referenced by this data item.
+\item \texttt{componentId} : The identifier attribute of the \block{Component} element that represents the physical part of a piece of equipment where the data represented by the \block{DataItem} element originated.
+\item \texttt{compositionId} : The identifier attribute of the \block{Composition} element that the reported data is most closely associated.
+\item \texttt{dataItemId} : The identifier attribute of the \block{DataItem} that represents the originally measured value of the data referenced by this data item.
 \end{itemize}
 
 \paragraph{Elements of Source}\mbox{}
