@@ -1,14 +1,11 @@
 module MarkDownParser
 
-	def format_markdown(description)
-		description = format_block(description)
-		description = format_property(description)
-		description = format_glossary_term(description)
-		description = format_citation(description)
-		description = format_reference(description)
-		description = format_deprecation(description)
-		description = format_deprecation_warning(description)
-		return format_strikeout(description)
+	def add_markdown_environment(description)
+		if description.length>2 #arbitrary minimum string length
+			return "\n\\begin{markdown}\n\n" + description + "\n\n\\end{markdown}\n"
+		else
+			return description
+		end
 	end
 
 	def format_block(description)
@@ -65,6 +62,19 @@ module MarkDownParser
 			description = description.gsub(strikeout_command,strikeout_latex)
 		end
 		return description
+	end
+
+	def format_markdown(description)
+		#format terms
+		description = format_block(format_property(format_glossary_term(description)))
+
+		#format references
+		description = format_citation(format_reference(description))
+		
+		#format deprecation
+		description = format_deprecation(format_deprecation_warning(format_strikeout(description)))
+
+		return add_markdown_environment(description)
 	end
 
 end

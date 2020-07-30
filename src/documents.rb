@@ -1,4 +1,5 @@
-
+require 'markdown_parser'
+include MarkDownParser
 
 module Document
   def documentation_name
@@ -24,7 +25,7 @@ module Document
   def get_section_documentation(root_model,section_package_name, section_name)
 	section_model = root_model.at("//packagedElement[@name='#{section_package_name}']")
 	if section_model and section_model.at("//*[@body='#{section_name}']")
-		return section_model.at("//*[@body='#{section_name}']").ownedComment['body']
+		return format_markdown(section_model.at("//*[@body='#{section_name}']").ownedComment['body'])
 	else
 		return ""
 	end

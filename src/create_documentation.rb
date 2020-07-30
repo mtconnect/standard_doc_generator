@@ -18,6 +18,8 @@ SkipModels = Set.new
 SkipModels.add('CSV Imports')
 SkipModels.add('Simulation')
 SkipModels.add('MTConnect')
+SkipModels.add('Agent Architecture')
+SkipModels.add('Development Process')
 
 LatexModel.skip_models = SkipModels
 LatexModel.new(RootModel).find_definitions
@@ -30,29 +32,29 @@ document_structure = File.read(File.join(File.dirname(__FILE__),'..','config','d
 document_structure_json = JSON.parse(document_structure)
 
 document_structure_json['documents'].each do |partno, partinfo|
-	LatexModel.directory = File.join(File.dirname(__FILE__),'..',partinfo['directory'])
-	
-	models = partinfo['models']
-	models_main_file = File.join(File.dirname(__FILE__),'..',partinfo['directory'], partinfo['directory']+'.tex')
-	
-	File.open(models_main_file,'w') do |f|
-		models.each do |model|
-			if model.is_a? String
-				generate_section_intro(f,RootModel, 'Supporting Documents', model)
-			
-			elsif model.is_a? Hash
-				section_heading = model.keys[0]
-				package_name = model[section_heading][0]
-				generate_section_intro(f,RootModel, package_name, section_heading)
-				
-				$logger.info "\nGenerating Documents for #{section_heading}"
-				model[section_heading].each do |m|
-					LatexModel.generate_latex(f, m)
-				end
-			else
-				$logger.error "Invalid model data type #{model.class}"
-			end
-		end
-	end
+  LatexModel.directory = File.join(File.dirname(__FILE__),'..',partinfo['directory'])
+  
+  models = partinfo['models']
+  models_main_file = File.join(File.dirname(__FILE__),'..',partinfo['directory'], partinfo['directory']+'.tex')
+  
+  File.open(models_main_file,'w') do |f|
+    models.each do |model|
+      if model.is_a? String
+        generate_section_intro(f,RootModel, 'Supporting Documents', model)
+      
+      elsif model.is_a? Hash
+        section_heading = model.keys[0]
+        package_name = model[section_heading][0]
+        generate_section_intro(f,RootModel, package_name, section_heading)
+        
+        $logger.info "\nGenerating Documents for #{section_heading}"
+        model[section_heading].each do |m|
+          LatexModel.generate_latex(f, m)
+        end
+      else
+        $logger.error "Invalid model data type #{model.class}"
+      end
+    end
+  end
 end
 
