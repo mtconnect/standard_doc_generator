@@ -1,7 +1,9 @@
 require 'extensions'
-
+require 'markdown_parser'
+  
 module Relation
   @@connections = {}
+  include MarkDownParser
   
   def self.clear
   end
@@ -217,7 +219,7 @@ module Relation
 		if target_end
 			target_element = r.document.at("//packagedElement[@xmi:id='#{target_end["type"]}']")
 			if target_element['name'] == @association_name and target_element.at('./ownedComment')
-				@association_doc = target_element.at('./ownedComment')['body']
+				@association_doc = format_markdown(target_element.at('./ownedComment')['body'])
 			end
 		end
 	  end
