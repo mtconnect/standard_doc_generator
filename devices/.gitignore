@@ -22,3 +22,7 @@ auto
 *.synctex.gz
 *.toc
 *.pdf
+*.dvi
+*.in
+*.lua
+*.synctex

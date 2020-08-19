@@ -1,15 +1,15 @@
 {
 	"documents": {
-		"part1": {
+		"Part 1.0": {
 			"directory": "protocols",
+			"doc_title": "Overview and Fundamentals",
 			"models": [
-				{
-					"Terminology": ["Glossary"]
-				}
+				"Protocols Introduction"
 			]
 		},
-		"part2": {
+		"Part 2.0": {
 			"directory": "devices",
+			"doc_title": "Devices Information Model",
 			"models": [
 				"Devices Information Model",
 				{
@@ -25,7 +25,8 @@
 					"DataItems": ["DataItems",
 						"Elements for DataItem",
 						"Elements for Definition",
-						"DataItem Types"
+						"DataItem Types",
+						"DataItem SubTypes"
 					]
 				},
 				{
@@ -45,8 +46,9 @@
 				}
 			]
 		},
-		"part3": {
+		"Part 3.0": {
 			"directory": "observations",
+			"doc_title": "Observations Information Model",
 			"models": ["Observations Information Model",
 				{
 					"Observations": ["Observations",
@@ -61,8 +63,9 @@
 				}
 			]
 		},
-		"part4": {
+		"Part 4.0": {
 			"directory": "assets",
+			"doc_title": "Assets Information Model",
 			"models": ["Assets Information Model",
 				{
 					"Assets": ["Assets",

@@ -1,8 +1,9 @@
-% Generated 2020-07-29 16:29:20 +0530
+% Generated 2020-08-19 14:44:34 +0530
 \subsection{CoordinateSystems} \label{sec:CoordinateSystems}
 
 \subsubsection{CoordinateSystem}
   \label{sec:CoordinateSystem}
+
 
 
 A \block{CoordinateSystem} is a reference system that associates a unique set of n parameters with each point in an n-dimensional space. \cite{Ref: ISO 10303-218:2004}
@@ -38,7 +39,7 @@ Descriptions for attributes of \texttt{CoordinateSystem}:
 \item \texttt{id} : The unique identifier for this element.
 \item \texttt{name} : The name of the coordinate system.
 \item \texttt{nativeName} : The manufacturer's name or users name for the coordinate system.
-\item \texttt{parentIdRef} : A pointer to the {property:id} attribute of the parent \block{CoordinateSystem}.
+\item \texttt{parentIdRef} : A pointer to the \property{id} attribute of the parent \block{CoordinateSystem}.
 \item \texttt{type} : The type of coordinate system.
 \end{itemize}
 
@@ -67,7 +68,7 @@ Descriptions for elements of \texttt{CoordinateSystem}:
 
 \begin{itemize}
 \item \texttt{Origin} : The coordinates of the origin position of a coordinate system.
-\item \texttt{Transformation} :  The process of transforming to the origin position of the coordinate system from a parent coordinate system using \glselementname{translation event} and \glselementname{rotation event}.
+\item \texttt{Transformation} :  The process of transforming to the origin position of the coordinate system from a parent coordinate system using \block{Translation} and \block{Rotation}.
 \end{itemize}
 \FloatBarrier
 
@@ -75,7 +76,8 @@ Descriptions for elements of \texttt{CoordinateSystem}:
   \label{sec:CoordinateSystems}
 
 
-\block{CoordinateSystems} \gls{organizes} \block{CoordinateSystem} elements for a \block{Component} and its children.
+
+\block{CoordinateSystems} \glspl{organize} \block{CoordinateSystem} elements for a \block{Component} and its children.
 
 
 \paragraph{Elements of CoordinateSystems}\mbox{}
@@ -109,12 +111,14 @@ Descriptions for elements of \texttt{CoordinateSystems}:
   \label{sec:Origin}
 
 
+
 The coordinates of the origin position of a coordinate system.
 
 \FloatBarrier
 
 \subsubsection{Rotation}
   \label{sec:Rotation}
+
 
 
 Rotations about X, Y, and Z axes are expressed in A, B, and C respectively within a 3-dimensional vector. 
@@ -152,7 +156,8 @@ Descriptions for attributes of \texttt{Rotation}:
   \label{sec:Transformation}
 
 
- The process of transforming to the origin position of the coordinate system from a parent coordinate system using \glselementname{translation event} and \glselementname{rotation event}.
+
+ The process of transforming to the origin position of the coordinate system from a parent coordinate system using \block{Translation} and \block{Rotation}.
 
 
 \paragraph{Elements of Transformation}\mbox{}
@@ -187,6 +192,7 @@ Descriptions for elements of \texttt{Transformation}:
 
 \subsubsection{Translation}
   \label{sec:Translation}
+
 
 
 Translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 

@@ -1,24 +1,26 @@
-% Generated 2020-07-29 16:29:18 +0530
+% Generated 2020-08-19 14:44:32 +0530
 \subsection{Component Types} \label{sec:ComponentTypes}
 
-{block:Component} {term:Structural Elements} are XML containers used to represent physical parts or logical functions of a piece of equipment.
 
-{block:Component} {term:Structural Elements} are defined into two major categories:
+\block{Component} \glspl{Structural Element} are XML containers used to represent physical parts or logical functions of a piece of equipment.
+
+\block{Component} \glspl{Structural Element} are defined into two major categories:
 
 \begin{itemize}
 
-\item {term:Top Level} {block:Component} elements are used to group the {term:Structural Elements} representing the most significant physical or logical functions of a piece of equipment.  The {term:Top Level} {block:Component} elements provided in an {block:MTConnectDevices} document **\should** be restricted to those defined in {ref:elements-toplevel-for-component}.  However, these {term:Top Level} {block:Component} elements **\may** also be used as {term:Lower Level} {block:Component} elements; as required.
+\item \gls{Top Level} \block{Component} elements are used to group the \glspl{Structural Element} representing the most significant physical or logical functions of a piece of equipment.  The \gls{Top Level} \block{Component} elements provided in an \block{MTConnectDevices} document \textbf{SHOULD} be restricted to those defined in \ref{elements-toplevel-for-component}.  However, these \gls{Top Level} \block{Component} elements \textbf{MAY} also be used as \gls{Lower Level} \block{Component} elements; as required.
 
-\item {term:Lower Level} {block:Component} elements are used to describe the sub-parts of the parent {block:Component} to provide more clarity and granularity to the physical or logical structure of the {term:Top Level} {block:Component} elements.
+\item \gls{Lower Level} \block{Component} elements are used to describe the sub-parts of the parent \block{Component} to provide more clarity and granularity to the physical or logical structure of the \gls{Top Level} \block{Component} elements.
 \end{itemize}
 
-This section of the {term:Devices Information Model} provides guidance for the most common relationships between {term:Top Level} {block:Component} elements and {term:Lower Level} child components.  However, all {block:Component} elements **\may** be used in any configuration, as required, to fully describe a piece of equipment.
+This section of the \gls{Devices Information Model} provides guidance for the most common relationships between \gls{Top Level} \block{Component} elements and \gls{Lower Level} child components.  However, all \block{Component} elements \textbf{MAY} be used in any configuration, as required, to fully describe a piece of equipment.
 
-As described in {ref:Structural Elements for MTConnectDevices}, {block:Component} is an abstract type {term:Structural Element} within the {term:Devices Information Model} and will never appear directly in the {block:MTConnectDevices} XML document.  As abstract type XML elements, {block:Component} will be replaced in the XML document by a specific {block:Component} type.
+As described in \ref{Structural Elements for MTConnectDevices}, \block{Component} is an abstract type \gls{Structural Element} within the \gls{Devices Information Model} and will never appear directly in the \block{MTConnectDevices} XML document.  As abstract type XML elements, \block{Component} will be replaced in the XML document by a specific \block{Component} type.
 
 
 \subsubsection{Actuator}
   \label{sec:Actuator}
+
 
 
 Redefined as a piece of equipment with the ability to be represented as a \gls{Lower Level} component of a parent \block{Component} element or as a \block{Composition} element. See \block{ACTUATOR}
@@ -29,6 +31,7 @@ Redefined as a piece of equipment with the ability to be represented as a \gls{L
   \label{sec:Auxiliaries}
 
 
+
 An XML container used to organize information for \gls{Lower Level} elements representing functional sub-systems that provide supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
 
 \FloatBarrier
@@ -37,7 +40,8 @@ An XML container used to organize information for \gls{Lower Level} elements rep
   \label{sec:Axes}
 
 
-An XML container used to organize the \gls{Structural Elements} of a piece of equipment that perform linear or rotational motion.
+
+An XML container used to organize the \glspl{Structural Element} of a piece of equipment that perform linear or rotational motion.
 
 \FloatBarrier
 
@@ -45,14 +49,16 @@ An XML container used to organize the \gls{Structural Elements} of a piece of eq
   \label{sec:Controller}
 
 
+
 An XML container used to organize information about an intelligent or computational function within a piece of equipment.
 
 
-Subtype of Controller is: .
+Subtype of \texttt{Controller} is: .
 \FloatBarrier
 
 \subsubsection{Deposition}
   \label{sec:Deposition}
+
 
 
 \block{Deposition} is an XML container that represents the information for a system that manages the addition of material or state change of material being performed in an additive manufacturing process.  For example, this could describe the portion of a piece of equipment that manages a material extrusion process or a vat polymerization process.
@@ -63,6 +69,7 @@ Subtype of Controller is: .
   \label{sec:Door}
 
 
+
 \block{Door} is an XML container that represents the information for a mechanical mechanism or closure that can cover.
 
 \FloatBarrier
@@ -71,12 +78,14 @@ Subtype of Controller is: .
   \label{sec:Interface}
 
 
-Each \block{Interface} contains \gls{Data Entities} available from the piece of equipment that may be needed to coordinate activities with associated pieces of equipment.
+
+Each \block{Interface} contains \glspl{Data Entity} available from the piece of equipment that may be needed to coordinate activities with associated pieces of equipment.
 
 \FloatBarrier
 
 \subsubsection{Interfaces}
   \label{sec:Interfaces}
+
 
 
 An XML container that organizes information used to coordinate actions and activities between pieces of equipment that communicate information between each other.
@@ -87,12 +96,14 @@ An XML container that organizes information used to coordinate actions and activ
   \label{sec:Power}
 
 
-\block{Power} was **DEPRECATED** in MTConnect Version 1.1 and was replaced by the \gls{Data Entity} called \block{AVAILABILITY}.
+
+\block{Power} was \textbf{DEPRECATED} in MTConnect Version 1.1 and was replaced by the \gls{Data Entity} called \block{AVAILABILITY}.
 
 \FloatBarrier
 
 \subsubsection{Resources}
   \label{sec:Resources}
+
 
 
 An XML container used to organize information for \gls{Lower Level} elements representing types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location. \block{Resources} also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
@@ -103,12 +114,14 @@ An XML container used to organize information for \gls{Lower Level} elements rep
   \label{sec:Structure}
 
 
+
 Organizes static structural components of the machine.
 
 \FloatBarrier
 
 \subsubsection{Systems}
   \label{sec:Systems}
+
 
 
 An XML container used to organize information for \gls{Lower Level} elements representing the major sub-systems that are permanently integrated into a piece of equipment.

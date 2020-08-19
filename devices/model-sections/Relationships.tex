@@ -1,8 +1,9 @@
-% Generated 2020-07-29 16:29:20 +0530
+% Generated 2020-08-19 14:44:34 +0530
 \subsection{Relationships} \label{sec:Relationships}
 
 \subsubsection{Relationship}
   \label{sec:Relationship}
+
 
 
 \block{Relationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
@@ -64,6 +65,7 @@ Name & Description \\
   \label{sec:ComponentRelationship}
 
 
+
 \block{ComponentRelationship} describes the association between two components within a piece of equipment that function independently but together perform a capability or service within a piece of equipment.
 
 
@@ -98,6 +100,7 @@ Descriptions for attributes of \texttt{ComponentRelationship}:
   \label{sec:DeviceRelationship}
 
 
+
 \block{DeviceRelationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
 
@@ -129,9 +132,9 @@ Descriptions for attributes of \texttt{DeviceRelationship}:
 \begin{itemize}
 \item \texttt{deviceUuidRef} : A reference to the associated piece of equipment. 
 
-\item \texttt{href} : A URI identifying the \gls{Agent} that is publishing information for the associated piece of equipment. {property:href} **\MUST** also include the UUID for that specific piece of equipment.
+\item \texttt{href} : A URI identifying the \gls{Agent} that is publishing information for the associated piece of equipment. \property{href} \textbf{MUST} also include the UUID for that specific piece of equipment.
 
-{property:href} is of type `xlink:href` from the W3C XLink specification: (https://www.w3.org/TR/xlink11/).
+\property{href} is of type \texttt{xlink:href} from the W3C XLink specification: (https://www.w3.org/TR/xlink11/).
 \item \texttt{role} : Defines the services or capabilities that the referenced piece of equipment provides relative to this piece of equipment.
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
@@ -149,12 +152,12 @@ Name & Description \\
 \hline
 \endhead
 \texttt{SYSTEM} & The associated element performs the functions of a \block{System} for this element. \\ \hline
-\texttt{AUXILIARY} & The associated element performs the functions as an `Auxiliary` for this element. \\ \hline
+\texttt{AUXILIARY} & The associated element performs the functions as an \texttt{Auxiliary} for this element. \\ \hline
 \end{longtabu}
 \FloatBarrier
-\item \texttt{xlink:type} : The XLink {property:type} attribute **\MUST** have a fixed value of `locator` as defined in W3C XLink 1.1 https://www.w3.org/TR/xlink11/ \textit{section 5.4 Locator Attribute ({property:href})}.
+\item \texttt{xlink:type} : The XLink \property{type} attribute \textbf{MUST} have a fixed value of \texttt{locator} as defined in W3C XLink 1.1 https://www.w3.org/TR/xlink11/ \textit{section 5.4 Locator Attribute (\property{href})}.
 
-If the {property:href} attribute is provided, it **\MUST** conform to the URI syntactic rules as defined in IETF RFC 3986 for Uniform Resource Identifiers. (https://www.ietf.org/rfc/rfc3986.txt)
+If the \property{href} attribute is provided, it \textbf{MUST} conform to the URI syntactic rules as defined in IETF RFC 3986 for Uniform Resource Identifiers. (https://www.ietf.org/rfc/rfc3986.txt)
 \end{itemize}
 \FloatBarrier
 
@@ -162,7 +165,8 @@ If the {property:href} attribute is provided, it **\MUST** conform to the URI sy
   \label{sec:Relationships}
 
 
-\block{Relationships} \gls{organizes} \block{Relationship} elements.
+
+\block{Relationships} \glspl{organize} \block{Relationship} elements.
 
 
 \paragraph{Attributes of Relationships}\mbox{}

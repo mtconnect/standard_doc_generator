@@ -1,0 +1,77 @@
+% ************************************************************************* %
+% ********************** MTCONNECT DOCUMENT TEMPLATE ********************** %
+% ************************************************************************* %
+% 	FILENAME: 		mtconnect.tex											%
+%	VERSION:		0.1														%
+% 	DATE:			02/13/2018												%
+%	PORTED BY:		Moneer Helu												%
+%	ADDRESS:		Engineering Laboratory									%
+%					National Institute of Standards and Technology (NIST)	%
+%					100 Bureau Drive										%
+%					Mailstop 8260											%
+%					Gaithersburg, MD 20899									%
+%					United States of America								%
+% 	EMAIL:			moneer.helu@nist.gov									%
+% 	DESCRIPTION:	Template for MTConnect documentation;					%
+% 					Initial attempt for testing and discussion				%
+% 	USAGE:			\documentclass[options]{mtconnect}						%
+% ************************************************************************* %
+
+\documentclass{mtconnect}	% Load mtconnect document class
+
+\input{acronyms.tex}
+\input{glossary.tex}
+%\addbibresource{references.bib}
+\addbibresource{mtc.bib}
+
+%\hypersetup{draft} %to test without hyperlinks \hyperref
+\begin{document}			% Begin document here
+
+% ************************************************************************* %
+% *********************** REQUIRED INITIAL INPUTS ************************* %
+% ************************************************************************* %
+
+\docnum{Part 1.0}							% Document "number"
+\doctitle{Overview and Fundamentals}	% Full document title
+\doctitleshort{Overview and Fundamentals}				% Shortened document title
+\versionnum{1.7}						% MTConnect version
+\preparedfor{MTConnect Institute}		% Should not change!!!
+\preparedon{\today}			% Date prepared
+
+% ************************************************************************* %
+% ******************* FRONT MATTER (DO NOT CHANGE!!!) ********************* %
+% ************************************************************************* %
+
+\begin{nolinenumbers}
+\maketitle				% Title page
+
+\pagenumbering{roman}
+
+% MTConnect Specification and Material Statement:
+\textbf{\color{mtc1}\Large MTConnect Specification and Materials} \\
+
+\input{legal.tex}
+
+\clearpage
+\tableofcontents
+\thispagestyle{fancy}
+\clearpage
+\listoffigures
+\thispagestyle{fancy}
+\clearpage
+\listoftables
+\end{nolinenumbers}
+
+\pagenumbering{arabic}
+
+% ************************************************************************* %
+% ******************** ENTER DOCUMENT CONTENT BELOW *********************** %
+% ************************************************************************* %
+
+\input{introduction.tex}
+
+\input{protocols.tex}
+
+\input{appendix.tex}
+
+\end{document}

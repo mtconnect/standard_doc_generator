@@ -1,14 +1,16 @@
-% Generated 2020-07-29 16:29:19 +0530
+% Generated 2020-08-19 14:44:33 +0530
 \subsection{Elements for DataItem} \label{sec:ElementsforDataItem}
 
-This section provides detailed descriptions for the elements of a {block:DataItem}.
+
+This section provides detailed descriptions for the elements of a \block{DataItem}.
 
 
 \subsubsection{Constraints}
   \label{sec:Constraints}
 
 
-\block{Constraints} \gls{organizes} a set of expected values that can be reported for this \block{DataItem}.
+
+\block{Constraints} \glspl{organize} a set of expected values that can be reported for this \block{DataItem}.
 
 
 \paragraph{Elements of Constraints}\mbox{}
@@ -54,7 +56,7 @@ Name & Description \\
 Name & Description \\
 \hline
 \endhead
-\texttt{MINIMUM_DELTA} &  \\ \hline
+\texttt{MINIMUM\textunderscore DELTA} &  \\ \hline
 \texttt{PERIOD} &  \\ \hline
 \end{longtabu}
 \FloatBarrier
@@ -69,7 +71,8 @@ Name & Description \\
   \label{sec:Definition}
 
 
-The \block{Definition} defines the meaning of \block{Entry} and \block{Cell} elements associated with the \block{DataItem} when the {property:representation} is either \block{DATA} or \block{TABLE}.
+
+The \block{Definition} defines the meaning of \block{Entry} and \block{Cell} elements associated with the \block{DataItem} when the \property{representation} is either \block{DATA} or \block{TABLE}.
 
 
 \paragraph{Elements of Definition}\mbox{}
@@ -97,14 +100,15 @@ The \block{Definition} defines the meaning of \block{Entry} and \block{Cell} ele
 Descriptions for elements of \texttt{Definition}:
 
 \begin{itemize}
-\item \texttt{CellDefinitions} : \block{CellDefinitions} \gls{organizes} \block{CellDefinition} elements.
+\item \texttt{CellDefinitions} : \block{CellDefinitions} \glspl{organize} \block{CellDefinition} elements.
 \item \texttt{Description} : An element that can contain any descriptive content.
-\item \texttt{EntryDefinitions} : \block{EntryDefinitions} \gls{organizes} \block{EntryDefinition} elements.
+\item \texttt{EntryDefinitions} : \block{EntryDefinitions} \glspl{organize} \block{EntryDefinition} elements.
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Filter}
   \label{sec:Filter}
+
 
 
 \block{Filter} provides a means to control when an \gls{Agent} records updated information for a data item. 
@@ -141,6 +145,7 @@ Descriptions for attributes of \texttt{Filter}:
   \label{sec:InitialValue}
 
 
+
 \block{InitialValue} defines the starting value for a data item as well as the value to be set for the data item after a reset event.
 
 
@@ -175,6 +180,7 @@ Descriptions for attributes of \texttt{InitialValue}:
   \label{sec:ResetTrigger}
 
 
+
 \block{ResetTrigger} identifies the type of event that may cause a reset to occur.
 
 
@@ -207,6 +213,7 @@ Descriptions for attributes of \texttt{ResetTrigger}:
 
 \subsubsection{Source}
   \label{sec:Source}
+
 
 
 \block{Source} identifies the \block{Component}, \block{DataItem}, or \block{Composition} representing the area of the piece of equipment from which a measured value originates.

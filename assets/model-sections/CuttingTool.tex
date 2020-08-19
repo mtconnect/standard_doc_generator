@@ -1,11 +1,13 @@
-% Generated 2020-07-29 16:29:22 +0530
+% Generated 2020-08-19 14:44:38 +0530
 \subsection{CuttingTool} \label{sec:CuttingTool}
 
-The {block:CuttingTool} {term:Information Model} illustrated in {ref:cuttingtool-schema} has the identical structure as the {block:CuttingToolArchetype} {term:Information Model} except for the XML element {block:CuttingToolDefinition} that has been \DEPRECATED in the {block:CuttingTool} schema.
+
+The \block{CuttingTool} \gls{Information Model} illustrated in \ref{cuttingtool-schema} has the identical structure as the \block{CuttingToolArchetype} \gls{Information Model} except for the XML element \block{CuttingToolDefinition} that has been \textbf{DEPRECATED} in the \block{CuttingTool} schema.
 
 
 \subsubsection{CuttingTool}
   \label{sec:CuttingTool}
+
 
 
 A CuttingTool physically removes the material from the workpiece by shear deformation.
@@ -76,6 +78,7 @@ Descriptions for elements of \texttt{CuttingTool}:
   \label{sec:CuttingToolArchetype}
 
 
+
 The CuttingToolArchetype represents the static cutting tool geometries and nominal values as one would expect from a tool catalog.
 
 
@@ -142,6 +145,7 @@ Descriptions for elements of \texttt{CuttingToolArchetype}:
   \label{sec:CuttingToolArchetypeReference}
 
 
+
 CuttingToolArchetypeReference has reference information about the assetId and/or the URL of the data source of CuttingToolArchetype.
 
 
@@ -176,6 +180,7 @@ Descriptions for attributes of \texttt{CuttingToolArchetypeReference}:
 
 \subsubsection{CuttingToolDefinition}
   \label{sec:CuttingToolDefinition}
+
 
 
 Reference to an ISO 13399.
@@ -233,6 +238,7 @@ Name & Description \\
 
 \subsubsection{CuttingToolLifeCycle}
   \label{sec:CuttingToolLifeCycle}
+
 
 
 Data regarding the use of the cutting tool.
@@ -293,6 +299,7 @@ Descriptions for elements of \texttt{CuttingToolLifeCycle}:
   \label{sec:Location}
 
 
+
 The Pot or Spindle the cutting tool currently resides in.
 
 
@@ -329,6 +336,7 @@ Descriptions for attributes of \texttt{Location}:
 
 \subsubsection{Measurement}
   \label{sec:Measurement}
+
 
 
 A constrained scalar value associated with this cutting tool.
@@ -407,7 +415,7 @@ Name & Description \\
 \texttt{DCx} & The diameter of a circle on which the defined point Pk located on this Cutting Tool. The normal of the machined peripheral surface points towards the axis of the Cutting Tool. \\ \hline
 \texttt{HF} & The distance from the basal plane of the Tool Item to the cutting point. \\ \hline
 \texttt{RE} & The nominal radius of a rounded corner measured in the X Y-plane. \\ \hline
-\texttt{LFx} & The distance from the gauge plane or from the end of the shank of the Cutting Tool, if a gauge plane does not exist, to the cutting reference point determined by the main function of the tool. This measurement will be with reference to the Cutting Tool and **MUSTNOT** exist without a Cutting Tool. \\ \hline
+\texttt{LFx} & The distance from the gauge plane or from the end of the shank of the Cutting Tool, if a gauge plane does not exist, to the cutting reference point determined by the main function of the tool. This measurement will be with reference to the Cutting Tool and \textbf{MUSTNOT} exist without a Cutting Tool. \\ \hline
 \texttt{BCH} & The flat length of a chamfer. \\ \hline
 \texttt{CHW} & The width of the chamfer. \\ \hline
 \texttt{W1} & W1 is used for the insert width when an inscribed circle diameter is not practical. \\ \hline
@@ -424,6 +432,7 @@ Name & Description \\
 
 \subsubsection{ProcessFeedRate}
   \label{sec:ProcessFeedRate}
+
 
 
 The constrained process feed rate for this tool in mm/s.
@@ -464,6 +473,7 @@ Descriptions for attributes of \texttt{ProcessFeedRate}:
   \label{sec:ProcessSpindleSpeed}
 
 
+
 The constrained process spindle speed for this tool.
 
 
@@ -502,6 +512,7 @@ Descriptions for attributes of \texttt{ProcessSpindleSpeed}:
   \label{sec:ReconditionCount}
 
 
+
 The number of times this cutter has been reconditioned.
 
 
@@ -534,6 +545,7 @@ Descriptions for attributes of \texttt{ReconditionCount}:
 
 \subsubsection{Status}
   \label{sec:Status}
+
 
 
 The status of the cutting tool.
@@ -588,7 +600,7 @@ Name & Description \\
 \texttt{USED} & The cutting tool is in process and has remaining tool life. \\ \hline
 \texttt{EXPIRED} & The cutting tool has reached the end of its useful life. \\ \hline
 \texttt{BROKEN} & Premature tool failure. \\ \hline
-\texttt{NOT_REGISTERED} & This cutting tool cannot be used until it is entered into the system. \\ \hline
+\texttt{NOT\textunderscore REGISTERED} & This cutting tool cannot be used until it is entered into the system. \\ \hline
 \texttt{UNKNOWN} & The cutting tool is an indeterminate state. This is the default value. \\ \hline
 \end{longtabu}
 \FloatBarrier
@@ -597,6 +609,7 @@ Name & Description \\
 
 \subsubsection{ToolLife}
   \label{sec:ToolLife}
+
 
 
 The cutting tool life as related to this assembly.

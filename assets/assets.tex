@@ -1,15 +1,20 @@
 
 \section{Assets Information Model}
 \label{sec:Assets Information Model}
-The MTConnect Standard supports a simple distributed storage mechanism that allows applications and equipment to share and exchange complex information models in a similar way to a distributed data store.  The {term:Asset Information Model} associates each electronic {block:MTConnectAssets} document with a unique identifier and allows for some predefined mechanisms to find, create, request, updated, and delete these electronic documents in a way that provides for consistency across multiple pieces of equipment.
 
-The protocol provides a limited mechanism of accessing {term:MTConnect Assets} using the following properties: {block:assetId}, {term:Asset} type (element name of {term:Asset} root), and the piece of equipment associated with the {term:Asset}.  These access strategies will provide the following services and answer the following questions: What {term:Assets} are from a particular piece of equipment?  What are the {term:Assets} of a particular type? What {term:Assets} is stored for a given {block:assetId}?
+The MTConnect Standard supports a simple distributed storage mechanism that allows applications and equipment to share and exchange complex information models in a similar way to a distributed data store.  The \gls{Asset Information Model} associates each electronic \block{MTConnectAssets} document with a unique identifier and allows for some predefined mechanisms to find, create, request, updated, and delete these electronic documents in a way that provides for consistency across multiple pieces of equipment.
 
-Although these mechanisms are provided, an {term:Agent} should not be considered a data store or a system of reference.  The {term:Agent} is providing an ephemeral storage capability that will temporarily manage the data for applications wishing to communicate and manage data as need-ed by the various processes.  An application cannot rely on an {term:Agent} for long term persistence or durability since the {term:Agent} is only required to temporarily store the {term:Asset} data and may require an-other system to provide the source data upon initialization.  An {term:Agent} is always providing the best-known equipment centric view of the data given the limitations of that piece of equipment.
+The protocol provides a limited mechanism of accessing \gls{MTConnect Assets} using the following properties: \block{assetId}, \gls{Asset} type (element name of \gls{Asset} root), and the piece of equipment associated with the \gls{Asset}.  These access strategies will provide the following services and answer the following questions: What \glspl{Asset} are from a particular piece of equipment?  What are the \glspl{Asset} of a particular type? What \glspl{Asset} is stored for a given \block{assetId}?
+
+Although these mechanisms are provided, an \gls{Agent} should not be considered a data store or a system of reference.  The \gls{Agent} is providing an ephemeral storage capability that will temporarily manage the data for applications wishing to communicate and manage data as need-ed by the various processes.  An application cannot rely on an \gls{Agent} for long term persistence or durability since the \gls{Agent} is only required to temporarily store the \gls{Asset} data and may require an-other system to provide the source data upon initialization.  An \gls{Agent} is always providing the best-known equipment centric view of the data given the limitations of that piece of equipment.
 
 \section{Assets}
 \label{sec:Assets}
 
+
+
 \input model-sections/Assets.tex
+
 \input model-sections/CuttingTool.tex
+
 \input model-sections/CuttingItem.tex

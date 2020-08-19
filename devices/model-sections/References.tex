@@ -1,11 +1,13 @@
-% Generated 2020-07-29 16:29:19 +0530
+% Generated 2020-08-19 14:44:34 +0530
 \subsection{References} \label{sec:References}
 
-{block:References} {term:organizes} {block:Reference} elements.
+
+\block{References} \glspl{organize} \block{Reference} elements.
 
 
 \subsubsection{Reference}
   \label{sec:Reference}
+
 
 
 \block{Reference} is a pointer to information that is associated with another \gls{Structural Element} defined elsewhere for a piece of equipment.
@@ -44,6 +46,7 @@ Descriptions for attributes of \texttt{Reference}:
   \label{sec:DataItemRef}
 
 
+
 \block{DataItemRef} is a pointer to a \gls{Data Entity} associated with another \gls{Structural Element} defined for a piece of equipment.  \block{DataItemRef} allows the data associated with a data item defined in another \gls{Structural Element} to be directly associated with this element.
 
 
@@ -70,7 +73,7 @@ Descriptions for attributes of \texttt{Reference}:
 Descriptions for attributes of \texttt{DataItemRef}:
 
 \begin{itemize}
-\item \texttt{idRef} : A pointer to the {property:id} attribute of the \block{DataItem} that contains the information to be associated with this element.
+\item \texttt{idRef} : A pointer to the \property{id} attribute of the \block{DataItem} that contains the information to be associated with this element.
 \end{itemize}
 \FloatBarrier
 
@@ -78,7 +81,8 @@ Descriptions for attributes of \texttt{DataItemRef}:
   \label{sec:ComponentRef}
 
 
-\block{ComponentRef} is a pointer to all of the information associated with another \gls{Structural Element} defined for a piece of equipment.  \block{ComponentRef} allows all of the information (\gls{Lower Level} \block{Components} and all \gls{Data Entities}) that is associated with the other \gls{Structural Element} to be directly associated with this element.
+
+\block{ComponentRef} is a pointer to all of the information associated with another \gls{Structural Element} defined for a piece of equipment.  \block{ComponentRef} allows all of the information (\gls{Lower Level} \block{Components} and all \glspl{Data Entity}) that is associated with the other \gls{Structural Element} to be directly associated with this element.
 
 
 \paragraph{Attributes of ComponentRef}\mbox{}
@@ -104,6 +108,6 @@ Descriptions for attributes of \texttt{DataItemRef}:
 Descriptions for attributes of \texttt{ComponentRef}:
 
 \begin{itemize}
-\item \texttt{idRef} : A pointer to the {property:id} attribute of the \block{Component} that contains the information to be associated with this element.
+\item \texttt{idRef} : A pointer to the \property{id} attribute of the \block{Component} that contains the information to be associated with this element.
 \end{itemize}
 \FloatBarrier

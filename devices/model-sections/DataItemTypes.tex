@@ -1,28 +1,29 @@
-% Generated 2020-07-29 16:29:19 +0530
+% Generated 2020-08-19 14:44:33 +0530
 \subsection{DataItem Types} \label{sec:DataItemTypes}
 
-In the MTConnect Standard, {block:DataItem} elements are defined and organized based upon the {property:category} and {property:type} attributes.  The {property:category} attribute provides a high level grouping for {block:DataItem} elements based on the kind of information that is reported by the data item.
+
+In the MTConnect Standard, \block{DataItem} elements are defined and organized based upon the \property{category} and \property{type} attributes.  The \property{category} attribute provides a high level grouping for \block{DataItem} elements based on the kind of information that is reported by the data item.
 
 These categories are:
 
 \begin{itemize}
 
-\item {block:SAMPLE}
+\item \block{SAMPLE}
 
-A {block:SAMPLE} reports a continuously variable or analog data value. 
+A \block{SAMPLE} reports a continuously variable or analog data value. 
 
-\item {block:EVENT}
+\item \block{EVENT}
 
-An {block:EVENT} reports information representing a functional state, with two or more discrete values, associated with a component or it contains a message.  The data provided may be a numeric value or text.
+An \block{EVENT} reports information representing a functional state, with two or more discrete values, associated with a component or it contains a message.  The data provided may be a numeric value or text.
 
-\item {block:CONDITION}
+\item \block{CONDITION}
 
-A {block:CONDITION} reports information about the health of a piece of equipment and its ability to function.
+A \block{CONDITION} reports information about the health of a piece of equipment and its ability to function.
 \end{itemize}
 
-The {property:type} attribute specifies the specific kind of data that is reported.   For some types of data items, a {property:subType} attribute may also be used to differentiate between multiple data items of the same {property:type} where the information reported by the data item has a different, but related, meaning.
+The \property{type} attribute specifies the specific kind of data that is reported.   For some types of data items, a \property{subType} attribute may also be used to differentiate between multiple data items of the same \property{type} where the information reported by the data item has a different, but related, meaning.
 
-Many types of data items provide two forms of data: a value (reported as either a {block:SAMPLE} or {block:EVENT}) and a health status (reported as a {block:CONDITION}).  These {block:DataItem} types **\may** be defined in more than one {property:category} based on the data that they report.
+Many types of data items provide two forms of data: a value (reported as either a \block{SAMPLE} or \block{EVENT}) and a health status (reported as a \block{CONDITION}).  These \block{DataItem} types \textbf{MAY} be defined in more than one \property{category} based on the data that they report.
 
 
 
@@ -30,31 +31,26 @@ Many types of data items provide two forms of data: a value (reported as either 
   \label{sec:Condition}
 
 
+
 \block{CONDITION} category data items report data representing a \gls{Structural Element}’s status regarding its ability to operate or it provides an indication whether the data reported for the \gls{Structural Element} is within an expected range.
 
-\block{CONDITION} is reported differently than \block{SAMPLE} or \block{EVENT}.  \block{CONDITION} **\must** be reported as \block{Normal}, \block{Warning}, or \block{Fault}.
+\block{CONDITION} is reported differently than \block{SAMPLE} or \block{EVENT}.  \block{CONDITION} \textbf{MUST} be reported as \block{Normal}, \block{Warning}, or \block{Fault}.
 
-All \block{DataItem} types in the \block{SAMPLE} category **\may** have associated \block{CONDITION} states.  \block{CONDITION} states indicate whether the value for the data is within an expected range and **\must** be reported as \block{Normal}, or the value is unexpected or out of tolerance for the data and a \block{Warning} or \block{Fault} **\must** be provided.
+All \block{DataItem} types in the \block{SAMPLE} category \textbf{MAY} have associated \block{CONDITION} states.  \block{CONDITION} states indicate whether the value for the data is within an expected range and \textbf{MUST} be reported as \block{Normal}, or the value is unexpected or out of tolerance for the data and a \block{Warning} or \block{Fault} \textbf{MUST} be provided.
 
 
- \texttt{type} for \texttt{Condition} are:
+The value of \property{type}{DataItem} with \property{category}{DataItem} \texttt{Condition} \MUST be one of the following:
 \begin{itemize}
 
 \item \texttt{COMMUNICATIONS} : An indication that the piece of equipment has experienced a communications failure. 
 
-\item \texttt{DATA_RANGE} : An indication that the value of the data associated with a measured value or a calculation is outside of an expected range. 
+\item \texttt{DATA\textunderscore RANGE} : An indication that the value of the data associated with a measured value or a calculation is outside of an expected range. 
 
 \item \texttt{HARDWARE} : An indication of a fault associated with the hardware subsystem of the \gls{Structural Element}. 
 
-Subtypes of \texttt{HARDWARE} are: 
-\newline\tab \texttt{VERSION} : The version of the hardware or software. 
-\newline\tab \texttt{RELEASE_DATE} : The date the hardware or software was released for general use. 
-\newline\tab \texttt{MANUFACTURER} : The corporate identity for the maker of the hardware or software. 
-\newline\tab \texttt{LICENSE} : The license code to validate or activate the hardware or software. 
-\newline\tab \texttt{INSTALL_DATE} : The date the hardware or software was installed. 
-\item \texttt{LOGIC_PROGRAM} : An indication that an error occurred in the logic program or programmable logic controller (PLC) associated with a piece of equipment. 
+\item \texttt{LOGIC\textunderscore PROGRAM} : An indication that an error occurred in the logic program or programmable logic controller (PLC) associated with a piece of equipment. 
 
-\item \texttt{MOTION_PROGRAM} : An indication that an error occurred in the motion program associated with a piece of equipment. 
+\item \texttt{MOTION\textunderscore PROGRAM} : An indication that an error occurred in the motion program associated with a piece of equipment. 
 
 \item \texttt{SYSTEM} : A general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware. 
 
@@ -66,337 +62,190 @@ Subtypes of \texttt{HARDWARE} are:
   \label{sec:Event}
 
 
+
 \block{DataItem} types in the \block{EVENT} category represent a discrete piece of information from a piece of equipment.  \block{EVENT} does not have intermediate values that vary over time.
 
 An \block{EVENT} is information that, when provided at any specific point in time, represents the current state of the piece of equipment.
 
 
- \texttt{type} for \texttt{Event} are:
+The value of \property{type}{DataItem} with \property{category}{DataItem} \texttt{Event} \MUST be one of the following:
 \begin{itemize}
 
-\item \texttt{ACTIVE_AXES} : The set of axes currently associated with a \block{Path} or \block{Controller} \gls{Structural Element}. 
+\item \texttt{ACTIVE\textunderscore AXES} : The set of axes currently associated with a \block{Path} or \block{Controller} \gls{Structural Element}. 
 
-\item \texttt{ACTUATOR_STATE} : Represents the operational state of an apparatus for moving or controlling a mechanism or system. 
+\item \texttt{ACTUATOR\textunderscore STATE} : Represents the operational state of an apparatus for moving or controlling a mechanism or system. 
 
-\item \texttt{ALARM} : **DEPRECATED:** Replaced with \block{CONDITION} category data items in Version 1.1.0. 
+\item \texttt{ALARM} : \textbf{DEPRECATED:} Replaced with \block{CONDITION} category data items in Version 1.1.0. 
 
-\item \texttt{ASSET_CHANGED} : The \block{assetId} of the asset that has been added or changed. 
+\item \texttt{ASSET\textunderscore CHANGED} : The \block{assetId} of the asset that has been added or changed. 
 
-\item \texttt{ASSET_REMOVED} : The \block{assetId} of the asset that has been removed. 
+\item \texttt{ASSET\textunderscore REMOVED} : The \block{assetId} of the asset that has been removed. 
 
 \item \texttt{AVAILABILITY} : Represents the \gls{Agent}'s ability to communicate with the data source. 
 
-\item \texttt{AXIS_COUPLING} : Describes the way the axes will be associated to each other. 
+\item \texttt{AXIS\textunderscore COUPLING} : Describes the way the axes will be associated to each other. 
   
-This is used in conjunction with \block{COUPLED_AXES} to indicate the way they are interacting. 
+This is used in conjunction with \block{COUPLED\textunderscore AXES} to indicate the way they are interacting. 
 
-\item \texttt{AXIS_FEEDRATE_OVERRIDE} : The value of a signal or calculation issued to adjust the feedrate of an individual linear type axis. 
+\item \texttt{AXIS\textunderscore FEEDRATE\textunderscore OVERRIDE} : The value of a signal or calculation issued to adjust the feedrate of an individual linear type axis. 
 
-Subtypes of \texttt{AXIS_FEEDRATE_OVERRIDE} are: 
-\newline\tab \texttt{JOG} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}.  
-\newline\tab \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch. 
-\newline\tab \texttt{RAPID} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode. 
-\item \texttt{AXIS_INTERLOCK} : An indicator of the state of the axis lockout function when power has been removed and the axis is allowed to move freely. 
+\item \texttt{AXIS\textunderscore INTERLOCK} : An indicator of the state of the axis lockout function when power has been removed and the axis is allowed to move freely. 
 
-\item \texttt{AXIS_STATE} : An indicator of the controlled state of a \block{Linear} or \block{Rotary} component representing an axis. 
+\item \texttt{AXIS\textunderscore STATE} : An indicator of the controlled state of a \block{Linear} or \block{Rotary} component representing an axis. 
 
 \item \texttt{BLOCK} : The line of code or command being executed by a \block{Controller} \gls{Structural Element}. 
 
-\item \texttt{BLOCK_COUNT} : The total count of the number of blocks of program code that have been executed since execution started. 
+\item \texttt{BLOCK\textunderscore COUNT} : The total count of the number of blocks of program code that have been executed since execution started. 
 
-\item \texttt{CHUCK_INTERLOCK} : An indication of the state of an interlock function or control logic state intended to prevent the associated \block{Chuck} component from being operated. 
+\item \texttt{CHUCK\textunderscore INTERLOCK} : An indication of the state of an interlock function or control logic state intended to prevent the associated \block{Chuck} component from being operated. 
 
-Subtypes of \texttt{CHUCK_INTERLOCK} are: 
-\newline\tab \texttt{MANUAL_UNCLAMP} : An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
- The \gls{Valid Data Value} **MUST** be \block{ACTIVE} or \block{INACTIVE}. 
- When \block{MANUAL_UNCLAMP} is \block{ACTIVE}, it is expected that a chuck cannot be unclamped until \block{MANUAL_UNCLAMP} is set to \block{INACTIVE}.  
-\item \texttt{CHUCK_STATE} : An indication of the operating state of a mechanism that holds a part or stock material during a manufacturing process. It may also represent a mechanism that holds any other mechanism in place within a piece of equipment. 
+\item \texttt{CHUCK\textunderscore STATE} : An indication of the operating state of a mechanism that holds a part or stock material during a manufacturing process. It may also represent a mechanism that holds any other mechanism in place within a piece of equipment. 
 
-\item \texttt{CLOSE_CHUCK} : Service to close a chuck. 
+\item \texttt{CLOSE\textunderscore CHUCK} : Service to close a chuck. 
 
-\item \texttt{CLOSE_DOOR} : Service to close a door. 
+\item \texttt{CLOSE\textunderscore DOOR} : Service to close a door. 
 
-\item \texttt{CODE} : **DEPRECATED** in Version 1.1. 
+\item \texttt{CODE} : \textbf{DEPRECATED} in Version 1.1. 
 
-\item \texttt{COMPOSITION_STATE} : An indication of the operating condition of a mechanism represented by a \block{Composition} type element. 
+\item \texttt{COMPOSITION\textunderscore STATE} : An indication of the operating condition of a mechanism represented by a \block{Composition} type element. 
 
-Subtypes of \texttt{COMPOSITION_STATE} are: 
-\newline\tab \texttt{ACTION} : An indication of the operating state of a mechanism represented by a \block{Composition} type component.
- The operating state indicates whether the \block{Composition} element is activated or disabled. 
- The \gls{Valid Data Value} **MUST** be \block{ACTIVE} or \block{INACTIVE}. 
-\newline\tab \texttt{LATERAL} : An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a \block{Composition} type component. 
- The position information indicates whether the \block{Composition} element is positioned to the right, to the left, or is in transition.  
- The \gls{Valid Data Value} **MUST** be \block{RIGHT}, \block{LEFT}, or \block{TRANSITIONING}. 
-\newline\tab \texttt{MOTION} : An indication of the open or closed state of a mechanism.   The mechanism is represented by a \block{Composition} type component. 
- The operating state indicates whether the state of the \block{Composition} element is open, closed, or unlatched.   
- The \gls{Valid Data Value} **MUST** be \block{OPEN}, \block{UNLATCHED}, or \block{CLOSED}. 
-\newline\tab \texttt{SWITCHED} : An indication of the activation state of a mechanism represented by a \block{Composition} type component.
- The activation state indicates whether the \block{Composition} element is activated or not.
- The \gls{Valid Data Value} **MUST** be \block{ON} or \block{OFF}. 
-\newline\tab \texttt{VERTICAL} : An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a \block{Composition} type component. 
- The position information indicates whether the \block{Composition} element is positioned to the top, to the bottom, or is in transition.  
- The \gls{Valid Data Value} **MUST** be \block{UP}, \block{DOWN}, or \block{TRANSITIONING}. 
-\item \texttt{CONTROLLER_MODE} : The current operating mode of the \block{Controller} component. 
+\item \texttt{CONTROLLER\textunderscore MODE} : The current operating mode of the \block{Controller} component. 
 
-\item \texttt{CONTROLLER_MODE_OVERRIDE} : A setting or operator selection that changes the behavior of a piece of equipment. 
+\item \texttt{CONTROLLER\textunderscore MODE\textunderscore OVERRIDE} : A setting or operator selection that changes the behavior of a piece of equipment. 
 
-Subtypes of \texttt{CONTROLLER_MODE_OVERRIDE} are: 
-\newline\tab \texttt{DRY_RUN} : A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
- The \gls{Valid Data Value} **MUST** be \block{ON} or \block{OFF}. 
- When \block{DRY_RUN} is \block{ON}, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended. 
-\newline\tab \texttt{SINGLE_BLOCK} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} **MUST** be \block{ON} or \block{OFF}.
- Program execution is paused after each \block{BLOCK} of code is executed when \block{SINGLE_BLOCK} is \block{ON}.   
- When \block{SINGLE_BLOCK} is \block{ON}, \block{EXECUTION} **MUST** change to \block{INTERRUPTED} after completion of each \block{BLOCK} of code.  
-\newline\tab \texttt{MACHINE_AXIS_LOCK} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} **MUST** be \block{ON} or \block{OFF}. 
- When \block{MACHINE_AXIS_LOCK} is \block{ON}, program execution continues normally, but no equipment motion occurs  
-\newline\tab \texttt{OPTIONAL_STOP} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} **MUST** be \block{ON} or \block{OFF}.
- The program execution is stopped after a specific program block is executed when \block{OPTIONAL_STOP} is \block{ON}.    
- In the case of a G-Code program, a program \block{BLOCK} containing a M01 code designates the command for an \block{OPTIONAL_STOP}. 
- \block{EXECUTION} **MUST** change to \block{OPTIONAL_STOP} after a program block specifying an optional stop is executed and the \block{OPTIONAL_STOP} selection is \block{ON}. 
-\newline\tab \texttt{TOOL_CHANGE_STOP} : A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} **MUST** be \block{ON} or \block{OFF}. 
- Program execution is paused when a command is executed requesting a cutting tool to be changed. 
- \block{EXECUTION} **MUST** change to \block{INTERRUPTED} after completion of the command requesting a cutting tool to be changed and \block{TOOL_CHANGE_STOP} is \block{ON}. 
-\item \texttt{COUPLED_AXES} : Refers to the set of associated axes. 
+\item \texttt{COUPLED\textunderscore AXES} : Refers to the set of associated axes. 
 
-\item \texttt{DATE_CODE} : The time and date code associated with a material or other physical item. 
+\item \texttt{DATE\textunderscore CODE} : The time and date code associated with a material or other physical item. 
 
-Subtypes of \texttt{DATE_CODE} are: 
-\newline\tab \texttt{MANUFACTURE} : The time and date code relating to the production of a material or other physical item. 
-\newline\tab \texttt{EXPIRATION} : The time and date code relating to the expiration or end of useful life for a material or other physical item. 
-\newline\tab \texttt{FIRST_USE} : The time and date code relating the first use of a material or other physical item. 
-\item \texttt{DEVICE_UUID} : The identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function. 
+\item \texttt{DEVICE\textunderscore UUID} : The identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function. 
 
 \item \texttt{DIRECTION} : The direction of motion. 
 
-Subtypes of \texttt{DIRECTION} are: 
-\newline\tab \texttt{ROTARY} : The rotational direction of a rotary motion using the right hand rule convention.
- The \gls{Valid Data Value} **MUST** be \block{CLOCKWISE} or \block{COUNTER_CLOCKWISE}. 
-\newline\tab \texttt{LINEAR} : The direction of motion of a linear motion. 
-\item \texttt{DOOR_STATE} : The operational state of a \block{Door} component or composition element. 
+\item \texttt{DOOR\textunderscore STATE} : The operational state of a \block{Door} component or composition element. 
 
-\item \texttt{EMERGENCY_STOP} : The current state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment. 
+\item \texttt{EMERGENCY\textunderscore STOP} : The current state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment. 
 
-\item \texttt{END_OF_BAR} : An indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached. 
+\item \texttt{END\textunderscore OF\textunderscore BAR} : An indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached. 
 
-\item \texttt{EQUIPMENT_MODE} : An indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities. 
+\item \texttt{EQUIPMENT\textunderscore MODE} : An indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities. 
 
-Subtypes of \texttt{EQUIPMENT_MODE} are: 
-\newline\tab \texttt{LOADED} : Subparts of a piece of equipment are under load. 
-\newline\tab \texttt{WORKING} : A piece of equipment performing any activity, the equipment is active and performing a function under load or not. 
-\newline\tab \texttt{OPERATING} : A piece of equipment are powered or performing any activity. 
-\newline\tab \texttt{POWERED} : Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered. 
-\newline\tab \texttt{DELAY} : A piece of equipment waiting for an event or an action to occur. 
 \item \texttt{EXECUTION} : The execution status of the \block{Component}. 
 
-\item \texttt{FUNCTIONAL_MODE} : The current intended production status of the device or component. 
+\item \texttt{FUNCTIONAL\textunderscore MODE} : The current intended production status of the device or component. 
 
 \item \texttt{HARDNESS} : The measurement of the hardness of a material. 
 
-Subtypes of \texttt{HARDNESS} are: 
-\newline\tab \texttt{ROCKWELL} : A scale to measure the resistance to deformation of a surface. 
-\newline\tab \texttt{VICKERS} : A scale to measure the resistance to deformation of a surface. 
-\newline\tab \texttt{SHORE} : A scale to measure the resistance to deformation of a surface. 
-\newline\tab \texttt{BRINELL} : A scale to measure the resistance to deformation of a surface. 
-\newline\tab \texttt{LEEB} : A scale to measure the elasticity of a surface. 
-\newline\tab \texttt{MOHS} : A scale to measure the resistance to scratching of a surface. 
-\item \texttt{INTERFACE_STATE} : An indication of the operational state of an \block{Interface} component. 
+\item \texttt{INTERFACE\textunderscore STATE} : An indication of the operational state of an \block{Interface} component. 
 
-\item \texttt{LINE} : **DEPRECATED** in Version 1.4.0. 
+\item \texttt{LINE} : \textbf{DEPRECATED} in Version 1.4.0. 
 
-Subtypes of \texttt{LINE} are: 
-\newline\tab \texttt{MAXIMUM} : Maximum value of a data entity or attribute. 
-\newline\tab \texttt{MINIMUM} : The minimum value of a data entity or attribute. 
-\item \texttt{LINE_LABEL} : An optional identifier for a \block{BLOCK} of code in a \block{PROGRAM}. 
+\item \texttt{LINE\textunderscore LABEL} : An optional identifier for a \block{BLOCK} of code in a \block{PROGRAM}. 
 
-\item \texttt{LINE_NUMBER} : A reference to the position of a block of program code within a control program. 
+\item \texttt{LINE\textunderscore NUMBER} : A reference to the position of a block of program code within a control program. 
 
-Subtypes of \texttt{LINE_NUMBER} are: 
-\newline\tab \texttt{ABSOLUTE} : The position of a block of program code relative to the beginning of the control program. 
-\newline\tab \texttt{INCREMENTAL} : The position of a block of program code relative to the occurrence of the last \block{LINE_LABEL} encountered in the control program. 
 \item \texttt{MATERIAL} : The identifier of a material used or consumed in the manufacturing process. 
 
-\item \texttt{MATERIAL_CHANGE} : Service to change the type of material or product being loaded or fed to a piece of equipment. 
+\item \texttt{MATERIAL\textunderscore CHANGE} : Service to change the type of material or product being loaded or fed to a piece of equipment. 
 
-\item \texttt{MATERIAL_FEED} : Service to advance material or feed product to a piece of equipment from a continuous or bulk source. 
+\item \texttt{MATERIAL\textunderscore FEED} : Service to advance material or feed product to a piece of equipment from a continuous or bulk source. 
 
-\item \texttt{MATERIAL_LAYER} : Identifies the layers of material applied to a part or product as part of an additive manufacturing process. 
+\item \texttt{MATERIAL\textunderscore LAYER} : Identifies the layers of material applied to a part or product as part of an additive manufacturing process. 
 
-Subtypes of \texttt{MATERIAL_LAYER} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{TARGET} : The desired measure or count for a data item value. 
-\item \texttt{MATERIAL_LOAD} : Service to load a piece of material or product. 
+\item \texttt{MATERIAL\textunderscore LOAD} : Service to load a piece of material or product. 
 
-\item \texttt{MATERIAL_RETRACT} : Service to remove or retract material or product. 
+\item \texttt{MATERIAL\textunderscore RETRACT} : Service to remove or retract material or product. 
 
-\item \texttt{MATERIAL_UNLOAD} : Service to unload a piece of material or product. 
+\item \texttt{MATERIAL\textunderscore UNLOAD} : Service to unload a piece of material or product. 
 
 \item \texttt{MESSAGE} : Any text string of information to be transferred from a piece of equipment to a client software application. 
 
-\item \texttt{OPEN_CHUCK} : Service to open a chuck. 
+\item \texttt{OPEN\textunderscore CHUCK} : Service to open a chuck. 
 
-\item \texttt{OPEN_DOOR} : Service to open a door. 
+\item \texttt{OPEN\textunderscore DOOR} : Service to open a door. 
 
-\item \texttt{OPERATOR_ID} : The identifier of the person currently responsible for operating the piece of equipment. 
+\item \texttt{OPERATOR\textunderscore ID} : The identifier of the person currently responsible for operating the piece of equipment. 
 
-\item \texttt{PALLET_ID} : The identifier for a pallet. 
+\item \texttt{PALLET\textunderscore ID} : The identifier for a pallet. 
 
-\item \texttt{PART_CHANGE} : Service to change the part or product associated with a piece of equipment to a different part or product. 
+\item \texttt{PART\textunderscore CHANGE} : Service to change the part or product associated with a piece of equipment to a different part or product. 
 
-\item \texttt{PART_COUNT} : The aggregate count of parts. 
+\item \texttt{PART\textunderscore COUNT} : The aggregate count of parts. 
 
-Subtypes of \texttt{PART_COUNT} are: 
-\newline\tab \texttt{ALL} : The number of parts produced.  
-\newline\tab \texttt{GOOD} : The number of parts produced that conform to specification. 
-\newline\tab \texttt{BAD} : The number of parts produced that do not conform to specification. 
-\newline\tab \texttt{TARGET} : The number of projected or planned parts to be produced. 
-\newline\tab \texttt{REMAINING} : The number of remaining or in-stock parts to be produced. 
-\item \texttt{PART_DETECT} : An indication designating whether a part or work piece has been detected or is present. 
+\item \texttt{PART\textunderscore DETECT} : An indication designating whether a part or work piece has been detected or is present. 
 
-\item \texttt{PART_ID} : An identifier of a part in a manufacturing operation. 
+\item \texttt{PART\textunderscore ID} : An identifier of a part in a manufacturing operation. 
 
-\item \texttt{PART_NUMBER} : An identifier of a part or product moving through the manufacturing process. 
+\item \texttt{PART\textunderscore NUMBER} : An identifier of a part or product moving through the manufacturing process. 
 
-\item \texttt{PATH_FEEDRATE_OVERRIDE} : The value of a signal or calculation issued to adjust the feedrate for the axes associated with a \block{Path} component that may represent a single axis or the coordinated movement of multiple axes. 
+\item \texttt{PATH\textunderscore FEEDRATE\textunderscore OVERRIDE} : The value of a signal or calculation issued to adjust the feedrate for the axes associated with a \block{Path} component that may represent a single axis or the coordinated movement of multiple axes. 
 
-Subtypes of \texttt{PATH_FEEDRATE_OVERRIDE} are: 
-\newline\tab \texttt{JOG} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}.  
-\newline\tab \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch. 
-\newline\tab \texttt{RAPID} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode. 
-\item \texttt{PATH_MODE} : Describes the operational relationship between a \block{Path} \gls{Structural Element} and another \block{Path} \gls{Structural Element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations. 
+\item \texttt{PATH\textunderscore MODE} : Describes the operational relationship between a \block{Path} \gls{Structural Element} and another \block{Path} \gls{Structural Element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations. 
 
-\item \texttt{POWER_STATE} : The indication of the status of the source of energy for a \gls{Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the \gls{Structural Element} to perform its functions. 
+\item \texttt{POWER\textunderscore STATE} : The indication of the status of the source of energy for a \gls{Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the \gls{Structural Element} to perform its functions. 
 
-Subtypes of \texttt{POWER_STATE} are: 
-\newline\tab \texttt{LINE} : The state of the power source for the \gls{Structural Element}. 
-\newline\tab \texttt{CONTROL} : The state of the enabling signal or control logic that enables or disables the function or operation of the \gls{Structural Element}. 
-\item \texttt{POWER_STATUS} : **DEPRECATED** in Version 1.1.0. 
+\item \texttt{POWER\textunderscore STATUS} : \textbf{DEPRECATED} in Version 1.1.0. 
 
-\item \texttt{PROCESS_TIME} : The time and date associated with an activity or event. 
+\item \texttt{PROCESS\textunderscore TIME} : The time and date associated with an activity or event. 
 
-Subtypes of \texttt{PROCESS_TIME} are: 
-\newline\tab \texttt{START} : The time and date associated with the beginning of an activity or event. 
-\newline\tab \texttt{COMPLETE} : Completion of an action. 
-\newline\tab \texttt{TARGET_COMPLETION} : The projected time and date associated with the end or completion of an activity or event. 
 \item \texttt{PROGRAM} : The name of the logic or motion program being executed by the \block{Controller} component. 
 
-\item \texttt{PROGRAM_COMMENT} : A comment or non-executable statement in the control program. 
+\item \texttt{PROGRAM\textunderscore COMMENT} : A comment or non-executable statement in the control program. 
 
-\item \texttt{PROGRAM_EDIT} : An indication of the status of the \block{Controller} components program editing mode. A program may be edited while another is executed. 
+\item \texttt{PROGRAM\textunderscore EDIT} : An indication of the status of the \block{Controller} components program editing mode. A program may be edited while another is executed. 
 
-\item \texttt{PROGRAM_EDIT_NAME} : The name of the program being edited. 
- This is used in conjunction with \block{PROGRAM_EDIT} when in \block{ACTIVE} state.  
+\item \texttt{PROGRAM\textunderscore EDIT\textunderscore NAME} : The name of the program being edited. 
+ This is used in conjunction with \block{PROGRAM\textunderscore EDIT} when in \block{ACTIVE} state.  
 
-\item \texttt{PROGRAM_HEADER} : The non-executable header section of the control program. 
+\item \texttt{PROGRAM\textunderscore HEADER} : The non-executable header section of the control program. 
 
-Subtypes of \texttt{PROGRAM_HEADER} are: 
-\newline\tab \texttt{MAIN} : The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs. 
-\newline\tab \texttt{SCHEDULE} : The identity of a control program that is used to specify the order of execution of other programs. 
-\newline\tab \texttt{ACTIVE} : The value of the \gls{Data Entity} that is engaging. 
-\item \texttt{PROGRAM_LOCATION} : The Uniform Resource Identifier (URI) for the source file associated with \block{PROGRAM}. 
+\item \texttt{PROGRAM\textunderscore LOCATION} : The Uniform Resource Identifier (URI) for the source file associated with \block{PROGRAM}. 
 
-Subtypes of \texttt{PROGRAM_LOCATION} are: 
-\newline\tab \texttt{SCHEDULE} : The identity of a control program that is used to specify the order of execution of other programs. 
-\newline\tab \texttt{MAIN} : The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs. 
-\newline\tab \texttt{ACTIVE} : The value of the \gls{Data Entity} that is engaging. 
-\item \texttt{PROGRAM_LOCATION_TYPE} : Defines whether the logic or motion program defined by \block{PROGRAM} is being executed from the local memory of the controller or from an outside source. 
+\item \texttt{PROGRAM\textunderscore LOCATION\textunderscore TYPE} : Defines whether the logic or motion program defined by \block{PROGRAM} is being executed from the local memory of the controller or from an outside source. 
 
-Subtypes of \texttt{PROGRAM_LOCATION_TYPE} are: 
-\newline\tab \texttt{SCHEDULE} : The identity of a control program that is used to specify the order of execution of other programs. 
-\newline\tab \texttt{MAIN} : The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs. 
-\newline\tab \texttt{ACTIVE} : The value of the \gls{Data Entity} that is engaging. 
-\item \texttt{PROGRAM_NEST_LEVEL} : An indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed. 
+\item \texttt{PROGRAM\textunderscore NEST\textunderscore LEVEL} : An indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed. 
 
-\item \texttt{ROTARY_MODE} : The current operating mode for a \block{Rotary} type axis. 
+\item \texttt{ROTARY\textunderscore MODE} : The current operating mode for a \block{Rotary} type axis. 
 
-\item \texttt{ROTARY_VELOCITY_OVERRIDE} : The percentage change to the velocity of the programmed velocity for a \block{Rotary} type axis. 
+\item \texttt{ROTARY\textunderscore VELOCITY\textunderscore OVERRIDE} : The percentage change to the velocity of the programmed velocity for a \block{Rotary} type axis. 
 
-\item \texttt{SERIAL_NUMBER} : The serial number associated with a \block{Component}, \block{Asset}, or \block{Device}. 
+\item \texttt{SERIAL\textunderscore NUMBER} : The serial number associated with a \block{Component}, \block{Asset}, or \block{Device}. 
 
-\item \texttt{SPINDLE_INTERLOCK} : An indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate. 
+\item \texttt{SPINDLE\textunderscore INTERLOCK} : An indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate. 
 
-\item \texttt{TOOL_ASSET_ID} : The identifier of an individual tool asset. 
+\item \texttt{TOOL\textunderscore ASSET\textunderscore ID} : The identifier of an individual tool asset. 
 
-\item \texttt{TOOL_GROUP} : An identifier for the tool group associated with a specific tool. Commonly used to designate spare tools. 
+\item \texttt{TOOL\textunderscore GROUP} : An identifier for the tool group associated with a specific tool. Commonly used to designate spare tools. 
 
-\item \texttt{TOOL_ID} : **DEPRECATED** in Version 1.2.0.   See \block{TOOL_ASSET_ID}. *DEPRECATED:The identifier of the tool currently in use for a given \block{Path}.* 
+\item \texttt{TOOL\textunderscore ID} : \textbf{DEPRECATED} in Version 1.2.0.   See \block{TOOL\textunderscore ASSET\textunderscore ID}. \textit{DEPRECATED:The identifier of the tool currently in use for a given \block{Path}.} 
 
-\item \texttt{TOOL_NUMBER} : The identifier assigned by the \block{Controller} component to a cutting tool when in use by a piece of equipment. 
+\item \texttt{TOOL\textunderscore NUMBER} : The identifier assigned by the \block{Controller} component to a cutting tool when in use by a piece of equipment. 
 
-\item \texttt{TOOL_OFFSET} : A reference to the tool offset variables applied to the active cutting tool associated with a \block{Path} in a \block{Controller} type component. 
+\item \texttt{TOOL\textunderscore OFFSET} : A reference to the tool offset variables applied to the active cutting tool associated with a \block{Path} in a \block{Controller} type component. 
 
-Subtypes of \texttt{TOOL_OFFSET} are: 
-\newline\tab \texttt{RADIAL} : A reference to a radial type tool offset variable. 
-\newline\tab \texttt{LENGTH} : A reference to a length type tool offset variable. 
 \item \texttt{USER} : The identifier of the person currently responsible for operating the piece of equipment. 
 
-Subtypes of \texttt{USER} are: 
-\newline\tab \texttt{OPERATOR} : The identifier of the person currently responsible for operating the piece of equipment. 
-\newline\tab \texttt{MAINTENANCE} : Action related to maintenance on the piece of equipment. 
-\newline\tab \texttt{SET_UP} : The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production. 
 \item \texttt{VARIABLE} : A data value whose meaning may change over time due to changes in the opertion of a piece of equipment or the process being executed on that piece of equipment. 
 
-\item \texttt{WAIT_STATE} : An indication of the reason that \block{EXECUTION} is reporting a value of \block{WAIT}. 
+\item \texttt{WAIT\textunderscore STATE} : An indication of the reason that \block{EXECUTION} is reporting a value of \block{WAIT}. 
 
 \item \texttt{WIRE} : A string like piece or filament of relatively rigid or flexible material provided in a variety of diameters. 
 
-\item \texttt{WORKHOLDING_ID} : The identifier for the current workholding or part clamp in use by a piece of equipment. 
+\item \texttt{WORKHOLDING\textunderscore ID} : The identifier for the current workholding or part clamp in use by a piece of equipment. 
 
-\item \texttt{WORK_OFFSET} : A reference to the offset variables for a work piece or part associated with a \block{Path} in a \block{Controller} type component. 
+\item \texttt{WORK\textunderscore OFFSET} : A reference to the offset variables for a work piece or part associated with a \block{Path} in a \block{Controller} type component. 
 
-\item \texttt{OPERATING_SYSTEM} : The Operating System of a component. 
+\item \texttt{OPERATING\textunderscore SYSTEM} : The Operating System of a component. 
 
-Subtypes of \texttt{OPERATING_SYSTEM} are: 
-\newline\tab \texttt{LICENSE} : The license code to validate or activate the hardware or software. 
-\newline\tab \texttt{VERSION} : The version of the hardware or software. 
-\newline\tab \texttt{RELEASE_DATE} : The date the hardware or software was released for general use. 
-\newline\tab \texttt{INSTALL_DATE} : The date the hardware or software was installed. 
-\newline\tab \texttt{MANUFACTURER} : The corporate identity for the maker of the hardware or software. 
 \item \texttt{FIRMWARE} : The embedded software of a component. 
 
-Subtypes of \texttt{FIRMWARE} are: 
-\newline\tab \texttt{VERSION} : The version of the hardware or software. 
-\newline\tab \texttt{RELEASE_DATE} : The date the hardware or software was released for general use. 
-\newline\tab \texttt{MANUFACTURER} : The corporate identity for the maker of the hardware or software. 
-\newline\tab \texttt{LICENSE} : The license code to validate or activate the hardware or software. 
-\newline\tab \texttt{INSTALL_DATE} : The date the hardware or software was installed. 
 \item \texttt{APPLICATION} : The application on a component. 
 
-Subtypes of \texttt{APPLICATION} are: 
-\newline\tab \texttt{VERSION} : The version of the hardware or software. 
-\newline\tab \texttt{RELEASE_DATE} : The date the hardware or software was released for general use. 
-\newline\tab \texttt{MANUFACTURER} : The corporate identity for the maker of the hardware or software. 
-\newline\tab \texttt{LICENSE} : The license code to validate or activate the hardware or software. 
-\newline\tab \texttt{INSTALL_DATE} : The date the hardware or software was installed. 
 \item \texttt{LIBRARY} : The software library on a component 
 
-Subtypes of \texttt{LIBRARY} are: 
-\newline\tab \texttt{VERSION} : The version of the hardware or software. 
-\newline\tab \texttt{RELEASE_DATE} : The date the hardware or software was released for general use. 
-\newline\tab \texttt{MANUFACTURER} : The corporate identity for the maker of the hardware or software. 
-\newline\tab \texttt{LICENSE} : The license code to validate or activate the hardware or software. 
-\newline\tab \texttt{INSTALL_DATE} : The date the hardware or software was installed. 
 \item \texttt{HARDWARE} : The hardware of a component. 
 
-Subtypes of \texttt{HARDWARE} are: 
-\newline\tab \texttt{VERSION} : The version of the hardware or software. 
-\newline\tab \texttt{RELEASE_DATE} : The date the hardware or software was released for general use. 
-\newline\tab \texttt{MANUFACTURER} : The corporate identity for the maker of the hardware or software. 
-\newline\tab \texttt{LICENSE} : The license code to validate or activate the hardware or software. 
-\newline\tab \texttt{INSTALL_DATE} : The date the hardware or software was installed. 
 \item \texttt{NETWORK} : Network details of a component. 
 
-Subtypes of \texttt{NETWORK} are: 
-\newline\tab \texttt{IPV4_ADDRESS} : The IPV4 network address of the component. 
-\newline\tab \texttt{IPV6_ADDRESS} : The IPV6 network address of the component. 
-\newline\tab \texttt{GATEWAY} : The Gateway for the component network. 
-\newline\tab \texttt{SUBNET_MASK} : The SubNet mask for the component network. 
-\newline\tab \texttt{VLAN_ID} : The layer2 Virtual Local Network (VLAN) ID for the component network. 
-\newline\tab \texttt{MAC_ADDRESS} : Media Access Control Address. The unique physical address of the network hardware. 
-\newline\tab \texttt{WIRELESS} : Identifies whether the connection type is wireless. 
 \item \texttt{ROTATION} : A three space angular rotation relative to a coordinate system. 
 
 \item \texttt{TRANSLATION} : A three space linear translation relative to a coordinate system. 
@@ -409,183 +258,101 @@ Subtypes of \texttt{NETWORK} are:
   \label{sec:Sample}
 
 
+
 The types of \block{DataItem} elements in the \block{SAMPLE} category report data representing a continuously changing or analog data value.
 
 This data can be measured at any point-in-time and will always produce a result.
 
 
- \texttt{type} for \texttt{Sample} are:
+The value of \property{type}{DataItem} with \property{category}{DataItem} \texttt{Sample} \MUST be one of the following:
 \begin{itemize}
 
 \item \texttt{ACCELERATION} : The measurement of the rate of change of velocity. 
 
-\item \texttt{ACCUMULATED_TIME} : The measurement of accumulated time for an activity or event. 
+\item \texttt{ACCUMULATED\textunderscore TIME} : The measurement of accumulated time for an activity or event. 
 
 \item \texttt{AMPERAGE} : The measurement of electrical current. 
 
-Subtypes of \texttt{AMPERAGE} are: 
-\newline\tab \texttt{ALTERNATING} : The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage.  
-\newline\tab \texttt{DIRECT} : The measurement of DC current or voltage. 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{TARGET} : The desired measure or count for a data item value. 
 \item \texttt{ANGLE} : The measurement of angular position. 
 
-Subtypes of \texttt{ANGLE} are: 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\item \texttt{ANGULAR_ACCELERATION} : The measurement rate of change of angular velocity. 
+\item \texttt{ANGULAR\textunderscore ACCELERATION} : The measurement rate of change of angular velocity. 
 
-\item \texttt{ANGULAR_VELOCITY} : The measurement of the rate of change of angular position. 
+\item \texttt{ANGULAR\textunderscore VELOCITY} : The measurement of the rate of change of angular position. 
 
-\item \texttt{AXIS_FEEDRATE} : The measurement of the feedrate of a linear axis. 
+\item \texttt{AXIS\textunderscore FEEDRATE} : The measurement of the feedrate of a linear axis. 
 
-Subtypes of \texttt{AXIS_FEEDRATE} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\newline\tab \texttt{JOG} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}.  
-\newline\tab \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch. 
-\newline\tab \texttt{RAPID} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode. 
-\newline\tab \texttt{OVERRIDE} : The operators overridden value. 
-\item \texttt{CAPACITY_FLUID} : The fluid capacity of an object or container. 
+\item \texttt{CAPACITY\textunderscore FLUID} : The fluid capacity of an object or container. 
 
-\item \texttt{CAPACITY_SPATIAL} : The geometric capacity of an object or container. 
+\item \texttt{CAPACITY\textunderscore SPATIAL} : The geometric capacity of an object or container. 
 
-\item \texttt{CLOCK_TIME} : The value provided by a timing device at a specific point in time. 
+\item \texttt{CLOCK\textunderscore TIME} : The value provided by a timing device at a specific point in time. 
 
 \item \texttt{CONCENTRATION} : The measurement of the percentage of one component within a mixture of components 
 
 \item \texttt{CONDUCTIVITY} : The measurement of the ability of a material to conduct electricity. 
 
-\item \texttt{CUTTING_SPEED} : The speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on. 
+\item \texttt{CUTTING\textunderscore SPEED} : The speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on. 
 
-Subtypes of \texttt{CUTTING_SPEED} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\newline\tab \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch. 
 \item \texttt{DENSITY} : The volumetric mass of a material per unit volume of that material. 
 
-\item \texttt{DEPOSITION_ACCELERATION_VOLUMETRIC} : The rate of change in spatial volume of material deposited in an additive manufacturing process. 
+\item \texttt{DEPOSITION\textunderscore ACCELERATION\textunderscore VOLUMETRIC} : The rate of change in spatial volume of material deposited in an additive manufacturing process. 
 
-Subtypes of \texttt{DEPOSITION_ACCELERATION_VOLUMETRIC} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\item \texttt{DEPOSITION_DENSITY} : The density of the material deposited in an additive manufacturing process per unit of volume. 
+\item \texttt{DEPOSITION\textunderscore DENSITY} : The density of the material deposited in an additive manufacturing process per unit of volume. 
 
-Subtypes of \texttt{DEPOSITION_DENSITY} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\item \texttt{DEPOSITION_MASS} : The mass of the material deposited in an additive manufacturing process. 
+\item \texttt{DEPOSITION\textunderscore MASS} : The mass of the material deposited in an additive manufacturing process. 
 
-Subtypes of \texttt{DEPOSITION_MASS} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\item \texttt{DEPOSITION_RATE_VOLUMETRIC} : The rate at which a spatial volume of material is deposited in an additive manufacturing process. 
+\item \texttt{DEPOSITION\textunderscore RATE\textunderscore VOLUMETRIC} : The rate at which a spatial volume of material is deposited in an additive manufacturing process. 
 
-Subtypes of \texttt{DEPOSITION_RATE_VOLUMETRIC} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\item \texttt{DEPOSITION_VOLUME} : The spatial volume of material to be deposited in an additive manufacturing process. 
+\item \texttt{DEPOSITION\textunderscore VOLUME} : The spatial volume of material to be deposited in an additive manufacturing process. 
 
-Subtypes of \texttt{DEPOSITION_VOLUME} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
 \item \texttt{DISPLACEMENT} : The measurement of the change in position of an object. 
 
-\item \texttt{ELECTRICAL_ENERGY} : The measurement of electrical energy consumption by a component. 
+\item \texttt{ELECTRICAL\textunderscore ENERGY} : The measurement of electrical energy consumption by a component. 
 
-\item \texttt{EQUIPMENT_TIMER} : The measurement of the amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities. 
+\item \texttt{EQUIPMENT\textunderscore TIMER} : The measurement of the amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities. 
 
-Subtypes of \texttt{EQUIPMENT_TIMER} are: 
-\newline\tab \texttt{LOADED} : Subparts of a piece of equipment are under load. 
-\newline\tab \texttt{WORKING} : A piece of equipment performing any activity, the equipment is active and performing a function under load or not. 
-\newline\tab \texttt{OPERATING} : A piece of equipment are powered or performing any activity. 
-\newline\tab \texttt{POWERED} : Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered. 
-\newline\tab \texttt{DELAY} : A piece of equipment waiting for an event or an action to occur. 
-\item \texttt{FILL_LEVEL} : The measurement of the amount of a substance remaining compared to the planned maximum amount of that substance. 
+\item \texttt{FILL\textunderscore LEVEL} : The measurement of the amount of a substance remaining compared to the planned maximum amount of that substance. 
 
 \item \texttt{FLOW} : The measurement of the rate of flow of a fluid. 
 
 \item \texttt{FREQUENCY} : The measurement of the number of occurrences of a repeating event per unit time. 
 
-\item \texttt{GLOBAL_POSITION} : **DEPRECATED** in Version 1.1 
+\item \texttt{GLOBAL\textunderscore POSITION} : \textbf{DEPRECATED} in Version 1.1 
 
 \item \texttt{LENGTH} : The measurement of the length of an object. 
 
-Subtypes of \texttt{LENGTH} are: 
-\newline\tab \texttt{STANDARD} : The standard or original length of an object. 
-\newline\tab \texttt{REMAINING} : Remaining measure of an object or an action. 
-\newline\tab \texttt{USEABLE} : The remaining useable length of an object. 
-\item \texttt{LEVEL} : **DEPRECATED** in Version 1.2.  See \block{FILL_LEVEL} 
+\item \texttt{LEVEL} : \textbf{DEPRECATED} in Version 1.2.  See \block{FILL\textunderscore LEVEL} 
 
-\item \texttt{LINEAR_FORCE} : The measurement of the push or pull introduced by an actuator or exerted on an object. 
+\item \texttt{LINEAR\textunderscore FORCE} : The measurement of the push or pull introduced by an actuator or exerted on an object. 
 
 \item \texttt{LOAD} : The measurement of the actual versus the standard rating of a piece of equipment. 
 
 \item \texttt{MASS} : The measurement of the mass of an object(s) or an amount of material. 
 
-\item \texttt{PATH_FEEDRATE} : The measurement of the feedrate for the axes, or a single axis, associated with a \block{Path} component-a vector. 
+\item \texttt{PATH\textunderscore FEEDRATE} : The measurement of the feedrate for the axes, or a single axis, associated with a \block{Path} component-a vector. 
 
-Subtypes of \texttt{PATH_FEEDRATE} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\newline\tab \texttt{JOG} : The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}.  
-\newline\tab \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch. 
-\newline\tab \texttt{RAPID} : The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode. 
-\newline\tab \texttt{OVERRIDE} : The operators overridden value. 
-\item \texttt{PATH_FEEDRATE_PER_REVOLUTION} : The feedrate for the axes, or a single axis. 
+\item \texttt{PATH\textunderscore FEEDRATE\textunderscore PER\textunderscore REVOLUTION} : The feedrate for the axes, or a single axis. 
 
-Subtypes of \texttt{PATH_FEEDRATE_PER_REVOLUTION} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\newline\tab \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch. 
-\item \texttt{PATH_POSITION} : A measured or calculated position of a control point associated with a \block{Controller} element, or \block{Path} element if provided, of a piece of equipment. 
+\item \texttt{PATH\textunderscore POSITION} : A measured or calculated position of a control point associated with a \block{Controller} element, or \block{Path} element if provided, of a piece of equipment. 
 
-Subtypes of \texttt{PATH_POSITION} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\newline\tab \texttt{TARGET} : The desired measure or count for a data item value. 
-\newline\tab \texttt{PROBE} : The position provided by a measurement probe. 
 \item \texttt{PH} : A measure of the acidity or alkalinity of a solution. 
 
 \item \texttt{POSITION} : A measured or calculated position of a \block{Component} element as reported by a piece of equipment. 
 
-Subtypes of \texttt{POSITION} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\newline\tab \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch. 
-\newline\tab \texttt{TARGET} : The desired measure or count for a data item value. 
-\item \texttt{POWER_FACTOR} : The measurement of the ratio of real power flowing to a load to the apparent power in that AC circuit. 
+\item \texttt{POWER\textunderscore FACTOR} : The measurement of the ratio of real power flowing to a load to the apparent power in that AC circuit. 
 
 \item \texttt{PRESSURE} : The measurement of force per unit area exerted by a gas or liquid. 
 
-\item \texttt{PROCESS_TIMER} : The measurement of the amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment. 
+\item \texttt{PROCESS\textunderscore TIMER} : The measurement of the amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment. 
 
-Subtypes of \texttt{PROCESS_TIMER} are: 
-\newline\tab \texttt{PROCESS} : The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts. 
-\newline\tab \texttt{DELAY} : A piece of equipment waiting for an event or an action to occur. 
 \item \texttt{RESISTANCE} : The measurement of the degree to which a substance opposes the passage of an electric current. 
 
-\item \texttt{ROTARY_VELOCITY} : The measurement of the rotational speed of a rotary axis. 
+\item \texttt{ROTARY\textunderscore VELOCITY} : The measurement of the rotational speed of a rotary axis. 
 
-Subtypes of \texttt{ROTARY_VELOCITY} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\newline\tab \texttt{PROGRAMMED} : The value of a signal or calculation specified by a logic or motion program or set by a switch. 
-\newline\tab \texttt{OVERRIDE} : The operators overridden value. 
-\item \texttt{SOUND_LEVEL} : The measurement of a sound level or sound pressure level relative to atmospheric pressure. 
+\item \texttt{SOUND\textunderscore LEVEL} : The measurement of a sound level or sound pressure level relative to atmospheric pressure. 
 
-Subtypes of \texttt{SOUND_LEVEL} are: 
-\newline\tab \texttt{NO_SCALE} : No weighting factor on the frequency scale 
-\newline\tab \texttt{A_SCALE} : A Scale weighting factor.   This is the default weighting factor if no factor is specified 
-\newline\tab \texttt{B_SCALE} : B Scale weighting factor 
-\newline\tab \texttt{C_SCALE} : C Scale weighting factor 
-\newline\tab \texttt{D_SCALE} : D Scale weighting factor 
-\item \texttt{SPINDLE_SPEED} : **DEPRECATED** in Version 1.2.  Replaced by \block{ROTARY_VELOCITY} 
+\item \texttt{SPINDLE\textunderscore SPEED} : \textbf{DEPRECATED} in Version 1.2.  Replaced by \block{ROTARY\textunderscore VELOCITY} 
 
-Subtypes of \texttt{SPINDLE_SPEED} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{COMMANDED} : A value specified by the \block{Controller} type component. 
-\newline\tab \texttt{OVERRIDE} : The operators overridden value. 
 \item \texttt{STRAIN} : The measurement of the amount of deformation per unit length of an object when a load is applied. 
 
 \item \texttt{TEMPERATURE} : The measurement of temperature. 
@@ -602,83 +369,40 @@ Subtypes of \texttt{SPINDLE_SPEED} are:
 
 \item \texttt{VOLTAGE} : The measurement of electrical potential between two points. 
 
-Subtypes of \texttt{VOLTAGE} are: 
-\newline\tab \texttt{ALTERNATING} : The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage.  
-\newline\tab \texttt{DIRECT} : The measurement of DC current or voltage. 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{TARGET} : The desired measure or count for a data item value. 
-\item \texttt{VOLT_AMPERE} : The measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA). 
+\item \texttt{VOLT\textunderscore AMPERE} : The measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA). 
 
-\item \texttt{VOLT_AMPERE_REACTIVE} : The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR). 
+\item \texttt{VOLT\textunderscore AMPERE\textunderscore REACTIVE} : The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR). 
 
-\item \texttt{VOLUME_FLUID} : The fluid volume of an object or container. 
+\item \texttt{VOLUME\textunderscore FLUID} : The fluid volume of an object or container. 
 
-Subtypes of \texttt{VOLUME_FLUID} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{CONSUMED} : The amount of bulk material consumed from an object or container during a manufacturing process. 
-\item \texttt{VOLUME_SPATIAL} : The geometric volume of an object or container. 
+\item \texttt{VOLUME\textunderscore SPATIAL} : The geometric volume of an object or container. 
 
-Subtypes of \texttt{VOLUME_SPATIAL} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{CONSUMED} : The amount of bulk material consumed from an object or container during a manufacturing process. 
 \item \texttt{WATTAGE} : The measurement of power flowing through or dissipated by an electrical circuit or piece of equipment. 
 
-Subtypes of \texttt{WATTAGE} are: 
-\newline\tab \texttt{ACTUAL} : The measured value of the data item type given by a sensor or encoder. 
-\newline\tab \texttt{TARGET} : The desired measure or count for a data item value. 
-\item \texttt{AMPERAGE_AC} : The measurement of an electrical current that reverses direction at regular short intervals. 
+\item \texttt{AMPERAGE\textunderscore AC} : The measurement of an electrical current that reverses direction at regular short intervals. 
 
-Subtypes of \texttt{AMPERAGE_AC} are: 
-\newline\tab \texttt{ACTUAL} : The measured amperage within an electrical circuit. 
-\newline\tab \texttt{COMMANDED} : The value for a current as specified by a component.  
-\newline\tab \texttt{PROGRAMMED} : The value for a current as specified by a logic or motion program or set by a switch. 
-\item \texttt{AMPERAGE_DC} : The measurement of an electric current flowing in one direction only. 
+\item \texttt{AMPERAGE\textunderscore DC} : The measurement of an electric current flowing in one direction only. 
 
-Subtypes of \texttt{AMPERAGE_DC} are: 
-\newline\tab \texttt{ACTUAL} : The measured amperage within an electrical circuit. 
-\newline\tab \texttt{COMMANDED} : The value for a current as specified by a component. 
-The \block{COMMANDED} current is a calculated value that includes adjustments and overrides. 
-\newline\tab \texttt{PROGRAMMED} : The value for a current as specified by a logic or motion program or set by a switch. 
-\item \texttt{VOLTAGE_AC} : The measurement of the electrical potential between two points in an electrical circuit in which the current periodically reverses direction. 
+\item \texttt{VOLTAGE\textunderscore AC} : The measurement of the electrical potential between two points in an electrical circuit in which the current periodically reverses direction. 
 
-Subtypes of \texttt{VOLTAGE_AC} are: 
-\newline\tab \texttt{ACTUAL} : The measured voltage within an electrical circuit. 
-\newline\tab \texttt{COMMANDED} : The value for a voltage as specified by a \block{Controller} component. 
-\newline\tab \texttt{PROGRAMMED} : The value for a voltage as specified by a logic or motion program or set by a switch. 
-\item \texttt{VOLTAGE_DC} : The measurement of the electrical potential between two points in an electrical circuit in which the current is unidirectional. 
+\item \texttt{VOLTAGE\textunderscore DC} : The measurement of the electrical potential between two points in an electrical circuit in which the current is unidirectional. 
 
-Subtypes of \texttt{VOLTAGE_DC} are: 
-\newline\tab \texttt{ACTUAL} : The measured voltage within an electrical circuit. 
-\newline\tab \texttt{COMMANDED} : The value for a voltage as specified by a \block{Controller} component. 
-\newline\tab \texttt{PROGRAMMED} : The value for a voltage as specified by a logic or motion program or set by a switch. 
-\item \texttt{X_DIMENSION} : Measured dimension of an entity relative to the X direction of the referenced coordinate system. 
+\item \texttt{X\textunderscore DIMENSION} : Measured dimension of an entity relative to the X direction of the referenced coordinate system. 
 
-\item \texttt{Y_DIMENSION} : Measured dimension of an entity relative to the Y direction of the referenced coordinate system. 
+\item \texttt{Y\textunderscore DIMENSION} : Measured dimension of an entity relative to the Y direction of the referenced coordinate system. 
 
-\item \texttt{Z_DIMENSION} : Measured dimension of an entity relative to the Z direction of the referenced coordinate system. 
+\item \texttt{Z\textunderscore DIMENSION} : Measured dimension of an entity relative to the Z direction of the referenced coordinate system. 
 
 \item \texttt{DIAMETER} : The measured dimension of a diameter. 
 
 \item \texttt{ORIENTATION} : A measured or calculated orientation of a plane or vector relative to a cartesian coordinate system. 
 
-Subtypes of \texttt{ORIENTATION} are: 
-\newline\tab \texttt{ACTUAL} : The measured value. 
-\newline\tab \texttt{COMMANDED} : The commanded value. 
-\item \texttt{HUMIDITY_RELATIVE} : The amount of water vapor present expressed as a percent to reach saturation at the same temperature. 
+\item \texttt{HUMIDITY\textunderscore RELATIVE} : The amount of water vapor present expressed as a percent to reach saturation at the same temperature. 
 
-Subtypes of \texttt{HUMIDITY_RELATIVE} are: 
-\newline\tab \texttt{COMMANDED} : The commanded value. 
-\newline\tab \texttt{ACTUAL} : The measured value. 
-\item \texttt{HUMIDITY_ABSOLUTE} : The amount of water vapor expressed in grams per cubic meter. 
+\item \texttt{HUMIDITY\textunderscore ABSOLUTE} : The amount of water vapor expressed in grams per cubic meter. 
 
-Subtypes of \texttt{HUMIDITY_ABSOLUTE} are: 
-\newline\tab \texttt{ACTUAL} : The measured value. 
-\newline\tab \texttt{COMMANDED} : The commanded value. 
-\item \texttt{HUMIDITY_SPECIFIC} : The ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent. 
+\item \texttt{HUMIDITY\textunderscore SPECIFIC} : The ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent. 
 
-Subtypes of \texttt{HUMIDITY_SPECIFIC} are: 
-\newline\tab \texttt{ACTUAL} : The measured value. 
-\newline\tab \texttt{COMMANDED} : The commanded value. 
 \end{itemize}
 
 \FloatBarrier
