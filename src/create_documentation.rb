@@ -3,6 +3,7 @@ require 'latex_model'
 require 'documents'
 
 include Document
+include CommonDocument
 
 #Parsing the xmi
 xmiDoc = nil
@@ -20,6 +21,7 @@ SkipModels.add('Simulation')
 SkipModels.add('MTConnect')
 SkipModels.add('Agent Architecture')
 SkipModels.add('Development Process')
+SkipModels.add('Files')
 
 LatexModel.skip_models = SkipModels
 LatexModel.new(RootModel).find_definitions
@@ -33,10 +35,18 @@ document_structure_json = JSON.parse(document_structure)
 
 document_structure_json['documents'].each do |partno, partinfo|
   LatexModel.directory = File.join(File.dirname(__FILE__),'..',partinfo['directory'])
+  LatexModel.generate_glossary
+
+  #latex variables
+  doc_num = partno
+  doc_title = partinfo['doc_title']
+  version_num = Options[:version] ? Options[:version] : "X.X"
+  
+  generate_common_docs(RootModel, doc_num, doc_title, version_num, partinfo['directory'])
   
   models = partinfo['models']
   models_main_file = File.join(File.dirname(__FILE__),'..',partinfo['directory'], partinfo['directory']+'.tex')
-  
+
   File.open(models_main_file,'w') do |f|
     models.each do |model|
       if model.is_a? String
