@@ -2,10 +2,12 @@ require 'type'
 require 'set'
 require 'documents'
 require 'diagrams'
+require 'markdown_parser'
 
 class LatexType < Type
   include Diagram
   include Document
+  include MarkDownParser
 
   @@labels = Set.new
 
@@ -124,7 +126,7 @@ EOT
             f.puts "\\item \\texttt{#{name}} : #{r.documentation}\n"
           end
           
-          if r.target.type.type == 'uml:Enumeration' and name != "type" and !$enums.include?(r.final_target.type.name)
+          if r.target.type.type == 'uml:Enumeration' and name != "type" and name!= "subType"  and !$enums.include?(r.final_target.type.name)
             r.target.type.generate_enumerations(f)
             f.puts "\\FloatBarrier\n"
 			$enums << r.final_target.type.name
@@ -218,7 +220,7 @@ EOT
 
     
 
-    unless relations_with_documentation.empty? #or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
+    unless relations_with_documentation.empty?
 
 
   relations_with_documentation.each do |r|
@@ -246,8 +248,11 @@ EOT
         f.puts "\nThe value of \\texttt{#{@name}} \\MUST be one of the following: \n\n"
         r.final_target.type.generate_enumerations(f)
         f.puts "\\FloatBarrier"
-      elsif name == 'type' and not r.default
-        f.puts "\n \\texttt{type} for \\texttt{#{@name}} are:\n"
+      elsif (name == 'type' or name == 'subType') and not r.default
+        f.puts "\nThe value of \\property{#{name}}{DataItem} with \\property{category}{DataItem} \\texttt{#{@name}} \\MUST be one of the following:\n" if name == 'type'
+		
+		f.puts "\nThe value of \\property{#{name}}{DataItem} for \\block{DataItem} \\MUST be one of the following:\n" if name == 'subType'
+		
         
         f.puts <<-EOT
 \\begin{itemize}
@@ -255,20 +260,23 @@ EOT
 EOT
       
         r.final_target.type.literals.each do |lit|
-          f.puts "\\item \\texttt{#{lit.name}} : #{lit.description.gsub(/(\^)/,"\\^{}")} \n\n" # "
+          f.puts "\\item \\texttt{#{lit.name.gsub(/_/,"\\textunderscore ")}} : #{lit.description.gsub(/(\^)/,"\\^{}")} \n\n"
 		  
+=begin
 		  unless !$dataitem_types.key?(toTitleCase(lit.name)) or $dataitem_types[toTitleCase(lit.name)].empty?
-			f.puts "Subtypes of \\texttt{#{lit.name}} are: \n"
+			f.puts "Subtypes of \\texttt{#{lit.name.gsub(/_/,"\\textunderscore ")}} are: \n"
 			$dataitem_types[toTitleCase(lit.name)].each do |subtype|
 				subtype.relations.each do |relation|
 					if relation.name == 'subType'
 						subtype_name = relation.default
-						f.puts "\\newline\\tab \\texttt{#{subtype_name}} : #{subtype.documentation} \n"
+						f.puts "\\newline\\tab \\texttt{#{subtype_name.gsub(/_/,"\\textunderscore ")}} : #{subtype.documentation} \n"
 						break
 					end
 				end
 			end
 		  end
+=end
+		  
         end
         
 
@@ -313,11 +321,11 @@ EOT
 		  subtypes_array << "\\texttt{#{subtype.relation("subType").default}}" if defined?(subtype.relation("subType").default)
 		end
 		if subtypes_array.size>2
-	      f.puts "\nSubtypes of #{@name} are: #{subtypes_array[0..-1].join(", ")} and #{subtypes_array[-1]}. \n"
+	      f.puts "\nSubtypes of \\texttt{#{@name}} are: #{subtypes_array[0..-1].join(", ")} and #{subtypes_array[-1]}. \n"
 		elsif subtypes_array.size==2
-		  f.puts "\nSubtypes of #{@name} are: #{subtypes_array[0]} and #{subtypes_array[-1]}. \n"
+		  f.puts "\nSubtypes of \\texttt{#{@name}} are: #{subtypes_array[0]} and #{subtypes_array[-1]}. \n"
 		elsif subtypes.size==1
-		  f.puts "\nSubtype of #{@name} is: #{subtypes_array[0]}.\n"
+		  f.puts "\nSubtype of \\texttt{#{@name}} is: #{subtypes_array[0]}.\n"
 		end
 		
 	  end
@@ -365,7 +373,7 @@ Name & Description \\\\
 EOT
     
     @literals.each do |lit|
-      f.puts "\\texttt{#{lit.name}} & #{lit.description.gsub(/(\^)/,"\\^{}")} \\\\ \\hline"
+      f.puts "\\texttt{#{lit.name.gsub(/(\^)/,"\^{}").gsub("_","\\textunderscore ")}} & #{lit.description} \\\\ \\hline"
       end
         
       f.puts <<-EOT
@@ -461,7 +469,7 @@ EOT
 \n\\newglossaryentry{#{@name}}
 {
     name={#{@name}},
-	description={#{@documentation}}
+	description={#{format_whitespaces(@documentation)}}
 }
 EOT
   end
