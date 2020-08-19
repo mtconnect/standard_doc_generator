@@ -19,6 +19,9 @@ parser = OptionParser.new do |opts|
   opts.on('-d', '--[no-]debug', 'Debug logging') do |v|
     Options[:debug] = v
   end
+  opts.on('-v', '--version VERSION_NUM', 'MTConnect Version') do |ver|
+	Options[:version] = ver
+  end
 end
 parser.parse!
 
