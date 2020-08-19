@@ -22,11 +22,7 @@ class LatexModel < Model
 	  if model.end_with?('Types')
 		@@models[model].generate_subtypes(model)
 	  end
-	  if model == 'Glossary'
-		@@models[model].generate_glossary(f)
-      else
-		@@models[model].generate_latex(f)
-	  end
+	  @@models[model].generate_latex(f)
     else
       $logger.fatal "Cannot find model: #{model}"
       exit @@models[model]
@@ -35,7 +31,7 @@ class LatexModel < Model
   
   def generate_latex(f)
     file = "model-sections/#{short_name}.tex"
-    f.puts "\\input #{file}"
+    f.puts "\n\\input #{file}\n"
     File.open(File.join(@@directory,"model-sections",short_name+".tex"), "w") do |fs|
       $logger.info "Generating model #{@name}"
       fs.puts "% Generated #{Time.now}"
@@ -53,18 +49,13 @@ class LatexModel < Model
     end
   end
   
-  def generate_glossary(f)
-	f.puts <<-EOT
-\n\\printglossary\n
-\n\\printbibliography[title=MTConnect References,keyword=MTC]\n
-\n\\printbibliography[title=Other References,notkeyword=MTC]\n
-\n\\nolinenumbers\n\n\\glsaddallunused\n\n\\nolinenumbers\n\n\\linenumbers\n
-EOT
+  def self.generate_glossary
 
-    File.open(File.join(@@directory,"model-sections",short_name+".tex"), "w") do |fs|
-		@types.each do |type|
+	model = "Glossary"
+    File.open(File.join(@@directory, "glossary.tex"), "w") do |fs|
+		@@models[model].types.each do |type|
 			if type.parent.nil? or type.parent.model != self
-				recurse_terms(fs, type)
+				@@models[model].recurse_terms(fs, type)
 			end
 		end
 	end
@@ -103,10 +94,6 @@ EOT
    
   def recurse_terms(f, type)
 	type.generate_glossary_docs(f)
-
-    type.children.each do |t|
-      recurse_terms(f, t) if t.model == self
-    end
   end 
 
   def self.generate_subtypes
