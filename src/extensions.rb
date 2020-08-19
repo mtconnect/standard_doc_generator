@@ -28,7 +28,7 @@ module Extensions
 
   def xmi_documentation(e)
     comment = e.at('./ownedComment')
-    comment ? comment['body'] ? format_markdown(comment['body']) : ""  : "" #.gsub(/<[\/]?[a-z]+>/, '')
+    comment ? comment['body'] ? format_markdown(comment['body']) : ""  : "" 
 
   end
 
