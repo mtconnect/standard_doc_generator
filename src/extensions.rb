@@ -27,9 +27,11 @@ module Extensions
   end
 
   def xmi_documentation(e)
-    comment = e.at('./ownedComment')
-    comment ? comment['body'] ? format_markdown(comment['body']) : ""  : "" 
-
+    documentation = ""
+	e.xpath('./ownedComment').map do |comment|
+      documentation += comment['body'] ? format_markdown(comment['body']) : ""  
+	end
+	return documentation
   end
 
   def get_multiplicity(r)
