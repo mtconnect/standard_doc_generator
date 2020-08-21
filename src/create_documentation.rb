@@ -27,7 +27,6 @@ LatexModel.skip_models = SkipModels
 LatexModel.new(RootModel).find_definitions
 
 $enums = []
-$dataitem_types = LatexModel.generate_subtypes
 
 #Generating Documentation
 document_structure = File.read(File.join(File.dirname(__FILE__),'..','config','document_structure.json'))

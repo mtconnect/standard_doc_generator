@@ -38,7 +38,7 @@ module Diagram
   \\centering
     \\includegraphics[width=1.0\\textwidth]{#{png_diagram_name}}
   \\caption{#{@name} Diagram}
-  \\label{fig:#{short_name}}
+  \\label{fig:#{@name}}
 \\end{figure}
 
 \\FloatBarrier
