@@ -2,18 +2,40 @@ module MarkDownParser
 
 	def format_markdown(description)
 		
+		#format figures
+		description = format_diagram(description)
+		
 		#format terms
 		description = format_block(format_property(format_glossary_term(description)))
 
-		#format references
-		description = format_citation(format_reference(description))
-		
 		#format deprecation
 		description = format_deprecation(format_deprecation_warning(format_strikeout(description)))
+
+		#format references
+		description = format_reference(format_citation(description))
 		
 		#format styles
 		description = format_math_char(format_italics(format_bolds(format_monospaces(description))))
 
+		return description
+	end
+
+	def format_diagram(description)
+		diagrams = description.scan(/!([0-9a-zA-Z .-_]+)!/)
+		diagrams.each do |diagram|
+			diagram_name = diagram[0].split('.')[0]
+			latex_out = <<-EOT
+\\begin{figure}[ht]
+  \\centering
+    \\includegraphics[width=1.0\\textwidth]{figures/#{diagram[0]}}
+  \\caption{#{diagram_name} Diagram}
+  \\label{fig:#{diagram_name}}
+\\end{figure}
+
+\\FloatBarrier
+EOT
+			description = description.gsub("!#{diagram[0]}!",latex_out)
+		end
 		return description
 	end
 
@@ -71,21 +93,21 @@ module MarkDownParser
 	end
 	
 	def format_citation(description)
-		citations = description.scan(/{{cite\(([a-zA-Z0-9*\/\-: _]+)\)}}/)
+		citations = description.scan(/{{cite\(([a-zA-Z0-9.*\/\-: _]+)\)}}/)
 		citations.each do |citation|
 			citation_command = "{{cite("+ citation[0] +")}}"
-			citation_latex = "\\cite{" +citation[0]+ "}"
+			citation_latex = "\\textit{" +citation[0]+ "}"
 			description = description.gsub(citation_command,citation_latex)
 		end
 		return description
 	end
 	
 	def format_reference(description)
-		refs = description.scan(/{{ref\(([a-zA-Z0-9*\/\-: _]+)\)}}/)
+		refs = description.scan(/{{([a-z]+)\(([a-zA-Z0-9*\/\-: _]+)\)}}/)
 		refs.each do |ref|
-			ref_command = "{{ref("+ ref[0] +")}}"
-			ref_latex = "\\ref{" +ref[0]+ "}"
-			description = description.gsub(ref_command,ref_latex)
+			command = "{{#{ref[0]}(#{ref[1]})}}"
+			latex = "\\#{ref[0]}{#{ref[1]}}"
+			description = description.gsub(command,latex)
 		end
 		return description
 	end
