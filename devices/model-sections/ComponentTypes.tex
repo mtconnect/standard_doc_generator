@@ -1,129 +1,339 @@
-% Generated 2020-08-19 14:44:32 +0530
-\subsection{Component Types} \label{sec:ComponentTypes}
+% Generated 2020-08-21 17:36:01 +0530
+\subsection{Component Types} \label{sec:Component Types}
 
 
-\block{Component} \glspl{Structural Element} are XML containers used to represent physical parts or logical functions of a piece of equipment.
+\block{Component} \glspl{Structural Element} are used to represent physical parts or logical functions of a piece of equipment.
 
 \block{Component} \glspl{Structural Element} are defined into two major categories:
 
 \begin{itemize}
 
-\item \gls{Top Level} \block{Component} elements are used to group the \glspl{Structural Element} representing the most significant physical or logical functions of a piece of equipment.  The \gls{Top Level} \block{Component} elements provided in an \block{MTConnectDevices} document \textbf{SHOULD} be restricted to those defined in \ref{elements-toplevel-for-component}.  However, these \gls{Top Level} \block{Component} elements \textbf{MAY} also be used as \gls{Lower Level} \block{Component} elements; as required.
+\item \gls{Top Level} \block{Component} elements are used to group the \glspl{Structural Element} representing the most significant physical or logical functions of a piece of equipment.  The \gls{Top Level} \block{Component} elements provided in an \block{MTConnectDevices} document \textbf{SHOULD} be restricted to those defined in this section.  However, these \gls{Top Level} \block{Component} elements \textbf{MAY} also be used as \gls{Lower Level} \block{Component} elements; as required.
 
 \item \gls{Lower Level} \block{Component} elements are used to describe the sub-parts of the parent \block{Component} to provide more clarity and granularity to the physical or logical structure of the \gls{Top Level} \block{Component} elements.
 \end{itemize}
 
 This section of the \gls{Devices Information Model} provides guidance for the most common relationships between \gls{Top Level} \block{Component} elements and \gls{Lower Level} child components.  However, all \block{Component} elements \textbf{MAY} be used in any configuration, as required, to fully describe a piece of equipment.
 
-As described in \ref{Structural Elements for MTConnectDevices}, \block{Component} is an abstract type \gls{Structural Element} within the \gls{Devices Information Model} and will never appear directly in the \block{MTConnectDevices} XML document.  As abstract type XML elements, \block{Component} will be replaced in the XML document by a specific \block{Component} type.
+As described in \sect{Structural Elements for MTConnectDevices}, \block{Component} is an abstract type \gls{Structural Element} within the \gls{Devices Information Model} and will never appear directly in the \block{MTConnectDevices} document.  As abstract elements, \block{Component} will be replaced in the document by a specific \block{Component} type.
 
 
 \subsubsection{Actuator}
-  \label{sec:Actuator}
+\label{sec:Actuator}
 
 
 
-Redefined as a piece of equipment with the ability to be represented as a \gls{Lower Level} component of a parent \block{Component} element or as a \block{Composition} element. See \block{ACTUATOR}
+\block{Actuator} represents the information for an apparatus for moving or controlling a mechanism or system. It takes energy usually provided by air, electric current, or liquid and converts the energy into some kind of motion.
 
 \FloatBarrier
 
 \subsubsection{Auxiliaries}
-  \label{sec:Auxiliaries}
+\label{sec:Auxiliaries}
 
 
 
-An XML container used to organize information for \gls{Lower Level} elements representing functional sub-systems that provide supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
+\block{Auxiliaries} represents functional sub-systems that provide supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
 
 \FloatBarrier
+
+\paragraph{BarFeeder}\mbox{}
+\label{sec:BarFeeder}
+
+
+
+\block{BarFeeder} represents the information for a unit involved in delivering bar stock to a piece of equipment.
+
+
+\paragraph{Environmental}\mbox{}
+\label{sec:Environmental}
+
+
+
+\block{Environmental} represents the information for a unit or function involved in monitoring, managing, or conditioning the environment around or within a piece of equipment.
+
+
+\paragraph{Loader}\mbox{}
+\label{sec:Loader}
+
+
+
+\block{Loader} represents the information for a unit comprised of all the parts involved in moving and distributing materials, parts, tooling, and other items to or from a piece of equipment.
+
+
+\paragraph{Sensor}\mbox{}
+\label{sec:Sensor}
+
+
+
+\block{Sensor} represents the information for a piece of equipment that responds to a physical stimulus and transmits a resulting impulse or value from a sensing unit.
+
+
+\paragraph{ToolingDelivery}\mbox{}
+\label{sec:ToolingDelivery}
+
+
+
+\block{ToolingDelivery} represents the information for a unit involved in managing, positioning, storing, and delivering tooling within a piece of equipment.
+
+
+
+\paragraph{WasteDisposal}\mbox{}
+\label{sec:WasteDisposal}
+
+
+
+\block{WasteDisposal} represents the information for a unit comprised of all the parts involved in removing manufacturing byproducts from a piece of equipment.
+
+
 
 \subsubsection{Axes}
-  \label{sec:Axes}
+\label{sec:Axes}
 
 
 
-An XML container used to organize the \glspl{Structural Element} of a piece of equipment that perform linear or rotational motion.
+\block{Axes} organizes information representing linear or rotational motion for a piece of equipment. The \block{Linear} axis \block{Component} represents linear motion, and the\block{Rotary} axis \block{Component} represents rotational motion.Description
 
 \FloatBarrier
 
+\paragraph{Linear}\mbox{}
+\label{sec:Linear}
+
+
+
+A \block{Linear} axis represents the movement of a physical piece of equipment, or a portion of the equipment, in a straight line. 
+
+
+\paragraph{Rotary}\mbox{}
+\label{sec:Rotary}
+
+
+
+A \block{Rotary} axis represents any non-linear or rotary movement of a physical piece of equipment or a portion of the equipment.
+
+
+\paragraph{Chuck}\mbox{}
+\label{sec:Chuck}
+
+
+
+\block{Chuck} provides the information about a mechanism that holds a part or stock material in place.
+
+
 \subsubsection{Controller}
-  \label{sec:Controller}
+\label{sec:Controller}
 
 
 
-An XML container used to organize information about an intelligent or computational function within a piece of equipment.
+\block{Controller} organizes information about an intelligent or computational function within a piece of equipment.
 
 
 Subtype of \texttt{Controller} is: .
 \FloatBarrier
 
+\paragraph{Path}\mbox{}
+\label{sec:Path}
+
+
+
+\block{Path} represents the information for an independent operation or function within a \block{Controller}.
+
+
 \subsubsection{Deposition}
-  \label{sec:Deposition}
+\label{sec:Deposition}
 
 
 
-\block{Deposition} is an XML container that represents the information for a system that manages the addition of material or state change of material being performed in an additive manufacturing process.  For example, this could describe the portion of a piece of equipment that manages a material extrusion process or a vat polymerization process.
+\block{Deposition} represents the information for a system that manages the addition of material or state change of material being performed in an additive manufacturing process.  For example, this could describe the portion of a piece of equipment that manages a material extrusion process or a vat polymerization process.
 
 \FloatBarrier
 
 \subsubsection{Door}
-  \label{sec:Door}
+\label{sec:Door}
 
 
 
-\block{Door} is an XML container that represents the information for a mechanical mechanism or closure that can cover.
-
-\FloatBarrier
-
-\subsubsection{Interface}
-  \label{sec:Interface}
-
-
-
-Each \block{Interface} contains \glspl{Data Entity} available from the piece of equipment that may be needed to coordinate activities with associated pieces of equipment.
+\block{Door} represents the information for a mechanical mechanism or closure that can cover.
 
 \FloatBarrier
 
 \subsubsection{Interfaces}
-  \label{sec:Interfaces}
+\label{sec:Interfaces}
 
 
 
-An XML container that organizes information used to coordinate actions and activities between pieces of equipment that communicate information between each other.
+\block{Interfaces} organizes information used to coordinate actions and activities between pieces of equipment that communicate information between each other.
 
 \FloatBarrier
 
 \subsubsection{Power}
-  \label{sec:Power}
+\label{sec:Power}
 
 
 
-\block{Power} was \textbf{DEPRECATED} in MTConnect Version 1.1 and was replaced by the \gls{Data Entity} called \block{AVAILABILITY}.
+\block{Power} was \textbf{DEPRECATED} in \textit{MTConnect Version 1.1} and was replaced by \block{Availability}.
 
 \FloatBarrier
 
 \subsubsection{Resources}
-  \label{sec:Resources}
+\label{sec:Resources}
 
 
 
-An XML container used to organize information for \gls{Lower Level} elements representing types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location. \block{Resources} also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
+\block{Resources} organizes information representing types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location. \block{Resources} also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
 
 \FloatBarrier
+
+\paragraph{Materials}\mbox{}
+\label{sec:Materials}
+
+
+
+\block{Materials} provides information about materials or other items consumed or used by the piece of equipment for production of parts, materials, or other types of goods.
+
+
+\paragraph{Stock}\mbox{}
+\label{sec:Stock}
+
+
+
+\block{Stock} represents the information for the material that is used in a manufacturing process and to which work is applied in a machine or piece of equipment to produce parts.
+
+
+\paragraph{Personnel}\mbox{}
+\label{sec:Personnel}
+
+
+
+\block{Personnel} provides information about an individual or individuals who either control, support, or otherwise interface with a piece of equipment.
+
+
 
 \subsubsection{Structure}
-  \label{sec:Structure}
+\label{sec:Structure}
 
 
 
-Organizes static structural components of the machine.
+\block{Structure} organizes static structural components of the machine.
 
 \FloatBarrier
+
+\paragraph{Link}\mbox{}
+\label{sec:Link}
+
+
+
+
+
+
+\paragraph{Table}\mbox{}
+\label{sec:Table}
+
+
+
+
+
 
 \subsubsection{Systems}
-  \label{sec:Systems}
+\label{sec:Systems}
 
 
 
-An XML container used to organize information for \gls{Lower Level} elements representing the major sub-systems that are permanently integrated into a piece of equipment.
+\block{Systems} organizes information representing the major sub-systems that are permanently integrated into a piece of equipment.
 
 \FloatBarrier
+
+\paragraph{Coolant}\mbox{}
+\label{sec:Coolant}
+
+
+
+\block{Coolant} represents the information for a system comprised of all the parts involved in distribution and management of fluids that remove heat from a piece of equipment.
+
+
+\paragraph{Dielectric}\mbox{}
+\label{sec:Dielectric}
+
+
+
+\block{Dielectric} represents the information for a system that manages a chemical mixture used in a manufacturing process being performed at that piece of equipment.
+
+
+\paragraph{Electric}\mbox{}
+\label{sec:Electric}
+
+
+
+\block{Electric} represents the information for the main power supply for device piece of equipment and the distribution of that power throughout the equipment.
+
+
+\paragraph{Enclosure}\mbox{}
+\label{sec:Enclosure}
+
+
+
+\block{Enclosure} represents the information for a structure used to contain or isolate a piece of equipment or area.
+
+
+\paragraph{EndEffector}\mbox{}
+\label{sec:EndEffector}
+
+
+
+\block{EndEffector} represents the information for those functions that form the last link segment of a piece of equipment. It is the part of a piece of equipment that interacts with the manufacturing process.
+
+
+\paragraph{Feeder}\mbox{}
+\label{sec:Feeder}
+
+
+
+\block{Feeder} represents the information for a system that manages the delivery of materials within a piece of equipment.
+
+
+\paragraph{Hydraulic}\mbox{}
+\label{sec:Hydraulic}
+
+
+
+\block{Hydraulic} represents the information for a system comprised of all the parts involved in moving and distributing pressurized liquid throughout the piece of equipment.
+
+
+\paragraph{Lubrication}\mbox{}
+\label{sec:Lubrication}
+
+
+
+\block{Lubrication} represents the information for a system comprised of all the parts involved in distribution and management of fluids used to lubricate portions of the piece of equipment.
+
+
+\paragraph{Pneumatic}\mbox{}
+\label{sec:Pneumatic}
+
+
+
+\block{Pneumatic} represents the information for a system comprised of all the parts involved in moving and distributing pressurized gas throughout the piece of equipment.
+
+
+\paragraph{ProcessPower}\mbox{}
+\label{sec:ProcessPower}
+
+
+
+\block{ProcessPower} represents the information for a power source associated with a piece of equipment that supplies energy to the manufacturing process separate from the \block{Electric} system.
+
+
+\paragraph{Protective}\mbox{}
+\label{sec:Protective}
+
+
+
+\block{Protective} represents the information for those functions that detect or prevent harm or damage to equipment or personnel.
+
+
+\paragraph{WorkEnvelope}\mbox{}
+\label{sec:WorkEnvelope}
+
+
+
+\block{WorkEnvelope} organizes information about the physical process execution space within a piece of equipment.
+

@@ -1,8 +1,20 @@
-% Generated 2020-08-19 14:44:34 +0530
+% Generated 2020-08-21 17:36:03 +0530
 \subsection{Specifications} \label{sec:Specifications}
 
+
+\begin{figure}[ht]
+  \centering
+    \includegraphics[width=1.0\textwidth]{figures/Specifications.png}
+  \caption{Specifications Diagram}
+  \label{fig:Specifications}
+\end{figure}
+
+\FloatBarrier
+
+
+
 \subsubsection{Characteristic}
-  \label{sec:Characteristic}
+\label{sec:Characteristic}
 
 
 
@@ -12,32 +24,32 @@
 \paragraph{Attributes of Characteristic}\mbox{}
 \label{sec:Attributes of Characteristic}
 
-\tbl{attributes of Characteristic} lists the attributes of \texttt{Characteristic}.
+\tbl{Attributes of Characteristic} lists the attributes of \texttt{Characteristic}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Characteristic}
-  \label{table:attributes of Characteristic}
+  \label{table:Attributes of Characteristic}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{value} & \texttt{float} & 1 \\
+\property{value}[Characteristic] & \texttt{float} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Characteristic}:
+Descriptions for attributes of \block{Characteristic}:
 
 \begin{itemize}
-\item \texttt{value} : 
+\item \property{value}[Characteristic] : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Rated}
-  \label{sec:Rated}
+\label{sec:Rated}
 
 
 
@@ -46,7 +58,7 @@ Descriptions for attributes of \texttt{Characteristic}:
 \FloatBarrier
 
 \subsubsection{Minimum}
-  \label{sec:Minimum}
+\label{sec:Minimum}
 
 
 
@@ -55,7 +67,7 @@ A numeric lower limit constraint.
 \FloatBarrier
 
 \subsubsection{Maximum}
-  \label{sec:Maximum}
+\label{sec:Maximum}
 
 
 
@@ -64,7 +76,7 @@ A numeric upper limit constraint.
 \FloatBarrier
 
 \subsubsection{GearRatio}
-  \label{sec:GearRatio}
+\label{sec:GearRatio}
 
 
 
@@ -74,32 +86,32 @@ A numeric upper limit constraint.
 \paragraph{Attributes of GearRatio}\mbox{}
 \label{sec:Attributes of GearRatio}
 
-\tbl{attributes of GearRatio} lists the attributes of \texttt{GearRatio}.
+\tbl{Attributes of GearRatio} lists the attributes of \texttt{GearRatio}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of GearRatio}
-  \label{table:attributes of GearRatio}
+  \label{table:Attributes of GearRatio}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{number} & \texttt{integer} & 1 \\
+\property{number}[GearRatio] & \texttt{integer} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{GearRatio}:
+Descriptions for attributes of \block{GearRatio}:
 
 \begin{itemize}
-\item \texttt{number} : 
+\item \property{number}[GearRatio] : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Nominal}
-  \label{sec:Nominal}
+\label{sec:Nominal}
 
 
 
@@ -108,7 +120,7 @@ The numeric target or expected value.
 \FloatBarrier
 
 \subsubsection{DutyCycle}
-  \label{sec:DutyCycle}
+\label{sec:DutyCycle}
 
 
 
@@ -118,34 +130,34 @@ The numeric target or expected value.
 \paragraph{Attributes of DutyCycle}\mbox{}
 \label{sec:Attributes of DutyCycle}
 
-\tbl{attributes of DutyCycle} lists the attributes of \texttt{DutyCycle}.
+\tbl{Attributes of DutyCycle} lists the attributes of \texttt{DutyCycle}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of DutyCycle}
-  \label{table:attributes of DutyCycle}
+  \label{table:Attributes of DutyCycle}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{duration} & \texttt{float} & 1 \\
-\texttt{peak} & \texttt{float} & 1 \\
+\property{duration}[DutyCycle] & \texttt{float} & 1 \\
+\property{peak}[DutyCycle] & \texttt{float} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{DutyCycle}:
+Descriptions for attributes of \block{DutyCycle}:
 
 \begin{itemize}
-\item \texttt{duration} : 
-\item \texttt{peak} : 
+\item \property{duration}[DutyCycle] : 
+\item \property{peak}[DutyCycle] : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Specification}
-  \label{sec:Specification}
+\label{sec:Specification}
 
 
 
@@ -155,75 +167,99 @@ Descriptions for attributes of \texttt{DutyCycle}:
 \paragraph{Attributes of Specification}\mbox{}
 \label{sec:Attributes of Specification}
 
-\tbl{attributes of Specification} lists the attributes of \texttt{Specification}.
+\tbl{Attributes of Specification} lists the attributes of \texttt{Specification}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Specification}
-  \label{table:attributes of Specification}
+  \label{table:Attributes of Specification}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{type} & \texttt{DataItemTypeEnum} & 1 \\
-\texttt{subType} & \texttt{DataItemSubTypeEnum} & 0..1 \\
-\texttt{dataItemIdRef} & \texttt{IDREF} & 0..1 \\
-\texttt{units} & \texttt{UnitEnum} & 0..1 \\
-\texttt{compositionIdRef} & \texttt{IDREF} & 0..1 \\
-\texttt{hasCharacteristic} & \texttt{Characteristic} & 0..* \\
-\texttt{name} & \texttt{string} & 0..1 \\
-\texttt{coordinateSystemIdRef} & \texttt{IDREF} & 0..1 \\
+\property{type}[Specification] & \texttt{DataItemTypeEnum} & 1 \\
+\property{subType}[Specification] & \texttt{DataItemSubTypeEnum} & 0..1 \\
+\property{dataItemIdRef}[Specification] & \texttt{IDREF} & 0..1 \\
+\property{units}[Specification] & \texttt{UnitEnum} & 0..1 \\
+\property{compositionIdRef}[Specification] & \texttt{IDREF} & 0..1 \\
+\property{name}[Specification] & \texttt{string} & 0..1 \\
+\property{coordinateSystemIdRef}[Specification] & \texttt{IDREF} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Specification}:
+Descriptions for attributes of \block{Specification}:
 
 \begin{itemize}
-\item \texttt{type} : Same as \block{DataItem} type. See \ref{DataItemTypes}.
-\item \texttt{subType} : Same as \block{DataItem} subtypes. See \ref{Attributes of DataItem}.
-\item \texttt{dataItemIdRef} : A reference to the \property{id} attribute of the \block{DataItem} associated with this element.
-\item \texttt{units} : Same as \block{DataItem} units. See \ref{Attribute of DataItem}.
-\item \texttt{compositionIdRef} : A reference to the \property{id} attribute of the \block{Composition} associated with this element.
-\item \texttt{hasCharacteristic} : 
-\item \texttt{name} : The \property{name} provides additional meaning and differentiates between \block{Specifications}.
-\item \texttt{coordinateSystemIdRef} : References the \block{CoordinateSystem} for geometric \block{Specification} elements.
+\item \property{type}[Specification] : Same as \block{DataItem} type. See \sect{DataItem Types}.
+\item \property{subType}[Specification] : Same as \block{DataItem} subtypes. See \sect{DataItem SubTypes}.
+\item \property{dataItemIdRef}[Specification] : A reference to the \property{id} attribute of the \block{DataItem} associated with this element.
+\item \property{units}[Specification] : Same as \block{DataItem} units. See \sect{DataItem}.
+\item \property{compositionIdRef}[Specification] : A reference to the \property{id} attribute of the \block{Composition} associated with this element.
+\item \property{name}[Specification] : The \property{name} provides additional meaning and differentiates between \block{Specifications}.
+\item \property{coordinateSystemIdRef}[Specification] : References the \block{CoordinateSystem} for geometric \block{Specification} elements.
+\end{itemize}
+
+\paragraph{Elements of Specification}\mbox{}
+\label{sec:Elements of Specification}
+
+\tbl{Elements of Specification} lists the elements of \texttt{Specification}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of Specification}
+  \label{table:Elements of Specification}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\block{Characteristic} & \texttt{Characteristic} & 0..* \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \block{Specification}:
+
+\begin{itemize}
+\item \block{Characteristic} : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Specifications}
-  \label{sec:Specifications}
+\label{sec:Specifications}
 
 
 
 \block{Specifications} \glspl{organize} \block{Specification} elements for a \block{Component}.
 
 
-\paragraph{Attributes of Specifications}\mbox{}
-\label{sec:Attributes of Specifications}
+\paragraph{Elements of Specifications}\mbox{}
+\label{sec:Elements of Specifications}
 
-\tbl{attributes of Specifications} lists the attributes of \texttt{Specifications}.
+\tbl{Elements of Specifications} lists the elements of \texttt{Specifications}.
 
 \begin{table}[ht]
 \centering 
-  \caption{Attributes of Specifications}
-  \label{table:attributes of Specifications}
+  \caption{Elements of Specifications}
+  \label{table:Elements of Specifications}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{specification} & \texttt{Specification} & 1..* \\
+\block{Specification} & \texttt{Specification} & 1..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Specifications}:
+Descriptions for elements of \block{Specifications}:
 
 \begin{itemize}
-\item \texttt{specification} : 
+\item \block{Specification} : \block{Specification} elements define information describing the design characteristics for a piece of equipment.
 \end{itemize}
 \FloatBarrier

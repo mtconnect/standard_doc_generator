@@ -1,4 +1,4 @@
-% Generated 2020-08-19 14:44:37 +0530
+% Generated 2020-08-21 17:36:06 +0530
 \subsection{Observations} \label{sec:Observations}
 
 
@@ -6,7 +6,7 @@
 
 
 \subsubsection{Observation}
-  \label{sec:Observation}
+\label{sec:Observation}
 
 
 
@@ -16,52 +16,52 @@
 \paragraph{Attributes of Observation}\mbox{}
 \label{sec:Attributes of Observation}
 
-\tbl{attributes of Observation} lists the attributes of \texttt{Observation}.
+\tbl{Attributes of Observation} lists the attributes of \texttt{Observation}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Observation}
-  \label{table:attributes of Observation}
+  \label{table:Attributes of Observation}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{compositionId} & \texttt{ID} & 0..1 \\
-\texttt{dataItemId} & \texttt{ID} & 1 \\
-\texttt{name} & \texttt{string} & 0..1 \\
-\texttt{sequence} & \texttt{integer} & 1 \\
-\texttt{subType} & \texttt{string} & 0..1 \\
-\texttt{timestamp} & \texttt{dateTime} & 1 \\
-\texttt{type} & \texttt{string} & 1 \\
-\texttt{category} & \texttt{CategoryEnum} & 1 \\
-\texttt{units} & \texttt{string} & 0..1 \\
-\texttt{isUnavailable} & \texttt{boolean} & 1 \\
-\texttt{result} & \texttt{string} & 0..1 \\
+\property{compositionId}[Observation] & \texttt{ID} & 0..1 \\
+\property{dataItemId}[Observation] & \texttt{ID} & 1 \\
+\property{name}[Observation] & \texttt{string} & 0..1 \\
+\property{sequence}[Observation] & \texttt{integer} & 1 \\
+\property{subType}[Observation] & \texttt{string} & 0..1 \\
+\property{timestamp}[Observation] & \texttt{dateTime} & 1 \\
+\property{type}[Observation] & \texttt{string} & 1 \\
+\property{category}[Observation] & \texttt{CategoryEnum} & 1 \\
+\property{units}[Observation] & \texttt{string} & 0..1 \\
+\property{isUnavailable}[Observation] & \texttt{boolean} & 1 \\
+\property{result}[Observation] & \texttt{string} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Observation}:
+Descriptions for attributes of \block{Observation}:
 
 \begin{itemize}
-\item \texttt{compositionId} : 
-\item \texttt{dataItemId} : 
-\item \texttt{name} : 
-\item \texttt{sequence} : 
-\item \texttt{subType} : 
-\item \texttt{timestamp} : 
-\item \texttt{type} : 
-\item \texttt{category} : 
-\item \texttt{units} : 
-\item \texttt{isUnavailable} : 
-\item \texttt{result} : 
+\item \property{compositionId}[Observation] : 
+\item \property{dataItemId}[Observation] : 
+\item \property{name}[Observation] : 
+\item \property{sequence}[Observation] : 
+\item \property{subType}[Observation] : 
+\item \property{timestamp}[Observation] : 
+\item \property{type}[Observation] : 
+\item \property{category}[Observation] : 
+\item \property{units}[Observation] : 
+\item \property{isUnavailable}[Observation] : 
+\item \property{result}[Observation] : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Condition}
-  \label{sec:Condition}
+
 
 
 
@@ -71,39 +71,41 @@ Descriptions for attributes of \texttt{Observation}:
 \paragraph{Attributes of Condition}\mbox{}
 \label{sec:Attributes of Condition}
 
-\tbl{attributes of Condition} lists the attributes of \texttt{Condition}.
+\tbl{Attributes of Condition} lists the attributes of \texttt{Condition}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Condition}
-  \label{table:attributes of Condition}
+  \label{table:Attributes of Condition}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{nativeCode} & \texttt{string} & 0..1 \\
-\texttt{nativeSeverity} & \texttt{string} & 0..1 \\
-\texttt{qualifier} & \texttt{QualifierEnum} & 0..1 \\
-\texttt{statistic} & \texttt{StatisticEnum} & 0..1 \\
-\texttt{xs:lang} & \texttt{xslang} & 0..1 \\
-\texttt{category} & \texttt{CategoryEnum} & 1 \\
+\property{nativeCode}[Condition] & \texttt{string} & 0..1 \\
+\property{nativeSeverity}[Condition] & \texttt{string} & 0..1 \\
+\property{qualifier}[Condition] & \texttt{QualifierEnum} & 0..1 \\
+\property{statistic}[Condition] & \texttt{StatisticEnum} & 0..1 \\
+\property{xs:lang}[Condition] & \texttt{xslang} & 0..1 \\
+\property{category}[Condition] & \texttt{CategoryEnum} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Condition}:
+Descriptions for attributes of \block{Condition}:
 
 \begin{itemize}
-\item \texttt{nativeCode} : 
-\item \texttt{nativeSeverity} : 
-\item \texttt{qualifier} : 
+\item \property{nativeCode}[Condition] : 
+\item \property{nativeSeverity}[Condition] : 
+\item \property{qualifier}[Condition] : 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{QualifierEnum Enumeration}
   \label{enum:QualifierEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -117,41 +119,42 @@ Name & Description \\
 \texttt{HIGH} &  \\ \hline
 \texttt{LOW} &  \\ \hline
 \end{longtabu}
+
 \FloatBarrier
-\item \texttt{statistic} : 
-\item \texttt{xs:lang} : 
-\item \texttt{category} : 
+\item \property{statistic}[Condition] : 
+\item \property{xs:lang}[Condition] : 
+\item \property{category}[Condition] : 
 \end{itemize}
 
 \paragraph{Elements of Condition}\mbox{}
 \label{sec:Elements of Condition}
 
-\tbl{elements of Condition} lists the elements of \texttt{Condition}.
+\tbl{Elements of Condition} lists the elements of \texttt{Condition}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of Condition}
-  \label{table:elements of Condition}
+  \label{table:Elements of Condition}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Condition} & \texttt{ProtocolStack} & 1 \\
+\block{Condition} & \texttt{ProtocolStack} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{Condition}:
+Descriptions for elements of \block{Condition}:
 
 \begin{itemize}
-\item \texttt{Condition} : 
+\item \block{Condition} : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Event}
-  \label{sec:Event}
+
 
 
 
@@ -161,33 +164,35 @@ Descriptions for elements of \texttt{Condition}:
 \paragraph{Attributes of Event}\mbox{}
 \label{sec:Attributes of Event}
 
-\tbl{attributes of Event} lists the attributes of \texttt{Event}.
+\tbl{Attributes of Event} lists the attributes of \texttt{Event}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Event}
-  \label{table:attributes of Event}
+  \label{table:Attributes of Event}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{resetTriggered} & \texttt{ResetTriggeredEnum} & 0..1 \\
-\texttt{category} & \texttt{CategoryEnum} & 1 \\
+\property{resetTriggered}[Event] & \texttt{ResetTriggeredEnum} & 0..1 \\
+\property{category}[Event] & \texttt{CategoryEnum} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Event}:
+Descriptions for attributes of \block{Event}:
 
 \begin{itemize}
-\item \texttt{resetTriggered} : 
+\item \property{resetTriggered}[Event] : 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{ResetTriggeredEnum Enumeration}
   \label{enum:ResetTriggeredEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -208,39 +213,40 @@ Name & Description \\
 \texttt{SHIFT} &  \\ \hline
 \texttt{WEEK} &  \\ \hline
 \end{longtabu}
+
 \FloatBarrier
-\item \texttt{category} : 
+\item \property{category}[Event] : 
 \end{itemize}
 
 \paragraph{Elements of Event}\mbox{}
 \label{sec:Elements of Event}
 
-\tbl{elements of Event} lists the elements of \texttt{Event}.
+\tbl{Elements of Event} lists the elements of \texttt{Event}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of Event}
-  \label{table:elements of Event}
+  \label{table:Elements of Event}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Events} & \texttt{ProtocolStack} & 1 \\
+\block{Events} & \texttt{ProtocolStack} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{Event}:
+Descriptions for elements of \block{Event}:
 
 \begin{itemize}
-\item \texttt{Events} : 
+\item \block{Events} : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Sample}
-  \label{sec:Sample}
+
 
 
 
@@ -250,68 +256,68 @@ Descriptions for elements of \texttt{Event}:
 \paragraph{Attributes of Sample}\mbox{}
 \label{sec:Attributes of Sample}
 
-\tbl{attributes of Sample} lists the attributes of \texttt{Sample}.
+\tbl{Attributes of Sample} lists the attributes of \texttt{Sample}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Sample}
-  \label{table:attributes of Sample}
+  \label{table:Attributes of Sample}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{duration} & \texttt{second} & 0..1 \\
-\texttt{resetTriggered} & \texttt{ResetTriggeredEnum} & 0..1 \\
-\texttt{sampleRate} & \texttt{float} & 0..1 \\
-\texttt{statistic} & \texttt{StatisticEnum} & 0..1 \\
-\texttt{category} & \texttt{SAMPLE} & 1 \\
-\texttt{result} & \texttt{float} & 0..1 \\
-\texttt{units} & \texttt{string} & 1 \\
+\property{duration}[Sample] & \texttt{second} & 0..1 \\
+\property{resetTriggered}[Sample] & \texttt{ResetTriggeredEnum} & 0..1 \\
+\property{sampleRate}[Sample] & \texttt{float} & 0..1 \\
+\property{statistic}[Sample] & \texttt{StatisticEnum} & 0..1 \\
+\property{category}[Sample] & \texttt{SAMPLE} & 1 \\
+\property{result}[Sample] & \texttt{float} & 0..1 \\
+\property{units}[Sample] & \texttt{string} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Sample}:
+Descriptions for attributes of \block{Sample}:
 
 \begin{itemize}
-\item \texttt{duration} : 
-\item \texttt{resetTriggered} : 
-\item \texttt{sampleRate} : 
-\item \texttt{statistic} : 
-\item \texttt{units} : 
+\item \property{duration}[Sample] : 
+\item \property{resetTriggered}[Sample] : 
+\item \property{sampleRate}[Sample] : 
+\item \property{statistic}[Sample] : 
+\item \property{units}[Sample] : 
 \end{itemize}
 
 \paragraph{Elements of Sample}\mbox{}
 \label{sec:Elements of Sample}
 
-\tbl{elements of Sample} lists the elements of \texttt{Sample}.
+\tbl{Elements of Sample} lists the elements of \texttt{Sample}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of Sample}
-  \label{table:elements of Sample}
+  \label{table:Elements of Sample}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Samples} & \texttt{ProtocolStack} & 1 \\
+\block{Samples} & \texttt{ProtocolStack} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{Sample}:
+Descriptions for elements of \block{Sample}:
 
 \begin{itemize}
-\item \texttt{Samples} : 
+\item \block{Samples} : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{ProtocolStack}
-  \label{sec:ProtocolStack}
+\label{sec:ProtocolStack}
 
 
 
@@ -321,30 +327,30 @@ Descriptions for elements of \texttt{Sample}:
 \paragraph{Elements of ProtocolStack}\mbox{}
 \label{sec:Elements of ProtocolStack}
 
-\tbl{elements of ProtocolStack} lists the elements of \texttt{ProtocolStack}.
+\tbl{Elements of ProtocolStack} lists the elements of \texttt{ProtocolStack}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of ProtocolStack}
-  \label{table:elements of ProtocolStack}
+  \label{table:Elements of ProtocolStack}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Condition} & \texttt{Condition} & 0..* \\
-\texttt{Samples} & \texttt{Sample} & 0..* \\
-\texttt{Events} & \texttt{Event} & 0..* \\
+\block{Condition} & \texttt{Condition} & 0..* \\
+\block{Samples} & \texttt{Sample} & 0..* \\
+\block{Events} & \texttt{Event} & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{ProtocolStack}:
+Descriptions for elements of \block{ProtocolStack}:
 
 \begin{itemize}
-\item \texttt{Condition} : 
-\item \texttt{Samples} : 
-\item \texttt{Events} : 
+\item \block{Condition} : 
+\item \block{Samples} : 
+\item \block{Events} : 
 \end{itemize}
 \FloatBarrier

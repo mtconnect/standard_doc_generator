@@ -1,4 +1,4 @@
-% Generated 2020-08-19 14:44:32 +0530
+% Generated 2020-08-21 17:36:01 +0530
 \subsection{Devices} \label{sec:Devices}
 
 
@@ -6,45 +6,45 @@
 
 
 \subsubsection{Device}
-  \label{sec:Device}
+\label{sec:Device}
 
 
 
 A \block{Device} is a \block{Component} that represents a piece of equipment that produces \glspl{observation} about itself. It \glspl{organize} its parts as \block{Components}.
 
-A \block{Device} \textbf{MUST} have a \property{name} and \block{uuid} attribute to identify itself. 
+A \block{Device} \textbf{MUST} have a \property{name} and \property{uuid} attribute to identify itself. 
 
-A \block{Device} \textbf{MUST} have the following \block{DataItems}: \block{AVAILABILITY}, \block{ASSET}, and \block{ASSET}.
+A \block{Device} \textbf{MUST} have the following \block{DataItems}: \block{Availability}, \block{AssetChanged}, and \block{AssetRemoved}.
 
-See \ref{Component} for details on the \block{Device} model. 
+See \sect{Component} for details on the \block{Device} model. 
 
 
 
 \paragraph{Attributes of Device}\mbox{}
 \label{sec:Attributes of Device}
 
-\tbl{attributes of Device} lists the attributes of \texttt{Device}.
+\tbl{Attributes of Device} lists the attributes of \texttt{Device}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Device}
-  \label{table:attributes of Device}
+  \label{table:Attributes of Device}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{<<deprecated>> iso841Class} & \texttt{string} & 0..1 \\
-\texttt{name} & \texttt{string} & 1 \\
-\texttt{uuid} & \texttt{NMTOKEN} & 1 \\
+\texttt{<<deprecated>>} \property{iso841Class}[Device] & \texttt{string} & 0..1 \\
+\property{name}[Device] & \texttt{string} & 1 \\
+\property{uuid}[Device] & \texttt{NMTOKEN} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Device}:
+Descriptions for attributes of \block{Device}:
 
 \begin{itemize}
-\item \texttt{iso841Class} : 
+\item \property{iso841Class}[Device] : \textbf{DEPRECATED} in \textit{MTConnect Version 1.1}.
 \end{itemize}
 \FloatBarrier

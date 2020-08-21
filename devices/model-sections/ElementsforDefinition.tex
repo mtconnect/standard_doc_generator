@@ -1,12 +1,12 @@
-% Generated 2020-08-19 14:44:33 +0530
-\subsection{Elements for Definition} \label{sec:ElementsforDefinition}
+% Generated 2020-08-21 17:36:02 +0530
+\subsection{Elements for Definition} \label{sec:Elements for Definition}
 
 
 This section provides detailed descriptions for the elements of a \block{Definition} element for a \block{DataItem}.
 
 
 \subsubsection{CellDefinition}
-  \label{sec:CellDefinition}
+\label{sec:CellDefinition}
 
 
 
@@ -16,99 +16,64 @@ The semantic definition of a \block{Cell}.
 \paragraph{Attributes of CellDefinition}\mbox{}
 \label{sec:Attributes of CellDefinition}
 
-\tbl{attributes of CellDefinition} lists the attributes of \texttt{CellDefinition}.
+\tbl{Attributes of CellDefinition} lists the attributes of \texttt{CellDefinition}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of CellDefinition}
-  \label{table:attributes of CellDefinition}
+  \label{table:Attributes of CellDefinition}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{units} & \texttt{UnitEnum} & 0..1 \\
-\texttt{key} & \texttt{string} & 1 \\
-\texttt{type} & \texttt{DataItemTypeEnum} & 0..1 \\
-\texttt{subType} & \texttt{DataItemSubTypeEnum} & 0..1 \\
+\property{units}[CellDefinition] & \texttt{UnitEnum} & 0..1 \\
+\property{key}[CellDefinition] & \texttt{string} & 1 \\
+\property{type}[CellDefinition] & \texttt{DataItemTypeEnum} & 0..1 \\
+\property{subType}[CellDefinition] & \texttt{DataItemSubTypeEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{CellDefinition}:
+Descriptions for attributes of \block{CellDefinition}:
 
 \begin{itemize}
-\item \texttt{units} : 
-\item \texttt{key} : 
-\item \texttt{type} : 
-\item \texttt{subType} : 
+\item \property{units}[CellDefinition] : Same as \block{DataItem} \property{units}[DataItem].
+\item \property{key}[CellDefinition] : The unique identification of the \block{Cell} in the \block{Definition}. The description applies to all \block{Cell} \glspl{observation} having this \property{key}.
+\item \property{type}[CellDefinition] : Same as \block{DataItem} \property{type}[DataItem].
+\item \property{subType}[CellDefinition] : Same as \block{DataItem} \property{subType}[DataItem].
 \end{itemize}
 
 \paragraph{Elements of CellDefinition}\mbox{}
 \label{sec:Elements of CellDefinition}
 
-\tbl{elements of CellDefinition} lists the elements of \texttt{CellDefinition}.
+\tbl{Elements of CellDefinition} lists the elements of \texttt{CellDefinition}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of CellDefinition}
-  \label{table:elements of CellDefinition}
+  \label{table:Elements of CellDefinition}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Description} & \texttt{Description} & 0..1 \\
+\block{Description} & \texttt{Description} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{CellDefinition}:
+Descriptions for elements of \block{CellDefinition}:
 
 \begin{itemize}
-\item \texttt{Description} : An element that can contain any descriptive content.
-\end{itemize}
-\FloatBarrier
-
-\subsubsection{Description}
-  \label{sec:Description}
-
-
-
-An element that can contain any descriptive content.
-
-
-\paragraph{Attributes of Description}\mbox{}
-\label{sec:Attributes of Description}
-
-\tbl{attributes of Description} lists the attributes of \texttt{Description}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Description}
-  \label{table:attributes of Description}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{value} & \texttt{string} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for attributes of \texttt{Description}:
-
-\begin{itemize}
-\item \texttt{value} : 
+\item \block{Description} : The \block{Description} of the \block{CellDefinition}. See \block{Component} \block{Description}.
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{EntryDefinition}
-  \label{sec:EntryDefinition}
+\label{sec:EntryDefinition}
 
 
 
@@ -118,60 +83,60 @@ The semantic definition of an \block{Entry}.
 \paragraph{Attributes of EntryDefinition}\mbox{}
 \label{sec:Attributes of EntryDefinition}
 
-\tbl{attributes of EntryDefinition} lists the attributes of \texttt{EntryDefinition}.
+\tbl{Attributes of EntryDefinition} lists the attributes of \texttt{EntryDefinition}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of EntryDefinition}
-  \label{table:attributes of EntryDefinition}
+  \label{table:Attributes of EntryDefinition}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{key} & \texttt{string} & 1 \\
-\texttt{units} & \texttt{UnitEnum} & 0..1 \\
-\texttt{type} & \texttt{DataItemTypeEnum} & 0..1 \\
-\texttt{subType} & \texttt{DataItemSubTypeEnum} & 0..1 \\
+\property{key}[EntryDefinition] & \texttt{string} & 1 \\
+\property{units}[EntryDefinition] & \texttt{UnitEnum} & 0..1 \\
+\property{type}[EntryDefinition] & \texttt{DataItemTypeEnum} & 0..1 \\
+\property{subType}[EntryDefinition] & \texttt{DataItemSubTypeEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{EntryDefinition}:
+Descriptions for attributes of \block{EntryDefinition}:
 
 \begin{itemize}
-\item \texttt{key} : 
-\item \texttt{units} : 
-\item \texttt{type} : 
-\item \texttt{subType} : 
+\item \property{key}[EntryDefinition] : The unique identification of the \block{Entry} in the \block{Definition}. The description applies to all \block{Entry} \glspl{observation} having this \property{key}.
+\item \property{units}[EntryDefinition] : Same as \block{DataItem} \property{units}[DataItem].
+\item \property{type}[EntryDefinition] : Same as \block{DataItem} \property{type}[DataItem].
+\item \property{subType}[EntryDefinition] : Same as \block{DataItem} \property{subType}[DataItem].
 \end{itemize}
 
 \paragraph{Elements of EntryDefinition}\mbox{}
 \label{sec:Elements of EntryDefinition}
 
-\tbl{elements of EntryDefinition} lists the elements of \texttt{EntryDefinition}.
+\tbl{Elements of EntryDefinition} lists the elements of \texttt{EntryDefinition}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of EntryDefinition}
-  \label{table:elements of EntryDefinition}
+  \label{table:Elements of EntryDefinition}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Description} & \texttt{Description} & 0..1 \\
-\texttt{CellDefinitions} & \texttt{CellDefinition} & 0..* \\
+\block{Description} & \texttt{Description} & 0..1 \\
+\block{CellDefinitions} & \texttt{CellDefinition} & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{EntryDefinition}:
+Descriptions for elements of \block{EntryDefinition}:
 
 \begin{itemize}
-\item \texttt{Description} : An element that can contain any descriptive content.
-\item \texttt{CellDefinitions} : \block{CellDefinitions} \glspl{organize} \block{CellDefinition} elements.
+\item \block{Description} : The \block{Description} of the \block{EntryDefinition}. See \block{Component} \block{Description}.
+\item \block{CellDefinitions} : \block{CellDefinitions} \glspl{organize} \block{CellDefinition} elements if the \property{representation}[DataItem] is \texttt{TABLE}.
 \end{itemize}
 \FloatBarrier

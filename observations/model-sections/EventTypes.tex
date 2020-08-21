@@ -1,8 +1,8 @@
-% Generated 2020-08-19 14:44:37 +0530
-\subsection{Event Types} \label{sec:EventTypes}
+% Generated 2020-08-21 17:36:06 +0530
+\subsection{Event Types} \label{sec:Event Types}
 
 \subsubsection{ActiveAxes}
-  \label{sec:ActiveAxes}
+\label{sec:ActiveAxes}
 
 
 
@@ -11,7 +11,7 @@ The result is a space delimited list of axes names.
 \FloatBarrier
 
 \subsubsection{ActuatorState}
-  \label{sec:ActuatorState}
+\label{sec:ActuatorState}
 
 
 
@@ -20,11 +20,13 @@ Represents the operational state of an apparatus for moving or controlling a mec
 
 The value of \texttt{ActuatorState} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{ActuatorStateEnum Enumeration}
   \label{enum:ActuatorStateEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -38,11 +40,12 @@ Name & Description \\
 \texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
 \texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{Alarm}
-  \label{sec:Alarm}
+\label{sec:Alarm}
 
 
 
@@ -51,7 +54,7 @@ Name & Description \\
 \FloatBarrier
 
 \subsubsection{Application}
-  \label{sec:Application}
+\label{sec:Application}
 
 
 
@@ -61,8 +64,48 @@ The application on a component.
 Subtypes of \texttt{Application} are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \texttt{MANUFACTURER}, \texttt{RELEASE_DATE}, \texttt{VERSION} and \texttt{VERSION}. 
 \FloatBarrier
 
+\paragraph{VersionApplication}\mbox{}
+\label{sec:VersionApplication}
+
+
+
+The version of the hardware or software.
+
+
+\paragraph{ReleaseDateApplication}\mbox{}
+\label{sec:ReleaseDateApplication}
+
+
+
+The date the hardware or software was released for general use.
+
+
+\paragraph{ManufacturerApplication}\mbox{}
+\label{sec:ManufacturerApplication}
+
+
+
+The corporate identity for the maker of the hardware or software.
+
+
+\paragraph{LicenseApplication}\mbox{}
+\label{sec:LicenseApplication}
+
+
+
+The license code to validate or activate the hardware or software.
+
+
+\paragraph{InstallDateApplication}\mbox{}
+\label{sec:InstallDateApplication}
+
+
+
+The date the hardware or software was installed.
+
+
 \subsubsection{AssetChanged}
-  \label{sec:AssetChanged}
+\label{sec:AssetChanged}
 
 
 
@@ -71,7 +114,7 @@ The value of the \gls{CDATA} for the event \textbf{MUST} be the \block{assetId} 
 \FloatBarrier
 
 \subsubsection{AssetRemoved}
-  \label{sec:AssetRemoved}
+\label{sec:AssetRemoved}
 
 
 
@@ -80,7 +123,7 @@ The value of the \gls{CDATA} for the event \textbf{MUST} be the \block{assetId} 
 \FloatBarrier
 
 \subsubsection{Availability}
-  \label{sec:Availability}
+\label{sec:Availability}
 
 
 
@@ -89,11 +132,13 @@ Represents the \gls{Agent}'s ability to communicate with the data source.
 
 The value of \texttt{Availability} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{AvailabilityEnum Enumeration}
   \label{enum:AvailabilityEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -107,11 +152,12 @@ Name & Description \\
 \texttt{AVAILABLE} & The value or status of an XML element when it is available. \\ \hline
 \texttt{UNAVAILABLE} & The value of the \gls{Data Entity} either when the data is not received or the entity is incapable of providing data. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{AxisCoupling}
-  \label{sec:AxisCoupling}
+\label{sec:AxisCoupling}
 
 
 
@@ -122,11 +168,13 @@ Describes the way the axes will be associated to each other.
 
 The value of \texttt{AxisCoupling} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{AxisCouplingEnum Enumeration}
   \label{enum:AxisCouplingEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -142,11 +190,12 @@ Name & Description \\
 \texttt{MASTER} & It provides information or state values that influences the operation of other \block{DataItem} of similar type. \\ \hline
 \texttt{SLAVE} & The axis is a slave to the \block{COUPLED\textunderscore AXES} \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{AxisFeedrateOverride}
-  \label{sec:AxisFeedrateOverride}
+\label{sec:AxisFeedrateOverride}
 
 
 
@@ -156,8 +205,32 @@ The value of a signal or calculation issued to adjust the feedrate of an individ
 Subtypes of \texttt{AxisFeedrateOverride} are: \texttt{JOG}, \texttt{PROGRAMMED}, \texttt{RAPID} and \texttt{RAPID}. 
 \FloatBarrier
 
+\paragraph{JogAxisFeedrateOverride}\mbox{}
+\label{sec:JogAxisFeedrateOverride}
+
+
+
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
+
+
+\paragraph{ProgrammedAxisFeedrateOverride}\mbox{}
+\label{sec:ProgrammedAxisFeedrateOverride}
+
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{RapidAxisFeedrateOverride}\mbox{}
+\label{sec:RapidAxisFeedrateOverride}
+
+
+
+The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+
+
 \subsubsection{AxisInterlock}
-  \label{sec:AxisInterlock}
+\label{sec:AxisInterlock}
 
 
 
@@ -166,10 +239,13 @@ An indicator of the state of the axis lockout function when power has been remov
 
 The value of \texttt{AxisInterlock} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{ActuatorStateEnum Enumeration}
+   \\
+
 \hline
 Name & Description \\
 \hline
@@ -183,11 +259,12 @@ Name & Description \\
 \texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
 \texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{AxisState}
-  \label{sec:AxisState}
+\label{sec:AxisState}
 
 
 
@@ -196,11 +273,13 @@ An indicator of the controlled state of a \block{Linear} or \block{Rotary} compo
 
 The value of \texttt{AxisState} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{AxisStateEnum Enumeration}
   \label{enum:AxisStateEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -216,11 +295,12 @@ Name & Description \\
 \texttt{PARKED} & The component has been moved to a fixed position. \\ \hline
 \texttt{STOPPED} & The component is stopped. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{Block}
-  \label{sec:Block}
+\label{sec:Block}
 
 
 
@@ -229,7 +309,7 @@ The line of code or command being executed by a \block{Controller} \gls{Structur
 \FloatBarrier
 
 \subsubsection{BlockCount}
-  \label{sec:BlockCount}
+\label{sec:BlockCount}
 
 
 
@@ -238,7 +318,7 @@ The total count of the number of blocks of program code that have been executed 
 \FloatBarrier
 
 \subsubsection{ChuckInterlock}
-  \label{sec:ChuckInterlock}
+\label{sec:ChuckInterlock}
 
 
 
@@ -247,10 +327,13 @@ An indication of the state of an interlock function or control logic state inten
 
 The value of \texttt{ChuckInterlock} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{ActuatorStateEnum Enumeration}
+   \\
+
 \hline
 Name & Description \\
 \hline
@@ -264,13 +347,24 @@ Name & Description \\
 \texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
 \texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 
 Subtype of \texttt{ChuckInterlock} is: \texttt{MANUAL_UNCLAMP}.
 \FloatBarrier
 
+\paragraph{ManualUnclampChuckInterlock}\mbox{}
+\label{sec:ManualUnclampChuckInterlock}
+
+
+
+An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ACTIVE} or \block{INACTIVE}. 
+ When \block{MANUAL\textunderscore UNCLAMP} is \block{ACTIVE}, it is expected that a chuck cannot be unclamped until \block{MANUAL\textunderscore UNCLAMP} is set to \block{INACTIVE}. 
+
+
 \subsubsection{ChuckState}
-  \label{sec:ChuckState}
+\label{sec:ChuckState}
 
 
 
@@ -279,11 +373,13 @@ An indication of the operating state of a mechanism that holds a part or stock m
 
 The value of \texttt{ChuckState} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{LatchedStateEnum Enumeration}
   \label{enum:LatchedStateEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -298,11 +394,12 @@ Name & Description \\
 \texttt{CLOSED} & A component is closed to the point of a positive confirmation. \\ \hline
 \texttt{UNLATCHED} & An intermediate position. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{CloseChuck}
-  \label{sec:CloseChuck}
+\label{sec:CloseChuck}
 
 
 
@@ -311,7 +408,7 @@ Service to close a chuck.
 \FloatBarrier
 
 \subsubsection{CloseDoor}
-  \label{sec:CloseDoor}
+\label{sec:CloseDoor}
 
 
 
@@ -320,7 +417,7 @@ Service to close a door.
 \FloatBarrier
 
 \subsubsection{Code}
-  \label{sec:Code}
+\label{sec:Code}
 
 
 
@@ -329,7 +426,7 @@ Service to close a door.
 \FloatBarrier
 
 \subsubsection{CompositionState}
-  \label{sec:CompositionState}
+\label{sec:CompositionState}
 
 
 
@@ -339,8 +436,58 @@ An indication of the operating condition of a mechanism represented by a \block{
 Subtypes of \texttt{CompositionState} are: \texttt{ACTION}, \texttt{LATERAL}, \texttt{MOTION}, \texttt{SWITCHED}, \texttt{VERTICAL} and \texttt{VERTICAL}. 
 \FloatBarrier
 
+\paragraph{ActionCompositionState}\mbox{}
+\label{sec:ActionCompositionState}
+
+
+
+An indication of the operating state of a mechanism represented by a \block{Composition} type component.
+ The operating state indicates whether the \block{Composition} element is activated or disabled. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ACTIVE} or \block{INACTIVE}.
+
+
+\paragraph{LateralCompositionState}\mbox{}
+\label{sec:LateralCompositionState}
+
+
+
+An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a \block{Composition} type component. 
+ The position information indicates whether the \block{Composition} element is positioned to the right, to the left, or is in transition.  
+ The \gls{Valid Data Value} \textbf{MUST} be \block{RIGHT}, \block{LEFT}, or \block{TRANSITIONING}.
+
+
+\paragraph{MotionCompositionState}\mbox{}
+\label{sec:MotionCompositionState}
+
+
+
+An indication of the open or closed state of a mechanism.   The mechanism is represented by a \block{Composition} type component. 
+ The operating state indicates whether the state of the \block{Composition} element is open, closed, or unlatched.   
+ The \gls{Valid Data Value} \textbf{MUST} be \block{OPEN}, \block{UNLATCHED}, or \block{CLOSED}.
+
+
+\paragraph{SwitchedCompositionState}\mbox{}
+\label{sec:SwitchedCompositionState}
+
+
+
+An indication of the activation state of a mechanism represented by a \block{Composition} type component.
+ The activation state indicates whether the \block{Composition} element is activated or not.
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
+
+
+\paragraph{VerticalCompositionState}\mbox{}
+\label{sec:VerticalCompositionState}
+
+
+
+An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a \block{Composition} type component. 
+ The position information indicates whether the \block{Composition} element is positioned to the top, to the bottom, or is in transition.  
+ The \gls{Valid Data Value} \textbf{MUST} be \block{UP}, \block{DOWN}, or \block{TRANSITIONING}.
+
+
 \subsubsection{ControllerMode}
-  \label{sec:ControllerMode}
+\label{sec:ControllerMode}
 
 
 
@@ -349,11 +496,13 @@ The current operating mode of the \block{Controller} component.
 
 The value of \texttt{ControllerMode} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{ControllerModeEnum Enumeration}
   \label{enum:ControllerModeEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -370,11 +519,12 @@ Name & Description \\
 \texttt{SEMI\textunderscore AUTOMATIC} & The controller  executes a single set of instructions from an active program and then stops until given a command to execute the next set of instructions. \\ \hline
 \texttt{EDIT} & The controller is currently functioning as a programming device and is not capable of executing an active program. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{ControllerModeOverride}
-  \label{sec:ControllerModeOverride}
+\label{sec:ControllerModeOverride}
 
 
 
@@ -383,11 +533,13 @@ A setting or operator selection that changes the behavior of a piece of equipmen
 
 The value of \texttt{ControllerModeOverride} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{OnOffEnum Enumeration}
   \label{enum:OnOffEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -401,13 +553,68 @@ Name & Description \\
 \texttt{ON} & On state or value. \\ \hline
 \texttt{OFF} & Off state or value. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 
 Subtypes of \texttt{ControllerModeOverride} are: \texttt{DRY_RUN}, \texttt{MACHINE_AXIS_LOCK}, \texttt{OPTIONAL_STOP}, \texttt{SINGLE_BLOCK}, \texttt{TOOL_CHANGE_STOP} and \texttt{TOOL_CHANGE_STOP}. 
 \FloatBarrier
 
+\paragraph{DryRunControllerModeOverride}\mbox{}
+\label{sec:DryRunControllerModeOverride}
+
+
+
+A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
+ When \block{DRY\textunderscore RUN} is \block{ON}, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
+
+
+\paragraph{SingleBlockControllerModeOverride}\mbox{}
+\label{sec:SingleBlockControllerModeOverride}
+
+
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
+ Program execution is paused after each \block{BLOCK} of code is executed when \block{SINGLE\textunderscore BLOCK} is \block{ON}.   
+ When \block{SINGLE\textunderscore BLOCK} is \block{ON}, \block{EXECUTION} \textbf{MUST} change to \block{INTERRUPTED} after completion of each \block{BLOCK} of code. 
+
+
+\paragraph{MachineAxisLockControllerModeOverride}\mbox{}
+\label{sec:MachineAxisLockControllerModeOverride}
+
+
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
+ When \block{MACHINE\textunderscore AXIS\textunderscore LOCK} is \block{ON}, program execution continues normally, but no equipment motion occurs 
+
+
+\paragraph{OptionalStopControllerModeOverride}\mbox{}
+\label{sec:OptionalStopControllerModeOverride}
+
+
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
+ The program execution is stopped after a specific program block is executed when \block{OPTIONAL\textunderscore STOP} is \block{ON}.    
+ In the case of a G-Code program, a program \block{BLOCK} containing a M01 code designates the command for an \block{OPTIONAL\textunderscore STOP}. 
+ \block{EXECUTION} \textbf{MUST} change to \block{OPTIONAL\textunderscore STOP} after a program block specifying an optional stop is executed and the \block{OPTIONAL\textunderscore STOP} selection is \block{ON}.
+
+
+\paragraph{ToolChangeStopControllerModeOverride}\mbox{}
+\label{sec:ToolChangeStopControllerModeOverride}
+
+
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
+ Program execution is paused when a command is executed requesting a cutting tool to be changed. 
+ \block{EXECUTION} \textbf{MUST} change to \block{INTERRUPTED} after completion of the command requesting a cutting tool to be changed and \block{TOOL\textunderscore CHANGE\textunderscore STOP} is \block{ON}.
+
+
 \subsubsection{CoupledAxes}
-  \label{sec:CoupledAxes}
+\label{sec:CoupledAxes}
 
 
 
@@ -416,7 +623,7 @@ Refers to the set of associated axes.
 \FloatBarrier
 
 \subsubsection{DateCode}
-  \label{sec:DateCode}
+\label{sec:DateCode}
 
 
 
@@ -428,8 +635,32 @@ The time and date code associated with a material or other physical item.
 Subtypes of \texttt{DateCode} are: \texttt{EXPIRATION}, \texttt{FIRST_USE}, \texttt{MANUFACTURE} and \texttt{MANUFACTURE}. 
 \FloatBarrier
 
+\paragraph{ManufactureDateCode}\mbox{}
+\label{sec:ManufactureDateCode}
+
+
+
+The time and date code relating to the production of a material or other physical item.
+
+
+\paragraph{ExpirationDateCode}\mbox{}
+\label{sec:ExpirationDateCode}
+
+
+
+The time and date code relating to the expiration or end of useful life for a material or other physical item.
+
+
+\paragraph{FirstUseDateCode}\mbox{}
+\label{sec:FirstUseDateCode}
+
+
+
+The time and date code relating the first use of a material or other physical item.
+
+
 \subsubsection{DeviceUuid}
-  \label{sec:DeviceUuid}
+\label{sec:DeviceUuid}
 
 
 
@@ -440,7 +671,7 @@ The identifier of another piece of equipment that is temporarily associated with
 \FloatBarrier
 
 \subsubsection{Direction}
-  \label{sec:Direction}
+\label{sec:Direction}
 
 
 
@@ -451,11 +682,13 @@ Subtypes of \texttt{Direction} are: \texttt{LINEAR} and \texttt{ROTARY}.
 
 The value fof \texttt{Direction} when \texttt{subType} is \texttt{LINEAR} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{LinearDirectionEnum Enumeration}
   \label{enum:LinearDirectionEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -470,15 +703,18 @@ Name & Description \\
 \texttt{NEGATIVE} &  \\ \hline
 \texttt{NONE} &  \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 
 The value fof \texttt{Direction} when \texttt{subType} is \texttt{ROTARY} \MUST be one of the following: 
+
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{RotaryDirectionEnum Enumeration}
   \label{enum:RotaryDirectionEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -493,11 +729,29 @@ Name & Description \\
 \texttt{COUNTER\textunderscore CLOCKWISE} &  \\ \hline
 \texttt{NONE} &  \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
+\paragraph{RotaryDirection}\mbox{}
+\label{sec:RotaryDirection}
+
+
+
+The rotational direction of a rotary motion using the right hand rule convention.
+ The \gls{Valid Data Value} \textbf{MUST} be \block{CLOCKWISE} or \block{COUNTER\textunderscore CLOCKWISE}.
+
+
+\paragraph{LinearDirection}\mbox{}
+\label{sec:LinearDirection}
+
+
+
+The direction of motion of a linear motion.
+
+
 \subsubsection{DoorState}
-  \label{sec:DoorState}
+\label{sec:DoorState}
 
 
 
@@ -506,10 +760,13 @@ The operational state of a \block{DOOR} type component or composition element.
 
 The value of \texttt{DoorState} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{LatchedStateEnum Enumeration}
+   \\
+
 \hline
 Name & Description \\
 \hline
@@ -524,11 +781,12 @@ Name & Description \\
 \texttt{CLOSED} & A component is closed to the point of a positive confirmation. \\ \hline
 \texttt{UNLATCHED} & An intermediate position. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{EmergencyStop}
-  \label{sec:EmergencyStop}
+\label{sec:EmergencyStop}
 
 
 
@@ -537,11 +795,13 @@ The current state of the emergency stop signal for a piece of equipment, control
 
 The value of \texttt{EmergencyStop} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{EmergencyStopEnum Enumeration}
   \label{enum:EmergencyStopEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -555,11 +815,12 @@ Name & Description \\
 \texttt{ARMED} & The emergency stop circuit is complete and the piece of equipment, component, or composition element is allowed to operate.  \\ \hline
 \texttt{TRIGGERED} & The operation of the piece of equipment, component, or composition element is inhibited. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{EndOfBar}
-  \label{sec:EndOfBar}
+\label{sec:EndOfBar}
 
 
 
@@ -568,11 +829,13 @@ An indication of whether the end of a piece of bar stock being feed by a bar fee
 
 The value of \texttt{EndOfBar} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{YesNoEnum Enumeration}
   \label{enum:YesNoEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -586,13 +849,34 @@ Name & Description \\
 \texttt{YES} & The \block{END\textunderscore OF\textunderscore BAR} has been reached. \\ \hline
 \texttt{NO} & The \block{END\textunderscore OF\textunderscore BAR} has not been reached. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 
 Subtypes of \texttt{EndOfBar} are: \texttt{AUXILIARY} and \texttt{PRIMARY}. 
 \FloatBarrier
 
+\paragraph{PrimaryEndOfBar}\mbox{}
+\label{sec:PrimaryEndOfBar}
+
+
+
+Specific applications \textbf{MAY} reference one or more locations on a piece of bar stock as the indication for the \block{END\textunderscore OF\textunderscore BAR}. 
+
+The main or most important location \textbf{MUST} be designated as the \block{PRIMARY} indication for the \block{END\textunderscore OF\textunderscore BAR}.
+
+If no \block{subType} is specified, \block{PRIMARY} \textbf{MUST} be the default \block{END\textunderscore OF\textunderscore BAR} indication.
+
+
+\paragraph{AuxiliaryEndOfBar}\mbox{}
+\label{sec:AuxiliaryEndOfBar}
+
+
+
+When multiple locations on a piece of bar stock are referenced as the indication for the \block{END\textunderscore OF\textunderscore BAR}, the additional location(s) \textbf{MUST} be designated as \block{AUXILIARY} indication(s) for the \block{END\textunderscore OF\textunderscore BAR}.  
+
+
 \subsubsection{EquipmentMode}
-  \label{sec:EquipmentMode}
+\label{sec:EquipmentMode}
 
 
 
@@ -601,10 +885,13 @@ An indication that a piece of equipment, or a sub-part of a piece of equipment, 
 
 The value of \texttt{EquipmentMode} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{OnOffEnum Enumeration}
+   \\
+
 \hline
 Name & Description \\
 \hline
@@ -618,13 +905,54 @@ Name & Description \\
 \texttt{ON} & On state or value. \\ \hline
 \texttt{OFF} & Off state or value. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 
 Subtypes of \texttt{EquipmentMode} are: \texttt{DELAY}, \texttt{LOADED}, \texttt{OPERATING}, \texttt{POWERED}, \texttt{WORKING} and \texttt{WORKING}. 
 \FloatBarrier
 
+\paragraph{LoadedEquipmentMode}\mbox{}
+\label{sec:LoadedEquipmentMode}
+
+
+
+Subparts of a piece of equipment are under load.
+
+
+\paragraph{WorkingEquipmentMode}\mbox{}
+\label{sec:WorkingEquipmentMode}
+
+
+
+A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
+
+
+\paragraph{OperatingEquipmentMode}\mbox{}
+\label{sec:OperatingEquipmentMode}
+
+
+
+A piece of equipment are powered or performing any activity.
+
+
+\paragraph{PoweredEquipmentMode}\mbox{}
+\label{sec:PoweredEquipmentMode}
+
+
+
+Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
+
+
+\paragraph{DelayEquipmentMode}\mbox{}
+\label{sec:DelayEquipmentMode}
+
+
+
+A piece of equipment waiting for an event or an action to occur.
+
+
 \subsubsection{Execution}
-  \label{sec:Execution}
+\label{sec:Execution}
 
 
 
@@ -633,11 +961,13 @@ The execution status of the \block{Component}.
 
 The value of \texttt{Execution} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{ExecutionEnum Enumeration}
   \label{enum:ExecutionEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -657,11 +987,12 @@ Name & Description \\
 \texttt{PROGRAM\textunderscore STOPPED} & The execution of the \block{Controller}'s program has been stopped by a command from within the program. \\ \hline
 \texttt{PROGRAM\textunderscore COMPLETED} & The execution of the controllers program has been stopped by a command from within the program. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{Firmware}
-  \label{sec:Firmware}
+\label{sec:Firmware}
 
 
 
@@ -671,8 +1002,48 @@ The embedded software of a component.
 Subtypes of \texttt{Firmware} are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \texttt{MANUFACTURER}, \texttt{RELEASE_DATE}, \texttt{VERSION} and \texttt{VERSION}. 
 \FloatBarrier
 
+\paragraph{VersionFirmware}\mbox{}
+\label{sec:VersionFirmware}
+
+
+
+The version of the hardware or software.
+
+
+\paragraph{ReleaseDateFirmware}\mbox{}
+\label{sec:ReleaseDateFirmware}
+
+
+
+The date the hardware or software was released for general use.
+
+
+\paragraph{ManufacturerFirmware}\mbox{}
+\label{sec:ManufacturerFirmware}
+
+
+
+The corporate identity for the maker of the hardware or software.
+
+
+\paragraph{LicenseFirmware}\mbox{}
+\label{sec:LicenseFirmware}
+
+
+
+The license code to validate or activate the hardware or software.
+
+
+\paragraph{InstallDateFirmware}\mbox{}
+\label{sec:InstallDateFirmware}
+
+
+
+The date the hardware or software was installed.
+
+
 \subsubsection{FunctionalMode}
-  \label{sec:FunctionalMode}
+\label{sec:FunctionalMode}
 
 
 
@@ -681,11 +1052,13 @@ The current intended production status of the device or component.
 
 The value of \texttt{FunctionalMode} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{FunctionalModeEnum Enumeration}
   \label{enum:FunctionalModeEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -702,11 +1075,12 @@ Name & Description \\
 \texttt{MAINTENANCE} & Action related to maintenance on the piece of equipment. \\ \hline
 \texttt{PROCESS\textunderscore DEVELOPMENT} & A \gls{Structural Element} is being used to prove-out a new process. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{Hardness}
-  \label{sec:Hardness}
+\label{sec:Hardness}
 
 
 
@@ -716,8 +1090,56 @@ The measurement of the hardness of a material.
 Subtypes of \texttt{Hardness} are: \texttt{BRINELL}, \texttt{LEEB}, \texttt{MOHS}, \texttt{ROCKWELL}, \texttt{SHORE}, \texttt{VICKERS} and \texttt{VICKERS}. 
 \FloatBarrier
 
+\paragraph{RockwellHardness}\mbox{}
+\label{sec:RockwellHardness}
+
+
+
+A scale to measure the resistance to deformation of a surface.
+
+
+\paragraph{VickersHardness}\mbox{}
+\label{sec:VickersHardness}
+
+
+
+A scale to measure the resistance to deformation of a surface.
+
+
+\paragraph{ShoreHardness}\mbox{}
+\label{sec:ShoreHardness}
+
+
+
+A scale to measure the resistance to deformation of a surface.
+
+
+\paragraph{BrinellHardness}\mbox{}
+\label{sec:BrinellHardness}
+
+
+
+A scale to measure the resistance to deformation of a surface.
+
+
+\paragraph{LeebHardness}\mbox{}
+\label{sec:LeebHardness}
+
+
+
+A scale to measure the elasticity of a surface.
+
+
+\paragraph{MohsHardness}\mbox{}
+\label{sec:MohsHardness}
+
+
+
+A scale to measure the resistance to scratching of a surface.
+
+
 \subsubsection{Hardware}
-  \label{sec:Hardware}
+\label{sec:Hardware}
 
 
 
@@ -727,8 +1149,48 @@ The hardware of a component.
 Subtypes of \texttt{Hardware} are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \texttt{MANUFACTURER}, \texttt{RELEASE_DATE}, \texttt{VERSION} and \texttt{VERSION}. 
 \FloatBarrier
 
+\paragraph{VersionHardware}\mbox{}
+\label{sec:VersionHardware}
+
+
+
+The version of the hardware or software.
+
+
+\paragraph{ReleaseDateHardware}\mbox{}
+\label{sec:ReleaseDateHardware}
+
+
+
+The date the hardware or software was released for general use.
+
+
+\paragraph{ManufacturerHardware}\mbox{}
+\label{sec:ManufacturerHardware}
+
+
+
+The corporate identity for the maker of the hardware or software.
+
+
+\paragraph{LicenseHardware}\mbox{}
+\label{sec:LicenseHardware}
+
+
+
+The license code to validate or activate the hardware or software.
+
+
+\paragraph{InstallDateHardware}\mbox{}
+\label{sec:InstallDateHardware}
+
+
+
+The date the hardware or software was installed.
+
+
 \subsubsection{InterfaceState}
-  \label{sec:InterfaceState}
+\label{sec:InterfaceState}
 
 
 
@@ -737,11 +1199,13 @@ An indication of the operational state of an \block{Interface} component.
 
 The value of \texttt{InterfaceState} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{EnabledStateEnum Enumeration}
   \label{enum:EnabledStateEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -755,11 +1219,12 @@ Name & Description \\
 \texttt{ENABLED} & A component is currently operational and performing as expected. \\ \hline
 \texttt{DISABLED} & A component is currently not operational. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{Library}
-  \label{sec:Library}
+\label{sec:Library}
 
 
 
@@ -769,8 +1234,48 @@ The software library on a component.
 Subtypes of \texttt{Library} are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \texttt{MANUFACTURER}, \texttt{RELEASE_DATE}, \texttt{VERSION} and \texttt{VERSION}. 
 \FloatBarrier
 
+\paragraph{VersionLibrary}\mbox{}
+\label{sec:VersionLibrary}
+
+
+
+The version of the hardware or software.
+
+
+\paragraph{ReleaseDateLibrary}\mbox{}
+\label{sec:ReleaseDateLibrary}
+
+
+
+The date the hardware or software was released for general use.
+
+
+\paragraph{ManufacturerLibrary}\mbox{}
+\label{sec:ManufacturerLibrary}
+
+
+
+The corporate identity for the maker of the hardware or software.
+
+
+\paragraph{LicenseLibrary}\mbox{}
+\label{sec:LicenseLibrary}
+
+
+
+The license code to validate or activate the hardware or software.
+
+
+\paragraph{InstallDateLibrary}\mbox{}
+\label{sec:InstallDateLibrary}
+
+
+
+The date the hardware or software was installed.
+
+
 \subsubsection{Line}
-  \label{sec:Line}
+\label{sec:Line}
 
 
 
@@ -780,8 +1285,24 @@ Subtypes of \texttt{Library} are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \text
 Subtypes of \texttt{Line} are: \texttt{MAXIMUM} and \texttt{MINIMUM}. 
 \FloatBarrier
 
+\paragraph{MaximumLine}\mbox{}
+\label{sec:MaximumLine}
+
+
+
+Maximum value of a data entity or attribute.
+
+
+\paragraph{MinimumLine}\mbox{}
+\label{sec:MinimumLine}
+
+
+
+The minimum value of a data entity or attribute.
+
+
 \subsubsection{LineLabel}
-  \label{sec:LineLabel}
+\label{sec:LineLabel}
 
 
 
@@ -790,7 +1311,7 @@ An optional identifier for a \block{BLOCK} of code in a \block{PROGRAM}.
 \FloatBarrier
 
 \subsubsection{LineNumber}
-  \label{sec:LineNumber}
+\label{sec:LineNumber}
 
 
 
@@ -800,8 +1321,24 @@ A reference to the position of a block of program code within a control program.
 Subtypes of \texttt{LineNumber} are: \texttt{ABSOLUTE} and \texttt{INCREMENTAL}. 
 \FloatBarrier
 
+\paragraph{AbsoluteLineNumber}\mbox{}
+\label{sec:AbsoluteLineNumber}
+
+
+
+The position of a block of program code relative to the beginning of the control program.
+
+
+\paragraph{IncrementalLineNumber}\mbox{}
+\label{sec:IncrementalLineNumber}
+
+
+
+The position of a block of program code relative to the occurrence of the last \block{LINE\textunderscore LABEL} encountered in the control program.
+
+
 \subsubsection{Material}
-  \label{sec:Material}
+\label{sec:Material}
 
 
 
@@ -810,7 +1347,7 @@ The identifier of a material used or consumed in the manufacturing process.
 \FloatBarrier
 
 \subsubsection{MaterialChange}
-  \label{sec:MaterialChange}
+\label{sec:MaterialChange}
 
 
 
@@ -819,7 +1356,7 @@ Service to change the type of material or product being loaded or fed to a piece
 \FloatBarrier
 
 \subsubsection{MaterialFeed}
-  \label{sec:MaterialFeed}
+\label{sec:MaterialFeed}
 
 
 
@@ -828,7 +1365,7 @@ Service to advance material or feed product to a piece of equipment from a conti
 \FloatBarrier
 
 \subsubsection{MaterialLayer}
-  \label{sec:MaterialLayer}
+\label{sec:MaterialLayer}
 
 
 
@@ -840,8 +1377,24 @@ Identifies the layers of material applied to a part or product as part of an add
 Subtypes of \texttt{MaterialLayer} are: \texttt{ACTUAL} and \texttt{TARGET}. 
 \FloatBarrier
 
+\paragraph{ActualMaterialLayer}\mbox{}
+\label{sec:ActualMaterialLayer}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{TargetMaterialLayer}\mbox{}
+\label{sec:TargetMaterialLayer}
+
+
+
+The desired measure or count for a data item value.
+
+
 \subsubsection{MaterialLoad}
-  \label{sec:MaterialLoad}
+\label{sec:MaterialLoad}
 
 
 
@@ -850,7 +1403,7 @@ Service to load a piece of material or product.
 \FloatBarrier
 
 \subsubsection{MaterialRetract}
-  \label{sec:MaterialRetract}
+\label{sec:MaterialRetract}
 
 
 
@@ -859,7 +1412,7 @@ Service to remove or retract material or product.
 \FloatBarrier
 
 \subsubsection{MaterialUnload}
-  \label{sec:MaterialUnload}
+\label{sec:MaterialUnload}
 
 
 
@@ -868,7 +1421,7 @@ Service to unload a piece of material or product.
 \FloatBarrier
 
 \subsubsection{Message}
-  \label{sec:Message}
+\label{sec:Message}
 
 
 
@@ -877,7 +1430,7 @@ Any text string of information to be transferred from a piece of equipment to a 
 \FloatBarrier
 
 \subsubsection{Network}
-  \label{sec:Network}
+\label{sec:Network}
 
 
 
@@ -888,10 +1441,13 @@ Subtypes of \texttt{Network} are: \texttt{GATEWAY}, \texttt{IPV4_ADDRESS}, \text
 
 The value fof \texttt{Network} when \texttt{subType} is \texttt{WIRELESS} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{YesNoEnum Enumeration}
+   \\
+
 \hline
 Name & Description \\
 \hline
@@ -905,11 +1461,68 @@ Name & Description \\
 \texttt{YES} & The \block{END\textunderscore OF\textunderscore BAR} has been reached. \\ \hline
 \texttt{NO} & The \block{END\textunderscore OF\textunderscore BAR} has not been reached. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
+\paragraph{IPv4AddressNetwork}\mbox{}
+\label{sec:IPv4AddressNetwork}
+
+
+
+The IPV4 network address of the component.
+
+
+\paragraph{IPv6AddressNetwork}\mbox{}
+\label{sec:IPv6AddressNetwork}
+
+
+
+The IPV6 network address of the component.
+
+
+\paragraph{GatewayNetwork}\mbox{}
+\label{sec:GatewayNetwork}
+
+
+
+The Gateway for the component network.
+
+
+\paragraph{SubnetMaskNetwork}\mbox{}
+\label{sec:SubnetMaskNetwork}
+
+
+
+The SubNet mask for the component network.
+
+
+\paragraph{VLanIdNetwork}\mbox{}
+\label{sec:VLanIdNetwork}
+
+
+
+The layer2 Virtual Local Network (VLAN) ID for the component network.
+
+
+\paragraph{MacAddressNetwork}\mbox{}
+\label{sec:MacAddressNetwork}
+
+
+
+Media Access Control Address. The unique physical address of the network hardware.
+
+
+\paragraph{WirelessNetwork}\mbox{}
+\label{sec:WirelessNetwork}
+
+
+
+Identifies whether the connection type is wireless.
+
+
 \subsubsection{OpenChuck}
-  \label{sec:OpenChuck}
+\label{sec:OpenChuck}
 
 
 
@@ -918,7 +1531,7 @@ Service to open a chuck.
 \FloatBarrier
 
 \subsubsection{OpenDoor}
-  \label{sec:OpenDoor}
+\label{sec:OpenDoor}
 
 
 
@@ -927,7 +1540,7 @@ Service to open a door.
 \FloatBarrier
 
 \subsubsection{OperatingSystem}
-  \label{sec:OperatingSystem}
+\label{sec:OperatingSystem}
 
 
 
@@ -937,8 +1550,48 @@ The Operating System of a component.
 Subtypes of \texttt{OperatingSystem} are: \texttt{INSTALL_DATE}, \texttt{LICENSE}, \texttt{MANUFACTURER}, \texttt{RELEASE_DATE}, \texttt{VERSION} and \texttt{VERSION}. 
 \FloatBarrier
 
+\paragraph{LicenseOperatingSystem}\mbox{}
+\label{sec:LicenseOperatingSystem}
+
+
+
+The license code to validate or activate the hardware or software.
+
+
+\paragraph{VersionOperatingSystem}\mbox{}
+\label{sec:VersionOperatingSystem}
+
+
+
+The version of the hardware or software.
+
+
+\paragraph{ReleaseDateOperatingSystem}\mbox{}
+\label{sec:ReleaseDateOperatingSystem}
+
+
+
+The date the hardware or software was released for general use.
+
+
+\paragraph{InstallDateOperatingSystem}\mbox{}
+\label{sec:InstallDateOperatingSystem}
+
+
+
+The date the hardware or software was installed.
+
+
+\paragraph{ManufacturerOperatingSystem}\mbox{}
+\label{sec:ManufacturerOperatingSystem}
+
+
+
+The corporate identity for the maker of the hardware or software.
+
+
 \subsubsection{OperatorId}
-  \label{sec:OperatorId}
+\label{sec:OperatorId}
 
 
 
@@ -947,7 +1600,7 @@ The identifier of the person currently responsible for operating the piece of eq
 \FloatBarrier
 
 \subsubsection{PalletId}
-  \label{sec:PalletId}
+\label{sec:PalletId}
 
 
 
@@ -956,7 +1609,7 @@ The identifier for a pallet.
 \FloatBarrier
 
 \subsubsection{PartChange}
-  \label{sec:PartChange}
+\label{sec:PartChange}
 
 
 
@@ -965,7 +1618,7 @@ Service to change the part or product associated with a piece of equipment to a 
 \FloatBarrier
 
 \subsubsection{PartCount}
-  \label{sec:PartCount}
+\label{sec:PartCount}
 
 
 
@@ -975,8 +1628,48 @@ The aggregate count of parts.
 Subtypes of \texttt{PartCount} are: \texttt{ALL}, \texttt{BAD}, \texttt{GOOD}, \texttt{REMAINING}, \texttt{TARGET} and \texttt{TARGET}. 
 \FloatBarrier
 
+\paragraph{AllPartCount}\mbox{}
+\label{sec:AllPartCount}
+
+
+
+The number of parts produced. 
+
+
+\paragraph{GoodPartCount}\mbox{}
+\label{sec:GoodPartCount}
+
+
+
+The number of parts produced that conform to specification.
+
+
+\paragraph{BadPartCount}\mbox{}
+\label{sec:BadPartCount}
+
+
+
+The number of parts produced that do not conform to specification.
+
+
+\paragraph{TargetPartCount}\mbox{}
+\label{sec:TargetPartCount}
+
+
+
+The number of projected or planned parts to be produced.
+
+
+\paragraph{RemainingPartCount}\mbox{}
+\label{sec:RemainingPartCount}
+
+
+
+The number of remaining or in-stock parts to be produced.
+
+
 \subsubsection{PartDetect}
-  \label{sec:PartDetect}
+\label{sec:PartDetect}
 
 
 
@@ -986,11 +1679,13 @@ An indication designating whether a part or work piece has been detected or is p
 
 The value of \texttt{PartDetect} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{PartDetectEnum Enumeration}
   \label{enum:PartDetectEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -1004,11 +1699,12 @@ Name & Description \\
 \texttt{PRESENT} & If a part or work piece has been detected or is present. \\ \hline
 \texttt{NOT\textunderscore PRESENT} & If a part or work piece is not detected or is not present. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{PartId}
-  \label{sec:PartId}
+\label{sec:PartId}
 
 
 
@@ -1017,7 +1713,7 @@ An identifier of a part in a manufacturing operation.
 \FloatBarrier
 
 \subsubsection{PartNumber}
-  \label{sec:PartNumber}
+\label{sec:PartNumber}
 
 
 
@@ -1027,7 +1723,7 @@ An identifier of a part or product moving through the manufacturing process.
 \FloatBarrier
 
 \subsubsection{PathFeedrateOverride}
-  \label{sec:PathFeedrateOverride}
+\label{sec:PathFeedrateOverride}
 
 
 
@@ -1037,8 +1733,32 @@ The value of a signal or calculation issued to adjust the feedrate for the axes 
 Subtypes of \texttt{PathFeedrateOverride} are: \texttt{JOG}, \texttt{PROGRAMMED}, \texttt{RAPID} and \texttt{RAPID}. 
 \FloatBarrier
 
+\paragraph{JogPathFeedrateOverride}\mbox{}
+\label{sec:JogPathFeedrateOverride}
+
+
+
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
+
+
+\paragraph{ProgrammedPathFeedrateOverride}\mbox{}
+\label{sec:ProgrammedPathFeedrateOverride}
+
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{RapidPathFeedrateOverride}\mbox{}
+\label{sec:RapidPathFeedrateOverride}
+
+
+
+The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+
+
 \subsubsection{PathMode}
-  \label{sec:PathMode}
+\label{sec:PathMode}
 
 
 
@@ -1047,11 +1767,13 @@ Describes the operational relationship between a \block{Path} \gls{Structural El
 
 The value of \texttt{PathMode} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{PathModeEnum Enumeration}
   \label{enum:PathModeEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -1067,11 +1789,12 @@ Name & Description \\
 \texttt{SYNCHRONOUS} & Physical or logical parts which are not physically connected to each other but are operating together. \\ \hline
 \texttt{MIRROR} & The axes associated with the path are mirroring the motion of the \block{MASTER} path. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{PowerState}
-  \label{sec:PowerState}
+\label{sec:PowerState}
 
 
 
@@ -1080,10 +1803,13 @@ The indication of the status of the source of energy for a \gls{Structural Eleme
 
 The value of \texttt{PowerState} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{OnOffEnum Enumeration}
+   \\
+
 \hline
 Name & Description \\
 \hline
@@ -1097,13 +1823,30 @@ Name & Description \\
 \texttt{ON} & On state or value. \\ \hline
 \texttt{OFF} & Off state or value. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 
 Subtypes of \texttt{PowerState} are: \texttt{CONTROL} and \texttt{LINE}. 
 \FloatBarrier
 
+\paragraph{LinePowerState}\mbox{}
+\label{sec:LinePowerState}
+
+
+
+The state of the power source for the \gls{Structural Element}.
+
+
+\paragraph{ControlPowerState}\mbox{}
+\label{sec:ControlPowerState}
+
+
+
+The state of the enabling signal or control logic that enables or disables the function or operation of the \gls{Structural Element}.
+
+
 \subsubsection{PowerStatus}
-  \label{sec:PowerStatus}
+\label{sec:PowerStatus}
 
 
 
@@ -1112,7 +1855,7 @@ Subtypes of \texttt{PowerState} are: \texttt{CONTROL} and \texttt{LINE}.
 \FloatBarrier
 
 \subsubsection{ProcessTime}
-  \label{sec:ProcessTime}
+\label{sec:ProcessTime}
 
 
 
@@ -1124,8 +1867,32 @@ The time and date associated with an activity or event.
 Subtypes of \texttt{ProcessTime} are: \texttt{COMPLETE}, \texttt{START}, \texttt{TARGET_COMPLETION} and \texttt{TARGET_COMPLETION}. 
 \FloatBarrier
 
+\paragraph{StartProcessTime}\mbox{}
+\label{sec:StartProcessTime}
+
+
+
+The time and date associated with the beginning of an activity or event.
+
+
+\paragraph{CompleteProcessTime}\mbox{}
+\label{sec:CompleteProcessTime}
+
+
+
+Completion of an action.
+
+
+\paragraph{TargetCompletionProcessTime}\mbox{}
+\label{sec:TargetCompletionProcessTime}
+
+
+
+The projected time and date associated with the end or completion of an activity or event.
+
+
 \subsubsection{Program}
-  \label{sec:Program}
+\label{sec:Program}
 
 
 
@@ -1134,7 +1901,7 @@ The name of the logic or motion program being executed by the \block{Controller}
 \FloatBarrier
 
 \subsubsection{ProgramComment}
-  \label{sec:ProgramComment}
+\label{sec:ProgramComment}
 
 
 
@@ -1144,7 +1911,7 @@ A comment or non-executable statement in the control program.
 \FloatBarrier
 
 \subsubsection{ProgramEdit}
-  \label{sec:ProgramEdit}
+\label{sec:ProgramEdit}
 
 
 
@@ -1154,11 +1921,13 @@ An indication of the status of the \block{Controller} components program editing
 
 The value of \texttt{ProgramEdit} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{ActiveStateEnum Enumeration}
   \label{enum:ActiveStateEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -1173,11 +1942,12 @@ Name & Description \\
 \texttt{READY} & A component is ready to engage. \\ \hline
 \texttt{NOT\textunderscore READY} & A component is not ready to engage. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{ProgramEditName}
-  \label{sec:ProgramEditName}
+\label{sec:ProgramEditName}
 
 
 
@@ -1188,7 +1958,7 @@ The name of the program being edited.
 \FloatBarrier
 
 \subsubsection{ProgramHeader}
-  \label{sec:ProgramHeader}
+\label{sec:ProgramHeader}
 
 
 
@@ -1198,8 +1968,32 @@ The non-executable header section of the control program.
 Subtypes of \texttt{ProgramHeader} are: \texttt{ACTIVE}, \texttt{MAIN}, \texttt{SCHEDULE} and \texttt{SCHEDULE}. 
 \FloatBarrier
 
+\paragraph{MainProgramHeader}\mbox{}
+\label{sec:MainProgramHeader}
+
+
+
+The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+
+\paragraph{ScheduleProgramHeader}\mbox{}
+\label{sec:ScheduleProgramHeader}
+
+
+
+The identity of a control program that is used to specify the order of execution of other programs.
+
+
+\paragraph{ActiveProgramHeader}\mbox{}
+\label{sec:ActiveProgramHeader}
+
+
+
+The value of the \gls{Data Entity} that is engaging.
+
+
 \subsubsection{ProgramLocation}
-  \label{sec:ProgramLocation}
+\label{sec:ProgramLocation}
 
 
 
@@ -1209,8 +2003,32 @@ The Uniform Resource Identifier (URI) for the source file associated with \block
 Subtypes of \texttt{ProgramLocation} are: \texttt{ACTIVE}, \texttt{MAIN}, \texttt{SCHEDULE} and \texttt{SCHEDULE}. 
 \FloatBarrier
 
+\paragraph{ScheduleProgramLocation}\mbox{}
+\label{sec:ScheduleProgramLocation}
+
+
+
+The identity of a control program that is used to specify the order of execution of other programs.
+
+
+\paragraph{MainProgramLocation}\mbox{}
+\label{sec:MainProgramLocation}
+
+
+
+The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+
+\paragraph{ActiveProgramLocation}\mbox{}
+\label{sec:ActiveProgramLocation}
+
+
+
+The value of the \gls{Data Entity} that is engaging.
+
+
 \subsubsection{ProgramLocationType}
-  \label{sec:ProgramLocationType}
+\label{sec:ProgramLocationType}
 
 
 
@@ -1222,8 +2040,32 @@ Defines whether the logic or motion program defined by \block{PROGRAM} is being 
 Subtypes of \texttt{ProgramLocationType} are: \texttt{ACTIVE}, \texttt{MAIN}, \texttt{SCHEDULE} and \texttt{SCHEDULE}. 
 \FloatBarrier
 
+\paragraph{ScheduleProgramLocationType}\mbox{}
+\label{sec:ScheduleProgramLocationType}
+
+
+
+The identity of a control program that is used to specify the order of execution of other programs.
+
+
+\paragraph{MainProgramLocationType}\mbox{}
+\label{sec:MainProgramLocationType}
+
+
+
+The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+
+\paragraph{ActiveProgramLocationType}\mbox{}
+\label{sec:ActiveProgramLocationType}
+
+
+
+The value of the \gls{Data Entity} that is engaging.
+
+
 \subsubsection{ProgramNestLevel}
-  \label{sec:ProgramNestLevel}
+\label{sec:ProgramNestLevel}
 
 
 
@@ -1236,7 +2078,7 @@ An indication of the nesting level within a control program that is associated w
 \FloatBarrier
 
 \subsubsection{RotaryMode}
-  \label{sec:RotaryMode}
+\label{sec:RotaryMode}
 
 
 
@@ -1245,11 +2087,13 @@ The current operating mode for a \block{Rotary} type axis.
 
 The value of \texttt{RotaryMode} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{RotaryModeEnum Enumeration}
   \label{enum:RotaryModeEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -1264,11 +2108,12 @@ Name & Description \\
 \texttt{INDEX} & The axis is configured to index. \\ \hline
 \texttt{CONTOUR} & The position of the axis is being interpolated. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{RotaryVelocityOverride}
-  \label{sec:RotaryVelocityOverride}
+\label{sec:RotaryVelocityOverride}
 
 
 
@@ -1278,7 +2123,7 @@ The value of a command issued to adjust the programmed velocity for a \block{Rot
 \FloatBarrier
 
 \subsubsection{Rotation}
-  \label{sec:Rotation}
+
 
 
 
@@ -1290,7 +2135,7 @@ Units for \texttt{Rotation} is: \texttt{DEGREE_3D}.
 \FloatBarrier
 
 \subsubsection{SerialNumber}
-  \label{sec:SerialNumber}
+\label{sec:SerialNumber}
 
 
 
@@ -1299,7 +2144,7 @@ The serial number associated with a \block{Component}, \block{Asset}, or \block{
 \FloatBarrier
 
 \subsubsection{SpindleInterlock}
-  \label{sec:SpindleInterlock}
+\label{sec:SpindleInterlock}
 
 
 
@@ -1308,10 +2153,13 @@ An indication of the status of the spindle for a piece of equipment when power h
 
 The value of \texttt{SpindleInterlock} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{ActuatorStateEnum Enumeration}
+   \\
+
 \hline
 Name & Description \\
 \hline
@@ -1325,11 +2173,12 @@ Name & Description \\
 \texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
 \texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{ToolAssetId}
-  \label{sec:ToolAssetId}
+\label{sec:ToolAssetId}
 
 
 
@@ -1338,7 +2187,7 @@ The identifier of an individual tool asset.The \gls{Valid Data Value} \textbf{MU
 \FloatBarrier
 
 \subsubsection{ToolGroup}
-  \label{sec:ToolGroup}
+\label{sec:ToolGroup}
 
 
 
@@ -1347,7 +2196,7 @@ An identifier for the tool group associated with a specific tool. Commonly used 
 \FloatBarrier
 
 \subsubsection{ToolId}
-  \label{sec:ToolId}
+\label{sec:ToolId}
 
 
 
@@ -1356,7 +2205,7 @@ An identifier for the tool group associated with a specific tool. Commonly used 
 \FloatBarrier
 
 \subsubsection{ToolNumber}
-  \label{sec:ToolNumber}
+\label{sec:ToolNumber}
 
 
 
@@ -1366,7 +2215,7 @@ The identifier assigned by the \block{Controller} component to a cutting tool wh
 \FloatBarrier
 
 \subsubsection{ToolOffset}
-  \label{sec:ToolOffset}
+\label{sec:ToolOffset}
 
 
 
@@ -1376,8 +2225,24 @@ A reference to the tool offset variables applied to the active cutting tool asso
 Subtypes of \texttt{ToolOffset} are: \texttt{LENGTH} and \texttt{RADIAL}. 
 \FloatBarrier
 
+\paragraph{RadialToolOffset}\mbox{}
+\label{sec:RadialToolOffset}
+
+
+
+A reference to a radial type tool offset variable.
+
+
+\paragraph{LengthToolOffset}\mbox{}
+\label{sec:LengthToolOffset}
+
+
+
+A reference to a length type tool offset variable.
+
+
 \subsubsection{Translation}
-  \label{sec:Translation}
+
 
 
 
@@ -1389,7 +2254,7 @@ Units for \texttt{Translation} is: \texttt{MILLIMETER_3D}.
 \FloatBarrier
 
 \subsubsection{User}
-  \label{sec:User}
+\label{sec:User}
 
 
 
@@ -1399,8 +2264,32 @@ The identifier of the person currently responsible for operating the piece of eq
 Subtypes of \texttt{User} are: \texttt{MAINTENANCE}, \texttt{OPERATOR}, \texttt{SET_UP} and \texttt{SET_UP}. 
 \FloatBarrier
 
+\paragraph{OperatorUser}\mbox{}
+\label{sec:OperatorUser}
+
+
+
+The identifier of the person currently responsible for operating the piece of equipment.
+
+
+\paragraph{MaintenanceUser}\mbox{}
+\label{sec:MaintenanceUser}
+
+
+
+Action related to maintenance on the piece of equipment.
+
+
+\paragraph{SetUpUser}\mbox{}
+\label{sec:SetUpUser}
+
+
+
+The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
+
+
 \subsubsection{Variable}
-  \label{sec:Variable}
+\label{sec:Variable}
 
 
 
@@ -1409,7 +2298,7 @@ A data value whose meaning may change over time due to changes in the opertion o
 \FloatBarrier
 
 \subsubsection{WaitState}
-  \label{sec:WaitState}
+\label{sec:WaitState}
 
 
 
@@ -1418,11 +2307,13 @@ An indication of the reason that \block{EXECUTION} is reporting a value of \bloc
 
 The value of \texttt{WaitState} \MUST be one of the following: 
 
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{WaitStateEnum Enumeration}
   \label{enum:WaitStateEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -1445,11 +2336,12 @@ Name & Description \\
 \texttt{PAUSING} & An indication that the execution is waiting while the equipment is pausing but the piece of equipment has not yet reached a fully paused state. \\ \hline
 \texttt{RESUMING} & An indication that the execution is waiting while the equipment is resuming the production cycle but has not yet resumed execution. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \FloatBarrier
 
 \subsubsection{Wire}
-  \label{sec:Wire}
+
 
 
 
@@ -1458,7 +2350,7 @@ A string like piece or filament of relatively rigid or flexible material provide
 \FloatBarrier
 
 \subsubsection{WorkOffset}
-  \label{sec:WorkOffset}
+\label{sec:WorkOffset}
 
 
 
@@ -1467,7 +2359,7 @@ A reference to the offset variables for a work piece or part associated with a \
 \FloatBarrier
 
 \subsubsection{WorkholdingId}
-  \label{sec:WorkholdingId}
+\label{sec:WorkholdingId}
 
 
 

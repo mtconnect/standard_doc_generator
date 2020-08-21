@@ -1,8 +1,8 @@
-% Generated 2020-08-19 14:44:37 +0530
+% Generated 2020-08-21 17:36:06 +0530
 \subsection{Representation} \label{sec:Representation}
 
 \subsubsection{Cell}
-  \label{sec:Cell}
+\label{sec:Cell}
 
 
 
@@ -12,34 +12,34 @@
 \paragraph{Attributes of Cell}\mbox{}
 \label{sec:Attributes of Cell}
 
-\tbl{attributes of Cell} lists the attributes of \texttt{Cell}.
+\tbl{Attributes of Cell} lists the attributes of \texttt{Cell}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Cell}
-  \label{table:attributes of Cell}
+  \label{table:Attributes of Cell}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{key} & \texttt{ID} & 1 \\
-\texttt{value} & \texttt{T} & 1 \\
+\property{key}[Cell] & \texttt{ID} & 1 \\
+\property{value}[Cell] & \texttt{T} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Cell}:
+Descriptions for attributes of \block{Cell}:
 
 \begin{itemize}
-\item \texttt{key} : 
-\item \texttt{value} : 
+\item \property{key}[Cell] : 
+\item \property{value}[Cell] : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{DataSet}
-  \label{sec:DataSet}
+\label{sec:DataSet}
 
 
 
@@ -49,58 +49,58 @@ Descriptions for attributes of \texttt{Cell}:
 \paragraph{Attributes of DataSet}\mbox{}
 \label{sec:Attributes of DataSet}
 
-\tbl{attributes of DataSet} lists the attributes of \texttt{DataSet}.
+\tbl{Attributes of DataSet} lists the attributes of \texttt{DataSet}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of DataSet}
-  \label{table:attributes of DataSet}
+  \label{table:Attributes of DataSet}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{count} & \texttt{integer} & 1 \\
+\property{count}[DataSet] & \texttt{integer} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{DataSet}:
+Descriptions for attributes of \block{DataSet}:
 
 \begin{itemize}
-\item \texttt{count} : 
+\item \property{count}[DataSet] : 
 \end{itemize}
 
 \paragraph{Elements of DataSet}\mbox{}
 \label{sec:Elements of DataSet}
 
-\tbl{elements of DataSet} lists the elements of \texttt{DataSet}.
+\tbl{Elements of DataSet} lists the elements of \texttt{DataSet}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of DataSet}
-  \label{table:elements of DataSet}
+  \label{table:Elements of DataSet}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Entry} & \texttt{Entry} & 0..* \\
+\block{Entry} & \texttt{Entry} & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{DataSet}:
+Descriptions for elements of \block{DataSet}:
 
 \begin{itemize}
-\item \texttt{Entry} : 
+\item \block{Entry} : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Discrete}
-  \label{sec:Discrete}
+\label{sec:Discrete}
 
 
 
@@ -110,32 +110,32 @@ Descriptions for elements of \texttt{DataSet}:
 \paragraph{Attributes of Discrete}\mbox{}
 \label{sec:Attributes of Discrete}
 
-\tbl{attributes of Discrete} lists the attributes of \texttt{Discrete}.
+\tbl{Attributes of Discrete} lists the attributes of \texttt{Discrete}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Discrete}
-  \label{table:attributes of Discrete}
+  \label{table:Attributes of Discrete}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{observationDiscrete} & \texttt{} & 1 \\
+\property{observationDiscrete}[Discrete] & \texttt{} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Discrete}:
+Descriptions for attributes of \block{Discrete}:
 
 \begin{itemize}
-\item \texttt{observationDiscrete} : 
+\item \property{observationDiscrete}[Discrete] : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Entry}
-  \label{sec:Entry}
+\label{sec:Entry}
 
 
 
@@ -145,64 +145,64 @@ Descriptions for attributes of \texttt{Discrete}:
 \paragraph{Attributes of Entry}\mbox{}
 \label{sec:Attributes of Entry}
 
-\tbl{attributes of Entry} lists the attributes of \texttt{Entry}.
+\tbl{Attributes of Entry} lists the attributes of \texttt{Entry}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Entry}
-  \label{table:attributes of Entry}
+  \label{table:Attributes of Entry}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{key} & \texttt{ID} & 1 \\
-\texttt{removed} & \texttt{boolean} & 0..1 \\
-\texttt{hasCell} & \texttt{Cell} & 0..* \\
-\texttt{value} & \texttt{T} & 0..1 \\
+\property{key}[Entry] & \texttt{ID} & 1 \\
+\property{removed}[Entry] & \texttt{boolean} & 0..1 \\
+\property{hasCell}[Entry] & \texttt{Cell} & 0..* \\
+\property{value}[Entry] & \texttt{T} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Entry}:
+Descriptions for attributes of \block{Entry}:
 
 \begin{itemize}
-\item \texttt{key} : 
-\item \texttt{removed} : 
-\item \texttt{hasCell} : 
-\item \texttt{value} : 
+\item \property{key}[Entry] : 
+\item \property{removed}[Entry] : 
+\item \property{hasCell}[Entry] : 
+\item \property{value}[Entry] : 
 \end{itemize}
 
 \paragraph{Elements of Entry}\mbox{}
 \label{sec:Elements of Entry}
 
-\tbl{elements of Entry} lists the elements of \texttt{Entry}.
+\tbl{Elements of Entry} lists the elements of \texttt{Entry}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of Entry}
-  \label{table:elements of Entry}
+  \label{table:Elements of Entry}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Entry} & \texttt{DataSet} & 1 \\
+\block{Entry} & \texttt{DataSet} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{Entry}:
+Descriptions for elements of \block{Entry}:
 
 \begin{itemize}
-\item \texttt{Entry} : 
+\item \block{Entry} : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Table}
-  \label{sec:Table}
+
 
 
 
@@ -212,34 +212,34 @@ Descriptions for elements of \texttt{Entry}:
 \paragraph{Attributes of Table}\mbox{}
 \label{sec:Attributes of Table}
 
-\tbl{attributes of Table} lists the attributes of \texttt{Table}.
+\tbl{Attributes of Table} lists the attributes of \texttt{Table}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Table}
-  \label{table:attributes of Table}
+  \label{table:Attributes of Table}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{hasEntry} & \texttt{Entry} & 0..* \\
-\texttt{count} & \texttt{integer} & 1 \\
+\property{hasEntry}[Table] & \texttt{Entry} & 0..* \\
+\property{count}[Table] & \texttt{integer} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Table}:
+Descriptions for attributes of \block{Table}:
 
 \begin{itemize}
-\item \texttt{hasEntry} : 
-\item \texttt{count} : 
+\item \property{hasEntry}[Table] : 
+\item \property{count}[Table] : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{TimeSeries}
-  \label{sec:TimeSeries}
+\label{sec:TimeSeries}
 
 
 
@@ -249,28 +249,28 @@ Descriptions for attributes of \texttt{Table}:
 \paragraph{Attributes of TimeSeries}\mbox{}
 \label{sec:Attributes of TimeSeries}
 
-\tbl{attributes of TimeSeries} lists the attributes of \texttt{TimeSeries}.
+\tbl{Attributes of TimeSeries} lists the attributes of \texttt{TimeSeries}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of TimeSeries}
-  \label{table:attributes of TimeSeries}
+  \label{table:Attributes of TimeSeries}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{sampleCount} & \texttt{integer} & 1 \\
-\texttt{observationTimeSeries} & \texttt{} & 1..* \\
+\property{sampleCount}[TimeSeries] & \texttt{integer} & 1 \\
+\property{observationTimeSeries}[TimeSeries] & \texttt{} & 1..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{TimeSeries}:
+Descriptions for attributes of \block{TimeSeries}:
 
 \begin{itemize}
-\item \texttt{sampleCount} : 
-\item \texttt{observationTimeSeries} : 
+\item \property{sampleCount}[TimeSeries] : 
+\item \property{observationTimeSeries}[TimeSeries] : 
 \end{itemize}
 \FloatBarrier

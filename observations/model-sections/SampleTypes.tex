@@ -1,8 +1,8 @@
-% Generated 2020-08-19 14:44:37 +0530
-\subsection{Sample Types} \label{sec:SampleTypes}
+% Generated 2020-08-21 17:36:06 +0530
+\subsection{Sample Types} \label{sec:Sample Types}
 
 \subsubsection{Acceleration}
-  \label{sec:Acceleration}
+\label{sec:Acceleration}
 
 
 
@@ -14,7 +14,7 @@ Units for \texttt{Acceleration} is: \texttt{MILLIMETER/SECOND\^{}2}.
 \FloatBarrier
 
 \subsubsection{AccumulatedTime}
-  \label{sec:AccumulatedTime}
+\label{sec:AccumulatedTime}
 
 
 
@@ -26,7 +26,7 @@ Units for \texttt{AccumulatedTime} is: \texttt{SECOND}.
 \FloatBarrier
 
 \subsubsection{Amperage}
-  \label{sec:Amperage}
+\label{sec:Amperage}
 
 
 
@@ -39,8 +39,40 @@ Units for \texttt{Amperage} is: \texttt{AMPERE}.
 Subtypes of \texttt{Amperage} are: \texttt{ACTUAL}, \texttt{ALTERNATING}, \texttt{DIRECT}, \texttt{TARGET} and \texttt{TARGET}. 
 \FloatBarrier
 
+\paragraph{AlternatingAmperage}\mbox{}
+\label{sec:AlternatingAmperage}
+
+
+
+The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
+
+
+\paragraph{DirectAmperage}\mbox{}
+\label{sec:DirectAmperage}
+
+
+
+The measurement of DC current or voltage.
+
+
+\paragraph{ActualAmperage}\mbox{}
+\label{sec:ActualAmperage}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{TargetAmperage}\mbox{}
+\label{sec:TargetAmperage}
+
+
+
+The desired measure or count for a data item value.
+
+
 \subsubsection{AmperageAC}
-  \label{sec:AmperageAC}
+\label{sec:AmperageAC}
 
 
 
@@ -53,8 +85,32 @@ Units for \texttt{AmperageAC} is: \texttt{AMPERE}.
 Subtypes of \texttt{AmperageAC} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\paragraph{ActualAmperageAC}\mbox{}
+\label{sec:ActualAmperageAC}
+
+
+
+The measured amperage within an electrical circuit.
+
+
+\paragraph{CommandedAmperageAC}\mbox{}
+\label{sec:CommandedAmperageAC}
+
+
+
+The value for a current as specified by a component. 
+
+
+\paragraph{ProgrammedAmperageAC}\mbox{}
+\label{sec:ProgrammedAmperageAC}
+
+
+
+The value for a current as specified by a logic or motion program or set by a switch.
+
+
 \subsubsection{AmperageDC}
-  \label{sec:AmperageDC}
+\label{sec:AmperageDC}
 
 
 
@@ -67,8 +123,33 @@ Units for \texttt{AmperageDC} is: \texttt{AMPERE}.
 Subtypes of \texttt{AmperageDC} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\paragraph{ActualAmperageDC}\mbox{}
+\label{sec:ActualAmperageDC}
+
+
+
+The measured amperage within an electrical circuit.
+
+
+\paragraph{CommandedAmperageDC}\mbox{}
+\label{sec:CommandedAmperageDC}
+
+
+
+The value for a current as specified by a component. 
+The \block{COMMANDED} current is a calculated value that includes adjustments and overrides.
+
+
+\paragraph{ProgrammedAmperageDC}\mbox{}
+\label{sec:ProgrammedAmperageDC}
+
+
+
+The value for a current as specified by a logic or motion program or set by a switch.
+
+
 \subsubsection{Angle}
-  \label{sec:Angle}
+\label{sec:Angle}
 
 
 
@@ -81,8 +162,24 @@ Units for \texttt{Angle} is: \texttt{DEGREE}.
 Subtypes of \texttt{Angle} are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\paragraph{CommandedAngle}\mbox{}
+\label{sec:CommandedAngle}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{ActualAngle}\mbox{}
+\label{sec:ActualAngle}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
 \subsubsection{AngularAcceleration}
-  \label{sec:AngularAcceleration}
+\label{sec:AngularAcceleration}
 
 
 
@@ -94,7 +191,7 @@ Units for \texttt{AngularAcceleration} is: \texttt{DEGREE/SECOND\^{}2}.
 \FloatBarrier
 
 \subsubsection{AngularVelocity}
-  \label{sec:AngularVelocity}
+\label{sec:AngularVelocity}
 
 
 
@@ -106,7 +203,7 @@ Units for \texttt{AngularVelocity} is: \texttt{DEGREE/SECOND}.
 \FloatBarrier
 
 \subsubsection{AxisFeedrate}
-  \label{sec:AxisFeedrate}
+\label{sec:AxisFeedrate}
 
 
 
@@ -119,8 +216,56 @@ Units for \texttt{AxisFeedrate} is: \texttt{MILLIMETER/SECOND}.
 Subtypes of \texttt{AxisFeedrate} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{JOG}, \texttt{OVERRIDE}, \texttt{PROGRAMMED}, \texttt{RAPID} and \texttt{RAPID}. 
 \FloatBarrier
 
+\paragraph{ActualAxisFeedrate}\mbox{}
+\label{sec:ActualAxisFeedrate}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedAxisFeedrate}\mbox{}
+\label{sec:CommandedAxisFeedrate}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{JogAxisFeedrate}\mbox{}
+\label{sec:JogAxisFeedrate}
+
+
+
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
+
+
+\paragraph{ProgrammedAxisFeedrate}\mbox{}
+\label{sec:ProgrammedAxisFeedrate}
+
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{RapidAxisFeedrate}\mbox{}
+\label{sec:RapidAxisFeedrate}
+
+
+
+The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+
+
+\paragraph{OverrideAxisFeedrate}\mbox{}
+\label{sec:OverrideAxisFeedrate}
+
+
+
+The operators overridden value.
+
+
 \subsubsection{CapacityFluid}
-  \label{sec:CapacityFluid}
+\label{sec:CapacityFluid}
 
 
 
@@ -132,7 +277,7 @@ Units for \texttt{CapacityFluid} is: \texttt{MILLILITER}.
 \FloatBarrier
 
 \subsubsection{CapacitySpatial}
-  \label{sec:CapacitySpatial}
+\label{sec:CapacitySpatial}
 
 
 
@@ -144,7 +289,7 @@ Units for \texttt{CapacitySpatial} is: \texttt{CUBIC_MILLIMETER}.
 \FloatBarrier
 
 \subsubsection{ClockTime}
-  \label{sec:ClockTime}
+\label{sec:ClockTime}
 
 
 
@@ -156,7 +301,7 @@ Units for \texttt{ClockTime} is: \texttt{yyyy-mm-ddthh:mm:ss.ffff}.
 \FloatBarrier
 
 \subsubsection{Concentration}
-  \label{sec:Concentration}
+\label{sec:Concentration}
 
 
 
@@ -168,7 +313,7 @@ Units for \texttt{Concentration} is: \texttt{PERCENT}.
 \FloatBarrier
 
 \subsubsection{Conductivity}
-  \label{sec:Conductivity}
+\label{sec:Conductivity}
 
 
 
@@ -180,7 +325,7 @@ Units for \texttt{Conductivity} is: \texttt{SIEMENS/METER}.
 \FloatBarrier
 
 \subsubsection{CuttingSpeed}
-  \label{sec:CuttingSpeed}
+\label{sec:CuttingSpeed}
 
 
 
@@ -193,8 +338,32 @@ Units for \texttt{CuttingSpeed} is: \texttt{MILLIMETER/SECOND}.
 Subtypes of \texttt{CuttingSpeed} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\paragraph{ActualCuttingSpeed}\mbox{}
+\label{sec:ActualCuttingSpeed}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedCuttingSpeed}\mbox{}
+\label{sec:CommandedCuttingSpeed}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{ProgrammedCuttingSpeed}\mbox{}
+\label{sec:ProgrammedCuttingSpeed}
+
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
 \subsubsection{Density}
-  \label{sec:Density}
+\label{sec:Density}
 
 
 
@@ -206,7 +375,7 @@ Units for \texttt{Density} is: \texttt{MILLIGRAM/CUBIC_MILLIMETER}.
 \FloatBarrier
 
 \subsubsection{DepositionAccelerationVolumetric}
-  \label{sec:DepositionAccelerationVolumetric}
+\label{sec:DepositionAccelerationVolumetric}
 
 
 
@@ -219,8 +388,24 @@ Units for \texttt{DepositionAccelerationVolumetric} is: \texttt{CUBIC_MILLIMETER
 Subtypes of \texttt{DepositionAccelerationVolumetric} are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\paragraph{ActualDepositionAccelerationVolumetric}\mbox{}
+\label{sec:ActualDepositionAccelerationVolumetric}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedDepositionAccelerationVolumetric}\mbox{}
+\label{sec:CommandedDepositionAccelerationVolumetric}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
 \subsubsection{DepositionDensity}
-  \label{sec:DepositionDensity}
+\label{sec:DepositionDensity}
 
 
 
@@ -233,8 +418,24 @@ Units for \texttt{DepositionDensity} is: \texttt{MILLIGRAM/CUBIC_MILLIMETER}.
 Subtypes of \texttt{DepositionDensity} are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\paragraph{ActualDepositionDensity}\mbox{}
+\label{sec:ActualDepositionDensity}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedDepositionDensity}\mbox{}
+\label{sec:CommandedDepositionDensity}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
 \subsubsection{DepositionMass}
-  \label{sec:DepositionMass}
+\label{sec:DepositionMass}
 
 
 
@@ -247,8 +448,24 @@ Units for \texttt{DepositionMass} is: \texttt{MILLIGRAM}.
 Subtypes of \texttt{DepositionMass} are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\paragraph{ActualDepositionMass}\mbox{}
+\label{sec:ActualDepositionMass}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedDepositionMass}\mbox{}
+\label{sec:CommandedDepositionMass}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
 \subsubsection{DepositionRateVolumetric}
-  \label{sec:DepositionRateVolumetric}
+\label{sec:DepositionRateVolumetric}
 
 
 
@@ -261,8 +478,24 @@ Units for \texttt{DepositionRateVolumetric} is: \texttt{CUBIC_MILLIMETER/SECOND}
 Subtypes of \texttt{DepositionRateVolumetric} are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\paragraph{ActualDepositionRateVolumetric}\mbox{}
+\label{sec:ActualDepositionRateVolumetric}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedDepositionRateVolumetric}\mbox{}
+\label{sec:CommandedDepositionRateVolumetric}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
 \subsubsection{DepositionVolume}
-  \label{sec:DepositionVolume}
+\label{sec:DepositionVolume}
 
 
 
@@ -275,8 +508,24 @@ Units for \texttt{DepositionVolume} is: \texttt{CUBIC_MILLIMETER}.
 Subtypes of \texttt{DepositionVolume} are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\paragraph{ActualDepositionVolume}\mbox{}
+\label{sec:ActualDepositionVolume}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedDepositionVolume}\mbox{}
+\label{sec:CommandedDepositionVolume}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
 \subsubsection{Diameter}
-  \label{sec:Diameter}
+\label{sec:Diameter}
 
 
 
@@ -288,7 +537,7 @@ Units for \texttt{Diameter} is: \texttt{MILLIMETER}.
 \FloatBarrier
 
 \subsubsection{Displacement}
-  \label{sec:Displacement}
+\label{sec:Displacement}
 
 
 
@@ -300,7 +549,7 @@ Units for \texttt{Displacement} is: \texttt{MILLIMETER}.
 \FloatBarrier
 
 \subsubsection{ElectricalEnergy}
-  \label{sec:ElectricalEnergy}
+\label{sec:ElectricalEnergy}
 
 
 
@@ -312,7 +561,7 @@ Units for \texttt{ElectricalEnergy} is: \texttt{WATT_SECOND}.
 \FloatBarrier
 
 \subsubsection{EquipmentTimer}
-  \label{sec:EquipmentTimer}
+\label{sec:EquipmentTimer}
 
 
 
@@ -325,8 +574,48 @@ Units for \texttt{EquipmentTimer} is: \texttt{SECOND}.
 Subtypes of \texttt{EquipmentTimer} are: \texttt{DELAY}, \texttt{LOADED}, \texttt{OPERATING}, \texttt{POWERED}, \texttt{WORKING} and \texttt{WORKING}. 
 \FloatBarrier
 
+\paragraph{LoadedEquipmentTimer}\mbox{}
+\label{sec:LoadedEquipmentTimer}
+
+
+
+Subparts of a piece of equipment are under load.
+
+
+\paragraph{WorkingEquipmentTimer}\mbox{}
+\label{sec:WorkingEquipmentTimer}
+
+
+
+A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
+
+
+\paragraph{OperatingEquipmentTimer}\mbox{}
+\label{sec:OperatingEquipmentTimer}
+
+
+
+A piece of equipment are powered or performing any activity.
+
+
+\paragraph{PoweredEquipmentTimer}\mbox{}
+\label{sec:PoweredEquipmentTimer}
+
+
+
+Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
+
+
+\paragraph{DelayEquipmentTimer}\mbox{}
+\label{sec:DelayEquipmentTimer}
+
+
+
+A piece of equipment waiting for an event or an action to occur.
+
+
 \subsubsection{FillLevel}
-  \label{sec:FillLevel}
+\label{sec:FillLevel}
 
 
 
@@ -338,7 +627,7 @@ Units for \texttt{FillLevel} is: \texttt{PERCENT}.
 \FloatBarrier
 
 \subsubsection{Flow}
-  \label{sec:Flow}
+\label{sec:Flow}
 
 
 
@@ -350,7 +639,7 @@ Units for \texttt{Flow} is: \texttt{LITER/SECOND}.
 \FloatBarrier
 
 \subsubsection{Frequency}
-  \label{sec:Frequency}
+\label{sec:Frequency}
 
 
 
@@ -362,7 +651,7 @@ Units for \texttt{Frequency} is: \texttt{HERTZ}.
 \FloatBarrier
 
 \subsubsection{GlobalPosition}
-  \label{sec:GlobalPosition}
+\label{sec:GlobalPosition}
 
 
 
@@ -371,7 +660,7 @@ Units for \texttt{Frequency} is: \texttt{HERTZ}.
 \FloatBarrier
 
 \subsubsection{HumidityAbsolute}
-  \label{sec:HumidityAbsolute}
+\label{sec:HumidityAbsolute}
 
 
 
@@ -384,8 +673,24 @@ Units for \texttt{HumidityAbsolute} is: \texttt{GRAM/CUBIC_METER}.
 Subtypes of \texttt{HumidityAbsolute} are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\paragraph{ActualHumidityAbsolute}\mbox{}
+\label{sec:ActualHumidityAbsolute}
+
+
+
+The measured value.
+
+
+\paragraph{CommandedHumidityAbsolute}\mbox{}
+\label{sec:CommandedHumidityAbsolute}
+
+
+
+The commanded value.
+
+
 \subsubsection{HumidityRelative}
-  \label{sec:HumidityRelative}
+\label{sec:HumidityRelative}
 
 
 
@@ -398,8 +703,24 @@ Units for \texttt{HumidityRelative} is: \texttt{PERCENT}.
 Subtypes of \texttt{HumidityRelative} are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\paragraph{CommandedHumidityRelative}\mbox{}
+\label{sec:CommandedHumidityRelative}
+
+
+
+The commanded value.
+
+
+\paragraph{ActualHumidityRelative}\mbox{}
+\label{sec:ActualHumidityRelative}
+
+
+
+The measured value.
+
+
 \subsubsection{HumiditySpecific}
-  \label{sec:HumiditySpecific}
+\label{sec:HumiditySpecific}
 
 
 
@@ -412,8 +733,24 @@ Units for \texttt{HumiditySpecific} is: \texttt{PERCENT}.
 Subtypes of \texttt{HumiditySpecific} are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\paragraph{ActualHumiditySpecific}\mbox{}
+\label{sec:ActualHumiditySpecific}
+
+
+
+The measured value.
+
+
+\paragraph{CommandedHumiditySpecific}\mbox{}
+\label{sec:CommandedHumiditySpecific}
+
+
+
+The commanded value.
+
+
 \subsubsection{Length}
-  \label{sec:Length}
+\label{sec:Length}
 
 
 
@@ -426,8 +763,32 @@ Units for \texttt{Length} is: \texttt{MILLIMETER}.
 Subtypes of \texttt{Length} are: \texttt{REMAINING}, \texttt{STANDARD}, \texttt{USEABLE} and \texttt{USEABLE}. 
 \FloatBarrier
 
+\paragraph{StandardLength}\mbox{}
+\label{sec:StandardLength}
+
+
+
+The standard or original length of an object.
+
+
+\paragraph{RemainingLength}\mbox{}
+\label{sec:RemainingLength}
+
+
+
+Remaining measure of an object or an action.
+
+
+\paragraph{UseableLength}\mbox{}
+\label{sec:UseableLength}
+
+
+
+The remaining useable length of an object.
+
+
 \subsubsection{Level}
-  \label{sec:Level}
+\label{sec:Level}
 
 
 
@@ -436,7 +797,7 @@ Subtypes of \texttt{Length} are: \texttt{REMAINING}, \texttt{STANDARD}, \texttt{
 \FloatBarrier
 
 \subsubsection{LinearForce}
-  \label{sec:LinearForce}
+\label{sec:LinearForce}
 
 
 
@@ -448,7 +809,7 @@ Units for \texttt{LinearForce} is: \texttt{NEWTON}.
 \FloatBarrier
 
 \subsubsection{Load}
-  \label{sec:Load}
+\label{sec:Load}
 
 
 
@@ -460,7 +821,7 @@ Units for \texttt{Load} is: \texttt{PERCENT}.
 \FloatBarrier
 
 \subsubsection{Mass}
-  \label{sec:Mass}
+\label{sec:Mass}
 
 
 
@@ -472,7 +833,7 @@ Units for \texttt{Mass} is: \texttt{KILOGRAM}.
 \FloatBarrier
 
 \subsubsection{Orientation}
-  \label{sec:Orientation}
+\label{sec:Orientation}
 
 
 
@@ -485,8 +846,24 @@ Units for \texttt{Orientation} is: \texttt{DEGREE_3D}.
 Subtypes of \texttt{Orientation} are: \texttt{ACTUAL} and \texttt{COMMANDED}. 
 \FloatBarrier
 
+\paragraph{ActualOrientation}\mbox{}
+\label{sec:ActualOrientation}
+
+
+
+The measured value.
+
+
+\paragraph{CommandedOrientation}\mbox{}
+\label{sec:CommandedOrientation}
+
+
+
+The commanded value.
+
+
 \subsubsection{PH}
-  \label{sec:PH}
+\label{sec:PH}
 
 
 
@@ -498,7 +875,7 @@ Units for \texttt{PH} is: \texttt{PH}.
 \FloatBarrier
 
 \subsubsection{PathFeedrate}
-  \label{sec:PathFeedrate}
+\label{sec:PathFeedrate}
 
 
 
@@ -511,8 +888,56 @@ Units for \texttt{PathFeedrate} is: \texttt{MILLIMETER/SECOND}.
 Subtypes of \texttt{PathFeedrate} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{JOG}, \texttt{OVERRIDE}, \texttt{PROGRAMMED}, \texttt{RAPID} and \texttt{RAPID}. 
 \FloatBarrier
 
+\paragraph{ActualPathFeedrate}\mbox{}
+\label{sec:ActualPathFeedrate}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedPathFeedrate}\mbox{}
+\label{sec:CommandedPathFeedrate}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{JogPathFeedrate}\mbox{}
+\label{sec:JogPathFeedrate}
+
+
+
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
+
+
+\paragraph{ProgrammedPathFeedrate}\mbox{}
+\label{sec:ProgrammedPathFeedrate}
+
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{RapidPathFeedrate}\mbox{}
+\label{sec:RapidPathFeedrate}
+
+
+
+The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+
+
+\paragraph{OverridePathFeedrate}\mbox{}
+\label{sec:OverridePathFeedrate}
+
+
+
+The operators overridden value.
+
+
 \subsubsection{PathFeedratePerRevolution}
-  \label{sec:PathFeedratePerRevolution}
+\label{sec:PathFeedratePerRevolution}
 
 
 
@@ -525,8 +950,32 @@ Units for \texttt{PathFeedratePerRevolution} is: \texttt{MILLIMETER/REVOLUTION}.
 Subtypes of \texttt{PathFeedratePerRevolution} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\paragraph{ActualPathFeedratePerRevolution}\mbox{}
+\label{sec:ActualPathFeedratePerRevolution}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedPathFeedratePerRevolution}\mbox{}
+\label{sec:CommandedPathFeedratePerRevolution}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{ProgrammedPathFeedratePerRevolution}\mbox{}
+\label{sec:ProgrammedPathFeedratePerRevolution}
+
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
 \subsubsection{PathPosition}
-  \label{sec:PathPosition}
+\label{sec:PathPosition}
 
 
 
@@ -539,8 +988,40 @@ Units for \texttt{PathPosition} is: \texttt{MILLIMETER_3D}.
 Subtypes of \texttt{PathPosition} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROBE}, \texttt{TARGET} and \texttt{TARGET}. 
 \FloatBarrier
 
+\paragraph{ActualPathPosition}\mbox{}
+\label{sec:ActualPathPosition}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedPathPosition}\mbox{}
+\label{sec:CommandedPathPosition}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{TargetPathPosition}\mbox{}
+\label{sec:TargetPathPosition}
+
+
+
+The desired measure or count for a data item value.
+
+
+\paragraph{ProbePathPosition}\mbox{}
+\label{sec:ProbePathPosition}
+
+
+
+The position provided by a measurement probe.
+
+
 \subsubsection{Position}
-  \label{sec:Position}
+\label{sec:Position}
 
 
 
@@ -553,8 +1034,40 @@ Units for \texttt{Position} is: \texttt{MILLIMETER}.
 Subtypes of \texttt{Position} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED}, \texttt{TARGET} and \texttt{TARGET}. 
 \FloatBarrier
 
+\paragraph{ActualPosition}\mbox{}
+\label{sec:ActualPosition}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedPosition}\mbox{}
+\label{sec:CommandedPosition}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{ProgrammedPosition}\mbox{}
+\label{sec:ProgrammedPosition}
+
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{TargetPosition}\mbox{}
+\label{sec:TargetPosition}
+
+
+
+The desired measure or count for a data item value.
+
+
 \subsubsection{PowerFactor}
-  \label{sec:PowerFactor}
+\label{sec:PowerFactor}
 
 
 
@@ -566,7 +1079,7 @@ Units for \texttt{PowerFactor} is: \texttt{PERCENT}.
 \FloatBarrier
 
 \subsubsection{Pressure}
-  \label{sec:Pressure}
+\label{sec:Pressure}
 
 
 
@@ -578,7 +1091,7 @@ Units for \texttt{Pressure} is: \texttt{PASCAL}.
 \FloatBarrier
 
 \subsubsection{ProcessTimer}
-  \label{sec:ProcessTimer}
+\label{sec:ProcessTimer}
 
 
 
@@ -591,8 +1104,24 @@ Units for \texttt{ProcessTimer} is: \texttt{SECOND}.
 Subtypes of \texttt{ProcessTimer} are: \texttt{DELAY} and \texttt{PROCESS}. 
 \FloatBarrier
 
+\paragraph{ProcessProcessTimer}\mbox{}
+\label{sec:ProcessProcessTimer}
+
+
+
+The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
+
+
+\paragraph{DelayProcessTimer}\mbox{}
+\label{sec:DelayProcessTimer}
+
+
+
+A piece of equipment waiting for an event or an action to occur.
+
+
 \subsubsection{Resistance}
-  \label{sec:Resistance}
+\label{sec:Resistance}
 
 
 
@@ -604,7 +1133,7 @@ Units for \texttt{Resistance} is: \texttt{OHM}.
 \FloatBarrier
 
 \subsubsection{RotaryVelocity}
-  \label{sec:RotaryVelocity}
+\label{sec:RotaryVelocity}
 
 
 
@@ -617,8 +1146,40 @@ Units for \texttt{RotaryVelocity} is: \texttt{REVOLUTION/MINUTE}.
 Subtypes of \texttt{RotaryVelocity} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{OVERRIDE}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\paragraph{ActualRotaryVelocity}\mbox{}
+\label{sec:ActualRotaryVelocity}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedRotaryVelocity}\mbox{}
+\label{sec:CommandedRotaryVelocity}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{ProgrammedRotaryVelocity}\mbox{}
+\label{sec:ProgrammedRotaryVelocity}
+
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{OverrideRotaryVelocity}\mbox{}
+\label{sec:OverrideRotaryVelocity}
+
+
+
+The operators overridden value.
+
+
 \subsubsection{SoundLevel}
-  \label{sec:SoundLevel}
+\label{sec:SoundLevel}
 
 
 
@@ -631,8 +1192,48 @@ Units for \texttt{SoundLevel} is: \texttt{DECIBEL}.
 Subtypes of \texttt{SoundLevel} are: \texttt{A_SCALE}, \texttt{B_SCALE}, \texttt{C_SCALE}, \texttt{D_SCALE}, \texttt{NO_SCALE} and \texttt{NO_SCALE}. 
 \FloatBarrier
 
+\paragraph{NoScaleSoundLevel}\mbox{}
+\label{sec:NoScaleSoundLevel}
+
+
+
+No weighting factor on the frequency scale
+
+
+\paragraph{AScaleSoundLevel}\mbox{}
+\label{sec:AScaleSoundLevel}
+
+
+
+A Scale weighting factor.   This is the default weighting factor if no factor is specified
+
+
+\paragraph{BScaleSoundLevel}\mbox{}
+\label{sec:BScaleSoundLevel}
+
+
+
+B Scale weighting factor
+
+
+\paragraph{CScaleSoundLevel}\mbox{}
+\label{sec:CScaleSoundLevel}
+
+
+
+C Scale weighting factor
+
+
+\paragraph{DScaleSoundLevel}\mbox{}
+\label{sec:DScaleSoundLevel}
+
+
+
+D Scale weighting factor
+
+
 \subsubsection{SpindleSpeed}
-  \label{sec:SpindleSpeed}
+\label{sec:SpindleSpeed}
 
 
 
@@ -645,8 +1246,32 @@ Units for \texttt{SpindleSpeed} is: \texttt{REVOLUTION/MINUTE}.
 Subtypes of \texttt{SpindleSpeed} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{OVERRIDE} and \texttt{OVERRIDE}. 
 \FloatBarrier
 
+\paragraph{ActualSpindleSpeed}\mbox{}
+\label{sec:ActualSpindleSpeed}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedSpindleSpeed}\mbox{}
+\label{sec:CommandedSpindleSpeed}
+
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{OverrideSpindleSpeed}\mbox{}
+\label{sec:OverrideSpindleSpeed}
+
+
+
+The operators overridden value.
+
+
 \subsubsection{Strain}
-  \label{sec:Strain}
+\label{sec:Strain}
 
 
 
@@ -658,7 +1283,7 @@ Units for \texttt{Strain} is: \texttt{PERCENT}.
 \FloatBarrier
 
 \subsubsection{Temperature}
-  \label{sec:Temperature}
+\label{sec:Temperature}
 
 
 
@@ -670,7 +1295,7 @@ Units for \texttt{Temperature} is: \texttt{CELSIUS}.
 \FloatBarrier
 
 \subsubsection{Tension}
-  \label{sec:Tension}
+\label{sec:Tension}
 
 
 
@@ -682,7 +1307,7 @@ Units for \texttt{Tension} is: \texttt{NEWTON}.
 \FloatBarrier
 
 \subsubsection{Tilt}
-  \label{sec:Tilt}
+\label{sec:Tilt}
 
 
 
@@ -694,7 +1319,7 @@ Units for \texttt{Tilt} is: \texttt{MICRO_RADIAN}.
 \FloatBarrier
 
 \subsubsection{Torque}
-  \label{sec:Torque}
+\label{sec:Torque}
 
 
 
@@ -706,7 +1331,7 @@ Units for \texttt{Torque} is: \texttt{NEWTON_METER}.
 \FloatBarrier
 
 \subsubsection{Velocity}
-  \label{sec:Velocity}
+\label{sec:Velocity}
 
 
 
@@ -718,7 +1343,7 @@ Units for \texttt{Velocity} is: \texttt{MILLIMETER/SECOND}.
 \FloatBarrier
 
 \subsubsection{Viscosity}
-  \label{sec:Viscosity}
+\label{sec:Viscosity}
 
 
 
@@ -730,7 +1355,7 @@ Units for \texttt{Viscosity} is: \texttt{PASCAL_SECOND}.
 \FloatBarrier
 
 \subsubsection{VoltAmpere}
-  \label{sec:VoltAmpere}
+\label{sec:VoltAmpere}
 
 
 
@@ -742,7 +1367,7 @@ Units for \texttt{VoltAmpere} is: \texttt{VOLT_AMPERE}.
 \FloatBarrier
 
 \subsubsection{VoltAmpereReactive}
-  \label{sec:VoltAmpereReactive}
+\label{sec:VoltAmpereReactive}
 
 
 
@@ -754,7 +1379,7 @@ Units for \texttt{VoltAmpereReactive} is: \texttt{VOLT_AMPERE_REACTIVE}.
 \FloatBarrier
 
 \subsubsection{Voltage}
-  \label{sec:Voltage}
+\label{sec:Voltage}
 
 
 
@@ -767,8 +1392,40 @@ Units for \texttt{Voltage} is: \texttt{VOLT}.
 Subtypes of \texttt{Voltage} are: \texttt{ACTUAL}, \texttt{ALTERNATING}, \texttt{DIRECT}, \texttt{TARGET} and \texttt{TARGET}. 
 \FloatBarrier
 
+\paragraph{AlternatingVoltage}\mbox{}
+\label{sec:AlternatingVoltage}
+
+
+
+The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
+
+
+\paragraph{DirectVoltage}\mbox{}
+\label{sec:DirectVoltage}
+
+
+
+The measurement of DC current or voltage.
+
+
+\paragraph{ActualVoltage}\mbox{}
+\label{sec:ActualVoltage}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{TargetVoltage}\mbox{}
+\label{sec:TargetVoltage}
+
+
+
+The desired measure or count for a data item value.
+
+
 \subsubsection{VoltageAC}
-  \label{sec:VoltageAC}
+\label{sec:VoltageAC}
 
 
 
@@ -781,8 +1438,32 @@ Units for \texttt{VoltageAC} is: \texttt{VOLT}.
 Subtypes of \texttt{VoltageAC} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\paragraph{ActualVoltageAC}\mbox{}
+\label{sec:ActualVoltageAC}
+
+
+
+The measured voltage within an electrical circuit.
+
+
+\paragraph{CommandedVoltageAC}\mbox{}
+\label{sec:CommandedVoltageAC}
+
+
+
+The value for a voltage as specified by a \block{Controller} component.
+
+
+\paragraph{ProgrammedVoltageAC}\mbox{}
+\label{sec:ProgrammedVoltageAC}
+
+
+
+The value for a voltage as specified by a logic or motion program or set by a switch.
+
+
 \subsubsection{VoltageDC}
-  \label{sec:VoltageDC}
+\label{sec:VoltageDC}
 
 
 
@@ -795,8 +1476,32 @@ Units for \texttt{VoltageDC} is: \texttt{VOLT}.
 Subtypes of \texttt{VoltageDC} are: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED} and \texttt{PROGRAMMED}. 
 \FloatBarrier
 
+\paragraph{ActualVoltageDC}\mbox{}
+\label{sec:ActualVoltageDC}
+
+
+
+The measured voltage within an electrical circuit.
+
+
+\paragraph{CommandedVoltageDC}\mbox{}
+\label{sec:CommandedVoltageDC}
+
+
+
+The value for a voltage as specified by a \block{Controller} component.
+
+
+\paragraph{ProgrammedVoltageDC}\mbox{}
+\label{sec:ProgrammedVoltageDC}
+
+
+
+The value for a voltage as specified by a logic or motion program or set by a switch.
+
+
 \subsubsection{VolumeFluid}
-  \label{sec:VolumeFluid}
+\label{sec:VolumeFluid}
 
 
 
@@ -809,8 +1514,24 @@ Units for \texttt{VolumeFluid} is: \texttt{MILLILITER}.
 Subtypes of \texttt{VolumeFluid} are: \texttt{ACTUAL} and \texttt{CONSUMED}. 
 \FloatBarrier
 
+\paragraph{ActualVolumeFluid}\mbox{}
+\label{sec:ActualVolumeFluid}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{ConsumedVolumeFluid}\mbox{}
+\label{sec:ConsumedVolumeFluid}
+
+
+
+The amount of bulk material consumed from an object or container during a manufacturing process.
+
+
 \subsubsection{VolumeSpatial}
-  \label{sec:VolumeSpatial}
+\label{sec:VolumeSpatial}
 
 
 
@@ -823,8 +1544,24 @@ Units for \texttt{VolumeSpatial} is: \texttt{CUBIC_MILLIMETER}.
 Subtypes of \texttt{VolumeSpatial} are: \texttt{ACTUAL} and \texttt{CONSUMED}. 
 \FloatBarrier
 
+\paragraph{ActualVolumeSpatial}\mbox{}
+\label{sec:ActualVolumeSpatial}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{ConsumedVolumeSpatial}\mbox{}
+\label{sec:ConsumedVolumeSpatial}
+
+
+
+The amount of bulk material consumed from an object or container during a manufacturing process.
+
+
 \subsubsection{Wattage}
-  \label{sec:Wattage}
+\label{sec:Wattage}
 
 
 
@@ -837,8 +1574,24 @@ Units for \texttt{Wattage} is: \texttt{WATT}.
 Subtypes of \texttt{Wattage} are: \texttt{ACTUAL} and \texttt{TARGET}. 
 \FloatBarrier
 
+\paragraph{ActualWattage}\mbox{}
+\label{sec:ActualWattage}
+
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{TargetWattage}\mbox{}
+\label{sec:TargetWattage}
+
+
+
+The desired measure or count for a data item value.
+
+
 \subsubsection{XDimension}
-  \label{sec:XDimension}
+\label{sec:XDimension}
 
 
 
@@ -850,7 +1603,7 @@ Units for \texttt{XDimension} is: \texttt{MILLIMETER}.
 \FloatBarrier
 
 \subsubsection{YDimension}
-  \label{sec:YDimension}
+\label{sec:YDimension}
 
 
 
@@ -862,7 +1615,7 @@ Units for \texttt{YDimension} is: \texttt{MILLIMETER}.
 \FloatBarrier
 
 \subsubsection{ZDimension}
-  \label{sec:ZDimension}
+\label{sec:ZDimension}
 
 
 

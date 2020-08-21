@@ -239,7 +239,7 @@
 % \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}} %
 
 \setcounter{secnumdepth}{5}
-\setcounter{tocdepth}{5}
+\setcounter{tocdepth}{3}
 
 \makeatletter
 \renewcommand\subparagraph{%

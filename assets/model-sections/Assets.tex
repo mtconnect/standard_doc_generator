@@ -1,4 +1,4 @@
-% Generated 2020-08-19 14:44:38 +0530
+% Generated 2020-08-21 17:36:09 +0530
 \subsection{Assets} \label{sec:Assets}
 
 
@@ -6,7 +6,7 @@
 
 
 \subsubsection{Asset}
-  \label{sec:Asset}
+\label{sec:Asset}
 
 
 
@@ -24,58 +24,58 @@ An Asset&#160;is something that is used in the manufacturing process, but is not
 \paragraph{Attributes of Asset}\mbox{}
 \label{sec:Attributes of Asset}
 
-\tbl{attributes of Asset} lists the attributes of \texttt{Asset}.
+\tbl{Attributes of Asset} lists the attributes of \texttt{Asset}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Asset}
-  \label{table:attributes of Asset}
+  \label{table:Attributes of Asset}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{assetId} & \texttt{ID} & 1 \\
-\texttt{deviceUuid} & \texttt{NMTOKEN} & 1 \\
-\texttt{removed} & \texttt{boolean} & 0..1 \\
-\texttt{timestamp} & \texttt{dateTime} & 1 \\
+\property{assetId}[Asset] & \texttt{ID} & 1 \\
+\property{deviceUuid}[Asset] & \texttt{NMTOKEN} & 1 \\
+\property{removed}[Asset] & \texttt{boolean} & 0..1 \\
+\property{timestamp}[Asset] & \texttt{dateTime} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Asset}:
+Descriptions for attributes of \block{Asset}:
 
 \begin{itemize}
-\item \texttt{assetId} : The unique identifier for an Asset.
-\item \texttt{deviceUuid} : The piece of equipment's uuid that supplied the Asset's data.
-\item \texttt{removed} : An indicator that the Asset has been removed from the piece of equipment.
-\item \texttt{timestamp} : The point in time time the Asset data was last modified.
+\item \property{assetId}[Asset] : The unique identifier for an Asset.
+\item \property{deviceUuid}[Asset] : The piece of equipment's uuid that supplied the Asset's data.
+\item \property{removed}[Asset] : An indicator that the Asset has been removed from the piece of equipment.
+\item \property{timestamp}[Asset] : The point in time time the Asset data was last modified.
 \end{itemize}
 
 \paragraph{Elements of Asset}\mbox{}
 \label{sec:Elements of Asset}
 
-\tbl{elements of Asset} lists the elements of \texttt{Asset}.
+\tbl{Elements of Asset} lists the elements of \texttt{Asset}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of Asset}
-  \label{table:elements of Asset}
+  \label{table:Elements of Asset}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Description} & \texttt{Description} & 0..1 \\
+\block{Description} & \texttt{Description} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{Asset}:
+Descriptions for elements of \block{Asset}:
 
 \begin{itemize}
-\item \texttt{Description} : An element that can contain any descriptive content.
+\item \block{Description} : The descriptive content.
 \end{itemize}
 \FloatBarrier

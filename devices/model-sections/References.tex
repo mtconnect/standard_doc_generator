@@ -1,12 +1,22 @@
-% Generated 2020-08-19 14:44:34 +0530
+% Generated 2020-08-21 17:36:02 +0530
 \subsection{References} \label{sec:References}
 
 
 \block{References} \glspl{organize} \block{Reference} elements.
 
+\begin{figure}[ht]
+  \centering
+    \includegraphics[width=1.0\textwidth]{figures/References.png}
+  \caption{References Diagram}
+  \label{fig:References}
+\end{figure}
+
+\FloatBarrier
+
+
 
 \subsubsection{Reference}
-  \label{sec:Reference}
+\label{sec:Reference}
 
 
 
@@ -16,34 +26,34 @@
 \paragraph{Attributes of Reference}\mbox{}
 \label{sec:Attributes of Reference}
 
-\tbl{attributes of Reference} lists the attributes of \texttt{Reference}.
+\tbl{Attributes of Reference} lists the attributes of \texttt{Reference}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Reference}
-  \label{table:attributes of Reference}
+  \label{table:Attributes of Reference}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{idRef} & \texttt{ID} & 1 \\
-\texttt{name} & \texttt{string} & 0..1 \\
+\property{idRef}[Reference] & \texttt{ID} & 1 \\
+\property{name}[Reference] & \texttt{string} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Reference}:
+Descriptions for attributes of \block{Reference}:
 
 \begin{itemize}
-\item \texttt{idRef} : A pointer to the \block{id} attribute of an element that contains the information to be associated with this XML element.
-\item \texttt{name} : The name of an element or a piece of equipment.
+\item \property{idRef}[Reference] : A pointer to the \block{id} attribute of an element that contains the information to be associated with this XML element.
+\item \property{name}[Reference] : The name of an element or a piece of equipment.
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{DataItemRef}
-  \label{sec:DataItemRef}
+\label{sec:DataItemRef}
 
 
 
@@ -53,32 +63,32 @@ Descriptions for attributes of \texttt{Reference}:
 \paragraph{Attributes of DataItemRef}\mbox{}
 \label{sec:Attributes of DataItemRef}
 
-\tbl{attributes of DataItemRef} lists the attributes of \texttt{DataItemRef}.
+\tbl{Attributes of DataItemRef} lists the attributes of \texttt{DataItemRef}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of DataItemRef}
-  \label{table:attributes of DataItemRef}
+  \label{table:Attributes of DataItemRef}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{idRef} & \texttt{DataItem} & 1 \\
+\property{idRef}[DataItemRef] & \texttt{DataItem} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{DataItemRef}:
+Descriptions for attributes of \block{DataItemRef}:
 
 \begin{itemize}
-\item \texttt{idRef} : A pointer to the \property{id} attribute of the \block{DataItem} that contains the information to be associated with this element.
+\item \property{idRef}[DataItemRef] : A pointer to the \property{id} attribute of the \block{DataItem} that contains the information to be associated with this element.
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{ComponentRef}
-  \label{sec:ComponentRef}
+\label{sec:ComponentRef}
 
 
 
@@ -88,26 +98,26 @@ Descriptions for attributes of \texttt{DataItemRef}:
 \paragraph{Attributes of ComponentRef}\mbox{}
 \label{sec:Attributes of ComponentRef}
 
-\tbl{attributes of ComponentRef} lists the attributes of \texttt{ComponentRef}.
+\tbl{Attributes of ComponentRef} lists the attributes of \texttt{ComponentRef}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of ComponentRef}
-  \label{table:attributes of ComponentRef}
+  \label{table:Attributes of ComponentRef}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{idRef} & \texttt{Component} & 1 \\
+\property{idRef}[ComponentRef] & \texttt{Component} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{ComponentRef}:
+Descriptions for attributes of \block{ComponentRef}:
 
 \begin{itemize}
-\item \texttt{idRef} : A pointer to the \property{id} attribute of the \block{Component} that contains the information to be associated with this element.
+\item \property{idRef}[ComponentRef] : A pointer to the \property{id} attribute of the \block{Component} that contains the information to be associated with this element.
 \end{itemize}
 \FloatBarrier

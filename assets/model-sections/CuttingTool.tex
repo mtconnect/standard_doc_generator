@@ -1,4 +1,4 @@
-% Generated 2020-08-19 14:44:38 +0530
+% Generated 2020-08-21 17:36:09 +0530
 \subsection{CuttingTool} \label{sec:CuttingTool}
 
 
@@ -6,7 +6,7 @@ The \block{CuttingTool} \gls{Information Model} illustrated in \ref{cuttingtool-
 
 
 \subsubsection{CuttingTool}
-  \label{sec:CuttingTool}
+\label{sec:CuttingTool}
 
 
 
@@ -16,66 +16,66 @@ A CuttingTool physically removes the material from the workpiece by shear deform
 \paragraph{Attributes of CuttingTool}\mbox{}
 \label{sec:Attributes of CuttingTool}
 
-\tbl{attributes of CuttingTool} lists the attributes of \texttt{CuttingTool}.
+\tbl{Attributes of CuttingTool} lists the attributes of \texttt{CuttingTool}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of CuttingTool}
-  \label{table:attributes of CuttingTool}
+  \label{table:Attributes of CuttingTool}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{manufacturers} & \texttt{string} & 0..1 \\
-\texttt{serialNumber} & \texttt{string} & 1 \\
-\texttt{toolId} & \texttt{string} & 1 \\
+\property{manufacturers}[CuttingTool] & \texttt{string} & 0..1 \\
+\property{serialNumber}[CuttingTool] & \texttt{string} & 1 \\
+\property{toolId}[CuttingTool] & \texttt{string} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{CuttingTool}:
+Descriptions for attributes of \block{CuttingTool}:
 
 \begin{itemize}
-\item \texttt{manufacturers} : The manufacturers of the Cutting Item or Tool.
-\item \texttt{serialNumber} : The unique identifier for this assembly.
-\item \texttt{toolId} : The identifier for a class of cutting tools.
+\item \property{manufacturers}[CuttingTool] : The manufacturers of the Cutting Item or Tool.
+\item \property{serialNumber}[CuttingTool] : The unique identifier for this assembly.
+\item \property{toolId}[CuttingTool] : The identifier for a class of cutting tools.
 \end{itemize}
 
 \paragraph{Elements of CuttingTool}\mbox{}
 \label{sec:Elements of CuttingTool}
 
-\tbl{elements of CuttingTool} lists the elements of \texttt{CuttingTool}.
+\tbl{Elements of CuttingTool} lists the elements of \texttt{CuttingTool}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of CuttingTool}
-  \label{table:elements of CuttingTool}
+  \label{table:Elements of CuttingTool}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{CuttingToolLifeCycle} & \texttt{CuttingToolLifeCycle} & 0..1 \\
-\texttt{CuttingToolArchetypeReference} & \texttt{CuttingToolArchetypeReference} & 0..1 \\
-\texttt{<<deprecated>> CuttingToolDefinition} & \texttt{CuttingToolDefinition} & 0..1 \\
+\block{CuttingToolLifeCycle} & \texttt{CuttingToolLifeCycle} & 0..1 \\
+\block{CuttingToolArchetypeReference} & \texttt{CuttingToolArchetypeReference} & 0..1 \\
+\texttt{<<deprecated>>} \block{CuttingToolDefinition} & \texttt{CuttingToolDefinition} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{CuttingTool}:
+Descriptions for elements of \block{CuttingTool}:
 
 \begin{itemize}
-\item \texttt{CuttingToolLifeCycle} : Data regarding the use of the cutting tool.
-\item \texttt{CuttingToolArchetypeReference} : CuttingToolArchetypeReference has reference information about the assetId and/or the URL of the data source of CuttingToolArchetype.
-\item \texttt{CuttingToolDefinition} : Reference to an ISO 13399.
+\item \block{CuttingToolLifeCycle} : Data regarding the use of the cutting tool.
+\item \block{CuttingToolArchetypeReference} : CuttingToolArchetypeReference has reference information about the assetId and/or the URL of the data source of CuttingToolArchetype.
+\item \block{CuttingToolDefinition} : Reference to an ISO 13399.
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{CuttingToolArchetype}
-  \label{sec:CuttingToolArchetype}
+\label{sec:CuttingToolArchetype}
 
 
 
@@ -85,64 +85,64 @@ The CuttingToolArchetype represents the static cutting tool geometries and nomin
 \paragraph{Attributes of CuttingToolArchetype}\mbox{}
 \label{sec:Attributes of CuttingToolArchetype}
 
-\tbl{attributes of CuttingToolArchetype} lists the attributes of \texttt{CuttingToolArchetype}.
+\tbl{Attributes of CuttingToolArchetype} lists the attributes of \texttt{CuttingToolArchetype}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of CuttingToolArchetype}
-  \label{table:attributes of CuttingToolArchetype}
+  \label{table:Attributes of CuttingToolArchetype}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{manufacturers} & \texttt{string} & 0..1 \\
-\texttt{serialNumber} & \texttt{string} & 1 \\
-\texttt{toolId} & \texttt{string} & 1 \\
+\property{manufacturers}[CuttingToolArchetype] & \texttt{string} & 0..1 \\
+\property{serialNumber}[CuttingToolArchetype] & \texttt{string} & 1 \\
+\property{toolId}[CuttingToolArchetype] & \texttt{string} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{CuttingToolArchetype}:
+Descriptions for attributes of \block{CuttingToolArchetype}:
 
 \begin{itemize}
-\item \texttt{manufacturers} : 
-\item \texttt{serialNumber} : The unique identifier for this assembly.
-\item \texttt{toolId} : The identifier for a class of cutting tools.
+\item \property{manufacturers}[CuttingToolArchetype] : 
+\item \property{serialNumber}[CuttingToolArchetype] : The unique identifier for this assembly.
+\item \property{toolId}[CuttingToolArchetype] : The identifier for a class of cutting tools.
 \end{itemize}
 
 \paragraph{Elements of CuttingToolArchetype}\mbox{}
 \label{sec:Elements of CuttingToolArchetype}
 
-\tbl{elements of CuttingToolArchetype} lists the elements of \texttt{CuttingToolArchetype}.
+\tbl{Elements of CuttingToolArchetype} lists the elements of \texttt{CuttingToolArchetype}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of CuttingToolArchetype}
-  \label{table:elements of CuttingToolArchetype}
+  \label{table:Elements of CuttingToolArchetype}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{CuttingToolDefinition} & \texttt{CuttingToolDefinition} & 0..1 \\
-\texttt{CuttingToolLifeCycle} & \texttt{CuttingToolLifeCycle} & 0..1 \\
+\block{CuttingToolDefinition} & \texttt{CuttingToolDefinition} & 0..1 \\
+\block{CuttingToolLifeCycle} & \texttt{CuttingToolLifeCycle} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{CuttingToolArchetype}:
+Descriptions for elements of \block{CuttingToolArchetype}:
 
 \begin{itemize}
-\item \texttt{CuttingToolDefinition} : Reference to an ISO 13399.
-\item \texttt{CuttingToolLifeCycle} : Data regarding the use of the cutting tool.
+\item \block{CuttingToolDefinition} : Reference to an ISO 13399.
+\item \block{CuttingToolLifeCycle} : Data regarding the use of the cutting tool.
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{CuttingToolArchetypeReference}
-  \label{sec:CuttingToolArchetypeReference}
+\label{sec:CuttingToolArchetypeReference}
 
 
 
@@ -152,34 +152,34 @@ CuttingToolArchetypeReference has reference information about the assetId and/or
 \paragraph{Attributes of CuttingToolArchetypeReference}\mbox{}
 \label{sec:Attributes of CuttingToolArchetypeReference}
 
-\tbl{attributes of CuttingToolArchetypeReference} lists the attributes of \texttt{CuttingToolArchetypeReference}.
+\tbl{Attributes of CuttingToolArchetypeReference} lists the attributes of \texttt{CuttingToolArchetypeReference}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of CuttingToolArchetypeReference}
-  \label{table:attributes of CuttingToolArchetypeReference}
+  \label{table:Attributes of CuttingToolArchetypeReference}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{source} & \texttt{string} & 0..1 \\
-\texttt{value} & \texttt{CuttingToolArchetype} & 0..1 \\
+\property{source}[CuttingToolArchetypeReference] & \texttt{string} & 0..1 \\
+\property{value}[CuttingToolArchetypeReference] & \texttt{CuttingToolArchetype} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{CuttingToolArchetypeReference}:
+Descriptions for attributes of \block{CuttingToolArchetypeReference}:
 
 \begin{itemize}
-\item \texttt{source} : The URL of the CuttingToolArchetype Information Model.
-\item \texttt{value} : 
+\item \property{source}[CuttingToolArchetypeReference] : The URL of the CuttingToolArchetype Information Model.
+\item \property{value}[CuttingToolArchetypeReference] : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{CuttingToolDefinition}
-  \label{sec:CuttingToolDefinition}
+\label{sec:CuttingToolDefinition}
 
 
 
@@ -189,33 +189,35 @@ Reference to an ISO 13399.
 \paragraph{Attributes of CuttingToolDefinition}\mbox{}
 \label{sec:Attributes of CuttingToolDefinition}
 
-\tbl{attributes of CuttingToolDefinition} lists the attributes of \texttt{CuttingToolDefinition}.
+\tbl{Attributes of CuttingToolDefinition} lists the attributes of \texttt{CuttingToolDefinition}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of CuttingToolDefinition}
-  \label{table:attributes of CuttingToolDefinition}
+  \label{table:Attributes of CuttingToolDefinition}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{format} & \texttt{FormatType} & 0..1 \\
-\texttt{value} & \texttt{string} & 0..* \\
+\property{format}[CuttingToolDefinition] & \texttt{FormatType} & 0..1 \\
+\property{value}[CuttingToolDefinition] & \texttt{string} & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{CuttingToolDefinition}:
+Descriptions for attributes of \block{CuttingToolDefinition}:
 
 \begin{itemize}
-\item \texttt{format} : Identifies the expected representation of the enclosed data.
+\item \property{format}[CuttingToolDefinition] : Identifies the expected representation of the enclosed data.
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{FormatType Enumeration}
   \label{enum:FormatType} \\
+
 \hline
 Name & Description \\
 \hline
@@ -231,13 +233,14 @@ Name & Description \\
 \texttt{UNDEFINED} & The document will be provided in an undefined format. \\ \hline
 \texttt{XML} & The default value for the definition. The content will be an XML document. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
-\item \texttt{value} : 
+\item \property{value}[CuttingToolDefinition] : 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{CuttingToolLifeCycle}
-  \label{sec:CuttingToolLifeCycle}
+\label{sec:CuttingToolLifeCycle}
 
 
 
@@ -247,56 +250,56 @@ Data regarding the use of the cutting tool.
 \paragraph{Elements of CuttingToolLifeCycle}\mbox{}
 \label{sec:Elements of CuttingToolLifeCycle}
 
-\tbl{elements of CuttingToolLifeCycle} lists the elements of \texttt{CuttingToolLifeCycle}.
+\tbl{Elements of CuttingToolLifeCycle} lists the elements of \texttt{CuttingToolLifeCycle}.
 
 \begin{table}[ht]
 \centering 
   \caption{Elements of CuttingToolLifeCycle}
-  \label{table:elements of CuttingToolLifeCycle}
+  \label{table:Elements of CuttingToolLifeCycle}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Association Name} & {Element} & {Multiplicity} \\
+\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{ConnectionCodeMachineSide} & \texttt{string} & 0..1 \\
-\texttt{ProgramToolGroup} & \texttt{string} & 0..1 \\
-\texttt{ProgramToolNumber} & \texttt{integer} & 0..1 \\
-\texttt{ProcessFeedRate} & \texttt{ProcessFeedRate} & 0..1 \\
-\texttt{ToolLife} & \texttt{ToolLife} & 0..1 \\
-\texttt{ToolLife} & \texttt{ToolLife} & 0..1 \\
-\texttt{ProcessSpindleSpeed} & \texttt{ProcessSpindleSpeed} & 0..1 \\
-\texttt{ToolLife} & \texttt{ToolLife} & 0..1 \\
-\texttt{CutterStatus} & \texttt{Status} & 1..* \\
-\texttt{CuttingItems} & \texttt{CuttingItem} & 0..* \\
-\texttt{Measurements} & \texttt{Measurement} & 0..* \\
-\texttt{ReconditionCount} & \texttt{ReconditionCount} & 0..1 \\
-\texttt{Location} & \texttt{Location} & 0..1 \\
+\block{ConnectionCodeMachineSide} & \texttt{string} & 0..1 \\
+\block{ProgramToolGroup} & \texttt{string} & 0..1 \\
+\block{ProgramToolNumber} & \texttt{integer} & 0..1 \\
+\block{ProcessFeedRate} & \texttt{ProcessFeedRate} & 0..1 \\
+\block{ToolLife} & \texttt{ToolLife} & 0..1 \\
+\block{ToolLife} & \texttt{ToolLife} & 0..1 \\
+\block{ProcessSpindleSpeed} & \texttt{ProcessSpindleSpeed} & 0..1 \\
+\block{ToolLife} & \texttt{ToolLife} & 0..1 \\
+\block{CutterStatus} & \texttt{Status} & 1..* \\
+\block{CuttingItems} & \texttt{CuttingItem} & 0..* \\
+\block{Measurements} & \texttt{Measurement} & 0..* \\
+\block{ReconditionCount} & \texttt{ReconditionCount} & 0..1 \\
+\block{Location} & \texttt{Location} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \texttt{CuttingToolLifeCycle}:
+Descriptions for elements of \block{CuttingToolLifeCycle}:
 
 \begin{itemize}
-\item \texttt{ConnectionCodeMachineSide} : Identifier for the capability to connect any Component of the cutting tool together, except Assembly Items, on the machine side. Code: CCMS
-\item \texttt{ProgramToolGroup} : The tool group this tool is assigned in the part program.
-\item \texttt{ProgramToolNumber} : The number of the tool as referenced in the part program.
-\item \texttt{ProcessFeedRate} : The constrained process feed rate for this tool in mm/s.
-\item \texttt{ToolLife} : The cutting tool life as related to this assembly.
-\item \texttt{ToolLife} : The cutting tool life as related to this assembly.
-\item \texttt{ProcessSpindleSpeed} : The constrained process spindle speed for this tool.
-\item \texttt{ToolLife} : The cutting tool life as related to this assembly.
-\item \texttt{CutterStatus} : 
-\item \texttt{CuttingItems} : 
-\item \texttt{Measurements} : 
-\item \texttt{ReconditionCount} : The number of times this cutter has been reconditioned.
-\item \texttt{Location} : The Pot or Spindle the cutting tool currently resides in.
+\item \block{ConnectionCodeMachineSide} : Identifier for the capability to connect any Component of the cutting tool together, except Assembly Items, on the machine side. Code: CCMS
+\item \block{ProgramToolGroup} : The tool group this tool is assigned in the part program.
+\item \block{ProgramToolNumber} : The number of the tool as referenced in the part program.
+\item \block{ProcessFeedRate} : The constrained process feed rate for this tool in mm/s.
+\item \block{ToolLife} : The cutting tool life as related to this assembly.
+\item \block{ToolLife} : The cutting tool life as related to this assembly.
+\item \block{ProcessSpindleSpeed} : The constrained process spindle speed for this tool.
+\item \block{ToolLife} : The cutting tool life as related to this assembly.
+\item \block{CutterStatus} : 
+\item \block{CuttingItems} : 
+\item \block{Measurements} : 
+\item \block{ReconditionCount} : The number of times this cutter has been reconditioned.
+\item \block{Location} : The Pot or Spindle the cutting tool currently resides in.
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Location}
-  \label{sec:Location}
+\label{sec:Location}
 
 
 
@@ -306,36 +309,59 @@ The Pot or Spindle the cutting tool currently resides in.
 \paragraph{Attributes of Location}\mbox{}
 \label{sec:Attributes of Location}
 
-\tbl{attributes of Location} lists the attributes of \texttt{Location}.
+\tbl{Attributes of Location} lists the attributes of \texttt{Location}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Location}
-  \label{table:attributes of Location}
+  \label{table:Attributes of Location}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{negativeOverlap} & \texttt{integer} & 0..1 \\
-\texttt{positiveOverlap} & \texttt{integer} & 0..1 \\
-\texttt{type} & \texttt{LocationType} & 1 \\
+\property{negativeOverlap}[Location] & \texttt{integer} & 0..1 \\
+\property{positiveOverlap}[Location] & \texttt{integer} & 0..1 \\
+\property{type}[Location] & \texttt{LocationType} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Location}:
+Descriptions for attributes of \block{Location}:
 
 \begin{itemize}
-\item \texttt{negativeOverlap} : The number of location at lower index values from this location.
-\item \texttt{positiveOverlap} : The number of locations at higher index value from this location.
-\item \texttt{type} : The type of location being identified. 
+\item \property{negativeOverlap}[Location] : The number of location at lower index values from this location.
+\item \property{positiveOverlap}[Location] : The number of locations at higher index value from this location.
+\item \property{type}[Location] : The type of location being identified. 
+
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X|}
+  \caption{LocationType Enumeration}
+  \label{enum:LocationType} \\
+
+\hline
+Name & Description \\
+\hline
+\endfirsthead
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \texttt{LocationType} Enumeration} \\
+\hline
+Name & Description \\
+\hline
+\endhead
+\texttt{POT} & The number of the pot in the tool handling system. \\ \hline
+\texttt{STATION} & The tool location in a horizontal turning machine. \\ \hline
+\texttt{CRIB} & The location with regard to a tool crib. \\ \hline
+\end{longtabu}
+
+\FloatBarrier
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Measurement}
-  \label{sec:Measurement}
+\label{sec:Measurement}
 
 
 
@@ -345,38 +371,40 @@ A constrained scalar value associated with this cutting tool.
 \paragraph{Attributes of Measurement}\mbox{}
 \label{sec:Attributes of Measurement}
 
-\tbl{attributes of Measurement} lists the attributes of \texttt{Measurement}.
+\tbl{Attributes of Measurement} lists the attributes of \texttt{Measurement}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Measurement}
-  \label{table:attributes of Measurement}
+  \label{table:Attributes of Measurement}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{code} & \texttt{CodeEnum} & 1 \\
-\texttt{maximum} & \texttt{float} & 0..1 \\
-\texttt{minimum} & \texttt{float} & 0..1 \\
-\texttt{nativeUnits} & \texttt{NativeUnitEnum} & 0..1 \\
-\texttt{nominal} & \texttt{float} & 0..1 \\
-\texttt{significantDigits} & \texttt{integer} & 0..1 \\
-\texttt{units} & \texttt{UnitEnum} & 0..1 \\
+\property{code}[Measurement] & \texttt{CodeEnum} & 1 \\
+\property{maximum}[Measurement] & \texttt{float} & 0..1 \\
+\property{minimum}[Measurement] & \texttt{float} & 0..1 \\
+\property{nativeUnits}[Measurement] & \texttt{NativeUnitEnum} & 0..1 \\
+\property{nominal}[Measurement] & \texttt{float} & 0..1 \\
+\property{significantDigits}[Measurement] & \texttt{integer} & 0..1 \\
+\property{units}[Measurement] & \texttt{UnitEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Measurement}:
+Descriptions for attributes of \block{Measurement}:
 
 \begin{itemize}
-\item \texttt{code} : A shop specific code for this measurement. ISO 13399 codes MAY be used for these codes as well.
+\item \property{code}[Measurement] : A shop specific code for this measurement. ISO 13399 codes MAY be used for these codes as well.
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{CodeEnum Enumeration}
   \label{enum:CodeEnum} \\
+
 \hline
 Name & Description \\
 \hline
@@ -420,18 +448,19 @@ Name & Description \\
 \texttt{CHW} & The width of the chamfer. \\ \hline
 \texttt{W1} & W1 is used for the insert width when an inscribed circle diameter is not practical. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
-\item \texttt{maximum} : The maximum value for this measurement. 
-\item \texttt{minimum} : The minimum value for this measurement. 
-\item \texttt{nativeUnits} : The units the measurement was originally recorded in.
-\item \texttt{nominal} : The as advertised value for this measurement.
-\item \texttt{significantDigits} : The number of significant digits in the reported value. 
-\item \texttt{units} : The units for the measurements. 
+\item \property{maximum}[Measurement] : The maximum value for this measurement. 
+\item \property{minimum}[Measurement] : The minimum value for this measurement. 
+\item \property{nativeUnits}[Measurement] : The units the measurement was originally recorded in.
+\item \property{nominal}[Measurement] : The as advertised value for this measurement.
+\item \property{significantDigits}[Measurement] : The number of significant digits in the reported value. 
+\item \property{units}[Measurement] : The units for the measurements. 
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{ProcessFeedRate}
-  \label{sec:ProcessFeedRate}
+\label{sec:ProcessFeedRate}
 
 
 
@@ -441,36 +470,36 @@ The constrained process feed rate for this tool in mm/s.
 \paragraph{Attributes of ProcessFeedRate}\mbox{}
 \label{sec:Attributes of ProcessFeedRate}
 
-\tbl{attributes of ProcessFeedRate} lists the attributes of \texttt{ProcessFeedRate}.
+\tbl{Attributes of ProcessFeedRate} lists the attributes of \texttt{ProcessFeedRate}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of ProcessFeedRate}
-  \label{table:attributes of ProcessFeedRate}
+  \label{table:Attributes of ProcessFeedRate}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{maximum} & \texttt{float} & 0..1 \\
-\texttt{minimum} & \texttt{float} & 0..1 \\
-\texttt{nominal} & \texttt{float} & 0..1 \\
+\property{maximum}[ProcessFeedRate] & \texttt{float} & 0..1 \\
+\property{minimum}[ProcessFeedRate] & \texttt{float} & 0..1 \\
+\property{nominal}[ProcessFeedRate] & \texttt{float} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{ProcessFeedRate}:
+Descriptions for attributes of \block{ProcessFeedRate}:
 
 \begin{itemize}
-\item \texttt{maximum} : The upper bound for the tool’s process target feedrate.
-\item \texttt{minimum} : The lower bound for the tools feedrate.
-\item \texttt{nominal} : The nominal feedrate the tool is designed to operate at.
+\item \property{maximum}[ProcessFeedRate] : The upper bound for the tool’s process target feedrate.
+\item \property{minimum}[ProcessFeedRate] : The lower bound for the tools feedrate.
+\item \property{nominal}[ProcessFeedRate] : The nominal feedrate the tool is designed to operate at.
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{ProcessSpindleSpeed}
-  \label{sec:ProcessSpindleSpeed}
+\label{sec:ProcessSpindleSpeed}
 
 
 
@@ -480,36 +509,36 @@ The constrained process spindle speed for this tool.
 \paragraph{Attributes of ProcessSpindleSpeed}\mbox{}
 \label{sec:Attributes of ProcessSpindleSpeed}
 
-\tbl{attributes of ProcessSpindleSpeed} lists the attributes of \texttt{ProcessSpindleSpeed}.
+\tbl{Attributes of ProcessSpindleSpeed} lists the attributes of \texttt{ProcessSpindleSpeed}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of ProcessSpindleSpeed}
-  \label{table:attributes of ProcessSpindleSpeed}
+  \label{table:Attributes of ProcessSpindleSpeed}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{maximum} & \texttt{float} & 0..1 \\
-\texttt{minimum} & \texttt{float} & 0..1 \\
-\texttt{nominal} & \texttt{float} & 0..1 \\
+\property{maximum}[ProcessSpindleSpeed] & \texttt{float} & 0..1 \\
+\property{minimum}[ProcessSpindleSpeed] & \texttt{float} & 0..1 \\
+\property{nominal}[ProcessSpindleSpeed] & \texttt{float} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{ProcessSpindleSpeed}:
+Descriptions for attributes of \block{ProcessSpindleSpeed}:
 
 \begin{itemize}
-\item \texttt{maximum} : The upper bound for the tool’s target spindle speed.
-\item \texttt{minimum} : The lower bound for the tools spindle speed.
-\item \texttt{nominal} : The nominal speed the tool is designed to operate at.
+\item \property{maximum}[ProcessSpindleSpeed] : The upper bound for the tool’s target spindle speed.
+\item \property{minimum}[ProcessSpindleSpeed] : The lower bound for the tools spindle speed.
+\item \property{nominal}[ProcessSpindleSpeed] : The nominal speed the tool is designed to operate at.
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{ReconditionCount}
-  \label{sec:ReconditionCount}
+\label{sec:ReconditionCount}
 
 
 
@@ -519,32 +548,32 @@ The number of times this cutter has been reconditioned.
 \paragraph{Attributes of ReconditionCount}\mbox{}
 \label{sec:Attributes of ReconditionCount}
 
-\tbl{attributes of ReconditionCount} lists the attributes of \texttt{ReconditionCount}.
+\tbl{Attributes of ReconditionCount} lists the attributes of \texttt{ReconditionCount}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of ReconditionCount}
-  \label{table:attributes of ReconditionCount}
+  \label{table:Attributes of ReconditionCount}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{maximumCount} & \texttt{integer} & 0..1 \\
+\property{maximumCount}[ReconditionCount] & \texttt{integer} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{ReconditionCount}:
+Descriptions for attributes of \block{ReconditionCount}:
 
 \begin{itemize}
-\item \texttt{maximumCount} : The maximum number of times this tool may be reconditioned.
+\item \property{maximumCount}[ReconditionCount] : The maximum number of times this tool may be reconditioned.
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{Status}
-  \label{sec:Status}
+\label{sec:Status}
 
 
 
@@ -554,32 +583,34 @@ The status of the cutting tool.
 \paragraph{Attributes of Status}\mbox{}
 \label{sec:Attributes of Status}
 
-\tbl{attributes of Status} lists the attributes of \texttt{Status}.
+\tbl{Attributes of Status} lists the attributes of \texttt{Status}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of Status}
-  \label{table:attributes of Status}
+  \label{table:Attributes of Status}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{value} & \texttt{CutterStatusType} & 1 \\
+\property{value}[Status] & \texttt{CutterStatusType} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{Status}:
+Descriptions for attributes of \block{Status}:
 
 \begin{itemize}
-\item \texttt{value} : The status value of the cutting tool.
+\item \property{value}[Status] : The status value of the cutting tool.
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{CutterStatusType Enumeration}
   \label{enum:CutterStatusType} \\
+
 \hline
 Name & Description \\
 \hline
@@ -603,12 +634,13 @@ Name & Description \\
 \texttt{NOT\textunderscore REGISTERED} & This cutting tool cannot be used until it is entered into the system. \\ \hline
 \texttt{UNKNOWN} & The cutting tool is an indeterminate state. This is the default value. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
 \end{itemize}
 \FloatBarrier
 
 \subsubsection{ToolLife}
-  \label{sec:ToolLife}
+\label{sec:ToolLife}
 
 
 
@@ -618,35 +650,37 @@ The cutting tool life as related to this assembly.
 \paragraph{Attributes of ToolLife}\mbox{}
 \label{sec:Attributes of ToolLife}
 
-\tbl{attributes of ToolLife} lists the attributes of \texttt{ToolLife}.
+\tbl{Attributes of ToolLife} lists the attributes of \texttt{ToolLife}.
 
 \begin{table}[ht]
 \centering 
   \caption{Attributes of ToolLife}
-  \label{table:attributes of ToolLife}
+  \label{table:Attributes of ToolLife}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{countDirection} & \texttt{CountDirectionType} & 1 \\
-\texttt{initial} & \texttt{float} & 0..1 \\
-\texttt{limit} & \texttt{float} & 0..1 \\
-\texttt{warning} & \texttt{float} & 0..1 \\
+\property{countDirection}[ToolLife] & \texttt{CountDirectionType} & 1 \\
+\property{initial}[ToolLife] & \texttt{float} & 0..1 \\
+\property{limit}[ToolLife] & \texttt{float} & 0..1 \\
+\property{warning}[ToolLife] & \texttt{float} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for attributes of \texttt{ToolLife}:
+Descriptions for attributes of \block{ToolLife}:
 
 \begin{itemize}
-\item \texttt{countDirection} : Indicates if the tool life counts from zero to maximum or maximum to zero.
+\item \property{countDirection}[ToolLife] : Indicates if the tool life counts from zero to maximum or maximum to zero.
+
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
   \caption{CountDirectionType Enumeration}
   \label{enum:CountDirectionType} \\
+
 \hline
 Name & Description \\
 \hline
@@ -660,9 +694,10 @@ Name & Description \\
 \texttt{UP} & The tool life counts up from zero to the maximum. \\ \hline
 \texttt{DOWN} & The tool life counts down from the maximum to zero. \\ \hline
 \end{longtabu}
+
 \FloatBarrier
-\item \texttt{initial} : The initial life of the tool when it is new.
-\item \texttt{limit} : The end of life limit for this tool.
-\item \texttt{warning} : The point at which a tool life warning will be raised.
+\item \property{initial}[ToolLife] : The initial life of the tool when it is new.
+\item \property{limit}[ToolLife] : The end of life limit for this tool.
+\item \property{warning}[ToolLife] : The point at which a tool life warning will be raised.
 \end{itemize}
 \FloatBarrier
