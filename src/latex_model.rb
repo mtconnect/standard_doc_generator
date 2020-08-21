@@ -35,9 +35,9 @@ class LatexModel < Model
     File.open(File.join(@@directory,"model-sections",short_name+".tex"), "w") do |fs|
       $logger.info "Generating model #{@name}"
       fs.puts "% Generated #{Time.now}"
-      fs.puts "\\subsection{#{@name}} \\label{sec:#{short_name}}"
+      fs.puts "\\subsection{#{@name}} \\label{sec:#{@name}}"
       
-      generate_diagram(fs)
+	  generate_diagram(fs)
       
       generate_documentation(fs)
       
@@ -83,7 +83,7 @@ class LatexModel < Model
 
   def recurse_types(f, type)
     if  (type.type == 'uml:Class' or type.type == 'uml:Stereotype' or # type.type == 'uml:AssociationClass' or
-        type.type == 'uml:DataType') and type.is_subtype != true
+        type.type == 'uml:DataType')# and type.is_subtype != true
       type.generate_latex(f) 
     end
 
@@ -91,25 +91,9 @@ class LatexModel < Model
       recurse_types(f, t) if t.model == self
     end
   end  
-   
+ 
   def recurse_terms(f, type)
 	type.generate_glossary_docs(f)
   end 
 
-  def self.generate_subtypes
-	dataitem_types = {}
-	@@models['Sample Types'].types.each do |type|
-	  dataitem_types[type.name] = []
-	  type.children.each do |subtype|
-		dataitem_types[type.name] << subtype
-	  end
-    end
-	@@models['Event Types'].types.each do |type|
-	  dataitem_types[type.name] = []
-	  type.children.each do |subtype|
-		dataitem_types[type.name] << subtype
-	  end
-    end
-	return dataitem_types
-  end
 end
