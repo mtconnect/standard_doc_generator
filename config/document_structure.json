@@ -48,12 +48,14 @@
 			"doc_title": "Observations Information Model",
 			"models": ["Observations Information Model",
 				{
-					"Observations": ["Observations",
+					"Observations": ["Streams",
+						"Observations",
 						"Representation"
 					]
 				},
 				{
-					"Observation Types": ["Condition Types",
+					"Observation Types": ["Condition States",
+						"Condition Types",
 						"Event Types",
 						"Sample Types"
 					]

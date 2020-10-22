@@ -1,4 +1,4 @@
-% Generated 2020-08-21 17:56:46 +0530
+% Generated 2020-10-22 16:25:28 +0530
 \subsection{CuttingItem} \label{sec:CuttingItem}
 
 
@@ -41,9 +41,13 @@ A CuttingItem is the portion of the tool that physically removes the material fr
 Descriptions for attributes of \block{CuttingItem}:
 
 \begin{itemize}
+
 \item \property{grade}[CuttingItem] : The material composition for this Cutting Item.
+
 \item \property{indices}[CuttingItem] : The number or numbers representing the individual Cutting Item or items on the tool.
+
 \item \property{itemId}[CuttingItem] : The manufacturer identifier of this Cutting Item.
+
 \item \property{manufacturers}[CuttingItem] : The manufacturers of the Cutting Item or Tool.
 \end{itemize}
 
@@ -86,7 +90,6 @@ Descriptions for elements of \block{CuttingItem}:
 \item \block{ItemLife} : The life of this Cutting Item.
 \item \block{Measurements} : A collection of measurements relating to this Cutting Item.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{ItemLife}
 \label{sec:ItemLife}
@@ -122,9 +125,12 @@ The life of this Cutting Item.
 Descriptions for attributes of \block{ItemLife}:
 
 \begin{itemize}
+
 \item \property{countDirection}[ItemLife] : Indicates if the item life counts from zero to maximum or maximum to zero.
+
 \item \property{initial}[ItemLife] : The initial life of the item when it is new
+
 \item \property{limit}[ItemLife] : The end of life limit for this item.
+
 \item \property{warning}[ItemLife] : The point at which a item life warning will be raised.
 \end{itemize}
-\FloatBarrier

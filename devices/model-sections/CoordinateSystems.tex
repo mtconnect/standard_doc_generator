@@ -1,4 +1,4 @@
-% Generated 2020-08-21 17:56:39 +0530
+% Generated 2020-10-22 16:25:25 +0530
 \subsection{CoordinateSystems} \label{sec:CoordinateSystems}
 
 
@@ -48,17 +48,22 @@ A \block{CoordinateSystem} is a reference system that associates a unique set of
 Descriptions for attributes of \block{CoordinateSystem}:
 
 \begin{itemize}
+
 \item \property{id}[CoordinateSystem] : The unique identifier for this element.
+
 \item \property{name}[CoordinateSystem] : The name of the coordinate system.
+
 \item \property{nativeName}[CoordinateSystem] : The manufacturer's name or users name for the coordinate system.
+
 \item \property{parentIdRef}[CoordinateSystem] : A pointer to the \property{id} attribute of the parent \block{CoordinateSystem}.
+
 \item \property{type}[CoordinateSystem] : The type of coordinate system.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{CoordinateSystemTypeEnum Enumeration}
-  \label{enum:CoordinateSystemTypeEnum} \\
+\caption{CoordinateSystemTypeEnum Enumeration}
+\label{enum:CoordinateSystemTypeEnum} \\
 
 \hline
 Name & Description \\
@@ -87,7 +92,6 @@ For non-robotic devices, it is the connection surface between the device and its
 \texttt{CAMERA} & coordinate system referenced to the sensor which monitors the site of the task. \textit{ISO 9787:2013} \\ \hline
 \end{longtabu}
 
-\FloatBarrier
 \end{itemize}
 
 \paragraph{Elements of CoordinateSystem}\mbox{}
@@ -117,7 +121,6 @@ Descriptions for elements of \block{CoordinateSystem}:
 \item \block{Origin} : The coordinates of the origin position of a coordinate system.
 \item \block{Transformation} :  The process of transforming to the origin position of the coordinate system from a parent coordinate system using \block{Translation} and \block{Rotation}.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{CoordinateSystems}
 \label{sec:CoordinateSystems}
@@ -152,7 +155,6 @@ Descriptions for elements of \block{CoordinateSystems}:
 \begin{itemize}
 \item \block{CoordinateSystem} : A \block{CoordinateSystem} is a reference system that associates a unique set of n parameters with each point in an n-dimensional space. \textit{Ref: ISO 10303-218:2004}
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Origin}
 \label{sec:Origin}
@@ -161,7 +163,6 @@ Descriptions for elements of \block{CoordinateSystems}:
 
 The coordinates of the origin position of a coordinate system.
 
-\FloatBarrier
 
 \subsubsection{Rotation}
 \label{sec:Rotation}
@@ -195,9 +196,9 @@ Rotations about X, Y, and Z axes are expressed in A, B, and C respectively withi
 Descriptions for attributes of \block{Rotation}:
 
 \begin{itemize}
+
 \item \property{value}[Rotation] : The value of \block{Rotation} in \texttt{DEGREE\textunderscore 3D}.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Transformation}
 \label{sec:Transformation}
@@ -235,7 +236,6 @@ Descriptions for elements of \block{Transformation}:
 \item \block{Rotation} : Rotations about X, Y, and Z axes are expressed in A, B, and C respectively within a 3-dimensional vector. 
 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Translation}
 \label{sec:Translation}
@@ -268,6 +268,6 @@ Translations along X, Y, and Z axes are expressed as x,y, and z respectively wit
 Descriptions for attributes of \block{Translation}:
 
 \begin{itemize}
+
 \item \property{value}[Translation] : The value of \block{Rotation} in \texttt{MILLIMETER\textunderscore 3D}.
 \end{itemize}
-\FloatBarrier

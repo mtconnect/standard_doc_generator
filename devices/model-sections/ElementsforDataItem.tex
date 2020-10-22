@@ -1,4 +1,4 @@
-% Generated 2020-08-21 17:56:38 +0530
+% Generated 2020-10-22 16:25:25 +0530
 \subsection{Elements for DataItem} \label{sec:Elements for DataItem}
 
 
@@ -49,7 +49,6 @@ Descriptions for elements of \block{Constraints}:
 
 \property{Value} \textbf{MUST NOT} be used in conjunction with any other \block{Constraint} elements.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Definition}
 \label{sec:Definition}
@@ -88,7 +87,6 @@ Descriptions for elements of \block{Definition}:
 \item \block{Description} : The \block{Description} of the \block{Definition}. See \block{Component} \block{Description}.
 \item \block{EntryDefinitions} : \block{EntryDefinitions} \glspl{organize} \block{EntryDefinition} elements.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Filter}
 
@@ -121,13 +119,14 @@ Descriptions for elements of \block{Definition}:
 Descriptions for attributes of \block{Filter}:
 
 \begin{itemize}
+
 \item \property{type}[Filter] : The type of \block{Filter}
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{FilterEnum Enumeration}
-  \label{enum:FilterEnum} \\
+\caption{FilterEnum Enumeration}
+\label{enum:FilterEnum} \\
 
 \hline
 Name & Description \\
@@ -149,9 +148,7 @@ value of the \block{Filter}.
 The value of \block{Filter} \textbf{MUST} be an absolute value reported in seconds representing the time between reported samples of the value of the data item. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{InitialValue}
 \label{sec:InitialValue}
@@ -184,9 +181,9 @@ The value of \block{Filter} \textbf{MUST} be an absolute value reported in secon
 Descriptions for attributes of \block{InitialValue}:
 
 \begin{itemize}
+
 \item \property{value}[InitialValue] : 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{ResetTrigger}
 \label{sec:ResetTrigger}
@@ -219,13 +216,14 @@ Descriptions for attributes of \block{InitialValue}:
 Descriptions for attributes of \block{ResetTrigger}:
 
 \begin{itemize}
+
 \item \property{type}[ResetTrigger] : The type of \block{ResetTrigger}
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{ResetTriggerEnum Enumeration}
-  \label{enum:ResetTriggerEnum} \\
+\caption{ResetTriggerEnum Enumeration}
+\label{enum:ResetTriggerEnum} \\
 
 \hline
 Name & Description \\
@@ -248,9 +246,7 @@ Name & Description \\
 \texttt{WEEK} & The value of the \gls{Data Item} is to be reset at the end of a 7-day period. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Source}
 \label{sec:Source}
@@ -286,9 +282,12 @@ Name & Description \\
 Descriptions for attributes of \block{Source}:
 
 \begin{itemize}
+
 \item \property{componentId}[Source] : The identifier attribute of the \block{Component} element that represents the physical part of a piece of equipment where the data represented by the \block{DataItem} element originated.
+
 \item \property{compositionId}[Source] : The identifier attribute of the \block{Composition} element that the reported data is most closely associated.
+
 \item \property{dataItemId}[Source] : The identifier attribute of the \block{DataItem} that represents the originally measured value of the data referenced by this data item.
+
 \item \property{value}[Source] : The value of the id of the source element.
 \end{itemize}
-\FloatBarrier

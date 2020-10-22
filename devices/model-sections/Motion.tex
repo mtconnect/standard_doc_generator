@@ -1,4 +1,4 @@
-% Generated 2020-08-21 17:56:39 +0530
+% Generated 2020-10-22 16:25:25 +0530
 \subsection{Motion} \label{sec:Motion}
 
 
@@ -44,9 +44,9 @@
 Descriptions for attributes of \block{Axis}:
 
 \begin{itemize}
+
 \item \property{axis}[Axis] : The unit vector defining the axis of motion.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Motion}
 \label{sec:Motion}
@@ -83,13 +83,14 @@ Descriptions for attributes of \block{Axis}:
 Descriptions for attributes of \block{Motion}:
 
 \begin{itemize}
+
 \item \property{actuation}[Motion] : Describes if this component is actuated directly or indirectly as a result of other motion.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{ActuationTypeEnum Enumeration}
-  \label{enum:ActuationTypeEnum} \\
+\caption{ActuationTypeEnum Enumeration}
+\label{enum:ActuationTypeEnum} \\
 
 \hline
 Name & Description \\
@@ -107,17 +108,20 @@ Name & Description \\
 \texttt{FIXED} & The component does not move. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
+
 \item \property{cooridnateSystemIdRef}[Motion] : The coordinate system within which the kinematic motion occurs.
+
 \item \property{id}[Motion] : The identifier of this element.
+
 \item \property{parentIdRef}[Motion] : The kinematic chain connects all components using the parent relations. All motion is connected to the motion of the parent. The first node in the chain will not have a parent.
+
 \item \property{type}[Motion] : Describes the type of motion.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{MotionTypes Enumeration}
-  \label{enum:MotionTypes} \\
+\caption{MotionTypes Enumeration}
+\label{enum:MotionTypes} \\
 
 \hline
 Name & Description \\
@@ -135,7 +139,6 @@ Name & Description \\
 \texttt{REVOLVE} & Revolves around an axis. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
 \end{itemize}
 
 \paragraph{Elements of Motion}\mbox{}
@@ -167,4 +170,3 @@ Descriptions for elements of \block{Motion}:
 \item \block{Origin} : The coordinates of the origin position of a coordinate system.
 \item \block{Transformation} :  The process of transforming to the origin position of the coordinate system from a parent coordinate system using \block{Translation} and \block{Rotation}.
 \end{itemize}
-\FloatBarrier

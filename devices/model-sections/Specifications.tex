@@ -1,4 +1,4 @@
-% Generated 2020-08-21 17:56:39 +0530
+% Generated 2020-10-22 16:25:25 +0530
 \subsection{Specifications} \label{sec:Specifications}
 
 
@@ -44,9 +44,9 @@
 Descriptions for attributes of \block{Characteristic}:
 
 \begin{itemize}
+
 \item \property{value}[Characteristic] : 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Rated}
 \label{sec:Rated}
@@ -55,7 +55,6 @@ Descriptions for attributes of \block{Characteristic}:
 
 
 
-\FloatBarrier
 
 \subsubsection{Minimum}
 \label{sec:Minimum}
@@ -64,7 +63,6 @@ Descriptions for attributes of \block{Characteristic}:
 
 A numeric lower limit constraint.
 
-\FloatBarrier
 
 \subsubsection{Maximum}
 \label{sec:Maximum}
@@ -73,7 +71,6 @@ A numeric lower limit constraint.
 
 A numeric upper limit constraint.
 
-\FloatBarrier
 
 \subsubsection{GearRatio}
 \label{sec:GearRatio}
@@ -106,9 +103,9 @@ A numeric upper limit constraint.
 Descriptions for attributes of \block{GearRatio}:
 
 \begin{itemize}
+
 \item \property{number}[GearRatio] : 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Nominal}
 \label{sec:Nominal}
@@ -117,7 +114,6 @@ Descriptions for attributes of \block{GearRatio}:
 
 The numeric target or expected value.
 
-\FloatBarrier
 
 \subsubsection{DutyCycle}
 \label{sec:DutyCycle}
@@ -151,10 +147,11 @@ The numeric target or expected value.
 Descriptions for attributes of \block{DutyCycle}:
 
 \begin{itemize}
+
 \item \property{duration}[DutyCycle] : 
+
 \item \property{peak}[DutyCycle] : 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Specification}
 \label{sec:Specification}
@@ -193,12 +190,19 @@ Descriptions for attributes of \block{DutyCycle}:
 Descriptions for attributes of \block{Specification}:
 
 \begin{itemize}
+
 \item \property{type}[Specification] : Same as \block{DataItem} type. See \sect{DataItem Types}.
+
 \item \property{subType}[Specification] : Same as \block{DataItem} subtypes. See \sect{DataItem SubTypes}.
+
 \item \property{dataItemIdRef}[Specification] : A reference to the \property{id} attribute of the \block{DataItem} associated with this element.
+
 \item \property{units}[Specification] : Same as \block{DataItem} units. See \sect{DataItem}.
+
 \item \property{compositionIdRef}[Specification] : A reference to the \property{id} attribute of the \block{Composition} associated with this element.
+
 \item \property{name}[Specification] : The \property{name} provides additional meaning and differentiates between \block{Specifications}.
+
 \item \property{coordinateSystemIdRef}[Specification] : References the \block{CoordinateSystem} for geometric \block{Specification} elements.
 \end{itemize}
 
@@ -227,7 +231,6 @@ Descriptions for elements of \block{Specification}:
 \begin{itemize}
 \item \block{Characteristic} : 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Specifications}
 \label{sec:Specifications}
@@ -262,4 +265,3 @@ Descriptions for elements of \block{Specifications}:
 \begin{itemize}
 \item \block{Specification} : \block{Specification} elements define information describing the design characteristics for a piece of equipment.
 \end{itemize}
-\FloatBarrier

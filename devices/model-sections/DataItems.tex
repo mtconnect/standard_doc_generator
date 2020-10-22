@@ -1,4 +1,4 @@
-% Generated 2020-08-21 17:56:38 +0530
+% Generated 2020-10-22 16:25:25 +0530
 \subsection{DataItems} \label{sec:DataItems}
 
 
@@ -61,13 +61,14 @@
 Descriptions for attributes of \block{DataItem}:
 
 \begin{itemize}
+
 \item \property{category}[DataItem] : Specifies the kind of information provided by a data item.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{CategoryEnum Enumeration}
-  \label{enum:CategoryEnum} \\
+\caption{CategoryEnum Enumeration}
+\label{enum:CategoryEnum} \\
 
 \hline
 Name & Description \\
@@ -84,15 +85,16 @@ Name & Description \\
 \texttt{CONDITION} & A \texttt{CONDITION} is a data item that communicates information about the health of a piece of equipment and its ability to function. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
+
 \item \property{compositionId}[DataItem] : The identifier attribute of the \block{Composition} element that the reported data is most closely associated.
+
 \item \property{coordinateSystem}[DataItem] : For measured values relative to a coordinate system like \block{POSITION}, the coordinate system being used may be reported.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{CoordinateSystemEnum Enumeration}
-  \label{enum:CoordinateSystemEnum} \\
+\caption{CoordinateSystemEnum Enumeration}
+\label{enum:CoordinateSystemEnum} \\
 
 \hline
 Name & Description \\
@@ -109,20 +111,24 @@ Name & Description \\
 coordinates will be used. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
+
 \item \property{discrete}[DataItem] : An indication signifying whether each value reported for the \gls{Data Entity} is significant and whether duplicate values are to be suppressed.
 
 If a value is not defined for \property{discrete}, the default value \textbf{MUST} be \texttt{false}.
+
 \item \property{id}[DataItem] : The unique identifier for this element.
+
 \item \property{name}[DataItem] : The name of an element or a piece of equipment.
+
 \item \property{nativeScale}[DataItem] : \block{nativeScale} \textbf{MAY} be used to convert the reported value to represent the original measured value.
+
 \item \property{nativeUnits}[DataItem] : The native units of measurement for the reported value of the data item.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{NativeUnitEnum Enumeration}
-  \label{enum:NativeUnitEnum} \\
+\caption{NativeUnitEnum Enumeration}
+\label{enum:NativeUnitEnum} \\
 
 \hline
 Name & Description \\
@@ -167,16 +173,18 @@ Name & Description \\
 \texttt{REVOLUTION/SECOND} & Rotational velocity in revolution per second. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
+
 \item \property{sampleRate}[DataItem] : The rate at which successive samples of a data item are recorded by a piece of equipment.
+
 \item \property{significantDigits}[DataItem] : The number of significant digits in the reported value.
+
 \item \property{statistic}[DataItem] : Describes the type of statistical calculation performed on a series of data samples to provide the reported data value.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{StatisticEnum Enumeration}
-  \label{enum:StatisticEnum} \\
+\caption{StatisticEnum Enumeration}
+\label{enum:StatisticEnum} \\
 
 \hline
 Name & Description \\
@@ -199,163 +207,18 @@ Name & Description \\
 \texttt{STANDARD\textunderscore DEVIATION} & Statistical Standard Deviation value calculated for the data item during the calculation period. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
+
 \item \property{subType}[DataItem] : A sub-categorization of the data item \block{type}.
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-  \caption{DataItemSubTypeEnum Enumeration}
-  \label{enum:DataItemSubTypeEnum} \\
-
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{DataItemSubTypeEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ABSOLUTE} & The position of a block of program code relative to the beginning of the control program. \\ \hline
-\texttt{ACTION} & An indication of the operating state of a mechanism represented by a composition type component.
- The operating state indicates whether the composition element is activated or disabled. 
- The valid data value must be active value or inactive value. \\ \hline
-\texttt{ACTUAL} & The measured value of the data item type given by a sensor or encoder. \\ \hline
-\texttt{ALL} & The count of all the parts produced.  If the subtype is not given, this is the default. \\ \hline
-\texttt{ALTERNATING} & The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage.  \\ \hline
-\texttt{A\textunderscore SCALE} & A Scale weighting factor.   This is the default weighting factor if no factor is specified \\ \hline
-\texttt{AUXILIARY} & When multiple locations on a piece of bar stock are referenced as the indication for the endofbar event, the additional location(s) must be designated as auxiliary subtype indication(s) for the endofbar event.   \\ \hline
-\texttt{BAD} & Indicates the count of incorrect parts produced. \\ \hline
-\texttt{BRINELL} & A scale to measure the resistance to deformation of a surface. \\ \hline
-\texttt{B\textunderscore SCALE} & B Scale weighting factor \\ \hline
-\texttt{COMMANDED} & A value specified by the controller type component. \\ \hline
-\texttt{CONSUMED} & The amount of bulk material consumed from an object or container during a manufacturing process. \\ \hline
-\texttt{CONTROL} & The state of the enabling signal or control logic that enables or disables the function or operation of the structural element. \\ \hline
-\texttt{C\textunderscore SCALE} & C Scale weighting factor \\ \hline
-\texttt{DELAY} & A piece of equipment waiting for an event or an action to occur. \\ \hline
-\texttt{DIRECT} & The measurement of DC current or voltage. \\ \hline
-\texttt{DRY\textunderscore RUN} & A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
- The valid data value must be on value or off value. 
- When dryrun subtype is on value, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended. \\ \hline
-\texttt{D\textunderscore SCALE} & D Scale weighting factor \\ \hline
-\texttt{EXPIRATION} & The time and date code relating to the expiration or end of useful life for a material or other physical item. \\ \hline
-\texttt{FIRST\textunderscore USE} & The time and date code relating the first use of a material or other physical item. \\ \hline
-\texttt{GOOD} & Indicates the count of correct parts made. \\ \hline
-\texttt{INCREMENTAL} & The position of a block of program code relative to the occurrence of the last linelabel event encountered in the control program. \\ \hline
-\texttt{JOG} & The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the axes.  \\ \hline
-\texttt{LATERAL} & An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a composition type component. 
- The position information indicates whether the composition element is positioned to the right, to the left, or is in transition.  
- The valid data value must be right value, left value, or transitioning value. \\ \hline
-\texttt{LEEB} & A scale to measure the elasticity of a surface. \\ \hline
-\texttt{LENGTH} & A reference to a length type tool offset variable. \\ \hline
-\texttt{LINE} & The state of the power source for the structural element. \\ \hline
-\texttt{LINEAR} & The direction of motion of a linear motion. \\ \hline
-\texttt{LOADED} & Subparts of a piece of equipment are under load. \\ \hline
-\texttt{MACHINE\textunderscore AXIS\textunderscore LOCK} & A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value. 
- When machineaxislock subtype is on value, program execution continues normally, but no equipment motion occurs  \\ \hline
-\texttt{MAIN} & The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs. \\ \hline
-\texttt{MAINTENANCE} & Action related to maintenance on the piece of equipment. \\ \hline
-\texttt{MANUAL\textunderscore UNCLAMP} & An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
- The valid data value must be active value or inactive value. 
- When manualunclamp subtype is active value, it is expected that a chuck cannot be unclamped until manualunclamp subtype is set to inactive value.  \\ \hline
-\texttt{MANUFACTURE} & The time and date code relating to the production of a material or other physical item. \\ \hline
-\texttt{MAXIMUM} & Maximum value of a data entity or attribute. \\ \hline
-\texttt{MINIMUM} & The minimum value of a data entity or attribute. \\ \hline
-\texttt{MOHS} & A scale to measure the resistance to scratching of a surface. \\ \hline
-\texttt{MOTION} & An indication of the open or closed state of a mechanism.   The mechanism is represented by a composition type component. 
- The operating state indicates whether the state of the composition element is open, closed, or unlatched.   
- The valid data value must be open value, unlatched value, or closed value. \\ \hline
-\texttt{NO\textunderscore SCALE} & No weighting factor on the frequency scale \\ \hline
-\texttt{OPERATING} & A piece of equipment are powered or performing any activity. \\ \hline
-\texttt{OPERATOR} & The identifier of the person currently responsible for operating the piece of equipment. \\ \hline
-\texttt{OPTIONAL\textunderscore STOP} & A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value.
- The program execution is stopped after a specific program block is executed when optionalstop subtype is on value.    
- In the case of a G-Code program, a program block event containing a M01 code designates the command for an optionalstop subtype. 
- execution event must change to optionalstop subtype after a program block specifying an optional stop is executed and the optionalstop subtype selection is on value. \\ \hline
-\texttt{OVERRIDE} & DEPRECATED: The operators overridden value. \\ \hline
-\texttt{POWERED} & Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered. \\ \hline
-\texttt{PRIMARY} & Specific applications MAY reference one or more locations on a piece of bar stock as the indication for the endofbar event. The main or most important location must be designated as the primary subtype indication for the endofbar event.   
- If no subtype is specified, primary subtype must be the default endofbar event indication. \\ \hline
-\texttt{PROBE} & The position provided by a measurement probe. \\ \hline
-\texttt{PROCESS} & The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts. \\ \hline
-\texttt{PROGRAMMED} & The value of a signal or calculation specified by a logic or motion program or set by a switch. \\ \hline
-\texttt{RADIAL} & A reference to a radial type tool offset variable. \\ \hline
-\texttt{RAPID} & The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode. \\ \hline
-\texttt{REMAINING} & Remaining measure of an object or an action. \\ \hline
-\texttt{ROCKWELL} & A scale to measure the resistance to deformation of a surface. \\ \hline
-\texttt{ROTARY} & The rotational direction of a rotary motion using the right hand rule convention.
- The valid data value must be clockwise value or counterclockwise value. \\ \hline
-\texttt{SCHEDULE} & The identity of a control program that is used to specify the order of execution of other programs. \\ \hline
-\texttt{SET\textunderscore UP} & The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production. \\ \hline
-\texttt{SHORE} & A scale to measure the resistance to deformation of a surface. \\ \hline
-\texttt{SINGLE\textunderscore BLOCK} & A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value.
- Program execution is paused after each block event of code is executed when singleblock subtype is on value.   
- When singleblock subtype is on value, execution event must change to interrupted value after completion of each block event of code.  \\ \hline
-\texttt{STANDARD} & The standard or original length of an object. \\ \hline
-\texttt{START} & The time and date associated with the beginning of an activity or event. \\ \hline
-\texttt{SWITCHED} & An indication of the activation state of a mechanism represented by a composition type component.
- The activation state indicates whether the composition element is activated or not.
- The valid data value must be on value or off value. \\ \hline
-\texttt{TARGET} & The desired measure or count for a data item value. \\ \hline
-\texttt{TARGET\textunderscore COMPLETION} & The projected time and date associated with the end or completion of an activity or event. \\ \hline
-\texttt{TOOL\textunderscore CHANGE\textunderscore STOP} & A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value. 
- Program execution is paused when a command is executed requesting a cutting tool to be changed. 
- execution event must change to interrupted value after completion of the command requesting a cutting tool to be changed and toolchangestop subtype is on value. \\ \hline
-\texttt{USEABLE} & The remaining useable length of an object. \\ \hline
-\texttt{VERTICAL} & An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a composition type component. 
- The position information indicates whether the composition element is positioned to the top, to the bottom, or is in transition.  
- The valid data value must be up value, down value, or transitioning value. \\ \hline
-\texttt{VICKERS} & A scale to measure the resistance to deformation of a surface. \\ \hline
-\texttt{WORKING} & A piece of equipment performing any activity, the equipment is active and performing a function under load or not. \\ \hline
-\texttt{IPV4\textunderscore ADDRESS} & The IPV4 network address of the component. \\ \hline
-\texttt{IPV6\textunderscore ADDRESS} & The IPV6 network address of the component. \\ \hline
-\texttt{GATEWAY} & The Gateway for the component network. \\ \hline
-\texttt{SUBNET\textunderscore MASK} & The SubNet mask for the component network. \\ \hline
-\texttt{VLAN\textunderscore ID} & The layer2 Virtual Local Network (VLAN) ID for the component network. \\ \hline
-\texttt{MAC\textunderscore ADDRESS} & Media Access Control Address. The unique physical address of the network hardware. \\ \hline
-\texttt{WIRELESS} & Identifies whether the connection type is wireless. \\ \hline
-\texttt{LICENSE} & The license code to validate or activate the hardware or software. \\ \hline
-\texttt{VERSION} & The version of the hardware or software. \\ \hline
-\texttt{RELEASE\textunderscore DATE} & The date the hardware or software was released for general use. \\ \hline
-\texttt{INSTALL\textunderscore DATE} & The date the hardware or software was installed. \\ \hline
-\texttt{MANUFACTURER} & The corporate identity for the maker of the hardware or software \\ \hline
-\end{longtabu}
-
-\FloatBarrier
 \item \property{type}[DataItem] : The type of either a \gls{Structural Element} or a \block{DataItem} being measured.
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-  \caption{DataItemTypeEnum Enumeration}
-  \label{enum:DataItemTypeEnum} \\
-
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{DataItemTypeEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\end{longtabu}
-
-\FloatBarrier
 \item \property{units}[DataItem] : The unit of measurement for the reported value of the data item.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{UnitEnum Enumeration}
-  \label{enum:UnitEnum} \\
+\caption{UnitEnum Enumeration}
+\label{enum:UnitEnum} \\
 
 \hline
 Name & Description \\
@@ -412,7 +275,7 @@ Name & Description \\
 \texttt{MILLILITER} & Milliliter. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
+
 \item \property{representation}[DataItem] : Description of a means to interpret data consisting of multiple data points or samples reported as a single value.  
 
 If \property{representation} is not specified, it \textbf{MUST} be determined to be \texttt{VALUE}.
@@ -421,8 +284,8 @@ If \property{representation} is not specified, it \textbf{MUST} be determined to
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{RepresentationEnum Enumeration}
-  \label{enum:RepresentationEnum} \\
+\caption{RepresentationEnum Enumeration}
+\label{enum:RepresentationEnum} \\
 
 \hline
 Name & Description \\
@@ -455,7 +318,7 @@ See \textit{Section 5.6.5} of \citetitle{MTCPart3}, for a description of
 \block{Entry} and \block{Cell} elements. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
+
 \item \property{coordinateSystemIdRef}[DataItem] : The associated \block{CoordinateSystem} context for the \block{DataItem}.
 \end{itemize}
 
@@ -494,4 +357,3 @@ Descriptions for elements of \block{DataItem}:
 \item \block{ResetTrigger} : \block{ResetTrigger} identifies the type of event that may cause a reset to occur.
 \item \block{Definition} : The \block{Definition} defines the meaning of \block{Entry} and \block{Cell} elements associated with the \block{DataItem} when the \property{representation} is either \block{DATA} or \block{TABLE}.
 \end{itemize}
-\FloatBarrier

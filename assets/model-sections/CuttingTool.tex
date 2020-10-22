@@ -1,4 +1,4 @@
-% Generated 2020-08-21 17:56:46 +0530
+% Generated 2020-10-22 16:25:28 +0530
 \subsection{CuttingTool} \label{sec:CuttingTool}
 
 
@@ -38,8 +38,11 @@ A CuttingTool physically removes the material from the workpiece by shear deform
 Descriptions for attributes of \block{CuttingTool}:
 
 \begin{itemize}
+
 \item \property{manufacturers}[CuttingTool] : The manufacturers of the Cutting Item or Tool.
+
 \item \property{serialNumber}[CuttingTool] : The unique identifier for this assembly.
+
 \item \property{toolId}[CuttingTool] : The identifier for a class of cutting tools.
 \end{itemize}
 
@@ -72,7 +75,6 @@ Descriptions for elements of \block{CuttingTool}:
 \item \block{CuttingToolArchetypeReference} : CuttingToolArchetypeReference has reference information about the assetId and/or the URL of the data source of CuttingToolArchetype.
 \item \block{CuttingToolDefinition} : Reference to an ISO 13399.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{CuttingToolArchetype}
 \label{sec:CuttingToolArchetype}
@@ -107,8 +109,11 @@ The CuttingToolArchetype represents the static cutting tool geometries and nomin
 Descriptions for attributes of \block{CuttingToolArchetype}:
 
 \begin{itemize}
+
 \item \property{manufacturers}[CuttingToolArchetype] : 
+
 \item \property{serialNumber}[CuttingToolArchetype] : The unique identifier for this assembly.
+
 \item \property{toolId}[CuttingToolArchetype] : The identifier for a class of cutting tools.
 \end{itemize}
 
@@ -139,7 +144,6 @@ Descriptions for elements of \block{CuttingToolArchetype}:
 \item \block{CuttingToolDefinition} : Reference to an ISO 13399.
 \item \block{CuttingToolLifeCycle} : Data regarding the use of the cutting tool.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{CuttingToolArchetypeReference}
 \label{sec:CuttingToolArchetypeReference}
@@ -173,10 +177,11 @@ CuttingToolArchetypeReference has reference information about the assetId and/or
 Descriptions for attributes of \block{CuttingToolArchetypeReference}:
 
 \begin{itemize}
+
 \item \property{source}[CuttingToolArchetypeReference] : The URL of the CuttingToolArchetype Information Model.
+
 \item \property{value}[CuttingToolArchetypeReference] : 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{CuttingToolDefinition}
 \label{sec:CuttingToolDefinition}
@@ -210,13 +215,14 @@ Reference to an ISO 13399.
 Descriptions for attributes of \block{CuttingToolDefinition}:
 
 \begin{itemize}
+
 \item \property{format}[CuttingToolDefinition] : Identifies the expected representation of the enclosed data.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{FormatType Enumeration}
-  \label{enum:FormatType} \\
+\caption{FormatType Enumeration}
+\label{enum:FormatType} \\
 
 \hline
 Name & Description \\
@@ -234,10 +240,9 @@ Name & Description \\
 \texttt{XML} & The default value for the definition. The content will be an XML document. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
+
 \item \property{value}[CuttingToolDefinition] : 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{CuttingToolLifeCycle}
 \label{sec:CuttingToolLifeCycle}
@@ -296,7 +301,6 @@ Descriptions for elements of \block{CuttingToolLifeCycle}:
 \item \block{ReconditionCount} : The number of times this cutter has been reconditioned.
 \item \block{Location} : The Pot or Spindle the cutting tool currently resides in.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Location}
 \label{sec:Location}
@@ -331,15 +335,18 @@ The Pot or Spindle the cutting tool currently resides in.
 Descriptions for attributes of \block{Location}:
 
 \begin{itemize}
+
 \item \property{negativeOverlap}[Location] : The number of location at lower index values from this location.
+
 \item \property{positiveOverlap}[Location] : The number of locations at higher index value from this location.
+
 \item \property{type}[Location] : The type of location being identified. 
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{LocationType Enumeration}
-  \label{enum:LocationType} \\
+\caption{LocationType Enumeration}
+\label{enum:LocationType} \\
 
 \hline
 Name & Description \\
@@ -356,9 +363,7 @@ Name & Description \\
 \texttt{CRIB} & The location with regard to a tool crib. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Measurement}
 \label{sec:Measurement}
@@ -397,13 +402,14 @@ A constrained scalar value associated with this cutting tool.
 Descriptions for attributes of \block{Measurement}:
 
 \begin{itemize}
+
 \item \property{code}[Measurement] : A shop specific code for this measurement. ISO 13399 codes MAY be used for these codes as well.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{CodeEnum Enumeration}
-  \label{enum:CodeEnum} \\
+\caption{CodeEnum Enumeration}
+\label{enum:CodeEnum} \\
 
 \hline
 Name & Description \\
@@ -449,15 +455,19 @@ Name & Description \\
 \texttt{W1} & W1 is used for the insert width when an inscribed circle diameter is not practical. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
+
 \item \property{maximum}[Measurement] : The maximum value for this measurement. 
+
 \item \property{minimum}[Measurement] : The minimum value for this measurement. 
+
 \item \property{nativeUnits}[Measurement] : The units the measurement was originally recorded in.
+
 \item \property{nominal}[Measurement] : The as advertised value for this measurement.
+
 \item \property{significantDigits}[Measurement] : The number of significant digits in the reported value. 
+
 \item \property{units}[Measurement] : The units for the measurements. 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{ProcessFeedRate}
 \label{sec:ProcessFeedRate}
@@ -492,11 +502,13 @@ The constrained process feed rate for this tool in mm/s.
 Descriptions for attributes of \block{ProcessFeedRate}:
 
 \begin{itemize}
+
 \item \property{maximum}[ProcessFeedRate] : The upper bound for the tool’s process target feedrate.
+
 \item \property{minimum}[ProcessFeedRate] : The lower bound for the tools feedrate.
+
 \item \property{nominal}[ProcessFeedRate] : The nominal feedrate the tool is designed to operate at.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{ProcessSpindleSpeed}
 \label{sec:ProcessSpindleSpeed}
@@ -531,11 +543,13 @@ The constrained process spindle speed for this tool.
 Descriptions for attributes of \block{ProcessSpindleSpeed}:
 
 \begin{itemize}
+
 \item \property{maximum}[ProcessSpindleSpeed] : The upper bound for the tool’s target spindle speed.
+
 \item \property{minimum}[ProcessSpindleSpeed] : The lower bound for the tools spindle speed.
+
 \item \property{nominal}[ProcessSpindleSpeed] : The nominal speed the tool is designed to operate at.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{ReconditionCount}
 \label{sec:ReconditionCount}
@@ -568,9 +582,9 @@ The number of times this cutter has been reconditioned.
 Descriptions for attributes of \block{ReconditionCount}:
 
 \begin{itemize}
+
 \item \property{maximumCount}[ReconditionCount] : The maximum number of times this tool may be reconditioned.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Status}
 \label{sec:Status}
@@ -603,13 +617,14 @@ The status of the cutting tool.
 Descriptions for attributes of \block{Status}:
 
 \begin{itemize}
+
 \item \property{value}[Status] : The status value of the cutting tool.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{CutterStatusType Enumeration}
-  \label{enum:CutterStatusType} \\
+\caption{CutterStatusType Enumeration}
+\label{enum:CutterStatusType} \\
 
 \hline
 Name & Description \\
@@ -635,9 +650,7 @@ Name & Description \\
 \texttt{UNKNOWN} & The cutting tool is an indeterminate state. This is the default value. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{ToolLife}
 \label{sec:ToolLife}
@@ -673,13 +686,14 @@ The cutting tool life as related to this assembly.
 Descriptions for attributes of \block{ToolLife}:
 
 \begin{itemize}
+
 \item \property{countDirection}[ToolLife] : Indicates if the tool life counts from zero to maximum or maximum to zero.
 
 \tabulinesep = 5pt
 \begin{longtabu} to \textwidth {
     |l|X|}
-  \caption{CountDirectionType Enumeration}
-  \label{enum:CountDirectionType} \\
+\caption{CountDirectionType Enumeration}
+\label{enum:CountDirectionType} \\
 
 \hline
 Name & Description \\
@@ -695,9 +709,10 @@ Name & Description \\
 \texttt{DOWN} & The tool life counts down from the maximum to zero. \\ \hline
 \end{longtabu}
 
-\FloatBarrier
+
 \item \property{initial}[ToolLife] : The initial life of the tool when it is new.
+
 \item \property{limit}[ToolLife] : The end of life limit for this tool.
+
 \item \property{warning}[ToolLife] : The point at which a tool life warning will be raised.
 \end{itemize}
-\FloatBarrier

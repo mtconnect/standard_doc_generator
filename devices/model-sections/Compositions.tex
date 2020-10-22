@@ -1,4 +1,4 @@
-% Generated 2020-08-21 17:56:38 +0530
+% Generated 2020-10-22 16:25:25 +0530
 \subsection{Compositions} \label{sec:Compositions}
 
 
@@ -33,6 +33,7 @@ There can be multiple types of \block{Composition} elements defined for a \block
 \property{id}[Composition] & \texttt{ID} & 1 \\
 \property{name}[Composition] & \texttt{string} & 0..1 \\
 \property{uuid}[Composition] & \texttt{NMTOKEN} & 0..1 \\
+\property{configuration}[Composition] & \texttt{Configuration} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -41,73 +42,16 @@ There can be multiple types of \block{Composition} elements defined for a \block
 Descriptions for attributes of \block{Composition}:
 
 \begin{itemize}
+
 \item \property{type}[Composition] : The type of either a \gls{Structural Element} or a \block{DataItem} being measured.
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-  \caption{CompositionTypeEnum Enumeration}
-  \label{enum:CompositionTypeEnum} \\
-
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{CompositionTypeEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ACTUATOR} & A mechanism for moving or controlling a mechanical part of a piece of equipment.   
- It takes energy usually provided by air, electric current, or liquid and converts the energy into some kind of motion.  \\ \hline
-\texttt{AMPLIFIER} & An electronic component or circuit for amplifying power, electric current, or voltage. \\ \hline
-\texttt{BALLSCREW} & A mechanical structure for transforming rotary motion into linear motion. \\ \hline
-\texttt{BELT} & An endless flexible band used to transmit motion for a piece of equipment or to convey materials and objects. \\ \hline
-\texttt{BRAKE} & A mechanism for slowing or stopping a moving object by the absorption or transfer of the energy of momentum, usually by means of friction, electrical force, or magnetic force. \\ \hline
-\texttt{CHAIN} & An interconnected series of objects that band together and are used to transmit motion for a piece of equipment or to convey materials and objects. \\ \hline
-\texttt{CHOPPER} & A mechanism used to break material into smaller pieces. \\ \hline
-\texttt{CHUCK} & A mechanism that holds a part, stock material, or any other item in place. \\ \hline
-\texttt{CHUTE} & An inclined channel for conveying material. \\ \hline
-\texttt{CIRCUIT\textunderscore BREAKER} & A mechanism for interrupting an electric circuit. \\ \hline
-\texttt{CLAMP} & A mechanism used to strengthen, support, or fasten objects in place. \\ \hline
-\texttt{COMPRESSOR} & A pump or other mechanism for reducing volume and increasing pressure of gases in order to condense the gases to drive pneumatically powered pieces of equipment. \\ \hline
-\texttt{DOOR} & A mechanical mechanism or closure that can cover a physical access portal into a piece of equipment allowing or restricting access to other parts of the equipment. \\ \hline
-\texttt{DRAIN} & A mechanism that allows material to flow for the purpose of drainage from, for example, a vessel or tank. \\ \hline
-\texttt{ENCODER} & A mechanism used to measure rotary position. \\ \hline
-\texttt{EXPOSURE\textunderscore UNIT} & A mechanism for emitting a type of radiation \\ \hline
-\texttt{EXTRUSION\textunderscore UNIT} & A mechanism for dispensing liquid or powered materials \\ \hline
-\texttt{FAN} & Any mechanism for producing a current of air. \\ \hline
-\texttt{FILTER} & Any substance or structure through which liquids or gases are passed to remove suspended impurities or to recover solids. \\ \hline
-\texttt{GALVANOMOTOR} & An electromechanical actuator that produces deflection of a beam of light or energy in response to electric current through its coil in a magnetic field. \\ \hline
-\texttt{GRIPPER} & A mechanism that holds a part, stock material, or any other item in place. \\ \hline
-\texttt{HOPPER} & A chamber or bin in which materials are stored temporarily, typically being filled through the top and dispensed through the bottom. \\ \hline
-\texttt{LINEAR\textunderscore POSITION\textunderscore FEEDBACK} & A mechanism that measures linear motion or position. \\ \hline
-\texttt{MOTOR} & A mechanism that converts electrical, pneumatic, or hydraulic energy into mechanical energy. \\ \hline
-\texttt{OIL} & A viscous liquid. \\ \hline
-\texttt{POWER\textunderscore SUPPLY} & A unit that provides power to electric mechanisms. \\ \hline
-\texttt{PULLEY} & A mechanism or wheel that turns in a frame or block and serves to change the direction of or to transmit force. \\ \hline
-\texttt{PUMP} & An apparatus raising, driving, exhausting, or compressing fluids or gases by means of a piston, plunger, or set of rotating vanes. \\ \hline
-\texttt{REEL} & A rotary storage unit for material \\ \hline
-\texttt{SENSING\textunderscore ELEMENT} & A mechanism that provides a signal or measured value. \\ \hline
-\texttt{SPREADER} & A mechanism for flattening or spreading materials \\ \hline
-\texttt{STORAGE\textunderscore BATTERY} & A component consisting of one or more cells, in which chemical energy is converted into electricity and used as a source of power.  \\ \hline
-\texttt{SWITCH} & A mechanism for turning on or off an electric current or for making or breaking a circuit. \\ \hline
-\texttt{TABLE} & A surface for holding an object or material \\ \hline
-\texttt{TANK} & A receptacle or container for holding material. \\ \hline
-\texttt{TENSIONER} & A mechanism that provides or applies a stretch or strain to another mechanism. \\ \hline
-\texttt{TRANSFORMER} & A mechanism that transforms electric energy from a source to a secondary circuit. \\ \hline
-\texttt{VALVE} & Any mechanism for halting or controlling the flow of a liquid, gas, or other material through a passage, pipe, inlet, or outlet. \\ \hline
-\texttt{VAT} & A container for liquid or powdered materials \\ \hline
-\texttt{WATER} & A fluid. \\ \hline
-\texttt{WIRE} & A string like piece or filament of relatively rigid or flexible material provided in a variety of diameters. \\ \hline
-\texttt{WORKPIECE} & An object or material on which a form of work is performed. \\ \hline
-\end{longtabu}
-
-\FloatBarrier
 \item \property{id}[Composition] : The unique identifier for this element.
+
 \item \property{name}[Composition] : The name of this element.
+
 \item \property{uuid}[Composition] : A unique identifier for this element.
+
+\item \property{configuration}[Composition] : 
 \end{itemize}
 
 \paragraph{Elements of Composition}\mbox{}
@@ -135,4 +79,3 @@ Descriptions for elements of \block{Composition}:
 \begin{itemize}
 \item \block{Description} : The descriptive content.
 \end{itemize}
-\FloatBarrier

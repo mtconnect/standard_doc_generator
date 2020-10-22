@@ -1,12 +1,63 @@
-% Generated 2020-08-21 17:56:42 +0530
+% Generated 2020-10-22 16:25:26 +0530
 \subsection{Representation} \label{sec:Representation}
+
+
+A \property{representation}[DataItem] specifies the format and structure of the information for an \gls{observation}. The default \property{representation}[DataItem] is \texttt{VALUE} indicating the format as specified in \citetitle{MTCPart3}.
+
+A \property{representation}[DataItem], other than \texttt{VALUE}, will modify the element name of the \gls{observation} by appending the pascal case of the \property{representation}[DataItem] as follows:
+
+\begin{itemize}
+\item  A \block{DataItem} with \property{type} \texttt{TEMPERATURE} and \property{representation}[DataItem] of \texttt{TIME\textunderscore SERIES} becomes \texttt{TemperatureTimeSeries}
+
+
+\item  \textbf{DEPRECATED} A \block{DataItem} with \property{type} \texttt{PART\textunderscore COUNT} and \property{representation}[DataItem] of \texttt{DISCRETE} becomes \texttt{PartCountDiscrete}
+
+
+\item  A \block{DataItem} with \property{type} \texttt{VARIABLE} and \property{representation}[DataItem] of \texttt{DATA\textunderscore SET} becomes \texttt{VariableDataSet}
+
+
+\item  A \block{DataItem} with \property{type} \texttt{WORK\textunderscore OFFSET} and \property{representation}[DataItem] of \texttt{TABLE} becomes \texttt{WorkOffsetTable}
+
+
+\end{itemize}
+
+
+
+The following constraints apply to each \property{representation}[DataItem]:
+
+\begin{itemize}
+\item  A \block{DataItem} with \property{representation}[DataItem] \texttt{TIME\textunderscore SERIES} \textbf{MUST} have a \property{category}[DataItem] \texttt{SAMPLE}
+
+
+\item  \DEPRECATED A \block{DataItem} with \property{representation}[DataItem] \texttt{DISCRETE} \textbf{MUST} have a \property{category}[DataItem] \texttt{EVENT}
+
+
+\item  A \block{DataItem} with \property{representation}[DataItem] \texttt{DATA\textunderscore SET} \textbf{MUST} have a \property{category}[DataItem] \texttt{EVENT} or \texttt{SAMPLE}
+
+
+\item  A \block{DataItem} with \property{representation}[DataItem] \texttt{TABLE} \textbf{MUST} have a \property{category}[DataItem] \texttt{EVENT} or \texttt{SAMPLE}
+
+
+\end{itemize}
+
+
+\begin{figure}[ht]
+  \centering
+    \includegraphics[width=1.0\textwidth]{figures/Representation.png}
+  \caption{Representation Diagram}
+  \label{fig:Representation}
+\end{figure}
+
+\FloatBarrier
+
+
 
 \subsubsection{Cell}
 \label{sec:Cell}
 
 
 
-
+An element representing a \gls{key-value pair} published as part of an \block{Entry}.
 
 
 \paragraph{Attributes of Cell}\mbox{}
@@ -24,7 +75,7 @@
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \property{key}[Cell] & \texttt{ID} & 1 \\
-\property{value}[Cell] & \texttt{T} & 1 \\
+\property{value}[Cell] & \texttt{} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -33,17 +84,24 @@
 Descriptions for attributes of \block{Cell}:
 
 \begin{itemize}
-\item \property{key}[Cell] : 
+
+\item \property{key}[Cell] : A unique identifier for each \gls{key-value pair}.
+
 \item \property{value}[Cell] : 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{DataSet}
 \label{sec:DataSet}
 
 
 
+A \block{DataItem} with \texttt{DATA\textunderscore SET} \property{representation} \textbf{MUST} have a \property{category} of \texttt{SAMPLE} or \texttt{EVENT}. 
 
+A \gls{Data Set} \gls{observation} \textbf{MUST} have a \property{count} attribute.
+
+\gls{Data Set} \gls{observation} reports multiple values as a set of \gls{key-value pair} where each \gls{key} \textbf{MUST} be unique. The representation of the \gls{key-value pair} is an \block{Entry}. The value of each \block{Entry} \textbf{MUST} have the same constraints and format as the \gls{observation} defined for the \texttt{VALUE} \property{representation} for the \block{DataItem} \property{type}. 
+
+The meaning of each \block{Entry} \textbf{MAY} be provided as the \block{DataItem} \block{EntryDefinition}.
 
 
 \paragraph{Attributes of DataSet}\mbox{}
@@ -69,41 +127,22 @@ Descriptions for attributes of \block{Cell}:
 Descriptions for attributes of \block{DataSet}:
 
 \begin{itemize}
-\item \property{count}[DataSet] : 
+
+\item \property{count}[DataSet] : The number of \block{Entry} elements for the \gls{observation}.
 \end{itemize}
-
-\paragraph{Elements of DataSet}\mbox{}
-\label{sec:Elements of DataSet}
-
-\tbl{Elements of DataSet} lists the elements of \texttt{DataSet}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Elements of DataSet}
-  \label{table:Elements of DataSet}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\block{Entry} & \texttt{Entry} & 0..* \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for elements of \block{DataSet}:
-
-\begin{itemize}
-\item \block{Entry} : 
-\end{itemize}
-\FloatBarrier
 
 \subsubsection{Discrete}
 \label{sec:Discrete}
 
 
 
+\textit{MTConnect Version 1.5} replaced \property{representation} \texttt{DISCRETE} with a \property{discrete} attribute for \block{DataItem}.
+
+\texttt{DISCRETE} \MUST only be used with a \block{DataItem} with a \property{category} of \texttt{EVENT}.
+
+Each occurrence of the \gls{observation} \textbf{MAY} have the same value as the previous occurrence, and \textbf{MUST NOT} suppress duplicates.
+
+Examples of \texttt{DISCRETE} information as follows: A \texttt{PartCount} reporting the completion of each part using a 1 to indicate completion of a single part, a \texttt{Message} that occurs each time a door opens. 
 
 
 
@@ -121,7 +160,7 @@ Descriptions for elements of \block{DataSet}:
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\property{observationDiscrete}[Discrete] & \texttt{} & 1 \\
+\property{value}[Discrete] & \texttt{} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -130,16 +169,14 @@ Descriptions for elements of \block{DataSet}:
 Descriptions for attributes of \block{Discrete}:
 
 \begin{itemize}
-\item \property{observationDiscrete}[Discrete] : 
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Entry}
 \label{sec:Entry}
 
 
 
-
+A \gls{key-value pair} published as part of a \gls{Data Set} \gls{observation}
 
 
 \paragraph{Attributes of Entry}\mbox{}
@@ -158,8 +195,6 @@ Descriptions for attributes of \block{Discrete}:
 \tabucline[1.5pt]{}
 \property{key}[Entry] & \texttt{ID} & 1 \\
 \property{removed}[Entry] & \texttt{boolean} & 0..1 \\
-\property{hasCell}[Entry] & \texttt{Cell} & 0..* \\
-\property{value}[Entry] & \texttt{T} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -168,44 +203,22 @@ Descriptions for attributes of \block{Discrete}:
 Descriptions for attributes of \block{Entry}:
 
 \begin{itemize}
-\item \property{key}[Entry] : 
-\item \property{removed}[Entry] : 
-\item \property{hasCell}[Entry] : 
-\item \property{value}[Entry] : 
+
+\item \property{key}[Entry] : A unique identifier for each \gls{key-value pair}.
+
+\item \property{removed}[Entry] : Boolean removal indicator of a \gls{key-value pair} that \textbf{MUST} be \texttt{true} or \texttt{false}.
 \end{itemize}
-
-\paragraph{Elements of Entry}\mbox{}
-\label{sec:Elements of Entry}
-
-\tbl{Elements of Entry} lists the elements of \texttt{Entry}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Elements of Entry}
-  \label{table:Elements of Entry}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\block{Entry} & \texttt{DataSet} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for elements of \block{Entry}:
-
-\begin{itemize}
-\item \block{Entry} : 
-\end{itemize}
-\FloatBarrier
 
 \subsubsection{Table}
 
 
 
 
+A \gls{Table} represents two-dimensional sets of \glspl{key-value pair} where the \block{Entry} represents rows containing sets of \glspl{key-value pair} given by \block{Cell} elements. The \gls{Table} has the same behavior as the \gls{Data Set} for change tracking, clearing, and history. When an \block{Entry} changes. All \block{Cell} elements update at the same time; they are not tracked separately like \block{Entry}.
+
+The meaning of each \block{Entry} and \block{Cell} \textbf{MAY} be provided as the \block{DataItem} \block{EntryDefinition} and \block{CellDefinition}.
+
+The \block{Entry} \property{key} attribute \textbf{MUST} be the unique identity of the \block{Entry} within an \gls{observation}. The \block{Cell} \property{key} attribute \textbf{MUST} be the unique identity of the \block{Cell} within an \block{Entry}.
 
 
 
@@ -223,7 +236,6 @@ Descriptions for elements of \block{Entry}:
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\property{hasEntry}[Table] & \texttt{Entry} & 0..* \\
 \property{count}[Table] & \texttt{integer} & 1 \\
 \end{tabu}
 \end{table}
@@ -233,10 +245,47 @@ Descriptions for elements of \block{Entry}:
 Descriptions for attributes of \block{Table}:
 
 \begin{itemize}
-\item \property{hasEntry}[Table] : 
-\item \property{count}[Table] : 
+
+\item \property{count}[Table] : Represents the number of \glspl{key-value pair} represented as \block{Entry} elements.
 \end{itemize}
+
+\subsubsection{TableEntry}
+\label{sec:TableEntry}
+
+
+
+A \gls{key-value pair} published as part of a \gls{Data Set} \gls{observation}
+
+
+\paragraph{Attributes of TableEntry}\mbox{}
+\label{sec:Attributes of TableEntry}
+
+\tbl{Attributes of TableEntry} lists the attributes of \texttt{TableEntry}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of TableEntry}
+  \label{table:Attributes of TableEntry}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\property{key}[TableEntry] & \texttt{ID} & 1 \\
+\property{removed}[TableEntry] & \texttt{boolean} & 0..1 \\
+\end{tabu}
+\end{table}
 \FloatBarrier
+
+
+Descriptions for attributes of \block{TableEntry}:
+
+\begin{itemize}
+
+\item \property{key}[TableEntry] : A unique identifier for each \gls{key-value pair}.
+
+\item \property{removed}[TableEntry] : Boolean removal indicator of a \gls{key-value pair} that \textbf{MUST} be \texttt{true} or \texttt{false}.
+\end{itemize}
 
 \subsubsection{TimeSeries}
 \label{sec:TimeSeries}
@@ -244,6 +293,13 @@ Descriptions for attributes of \block{Table}:
 
 
 
+A \block{DataItem} with \texttt{TIME\textunderscore SERIES} \property{representation} \textbf{MUST} have a \property{category} of \texttt{SAMPLE}.
+
+A \textit{Time Series} \gls{observation} \textbf{MUST} have a \property{sampleCount} attribute.
+
+\textit{Time Series} \gls{observation} \textbf{MUST} report multiple values at fixed intervals in a single \gls{observation}. At minimum, one of DataItem or \gls{observation} \textbf{MUST} specify the \property{sampleRate} in Hertz (values/second); fractional rates are permitted. When the \gls{observation} and the \block{DataItem} specify the \property{sampleRate}, the \gls{observation} \property{sampleRate} supersedes the \block{DataItem}.
+
+The \gls{observation} \textbf{MUST} set the \property{timestamp} to the time the last value was observed. The \property{duration} \textbf{MAY} indicate the time interval from the first to the last value in the series.
 
 
 \paragraph{Attributes of TimeSeries}\mbox{}
@@ -261,7 +317,7 @@ Descriptions for attributes of \block{Table}:
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 \property{sampleCount}[TimeSeries] & \texttt{integer} & 1 \\
-\property{observationTimeSeries}[TimeSeries] & \texttt{} & 1..* \\
+\property{value}[TimeSeries] & \texttt{} & 1..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -270,7 +326,6 @@ Descriptions for attributes of \block{Table}:
 Descriptions for attributes of \block{TimeSeries}:
 
 \begin{itemize}
-\item \property{sampleCount}[TimeSeries] : 
-\item \property{observationTimeSeries}[TimeSeries] : 
+
+\item \property{sampleCount}[TimeSeries] : The number of values given for the \block{Observation} element.
 \end{itemize}
-\FloatBarrier

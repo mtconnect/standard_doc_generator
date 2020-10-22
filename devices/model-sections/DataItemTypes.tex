@@ -1,4 +1,4 @@
-% Generated 2020-08-21 17:56:38 +0530
+% Generated 2020-10-22 16:25:25 +0530
 \subsection{DataItem Types} \label{sec:DataItem Types}
 
 
@@ -42,21 +42,38 @@ All \block{DataItem} types in the \block{SAMPLE} category \textbf{MAY} have asso
 The value of \property{type}{DataItem} with \property{category}{DataItem} \texttt{Condition} \MUST be one of the following:
 \begin{itemize}
 
-\item \texttt{COMMUNICATIONS} : An indication that the piece of equipment has experienced a communications failure. 
 
-\item \texttt{DATA\textunderscore RANGE} : An indication that the value of the data associated with a measured value or a calculation is outside of an expected range. 
+\item \texttt{COMMUNICATIONS}  
 
-\item \texttt{HARDWARE} : An indication of a fault associated with the hardware subsystem of the \gls{Structural Element}. 
+An indication that the piece of equipment has experienced a communications failure.
 
-\item \texttt{LOGIC\textunderscore PROGRAM} : An indication that an error occurred in the logic program or programmable logic controller (PLC) associated with a piece of equipment. 
 
-\item \texttt{MOTION\textunderscore PROGRAM} : An indication that an error occurred in the motion program associated with a piece of equipment. 
+\item \texttt{DATA\textunderscore RANGE}  
 
-\item \texttt{SYSTEM} : A general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware. 
+An indication that the value of the data associated with a measured value or a calculation is outside of an expected range.
+
+
+\item \texttt{HARDWARE}  
+
+An indication of a fault associated with the hardware subsystem of the \gls{Structural Element}.
+
+
+\item \texttt{LOGIC\textunderscore PROGRAM}  
+
+An indication that an error occurred in the logic program or programmable logic controller (PLC) associated with a piece of equipment.
+
+
+\item \texttt{MOTION\textunderscore PROGRAM}  
+
+An indication that an error occurred in the motion program associated with a piece of equipment.
+
+
+\item \texttt{SYSTEM}  
+
+A general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware.
 
 \end{itemize}
 
-\FloatBarrier
 
 \subsubsection{Event}
 \label{sec:Event}
@@ -71,188 +88,451 @@ An \block{EVENT} is information that, when provided at any specific point in tim
 The value of \property{type}{DataItem} with \property{category}{DataItem} \texttt{Event} \MUST be one of the following:
 \begin{itemize}
 
-\item \texttt{ACTIVE\textunderscore AXES} : The set of axes currently associated with a \block{Path} or \block{Controller} \gls{Structural Element}. 
 
-\item \texttt{ACTUATOR\textunderscore STATE} : Represents the operational state of an apparatus for moving or controlling a mechanism or system. 
+\item \texttt{ACTIVE\textunderscore AXES}  
 
-\item \texttt{ALARM} : \textbf{DEPRECATED:} Replaced with \block{CONDITION} category data items in Version 1.1.0. 
+The set of axes currently associated with a \block{Path} or \block{Controller} \gls{Structural Element}.
 
-\item \texttt{ASSET\textunderscore CHANGED} : The \block{assetId} of the asset that has been added or changed. 
 
-\item \texttt{ASSET\textunderscore REMOVED} : The \block{assetId} of the asset that has been removed. 
+\item \texttt{ACTUATOR\textunderscore STATE}  
 
-\item \texttt{AVAILABILITY} : Represents the \gls{Agent}'s ability to communicate with the data source. 
+Represents the operational state of an apparatus for moving or controlling a mechanism or system.
 
-\item \texttt{AXIS\textunderscore COUPLING} : Describes the way the axes will be associated to each other. 
+
+\item \texttt{ALARM}  
+
+\textbf{DEPRECATED:} Replaced with \block{CONDITION} category data items in Version 1.1.0.
+
+
+\item \texttt{ASSET\textunderscore CHANGED}  
+
+The \block{assetId} of the asset that has been added or changed.
+
+
+\item \texttt{ASSET\textunderscore REMOVED}  
+
+The \block{assetId} of the asset that has been removed.
+
+
+\item \texttt{AVAILABILITY}  
+
+Represents the \gls{Agent}'s ability to communicate with the data source.
+
+
+\item \texttt{AXIS\textunderscore COUPLING}  
+
+Describes the way the axes will be associated to each other. 
   
-This is used in conjunction with \block{COUPLED\textunderscore AXES} to indicate the way they are interacting. 
+This is used in conjunction with \block{COUPLED\textunderscore AXES} to indicate the way they are interacting.
 
-\item \texttt{AXIS\textunderscore FEEDRATE\textunderscore OVERRIDE} : The value of a signal or calculation issued to adjust the feedrate of an individual linear type axis. 
 
-\item \texttt{AXIS\textunderscore INTERLOCK} : An indicator of the state of the axis lockout function when power has been removed and the axis is allowed to move freely. 
+\item \texttt{AXIS\textunderscore FEEDRATE\textunderscore OVERRIDE}  
 
-\item \texttt{AXIS\textunderscore STATE} : An indicator of the controlled state of a \block{Linear} or \block{Rotary} component representing an axis. 
+The value of a signal or calculation issued to adjust the feedrate of an individual linear type axis.
 
-\item \texttt{BLOCK} : The line of code or command being executed by a \block{Controller} \gls{Structural Element}. 
 
-\item \texttt{BLOCK\textunderscore COUNT} : The total count of the number of blocks of program code that have been executed since execution started. 
+\item \texttt{AXIS\textunderscore INTERLOCK}  
 
-\item \texttt{CHUCK\textunderscore INTERLOCK} : An indication of the state of an interlock function or control logic state intended to prevent the associated \block{Chuck} component from being operated. 
+An indicator of the state of the axis lockout function when power has been removed and the axis is allowed to move freely.
 
-\item \texttt{CHUCK\textunderscore STATE} : An indication of the operating state of a mechanism that holds a part or stock material during a manufacturing process. It may also represent a mechanism that holds any other mechanism in place within a piece of equipment. 
 
-\item \texttt{CLOSE\textunderscore CHUCK} : Service to close a chuck. 
+\item \texttt{AXIS\textunderscore STATE}  
 
-\item \texttt{CLOSE\textunderscore DOOR} : Service to close a door. 
+An indicator of the controlled state of a \block{Linear} or \block{Rotary} component representing an axis.
 
-\item \texttt{CODE} : \textbf{DEPRECATED} in Version 1.1. 
 
-\item \texttt{COMPOSITION\textunderscore STATE} : An indication of the operating condition of a mechanism represented by a \block{Composition} type element. 
+\item \texttt{BLOCK}  
 
-\item \texttt{CONTROLLER\textunderscore MODE} : The current operating mode of the \block{Controller} component. 
+The line of code or command being executed by a \block{Controller} \gls{Structural Element}.
 
-\item \texttt{CONTROLLER\textunderscore MODE\textunderscore OVERRIDE} : A setting or operator selection that changes the behavior of a piece of equipment. 
 
-\item \texttt{COUPLED\textunderscore AXES} : Refers to the set of associated axes. 
+\item \texttt{BLOCK\textunderscore COUNT}  
 
-\item \texttt{DATE\textunderscore CODE} : The time and date code associated with a material or other physical item. 
+The total count of the number of blocks of program code that have been executed since execution started.
 
-\item \texttt{DEVICE\textunderscore UUID} : The identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function. 
 
-\item \texttt{DIRECTION} : The direction of motion. 
+\item \texttt{CHUCK\textunderscore INTERLOCK}  
 
-\item \texttt{DOOR\textunderscore STATE} : The operational state of a \block{Door} component or composition element. 
+An indication of the state of an interlock function or control logic state intended to prevent the associated \block{Chuck} component from being operated.
 
-\item \texttt{EMERGENCY\textunderscore STOP} : The current state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment. 
 
-\item \texttt{END\textunderscore OF\textunderscore BAR} : An indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached. 
+\item \texttt{CHUCK\textunderscore STATE}  
 
-\item \texttt{EQUIPMENT\textunderscore MODE} : An indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities. 
+An indication of the operating state of a mechanism that holds a part or stock material during a manufacturing process. It may also represent a mechanism that holds any other mechanism in place within a piece of equipment.
 
-\item \texttt{EXECUTION} : The execution status of the \block{Component}. 
 
-\item \texttt{FUNCTIONAL\textunderscore MODE} : The current intended production status of the device or component. 
+\item \texttt{CLOSE\textunderscore CHUCK}  
 
-\item \texttt{HARDNESS} : The measurement of the hardness of a material. 
+Service to close a chuck.
 
-\item \texttt{INTERFACE\textunderscore STATE} : An indication of the operational state of an \block{Interface} component. 
 
-\item \texttt{LINE} : \textbf{DEPRECATED} in Version 1.4.0. 
+\item \texttt{CLOSE\textunderscore DOOR}  
 
-\item \texttt{LINE\textunderscore LABEL} : An optional identifier for a \block{BLOCK} of code in a \block{PROGRAM}. 
+Service to close a door.
 
-\item \texttt{LINE\textunderscore NUMBER} : A reference to the position of a block of program code within a control program. 
 
-\item \texttt{MATERIAL} : The identifier of a material used or consumed in the manufacturing process. 
+\item \texttt{CODE}  
 
-\item \texttt{MATERIAL\textunderscore CHANGE} : Service to change the type of material or product being loaded or fed to a piece of equipment. 
+\textbf{DEPRECATED} in Version 1.1.
 
-\item \texttt{MATERIAL\textunderscore FEED} : Service to advance material or feed product to a piece of equipment from a continuous or bulk source. 
 
-\item \texttt{MATERIAL\textunderscore LAYER} : Identifies the layers of material applied to a part or product as part of an additive manufacturing process. 
+\item \texttt{COMPOSITION\textunderscore STATE}  
 
-\item \texttt{MATERIAL\textunderscore LOAD} : Service to load a piece of material or product. 
+An indication of the operating condition of a mechanism represented by a \block{Composition} type element.
 
-\item \texttt{MATERIAL\textunderscore RETRACT} : Service to remove or retract material or product. 
 
-\item \texttt{MATERIAL\textunderscore UNLOAD} : Service to unload a piece of material or product. 
+\item \texttt{CONTROLLER\textunderscore MODE}  
 
-\item \texttt{MESSAGE} : Any text string of information to be transferred from a piece of equipment to a client software application. 
+The current operating mode of the \block{Controller} component.
 
-\item \texttt{OPEN\textunderscore CHUCK} : Service to open a chuck. 
 
-\item \texttt{OPEN\textunderscore DOOR} : Service to open a door. 
+\item \texttt{CONTROLLER\textunderscore MODE\textunderscore OVERRIDE}  
 
-\item \texttt{OPERATOR\textunderscore ID} : The identifier of the person currently responsible for operating the piece of equipment. 
+A setting or operator selection that changes the behavior of a piece of equipment.
 
-\item \texttt{PALLET\textunderscore ID} : The identifier for a pallet. 
 
-\item \texttt{PART\textunderscore CHANGE} : Service to change the part or product associated with a piece of equipment to a different part or product. 
+\item \texttt{COUPLED\textunderscore AXES}  
 
-\item \texttt{PART\textunderscore COUNT} : The aggregate count of parts. 
+Refers to the set of associated axes.
 
-\item \texttt{PART\textunderscore DETECT} : An indication designating whether a part or work piece has been detected or is present. 
 
-\item \texttt{PART\textunderscore ID} : An identifier of a part in a manufacturing operation. 
+\item \texttt{DATE\textunderscore CODE}  
 
-\item \texttt{PART\textunderscore NUMBER} : An identifier of a part or product moving through the manufacturing process. 
+The time and date code associated with a material or other physical item.
 
-\item \texttt{PATH\textunderscore FEEDRATE\textunderscore OVERRIDE} : The value of a signal or calculation issued to adjust the feedrate for the axes associated with a \block{Path} component that may represent a single axis or the coordinated movement of multiple axes. 
 
-\item \texttt{PATH\textunderscore MODE} : Describes the operational relationship between a \block{Path} \gls{Structural Element} and another \block{Path} \gls{Structural Element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations. 
+\item \texttt{DEVICE\textunderscore UUID}  
 
-\item \texttt{POWER\textunderscore STATE} : The indication of the status of the source of energy for a \gls{Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the \gls{Structural Element} to perform its functions. 
+The identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function.
 
-\item \texttt{POWER\textunderscore STATUS} : \textbf{DEPRECATED} in Version 1.1.0. 
 
-\item \texttt{PROCESS\textunderscore TIME} : The time and date associated with an activity or event. 
+\item \texttt{DIRECTION}  
 
-\item \texttt{PROGRAM} : The name of the logic or motion program being executed by the \block{Controller} component. 
+The direction of motion.
 
-\item \texttt{PROGRAM\textunderscore COMMENT} : A comment or non-executable statement in the control program. 
 
-\item \texttt{PROGRAM\textunderscore EDIT} : An indication of the status of the \block{Controller} components program editing mode. A program may be edited while another is executed. 
+\item \texttt{DOOR\textunderscore STATE}  
 
-\item \texttt{PROGRAM\textunderscore EDIT\textunderscore NAME} : The name of the program being edited. 
- This is used in conjunction with \block{PROGRAM\textunderscore EDIT} when in \block{ACTIVE} state.  
+The operational state of a \block{Door} component or composition element.
 
-\item \texttt{PROGRAM\textunderscore HEADER} : The non-executable header section of the control program. 
 
-\item \texttt{PROGRAM\textunderscore LOCATION} : The Uniform Resource Identifier (URI) for the source file associated with \block{PROGRAM}. 
+\item \texttt{EMERGENCY\textunderscore STOP}  
 
-\item \texttt{PROGRAM\textunderscore LOCATION\textunderscore TYPE} : Defines whether the logic or motion program defined by \block{PROGRAM} is being executed from the local memory of the controller or from an outside source. 
+The current state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment.
 
-\item \texttt{PROGRAM\textunderscore NEST\textunderscore LEVEL} : An indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed. 
 
-\item \texttt{ROTARY\textunderscore MODE} : The current operating mode for a \block{Rotary} type axis. 
+\item \texttt{END\textunderscore OF\textunderscore BAR}  
 
-\item \texttt{ROTARY\textunderscore VELOCITY\textunderscore OVERRIDE} : The percentage change to the velocity of the programmed velocity for a \block{Rotary} type axis. 
+An indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached.
 
-\item \texttt{SERIAL\textunderscore NUMBER} : The serial number associated with a \block{Component}, \block{Asset}, or \block{Device}. 
 
-\item \texttt{SPINDLE\textunderscore INTERLOCK} : An indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate. 
+\item \texttt{EQUIPMENT\textunderscore MODE}  
 
-\item \texttt{TOOL\textunderscore ASSET\textunderscore ID} : The identifier of an individual tool asset. 
+An indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities.
 
-\item \texttt{TOOL\textunderscore GROUP} : An identifier for the tool group associated with a specific tool. Commonly used to designate spare tools. 
 
-\item \texttt{TOOL\textunderscore ID} : \textbf{DEPRECATED} in Version 1.2.0.   See \block{TOOL\textunderscore ASSET\textunderscore ID}. \textit{DEPRECATED:The identifier of the tool currently in use for a given \block{Path}.} 
+\item \texttt{EXECUTION}  
 
-\item \texttt{TOOL\textunderscore NUMBER} : The identifier assigned by the \block{Controller} component to a cutting tool when in use by a piece of equipment. 
+The execution status of the \block{Component}.
 
-\item \texttt{TOOL\textunderscore OFFSET} : A reference to the tool offset variables applied to the active cutting tool associated with a \block{Path} in a \block{Controller} type component. 
 
-\item \texttt{USER} : The identifier of the person currently responsible for operating the piece of equipment. 
+\item \texttt{FUNCTIONAL\textunderscore MODE}  
 
-\item \texttt{VARIABLE} : A data value whose meaning may change over time due to changes in the opertion of a piece of equipment or the process being executed on that piece of equipment. 
+The current intended production status of the device or component.
 
-\item \texttt{WAIT\textunderscore STATE} : An indication of the reason that \block{EXECUTION} is reporting a value of \block{WAIT}. 
 
-\item \texttt{WIRE} : A string like piece or filament of relatively rigid or flexible material provided in a variety of diameters. 
+\item \texttt{HARDNESS}  
 
-\item \texttt{WORKHOLDING\textunderscore ID} : The identifier for the current workholding or part clamp in use by a piece of equipment. 
+The measurement of the hardness of a material.
 
-\item \texttt{WORK\textunderscore OFFSET} : A reference to the offset variables for a work piece or part associated with a \block{Path} in a \block{Controller} type component. 
 
-\item \texttt{OPERATING\textunderscore SYSTEM} : The Operating System of a component. 
+\item \texttt{INTERFACE\textunderscore STATE}  
 
-\item \texttt{FIRMWARE} : The embedded software of a component. 
+An indication of the operational state of an \block{Interface} component.
 
-\item \texttt{APPLICATION} : The application on a component. 
 
-\item \texttt{LIBRARY} : The software library on a component 
+\item \texttt{LINE}  
 
-\item \texttt{HARDWARE} : The hardware of a component. 
+\textbf{DEPRECATED} in Version 1.4.0.
 
-\item \texttt{NETWORK} : Network details of a component. 
 
-\item \texttt{ROTATION} : A three space angular rotation relative to a coordinate system. 
+\item \texttt{LINE\textunderscore LABEL}  
 
-\item \texttt{TRANSLATION} : A three space linear translation relative to a coordinate system. 
+An optional identifier for a \block{BLOCK} of code in a \block{PROGRAM}.
+
+
+\item \texttt{LINE\textunderscore NUMBER}  
+
+A reference to the position of a block of program code within a control program.
+
+
+\item \texttt{MATERIAL}  
+
+The identifier of a material used or consumed in the manufacturing process.
+
+
+\item \texttt{MATERIAL\textunderscore CHANGE}  
+
+Service to change the type of material or product being loaded or fed to a piece of equipment.
+
+
+\item \texttt{MATERIAL\textunderscore FEED}  
+
+Service to advance material or feed product to a piece of equipment from a continuous or bulk source.
+
+
+\item \texttt{MATERIAL\textunderscore LAYER}  
+
+Identifies the layers of material applied to a part or product as part of an additive manufacturing process.
+
+
+\item \texttt{MATERIAL\textunderscore LOAD}  
+
+Service to load a piece of material or product.
+
+
+\item \texttt{MATERIAL\textunderscore RETRACT}  
+
+Service to remove or retract material or product.
+
+
+\item \texttt{MATERIAL\textunderscore UNLOAD}  
+
+Service to unload a piece of material or product.
+
+
+\item \texttt{MESSAGE}  
+
+Any text string of information to be transferred from a piece of equipment to a client software application.
+
+
+\item \texttt{OPEN\textunderscore CHUCK}  
+
+Service to open a chuck.
+
+
+\item \texttt{OPEN\textunderscore DOOR}  
+
+Service to open a door.
+
+
+\item \texttt{OPERATOR\textunderscore ID}  
+
+The identifier of the person currently responsible for operating the piece of equipment.
+
+
+\item \texttt{PALLET\textunderscore ID}  
+
+The identifier for a pallet.
+
+
+\item \texttt{PART\textunderscore CHANGE}  
+
+Service to change the part or product associated with a piece of equipment to a different part or product.
+
+
+\item \texttt{PART\textunderscore COUNT}  
+
+The aggregate count of parts.
+
+
+\item \texttt{PART\textunderscore DETECT}  
+
+An indication designating whether a part or work piece has been detected or is present.
+
+
+\item \texttt{PART\textunderscore ID}  
+
+An identifier of a part in a manufacturing operation.
+
+
+\item \texttt{PART\textunderscore NUMBER}  
+
+An identifier of a part or product moving through the manufacturing process.
+
+
+\item \texttt{PATH\textunderscore FEEDRATE\textunderscore OVERRIDE}  
+
+The value of a signal or calculation issued to adjust the feedrate for the axes associated with a \block{Path} component that may represent a single axis or the coordinated movement of multiple axes.
+
+
+\item \texttt{PATH\textunderscore MODE}  
+
+Describes the operational relationship between a \block{Path} \gls{Structural Element} and another \block{Path} \gls{Structural Element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
+
+
+\item \texttt{POWER\textunderscore STATE}  
+
+The indication of the status of the source of energy for a \gls{Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the \gls{Structural Element} to perform its functions.
+
+
+\item \texttt{POWER\textunderscore STATUS}  
+
+\textbf{DEPRECATED} in Version 1.1.0.
+
+
+\item \texttt{PROCESS\textunderscore TIME}  
+
+The time and date associated with an activity or event.
+
+
+\item \texttt{PROGRAM}  
+
+The name of the logic or motion program being executed by the \block{Controller} component.
+
+
+\item \texttt{PROGRAM\textunderscore COMMENT}  
+
+A comment or non-executable statement in the control program.
+
+
+\item \texttt{PROGRAM\textunderscore EDIT}  
+
+An indication of the status of the \block{Controller} components program editing mode. A program may be edited while another is executed.
+
+
+\item \texttt{PROGRAM\textunderscore EDIT\textunderscore NAME}  
+
+The name of the program being edited. 
+ This is used in conjunction with \block{PROGRAM\textunderscore EDIT} when in \block{ACTIVE} state. 
+
+
+\item \texttt{PROGRAM\textunderscore HEADER}  
+
+The non-executable header section of the control program.
+
+
+\item \texttt{PROGRAM\textunderscore LOCATION}  
+
+The Uniform Resource Identifier (URI) for the source file associated with \block{PROGRAM}.
+
+
+\item \texttt{PROGRAM\textunderscore LOCATION\textunderscore TYPE}  
+
+Defines whether the logic or motion program defined by \block{PROGRAM} is being executed from the local memory of the controller or from an outside source.
+
+
+\item \texttt{PROGRAM\textunderscore NEST\textunderscore LEVEL}  
+
+An indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed.
+
+
+\item \texttt{ROTARY\textunderscore MODE}  
+
+The current operating mode for a \block{Rotary} type axis.
+
+
+\item \texttt{ROTARY\textunderscore VELOCITY\textunderscore OVERRIDE}  
+
+The percentage change to the velocity of the programmed velocity for a \block{Rotary} type axis.
+
+
+\item \texttt{SERIAL\textunderscore NUMBER}  
+
+The serial number associated with a \block{Component}, \block{Asset}, or \block{Device}.
+
+
+\item \texttt{SPINDLE\textunderscore INTERLOCK}  
+
+An indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate.
+
+
+\item \texttt{TOOL\textunderscore ASSET\textunderscore ID}  
+
+The identifier of an individual tool asset.
+
+
+\item \texttt{TOOL\textunderscore GROUP}  
+
+An identifier for the tool group associated with a specific tool. Commonly used to designate spare tools.
+
+
+\item \texttt{TOOL\textunderscore ID}  
+
+\textbf{DEPRECATED} in Version 1.2.0.   See \block{TOOL\textunderscore ASSET\textunderscore ID}. \textit{DEPRECATED:The identifier of the tool currently in use for a given \block{Path}.}
+
+
+\item \texttt{TOOL\textunderscore NUMBER}  
+
+The identifier assigned by the \block{Controller} component to a cutting tool when in use by a piece of equipment.
+
+
+\item \texttt{TOOL\textunderscore OFFSET}  
+
+A reference to the tool offset variables applied to the active cutting tool associated with a \block{Path} in a \block{Controller} type component.
+
+
+\item \texttt{USER}  
+
+The identifier of the person currently responsible for operating the piece of equipment.
+
+
+\item \texttt{VARIABLE}  
+
+A data value whose meaning may change over time due to changes in the opertion of a piece of equipment or the process being executed on that piece of equipment.
+
+
+\item \texttt{WAIT\textunderscore STATE}  
+
+An indication of the reason that \block{EXECUTION} is reporting a value of \block{WAIT}.
+
+
+\item \texttt{WIRE}  
+
+A string like piece or filament of relatively rigid or flexible material provided in a variety of diameters.
+
+
+\item \texttt{WORKHOLDING\textunderscore ID}  
+
+The identifier for the current workholding or part clamp in use by a piece of equipment.
+
+
+\item \texttt{WORK\textunderscore OFFSET}  
+
+A reference to the offset variables for a work piece or part associated with a \block{Path} in a \block{Controller} type component.
+
+
+\item \texttt{OPERATING\textunderscore SYSTEM}  
+
+The Operating System of a component.
+
+
+\item \texttt{FIRMWARE}  
+
+The embedded software of a component.
+
+
+\item \texttt{APPLICATION}  
+
+The application on a component.
+
+
+\item \texttt{LIBRARY}  
+
+The software library on a component
+
+
+\item \texttt{HARDWARE}  
+
+The hardware of a component.
+
+
+\item \texttt{NETWORK}  
+
+Network details of a component.
+
+
+\item \texttt{ROTATION}  
+
+A three space angular rotation relative to a coordinate system.
+
+
+\item \texttt{TRANSLATION}  
+
+A three space linear translation relative to a coordinate system.
 
 \end{itemize}
 
-\FloatBarrier
 
 \subsubsection{Sample}
 \label{sec:Sample}
@@ -267,142 +547,345 @@ This data can be measured at any point-in-time and will always produce a result.
 The value of \property{type}{DataItem} with \property{category}{DataItem} \texttt{Sample} \MUST be one of the following:
 \begin{itemize}
 
-\item \texttt{ACCELERATION} : The measurement of the rate of change of velocity. 
 
-\item \texttt{ACCUMULATED\textunderscore TIME} : The measurement of accumulated time for an activity or event. 
+\item \texttt{ACCELERATION}  
 
-\item \texttt{AMPERAGE} : The measurement of electrical current. 
+The measurement of the rate of change of velocity.
 
-\item \texttt{ANGLE} : The measurement of angular position. 
 
-\item \texttt{ANGULAR\textunderscore ACCELERATION} : The measurement rate of change of angular velocity. 
+\item \texttt{ACCUMULATED\textunderscore TIME}  
 
-\item \texttt{ANGULAR\textunderscore VELOCITY} : The measurement of the rate of change of angular position. 
+The measurement of accumulated time for an activity or event.
 
-\item \texttt{AXIS\textunderscore FEEDRATE} : The measurement of the feedrate of a linear axis. 
 
-\item \texttt{CAPACITY\textunderscore FLUID} : The fluid capacity of an object or container. 
+\item \texttt{AMPERAGE}  
 
-\item \texttt{CAPACITY\textunderscore SPATIAL} : The geometric capacity of an object or container. 
+The measurement of electrical current.
 
-\item \texttt{CLOCK\textunderscore TIME} : The value provided by a timing device at a specific point in time. 
 
-\item \texttt{CONCENTRATION} : The measurement of the percentage of one component within a mixture of components 
+\item \texttt{ANGLE}  
 
-\item \texttt{CONDUCTIVITY} : The measurement of the ability of a material to conduct electricity. 
+The measurement of angular position.
 
-\item \texttt{CUTTING\textunderscore SPEED} : The speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on. 
 
-\item \texttt{DENSITY} : The volumetric mass of a material per unit volume of that material. 
+\item \texttt{ANGULAR\textunderscore ACCELERATION}  
 
-\item \texttt{DEPOSITION\textunderscore ACCELERATION\textunderscore VOLUMETRIC} : The rate of change in spatial volume of material deposited in an additive manufacturing process. 
+The measurement rate of change of angular velocity.
 
-\item \texttt{DEPOSITION\textunderscore DENSITY} : The density of the material deposited in an additive manufacturing process per unit of volume. 
 
-\item \texttt{DEPOSITION\textunderscore MASS} : The mass of the material deposited in an additive manufacturing process. 
+\item \texttt{ANGULAR\textunderscore VELOCITY}  
 
-\item \texttt{DEPOSITION\textunderscore RATE\textunderscore VOLUMETRIC} : The rate at which a spatial volume of material is deposited in an additive manufacturing process. 
+The measurement of the rate of change of angular position.
 
-\item \texttt{DEPOSITION\textunderscore VOLUME} : The spatial volume of material to be deposited in an additive manufacturing process. 
 
-\item \texttt{DISPLACEMENT} : The measurement of the change in position of an object. 
+\item \texttt{AXIS\textunderscore FEEDRATE}  
 
-\item \texttt{ELECTRICAL\textunderscore ENERGY} : The measurement of electrical energy consumption by a component. 
+The measurement of the feedrate of a linear axis.
 
-\item \texttt{EQUIPMENT\textunderscore TIMER} : The measurement of the amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities. 
 
-\item \texttt{FILL\textunderscore LEVEL} : The measurement of the amount of a substance remaining compared to the planned maximum amount of that substance. 
+\item \texttt{CAPACITY\textunderscore FLUID}  
 
-\item \texttt{FLOW} : The measurement of the rate of flow of a fluid. 
+The fluid capacity of an object or container.
 
-\item \texttt{FREQUENCY} : The measurement of the number of occurrences of a repeating event per unit time. 
 
-\item \texttt{GLOBAL\textunderscore POSITION} : \textbf{DEPRECATED} in Version 1.1 
+\item \texttt{CAPACITY\textunderscore SPATIAL}  
 
-\item \texttt{LENGTH} : The measurement of the length of an object. 
+The geometric capacity of an object or container.
 
-\item \texttt{LEVEL} : \textbf{DEPRECATED} in Version 1.2.  See \block{FILL\textunderscore LEVEL} 
 
-\item \texttt{LINEAR\textunderscore FORCE} : The measurement of the push or pull introduced by an actuator or exerted on an object. 
+\item \texttt{CLOCK\textunderscore TIME}  
 
-\item \texttt{LOAD} : The measurement of the actual versus the standard rating of a piece of equipment. 
+The value provided by a timing device at a specific point in time.
 
-\item \texttt{MASS} : The measurement of the mass of an object(s) or an amount of material. 
 
-\item \texttt{PATH\textunderscore FEEDRATE} : The measurement of the feedrate for the axes, or a single axis, associated with a \block{Path} component-a vector. 
+\item \texttt{CONCENTRATION}  
 
-\item \texttt{PATH\textunderscore FEEDRATE\textunderscore PER\textunderscore REVOLUTION} : The feedrate for the axes, or a single axis. 
+The measurement of the percentage of one component within a mixture of components
 
-\item \texttt{PATH\textunderscore POSITION} : A measured or calculated position of a control point associated with a \block{Controller} element, or \block{Path} element if provided, of a piece of equipment. 
 
-\item \texttt{PH} : A measure of the acidity or alkalinity of a solution. 
+\item \texttt{CONDUCTIVITY}  
 
-\item \texttt{POSITION} : A measured or calculated position of a \block{Component} element as reported by a piece of equipment. 
+The measurement of the ability of a material to conduct electricity.
 
-\item \texttt{POWER\textunderscore FACTOR} : The measurement of the ratio of real power flowing to a load to the apparent power in that AC circuit. 
 
-\item \texttt{PRESSURE} : The measurement of force per unit area exerted by a gas or liquid. 
+\item \texttt{CUTTING\textunderscore SPEED}  
 
-\item \texttt{PROCESS\textunderscore TIMER} : The measurement of the amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment. 
+The speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on.
 
-\item \texttt{RESISTANCE} : The measurement of the degree to which a substance opposes the passage of an electric current. 
 
-\item \texttt{ROTARY\textunderscore VELOCITY} : The measurement of the rotational speed of a rotary axis. 
+\item \texttt{DENSITY}  
 
-\item \texttt{SOUND\textunderscore LEVEL} : The measurement of a sound level or sound pressure level relative to atmospheric pressure. 
+The volumetric mass of a material per unit volume of that material.
 
-\item \texttt{SPINDLE\textunderscore SPEED} : \textbf{DEPRECATED} in Version 1.2.  Replaced by \block{ROTARY\textunderscore VELOCITY} 
 
-\item \texttt{STRAIN} : The measurement of the amount of deformation per unit length of an object when a load is applied. 
+\item \texttt{DEPOSITION\textunderscore ACCELERATION\textunderscore VOLUMETRIC}  
 
-\item \texttt{TEMPERATURE} : The measurement of temperature. 
+The rate of change in spatial volume of material deposited in an additive manufacturing process.
 
-\item \texttt{TENSION} : The measurement of a force that stretches or elongates an object. 
 
-\item \texttt{TILT} : The measurement of angular displacement. 
+\item \texttt{DEPOSITION\textunderscore DENSITY}  
 
-\item \texttt{TORQUE} : The measurement of the turning force exerted on an object or by an object. 
+The density of the material deposited in an additive manufacturing process per unit of volume.
 
-\item \texttt{VELOCITY} : The measurement of the rate of change of position of a \block{Component}. 
 
-\item \texttt{VISCOSITY} : The measurement of a fluids resistance to flow. 
+\item \texttt{DEPOSITION\textunderscore MASS}  
 
-\item \texttt{VOLTAGE} : The measurement of electrical potential between two points. 
+The mass of the material deposited in an additive manufacturing process.
 
-\item \texttt{VOLT\textunderscore AMPERE} : The measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA). 
 
-\item \texttt{VOLT\textunderscore AMPERE\textunderscore REACTIVE} : The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR). 
+\item \texttt{DEPOSITION\textunderscore RATE\textunderscore VOLUMETRIC}  
 
-\item \texttt{VOLUME\textunderscore FLUID} : The fluid volume of an object or container. 
+The rate at which a spatial volume of material is deposited in an additive manufacturing process.
 
-\item \texttt{VOLUME\textunderscore SPATIAL} : The geometric volume of an object or container. 
 
-\item \texttt{WATTAGE} : The measurement of power flowing through or dissipated by an electrical circuit or piece of equipment. 
+\item \texttt{DEPOSITION\textunderscore VOLUME}  
 
-\item \texttt{AMPERAGE\textunderscore AC} : The measurement of an electrical current that reverses direction at regular short intervals. 
+The spatial volume of material to be deposited in an additive manufacturing process.
 
-\item \texttt{AMPERAGE\textunderscore DC} : The measurement of an electric current flowing in one direction only. 
 
-\item \texttt{VOLTAGE\textunderscore AC} : The measurement of the electrical potential between two points in an electrical circuit in which the current periodically reverses direction. 
+\item \texttt{DISPLACEMENT}  
 
-\item \texttt{VOLTAGE\textunderscore DC} : The measurement of the electrical potential between two points in an electrical circuit in which the current is unidirectional. 
+The measurement of the change in position of an object.
 
-\item \texttt{X\textunderscore DIMENSION} : Measured dimension of an entity relative to the X direction of the referenced coordinate system. 
 
-\item \texttt{Y\textunderscore DIMENSION} : Measured dimension of an entity relative to the Y direction of the referenced coordinate system. 
+\item \texttt{ELECTRICAL\textunderscore ENERGY}  
 
-\item \texttt{Z\textunderscore DIMENSION} : Measured dimension of an entity relative to the Z direction of the referenced coordinate system. 
+The measurement of electrical energy consumption by a component.
 
-\item \texttt{DIAMETER} : The measured dimension of a diameter. 
 
-\item \texttt{ORIENTATION} : A measured or calculated orientation of a plane or vector relative to a cartesian coordinate system. 
+\item \texttt{EQUIPMENT\textunderscore TIMER}  
 
-\item \texttt{HUMIDITY\textunderscore RELATIVE} : The amount of water vapor present expressed as a percent to reach saturation at the same temperature. 
+The measurement of the amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities.
 
-\item \texttt{HUMIDITY\textunderscore ABSOLUTE} : The amount of water vapor expressed in grams per cubic meter. 
 
-\item \texttt{HUMIDITY\textunderscore SPECIFIC} : The ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent. 
+\item \texttt{FILL\textunderscore LEVEL}  
+
+The measurement of the amount of a substance remaining compared to the planned maximum amount of that substance.
+
+
+\item \texttt{FLOW}  
+
+The measurement of the rate of flow of a fluid.
+
+
+\item \texttt{FREQUENCY}  
+
+The measurement of the number of occurrences of a repeating event per unit time.
+
+
+\item \texttt{GLOBAL\textunderscore POSITION}  
+
+\textbf{DEPRECATED} in Version 1.1
+
+
+\item \texttt{LENGTH}  
+
+The measurement of the length of an object.
+
+
+\item \texttt{LEVEL}  
+
+\textbf{DEPRECATED} in Version 1.2.  See \block{FILL\textunderscore LEVEL}
+
+
+\item \texttt{LINEAR\textunderscore FORCE}  
+
+The measurement of the push or pull introduced by an actuator or exerted on an object.
+
+
+\item \texttt{LOAD}  
+
+The measurement of the actual versus the standard rating of a piece of equipment.
+
+
+\item \texttt{MASS}  
+
+The measurement of the mass of an object(s) or an amount of material.
+
+
+\item \texttt{PATH\textunderscore FEEDRATE}  
+
+The measurement of the feedrate for the axes, or a single axis, associated with a \block{Path} component-a vector.
+
+
+\item \texttt{PATH\textunderscore FEEDRATE\textunderscore PER\textunderscore REVOLUTION}  
+
+The feedrate for the axes, or a single axis.
+
+
+\item \texttt{PATH\textunderscore POSITION}  
+
+A measured or calculated position of a control point associated with a \block{Controller} element, or \block{Path} element if provided, of a piece of equipment.
+
+
+\item \texttt{PH}  
+
+A measure of the acidity or alkalinity of a solution.
+
+
+\item \texttt{POSITION}  
+
+A measured or calculated position of a \block{Component} element as reported by a piece of equipment.
+
+
+\item \texttt{POWER\textunderscore FACTOR}  
+
+The measurement of the ratio of real power flowing to a load to the apparent power in that AC circuit.
+
+
+\item \texttt{PRESSURE}  
+
+The measurement of force per unit area exerted by a gas or liquid.
+
+
+\item \texttt{PROCESS\textunderscore TIMER}  
+
+The measurement of the amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment.
+
+
+\item \texttt{RESISTANCE}  
+
+The measurement of the degree to which a substance opposes the passage of an electric current.
+
+
+\item \texttt{ROTARY\textunderscore VELOCITY}  
+
+The measurement of the rotational speed of a rotary axis.
+
+
+\item \texttt{SOUND\textunderscore LEVEL}  
+
+The measurement of a sound level or sound pressure level relative to atmospheric pressure.
+
+
+\item \texttt{SPINDLE\textunderscore SPEED}  
+
+\textbf{DEPRECATED} in Version 1.2.  Replaced by \block{ROTARY\textunderscore VELOCITY}
+
+
+\item \texttt{STRAIN}  
+
+The measurement of the amount of deformation per unit length of an object when a load is applied.
+
+
+\item \texttt{TEMPERATURE}  
+
+The measurement of temperature.
+
+
+\item \texttt{TENSION}  
+
+The measurement of a force that stretches or elongates an object.
+
+
+\item \texttt{TILT}  
+
+The measurement of angular displacement.
+
+
+\item \texttt{TORQUE}  
+
+The measurement of the turning force exerted on an object or by an object.
+
+
+\item \texttt{VELOCITY}  
+
+The measurement of the rate of change of position of a \block{Component}.
+
+
+\item \texttt{VISCOSITY}  
+
+The measurement of a fluids resistance to flow.
+
+
+\item \texttt{VOLTAGE}  
+
+The measurement of electrical potential between two points.
+
+
+\item \texttt{VOLT\textunderscore AMPERE}  
+
+The measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA).
+
+
+\item \texttt{VOLT\textunderscore AMPERE\textunderscore REACTIVE}  
+
+The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR).
+
+
+\item \texttt{VOLUME\textunderscore FLUID}  
+
+The fluid volume of an object or container.
+
+
+\item \texttt{VOLUME\textunderscore SPATIAL}  
+
+The geometric volume of an object or container.
+
+
+\item \texttt{WATTAGE}  
+
+The measurement of power flowing through or dissipated by an electrical circuit or piece of equipment.
+
+
+\item \texttt{AMPERAGE\textunderscore AC}  
+
+The measurement of an electrical current that reverses direction at regular short intervals.
+
+
+\item \texttt{AMPERAGE\textunderscore DC}  
+
+The measurement of an electric current flowing in one direction only.
+
+
+\item \texttt{VOLTAGE\textunderscore AC}  
+
+The measurement of the electrical potential between two points in an electrical circuit in which the current periodically reverses direction.
+
+
+\item \texttt{VOLTAGE\textunderscore DC}  
+
+The measurement of the electrical potential between two points in an electrical circuit in which the current is unidirectional.
+
+
+\item \texttt{X\textunderscore DIMENSION}  
+
+Measured dimension of an entity relative to the X direction of the referenced coordinate system.
+
+
+\item \texttt{Y\textunderscore DIMENSION}  
+
+Measured dimension of an entity relative to the Y direction of the referenced coordinate system.
+
+
+\item \texttt{Z\textunderscore DIMENSION}  
+
+Measured dimension of an entity relative to the Z direction of the referenced coordinate system.
+
+
+\item \texttt{DIAMETER}  
+
+The measured dimension of a diameter.
+
+
+\item \texttt{ORIENTATION}  
+
+A measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
+
+
+\item \texttt{HUMIDITY\textunderscore RELATIVE}  
+
+The amount of water vapor present expressed as a percent to reach saturation at the same temperature.
+
+
+\item \texttt{HUMIDITY\textunderscore ABSOLUTE}  
+
+The amount of water vapor expressed in grams per cubic meter.
+
+
+\item \texttt{HUMIDITY\textunderscore SPECIFIC}  
+
+The ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
 
 \end{itemize}
 
-\FloatBarrier

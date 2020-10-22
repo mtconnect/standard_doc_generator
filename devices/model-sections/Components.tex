@@ -1,4 +1,4 @@
-% Generated 2020-08-21 17:56:37 +0530
+% Generated 2020-10-22 16:25:25 +0530
 \subsection{Components} \label{sec:Components}
 
 
@@ -51,11 +51,17 @@ A \block{Component} organizes information describing a physical part or logical 
 Descriptions for attributes of \block{Component}:
 
 \begin{itemize}
+
 \item \property{id}[Component] : The unique identifier for this element.
+
 \item \property{name}[Component] : The name of an element or a piece of equipment.
+
 \item \property{nativeName}[Component] : The common name normally associated with a piece of equipment or an element.
+
 \item \property{sampleInterval}[Component] : An optional attribute that is an indication provided by a piece of equipment describing the interval in milliseconds between the completion of the reading of the data associated with the \block{Device} element until the beginning of the next sampling of that data.
+
 \item \property{sampleRate}[Component] : \textbf{DEPRECATED} in \textit{MTConnect Version 1.2}. Replaced by \property{sampleInterval}[Component].
+
 \item \property{uuid}[Component] : The unique identifier for an element.
 \end{itemize}
 
@@ -94,7 +100,6 @@ Descriptions for elements of \block{Component}:
 \item \block{DataItems} : \block{DataItems} \glspl{organize} \block{DataItem} elements. See \sect{DataItems}
 \item \block{References} : \block{References} \glspl{organize} \block{Reference} elements associated with this \block{Component} element.
 \end{itemize}
-\FloatBarrier
 
 \subsubsection{Description}
 \label{sec:Description}
@@ -131,10 +136,14 @@ The descriptive content.
 Descriptions for attributes of \block{Description}:
 
 \begin{itemize}
+
 \item \property{manufacturer}[Description] : The name of the manufacturer of the physical or logical part of a piece of equipment represented by this element.
+
 \item \property{model}[Description] : The model description of the physical part or logical function of a piece of equipment represented by this element.
+
 \item \property{serialNumber}[Description] : The serial number associated with a piece of equipment.
+
 \item \property{station}[Description] : The station where the physical part or logical function of a piece of equipment is located when it is part of a manufacturing unit or cell with multiple stations.
+
 \item \property{value}[Description] : The description of the element.
 \end{itemize}
-\FloatBarrier
