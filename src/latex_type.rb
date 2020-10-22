@@ -133,15 +133,14 @@ EOT
           
           name = r.association_name ? r.association_name : r.name
           if r.association_doc
-            f.puts "\\item \\property{#{name}}[#{@name}] : #{r.association_doc}\n"
+            f.puts "\n\\item \\property{#{name}}[#{@name}] : #{r.association_doc}\n"
           elsif r.documentation
-            f.puts "\\item \\property{#{name}}[#{@name}] : #{r.documentation}\n"
+            f.puts "\n\\item \\property{#{name}}[#{@name}] : #{r.documentation}\n"
           end
           
 		  stereo = r.stereotype ? "\\texttt{<<#{r.stereotype}>>} " : ""
-          if r.target.type.type == 'uml:Enumeration' and !['DataItemTypeEnum','DataItemSubTypeEnum'].include?(escape_name)  and !$enums.include?(r.final_target.type.name) and not stereo.include?('deprecated')
+          if r.target.type.type == 'uml:Enumeration' and !$enums.include?(r.final_target.type.name) and not stereo.include?('deprecated')
             r.target.type.generate_enumerations(f)
-            f.puts "\\FloatBarrier\n"
 			$enums << r.final_target.type.name
           end
         end
@@ -208,7 +207,6 @@ EOT
           
           if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty and not r.stereotype.include?('deprecated')
             r.target.type.generate_enumerations(f)
-            f.puts "\\FloatBarrier"
           end
         end
       end
@@ -264,17 +262,21 @@ EOT
       elsif (name == 'type' or name == 'subType') and not r.default
         f.puts "\nThe value of \\property{#{name}}{DataItem} with \\property{category}{DataItem} \\texttt{#{@name}} \\MUST be one of the following:\n" if name == 'type'
 		
-		f.puts "\nThe value of \\property{#{name}}{DataItem} for \\block{DataItem} \\MUST be one of the following:\n" if name == 'subType'
-		
+		f.puts "\nThe value of \\property{#{name}}{DataItem} for \\block{DataItem} \\MUST be one of the following:\n\n" if name == 'subType'
         
-        f.puts <<-EOT
+		f.puts <<-EOT
 \\begin{itemize}
 
 EOT
       
         r.final_target.type.literals.each do |lit|
-          f.puts "\\item \\texttt{#{lit.name.gsub(/_/,"\\textunderscore ")}} : #{lit.description.gsub(/(\^)/,"\\^{}")} \n\n"
-	  
+          f.puts <<-EOT
+
+\\item \\texttt{#{lit.name.gsub(/_/,"\\textunderscore ")}}  
+
+#{lit.description.gsub(/(\^)/,"\\^{}")}
+
+EOT
         end
         
 
@@ -283,7 +285,7 @@ EOT
 
 EOT
 	  elsif name == 'units' and r.default
-	    f.puts "\nUnits for \\texttt{#{@name}} is: \\texttt{#{r.default.gsub(/(\^)/,"\\^{}")}}.\n\n"
+	    f.puts "\nUnits: \\texttt{#{r.default.gsub(/(\^)/,"\\^{}").gsub("_","\\textunderscore ")}}.\n"
           end
         end
       end
@@ -294,46 +296,44 @@ EOT
     return if @is_subtype == true or @subtypes.length == 0
 
 	if @model.name.include?("Types")
-	  if @subtypes.size>0
-		subtypes_array = []
+	  if @subtypes.size>0 and @relations.size>1
+		f.puts <<-EOT
+\n\\paragraph{Subtypes of #{@name}}\\mbox{}
+#{get_label("sec:Subtypes of #{@name}")}
+
+\\begin{itemize}\n
+EOT
 		@subtypes.each do |subtype|
-		  subtypes_array << "\\texttt{#{subtype.relation("subType").default}}" if defined?(subtype.relation("subType").default)
+		  if defined?(subtype.relation("subType").default)
+			f.puts "\\item \\texttt{#{subtype.relation("subType").default.gsub("_","\\textunderscore ")}}"
+			subtype.generate_documentation(f)
+			subtype.relations.each do |r|
+			  name = r.association_name ? r.association_name : r.name
+			  if r.redefinesProperty and name == 'result'
+				f.puts "\nThe value for \\block{#{@name}} when \\property{subType} is \\texttt{#{subtype.relation("subType").default}} \\MUST be one of the following: \n\n"
+				r.final_target.type.generate_enumerations(f)
+				break
+			  end
+			end
 		end
-		if subtypes_array.size>2
-	      f.puts "\nSubtypes of \\texttt{#{@name}} are: #{subtypes_array[0..-1].join(", ")} and #{subtypes_array[-1]}. \n"
-		elsif subtypes_array.size==2
-		  f.puts "\nSubtypes of \\texttt{#{@name}} are: #{subtypes_array[0]} and #{subtypes_array[-1]}. \n"
-		elsif subtypes.size==1
-		  f.puts "\nSubtype of \\texttt{#{@name}} is: #{subtypes_array[0]}.\n"
 		end
-		
+		f.puts "\n\\end{itemize}"
 	  end
-	  @subtypes.each do |subtype|
-	    subtype_name = subtype.escape_name
-		subtype.relations.each do |r|
-		  name = r.association_name ? r.association_name : r.name
-		  if r.redefinesProperty and name == 'result'
-			f.puts "\nThe value fof \\texttt{#{@name}} when \\texttt{subType} is \\texttt{#{subtype.relation("subType").default}} \\MUST be one of the following: \n\n"
-			r.final_target.type.generate_enumerations(f)
-			f.puts "\\FloatBarrier"
-		  end
-		end	
-      end
 	end
   end
 
 
-def generate_enumerations(f)
-  if @type == 'uml:Enumeration'
-    $logger.debug "***** =====> Generating Enumerations for #{@name}"
+  def generate_enumerations(f)
+    if @type == 'uml:Enumeration'
+      $logger.debug "***** =====> Generating Enumerations for #{@name}"
 
-    f.puts <<-EOT
+      f.puts <<-EOT
 
 \\tabulinesep = 5pt
 \\begin{longtabu} to \\textwidth {
     |l|X|}
-  \\caption{#{escape_name} Enumeration}
-  #{get_label("enum:#{escape_name}")} \\\\
+\\caption{#{escape_name} Enumeration}
+#{get_label("enum:#{escape_name}")} \\\\
 
 \\hline
 Name & Description \\\\
@@ -416,34 +416,25 @@ EOT
     section_name = escape_name
 
 	if @is_subtype == true
+	  if @relations.size==1
 		f.puts <<-EOT
 \n\\paragraph{#{section_name}}\\mbox{}
 #{get_label("sec:#{section_name}")}
-
 EOT
-
-    generate_documentation(f)
-	
+		generate_documentation(f)
+	  end
 	else
-	  f.puts <<-EOT
+    	f.puts <<-EOT
 \n\\subsubsection{#{section_name}}
 #{get_label("sec:#{section_name}")}
 
 EOT
 
-      generate_diagram(f)
-      generate_documentation(f)
+		generate_documentation(f)
+		generate_class(f)
+	
+	end
 
-      if @type == 'uml:DataType' or @type == 'uml:PrimitiveType'
-        generate_data_type(f)
-      else
-        generate_class(f)
-      end
-
-      f.puts "\\FloatBarrier"
-
-      # generate_class_diagram  
-    end	
   end
 
 
@@ -455,19 +446,6 @@ EOT
 	description={#{format_whitespaces(@documentation)}}
 }
 EOT
-  end
-
-  def toTitleCase(uppercase)
-	titlecase = ""
-	uppercase_split = uppercase.split('_')
-	uppercase_split.each do |word|
-		if word.length>2
-			titlecase += word[0] + word[1..-1].downcase!
-		else 
-			titlecase += word
-		end
-	end
-	return titlecase
   end
 
 end
