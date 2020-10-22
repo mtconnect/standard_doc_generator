@@ -1,5 +1,8 @@
 # Add directory to path
 $: << File.dirname(__FILE__)
+$: << File.join(File.expand_path("..", Dir.pwd),'schema_dev')
+$: << File.join(File.expand_path("..", Dir.pwd),'schema_dev','src')
+
 
 require 'logger'
 require 'optparse'
@@ -48,6 +51,9 @@ operations.each do |op|
   when 'docs'
     load 'create_documentation.rb'
     
+  when 'schema'
+	load 'generate'
+  
   else
     $logger.error "Invalid option #{op}"
     $logger.fatal parser.help

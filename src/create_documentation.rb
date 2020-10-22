@@ -26,7 +26,7 @@ SkipModels.add('Files')
 LatexModel.skip_models = SkipModels
 LatexModel.new(RootModel).find_definitions
 
-$enums = []
+$enums = ['DataItemTypeEnum','DataItemSubTypeEnum', 'CompositionTypeEnum']
 
 #Generating Documentation
 document_structure = File.read(File.join(File.dirname(__FILE__),'..','config','document_structure.json'))
