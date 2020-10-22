@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+$: << Dir.dirname(__FILE__) + '/src'
+load 'document'
+
