@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MTConnectStreams xmlns="urn:mtconnect.com:MTConnectStreams:1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:mtconnect.com:MTConnectStreams:1.1 ../MTConnectStreams_1.1.xsd">
+	<Header bufferSize="130000" instanceId="1" lastSequence="100" nextSequence="100" creationTime="2009-11-13T08:00:00" firstSequence="1" sender="localhost" version="1.1"/>
+	<Streams>
+		<DeviceStream uuid="HM1" name="HMC_3Axis">
+			<ComponentStream component="Linear" name="Y" componentId="y">
+				<Samples>
+					<Position dataItemId="yp" name="Yact" subType="ACTUAL" sequence="23" timestamp="2009-11-13T08:00:00">213.1232</Position> 
+				</Samples>
+				<Events>
+					<Alarm code="CRASH" dataItemId="a1" name="alarm" nativeCode="121" sequence="12313" severity="CRITICAL" state="ACTIVE" timestamp="2009-11-13T08:00:00">Something bad happened</Alarm>
+				</Events>
+			</ComponentStream>
+			<ComponentStream component="Linear" name="X" componentId="x">
+				<Samples>
+					<Position dataItemId="xp" name="Xact" subType="ACTUAL" sequence="24" timestamp="2009-11-13T08:00:00">10.203</Position>
+				</Samples>
+				<Events>
+					<PartId dataItemId="pid" name="part" sequence="31" timestamp="2009-11-13T08:00:00">P123242155</PartId>
+					<WorkholdingId dataItemId="wid" name="workholding" sequence="32" timestamp="2009-11-13T08:00:00">W124214555</WorkholdingId>
+				</Events>
+			</ComponentStream>
+			<ComponentStream component="Linear" name="Z" componentId="z">
+				<Samples>
+					<Position dataItemId="zp" name="Zact" subType="ACTUAL" sequence="25" timestamp="2009-11-13T08:00:00">77.5098</Position> 
+				</Samples>
+				<Events>
+					<ToolId dataItemId="tid" name="tool" sequence="33" timestamp="2009-11-13T08:00:00">T1234214</ToolId>
+					<RotaryFunction dataItemId="rf" name="rfunc" sequence="34" timestamp="2009-11-13T08:00:00">SPINDLE</RotaryFunction>
+				</Events>
+			</ComponentStream>
+			<ComponentStream component="Rotary" name="C" componentId="c">
+				<Samples>
+					<SpindleSpeed dataItemId="zp" name="Zact" subType="ACTUAL" sequence="25" timestamp="2009-11-13T08:00:00">77.5098</SpindleSpeed> 
+					<SpindleSpeed dataItemId="zp" name="Zact" subType="ACTUAL" sequence="25" timestamp="2009-11-13T08:00:00">UNAVAILABLE</SpindleSpeed> 
+				</Samples>
+			</ComponentStream>
+			<ComponentStream component="Path" name="path" componentId="path">
+				<Samples>
+					<PathPosition dataItemId="pp" sequence="26" timestamp="2009-11-13T08:00:00" name="Ppos">20.122 33.4323 11.1234</PathPosition>
+					<PathPosition dataItemId="pp" sequence="26" timestamp="2009-11-13T08:00:00" name="Ppos">UNAVAILABLE</PathPosition>
+					<PathFeedrate dataItemId="pf" sequence="28" timestamp="2009-11-13T08:00:00" name="F" subType="ACTUAL">121.11</PathFeedrate>
+					<PathFeedrate dataItemId="pfo" sequence="29" timestamp="2009-11-13T08:00:00" name="Fovr" subType="OVERRIDE">100</PathFeedrate>
+				</Samples>
+				<Events>
+					<ActiveAxes dataItemId="aa" sequence="27" timestamp="2009-11-13T08:00:00" name="active_axes">X Y Z C</ActiveAxes>
+					<Line dataItemId="ln" sequence="36" name="line" timestamp="2009-11-13T08:00:00">123</Line>
+					<Block dataItemId="blk" sequence="37" name="block" timestamp="2009-11-13T08:00:00">G01X123</Block>
+					<Program dataItemId="pgm" sequence="38" name="program" timestamp="2009-11-13T08:00:00">chop.txt</Program>
+					<Execution dataItemId="exec" name="execution" sequence="40" timestamp="2009-11-13T08:00:00">ACTIVE</Execution>
+					<ControllerMode dataItemId="mode" name="mode" sequence="41" timestamp="2009-11-13T08:00:00">AUTOMATIC</ControllerMode>
+				</Events>
+			</ComponentStream>
+			<ComponentStream component="Door" componentId="d" name="door">
+				<Events>
+					<DoorState dataItemId="ds" name="door_status" sequence="39" timestamp="2009-11-13T08:00:00">CLOSED</DoorState>
+					<DoorState dataItemId="ds" name="door_status" sequence="39" timestamp="2009-11-13T08:00:00">UNAVAILABLE</DoorState>
+				</Events>
+			</ComponentStream>
+		</DeviceStream>
+	</Streams>
+</MTConnectStreams>
