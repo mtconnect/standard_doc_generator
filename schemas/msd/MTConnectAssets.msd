@@ -1,5 +1,4 @@
 
-self.urn = 'urn:mtconnect.org:MTConnectAssets:1.6'
 self.namespace = 'mt'
 self.top = :MTConnectAssets
 self.license = File.read(File.join(File.dirname(__FILE__), '..', 'schemas', 'license.txt'))
