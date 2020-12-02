@@ -17,7 +17,7 @@ msd_files.each do |file|
   %w{1.0 1.1}.each do |version|
     puts "  Generating schema for #{file} #{version}"
     doc = schema.generate_xsd(version)
-    ver = Options[:version] ? Options[:version] : '1.7'
+    ver = "_#{version}" if version != '1.1'
     out = File.join(File.dirname(__FILE__), '..', 'schemas', "#{File.basename(file, '.msd')}_#{schema.version}#{ver}.xsd")
     puts "    Writing schema document: #{out}"
     File.open(out, 'w') { |f| doc.write(f, 2) }
