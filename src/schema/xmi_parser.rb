@@ -4,7 +4,7 @@ class XMIParser
 			 :filters, :compositions, :components, :samples, :events, :terms
   
   def initialize
-	File.open(File.join(File.dirname(__FILE__), '..', 'MTConnect SysML Model.xml')) do |xmi|
+	File.open(File.join(File.dirname(__FILE__), '..', '..', 'MTConnect SysML Model.xml')) do |xmi|
 		xmiDoc = Nokogiri::XML(xmi).slop!
 		@model = xmiDoc.at('//uml:Model')
 	end

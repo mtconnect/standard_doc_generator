@@ -1,3 +1,5 @@
+$: << File.dirname(__FILE__)
+
 require 'type'
 
 class Model

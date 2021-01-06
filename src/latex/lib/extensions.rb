@@ -1,3 +1,5 @@
+$: << File.dirname(__FILE__)
+
 require 'markdown_parser'
 
 module Extensions

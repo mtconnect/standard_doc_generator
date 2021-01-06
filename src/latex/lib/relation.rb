@@ -1,3 +1,5 @@
+$: << File.dirname(__FILE__)
+
 require 'extensions'
 require 'markdown_parser'
   

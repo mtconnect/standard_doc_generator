@@ -1,3 +1,5 @@
+$: << File.dirname(__FILE__)
+
 require 'markdown_parser'
 include MarkDownParser
 
@@ -60,7 +62,7 @@ module CommonDocument
 	main_doc = main_doc.gsub("\\versionnum{}","\\versionnum{#{@version_num}}")
 	main_doc = main_doc.gsub("\\input{%MAIN%}","\\input{#{@part_dir}.tex}")
 	
-	File.open(File.join(File.dirname(__FILE__), '..', @part_dir, 'main.tex'), 'w') do |f|
+	File.open(File.join(File.dirname(__FILE__), '..', '..', @part_dir, 'main.tex'), 'w') do |f|
 	  f.write(main_doc)
 	end
 	
@@ -78,7 +80,7 @@ module CommonDocument
 
 	doc = format_markdown(node.ownedComment['body'])
 	
-	File.open(File.join(File.dirname(__FILE__), '..', @part_dir, file_name), write_mode) do |f|
+	File.open(File.join(File.dirname(__FILE__), '..', '..', @part_dir, file_name), write_mode) do |f|
 	  f.write(doc)
 	end
   end

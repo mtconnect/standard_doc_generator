@@ -1,5 +1,7 @@
+$: << File.dirname(__FILE__)
+
 require 'latex_type'
-require 'model'
+require 'lib/model'
 
 class LatexModel < Model
   include Diagram

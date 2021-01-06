@@ -1,6 +1,6 @@
 require 'json'
-require 'latex_model'
-require 'documents'
+require 'latex/latex_model'
+require 'latex/documents'
 
 include Document
 include CommonDocument

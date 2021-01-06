@@ -1,3 +1,4 @@
+$: << File.dirname(__FILE__)
 
 require 'rexml/document'
 require 'parser'

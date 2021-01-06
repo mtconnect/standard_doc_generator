@@ -1,8 +1,8 @@
-require 'type'
 require 'set'
 require 'documents'
-require 'diagrams'
-require 'markdown_parser'
+require 'lib/type'
+require 'lib/diagrams'
+require 'lib/markdown_parser'
 
 class LatexType < Type
   include Diagram
@@ -11,32 +11,11 @@ class LatexType < Type
 
   @@labels = Set.new
 
-  ROW_FORMAT = "|X[-1.35]|X[-0.7]|X[-1.75]|X[-1.5]|X[-1]|X[-0.7]|"
 
   def self.add_label=(label)
     @@labels.add(label)
   end
 
-  def reference
-    "See section \\ref{type:#{@name}}"
-  end
-  
-  def generate_supertype(f)
-    parent = get_parent
-    if parent
-      if parent.model != @model
-        ref = "See #{parent.model.reference} Documentation"
-      else
-        ref = parent.reference
-      end
-      f.puts "\\multicolumn{6}{|l|}{Subtype of #{parent.name} (#{ref})} \\\\"
-    end
-  end
-
-  def hyphenate(s)
-    s.gsub(/([a-z])([A-Z])/, '\1\\-\2').
-      gsub(/(MT)([A-Z])/, '\1\\-\2')
-  end
 
   def get_label(label_name)
     label = ""
@@ -47,45 +26,70 @@ class LatexType < Type
 	return label
   end
   
-  def generate_attribute_docs(f, header)
-    
+  def generate_property_doc(f)
     if not relations.empty? and relations[0].name == 'Supertype' and @model.name and relations[0].final_target.type.name
         if @model.name.split(' ')[0] == relations[0].final_target.type.name
-	      generate_types(f,header) 
+	      generate_types(f) 
           return
 		end
     end
-
-
-    $logger.info "Generating docs for #{@name}"
+	
+	$logger.info "Generating docs for #{@name}"
     relations_with_documentation =
       @relations.select do |r|
       $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target.type.nil?
       (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and @model.name.split('Type')[0] != r.final_target.type.name and r.visibility == 'public'
     end
-
-    unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
-
-      attributes = relations_with_documentation.select do |a| 
+	
+	attributes = relations_with_documentation.select do |a| 
 		if a.association_name
 		    /[[:lower:]]/.match(a.association_name[0])
 		else
 			/[[:lower:]]/.match(a.name[0])
 		end
-	  end
+	end
 
-	  elements = relations_with_documentation.select do |a| 
+	elements = relations_with_documentation.select do |a| 
 		if a.association_name
 		    /[[:upper:]]/.match(a.association_name[0])
 		else
 			/[[:upper:]]/.match(a.name[0])
 		end
-	  end
-
-	  unless attributes.empty?
-
-        f.puts <<-EOT
-
+	end
+	
+	unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
+		generate_attribute_doc(f, attributes) unless attributes.empty?
+		generate_element_doc(f, elements) unless elements.empty? or (elements[0].name == 'Supertype' and elements.length == 1)
+	end
+	
+  end
+  
+  def generate_attribute_doc(f, attributes)
+    
+      string_out = ""
+	  value_only = true
+      
+	  attributes.each do |r|
+        if r.name == 'Supertype'
+          next
+		elsif r.name == 'value' or r.association_name == 'value'
+		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
+		  next
+		end
+		value_only = false
+        stereo = r.stereotype ? "\\texttt{<<#{r.stereotype}>>} " : ""
+        
+        name = r.association_name ? r.association_name : r.name
+        
+        if r.redefinesProperty and r.default
+          string_out += "\n#{stereo}\\property{#{name}}[#{@name}] & \\texttt{#{r.default.gsub(/(\^)/,"\\^{}")}} & #{r.multiplicity} \\\\"
+        else
+          string_out += "\n#{stereo}\\property{#{name}}[#{@name}] & \\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
+        end
+      end
+      
+	  unless value_only
+	  f.puts %"
 \\paragraph{Attributes of #{@name}}\\mbox{}
 #{get_label("sec:Attributes of #{@name}")}
 
@@ -100,42 +104,26 @@ class LatexType < Type
 \\hline
 \\rowfont\\bfseries {Attribute} & {Type} & {Multiplicity} \\\\
 \\tabucline[1.5pt]{}
-EOT
-      
-      attributes.each do |r|
-        if r.name == 'Supertype'
-          next
-        end
-        stereo = r.stereotype ? "\\texttt{<<#{r.stereotype}>>} " : ""
-        
-        name = r.association_name ? r.association_name : r.name
-        
-        if r.redefinesProperty and r.default
-          f.puts "#{stereo}\\property{#{name}}[#{@name}] & \\texttt{#{r.default.gsub(/(\^)/,"\\^{}")}} & #{r.multiplicity} \\\\"
-        else
-          f.puts "#{stereo}\\property{#{name}}[#{@name}] & \\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
-        end
-      end
-      
-      f.puts <<-EOT
+" + string_out + %"
 \\end{tabu}
 \\end{table}
 \\FloatBarrier
-
-EOT
+"
+      
 
 	  f.puts "\nDescriptions for attributes of \\block{#{@name}}:\n\n"
 	  f.puts "\\begin{itemize}\n"
+	  end
       attributes.each do |r|
         if r.name == 'Supertype'
           next
-        elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
+        elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty and not value_only
           
           name = r.association_name ? r.association_name : r.name
           if r.association_doc
-            f.puts "\n\\item \\property{#{name}}[#{@name}] : #{r.association_doc}\n"
+            f.puts "\n\\item \\property{#{name}}[#{@name}] \\newline #{r.association_doc}\n"
           elsif r.documentation
-            f.puts "\n\\item \\property{#{name}}[#{@name}] : #{r.documentation}\n"
+            f.puts "\n\\item \\property{#{name}}[#{@name}] \\newline #{r.documentation}\n"
           end
           
 		  stereo = r.stereotype ? "\\texttt{<<#{r.stereotype}>>} " : ""
@@ -146,10 +134,12 @@ EOT
         end
       end
 
+	  unless value_only 
 	  f.puts "\\end{itemize}\n"
 	  end
+	end
 	
-	  unless elements.empty? or (elements[0].name == 'Supertype' and elements.length == 1)
+	def generate_element_doc(f, elements)
 
       f.puts <<-EOT
 
@@ -163,9 +153,9 @@ EOT
   \\caption{Elements of #{@name}}
   #{get_label("table:Elements of #{@name}")}
 \\tabulinesep=3pt
-\\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
+\\begin{tabu} to 6in {|l|l|} \\everyrow{\\hline}
 \\hline
-\\rowfont\\bfseries {Element Name} & {Type} & {Multiplicity} \\\\
+\\rowfont\\bfseries {Element} & {Multiplicity} \\\\
 \\tabucline[1.5pt]{}
 EOT
       
@@ -178,9 +168,13 @@ EOT
         name = r.association_name ? r.association_name : r.name
         
         if r.redefinesProperty and r.default
-          f.puts "#{stereo}\\block{#{name}} & \\texttt{#{r.default}} & #{r.multiplicity} \\\\"
-        else
-          f.puts "#{stereo}\\block{#{name}} & \\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
+          f.puts "\\texttt{#{r.default}} & #{r.multiplicity} \\\\"
+        elsif r.association_name and r.final_target.type.name != name
+          f.puts "\\texttt{#{r.final_target.type.name}} (organized by \\block{#{name}}) & #{r.multiplicity} \\\\"
+		elsif not r.association_name and r.final_target.type.name != name
+		  f.puts "\\texttt{#{name}} & #{r.multiplicity} \\\\"
+		else
+		  f.puts "\\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
         end
       end
       
@@ -200,10 +194,14 @@ EOT
           
           name = r.association_name ? r.association_name : r.name
           if r.association_doc
-            f.puts "\\item \\block{#{name}} : #{r.association_doc}\n"
+            f.puts "\n\\item \\block{#{name}} \\newline #{r.association_doc}\n"
           else r.documentation
-            f.puts "\\item \\block{#{name}} : #{r.documentation}\n"
+            f.puts "\n\\item \\block{#{name}} \\newline #{r.documentation}\n"
           end
+		  
+		  if not r.association_name and r.final_target.type.name != name and not r.target.type.type == 'uml:Enumeration'
+		    f.puts "\nThe value of \\block{#{name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n"
+		  end
           
           if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty and not r.stereotype.include?('deprecated')
             r.target.type.generate_enumerations(f)
@@ -213,15 +211,8 @@ EOT
 	  f.puts "\\end{itemize}\n"
 
 	  end
-
-    end    
-  end
   
-  
-  
-  
-  
-  def generate_types(f, header)
+  def generate_types(f)
     $logger.info "Generating docs for #{@name}"
     relations_with_documentation =
       @relations.select do |r|
@@ -245,9 +236,9 @@ EOT
 	  f.puts "#{get_label("sec:#{name}")}\n\n"
 
       if r.association_doc
-        f.puts "\\newline\\tab #{r.association_doc}\n"
+        f.puts "\\newline #{r.association_doc}\n"
       else r.documentation
-        f.puts "\\newline\\tab #{r.documentation}\n"
+        f.puts "\\newline #{r.documentation}\n"
       end
       
       if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty 
@@ -327,39 +318,24 @@ EOT
     if @type == 'uml:Enumeration'
       $logger.debug "***** =====> Generating Enumerations for #{@name}"
 
-      f.puts <<-EOT
+	f.puts <<-EOT
 
-\\tabulinesep = 5pt
-\\begin{longtabu} to \\textwidth {
-    |l|X|}
-\\caption{#{escape_name} Enumeration}
-#{get_label("enum:#{escape_name}")} \\\\
+\\texttt{#{escape_name}} Enumeration:
 
-\\hline
-Name & Description \\\\
-\\hline
-\\endfirsthead
-\\hline
-\\multicolumn{2}{|c|}{Continuation of Table \\texttt{#{escape_name}} Enumeration} \\\\
-\\hline
-Name & Description \\\\
-\\hline
-\\endhead
+\\begin{itemize}
 EOT
-    
     @literals.each do |lit|
-      f.puts "\\texttt{#{lit.name.gsub(/(\^)/,"\^{}").gsub("_","\\textunderscore ")}} & #{lit.description} \\\\ \\hline"
+      f.puts "\\item \\texttt{#{lit.name.gsub(/(\^)/,"\^{}").gsub("_","\\textunderscore ")}} \\newline #{lit.description} \n"
       end
-        
-      f.puts <<-EOT
-\\end{longtabu}
+	f.puts <<-EOT
+\\end{itemize}
 
 EOT
     end
   end
 
   def generate_data_type(f)
-    generate_attribute_docs(f, "Field")
+    generate_property_doc(f)
   end
 
   def generate_class_diagram
@@ -406,7 +382,7 @@ EOT
 
   def generate_class(f)
   
-    generate_attribute_docs(f, "Property")
+    generate_property_doc(f)
     generate_subtypes(f)
   end
 

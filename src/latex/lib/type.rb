@@ -1,3 +1,5 @@
+$: << File.dirname(__FILE__)
+
 require 'logger'
 require 'relation'
 require 'extensions'
@@ -239,6 +241,13 @@ class Type
     if @type == 'uml:Enumeration' and defined? e.ownedLiteral
       suffix = ' ' + @name.sub(/^MT/, '').sub(/Type$/, '').downcase
       e.ownedLiteral.each do |lit|
+		if lit.class == [].class
+		  literal = e.xpath("./ownedLiteral")
+		  name, value = literal[0]['name'].sub(/\^/,'\^').split('=')
+		  description = xmi_documentation(literal)
+		  @literals << Literal.new(name, value, description, suffix)
+		  break
+		end
         name, value = lit['name'].sub(/\^/,'\^').split('=')
 		description = xmi_documentation(lit)
         @literals << Literal.new(name, value, description, suffix)

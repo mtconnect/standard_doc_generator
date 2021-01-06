@@ -1,7 +1,5 @@
-#!/usr/bin/env ruby
-
-require 'schema'
-require 'xmi_parser'
+require 'schema/schema'
+require 'schema/xmi_parser'
 
 Glossary = XMIParser.new
 
