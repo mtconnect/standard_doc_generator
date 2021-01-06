@@ -75,6 +75,12 @@ An abstract element cannot appear in a document. In a specific implementation, a
 	description={An {{Information Model}} that provides semantic models for \glspl{MTConnect Asset}.}
 }
 
+\newglossaryentry{Attachment}
+{
+    name={Attachment},
+	description={the connection by which one thing is associated with another.}
+}
+
 \newglossaryentry{Attribute}
 {
     name={Attribute},
@@ -123,7 +129,7 @@ An abstract element cannot appear in a document. In a specific implementation, a
 \newglossaryentry{Condition}
 {
     name={Condition},
-	description={An indicator of the health of a piece of equipment or a \gls{Component} and its ability to function.}
+	description={An indicator of the ability of a piece of equipment or \gls{Component} to function to specification.}
 }
 
 \newglossaryentry{Condition State}
@@ -147,7 +153,7 @@ An abstract element cannot appear in a document. In a specific implementation, a
 \newglossaryentry{Current Request}
 {
     name={Current Request},
-	description={An \gls{HTTP Request} to the \gls{Agent} for a snapshot of the latest \glspl{observation} at the moment of the request or at a given sequence number.}
+	description={A \gls{Current Request} is a \gls{Request} to an \gls{Agent} to produce an \gls{MTConnectStreams Response Document} containing the \gls{Observations Information Model} for a snapshot of the latest \glspl{observation} at the moment of the \gls{Request} or at a given \gls{sequence number}.}
 }
 
 \newglossaryentry{Data Entity}
@@ -274,6 +280,12 @@ An abstract element cannot appear in a document. In a specific implementation, a
     name={Extensible},
 	description={The ability for an implementer to extend \gls{MTConnect Information Model} by adding content not currently addressed in the MTConnect Standard.
 }
+}
+
+\newglossaryentry{Force}
+{
+    name={Force},
+	description={A push or pull on a mass which results in an acceleration.}
 }
 
 \newglossaryentry{HTTP}
@@ -411,13 +423,13 @@ Note 1 to entry: In MTConnect Standard, the information published from an \gls{A
 \newglossaryentry{Interaction Model}
 {
     name={Interaction Model},
-	description={A model that deﬁnes how information is exchanged across an interface to enable interactions between independent systems.}
+	description={Defines how information is exchanged across an \gls{Interface} to enable interactions between independent systems.}
 }
 
 \newglossaryentry{Interface}
 {
     name={Interface},
-	description={The means by which interaction or communication is achieved between independent systems.}
+	description={The means by which communication is achieved between independent systems.}
 }
 
 \newglossaryentry{Lower Camel Case}
@@ -453,15 +465,28 @@ Note 1 to entry: In MTConnect Standard, the information published from an \gls{A
 \newglossaryentry{MTConnect Asset}
 {
     name={MTConnect Asset},
-	description={An \gls{MTConnect Asset} is an \gls{Asset} that is used in the manufacturing process, but is not a critical part of a piece of equipment. An \gls{MTConnect Asset} can be observed by multiple pieces of equipment during its lifecycle.
-An \gls{MTConnect Asset} does not produce data and is dependent on \glspl{Device} to provide \glspl{observation}.
+	description={An \gls{MTConnect Asset} is an \gls{Asset} used by the manufacturing process to perform tasks.
+* Note 1 to Entry: An \gls{MTConnect Asset} relies upon an \gls{MTConnect Device} to provide \glspl{observation} and information about itself and the \gls{MTConnect Device} revises the information to reflect changes to the \gls{MTConnect Asset} during their interaction. Examples of \glspl{MTConnect Asset} are Cutting Tools, Part Information, Manufacturing Processes, Fixtures, and Files.
+* Note 2 to Entry: A singular \property{assetId}[Asset] uniquely identifies an \gls{MTConnect Asset} throughout its lifecycle and is used to track and relate the \gls{MTConnect Asset} to other \glspl{MTConnect Device} and entities.
+* Note 3 to Entry: \glspl{MTConnect Asset} are temporally associated with a device and can be removed from the device without damage or alteration to its primary functions.}
 }
+
+\newglossaryentry{MTConnect Device}
+{
+    name={MTConnect Device},
+	description={An \gls{MTConnect Device} is a piece of equipment or a manufacturing system that produces \glspl{observation} about itself and/or publishes data using the \gls{MTConnect Information Model}.}
 }
 
 \newglossaryentry{MTConnect Document}
 {
     name={MTConnect Document},
-	description={A \gls{Document} that represents a \gls{Part} of the MTConnect Standard.}
+	description={Printed or electronic document(s) that represent a Part(s) of the MTConnect Standard.}
+}
+
+\newglossaryentry{MTConnect Event}
+{
+    name={MTConnect Event},
+	description={An \gls{MTConnect Event} is an \gls{observation} of either a state or discrete value of the \gls{Component}. \gls{Component} states \textbf{SHOULD} have a controlled vocabulary.}
 }
 
 \newglossaryentry{MTConnect Information Model}
@@ -503,25 +528,25 @@ An \gls{MTConnect Asset} does not produce data and is dependent on \glspl{Device
 \newglossaryentry{MTConnectAssets Response Document}
 {
     name={MTConnectAssets Response Document},
-	description={A \gls{Document} published by an \gls{MTConnect Agent} in response to an \gls{Asset Request}.}
+	description={A \gls{Response Document} published by an \gls{MTConnect Agent} in response to an \gls{Asset Request}.}
 }
 
 \newglossaryentry{MTConnectDevices Response Document}
 {
     name={MTConnectDevices Response Document},
-	description={A \gls{Document} published by an \gls{MTConnect Agent} in response to a \gls{Probe Request}.}
+	description={A \gls{Response Document} published by an \gls{MTConnect Agent} in response to a \gls{Probe Request}.}
 }
 
 \newglossaryentry{MTConnectErrors Response Document}
 {
     name={MTConnectErrors Response Document},
-	description={A \gls{Document} published by an \gls{MTConnect Agent} whenever it encounters an error while interpreting a \gls{MTConnect Request}.}
+	description={A \gls{Response Document} published by an \gls{MTConnect Agent} whenever it encounters an error while interpreting an \gls{MTConnect Request}.}
 }
 
 \newglossaryentry{MTConnectStreams Response Document}
 {
     name={MTConnectStreams Response Document},
-	description={A \gls{Document} published by an \gls{MTConnect Agent} in response to either a \gls{Current Request} or a \gls{Current Request}.}
+	description={A \gls{Response Document} published by an \gls{MTConnect Agent} in response to a \gls{Current Request} or a \gls{Current Request}.}
 }
 
 \newglossaryentry{Message}
@@ -546,7 +571,7 @@ An \gls{MTConnect Asset} does not produce data and is dependent on \glspl{Device
 \newglossaryentry{Observations Information Model}
 {
     name={Observations Information Model},
-	description={An \gls{Information Model} that describes the \gls{Streaming Data} returned by an \gls{Agent} from a piece of equipment in response to a \gls{Sample Request} or a \gls{Current Request}.}
+	description={An \gls{Information Model} that describes the \gls{Streaming Data} reported by a piece of equipment.}
 }
 
 \newglossaryentry{Parent Element}
@@ -558,7 +583,7 @@ An \gls{MTConnect Asset} does not produce data and is dependent on \glspl{Device
 \newglossaryentry{Part}
 {
     name={Part},
-	description={Each Standard document is referred to as a \gls{Part} of the Standard.}
+	description={\gls{Part} is a discrete item that has both defined and measurable physical characteristics including mass, material and features and is created by applying one or more manufacturing process steps to a workpiece}
 }
 
 \newglossaryentry{Pascal Case}
@@ -588,7 +613,7 @@ An \gls{MTConnect Asset} does not produce data and is dependent on \glspl{Device
 \newglossaryentry{Probe Request}
 {
     name={Probe Request},
-	description={An \gls{HTTP Request} to the \gls{Agent} that produces an \gls{MTConnectDevices Response Document} containing the \gls{Device} \gls{Metadata}. The request \textbf{MAY} return one or all \glspl{Device} served by this \gls{Agent}.}
+	description={A \gls{Probe Request} is a \gls{Request} to an \gls{Agent} to produce an \gls{MTConnectDevices Response Document} containing the \gls{Devices Information Model}.}
 }
 
 \newglossaryentry{Protocol}
@@ -669,7 +694,7 @@ In a \gls{Request/Response} information exchange, a client software application 
 \newglossaryentry{Response Document}
 {
     name={Response Document},
-	description={A \gls{Document} published by an \gls{Agent} in response to a \gls{Probe Request}, \gls{Current Request}, \gls{Sample Request} or \gls{Asset Request}.}
+	description={An electronic document published by an \gls{MTConnect Agent} in response to a \gls{Probe Request}, \gls{Current Request}, \gls{Sample Request} or \gls{Asset Request}.}
 }
 
 \newglossaryentry{Root Element}
@@ -688,13 +713,32 @@ In a \gls{Request/Response} information exchange, a client software application 
 \newglossaryentry{Sample Request}
 {
     name={Sample Request},
-	description={An \gls{HTTP Request} to the \gls{Agent} that produces an \gls{MTConnectStreams Response Document} containing a set of time-stamped \glspl{observation} made by \glspl{Component}.The request \textbf{MAY} return a subset of the available \glspl{observation}.}
+	description={A \gls{Sample Request} is a \gls{Request} to an \gls{Agent} to produce an \gls{MTConnectStreams Response Document} containing the \gls{Observations Information Model} for a set of timestamped \glspl{observation} made by \glspl{Component}.}
 }
 
 \newglossaryentry{Sensor}
 {
     name={Sensor},
-	description={A \gls{Sensor} is typically comprised of two major components: a \gls{sensor unit} that provides signal processing, conversion, and communications and the \glspl{sensing element} that provides a signal or measured value.}
+	description={A \gls{sensing element} that responds to a physical stimulus and transmits a resulting signal.}
+}
+
+\newglossaryentry{Sensor Configuration}
+{
+    name={Sensor Configuration},
+	description={Data in the \gls{MTConnectDevices Response Document} that provides the information required for maintenance and support of the \gls{sensor unit}.}
+}
+
+\newglossaryentry{Sensor Data}
+{
+    name={Sensor Data},
+	description={The value of a physical quantity reported by a measuring instrument or controller as an \gls{observation}.}
+}
+
+\newglossaryentry{Spindle}
+{
+    name={Spindle},
+	description={A mechanism that provides rotational capabilities to a piece of equipment. 
+Note to Entry: Typically used for either work holding, materials or cutting tools.}
 }
 
 \newglossaryentry{Standard}
@@ -799,7 +843,7 @@ Note 1 to entry: The \gls{time stamp} for all information reported in an \gls{MT
 \newglossaryentry{W3C}
 {
     name={W3C},
-	description={Stands for World Wide Web Consortium.}
+	description={The World Wide Web Consortium (W3C) is an international community that develops open standards to ensure the long-term growth of the Web. See \textit{https://www.w3.org/}}
 }
 
 \newglossaryentry{WARNING}
@@ -847,6 +891,12 @@ Note 1 to entry: Used to indicate that specific content in an \gls{MTConnect Doc
 	description={\gls{XPath} is a command structure that describes a way for a software system to locate information in an \gls{XML Document}. }
 }
 
+\newglossaryentry{alarm limit}
+{
+    name={alarm limit},
+	description={A limit used to trigger warning or alarm indicators.}
+}
+
 \newglossaryentry{array3d}
 {
     name={array3d},
@@ -875,6 +925,12 @@ Note 1 to entry: Used to indicate that specific content in an \gls{MTConnect Doc
 {
     name={buffer},
 	description={A section of an \gls{Agent} that provides storage for information published from pieces of equipment.}
+}
+
+\newglossaryentry{control limit}
+{
+    name={control limit},
+	description={A limit used to indicate whether a process variable is stable and in control.}
 }
 
 \newglossaryentry{data dictionary}
@@ -943,10 +999,35 @@ Note 1 to entry: Used to indicate that specific content in an \gls{MTConnect Doc
 	description={An association between an identifier referred to as the \gls{key} and a value which taken together create a \gls{key-value pair}. When used in a set of \glspl{key-value pair} each \gls{key} is unique and will only have one value associated with it at any point in time.}
 }
 
+\newglossaryentry{lower limit}
+{
+    name={lower limit},
+	description={The lower conformance boundary for a variable.
+Note to Entry: immediate concern or action may be required}
+}
+
+\newglossaryentry{lower warning}
+{
+    name={lower warning},
+	description={he lower boundary indicating increased concern and supervision may be required.}
+}
+
 \newglossaryentry{major}
 {
     name={major},
 	description={Identifier representing a consistent set of functionalities defined by the MTConnect Standard.}
+}
+
+\newglossaryentry{maximum}
+{
+    name={maximum},
+	description={A numeric upper constraint.}
+}
+
+\newglossaryentry{minimum}
+{
+    name={minimum},
+	description={A numeric lower constraint.}
 }
 
 \newglossaryentry{minor}
@@ -959,6 +1040,12 @@ Note 1 to entry: Used to indicate that specific content in an \gls{MTConnect Doc
 {
     name={namespace},
 	description={\gls{namespace} are used to organize code into logical groups.}
+}
+
+\newglossaryentry{nominal}
+{
+    name={nominal},
+	description={The ideal or desired value for a variable.}
 }
 
 \newglossaryentry{observable}
@@ -1048,13 +1135,19 @@ Note 1 to entry: Used to indicate that specific content in an \gls{MTConnect Doc
 \newglossaryentry{sensor unit}
 {
     name={sensor unit},
-	description={A \gls{sensor unit} provides signal processing, conversion, and communications.}
+	description={An intelligent piece of equipment that manages the signals of one or more \glspl{sensing element} and provides the measured values.}
 }
 
 \newglossaryentry{sequence number}
 {
     name={sequence number},
 	description={The primary key identifier used to manage and locate a specific piece of \gls{Streaming Data} in an \gls{Agent}.}
+}
+
+\newglossaryentry{specification limit}
+{
+    name={specification limit},
+	description={A limit defining a range of values designating acceptable performance for a variable.}
 }
 
 \newglossaryentry{string}
@@ -1079,4 +1172,17 @@ Note 1 to entry: Used to indicate that specific content in an \gls{MTConnect Doc
 {
     name={type},
 	description={A classification or categorization of information.}
+}
+
+\newglossaryentry{upper limit}
+{
+    name={upper limit},
+	description={The upper conformance boundary for a variable.
+Note to Entry: immediate concern or action may be required.}
+}
+
+\newglossaryentry{upper warning}
+{
+    name={upper warning},
+	description={The upper boundary indicating increased concern and supervision may be required.}
 }

@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:27 +0530
+% Generated 2021-01-06 15:42:28 +0530
 \subsection{Sample Types} \label{sec:Sample Types}
 
 \subsubsection{Acceleration}
@@ -164,6 +164,39 @@ The measurement rate of change of angular velocity.
 
 Units: \texttt{DEGREE/SECOND\^{}2}.
 
+\subsubsection{AngularDeceleration}
+\label{sec:AngularDeceleration}
+
+
+
+Negative rate of change of angular velocity.
+
+
+Units: \texttt{DEGREE/SECOND\^{}2}.
+
+\paragraph{Subtypes of AngularDeceleration}\mbox{}
+\label{sec:Subtypes of AngularDeceleration}
+
+\begin{itemize}
+
+\item \texttt{ACTUAL}
+
+
+The measured value.
+
+\item \texttt{COMMANDED}
+
+
+The commanded value.
+
+\item \texttt{PROGRAMMED}
+
+
+The programmed value.
+
+
+\end{itemize}
+
 \subsubsection{AngularVelocity}
 \label{sec:AngularVelocity}
 
@@ -173,6 +206,16 @@ The measurement of the rate of change of angular position.
 
 
 Units: \texttt{DEGREE/SECOND}.
+
+\subsubsection{AssetUpdateRate}
+\label{sec:AssetUpdateRate}
+
+
+
+The average rate of change of values for assets in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
+
+
+Units: \texttt{COUNT/SECOND}.
 
 \subsubsection{AxisFeedrate}
 \label{sec:AxisFeedrate}
@@ -301,6 +344,39 @@ A value specified by the \block{Controller} type component.
 
 
 The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\end{itemize}
+
+\subsubsection{Deceleration}
+\label{sec:Deceleration}
+
+
+
+Negative rate of change of velocity.
+
+
+Units: \texttt{MILLIMETER/SECOND\^{}2}.
+
+\paragraph{Subtypes of Deceleration}\mbox{}
+\label{sec:Subtypes of Deceleration}
+
+\begin{itemize}
+
+\item \texttt{ACTUAL}
+
+
+The measured value.
+
+\item \texttt{COMMANDED}
+
+
+The commanded value.
+
+\item \texttt{PROGRAMMED}
+
+
+The programmed value.
 
 
 \end{itemize}
@@ -721,6 +797,16 @@ The measurement of the mass of an object(s) or an amount of material.
 
 Units: \texttt{KILOGRAM}.
 
+\subsubsection{ObservationUpdateRate}
+\label{sec:ObservationUpdateRate}
+
+
+
+The average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
+
+
+Units: \texttt{COUNT/SECOND}.
+
 \subsubsection{Orientation}
 \label{sec:Orientation}
 
@@ -927,14 +1013,34 @@ The measurement of the ratio of real power flowing to a load to the apparent pow
 Units: \texttt{PERCENT}.
 
 \subsubsection{Pressure}
-\label{sec:Pressure}
+
 
 
 
 The measurement of force per unit area exerted by a gas or liquid.
 
+Note: The default \property{subType}[Observation] is \texttt{GAUGE}.
+
 
 Units: \texttt{PASCAL}.
+
+\paragraph{Subtypes of Pressure}\mbox{}
+\label{sec:Subtypes of Pressure}
+
+\begin{itemize}
+
+\item \texttt{ABSOLUTE}
+
+
+Absolute pressure is pressure measured relative to a full vacuum.
+
+\item \texttt{GAUGE}
+
+
+Gauge pressure is pressure measured relative to atmospheric pressure.
+
+
+\end{itemize}
 
 \subsubsection{ProcessTimer}
 \label{sec:ProcessTimer}
@@ -963,6 +1069,16 @@ The measurement of the time from the beginning of production of a part or produc
 
 
 \end{itemize}
+
+\subsubsection{RateOfPressurization}
+\label{sec:RateOfPressurization}
+
+
+
+The change of pressure per unit time.
+
+
+Units: \texttt{PASCAL/SECOND}.
 
 \subsubsection{Resistance}
 \label{sec:Resistance}

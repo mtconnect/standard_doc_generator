@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:27 +0530
+% Generated 2021-01-06 15:42:28 +0530
 \subsection{Event Types} \label{sec:Event Types}
 
 \subsubsection{ActiveAxes}
@@ -24,27 +24,30 @@ Represents the operational state of an apparatus for moving or controlling a mec
 The value of \texttt{ActuatorState} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{ActuatorStateEnum Enumeration}
-\label{enum:ActuatorStateEnum} \\
+\texttt{ActuatorStateEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{ActuatorStateEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
-\texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
+\item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
+\end{itemize}
 
 \FloatBarrier
+
+\subsubsection{AdapterSoftwareVersion}
+\label{sec:AdapterSoftwareVersion}
+
+
+
+The originator’s software version of the \gls{Adapter}.
+
+
+\subsubsection{AdapterURI}
+\label{sec:AdapterURI}
+
+
+
+The \gls{URI} of the \gls{Adapter}.
+
 
 \subsubsection{Alarm}
 \label{sec:Alarm}
@@ -52,6 +55,26 @@ Name & Description \\
 
 
 \textbf{DEPRECATED:} Replaced with \block{CONDITION} category data items in Version 1.1.0.
+
+
+\subsubsection{AlarmLimit}
+\label{sec:AlarmLimit}
+
+
+
+A set of limits used to trigger warning or alarm indicators.
+
+
+The value of \texttt{AlarmLimit} \MUST be one of the following: 
+
+\FloatBarrier
+
+\subsubsection{AlarmLimitResultType}
+\label{sec:AlarmLimitResultType}
+
+
+
+
 
 
 \subsubsection{Application}
@@ -122,25 +145,12 @@ Represents the \gls{Agent}'s ability to communicate with the data source.
 The value of \texttt{Availability} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{AvailabilityEnum Enumeration}
-\label{enum:AvailabilityEnum} \\
+\texttt{AvailabilityEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{AvailabilityEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{AVAILABLE} & The value or status of an XML element when it is available. \\ \hline
-\texttt{UNAVAILABLE} & The value of the \gls{Data Entity} either when the data is not received or the entity is incapable of providing data. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{AVAILABLE} \newline The value or status of an XML element when it is available. 
+\item \texttt{UNAVAILABLE} \newline The value of the \gls{Data Entity} either when the data is not received or the entity is incapable of providing data. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -157,27 +167,14 @@ Describes the way the axes will be associated to each other.
 The value of \texttt{AxisCoupling} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{AxisCouplingEnum Enumeration}
-\label{enum:AxisCouplingEnum} \\
+\texttt{AxisCouplingEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{AxisCouplingEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{TANDEM} & Elements are physically connected to each other and operate as a single unit. \\ \hline
-\texttt{SYNCHRONOUS} & Physical or logical parts which are not physically connected to each other but are operating together. \\ \hline
-\texttt{MASTER} & It provides information or state values that influences the operation of other \block{DataItem} of similar type. \\ \hline
-\texttt{SLAVE} & The axis is a slave to the \block{COUPLED\textunderscore AXES} \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{TANDEM} \newline Elements are physically connected to each other and operate as a single unit. 
+\item \texttt{SYNCHRONOUS} \newline Physical or logical parts which are not physically connected to each other but are operating together. 
+\item \texttt{MASTER} \newline It provides information or state values that influences the operation of other \block{DataItem} of similar type. 
+\item \texttt{SLAVE} \newline The axis is a slave to the \block{COUPLED\textunderscore AXES} 
+\end{itemize}
 
 \FloatBarrier
 
@@ -227,25 +224,12 @@ An indicator of the state of the axis lockout function when power has been remov
 The value of \texttt{AxisInterlock} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{ActuatorStateEnum Enumeration}
- \\
+\texttt{ActuatorStateEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{ActuatorStateEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
-\texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
+\item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -260,27 +244,14 @@ An indicator of the controlled state of a \block{Linear} or \block{Rotary} compo
 The value of \texttt{AxisState} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{AxisStateEnum Enumeration}
-\label{enum:AxisStateEnum} \\
+\texttt{AxisStateEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{AxisStateEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{HOME} & The component at its home position. \\ \hline
-\texttt{TRAVEL} & The component is in motion. \\ \hline
-\texttt{PARKED} & The component has been moved to a fixed position. \\ \hline
-\texttt{STOPPED} & The component is stopped. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{HOME} \newline The component at its home position. 
+\item \texttt{TRAVEL} \newline The component is in motion. 
+\item \texttt{PARKED} \newline The component has been moved to a fixed position. 
+\item \texttt{STOPPED} \newline The component is stopped. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -315,25 +286,12 @@ An indication of the state of an interlock function or control logic state inten
 The value of \texttt{ChuckInterlock} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{ActuatorStateEnum Enumeration}
- \\
+\texttt{ActuatorStateEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{ActuatorStateEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
-\texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
+\item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -363,26 +321,13 @@ An indication of the operating state of a mechanism that holds a part or stock m
 The value of \texttt{ChuckState} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{LatchedStateEnum Enumeration}
-\label{enum:LatchedStateEnum} \\
+\texttt{LatchedStateEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{LatchedStateEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{OPEN} & A component is open to the point of a positive confirmation. \\ \hline
-\texttt{CLOSED} & A component is closed to the point of a positive confirmation. \\ \hline
-\texttt{UNLATCHED} & An intermediate position. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{OPEN} \newline A component is open to the point of a positive confirmation. 
+\item \texttt{CLOSED} \newline A component is closed to the point of a positive confirmation. 
+\item \texttt{UNLATCHED} \newline An intermediate position. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -461,6 +406,49 @@ An indication of the position of a mechanism that may move in a vertical directi
 
 \end{itemize}
 
+\subsubsection{ConnectionStatus}
+\label{sec:ConnectionStatus}
+
+
+
+The status of the connection between an \gls{Adapter} and an \gls{Agent}.
+
+
+The value of \texttt{ConnectionStatus} \MUST be one of the following: 
+
+
+\texttt{ConnectionStatusEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{CLOSED} \newline represents no connection at all. 
+\item \texttt{LISTEN} \newline represents the \gls{Agent} waiting for a connection request from an \gls{Adapter}. 
+\item \texttt{ESTABLISHED} \newline represents an open connection.
+
+The normal state for the data transfer phase of the connection. 
+\end{itemize}
+
+\FloatBarrier
+
+\subsubsection{ControlLimit}
+\label{sec:ControlLimit}
+
+
+
+A set of limits used to indicate whether a process variable is stable and in control.
+
+
+The value of \texttt{ControlLimit} \MUST be one of the following: 
+
+\FloatBarrier
+
+\subsubsection{ControlLimitResultType}
+\label{sec:ControlLimitResultType}
+
+
+
+
+
+
 \subsubsection{ControllerMode}
 \label{sec:ControllerMode}
 
@@ -472,28 +460,15 @@ The current operating mode of the \block{Controller} component.
 The value of \texttt{ControllerMode} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{ControllerModeEnum Enumeration}
-\label{enum:ControllerModeEnum} \\
+\texttt{ControllerModeEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{ControllerModeEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{AUTOMATIC} & The \block{Controller} is configured to automatically execute a program. \\ \hline
-\texttt{MANUAL} & Operations based on the instructions received from an external source. \\ \hline
-\texttt{MANUAL\textunderscore DATA\textunderscore INPUT} & The operator can enter a series of operations for the controller to perform. \\ \hline
-\texttt{SEMI\textunderscore AUTOMATIC} & The controller  executes a single set of instructions from an active program and then stops until given a command to execute the next set of instructions. \\ \hline
-\texttt{EDIT} & The controller is currently functioning as a programming device and is not capable of executing an active program. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{AUTOMATIC} \newline The \block{Controller} is configured to automatically execute a program. 
+\item \texttt{MANUAL} \newline Operations based on the instructions received from an external source. 
+\item \texttt{MANUAL\textunderscore DATA\textunderscore INPUT} \newline The operator can enter a series of operations for the controller to perform. 
+\item \texttt{SEMI\textunderscore AUTOMATIC} \newline The controller  executes a single set of instructions from an active program and then stops until given a command to execute the next set of instructions. 
+\item \texttt{EDIT} \newline The controller is currently functioning as a programming device and is not capable of executing an active program. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -508,25 +483,12 @@ A setting or operator selection that changes the behavior of a piece of equipmen
 The value of \texttt{ControllerModeOverride} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{OnOffEnum Enumeration}
-\label{enum:OnOffEnum} \\
+\texttt{OnOffEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{OnOffEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ON} & On state or value. \\ \hline
-\texttt{OFF} & Off state or value. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ON} \newline On state or value. 
+\item \texttt{OFF} \newline Off state or value. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -622,6 +584,30 @@ The time and date code relating to the production of a material or other physica
 
 \end{itemize}
 
+\subsubsection{DeviceAdded}
+\label{sec:DeviceAdded}
+
+
+
+An \block{Event} that provides the \gls{UUID} of new device added to an \gls{MTConnect Agent}.
+
+
+\subsubsection{DeviceChanged}
+\label{sec:DeviceChanged}
+
+
+
+An \block{Event} that provides the \gls{UUID} of the device whose \gls{Metadata} has changed.
+
+
+\subsubsection{DeviceRemoved}
+\label{sec:DeviceRemoved}
+
+
+
+An \block{Event} that provides the \gls{UUID} of a device removed from an \gls{MTConnect Agent}.
+
+
 \subsubsection{DeviceUuid}
 \label{sec:DeviceUuid}
 
@@ -654,26 +640,13 @@ The direction of motion of a linear motion.
 The value for \block{Direction} when \property{subType} is \texttt{LINEAR} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{LinearDirectionEnum Enumeration}
-\label{enum:LinearDirectionEnum} \\
+\texttt{LinearDirectionEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{LinearDirectionEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{POSITIVE} & Linear position is increasing. \\ \hline
-\texttt{NEGATIVE} & Linear position is decreasing. \\ \hline
-\texttt{NONE} & No direction. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{POSITIVE} \newline Linear position is increasing. 
+\item \texttt{NEGATIVE} \newline Linear position is decreasing. 
+\item \texttt{NONE} \newline No direction. 
+\end{itemize}
 
 \item \texttt{ROTARY}
 
@@ -685,26 +658,13 @@ The rotational direction of a rotary motion using the right hand rule convention
 The value for \block{Direction} when \property{subType} is \texttt{ROTARY} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{RotaryDirectionEnum Enumeration}
-\label{enum:RotaryDirectionEnum} \\
+\texttt{RotaryDirectionEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{RotaryDirectionEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{CLOCKWISE} & Clockwise rotation using the right-hand rule. \\ \hline
-\texttt{COUNTER\textunderscore CLOCKWISE} & Counter-clockwise rotation using the right-hand rule. \\ \hline
-\texttt{NONE} & No direction. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{CLOCKWISE} \newline Clockwise rotation using the right-hand rule. 
+\item \texttt{COUNTER\textunderscore CLOCKWISE} \newline Counter-clockwise rotation using the right-hand rule. 
+\item \texttt{NONE} \newline No direction. 
+\end{itemize}
 
 
 \end{itemize}
@@ -720,26 +680,13 @@ The operational state of a \block{DOOR} type component or composition element.
 The value of \texttt{DoorState} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{LatchedStateEnum Enumeration}
- \\
+\texttt{LatchedStateEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{LatchedStateEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{OPEN} & A component is open to the point of a positive confirmation. \\ \hline
-\texttt{CLOSED} & A component is closed to the point of a positive confirmation. \\ \hline
-\texttt{UNLATCHED} & An intermediate position. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{OPEN} \newline A component is open to the point of a positive confirmation. 
+\item \texttt{CLOSED} \newline A component is closed to the point of a positive confirmation. 
+\item \texttt{UNLATCHED} \newline An intermediate position. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -754,25 +701,12 @@ The current state of the emergency stop signal for a piece of equipment, control
 The value of \texttt{EmergencyStop} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{EmergencyStopEnum Enumeration}
-\label{enum:EmergencyStopEnum} \\
+\texttt{EmergencyStopEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{EmergencyStopEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ARMED} & The emergency stop circuit is complete and the piece of equipment, component, or composition element is allowed to operate.  \\ \hline
-\texttt{TRIGGERED} & The operation of the piece of equipment, component, or composition element is inhibited. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ARMED} \newline The emergency stop circuit is complete and the piece of equipment, component, or composition element is allowed to operate.  
+\item \texttt{TRIGGERED} \newline The operation of the piece of equipment, component, or composition element is inhibited. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -787,25 +721,12 @@ An indication of whether the end of a piece of bar stock being feed by a bar fee
 The value of \texttt{EndOfBar} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{YesNoEnum Enumeration}
-\label{enum:YesNoEnum} \\
+\texttt{YesNoEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{YesNoEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{YES} & The \block{END\textunderscore OF\textunderscore BAR} has been reached. \\ \hline
-\texttt{NO} & The \block{END\textunderscore OF\textunderscore BAR} has not been reached. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{YES} \newline The \block{END\textunderscore OF\textunderscore BAR} has been reached. 
+\item \texttt{NO} \newline The \block{END\textunderscore OF\textunderscore BAR} has not been reached. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -842,25 +763,12 @@ An indication that a piece of equipment, or a sub-part of a piece of equipment, 
 The value of \texttt{EquipmentMode} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{OnOffEnum Enumeration}
- \\
+\texttt{OnOffEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{OnOffEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ON} & On state or value. \\ \hline
-\texttt{OFF} & Off state or value. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ON} \newline On state or value. 
+\item \texttt{OFF} \newline Off state or value. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -908,31 +816,18 @@ The execution status of the \block{Component}.
 The value of \texttt{Execution} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{ExecutionEnum Enumeration}
-\label{enum:ExecutionEnum} \\
+\texttt{ExecutionEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{ExecutionEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{READY} & A component is ready to engage. \\ \hline
-\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
-\texttt{INTERRUPTED} & The action of a \block{Component} has been suspended due to an external signal. \\ \hline
-\texttt{FEED\textunderscore HOLD} & Motion of a \block{Component} has been commanded to stop at its current position. \\ \hline
-\texttt{STOPPED} & The component is stopped. \\ \hline
-\texttt{OPTIONAL\textunderscore STOP} & The controllers program has been intentionally stopped \\ \hline
-\texttt{PROGRAM\textunderscore STOPPED} & The execution of the \block{Controller}'s program has been stopped by a command from within the program. \\ \hline
-\texttt{PROGRAM\textunderscore COMPLETED} & The execution of the controllers program has been stopped by a command from within the program. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{READY} \newline A component is ready to engage. 
+\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
+\item \texttt{INTERRUPTED} \newline The action of a \block{Component} has been suspended due to an external signal. 
+\item \texttt{FEED\textunderscore HOLD} \newline Motion of a \block{Component} has been commanded to stop at its current position. 
+\item \texttt{STOPPED} \newline The component is stopped. 
+\item \texttt{OPTIONAL\textunderscore STOP} \newline The controllers program has been intentionally stopped 
+\item \texttt{PROGRAM\textunderscore STOPPED} \newline The execution of the \block{Controller}'s program has been stopped by a command from within the program. 
+\item \texttt{PROGRAM\textunderscore COMPLETED} \newline The execution of the controllers program has been stopped by a command from within the program. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -988,28 +883,15 @@ The current intended production status of the device or component.
 The value of \texttt{FunctionalMode} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{FunctionalModeEnum Enumeration}
-\label{enum:FunctionalModeEnum} \\
+\texttt{FunctionalModeEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{FunctionalModeEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{PRODUCTION} & A \gls{Structural Element} is currently producing product. \\ \hline
-\texttt{SETUP} & A \gls{Structural Element} is being prepared or modified to begin production of product. \\ \hline
-\texttt{TEARDOWN} & Typically, a \gls{Structural Element} has completed the production of a product and is being modified or returned to a neutral state such that it may then be prepared to begin production of a different product. \\ \hline
-\texttt{MAINTENANCE} & Action related to maintenance on the piece of equipment. \\ \hline
-\texttt{PROCESS\textunderscore DEVELOPMENT} & A \gls{Structural Element} is being used to prove-out a new process. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{PRODUCTION} \newline A \gls{Structural Element} is currently producing product. 
+\item \texttt{SETUP} \newline A \gls{Structural Element} is being prepared or modified to begin production of product. 
+\item \texttt{TEARDOWN} \newline Typically, a \gls{Structural Element} has completed the production of a product and is being modified or returned to a neutral state such that it may then be prepared to begin production of a different product. 
+\item \texttt{MAINTENANCE} \newline Action related to maintenance on the piece of equipment. 
+\item \texttt{PROCESS\textunderscore DEVELOPMENT} \newline A \gls{Structural Element} is being used to prove-out a new process. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -1115,25 +997,12 @@ An indication of the operational state of an \block{Interface} component.
 The value of \texttt{InterfaceState} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{EnabledStateEnum Enumeration}
-\label{enum:EnabledStateEnum} \\
+\texttt{EnabledStateEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{EnabledStateEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ENABLED} & A component is currently operational and performing as expected. \\ \hline
-\texttt{DISABLED} & A component is currently not operational. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ENABLED} \newline A component is currently operational and performing as expected. 
+\item \texttt{DISABLED} \newline A component is currently not operational. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -1242,8 +1111,16 @@ The position of a block of program code relative to the occurrence of the last \
 
 \end{itemize}
 
+\subsubsection{MTConnectVersion}
+\label{sec:MTConnectVersion}
+
+
+
+The reference version of the MTConnect Standard supported by the \gls{Adapter}.
+
+
 \subsubsection{Material}
-\label{sec:Material}
+
 
 
 
@@ -1378,25 +1255,12 @@ Identifies whether the connection type is wireless.
 The value for \block{Network} when \property{subType} is \texttt{WIRELESS} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{YesNoEnum Enumeration}
- \\
+\texttt{YesNoEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{YesNoEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{YES} & The \block{END\textunderscore OF\textunderscore BAR} has been reached. \\ \hline
-\texttt{NO} & The \block{END\textunderscore OF\textunderscore BAR} has not been reached. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{YES} \newline The \block{END\textunderscore OF\textunderscore BAR} has been reached. 
+\item \texttt{NO} \newline The \block{END\textunderscore OF\textunderscore BAR} has not been reached. 
+\end{itemize}
 
 
 \end{itemize}
@@ -1539,27 +1403,57 @@ An indication designating whether a part or work piece has been detected or is p
 The value of \texttt{PartDetect} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{PartDetectEnum Enumeration}
-\label{enum:PartDetectEnum} \\
+\texttt{PartDetectEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{PartDetectEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{PRESENT} & If a part or work piece has been detected or is present. \\ \hline
-\texttt{NOT\textunderscore PRESENT} & If a part or work piece is not detected or is not present. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{PRESENT} \newline If a part or work piece has been detected or is present. 
+\item \texttt{NOT\textunderscore PRESENT} \newline If a part or work piece is not detected or is not present. 
+\end{itemize}
 
 \FloatBarrier
+
+\subsubsection{PartGroupId}
+\label{sec:PartGroupId}
+
+
+
+Identifier given to a collection of individual parts. 
+
+If no \property{subType} is specified, \texttt{UUID} is default.
+
+
+\paragraph{Subtypes of PartGroupId}\mbox{}
+\label{sec:Subtypes of PartGroupId}
+
+\begin{itemize}
+
+\item \texttt{BATCH}
+
+
+An identifier that references a group of parts produced in a batch.
+
+\item \texttt{HEAT\textunderscore TREAT}
+
+
+An identifier used to reference a material heat number.
+
+\item \texttt{LOT}
+
+
+An identifier that references a group of parts tracked as a lot.
+
+\item \texttt{RAW\textunderscore MATERIAL}
+
+
+The unique identifier for a singular piece of material that is used to make multiple parts.
+
+\item \texttt{UUID}
+
+
+The globally unique identifier as specified in ISO 11578 or RFC 4122.
+
+
+\end{itemize}
 
 \subsubsection{PartId}
 \label{sec:PartId}
@@ -1569,6 +1463,44 @@ Name & Description \\
 An identifier of a part in a manufacturing operation.
 
 
+\subsubsection{PartKindId}
+\label{sec:PartKindId}
+
+
+
+Identifier given to link the individual occurrence to a class of parts, typically distinguished by a particular part design. 
+
+If no \property{subType} is specified, \texttt{UUID} is default.
+
+
+\paragraph{Subtypes of PartKindId}\mbox{}
+\label{sec:Subtypes of PartKindId}
+
+\begin{itemize}
+
+\item \texttt{PART\textunderscore FAMILY}
+
+
+An identifier given to a group of parts having similarities in geometry, manufacturing process, and/or functions.
+
+\item \texttt{PART\textunderscore NAME}
+
+
+A word or set of words by which a part is known, addressed, or referred to.
+
+\item \texttt{PART\textunderscore NUMBER}
+
+
+Identifier of a particular part design or model.
+
+\item \texttt{UUID}
+
+
+The globally unique identifier as specified in ISO 11578 or RFC 4122.
+
+
+\end{itemize}
+
 \subsubsection{PartNumber}
 \label{sec:PartNumber}
 
@@ -1577,6 +1509,61 @@ An identifier of a part in a manufacturing operation.
 An identifier of a part or product moving through the manufacturing process. 
  The \gls{Valid Data Value} \textbf{MUST} be a text string. 
 
+
+\subsubsection{PartStatus}
+\label{sec:PartStatus}
+
+
+
+State or condition of a part.
+
+If unique identifier is given, part status is for that individual. If group identifier is given without a unique identifier, then the status is assumed to be for the whole group.
+
+
+The value of \texttt{PartStatus} \MUST be one of the following: 
+
+
+\texttt{PartStatusEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{PASS} \newline The part does conform to given requirements. 
+\item \texttt{FAIL} \newline The part does not conform to some given requirements. 
+\end{itemize}
+
+\FloatBarrier
+
+\subsubsection{PartUniqueId}
+\label{sec:PartUniqueId}
+
+
+
+Identifier given to a distinguishable, individual part. 
+
+If no \property{subType} is specified, \texttt{UUID} is default.
+
+
+\paragraph{Subtypes of PartUniqueId}\mbox{}
+\label{sec:Subtypes of PartUniqueId}
+
+\begin{itemize}
+
+\item \texttt{RAW\textunderscore MATERIAL}
+
+
+The unique identifier for a singular piece of material that is used to make a single part.
+
+\item \texttt{SERIAL\textunderscore NUMBER}
+
+
+A serial number that uniquely identifies a specific part.
+
+\item \texttt{UUID}
+
+
+The globally unique identifier as specified in ISO 11578 or RFC 4122.
+
+
+\end{itemize}
 
 \subsubsection{PathFeedrateOverride}
 \label{sec:PathFeedrateOverride}
@@ -1624,27 +1611,14 @@ Describes the operational relationship between a \block{Path} \gls{Structural El
 The value of \texttt{PathMode} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{PathModeEnum Enumeration}
-\label{enum:PathModeEnum} \\
+\texttt{PathModeEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{PathModeEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{INDEPENDENT} & The path is operating independently and without the influence of another path. \\ \hline
-\texttt{MASTER} & It provides information or state values that influences the operation of other \block{DataItem} of similar type. \\ \hline
-\texttt{SYNCHRONOUS} & Physical or logical parts which are not physically connected to each other but are operating together. \\ \hline
-\texttt{MIRROR} & The axes associated with the path are mirroring the motion of the \block{MASTER} path. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{INDEPENDENT} \newline The path is operating independently and without the influence of another path. 
+\item \texttt{MASTER} \newline It provides information or state values that influences the operation of other \block{DataItem} of similar type. 
+\item \texttt{SYNCHRONOUS} \newline Physical or logical parts which are not physically connected to each other but are operating together. 
+\item \texttt{MIRROR} \newline The axes associated with the path are mirroring the motion of the \block{MASTER} path. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -1659,25 +1633,12 @@ The indication of the status of the source of energy for a \gls{Structural Eleme
 The value of \texttt{PowerState} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{OnOffEnum Enumeration}
- \\
+\texttt{OnOffEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{OnOffEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ON} & On state or value. \\ \hline
-\texttt{OFF} & Off state or value. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ON} \newline On state or value. 
+\item \texttt{OFF} \newline Off state or value. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -1706,6 +1667,100 @@ The state of the power source for the \gls{Structural Element}.
 
 \textbf{DEPRECATED} in Version 1.1.0.
 
+
+\subsubsection{ProcessAggregateId}
+\label{sec:ProcessAggregateId}
+
+
+
+Identifier given to link the individual occurrence to a group of related occurrences, such as a process step in a process plan.
+
+
+\paragraph{Subtypes of ProcessAggregateId}\mbox{}
+\label{sec:Subtypes of ProcessAggregateId}
+
+\begin{itemize}
+
+\item \texttt{ORDER\textunderscore NUMBER}
+
+
+Identifier of the authorization of the process occurrence. Synonyms include "job id", "work order".
+
+\item \texttt{PROCESS\textunderscore PLAN}
+
+
+Identifier of the process plan that this occurrence belongs to. Synonyms include "routing id", "job id".
+
+\item \texttt{PROCESS\textunderscore STEP}
+
+
+Identifier of the step in the process plan that this occurrence corresponds to. Synonyms include "operation id".
+
+
+\end{itemize}
+
+\subsubsection{ProcessKindId}
+\label{sec:ProcessKindId}
+
+
+
+Identifier given to link the individual occurrence to a class of processes or process definition.
+
+
+\paragraph{Subtypes of ProcessKindId}\mbox{}
+\label{sec:Subtypes of ProcessKindId}
+
+\begin{itemize}
+
+\item \texttt{ISO\textunderscore STEP\textunderscore EXECUTABLE}
+
+
+A reference to a ISO 10303 Executable.
+
+\item \texttt{PROCESS\textunderscore NAME}
+
+
+A word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to.
+
+\item \texttt{UUID}
+
+
+The globally unique identifier as specified in ISO 11578 or RFC 4122.
+
+
+\end{itemize}
+
+\subsubsection{ProcessOccurrenceId}
+\label{sec:ProcessOccurrenceId}
+
+
+
+An identifier of a process being executed by the device.
+
+
+\subsubsection{ProcessState}
+\label{sec:ProcessState}
+
+
+
+The condition of the part or process occurrence.
+
+
+The value of \texttt{ProcessState} \MUST be one of the following: 
+
+
+\texttt{ProcessStateEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{RAW} \newline This is a raw material process occurrence, prior to active execution or preparation of raw material for processing. 
+\item \texttt{IN\textunderscore PROCESS} \newline The process occurrence is actively executing. 
+\item \texttt{REWORK} \newline Process occurrence for correcting defective, failed, or non-conforming items after inspection. 
+\item \texttt{ON\textunderscore HOLD} \newline The process occurrence is currently on hold. 
+\item \texttt{SCRAP} \newline The target part has been scrapped and no further processes will be executed. 
+\item \texttt{COMPLETE} \newline The process occurrence is now complete. 
+\end{itemize}
+
+\FloatBarrier
 
 \subsubsection{ProcessTime}
 \label{sec:ProcessTime}
@@ -1769,26 +1824,13 @@ An indication of the status of the \block{Controller} components program editing
 The value of \texttt{ProgramEdit} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{ActiveStateEnum Enumeration}
-\label{enum:ActiveStateEnum} \\
+\texttt{ActiveStateEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{ActiveStateEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
-\texttt{READY} & A component is ready to engage. \\ \hline
-\texttt{NOT\textunderscore READY} & A component is not ready to engage. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
+\item \texttt{READY} \newline A component is ready to engage. 
+\item \texttt{NOT\textunderscore READY} \newline A component is not ready to engage. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -1920,26 +1962,13 @@ The current operating mode for a \block{Rotary} type axis.
 The value of \texttt{RotaryMode} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{RotaryModeEnum Enumeration}
-\label{enum:RotaryModeEnum} \\
+\texttt{RotaryModeEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{RotaryModeEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{SPINDLE} & The axis is functioning as a spindle. \\ \hline
-\texttt{INDEX} & The axis is configured to index. \\ \hline
-\texttt{CONTOUR} & The position of the axis is being interpolated. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{SPINDLE} \newline The axis is functioning as a spindle. 
+\item \texttt{INDEX} \newline The axis is configured to index. 
+\item \texttt{CONTOUR} \newline The position of the axis is being interpolated. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -1966,12 +1995,52 @@ A three space angular rotation relative to a coordinate system.
 
 Units: \texttt{DEGREE\textunderscore 3D}.
 
+\subsubsection{SensorAttachment}
+\label{sec:SensorAttachment}
+
+
+
+The reference version of the MTConnect Standard supported by the \gls{Adapter}.
+
+
+The value of \texttt{SensorAttachment} \MUST be one of the following: 
+
+\FloatBarrier
+
+\subsubsection{SensorAttachmentResultType}
+\label{sec:SensorAttachmentResultType}
+
+
+
+
+
+
 \subsubsection{SerialNumber}
 \label{sec:SerialNumber}
 
 
 
 The serial number associated with a \block{Component}, \block{Asset}, or \block{Device}. The \gls{Valid Data Value} \textbf{MUST} be a text string.
+
+
+\subsubsection{SpecificationLimit}
+\label{sec:SpecificationLimit}
+
+
+
+A set of limits defining a range of values designating acceptable performance for a variable.
+
+
+The value of \texttt{SpecificationLimit} \MUST be one of the following: 
+
+\FloatBarrier
+
+\subsubsection{SpecificationLimitResultType}
+\label{sec:SpecificationLimitResultType}
+
+
+
+
 
 
 \subsubsection{SpindleInterlock}
@@ -1985,25 +2054,12 @@ An indication of the status of the spindle for a piece of equipment when power h
 The value of \texttt{SpindleInterlock} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{ActuatorStateEnum Enumeration}
- \\
+\texttt{ActuatorStateEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{ActuatorStateEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ACTIVE} & The value of the \gls{Data Entity} that is engaging. \\ \hline
-\texttt{INACTIVE} & The value of the \gls{Data Entity} that is not engaging. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
+\item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
+\end{itemize}
 
 \FloatBarrier
 
@@ -2130,34 +2186,21 @@ An indication of the reason that \block{EXECUTION} is reporting a value of \bloc
 The value of \texttt{WaitState} \MUST be one of the following: 
 
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{WaitStateEnum Enumeration}
-\label{enum:WaitStateEnum} \\
+\texttt{WaitStateEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{WaitStateEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{POWERING\textunderscore UP} & An indication that execution is waiting while the equipment is powering up and is not currently available to begin producing parts or products. \\ \hline
-\texttt{POWERING\textunderscore DOWN} & An indication that the execution is waiting while the equipment is powering down but has not fully reached a stopped state. \\ \hline
-\texttt{PART\textunderscore LOAD} & An indication that the execution is waiting while one or more discrete workpieces are being loaded. \\ \hline
-\texttt{PART\textunderscore UNLOAD} & An indication that the execution is waiting while one or more discrete workpieces are being unloaded. \\ \hline
-\texttt{TOOL\textunderscore LOAD} & An indication that the execution is waiting while a tool or tooling is being loaded. \\ \hline
-\texttt{TOOL\textunderscore UNLOAD} & An indication that the execution is waiting while a tool or tooling is being unloaded. \\ \hline
-\texttt{MATERIAL\textunderscore LOAD} & An indication that the execution is waiting while material is being loaded. \\ \hline
-\texttt{MATERIAL\textunderscore UNLOAD} & An indication that the execution is waiting while material is being unloaded. \\ \hline
-\texttt{SECONDARY\textunderscore PROCESS} & An indication that the execution is waiting while another process is completed before the execution can resume. \\ \hline
-\texttt{PAUSING} & An indication that the execution is waiting while the equipment is pausing but the piece of equipment has not yet reached a fully paused state. \\ \hline
-\texttt{RESUMING} & An indication that the execution is waiting while the equipment is resuming the production cycle but has not yet resumed execution. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{POWERING\textunderscore UP} \newline An indication that execution is waiting while the equipment is powering up and is not currently available to begin producing parts or products. 
+\item \texttt{POWERING\textunderscore DOWN} \newline An indication that the execution is waiting while the equipment is powering down but has not fully reached a stopped state. 
+\item \texttt{PART\textunderscore LOAD} \newline An indication that the execution is waiting while one or more discrete workpieces are being loaded. 
+\item \texttt{PART\textunderscore UNLOAD} \newline An indication that the execution is waiting while one or more discrete workpieces are being unloaded. 
+\item \texttt{TOOL\textunderscore LOAD} \newline An indication that the execution is waiting while a tool or tooling is being loaded. 
+\item \texttt{TOOL\textunderscore UNLOAD} \newline An indication that the execution is waiting while a tool or tooling is being unloaded. 
+\item \texttt{MATERIAL\textunderscore LOAD} \newline An indication that the execution is waiting while material is being loaded. 
+\item \texttt{MATERIAL\textunderscore UNLOAD} \newline An indication that the execution is waiting while material is being unloaded. 
+\item \texttt{SECONDARY\textunderscore PROCESS} \newline An indication that the execution is waiting while another process is completed before the execution can resume. 
+\item \texttt{PAUSING} \newline An indication that the execution is waiting while the equipment is pausing but the piece of equipment has not yet reached a fully paused state. 
+\item \texttt{RESUMING} \newline An indication that the execution is waiting while the equipment is resuming the production cycle but has not yet resumed execution. 
+\end{itemize}
 
 \FloatBarrier
 

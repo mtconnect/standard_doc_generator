@@ -4297,7 +4297,11 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:element>
       <xs:element name='Relationships' type='DataItemRelationshipsType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
-          <xs:documentation/>
+          <xs:documentation>
+            {{block(Relationships)}} {{termplural(organize)}} one or more
+            {{block(DataItemRelationship)}} and
+            {{block(SpecificationRelationship)}}.
+          </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:all>
@@ -6656,8 +6660,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='MaterialType'>
     <xs:annotation>
       <xs:documentation>
-        The identifier of a material used or consumed in the manufacturing
-        process.
+        {{block(Materials)}} provides information about materials or other items
+        consumed or used by the piece of equipment for production of parts,
+        materials, or other types of goods.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -6667,8 +6672,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='Material' type='MaterialType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        The identifier of a material used or consumed in the manufacturing
-        process.
+        {{block(Materials)}} provides information about materials or other items
+        consumed or used by the piece of equipment for production of parts,
+        materials, or other types of goods.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -8016,65 +8022,22 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:simpleType name='ConnectionStatusValueType'>
+  <xs:complexType name='ProcessKindIdType'>
     <xs:annotation>
       <xs:documentation>
-        Controlled vocabulary for ConnectionStatus
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base='xs:string'>
-      <xs:enumeration value='CLOSED'>
-        <xs:annotation>
-          <xs:documentation>
-            represents no connection at all.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='LISTEN'>
-        <xs:annotation>
-          <xs:documentation>
-            represents the {{term(Agent)}} waiting for a connection request from
-            an {{term(Adapter)}}.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='ESTABLISHED'>
-        <xs:annotation>
-          <xs:documentation>
-            represents an open connection. The normal state for the data
-            transfer phase of the connection.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='UNAVAILABLE'>
-        <xs:annotation>
-          <xs:documentation>
-            Value is indeterminate
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name='ConnectionStatusType'>
-    <xs:annotation>
-      <xs:documentation>
-        The status of the connection between an {{term(Adapter)}} and an
-        {{term(Agent)}}.
+        Identifier given to link the individual occurrence to a class of
+        processes or process definition. 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
-      <xs:restriction base='EventType'>
-        <xs:simpleType>
-          <xs:restriction base='ConnectionStatusValueType'/>
-        </xs:simpleType>
-      </xs:restriction>
+      <xs:extension base='StringEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='ConnectionStatus' type='ConnectionStatusType' substitutionGroup='Event'>
+  <xs:element name='ProcessKindId' type='ProcessKindIdType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        The status of the connection between an {{term(Adapter)}} and an
-        {{term(Agent)}}.
+        Identifier given to link the individual occurrence to a class of
+        processes or process definition. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -8133,97 +8096,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='DeviceAddedType'>
-    <xs:annotation>
-      <xs:documentation>
-        An {{block(Event)}} that provides the {{term(UUID)}} of new device added
-        to an {{term(MTConnect Agent)}}.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base='StringEventType'/>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:element name='DeviceAdded' type='DeviceAddedType' substitutionGroup='StringEvent'>
-    <xs:annotation>
-      <xs:documentation>
-        An {{block(Event)}} that provides the {{term(UUID)}} of new device added
-        to an {{term(MTConnect Agent)}}.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='AdapterSoftwareVersionType'>
-    <xs:annotation>
-      <xs:documentation>
-        The originator’s software version of the {{term(Adapter)}}.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base='StringEventType'/>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:element name='AdapterSoftwareVersion' type='AdapterSoftwareVersionType' substitutionGroup='StringEvent'>
-    <xs:annotation>
-      <xs:documentation>
-        The originator’s software version of the {{term(Adapter)}}.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='PartUniqueIdType'>
-    <xs:annotation>
-      <xs:documentation>
-        Identifier given to a distinguishable, individual part. If no
-        {{property(subType)}} is specified, `UUID` is default. 
-      </xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base='StringEventType'/>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:element name='PartUniqueId' type='PartUniqueIdType' substitutionGroup='StringEvent'>
-    <xs:annotation>
-      <xs:documentation>
-        Identifier given to a distinguishable, individual part. If no
-        {{property(subType)}} is specified, `UUID` is default. 
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='DeviceRemovedType'>
-    <xs:annotation>
-      <xs:documentation>
-        An {{block(Event)}} that provides the {{term(UUID)}} of a device removed
-        from an {{term(MTConnect Agent)}}.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base='StringEventType'/>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:element name='DeviceRemoved' type='DeviceRemovedType' substitutionGroup='StringEvent'>
-    <xs:annotation>
-      <xs:documentation>
-        An {{block(Event)}} that provides the {{term(UUID)}} of a device removed
-        from an {{term(MTConnect Agent)}}.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='ProcessOccurrenceIdType'>
-    <xs:annotation>
-      <xs:documentation>
-        An identifier of a process being executed by the device.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base='StringEventType'/>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:element name='ProcessOccurrenceId' type='ProcessOccurrenceIdType' substitutionGroup='StringEvent'>
-    <xs:annotation>
-      <xs:documentation>
-        An identifier of a process being executed by the device.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
   <xs:complexType name='AlarmLimitType'>
     <xs:annotation>
       <xs:documentation>
@@ -8231,32 +8103,32 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
-      <xs:extension base='FloatEventType'/>
+      <xs:extension base='StringEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='AlarmLimit' type='AlarmLimitType' substitutionGroup='FloatEvent'>
+  <xs:element name='AlarmLimit' type='AlarmLimitType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
         A set of limits used to trigger warning or alarm indicators.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='PartGroupIdType'>
+  <xs:complexType name='ProcessAggregateIdType'>
     <xs:annotation>
       <xs:documentation>
-        Identifier given to a collection of individual parts. If no
-        {{property(subType)}} is specified, `UUID` is default.
+        Identifier given to link the individual occurrence to a group of related
+        occurrences, such as a process step in a process plan.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base='StringEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='PartGroupId' type='PartGroupIdType' substitutionGroup='StringEvent'>
+  <xs:element name='ProcessAggregateId' type='ProcessAggregateIdType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        Identifier given to a collection of individual parts. If no
-        {{property(subType)}} is specified, `UUID` is default.
+        Identifier given to link the individual occurrence to a group of related
+        occurrences, such as a process step in a process plan.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -8342,22 +8214,60 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='SpecificationLimitType'>
+  <xs:complexType name='PartKindIdType'>
     <xs:annotation>
       <xs:documentation>
-        A set of limits defining a range of values designating acceptable
-        performance for a variable.
+        Identifier given to link the individual occurrence to a class of parts,
+        typically distinguished by a particular part design. If no
+        {{property(subType)}} is specified, `UUID` is default. 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
-      <xs:extension base='FloatEventType'/>
+      <xs:extension base='StringEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='SpecificationLimit' type='SpecificationLimitType' substitutionGroup='FloatEvent'>
+  <xs:element name='PartKindId' type='PartKindIdType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        A set of limits defining a range of values designating acceptable
-        performance for a variable.
+        Identifier given to link the individual occurrence to a class of parts,
+        typically distinguished by a particular part design. If no
+        {{property(subType)}} is specified, `UUID` is default. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='AdapterURIType'>
+    <xs:annotation>
+      <xs:documentation>
+        The {{term(URI)}} of the {{term(Adapter)}}.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base='StringEventType'/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name='AdapterURI' type='AdapterURIType' substitutionGroup='StringEvent'>
+    <xs:annotation>
+      <xs:documentation>
+        The {{term(URI)}} of the {{term(Adapter)}}.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='DeviceRemovedType'>
+    <xs:annotation>
+      <xs:documentation>
+        An {{block(Event)}} that provides the {{term(UUID)}} of a device removed
+        from an {{term(MTConnect Agent)}}.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base='StringEventType'/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name='DeviceRemoved' type='DeviceRemovedType' substitutionGroup='StringEvent'>
+    <xs:annotation>
+      <xs:documentation>
+        An {{block(Event)}} that provides the {{term(UUID)}} of a device removed
+        from an {{term(MTConnect Agent)}}.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -8380,39 +8290,120 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ProcessKindIdType'>
+  <xs:complexType name='SpecificationLimitType'>
     <xs:annotation>
       <xs:documentation>
-        Identifier given to link the individual occurrence to a class of
-        processes or process definition. 
+        A set of limits defining a range of values designating acceptable
+        performance for a variable.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base='StringEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='ProcessKindId' type='ProcessKindIdType' substitutionGroup='StringEvent'>
+  <xs:element name='SpecificationLimit' type='SpecificationLimitType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        Identifier given to link the individual occurrence to a class of
-        processes or process definition. 
+        A set of limits defining a range of values designating acceptable
+        performance for a variable.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='AdapterURIType'>
+  <xs:simpleType name='ConnectionStatusValueType'>
     <xs:annotation>
       <xs:documentation>
-        The {{term(URI)}} of the {{term(Adapter)}}.
+        Controlled vocabulary for ConnectionStatus
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:enumeration value='CLOSED'>
+        <xs:annotation>
+          <xs:documentation>
+            represents no connection at all.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='LISTEN'>
+        <xs:annotation>
+          <xs:documentation>
+            represents the {{term(Agent)}} waiting for a connection request from
+            an {{term(Adapter)}}.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='ESTABLISHED'>
+        <xs:annotation>
+          <xs:documentation>
+            represents an open connection. The normal state for the data
+            transfer phase of the connection.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='UNAVAILABLE'>
+        <xs:annotation>
+          <xs:documentation>
+            Value is indeterminate
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name='ConnectionStatusType'>
+    <xs:annotation>
+      <xs:documentation>
+        The status of the connection between an {{term(Adapter)}} and an
+        {{term(Agent)}}.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base='EventType'>
+        <xs:simpleType>
+          <xs:restriction base='ConnectionStatusValueType'/>
+        </xs:simpleType>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name='ConnectionStatus' type='ConnectionStatusType' substitutionGroup='Event'>
+    <xs:annotation>
+      <xs:documentation>
+        The status of the connection between an {{term(Adapter)}} and an
+        {{term(Agent)}}.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='AdapterSoftwareVersionType'>
+    <xs:annotation>
+      <xs:documentation>
+        The originator’s software version of the {{term(Adapter)}}.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base='StringEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='AdapterURI' type='AdapterURIType' substitutionGroup='StringEvent'>
+  <xs:element name='AdapterSoftwareVersion' type='AdapterSoftwareVersionType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        The {{term(URI)}} of the {{term(Adapter)}}.
+        The originator’s software version of the {{term(Adapter)}}.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='SensorAttachmentType'>
+    <xs:annotation>
+      <xs:documentation>
+        The reference version of the MTConnect Standard supported by the
+        {{term(Adapter)}} .
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base='StringEventType'/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name='SensorAttachment' type='SensorAttachmentType' substitutionGroup='StringEvent'>
+    <xs:annotation>
+      <xs:documentation>
+        The reference version of the MTConnect Standard supported by the
+        {{term(Adapter)}} .
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -8424,10 +8415,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
-      <xs:extension base='FloatEventType'/>
+      <xs:extension base='StringEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='ControlLimit' type='ControlLimitType' substitutionGroup='FloatEvent'>
+  <xs:element name='ControlLimit' type='ControlLimitType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
         A set of limits used to indicate whether a process variable is stable
@@ -8435,43 +8426,22 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='PartKindIdType'>
+  <xs:complexType name='DeviceAddedType'>
     <xs:annotation>
       <xs:documentation>
-        Identifier given to link the individual occurrence to a class of parts,
-        typically distinguished by a particular part design. If no
-        {{property(subType)}} is specified, `UUID` is default. 
+        An {{block(Event)}} that provides the {{term(UUID)}} of new device added
+        to an {{term(MTConnect Agent)}}.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base='StringEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='PartKindId' type='PartKindIdType' substitutionGroup='StringEvent'>
+  <xs:element name='DeviceAdded' type='DeviceAddedType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        Identifier given to link the individual occurrence to a class of parts,
-        typically distinguished by a particular part design. If no
-        {{property(subType)}} is specified, `UUID` is default. 
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='ProcessAggregateIdType'>
-    <xs:annotation>
-      <xs:documentation>
-        Identifier given to link the individual occurrence to a group of related
-        occurrences, such as a process step in a process plan.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base='StringEventType'/>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:element name='ProcessAggregateId' type='ProcessAggregateIdType' substitutionGroup='StringEvent'>
-    <xs:annotation>
-      <xs:documentation>
-        Identifier given to link the individual occurrence to a group of related
-        occurrences, such as a process step in a process plan.
+        An {{block(Event)}} that provides the {{term(UUID)}} of new device added
+        to an {{term(MTConnect Agent)}}.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -8494,22 +8464,58 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='SensorAttachmentType'>
+  <xs:complexType name='ProcessOccurrenceIdType'>
     <xs:annotation>
       <xs:documentation>
-        The reference version of the MTConnect Standard supported by the
-        {{term(Adapter)}} .
+        An identifier of a process being executed by the device.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base='StringEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='SensorAttachment' type='SensorAttachmentType' substitutionGroup='StringEvent'>
+  <xs:element name='ProcessOccurrenceId' type='ProcessOccurrenceIdType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        The reference version of the MTConnect Standard supported by the
-        {{term(Adapter)}} .
+        An identifier of a process being executed by the device.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='PartGroupIdType'>
+    <xs:annotation>
+      <xs:documentation>
+        Identifier given to a collection of individual parts. If no
+        {{property(subType)}} is specified, `UUID` is default.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base='StringEventType'/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name='PartGroupId' type='PartGroupIdType' substitutionGroup='StringEvent'>
+    <xs:annotation>
+      <xs:documentation>
+        Identifier given to a collection of individual parts. If no
+        {{property(subType)}} is specified, `UUID` is default.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='PartUniqueIdType'>
+    <xs:annotation>
+      <xs:documentation>
+        Identifier given to a distinguishable, individual part. If no
+        {{property(subType)}} is specified, `UUID` is default. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base='StringEventType'/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name='PartUniqueId' type='PartUniqueIdType' substitutionGroup='StringEvent'>
+    <xs:annotation>
+      <xs:documentation>
+        Identifier given to a distinguishable, individual part. If no
+        {{property(subType)}} is specified, `UUID` is default. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -11290,37 +11296,37 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='AngularDecelerationType'>
+  <xs:complexType name='RateOfPressurizationType'>
     <xs:annotation>
       <xs:documentation>
-        Negative rate of change of angular velocity.
+        The change of pressure per unit time.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base='CommonSampleType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='AngularDeceleration' type='AngularDecelerationType' substitutionGroup='CommonSample'>
+  <xs:element name='RateOfPressurization' type='RateOfPressurizationType' substitutionGroup='CommonSample'>
     <xs:annotation>
       <xs:documentation>
-        Negative rate of change of angular velocity.
+        The change of pressure per unit time.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='AngularDecelerationTimeSeriesType'>
+  <xs:complexType name='RateOfPressurizationTimeSeriesType'>
     <xs:annotation>
       <xs:documentation>
-        Time series of Negative rate of change of angular velocity.
+        Time series of The change of pressure per unit time.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base='TimeSeriesType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='AngularDecelerationTimeSeries' type='AngularDecelerationTimeSeriesType' substitutionGroup='TimeSeries'>
+  <xs:element name='RateOfPressurizationTimeSeries' type='RateOfPressurizationTimeSeriesType' substitutionGroup='TimeSeries'>
     <xs:annotation>
       <xs:documentation>
-        Time series of Negative rate of change of angular velocity.
+        Time series of The change of pressure per unit time.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -11400,6 +11406,40 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name='AngularDecelerationType'>
+    <xs:annotation>
+      <xs:documentation>
+        Negative rate of change of angular velocity.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base='CommonSampleType'/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name='AngularDeceleration' type='AngularDecelerationType' substitutionGroup='CommonSample'>
+    <xs:annotation>
+      <xs:documentation>
+        Negative rate of change of angular velocity.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='AngularDecelerationTimeSeriesType'>
+    <xs:annotation>
+      <xs:documentation>
+        Time series of Negative rate of change of angular velocity.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base='TimeSeriesType'/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name='AngularDecelerationTimeSeries' type='AngularDecelerationTimeSeriesType' substitutionGroup='TimeSeries'>
+    <xs:annotation>
+      <xs:documentation>
+        Time series of Negative rate of change of angular velocity.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name='ObservationUpdateRateType'>
     <xs:annotation>
       <xs:documentation>
@@ -11439,40 +11479,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         Time series of The average rate of change of values for data items in
         the MTConnect streams. The average is computed over a rolling window
         defined by the implementation.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='RateOfPressurizationType'>
-    <xs:annotation>
-      <xs:documentation>
-        The change of pressure per unit time.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base='CommonSampleType'/>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:element name='RateOfPressurization' type='RateOfPressurizationType' substitutionGroup='CommonSample'>
-    <xs:annotation>
-      <xs:documentation>
-        The change of pressure per unit time.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='RateOfPressurizationTimeSeriesType'>
-    <xs:annotation>
-      <xs:documentation>
-        Time series of The change of pressure per unit time.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:extension base='TimeSeriesType'/>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:element name='RateOfPressurizationTimeSeries' type='RateOfPressurizationTimeSeriesType' substitutionGroup='TimeSeries'>
-    <xs:annotation>
-      <xs:documentation>
-        Time series of The change of pressure per unit time.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -12518,9 +12524,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           <xs:annotation>
             <xs:documentation>
               A tool storage mechanism that holds any number of tools. Tools are
-              located in {{block(Pot)}}s. {block(Pot)}}s are moved into position
-              to transfer tools into or out of the {{block(ToolMagazine)}} by an
-              {{block(AutomaticToolChanger)}}.
+              located in {{block(Pot)}}s. {{block(Pot)}}s are moved into
+              position to transfer tools into or out of the
+              {{block(ToolMagazine)}} by an {{block(AutomaticToolChanger)}}.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -13984,7 +13990,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
             <xs:documentation>
               The {{term(URL)}} giving the location of the Solid Model. If not
               present, the model referenced in the
-              {{property(modelIdRef,SolidModel)}} is used.
+              {{property(solidModelIdRef,SolidModel)}} is used.
               {{property(href,SolidModel)}} is of type `xlink:href` from the W3C
               XLink specification.
             </xs:documentation>

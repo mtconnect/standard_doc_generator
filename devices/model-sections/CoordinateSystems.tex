@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:25 +0530
+% Generated 2021-01-06 15:42:26 +0530
 \subsection{CoordinateSystems} \label{sec:CoordinateSystems}
 
 
@@ -35,6 +35,7 @@ A \block{CoordinateSystem} is a reference system that associates a unique set of
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{id}[CoordinateSystem] & \texttt{ID} & 1 \\
 \property{name}[CoordinateSystem] & \texttt{string} & 0..1 \\
 \property{nativeName}[CoordinateSystem] & \texttt{string} & 0..1 \\
@@ -44,53 +45,39 @@ A \block{CoordinateSystem} is a reference system that associates a unique set of
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{CoordinateSystem}:
 
 \begin{itemize}
 
-\item \property{id}[CoordinateSystem] : The unique identifier for this element.
+\item \property{id}[CoordinateSystem] \newline The unique identifier for this element.
 
-\item \property{name}[CoordinateSystem] : The name of the coordinate system.
+\item \property{name}[CoordinateSystem] \newline The name of the coordinate system.
 
-\item \property{nativeName}[CoordinateSystem] : The manufacturer's name or users name for the coordinate system.
+\item \property{nativeName}[CoordinateSystem] \newline The manufacturer's name or users name for the coordinate system.
 
-\item \property{parentIdRef}[CoordinateSystem] : A pointer to the \property{id} attribute of the parent \block{CoordinateSystem}.
+\item \property{parentIdRef}[CoordinateSystem] \newline A pointer to the \property{id} attribute of the parent \block{CoordinateSystem}.
 
-\item \property{type}[CoordinateSystem] : The type of coordinate system.
+\item \property{type}[CoordinateSystem] \newline The type of coordinate system.
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{CoordinateSystemTypeEnum Enumeration}
-\label{enum:CoordinateSystemTypeEnum} \\
+\texttt{CoordinateSystemTypeEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{CoordinateSystemTypeEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{WORLD} & stationary coordinate system referenced to earth, which is independent of the robot motion. \textit{ISO 9787:2013}
+\begin{itemize}
+\item \texttt{WORLD} \newline stationary coordinate system referenced to earth, which is independent of the robot motion. \textit{ISO 9787:2013}
 
-For non-robotic devices, stationary coordinate system referenced to earth, which is independent of the motion of a piece of equipment. \\ \hline
-\texttt{BASE} & coordinate system referenced to the base mounting surface. \textit{ISO 9787:2013}
+For non-robotic devices, stationary coordinate system referenced to earth, which is independent of the motion of a piece of equipment. 
+\item \texttt{BASE} \newline coordinate system referenced to the base mounting surface. \textit{ISO 9787:2013}
 
 A base mounting surface is a connection surface between the arm and its supporting structure.\textit{Ref:ISO 9787:2013}
 
-For non-robotic devices, it is the connection surface between the device and its supporting structure. \\ \hline
-\texttt{OBJECT} & coordinate system referenced to the object. \textit{ISO 9787:2013} \\ \hline
-\texttt{TASK} & coordinate system referenced to the site of the task. \textit{ISO 9787:2013} \\ \hline
-\texttt{MECHANICAL\textunderscore INTERFACE} & coordinate system referenced to the mechanical interface. \textit{ISO 9787:2013} \\ \hline
-\texttt{TOOL} & coordinate system referenced to the tool or to the end effector attached to the mechanical interface. \textit{ISO 9787:2013} \\ \hline
-\texttt{MOBILE\textunderscore PLATFORM} & coordinate system referenced to one of the components of a mobile platform. \textit{ISO 8373:2012} \\ \hline
-\texttt{MACHINE} & coordinate system referenced to the home position and orientation of the primary axes of a piece of equipment. \\ \hline
-\texttt{CAMERA} & coordinate system referenced to the sensor which monitors the site of the task. \textit{ISO 9787:2013} \\ \hline
-\end{longtabu}
+For non-robotic devices, it is the connection surface between the device and its supporting structure. 
+\item \texttt{OBJECT} \newline coordinate system referenced to the object. \textit{ISO 9787:2013} 
+\item \texttt{TASK} \newline coordinate system referenced to the site of the task. \textit{ISO 9787:2013} 
+\item \texttt{MECHANICAL\textunderscore INTERFACE} \newline coordinate system referenced to the mechanical interface. \textit{ISO 9787:2013} 
+\item \texttt{TOOL} \newline coordinate system referenced to the tool or to the end effector attached to the mechanical interface. \textit{ISO 9787:2013} 
+\item \texttt{MOBILE\textunderscore PLATFORM} \newline coordinate system referenced to one of the components of a mobile platform. \textit{ISO 8373:2012} 
+\item \texttt{MACHINE} \newline coordinate system referenced to the home position and orientation of the primary axes of a piece of equipment. 
+\item \texttt{CAMERA} \newline coordinate system referenced to the sensor which monitors the site of the task. \textit{ISO 9787:2013} 
+\end{itemize}
 
 \end{itemize}
 
@@ -104,12 +91,12 @@ For non-robotic devices, it is the connection surface between the device and its
   \caption{Elements of CoordinateSystem}
   \label{table:Elements of CoordinateSystem}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Origin} & \texttt{Origin} & 0..1 \\
-\block{Transformation} & \texttt{Transformation} & 0..1 \\
+\texttt{Origin} & 0..1 \\
+\texttt{Transformation} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -118,8 +105,10 @@ For non-robotic devices, it is the connection surface between the device and its
 Descriptions for elements of \block{CoordinateSystem}:
 
 \begin{itemize}
-\item \block{Origin} : The coordinates of the origin position of a coordinate system.
-\item \block{Transformation} :  The process of transforming to the origin position of the coordinate system from a parent coordinate system using \block{Translation} and \block{Rotation}.
+
+\item \block{Origin} \newline The coordinates of the origin position of a coordinate system.
+
+\item \block{Transformation} \newline  The process of transforming to the origin position of the coordinate system from a parent coordinate system using \block{Translation} and \block{Rotation}.
 \end{itemize}
 
 \subsubsection{CoordinateSystems}
@@ -140,11 +129,11 @@ Descriptions for elements of \block{CoordinateSystem}:
   \caption{Elements of CoordinateSystems}
   \label{table:Elements of CoordinateSystems}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{CoordinateSystem} & \texttt{CoordinateSystem} & 1..* \\
+\texttt{CoordinateSystem} & 1..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -153,7 +142,8 @@ Descriptions for elements of \block{CoordinateSystem}:
 Descriptions for elements of \block{CoordinateSystems}:
 
 \begin{itemize}
-\item \block{CoordinateSystem} : A \block{CoordinateSystem} is a reference system that associates a unique set of n parameters with each point in an n-dimensional space. \textit{Ref: ISO 10303-218:2004}
+
+\item \block{CoordinateSystem} \newline A \block{CoordinateSystem} is a reference system that associates a unique set of n parameters with each point in an n-dimensional space. \textit{Ref: ISO 10303-218:2004}
 \end{itemize}
 
 \subsubsection{Origin}
@@ -162,6 +152,9 @@ Descriptions for elements of \block{CoordinateSystems}:
 
 
 The coordinates of the origin position of a coordinate system.
+
+
+The value of \texttt{Origin} \MUST be \texttt{Origin}.
 
 
 \subsubsection{Rotation}
@@ -173,32 +166,8 @@ Rotations about X, Y, and Z axes are expressed in A, B, and C respectively withi
 
 
 
-\paragraph{Attributes of Rotation}\mbox{}
-\label{sec:Attributes of Rotation}
+The value of \texttt{Rotation} \MUST be \texttt{Rotation}.
 
-\tbl{Attributes of Rotation} lists the attributes of \texttt{Rotation}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Rotation}
-  \label{table:Attributes of Rotation}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\property{value}[Rotation] & \texttt{Rotation} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for attributes of \block{Rotation}:
-
-\begin{itemize}
-
-\item \property{value}[Rotation] : The value of \block{Rotation} in \texttt{DEGREE\textunderscore 3D}.
-\end{itemize}
 
 \subsubsection{Transformation}
 \label{sec:Transformation}
@@ -218,12 +187,12 @@ Descriptions for attributes of \block{Rotation}:
   \caption{Elements of Transformation}
   \label{table:Elements of Transformation}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Translation} & \texttt{Translation} & 0..1 \\
-\block{Rotation} & \texttt{Rotation} & 0..1 \\
+\texttt{Translation} & 0..1 \\
+\texttt{Rotation} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -232,8 +201,10 @@ Descriptions for attributes of \block{Rotation}:
 Descriptions for elements of \block{Transformation}:
 
 \begin{itemize}
-\item \block{Translation} : Translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
-\item \block{Rotation} : Rotations about X, Y, and Z axes are expressed in A, B, and C respectively within a 3-dimensional vector. 
+
+\item \block{Translation} \newline Translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
+
+\item \block{Rotation} \newline Rotations about X, Y, and Z axes are expressed in A, B, and C respectively within a 3-dimensional vector. 
 
 \end{itemize}
 
@@ -245,29 +216,5 @@ Descriptions for elements of \block{Transformation}:
 Translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
 
 
-\paragraph{Attributes of Translation}\mbox{}
-\label{sec:Attributes of Translation}
+The value of \texttt{Translation} \MUST be \texttt{Translation}.
 
-\tbl{Attributes of Translation} lists the attributes of \texttt{Translation}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Translation}
-  \label{table:Attributes of Translation}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\property{value}[Translation] & \texttt{Translation} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for attributes of \block{Translation}:
-
-\begin{itemize}
-
-\item \property{value}[Translation] : The value of \block{Rotation} in \texttt{MILLIMETER\textunderscore 3D}.
-\end{itemize}

@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:25 +0530
+% Generated 2021-01-06 15:42:25 +0530
 \subsection{Component Types} \label{sec:Component Types}
 
 
@@ -26,26 +26,20 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 \block{Actuator} represents the information for an apparatus for moving or controlling a mechanism or system. It takes energy usually provided by air, electric current, or liquid and converts the energy into some kind of motion.
 
 
-\subsubsection{Auxiliaries}
-\label{sec:Auxiliaries}
+\subsubsection{Adapter}
+\label{sec:Adapter}
 
 
 
-\block{Auxiliaries} represents functional sub-systems that provide supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
+{{(block(Adapter)}} is a \block{Component} that represents the connectivity state of a data source for the \gls{MTConnect Agent}.
 
 
-\paragraph{BarFeeder}\mbox{}
-\label{sec:BarFeeder}
+\subsubsection{Auxiliary}
+\label{sec:Auxiliary}
 
 
-\block{BarFeeder} represents the information for a unit involved in delivering bar stock to a piece of equipment.
 
-
-\paragraph{Environmental}\mbox{}
-\label{sec:Environmental}
-
-
-\block{Environmental} represents the information for a unit or function involved in monitoring, managing, or conditioning the environment around or within a piece of equipment.
+\block{Auxiliary} is a \block{Component} that represents functional sub-system(s) that provides supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
 
 
 \paragraph{Loader}\mbox{}
@@ -53,6 +47,13 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 
 
 \block{Loader} represents the information for a unit comprised of all the parts involved in moving and distributing materials, parts, tooling, and other items to or from a piece of equipment.
+
+
+\paragraph{BarFeeder}\mbox{}
+\label{sec:BarFeeder}
+
+
+\block{BarFeeder} represents the information for a unit involved in delivering bar stock to a piece of equipment.
 
 
 \paragraph{Sensor}\mbox{}
@@ -70,6 +71,41 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 
 
 
+\paragraph{GangToolBar}\mbox{}
+\label{sec:GangToolBar}
+
+
+A tool mounting mechanism that holds any number of tools. Tools are located in \block{Station}s. Tools are positioned for use in the manufacturing process by linearly positioning the \block{GangToolBar}.
+
+
+\paragraph{AutomaticToolChanger}\mbox{}
+\label{sec:AutomaticToolChanger}
+
+
+A tool delivery mechanism that moves tools between a \block{ToolMagazine} and a \gls{Spindle} a \block{Turret}. An \block{AutomaticToolChanger} may also transfer tools between a location outside of a piece of equipment and a \block{ToolMagazine} or \block{Turret}.
+
+
+\paragraph{ToolMagazine}\mbox{}
+\label{sec:ToolMagazine}
+
+
+A tool storage mechanism that holds any number of tools. Tools are located in \block{Pot}s. \block{Pot}s are moved into position to transfer tools into or out of the \block{ToolMagazine} by an \block{AutomaticToolChanger}.
+
+
+\paragraph{ToolRack}\mbox{}
+\label{sec:ToolRack}
+
+
+A linear or matrixed tool storage mechanism that holds any number of tools. Tools are located in \block{Station}s.
+
+
+\paragraph{Turret}\mbox{}
+\label{sec:Turret}
+
+
+A tool mounting mechanism that holds any number of tools. Tools are located in \block{Station}s . Tools are positioned for use in the manufacturing process by rotating the \block{Turret}.
+
+
 \paragraph{WasteDisposal}\mbox{}
 \label{sec:WasteDisposal}
 
@@ -78,12 +114,12 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 
 
 
-\subsubsection{Axes}
-\label{sec:Axes}
+\subsubsection{Axis}
+\label{sec:Axis}
 
 
 
-\block{Axes} organizes information representing linear or rotational motion for a piece of equipment. The \block{Linear} axis \block{Component} represents linear motion, and the\block{Rotary} axis \block{Component} represents rotational motion.In robotics, the term \textit{Axis} is synonymous with \textit{Joint}. A \textit{Joint} is the connection between two parts of the structure that move in relation to each other.
+\block{Axis} is an abstract \block{Component} that represents linear or rotational motion for a piece of equipment.In robotics, the term \textit{Axis} is synonymous with \textit{Joint}. A \textit{Joint} is the connection between two parts of the structure that move in relation to each other.
 
 \block{Linear} and \block{Rotary} components \textbf{MUST} have a \property{name} attribute that \textbf{MUST} follow the conventions described below. Use the \property{nativeName} attribute for the manufacturer's name of the axis if it differs from the assigned \property{name}.
 
@@ -130,41 +166,12 @@ A machine having an axis with more than one child \textbf{MUST} number each bran
 A \block{Linear} axis represents the movement of a physical piece of equipment, or a portion of the equipment, in a straight line. 
 
 
-\paragraph{Rotary}\mbox{}
-\label{sec:Rotary}
-
-
-A \block{Rotary} axis represents any non-linear or rotary movement of a physical piece of equipment or a portion of the equipment.
-
-
-\paragraph{Chuck}\mbox{}
+\subsubsection{Chuck}
 \label{sec:Chuck}
 
 
+
 \block{Chuck} provides the information about a mechanism that holds a part or stock material in place.
-
-
-\subsubsection{Controller}
-\label{sec:Controller}
-
-
-
-\block{Controller} organizes information about an intelligent or computational function within a piece of equipment.
-
-
-\paragraph{Path}\mbox{}
-\label{sec:Path}
-
-
-\block{Path} represents the information for an independent operation or function within a \block{Controller}.
-
-
-\subsubsection{Deposition}
-\label{sec:Deposition}
-
-
-
-\block{Deposition} represents the information for a system that manages the addition of material or state change of material being performed in an additive manufacturing process.  For example, this could describe the portion of a piece of equipment that manages a material extrusion process or a vat polymerization process.
 
 
 \subsubsection{Door}
@@ -175,12 +182,33 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 \block{Door} represents the information for a mechanical mechanism or closure that can cover.
 
 
-\subsubsection{Interfaces}
-\label{sec:Interfaces}
+\subsubsection{Interface}
+\label{sec:Interface}
 
 
 
-\block{Interfaces} organizes information used to coordinate actions and activities between pieces of equipment that communicate information between each other.
+\block{Interface} is a \block{Component} that represents an \gls{Interface} to coordinate actions and activities between pieces of equipment that communicate information between each other.
+
+
+\subsubsection{Organizer}
+\label{sec:Organizer}
+
+
+
+{{Organizer}} is an abstract \block{Component} that \glspl{organize} similar {{Component}} types together.
+
+
+\paragraph{\texttt{Components}}\mbox{}
+\label{sec:Components}
+
+\newline 
+
+\subsubsection{Path}
+\label{sec:Path}
+
+
+
+\block{Path} represents the information for an independent operation or function within a \block{Controller}.
 
 
 \subsubsection{Power}
@@ -191,16 +219,33 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 \block{Power} was \textbf{DEPRECATED} in \textit{MTConnect Version 1.1} and was replaced by \block{Availability}.
 
 
-\subsubsection{Resources}
-\label{sec:Resources}
+\subsubsection{Process}
+\label{sec:Process}
 
 
 
-\block{Resources} organizes information representing types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location. \block{Resources} also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
+\block{Process} is an abstract \block{Component} type that represents the manufacturing process being executed on a piece of equipment.
 
 
-\paragraph{Materials}\mbox{}
-\label{sec:Materials}
+\paragraph{PartOccurrence}\mbox{}
+\label{sec:PartOccurrence}
+
+
+\block{PartOccurrence} \gls{organize} information about a specific part as it exists at a specific place and time, such as a specific instance of a bracket at a specific timestamp.
+
+
+\subsubsection{Resource}
+\label{sec:Resource}
+
+
+
+\block{Resource} is an abstract \block{Component} that represents types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location.
+
+\block{Resource} also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
+
+
+\paragraph{Material}\mbox{}
+\label{sec:Material}
 
 
 \block{Materials} provides information about materials or other items consumed or used by the piece of equipment for production of parts, materials, or other types of goods.
@@ -226,14 +271,14 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 
 
 
-\block{Structure} organizes static structural components of the machine.
+\block{Structure} is a \block{Component} that represents the part(s) comprising the rigid bodies of the piece of equipment.
 
 
 \paragraph{Link}\mbox{}
 \label{sec:Link}
 
 
-
+\block{Link} is a structural \block{Component} providing a connection between \block{Component}s.
 
 
 \paragraph{Table}\mbox{}
@@ -243,12 +288,12 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 
 
 
-\subsubsection{Systems}
-\label{sec:Systems}
+\subsubsection{System}
+\label{sec:System}
 
 
 
-\block{Systems} organizes information representing the major sub-systems that are permanently integrated into a piece of equipment.
+\block{System} is a \block{Component} that represents the major sub-system(s) that are permanently integrated into a piece of equipment.
 
 
 \paragraph{Coolant}\mbox{}
@@ -256,6 +301,13 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 
 
 \block{Coolant} represents the information for a system comprised of all the parts involved in distribution and management of fluids that remove heat from a piece of equipment.
+
+
+\paragraph{Deposition}\mbox{}
+\label{sec:Deposition}
+
+
+\block{Deposition} represents the information for a system that manages the addition of material or state change of material being performed in an additive manufacturing process.  For example, this could describe the portion of a piece of equipment that manages a material extrusion process or a vat polymerization process.
 
 
 \paragraph{Dielectric}\mbox{}
@@ -272,18 +324,52 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 \block{Electric} represents the information for the main power supply for device piece of equipment and the distribution of that power throughout the equipment.
 
 
-\paragraph{Enclosure}\mbox{}
-\label{sec:Enclosure}
-
-
-\block{Enclosure} represents the information for a structure used to contain or isolate a piece of equipment or area.
-
-
 \paragraph{EndEffector}\mbox{}
 \label{sec:EndEffector}
 
 
 \block{EndEffector} represents the information for those functions that form the last link segment of a piece of equipment. It is the part of a piece of equipment that interacts with the manufacturing process.
+
+
+\paragraph{Environmental}\mbox{}
+\label{sec:Environmental}
+
+
+\block{Environmental} represents the information for a unit or function involved in monitoring, managing, or conditioning the environment around or within a piece of equipment.
+
+
+\paragraph{Heating}\mbox{}
+\label{sec:Heating}
+
+
+\block{Heating} is a system used to deliver controlled amounts of heat to achieve a target temperature at a specified heating rate.
+
+Note: As an example, Energy Delivery Method can be either through Electric heaters or Gas burners.
+
+
+\paragraph{Vacuum}\mbox{}
+\label{sec:Vacuum}
+
+
+\block{Vacuum} is a system that evacuates gases and liquids from an enclosed and sealed space to a controlled negative pressure or a molecular density below the prevailing atmospheric level.
+
+
+\paragraph{Cooling}\mbox{}
+\label{sec:Cooling}
+
+
+\block{Cooling} is a system used to to extract controlled amounts of heat to achieve a target temperature at a specified cooling rate.
+
+Note: As an example, Energy Extraction Method can be via cooling water pipes running through the chamber.
+
+
+\paragraph{Pressure}\mbox{}
+\label{sec:Pressure}
+
+
+\block{Pressure} is a system that delivers compressed gas or fluid and controls the pressure and rate of pressure change to a desired target set-point.
+
+Note: For example, Delivery Method can be a Compressed Air or N2 tank that is piped via an inlet valve to the chamber.
 
 
 \paragraph{Feeder}\mbox{}
@@ -311,7 +397,9 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 \label{sec:Pneumatic}
 
 
-\block{Pneumatic} represents the information for a system comprised of all the parts involved in moving and distributing pressurized gas throughout the piece of equipment.
+\block{Pneumatic} is a system that uses compressed gasses to actuate components or do work within the piece of equipment.
+
+Note: Actuation is usually performed using a cylinder.
 
 
 \paragraph{ProcessPower}\mbox{}

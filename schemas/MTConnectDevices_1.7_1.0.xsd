@@ -4188,28 +4188,30 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='AuxiliariesType'>
+  <xs:complexType name='AuxiliaryType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Auxiliaries)}} represents functional sub-systems that provide
-        supplementary or extended capabilities for a piece of equipment, but
-        they are not required for the basic operation of the equipment.
+        {{block(Auxiliary)}} is a {{block(Component)}} that represents
+        functional sub-system(s) that provides supplementary or extended
+        capabilities for a piece of equipment, but they are not required for the
+        basic operation of the equipment.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base='CommonComponentType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Auxiliaries' type='AuxiliariesType' substitutionGroup='CommonComponent'>
+  <xs:element name='Auxiliary' type='AuxiliaryType' substitutionGroup='CommonComponent'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Auxiliaries)}} represents functional sub-systems that provide
-        supplementary or extended capabilities for a piece of equipment, but
-        they are not required for the basic operation of the equipment.
+        {{block(Auxiliary)}} is a {{block(Component)}} that represents
+        functional sub-system(s) that provides supplementary or extended
+        capabilities for a piece of equipment, but they are not required for the
+        basic operation of the equipment.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='AxesType'>
+  <xs:complexType name='AxisType'>
     <xs:annotation>
       <xs:documentation>
         Description
@@ -4219,7 +4221,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:extension base='CommonComponentType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Axes' type='AxesType' substitutionGroup='CommonComponent'>
+  <xs:element name='Axis' type='AxisType' substitutionGroup='CommonComponent'>
     <xs:annotation>
       <xs:documentation>
         Description
@@ -4234,10 +4236,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='AuxiliariesType'/>
+      <xs:extension base='LoaderType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='BarFeeder' type='BarFeederType' substitutionGroup='Auxiliaries'>
+  <xs:element name='BarFeeder' type='BarFeederType' substitutionGroup='Loader'>
     <xs:annotation>
       <xs:documentation>
         {{block(BarFeeder)}} represents the information for a unit involved in
@@ -4253,10 +4255,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='RotaryType'/>
+      <xs:extension base='CommonComponentType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Chuck' type='ChuckType' substitutionGroup='Rotary'>
+  <xs:element name='Chuck' type='ChuckType' substitutionGroup='CommonComponent'>
     <xs:annotation>
       <xs:documentation>
         A mechanism that holds a part, stock material, or any other item in
@@ -4272,10 +4274,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='CommonComponentType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Controller' type='ControllerType' substitutionGroup='CommonComponent'>
+  <xs:element name='Controller' type='ControllerType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Controller)}} organizes information about an intelligent or
@@ -4292,10 +4294,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Coolant' type='CoolantType' substitutionGroup='Systems'>
+  <xs:element name='Coolant' type='CoolantType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Coolant)}} represents the information for a system comprised of
@@ -4315,10 +4317,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='CommonComponentType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Deposition' type='DepositionType' substitutionGroup='CommonComponent'>
+  <xs:element name='Deposition' type='DepositionType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Deposition)}} represents the information for a system that
@@ -4338,10 +4340,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Dielectric' type='DielectricType' substitutionGroup='Systems'>
+  <xs:element name='Dielectric' type='DielectricType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Dielectric)}} represents the information for a system that
@@ -4380,10 +4382,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Electric' type='ElectricType' substitutionGroup='Systems'>
+  <xs:element name='Electric' type='ElectricType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Electric)}} represents the information for the main power supply
@@ -4400,10 +4402,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Enclosure' type='EnclosureType' substitutionGroup='Systems'>
+  <xs:element name='Enclosure' type='EnclosureType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Enclosure)}} represents the information for a structure used to
@@ -4420,10 +4422,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='EndEffector' type='EndEffectorType' substitutionGroup='Systems'>
+  <xs:element name='EndEffector' type='EndEffectorType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(EndEffector)}} represents the information for those functions
@@ -4441,10 +4443,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='AuxiliariesType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Environmental' type='EnvironmentalType' substitutionGroup='Auxiliaries'>
+  <xs:element name='Environmental' type='EnvironmentalType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Environmental)}} represents the information for a unit or
@@ -4461,10 +4463,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Feeder' type='FeederType' substitutionGroup='Systems'>
+  <xs:element name='Feeder' type='FeederType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Feeder)}} represents the information for a system that manages
@@ -4481,10 +4483,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Hydraulic' type='HydraulicType' substitutionGroup='Systems'>
+  <xs:element name='Hydraulic' type='HydraulicType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Hydraulic)}} represents the information for a system comprised
@@ -4493,24 +4495,22 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='InterfacesType'>
+  <xs:complexType name='InterfaceType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Interfaces)}} organizes information used to coordinate actions
-        and activities between pieces of equipment that communicate information
-        between each other.
+        The means by which communication is achieved between independent
+        systems.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base='CommonComponentType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Interfaces' type='InterfacesType' substitutionGroup='CommonComponent'>
+  <xs:element name='Interface' type='InterfaceType' substitutionGroup='CommonComponent'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Interfaces)}} organizes information used to coordinate actions
-        and activities between pieces of equipment that communicate information
-        between each other.
+        The means by which communication is achieved between independent
+        systems.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -4522,10 +4522,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='AxesType'/>
+      <xs:extension base='AxisType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Linear' type='LinearType' substitutionGroup='Axes'>
+  <xs:element name='Linear' type='LinearType' substitutionGroup='Axis'>
     <xs:annotation>
       <xs:documentation>
         A {{block(Linear)}} axis represents the movement of a physical piece of
@@ -4542,10 +4542,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='AuxiliariesType'/>
+      <xs:extension base='AuxiliaryType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Loader' type='LoaderType' substitutionGroup='Auxiliaries'>
+  <xs:element name='Loader' type='LoaderType' substitutionGroup='Auxiliary'>
     <xs:annotation>
       <xs:documentation>
         {{block(Loader)}} represents the information for a unit comprised of all
@@ -4563,10 +4563,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Lubrication' type='LubricationType' substitutionGroup='Systems'>
+  <xs:element name='Lubrication' type='LubricationType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Lubrication)}} represents the information for a system comprised
@@ -4575,7 +4575,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='MaterialsType'>
+  <xs:complexType name='MaterialType'>
     <xs:annotation>
       <xs:documentation>
         {{block(Materials)}} provides information about materials or other items
@@ -4584,10 +4584,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='ResourcesType'/>
+      <xs:extension base='ResourceType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Materials' type='MaterialsType' substitutionGroup='Resources'>
+  <xs:element name='Material' type='MaterialType' substitutionGroup='Resource'>
     <xs:annotation>
       <xs:documentation>
         {{block(Materials)}} provides information about materials or other items
@@ -4604,10 +4604,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='ControllerType'/>
+      <xs:extension base='CommonComponentType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Path' type='PathType' substitutionGroup='Controller'>
+  <xs:element name='Path' type='PathType' substitutionGroup='CommonComponent'>
     <xs:annotation>
       <xs:documentation>
         {{block(Path)}} represents the information for an independent operation
@@ -4624,10 +4624,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='ResourcesType'/>
+      <xs:extension base='ResourceType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Personnel' type='PersonnelType' substitutionGroup='Resources'>
+  <xs:element name='Personnel' type='PersonnelType' substitutionGroup='Resource'>
     <xs:annotation>
       <xs:documentation>
         {{block(Personnel)}} provides information about an individual or
@@ -4645,10 +4645,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Pneumatic' type='PneumaticType' substitutionGroup='Systems'>
+  <xs:element name='Pneumatic' type='PneumaticType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Pneumatic)}} is a system that uses compressed gasses to actuate
@@ -4685,10 +4685,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='ProcessPower' type='ProcessPowerType' substitutionGroup='Systems'>
+  <xs:element name='ProcessPower' type='ProcessPowerType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(ProcessPower)}} represents the information for a power source
@@ -4705,10 +4705,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Protective' type='ProtectiveType' substitutionGroup='Systems'>
+  <xs:element name='Protective' type='ProtectiveType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation>
         {{block(Protective)}} represents the information for those functions
@@ -4716,28 +4716,30 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ResourcesType'>
+  <xs:complexType name='ResourceType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Resources)}} organizes information representing types of items,
-        materials, and personnel that support the operation of a piece of
-        equipment or work to be performed at a location. {{block(Resources)}}
-        also represents materials or other items consumed or transformed by a
-        piece of equipment for production of parts or other types of goods.
+        {{block(Resource)}} is an abstract {{block(Component)}} that represents
+        types of items, materials, and personnel that support the operation of a
+        piece of equipment or work to be performed at a location.
+        {{block(Resource)}} also represents materials or other items consumed or
+        transformed by a piece of equipment for production of parts or other
+        types of goods.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base='CommonComponentType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Resources' type='ResourcesType' substitutionGroup='CommonComponent'>
+  <xs:element name='Resource' type='ResourceType' substitutionGroup='CommonComponent'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Resources)}} organizes information representing types of items,
-        materials, and personnel that support the operation of a piece of
-        equipment or work to be performed at a location. {{block(Resources)}}
-        also represents materials or other items consumed or transformed by a
-        piece of equipment for production of parts or other types of goods.
+        {{block(Resource)}} is an abstract {{block(Component)}} that represents
+        types of items, materials, and personnel that support the operation of a
+        piece of equipment or work to be performed at a location.
+        {{block(Resource)}} also represents materials or other items consumed or
+        transformed by a piece of equipment for production of parts or other
+        types of goods.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -4749,10 +4751,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='AxesType'/>
+      <xs:extension base='AxisType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Rotary' type='RotaryType' substitutionGroup='Axes'>
+  <xs:element name='Rotary' type='RotaryType' substitutionGroup='Axis'>
     <xs:annotation>
       <xs:documentation>
         A {{block(Rotary)}} axis represents any non-linear or rotary movement of
@@ -4768,10 +4770,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='AuxiliariesType'/>
+      <xs:extension base='AuxiliaryType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Sensor' type='SensorType' substitutionGroup='Auxiliaries'>
+  <xs:element name='Sensor' type='SensorType' substitutionGroup='Auxiliary'>
     <xs:annotation>
       <xs:documentation>
         A {{term(sensing element)}} that responds to a physical stimulus and
@@ -4788,10 +4790,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='MaterialsType'/>
+      <xs:extension base='MaterialType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Stock' type='StockType' substitutionGroup='Materials'>
+  <xs:element name='Stock' type='StockType' substitutionGroup='Material'>
     <xs:annotation>
       <xs:documentation>
         {{block(Stock)}} represents the information for the material that is
@@ -4800,22 +4802,22 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='SystemsType'>
+  <xs:complexType name='SystemType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Systems)}} organizes information representing the major
-        sub-systems that are permanently integrated into a piece of equipment.
+        {{block(System)}} is a {{block(Component)}} that represents the major
+        sub-system(s) that are permanently integrated into a piece of equipment.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base='CommonComponentType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Systems' type='SystemsType' substitutionGroup='CommonComponent'>
+  <xs:element name='System' type='SystemType' substitutionGroup='CommonComponent'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Systems)}} organizes information representing the major
-        sub-systems that are permanently integrated into a piece of equipment.
+        {{block(System)}} is a {{block(Component)}} that represents the major
+        sub-system(s) that are permanently integrated into a piece of equipment.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -4828,10 +4830,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='AuxiliariesType'/>
+      <xs:extension base='AuxiliaryType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='ToolingDelivery' type='ToolingDeliveryType' substitutionGroup='Auxiliaries'>
+  <xs:element name='ToolingDelivery' type='ToolingDeliveryType' substitutionGroup='Auxiliary'>
     <xs:annotation>
       <xs:documentation>
         {{block(ToolingDelivery)}} represents the information for a unit
@@ -4849,10 +4851,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='AuxiliariesType'/>
+      <xs:extension base='AuxiliaryType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='WasteDisposal' type='WasteDisposalType' substitutionGroup='Auxiliaries'>
+  <xs:element name='WasteDisposal' type='WasteDisposalType' substitutionGroup='Auxiliary'>
     <xs:annotation>
       <xs:documentation>
         {{block(WasteDisposal)}} represents the information for a unit comprised
@@ -4864,9 +4866,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='StructureType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Structure)}} is a {{block(Component)}} that
-        {{termplural(organize)}} the parts comprising the rigid bodies of the
-        piece of equipment.
+        {{block(Structure)}} is a {{block(Component)}} that represents the
+        part(s) comprising the rigid bodies of the piece of equipment.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -4876,9 +4877,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='Structure' type='StructureType' substitutionGroup='CommonComponent'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Structure)}} is a {{block(Component)}} that
-        {{termplural(organize)}} the parts comprising the rigid bodies of the
-        piece of equipment.
+        {{block(Structure)}} is a {{block(Component)}} that represents the
+        part(s) comprising the rigid bodies of the piece of equipment.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -4923,95 +4923,57 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:documentation/>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='SystemType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='WorkEnvelope' type='WorkEnvelopeType' substitutionGroup='Systems'>
+  <xs:element name='WorkEnvelope' type='WorkEnvelopeType' substitutionGroup='System'>
     <xs:annotation>
       <xs:documentation/>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='TurretType'>
+  <xs:complexType name='GangToolBarType'>
     <xs:annotation>
       <xs:documentation>
         A tool mounting mechanism that holds any number of tools. Tools are
-        located in {{block(Station)}}s . Tools are positioned for use in the
-        manufacturing process by rotating the {{block(Turret)}}.
+        located in {{block(Station)}}s. Tools are positioned for use in the
+        manufacturing process by linearly positioning the
+        {{block(GangToolBar)}}.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base='ToolingDeliveryType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Turret' type='TurretType' substitutionGroup='ToolingDelivery'>
+  <xs:element name='GangToolBar' type='GangToolBarType' substitutionGroup='ToolingDelivery'>
     <xs:annotation>
       <xs:documentation>
         A tool mounting mechanism that holds any number of tools. Tools are
-        located in {{block(Station)}}s . Tools are positioned for use in the
-        manufacturing process by rotating the {{block(Turret)}}.
+        located in {{block(Station)}}s. Tools are positioned for use in the
+        manufacturing process by linearly positioning the
+        {{block(GangToolBar)}}.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='ProcessType'>
+  <xs:complexType name='HeatingType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Process)}} {{termplural(organize)}} information describing the
-        manufacturing process being executed on a piece of equipment. 
+        {{block(Heating)}} is a system used to deliver controlled amounts of
+        heat to achieve a target temperature at a specified heating rate. Note:
+        As an example, Energy Delivery Method can be either through Electric
+        heaters or Gas burners.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='CommonComponentType'/>
+      <xs:extension base='EnvironmentalType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Process' type='ProcessType' substitutionGroup='CommonComponent'>
+  <xs:element name='Heating' type='HeatingType' substitutionGroup='Environmental'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Process)}} {{termplural(organize)}} information describing the
-        manufacturing process being executed on a piece of equipment. 
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='PartOccurrenceType'>
-    <xs:annotation>
-      <xs:documentation>
-        {{block(PartOccurrence)}} {{term(organize)}} information about a
-        specific part as it exists at a specific place and time, such as a
-        specific instance of a bracket at a specific timestamp.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base='ProcessType'/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name='PartOccurrence' type='PartOccurrenceType' substitutionGroup='Process'>
-    <xs:annotation>
-      <xs:documentation>
-        {{block(PartOccurrence)}} {{term(organize)}} information about a
-        specific part as it exists at a specific place and time, such as a
-        specific instance of a bracket at a specific timestamp.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='ProcessOccurrenceType'>
-    <xs:annotation>
-      <xs:documentation>
-        {{block(ProcessOccurrence)}} {{termplural(organize)}} information about
-        the execution of a specific process that takes place at a specific place
-        and time, such as a specific instance of part-milling occurring at a
-        specific timestamp.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base='ProcessType'/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name='ProcessOccurrence' type='ProcessOccurrenceType' substitutionGroup='Process'>
-    <xs:annotation>
-      <xs:documentation>
-        {{block(ProcessOccurrence)}} {{termplural(organize)}} information about
-        the execution of a specific process that takes place at a specific place
-        and time, such as a specific instance of part-milling occurring at a
-        specific timestamp.
+        {{block(Heating)}} is a system used to deliver controlled amounts of
+        heat to achieve a target temperature at a specified heating rate. Note:
+        As an example, Energy Delivery Method can be either through Electric
+        heaters or Gas burners.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -5040,93 +5002,24 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='GangToolBarType'>
+  <xs:complexType name='ProcessType'>
     <xs:annotation>
       <xs:documentation>
-        A tool mounting mechanism that holds any number of tools. Tools are
-        located in {{block(Station)}}s. Tools are positioned for use in the
-        manufacturing process by linearly positioning the
-        {{block(GangToolBar)}}.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base='ToolingDeliveryType'/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name='GangToolBar' type='GangToolBarType' substitutionGroup='ToolingDelivery'>
-    <xs:annotation>
-      <xs:documentation>
-        A tool mounting mechanism that holds any number of tools. Tools are
-        located in {{block(Station)}}s. Tools are positioned for use in the
-        manufacturing process by linearly positioning the
-        {{block(GangToolBar)}}.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='AdaptersType'>
-    <xs:annotation>
-      <xs:documentation>
-        {{block(Adapters)}} is a {{block(Component)}} that
-        {{termplural(organize)}} {{block(Adapter)}} {{block(Component)}}s
-        representing the connectivity state of the {{term(MTConnect Agent)}}.
+        {{block(Process)}} is an abstract {{block(Component)}} type that
+        represents the manufacturing process being executed on a piece of
+        equipment. 
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base='CommonComponentType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Adapters' type='AdaptersType' substitutionGroup='CommonComponent'>
+  <xs:element name='Process' type='ProcessType' substitutionGroup='CommonComponent'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Adapters)}} is a {{block(Component)}} that
-        {{termplural(organize)}} {{block(Adapter)}} {{block(Component)}}s
-        representing the connectivity state of the {{term(MTConnect Agent)}}.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='CoolingType'>
-    <xs:annotation>
-      <xs:documentation>
-        {{block(Cooling)}} is a system used to to extract controlled amounts of
-        heat to achieve a target temperature at a specified cooling rate. Note:
-        As an example, Energy Extraction Method can be via cooling water pipes
-        running through the chamber.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base='SystemsType'/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name='Cooling' type='CoolingType' substitutionGroup='Systems'>
-    <xs:annotation>
-      <xs:documentation>
-        {{block(Cooling)}} is a system used to to extract controlled amounts of
-        heat to achieve a target temperature at a specified cooling rate. Note:
-        As an example, Energy Extraction Method can be via cooling water pipes
-        running through the chamber.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:complexType name='PressureType'>
-    <xs:annotation>
-      <xs:documentation>
-        {{block(Pressure)}} is a system that delivers compressed gas or fluid
-        and controls the pressure and rate of pressure change to a desired
-        target set-point. Note: For example, Delivery Method can be a Compressed
-        Air or N2 tank that is piped via an inlet valve to the chamber.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base='SystemsType'/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name='Pressure' type='PressureType' substitutionGroup='Systems'>
-    <xs:annotation>
-      <xs:documentation>
-        {{block(Pressure)}} is a system that delivers compressed gas or fluid
-        and controls the pressure and rate of pressure change to a desired
-        target set-point. Note: For example, Delivery Method can be a Compressed
-        Air or N2 tank that is piped via an inlet valve to the chamber.
+        {{block(Process)}} is an abstract {{block(Component)}} type that
+        represents the manufacturing process being executed on a piece of
+        equipment. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -5134,7 +5027,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         A tool storage mechanism that holds any number of tools. Tools are
-        located in {{block(Pot)}}s. {block(Pot)}}s are moved into position to
+        located in {{block(Pot)}}s. {{block(Pot)}}s are moved into position to
         transfer tools into or out of the {{block(ToolMagazine)}} by an
         {{block(AutomaticToolChanger)}}.
       </xs:documentation>
@@ -5147,32 +5040,51 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         A tool storage mechanism that holds any number of tools. Tools are
-        located in {{block(Pot)}}s. {block(Pot)}}s are moved into position to
+        located in {{block(Pot)}}s. {{block(Pot)}}s are moved into position to
         transfer tools into or out of the {{block(ToolMagazine)}} by an
         {{block(AutomaticToolChanger)}}.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='HeatingType'>
+  <xs:complexType name='PartOccurrenceType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Heating)}} is a system used to deliver controlled amounts of
-        heat to achieve a target temperature at a specified heating rate. Note:
-        As an example, Energy Delivery Method can be either through Electric
-        heaters or Gas burners.
+        {{block(PartOccurrence)}} {{term(organize)}} information about a
+        specific part as it exists at a specific place and time, such as a
+        specific instance of a bracket at a specific timestamp.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='ProcessType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Heating' type='HeatingType' substitutionGroup='Systems'>
+  <xs:element name='PartOccurrence' type='PartOccurrenceType' substitutionGroup='Process'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Heating)}} is a system used to deliver controlled amounts of
-        heat to achieve a target temperature at a specified heating rate. Note:
-        As an example, Energy Delivery Method can be either through Electric
-        heaters or Gas burners.
+        {{block(PartOccurrence)}} {{term(organize)}} information about a
+        specific part as it exists at a specific place and time, such as a
+        specific instance of a bracket at a specific timestamp.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='AdapterType'>
+    <xs:annotation>
+      <xs:documentation>
+        An optional piece of hardware or software that transforms information
+        provided by a piece of equipment into a form that can be received by an
+        {{term(Agent)}}.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='CommonComponentType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Adapter' type='AdapterType' substitutionGroup='CommonComponent'>
+    <xs:annotation>
+      <xs:documentation>
+        An optional piece of hardware or software that transforms information
+        provided by a piece of equipment into a form that can be received by an
+        {{term(Agent)}}.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -5195,6 +5107,27 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name='TurretType'>
+    <xs:annotation>
+      <xs:documentation>
+        A tool mounting mechanism that holds any number of tools. Tools are
+        located in {{block(Station)}}s . Tools are positioned for use in the
+        manufacturing process by rotating the {{block(Turret)}}.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='ToolingDeliveryType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Turret' type='TurretType' substitutionGroup='ToolingDelivery'>
+    <xs:annotation>
+      <xs:documentation>
+        A tool mounting mechanism that holds any number of tools. Tools are
+        located in {{block(Station)}}s . Tools are positioned for use in the
+        manufacturing process by rotating the {{block(Turret)}}.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name='VacuumType'>
     <xs:annotation>
       <xs:documentation>
@@ -5204,10 +5137,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base='SystemsType'/>
+      <xs:extension base='EnvironmentalType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Vacuum' type='VacuumType' substitutionGroup='Systems'>
+  <xs:element name='Vacuum' type='VacuumType' substitutionGroup='Environmental'>
     <xs:annotation>
       <xs:documentation>
         {{block(Vacuum)}} is a system that evacuates gases and liquids from an
@@ -5216,24 +5149,91 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
-  <xs:complexType name='AdapterType'>
+  <xs:complexType name='CoolingType'>
     <xs:annotation>
       <xs:documentation>
-        An optional piece of hardware or software that transforms information
-        provided by a piece of equipment into a form that can be received by an
-        {{term(Agent)}}.
+        {{block(Cooling)}} is a system used to to extract controlled amounts of
+        heat to achieve a target temperature at a specified cooling rate. Note:
+        As an example, Energy Extraction Method can be via cooling water pipes
+        running through the chamber.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='EnvironmentalType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Cooling' type='CoolingType' substitutionGroup='Environmental'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Cooling)}} is a system used to to extract controlled amounts of
+        heat to achieve a target temperature at a specified cooling rate. Note:
+        As an example, Energy Extraction Method can be via cooling water pipes
+        running through the chamber.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='OrganizerType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{Organizer}} is an abstract {{block(Component)}} that
+        {{termplural(organize)}} similar {{Component}} types together.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base='CommonComponentType'/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name='Adapter' type='AdapterType' substitutionGroup='CommonComponent'>
+  <xs:element name='Organizer' type='OrganizerType' substitutionGroup='CommonComponent'>
     <xs:annotation>
       <xs:documentation>
-        An optional piece of hardware or software that transforms information
-        provided by a piece of equipment into a form that can be received by an
-        {{term(Agent)}}.
+        {{Organizer}} is an abstract {{block(Component)}} that
+        {{termplural(organize)}} similar {{Component}} types together.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ProcessOccurrenceType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(ProcessOccurrence)}} {{termplural(organize)}} information about
+        the execution of a specific process that takes place at a specific place
+        and time, such as a specific instance of part-milling occurring at a
+        specific timestamp.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='ProcessType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='ProcessOccurrence' type='ProcessOccurrenceType' substitutionGroup='Process'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(ProcessOccurrence)}} {{termplural(organize)}} information about
+        the execution of a specific process that takes place at a specific place
+        and time, such as a specific instance of part-milling occurring at a
+        specific timestamp.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='PressureType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Pressure)}} is a system that delivers compressed gas or fluid
+        and controls the pressure and rate of pressure change to a desired
+        target set-point. Note: For example, Delivery Method can be a Compressed
+        Air or N2 tank that is piped via an inlet valve to the chamber.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='EnvironmentalType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Pressure' type='PressureType' substitutionGroup='Environmental'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Pressure)}} is a system that delivers compressed gas or fluid
+        and controls the pressure and rate of pressure change to a desired
+        target set-point. Note: For example, Delivery Method can be a Compressed
+        Air or N2 tank that is piped via an inlet valve to the chamber.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -6594,7 +6594,11 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   </xs:complexType>
   <xs:complexType name='RelationshipsType'>
     <xs:annotation>
-      <xs:documentation/>
+      <xs:documentation>
+        {{block(Relationships)}} {{termplural(organize)}} one or more
+        {{block(DataItemRelationship)}} and
+        {{block(SpecificationRelationship)}}.
+      </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base='AbstractConfigurationType'>
@@ -6606,7 +6610,11 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   </xs:complexType>
   <xs:element name='Relationships' type='RelationshipsType' substitutionGroup='AbstractConfiguration'>
     <xs:annotation>
-      <xs:documentation/>
+      <xs:documentation>
+        {{block(Relationships)}} {{termplural(organize)}} one or more
+        {{block(DataItemRelationship)}} and
+        {{block(SpecificationRelationship)}}.
+      </xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:simpleType name='RelationshipTypeEnumType'>
@@ -6789,7 +6797,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
             <xs:documentation>
               The {{term(URL)}} giving the location of the Solid Model. If not
               present, the model referenced in the
-              {{property(modelIdRef,SolidModel)}} is used.
+              {{property(solidModelIdRef,SolidModel)}} is used.
               {{property(href,SolidModel)}} is of type `xlink:href` from the W3C
               XLink specification.
             </xs:documentation>
@@ -7163,8 +7171,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           <xs:element name='Axis' type='MotionAxisType'>
             <xs:annotation>
               <xs:documentation>
-                {{block(Axis)}} defines the axis along or around which the
-                component moves relative to a coordinate system.
+                Description
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -7217,6 +7224,252 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:simpleType name='SolidModelIdRefType'>
+    <xs:annotation>
+      <xs:documentation>
+        A reference to another model
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:IDREF'/>
+  </xs:simpleType>
+  <xs:simpleType name='ItemRefType'>
+    <xs:annotation>
+      <xs:documentation>
+        A reference to an item in a model
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'/>
+  </xs:simpleType>
+  <xs:complexType name='SolidModelType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(SolidModel)}} is a {{block(Configuration)}} that references a
+        file with the three-dimensional geometry of the {{block(Component)}} or
+        {{block(Composition)}}.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='AbstractConfigurationType'>
+        <xs:all>
+          <xs:element name='Transformation' type='TransformationType' minOccurs='0' maxOccurs='1'>
+            <xs:annotation>
+              <xs:documentation>
+                The translation of the origin to the position and orientation.
+                At a minimum, a {{block(Translation)}} or {{block(Rotation)}}
+                **MUST** be given.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name='Scale' type='SolidModelScaleType' minOccurs='0' maxOccurs='1'>
+            <xs:annotation>
+              <xs:documentation>
+                The {{block(SolidModel)}} {{block(Scale)}} is either a single
+                multiplier applied to all three dimensions or a three space
+                multiplier given in the X, Y, and Z dimensions in the coordinate
+                system used for the {{block(SolidModel)}}.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:all>
+        <xs:attribute name='id' type='IDType' use='required'>
+          <xs:annotation>
+            <xs:documentation>
+              the unique identifier for this entity within the MTConnectDevices
+              document
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name='solidModelIdRef' type='SolidModelIdRefType' use='optional'>
+          <xs:annotation>
+            <xs:documentation>
+              The associated model file if an item reference is used
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name='href' type='xlink:hrefType' use='optional'>
+          <xs:annotation>
+            <xs:documentation>
+              The {{term(URL)}} giving the location of the Solid Model. If not
+              present, the model referenced in the
+              {{property(solidModelIdRef,SolidModel)}} is used.
+              {{property(href,SolidModel)}} is of type `xlink:href` from the W3C
+              XLink specification.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute ref='xlink:type' use='optional' fixed='locator'>
+          <xs:annotation>
+            <xs:documentation>
+              The XLink {{property(type)}} attribute **MUST** have a fixed value
+              of `locator` as defined in W3C XLink 1.1
+              {{cite(https://www.w3.org/TR/xlink11/)}}. If the
+              {{property(href)}} attribute is provided, it **MUST** conform to
+              the URI syntactic rules as defined in IETF RFC 3986 for Uniform
+              Resource Identifiers.
+              {{cite(https://www.ietf.org/rfc/rfc3986.txt)}}
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name='itemRef' type='ItemRefType' use='optional'>
+          <xs:annotation>
+            <xs:documentation>
+              The reference to the item within the model within the related
+              geometry. A modelIdRef MUST be given.
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name='mediaType' type='SolidModelMediaTypeType' use='required'>
+          <xs:annotation>
+            <xs:documentation>
+              The format of the referenced document
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name='coordinateSystemIdRef' type='CoordinateSystemIdRefType' use='optional'>
+          <xs:annotation>
+            <xs:documentation>
+              The identifier of the coordinate system that this motion is
+              relative to
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='SolidModel' type='SolidModelType' substitutionGroup='AbstractConfiguration'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(SolidModel)}} is a {{block(Configuration)}} that references a
+        file with the three-dimensional geometry of the {{block(Component)}} or
+        {{block(Composition)}}.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:simpleType name='ScaleValueType'>
+    <xs:annotation>
+      <xs:documentation>
+        A three dimensional value &apos;X Y Z&apos; or &apos;A B C&apos;
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='FloatListValueType'>
+      <xs:maxLength value='3'/>
+      <xs:minLength value='1'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name='SolidModelScaleType'>
+    <xs:annotation>
+      <xs:documentation>
+        The unit vector to scale the model
+      </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base='ScaleValueType'/>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name='SolidModelMediaTypeExtType'>
+    <xs:annotation>
+      <xs:documentation>
+        Extended tyoe for Solid model media types
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:pattern value='[a-ln-z][a-z]+:[A-Z_0-9]+'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='SolidModelMediaTypeEnum'>
+    <xs:annotation>
+      <xs:documentation>
+        Solid model media types
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:enumeration value='STEP'>
+        <xs:annotation>
+          <xs:documentation>
+            ISO 10303 STEP AP203 or AP242 format
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='STL'>
+        <xs:annotation>
+          <xs:documentation>
+            Stereolithography file format
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='GDML'>
+        <xs:annotation>
+          <xs:documentation>
+            Geometry Description Markup Language
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='OBJ'>
+        <xs:annotation>
+          <xs:documentation>
+            Wavefront OBJ file format
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='COLLADA'>
+        <xs:annotation>
+          <xs:documentation>
+            ISO 17506
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='IGES'>
+        <xs:annotation>
+          <xs:documentation>
+            Initial Graphics Exchange Specification
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='DXF'>
+        <xs:annotation>
+          <xs:documentation>
+            Drawing eXchange Format. Autodesk data interchange format
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='3DS'>
+        <xs:annotation>
+          <xs:documentation>
+            Autodesk file format
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='DWG'>
+        <xs:annotation>
+          <xs:documentation>
+            Autodesk file format
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='ACIS'>
+        <xs:annotation>
+          <xs:documentation>
+            Dassault file format
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='PXT'>
+        <xs:annotation>
+          <xs:documentation>
+            Parasolid XT Siemens data interchange format
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name='SolidModelMediaTypeType'>
+    <xs:annotation>
+      <xs:documentation>
+        Solid model media types
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes='SolidModelMediaTypeEnum SolidModelMediaTypeExtType'/>
+  </xs:simpleType>
   <xs:simpleType name='SampleIntervalType'>
     <xs:annotation>
       <xs:documentation>
@@ -7572,7 +7825,11 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:element>
       <xs:element name='Relationships' type='DataItemRelationshipsType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
-          <xs:documentation/>
+          <xs:documentation>
+            {{block(Relationships)}} {{termplural(organize)}} one or more
+            {{block(DataItemRelationship)}} and
+            {{block(SpecificationRelationship)}}.
+          </xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:all>

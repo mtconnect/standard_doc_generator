@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:25 +0530
+% Generated 2021-01-06 15:42:26 +0530
 \subsection{Motion} \label{sec:Motion}
 
 
@@ -14,39 +14,15 @@
 
 
 \subsubsection{Axis}
-\label{sec:Axis}
+
 
 
 
 \block{Axis} defines the axis along or around which the component moves relative to a coordinate system.
 
 
-\paragraph{Attributes of Axis}\mbox{}
-\label{sec:Attributes of Axis}
+The value of \texttt{Axis} \MUST be \texttt{UnitVector}.
 
-\tbl{Attributes of Axis} lists the attributes of \texttt{Axis}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Axis}
-  \label{table:Attributes of Axis}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\property{axis}[Axis] & \texttt{UnitVector} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for attributes of \block{Axis}:
-
-\begin{itemize}
-
-\item \property{axis}[Axis] : The unit vector defining the axis of motion.
-\end{itemize}
 
 \subsubsection{Motion}
 \label{sec:Motion}
@@ -70,7 +46,8 @@ Descriptions for attributes of \block{Axis}:
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\property{actuation}[Motion] & \texttt{ActuationTypeEnum} & 1 \\
+
+\property{actuation}[Motion] & \texttt{MotionActuationTypeEnum} & 1 \\
 \property{cooridnateSystemIdRef}[Motion] & \texttt{IDREF} & 1 \\
 \property{id}[Motion] & \texttt{ID} & 1 \\
 \property{parentIdRef}[Motion] & \texttt{IDREF} & 0..1 \\
@@ -79,65 +56,37 @@ Descriptions for attributes of \block{Axis}:
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{Motion}:
 
 \begin{itemize}
 
-\item \property{actuation}[Motion] : Describes if this component is actuated directly or indirectly as a result of other motion.
+\item \property{actuation}[Motion] \newline Describes if this component is actuated directly or indirectly as a result of other motion.
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{ActuationTypeEnum Enumeration}
-\label{enum:ActuationTypeEnum} \\
+\texttt{MotionActuationTypeEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{ActuationTypeEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{DIRECT} & The movement is initiated by the component. \\ \hline
-\texttt{DERIVATIVE} & The movement is derived from other components motion. \\ \hline
-\texttt{VIRTUAL} & The motion is computed and is used for expressing an imaginary movement. \\ \hline
-\texttt{FIXED} & The component does not move. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{DIRECT} \newline The movement is initiated by the component. 
+\item \texttt{VIRTUAL} \newline The motion is computed and is used for expressing an imaginary movement. 
+\item \texttt{NONE} \newline There is no actuation of this Axis. 
+\end{itemize}
 
 
-\item \property{cooridnateSystemIdRef}[Motion] : The coordinate system within which the kinematic motion occurs.
+\item \property{cooridnateSystemIdRef}[Motion] \newline The coordinate system within which the kinematic motion occurs.
 
-\item \property{id}[Motion] : The identifier of this element.
+\item \property{id}[Motion] \newline The identifier of this element.
 
-\item \property{parentIdRef}[Motion] : The kinematic chain connects all components using the parent relations. All motion is connected to the motion of the parent. The first node in the chain will not have a parent.
+\item \property{parentIdRef}[Motion] \newline The kinematic chain connects all components using the parent relations. All motion is connected to the motion of the parent. The first node in the chain will not have a parent.
 
-\item \property{type}[Motion] : Describes the type of motion.
+\item \property{type}[Motion] \newline Describes the type of motion.
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{MotionTypes Enumeration}
-\label{enum:MotionTypes} \\
+\texttt{MotionTypes} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{MotionTypes} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{PRISMATIC} & Moves along an axis. \\ \hline
-\texttt{REVOLUTE} & Rotates around an axis. \\ \hline
-\texttt{TWIST} & Rotates in a twisting motion around an axis. \\ \hline
-\texttt{REVOLVE} & Revolves around an axis. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{PRISMATIC} \newline Sliding linear motion along an axis with a fixed range of motion. 
+\item \texttt{CONTINUOUS} \newline Revolves around an axis with a continuous range of motion. 
+\item \texttt{REVOLUTE} \newline Rotates around an axis with a fixed range of motion. 
+\item \texttt{FIXED} \newline The axis does not move. 
+\end{itemize}
 
 \end{itemize}
 
@@ -151,13 +100,14 @@ Name & Description \\
   \caption{Elements of Motion}
   \label{table:Elements of Motion}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Axis} & \texttt{Axis} & 1 \\
-\block{Origin} & \texttt{Origin} & 0..1 \\
-\block{Transformation} & \texttt{Transformation} & 0..1 \\
+\texttt{Axis} & 0..1 \\
+\texttt{Origin} & 0..1 \\
+\texttt{Transformation} & 0..1 \\
+\texttt{Description} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -166,7 +116,12 @@ Name & Description \\
 Descriptions for elements of \block{Motion}:
 
 \begin{itemize}
-\item \block{Axis} : \block{Axis} defines the axis along or around which the component moves relative to a coordinate system.
-\item \block{Origin} : The coordinates of the origin position of a coordinate system.
-\item \block{Transformation} :  The process of transforming to the origin position of the coordinate system from a parent coordinate system using \block{Translation} and \block{Rotation}.
+
+\item \block{Axis} \newline \block{Axis} defines the axis along or around which the component moves relative to a coordinate system.
+
+\item \block{Origin} \newline A fixed point from which measurement or motion commences.
+
+\item \block{Transformation} \newline The transformation of the parent \block{Origin} or \block{Transformation} using \block{Translation} and \block{Rotation}. At a minimum, a \block{Translation} or \block{Rotation} \textbf{MUST} be given.
+
+\item \block{Description} \newline The descriptive content.
 \end{itemize}

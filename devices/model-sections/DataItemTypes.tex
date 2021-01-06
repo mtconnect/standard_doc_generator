@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:25 +0530
+% Generated 2021-01-06 15:42:26 +0530
 \subsection{DataItem Types} \label{sec:DataItem Types}
 
 
@@ -350,6 +350,9 @@ An identifier of a part in a manufacturing operation.
 
 An identifier of a part or product moving through the manufacturing process.
 
+\textbf{DEPRECATED} in \textit{Version 1.7}. \texttt{PART\textunderscore NUMBER} is now a \texttt{subType} of
+\texttt{PART\textunderscore KIND\textunderscore ID}.
+
 
 \item \texttt{PATH\textunderscore FEEDRATE\textunderscore OVERRIDE}  
 
@@ -531,6 +534,101 @@ A three space angular rotation relative to a coordinate system.
 
 A three space linear translation relative to a coordinate system.
 
+
+\item \texttt{DEVICE\textunderscore ADDED}  
+
+An \block{Event} that provides the \gls{UUID} of new device added to an \gls{MTConnect Agent}.
+
+
+\item \texttt{DEVICE\textunderscore REMOVED}  
+
+An \block{Event} that provides the \gls{UUID} of a device removed from an \gls{MTConnect Agent}.
+
+
+\item \texttt{DEVICE\textunderscore CHANGED}  
+
+An \block{Event} that provides the \gls{UUID} of the device whose \gls{Metadata} has changed.
+
+
+\item \texttt{CONNECTION\textunderscore STATUS}  
+
+The status of the connection between an \gls{Adapter} and an \gls{Agent}.
+
+
+\item \texttt{ADAPTER\textunderscore SOFTWARE\textunderscore VERSION}  
+
+The originator’s software version of the \gls{Adapter}.
+
+
+\item \texttt{ADAPTER\textunderscore URI}  
+
+The \gls{URI} of the \gls{Adapter}.
+
+
+\item \texttt{MTCONNECT\textunderscore VERSION}  
+
+The reference version of the MTConnect Standard supported by the \gls{Adapter}.
+
+
+\item \texttt{SENSOR\textunderscore ATTACHMENT}  
+
+An \block{Event} defining an \gls{Attachment} between a sensor and an entity.
+
+
+\item \texttt{PART\textunderscore STATUS}  
+
+State or condition of a part.
+
+
+\item \texttt{PROCESS\textunderscore OCCURRENCE\textunderscore ID}  
+
+An identifier of a process being executed by the device.
+
+
+\item \texttt{PROCESS\textunderscore AGGREGATE\textunderscore ID}  
+
+Identifier given to link the individual occurrence to a group of related occurrences, such as a process step in a process plan.
+
+
+\item \texttt{PROCESS\textunderscore KIND\textunderscore ID}  
+
+Identifier given to link the individual occurrence to a class of processes or process definition.
+
+
+\item \texttt{PROCESS\textunderscore STATE}  
+
+The condition of the part or process occurrence.
+
+
+\item \texttt{PART\textunderscore GROUP\textunderscore ID}  
+
+Identifier given to a collection of individual parts. 
+
+
+\item \texttt{PART\textunderscore KIND\textunderscore ID}  
+
+Identifier given to link the individual occurrence to a class of parts, typically distinguished by a particular part design.
+
+
+\item \texttt{PART\textunderscore UNIQUE\textunderscore ID}  
+
+Identifier given to a distinguishable, individual part. 
+
+
+\item \texttt{CONTROL\textunderscore LIMIT}  
+
+A set of limits used to indicate whether a process variable is stable and in control.
+
+
+\item \texttt{SPECIFICATION\textunderscore LIMIT}  
+
+A set of limits defining a range of values designating acceptable performance for a variable.
+
+
+\item \texttt{ALARM\textunderscore LIMIT}  
+
+A set of limits used to trigger warning or alarm indicators.
+
 \end{itemize}
 
 
@@ -690,7 +788,7 @@ The measurement of the length of an object.
 
 \item \texttt{LINEAR\textunderscore FORCE}  
 
-The measurement of the push or pull introduced by an actuator or exerted on an object.
+A \gls{Force} applied to a mass in one direction only.
 
 
 \item \texttt{LOAD}  
@@ -886,6 +984,31 @@ The amount of water vapor expressed in grams per cubic meter.
 \item \texttt{HUMIDITY\textunderscore SPECIFIC}  
 
 The ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
+
+
+\item \texttt{OBSERVATION\textunderscore UPDATE\textunderscore RATE}  
+
+The average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
+
+
+\item \texttt{ASSET\textunderscore UPDATE\textunderscore RATE}  
+
+The average rate of change of values for assets in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
+
+
+\item \texttt{RATE\textunderscore OF\textunderscore PRESSURIZATION}  
+
+The change of pressure per unit time.
+
+
+\item \texttt{DECELERATION}  
+
+Negative rate of change of velocity.
+
+
+\item \texttt{ANGULAR\textunderscore DECELERATION}  
+
+Negative rate of change of angular velocity.
 
 \end{itemize}
 

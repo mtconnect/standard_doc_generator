@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:25 +0530
+% Generated 2021-01-06 15:42:26 +0530
 \subsection{Elements for DataItem} \label{sec:Elements for DataItem}
 
 
@@ -23,15 +23,15 @@ This section provides detailed descriptions for the elements of a \block{DataIte
   \caption{Elements of Constraints}
   \label{table:Elements of Constraints}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{<<deprecated>>} \block{Filter} & \texttt{FilterEnum} & 0..1 \\
-\block{Maximum} & \texttt{float} & 0..1 \\
-\block{Minimum} & \texttt{float} & 0..1 \\
-\block{Nominal} & \texttt{float} & 0..1 \\
-\block{Value} & \texttt{float} & 0..* \\
+\texttt{Filter} & 0..1 \\
+\texttt{Maximum} & 0..1 \\
+\texttt{Minimum} & 0..1 \\
+\texttt{Nominal} & 0..1 \\
+\texttt{Value} & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -40,14 +40,27 @@ This section provides detailed descriptions for the elements of a \block{DataIte
 Descriptions for elements of \block{Constraints}:
 
 \begin{itemize}
-\item \block{Filter} : \textbf{DEPRECATED} in \textit{MTConnect Version 1.4} – Moved to the
+
+\item \block{Filter} \newline \textbf{DEPRECATED} in \textit{MTConnect Version 1.4} – Moved to the
 \block{Filters} element of \block{DataItem}.
-\item \block{Maximum} : If the data reported for a data item is a range of numeric values, the expected value reported \textbf{MAY} be described with an upper limit defined by this constraint.
-\item \block{Minimum} : If the data reported for a data item is a range of numeric values, the expected value reported \textbf{MAY} be described with a lower limit defined by this constraint.
-\item \block{Nominal} : The target or expected value for this data item.
-\item \block{Value} : \property{Value} represents a single data value that is expected to be reported for a \block{DataItem} element.
+
+\item \block{Maximum} \newline If the data reported for a data item is a range of numeric values, the expected value reported \textbf{MAY} be described with an upper limit defined by this constraint.
+
+The value of \block{Maximum} \MUST be \texttt{float}.
+
+\item \block{Minimum} \newline If the data reported for a data item is a range of numeric values, the expected value reported \textbf{MAY} be described with a lower limit defined by this constraint.
+
+The value of \block{Minimum} \MUST be \texttt{float}.
+
+\item \block{Nominal} \newline The target or expected value for this data item.
+
+The value of \block{Nominal} \MUST be \texttt{float}.
+
+\item \block{Value} \newline \property{Value} represents a single data value that is expected to be reported for a \block{DataItem} element.
 
 \property{Value} \textbf{MUST NOT} be used in conjunction with any other \block{Constraint} elements.
+
+The value of \block{Value} \MUST be \texttt{float}.
 \end{itemize}
 
 \subsubsection{Definition}
@@ -68,13 +81,13 @@ The \block{Definition} defines the meaning of \block{Entry} and \block{Cell} ele
   \caption{Elements of Definition}
   \label{table:Elements of Definition}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{CellDefinitions} & \texttt{CellDefinition} & 0..* \\
-\block{Description} & \texttt{Description} & 0..1 \\
-\block{EntryDefinitions} & \texttt{EntryDefinition} & 0..* \\
+\texttt{CellDefinition} (organized by \block{CellDefinitions}) & 0..* \\
+\texttt{Description} & 0..1 \\
+\texttt{EntryDefinition} (organized by \block{EntryDefinitions}) & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -83,9 +96,12 @@ The \block{Definition} defines the meaning of \block{Entry} and \block{Cell} ele
 Descriptions for elements of \block{Definition}:
 
 \begin{itemize}
-\item \block{CellDefinitions} : \block{CellDefinitions} \glspl{organize} \block{CellDefinition} elements.
-\item \block{Description} : The \block{Description} of the \block{Definition}. See \block{Component} \block{Description}.
-\item \block{EntryDefinitions} : \block{EntryDefinitions} \glspl{organize} \block{EntryDefinition} elements.
+
+\item \block{CellDefinitions} \newline \block{CellDefinitions} \glspl{organize} \block{CellDefinition} elements.
+
+\item \block{Description} \newline The \block{Description} of the \block{Definition}. See \block{Component} \block{Description}.
+
+\item \block{EntryDefinitions} \newline \block{EntryDefinitions} \glspl{organize} \block{EntryDefinition} elements.
 \end{itemize}
 
 \subsubsection{Filter}
@@ -110,43 +126,30 @@ Descriptions for elements of \block{Definition}:
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{type}[Filter] & \texttt{FilterEnum} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{Filter}:
 
 \begin{itemize}
 
-\item \property{type}[Filter] : The type of \block{Filter}
+\item \property{type}[Filter] \newline The type of \block{Filter}
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{FilterEnum Enumeration}
-\label{enum:FilterEnum} \\
+\texttt{FilterEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{FilterEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{MINIMUM\textunderscore DELTA} & For a \texttt{MINIMUM\textunderscore DELTA} type \block{Filter}, a new value \textbf{MUST NOT} be reported for a data item unless the measured value has changed from the
+\begin{itemize}
+\item \texttt{MINIMUM\textunderscore DELTA} \newline For a \texttt{MINIMUM\textunderscore DELTA} type \block{Filter}, a new value \textbf{MUST NOT} be reported for a data item unless the measured value has changed from the
 last reported value by at least the delta given as the value of this element.
 
-The value of \block{Filter} \textbf{MUST} be an absolute value using the same units as the reported data. \\ \hline
-\texttt{PERIOD} & For a \texttt{PERIOD} type \block{Filter}, the data reported for a data item is provided on a periodic basis. The \texttt{PERIOD} for reporting data is defined in the
+The value of \block{Filter} \textbf{MUST} be an absolute value using the same units as the reported data. 
+\item \texttt{PERIOD} \newline For a \texttt{PERIOD} type \block{Filter}, the data reported for a data item is provided on a periodic basis. The \texttt{PERIOD} for reporting data is defined in the
 value of the \block{Filter}.
 
-The value of \block{Filter} \textbf{MUST} be an absolute value reported in seconds representing the time between reported samples of the value of the data item. \\ \hline
-\end{longtabu}
+The value of \block{Filter} \textbf{MUST} be an absolute value reported in seconds representing the time between reported samples of the value of the data item. 
+\end{itemize}
 
 \end{itemize}
 
@@ -158,32 +161,8 @@ The value of \block{Filter} \textbf{MUST} be an absolute value reported in secon
 \block{InitialValue} defines the starting value for a data item as well as the value to be set for the data item after a reset event.
 
 
-\paragraph{Attributes of InitialValue}\mbox{}
-\label{sec:Attributes of InitialValue}
+The value of \texttt{InitialValue} \MUST be \texttt{string}.
 
-\tbl{Attributes of InitialValue} lists the attributes of \texttt{InitialValue}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of InitialValue}
-  \label{table:Attributes of InitialValue}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\property{value}[InitialValue] & \texttt{string} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for attributes of \block{InitialValue}:
-
-\begin{itemize}
-
-\item \property{value}[InitialValue] : 
-\end{itemize}
 
 \subsubsection{ResetTrigger}
 \label{sec:ResetTrigger}
@@ -207,44 +186,31 @@ Descriptions for attributes of \block{InitialValue}:
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{type}[ResetTrigger] & \texttt{ResetTriggerEnum} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{ResetTrigger}:
 
 \begin{itemize}
 
-\item \property{type}[ResetTrigger] : The type of \block{ResetTrigger}
+\item \property{type}[ResetTrigger] \newline The type of \block{ResetTrigger}
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{ResetTriggerEnum Enumeration}
-\label{enum:ResetTriggerEnum} \\
+\texttt{ResetTriggerEnum} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{ResetTriggerEnum} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{ACTION\textunderscore COMPLETE} & The value of the \gls{Data Item} that is measuring an action or operation is to be reset upon completion of that action or operation. \\ \hline
-\texttt{ANNUAL} & The value of the \gls{Data Item} is to be reset at the end of a 12-month period. \\ \hline
-\texttt{DAY} & The value of the \gls{Data Item} is to be reset at the end of a 24-hour period. \\ \hline
-\texttt{LIFE} & The value of the \gls{Data Item} is not reset and accumulates for the entire life of the piece of equipment. \\ \hline
-\texttt{MAINTENANCE} & The value of the \gls{Data Item} is to be reset upon completion of a maintenance event. \\ \hline
-\texttt{MONTH} & The value of the \gls{Data Item} is to be reset at the end of a monthly period. \\ \hline
-\texttt{POWER\textunderscore ON} & The value of the \gls{Data Item} is to be reset when power was applied to the piece of equipment after a planned or unplanned interruption of power has occurred. \\ \hline
-\texttt{SHIFT} & The value of the \gls{Data Item} is to be reset at the end of a work shift. \\ \hline
-\texttt{WEEK} & The value of the \gls{Data Item} is to be reset at the end of a 7-day period. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{ACTION\textunderscore COMPLETE} \newline The value of the \gls{Data Item} that is measuring an action or operation is to be reset upon completion of that action or operation. 
+\item \texttt{ANNUAL} \newline The value of the \gls{Data Item} is to be reset at the end of a 12-month period. 
+\item \texttt{DAY} \newline The value of the \gls{Data Item} is to be reset at the end of a 24-hour period. 
+\item \texttt{LIFE} \newline The value of the \gls{Data Item} is not reset and accumulates for the entire life of the piece of equipment. 
+\item \texttt{MAINTENANCE} \newline The value of the \gls{Data Item} is to be reset upon completion of a maintenance event. 
+\item \texttt{MONTH} \newline The value of the \gls{Data Item} is to be reset at the end of a monthly period. 
+\item \texttt{POWER\textunderscore ON} \newline The value of the \gls{Data Item} is to be reset when power was applied to the piece of equipment after a planned or unplanned interruption of power has occurred. 
+\item \texttt{SHIFT} \newline The value of the \gls{Data Item} is to be reset at the end of a work shift. 
+\item \texttt{WEEK} \newline The value of the \gls{Data Item} is to be reset at the end of a 7-day period. 
+\end{itemize}
 
 \end{itemize}
 
@@ -254,6 +220,9 @@ Name & Description \\
 
 
 \block{Source} identifies the \block{Component}, \block{DataItem}, or \block{Composition} representing the area of the piece of equipment from which a measured value originates.
+
+
+The value of \texttt{Source} \MUST be \texttt{string}.
 
 
 \paragraph{Attributes of Source}\mbox{}
@@ -270,24 +239,23 @@ Name & Description \\
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{componentId}[Source] & \texttt{ID} & 0..1 \\
 \property{compositionId}[Source] & \texttt{ID} & 0..1 \\
 \property{dataItemId}[Source] & \texttt{ID} & 0..1 \\
-\property{value}[Source] & \texttt{string} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
-
 
 Descriptions for attributes of \block{Source}:
 
 \begin{itemize}
 
-\item \property{componentId}[Source] : The identifier attribute of the \block{Component} element that represents the physical part of a piece of equipment where the data represented by the \block{DataItem} element originated.
+\item \property{componentId}[Source] \newline The identifier attribute of the \block{Component} element that represents the physical part of a piece of equipment where the data represented by the \block{DataItem} element originated.
 
-\item \property{compositionId}[Source] : The identifier attribute of the \block{Composition} element that the reported data is most closely associated.
+\item \property{compositionId}[Source] \newline The identifier attribute of the \block{Composition} element that the reported data is most closely associated.
 
-\item \property{dataItemId}[Source] : The identifier attribute of the \block{DataItem} that represents the originally measured value of the data referenced by this data item.
+\item \property{dataItemId}[Source] \newline The identifier attribute of the \block{DataItem} that represents the originally measured value of the data referenced by this data item.
 
-\item \property{value}[Source] : The value of the id of the source element.
+\item \property{value}[Source] \newline The value of the id of the source element.
 \end{itemize}

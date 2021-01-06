@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:25 +0530
+% Generated 2021-01-06 15:42:26 +0530
 \subsection{Elements for Definition} \label{sec:Elements for Definition}
 
 
@@ -27,26 +27,29 @@ The semantic definition of a \block{Cell}.
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{units}[CellDefinition] & \texttt{UnitEnum} & 0..1 \\
-\property{key}[CellDefinition] & \texttt{string} & 1 \\
+\property{key}[CellDefinition] & \texttt{string} & 0..1 \\
 \property{type}[CellDefinition] & \texttt{DataItemTypeEnum} & 0..1 \\
 \property{subType}[CellDefinition] & \texttt{DataItemSubTypeEnum} & 0..1 \\
+\property{keyType}[CellDefinition] & \texttt{string} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
-
 
 Descriptions for attributes of \block{CellDefinition}:
 
 \begin{itemize}
 
-\item \property{units}[CellDefinition] : Same as \block{DataItem} \property{units}[DataItem].
+\item \property{units}[CellDefinition] \newline Same as \block{DataItem} \property{units}[DataItem].
 
-\item \property{key}[CellDefinition] : The unique identification of the \block{Cell} in the \block{Definition}. The description applies to all \block{Cell} \glspl{observation} having this \property{key}.
+\item \property{key}[CellDefinition] \newline The unique identification of the \block{Cell} in the \block{Definition}. The description applies to all \block{Cell} \glspl{observation} having this \property{key}.
 
-\item \property{type}[CellDefinition] : Same as \block{DataItem} \property{type}[DataItem].
+\item \property{type}[CellDefinition] \newline Same as \block{DataItem} \property{type}[DataItem].
 
-\item \property{subType}[CellDefinition] : Same as \block{DataItem} \property{subType}[DataItem].
+\item \property{subType}[CellDefinition] \newline Same as \block{DataItem} \property{subType}[DataItem].
+
+\item \property{keyType}[CellDefinition] \newline The \block{DataItem} type that defines the meaning of the \property{key}.
 \end{itemize}
 
 \paragraph{Elements of CellDefinition}\mbox{}
@@ -59,11 +62,11 @@ Descriptions for attributes of \block{CellDefinition}:
   \caption{Elements of CellDefinition}
   \label{table:Elements of CellDefinition}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Description} & \texttt{Description} & 0..1 \\
+\texttt{Description} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -72,7 +75,8 @@ Descriptions for attributes of \block{CellDefinition}:
 Descriptions for elements of \block{CellDefinition}:
 
 \begin{itemize}
-\item \block{Description} : The \block{Description} of the \block{CellDefinition}. See \block{Component} \block{Description}.
+
+\item \block{Description} \newline The \block{Description} of the \block{CellDefinition}. See \block{Component} \block{Description}.
 \end{itemize}
 
 \subsubsection{EntryDefinition}
@@ -97,26 +101,29 @@ The semantic definition of an \block{Entry}.
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\property{key}[EntryDefinition] & \texttt{string} & 1 \\
+
+\property{key}[EntryDefinition] & \texttt{string} & 0..1 \\
 \property{units}[EntryDefinition] & \texttt{UnitEnum} & 0..1 \\
 \property{type}[EntryDefinition] & \texttt{DataItemTypeEnum} & 0..1 \\
 \property{subType}[EntryDefinition] & \texttt{DataItemSubTypeEnum} & 0..1 \\
+\property{keyType}[EntryDefinition] & \texttt{string} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
-
 
 Descriptions for attributes of \block{EntryDefinition}:
 
 \begin{itemize}
 
-\item \property{key}[EntryDefinition] : The unique identification of the \block{Entry} in the \block{Definition}. The description applies to all \block{Entry} \glspl{observation} having this \property{key}.
+\item \property{key}[EntryDefinition] \newline The unique identification of the \block{Entry} in the \block{Definition}. The description applies to all \block{Entry} \glspl{observation} having this \property{key}.
 
-\item \property{units}[EntryDefinition] : Same as \block{DataItem} \property{units}[DataItem].
+\item \property{units}[EntryDefinition] \newline Same as \block{DataItem} \property{units}[DataItem].
 
-\item \property{type}[EntryDefinition] : Same as \block{DataItem} \property{type}[DataItem].
+\item \property{type}[EntryDefinition] \newline Same as \block{DataItem} \property{type}[DataItem].
 
-\item \property{subType}[EntryDefinition] : Same as \block{DataItem} \property{subType}[DataItem].
+\item \property{subType}[EntryDefinition] \newline Same as \block{DataItem} \property{subType}[DataItem].
+
+\item \property{keyType}[EntryDefinition] \newline The \block{DataItem} type that defines the meaning of the \property{key}.
 \end{itemize}
 
 \paragraph{Elements of EntryDefinition}\mbox{}
@@ -129,12 +136,12 @@ Descriptions for attributes of \block{EntryDefinition}:
   \caption{Elements of EntryDefinition}
   \label{table:Elements of EntryDefinition}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Description} & \texttt{Description} & 0..1 \\
-\block{CellDefinitions} & \texttt{CellDefinition} & 0..* \\
+\texttt{Description} & 0..1 \\
+\texttt{CellDefinition} (organized by \block{CellDefinitions}) & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -143,6 +150,8 @@ Descriptions for attributes of \block{EntryDefinition}:
 Descriptions for elements of \block{EntryDefinition}:
 
 \begin{itemize}
-\item \block{Description} : The \block{Description} of the \block{EntryDefinition}. See \block{Component} \block{Description}.
-\item \block{CellDefinitions} : \block{CellDefinitions} \glspl{organize} \block{CellDefinition} elements if the \property{representation}[DataItem] is \texttt{TABLE}.
+
+\item \block{Description} \newline The \block{Description} of the \block{EntryDefinition}. See \block{Component} \block{Description}.
+
+\item \block{CellDefinitions} \newline \block{CellDefinitions} \glspl{organize} \block{CellDefinition} elements if the \property{representation}[DataItem] is \texttt{TABLE}.
 \end{itemize}

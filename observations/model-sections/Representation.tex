@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:26 +0530
+% Generated 2021-01-06 15:42:28 +0530
 \subsection{Representation} \label{sec:Representation}
 
 
@@ -60,6 +60,9 @@ The following constraints apply to each \property{representation}[DataItem]:
 An element representing a \gls{key-value pair} published as part of an \block{Entry}.
 
 
+The value of \texttt{Cell} \MUST be \texttt{}.
+
+
 \paragraph{Attributes of Cell}\mbox{}
 \label{sec:Attributes of Cell}
 
@@ -74,20 +77,19 @@ An element representing a \gls{key-value pair} published as part of an \block{En
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{key}[Cell] & \texttt{ID} & 1 \\
-\property{value}[Cell] & \texttt{} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
-
 
 Descriptions for attributes of \block{Cell}:
 
 \begin{itemize}
 
-\item \property{key}[Cell] : A unique identifier for each \gls{key-value pair}.
+\item \property{key}[Cell] \newline A unique identifier for each \gls{key-value pair}.
 
-\item \property{value}[Cell] : 
+\item \property{value}[Cell] \newline 
 \end{itemize}
 
 \subsubsection{DataSet}
@@ -118,17 +120,17 @@ The meaning of each \block{Entry} \textbf{MAY} be provided as the \block{DataIte
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{count}[DataSet] & \texttt{integer} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{DataSet}:
 
 \begin{itemize}
 
-\item \property{count}[DataSet] : The number of \block{Entry} elements for the \gls{observation}.
+\item \property{count}[DataSet] \newline The number of \block{Entry} elements for the \gls{observation}.
 \end{itemize}
 
 \subsubsection{Discrete}
@@ -146,30 +148,8 @@ Examples of \texttt{DISCRETE} information as follows: A \texttt{PartCount} repor
 
 
 
-\paragraph{Attributes of Discrete}\mbox{}
-\label{sec:Attributes of Discrete}
+The value of \texttt{Discrete} \MUST be \texttt{}.
 
-\tbl{Attributes of Discrete} lists the attributes of \texttt{Discrete}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Discrete}
-  \label{table:Attributes of Discrete}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\property{value}[Discrete] & \texttt{} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for attributes of \block{Discrete}:
-
-\begin{itemize}
-\end{itemize}
 
 \subsubsection{Entry}
 \label{sec:Entry}
@@ -193,20 +173,20 @@ A \gls{key-value pair} published as part of a \gls{Data Set} \gls{observation}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{key}[Entry] & \texttt{ID} & 1 \\
 \property{removed}[Entry] & \texttt{boolean} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{Entry}:
 
 \begin{itemize}
 
-\item \property{key}[Entry] : A unique identifier for each \gls{key-value pair}.
+\item \property{key}[Entry] \newline A unique identifier for each \gls{key-value pair}.
 
-\item \property{removed}[Entry] : Boolean removal indicator of a \gls{key-value pair} that \textbf{MUST} be \texttt{true} or \texttt{false}.
+\item \property{removed}[Entry] \newline Boolean removal indicator of a \gls{key-value pair} that \textbf{MUST} be \texttt{true} or \texttt{false}.
 \end{itemize}
 
 \subsubsection{Table}
@@ -236,17 +216,17 @@ The \block{Entry} \property{key} attribute \textbf{MUST} be the unique identity 
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{count}[Table] & \texttt{integer} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{Table}:
 
 \begin{itemize}
 
-\item \property{count}[Table] : Represents the number of \glspl{key-value pair} represented as \block{Entry} elements.
+\item \property{count}[Table] \newline Represents the number of \glspl{key-value pair} represented as \block{Entry} elements.
 \end{itemize}
 
 \subsubsection{TableEntry}
@@ -271,20 +251,20 @@ A \gls{key-value pair} published as part of a \gls{Data Set} \gls{observation}
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{key}[TableEntry] & \texttt{ID} & 1 \\
 \property{removed}[TableEntry] & \texttt{boolean} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{TableEntry}:
 
 \begin{itemize}
 
-\item \property{key}[TableEntry] : A unique identifier for each \gls{key-value pair}.
+\item \property{key}[TableEntry] \newline A unique identifier for each \gls{key-value pair}.
 
-\item \property{removed}[TableEntry] : Boolean removal indicator of a \gls{key-value pair} that \textbf{MUST} be \texttt{true} or \texttt{false}.
+\item \property{removed}[TableEntry] \newline Boolean removal indicator of a \gls{key-value pair} that \textbf{MUST} be \texttt{true} or \texttt{false}.
 \end{itemize}
 
 \subsubsection{TimeSeries}
@@ -302,6 +282,9 @@ A \textit{Time Series} \gls{observation} \textbf{MUST} have a \property{sampleCo
 The \gls{observation} \textbf{MUST} set the \property{timestamp} to the time the last value was observed. The \property{duration} \textbf{MAY} indicate the time interval from the first to the last value in the series.
 
 
+The value of \texttt{TimeSeries} \MUST be \texttt{}.
+
+
 \paragraph{Attributes of TimeSeries}\mbox{}
 \label{sec:Attributes of TimeSeries}
 
@@ -316,16 +299,15 @@ The \gls{observation} \textbf{MUST} set the \property{timestamp} to the time the
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{sampleCount}[TimeSeries] & \texttt{integer} & 1 \\
-\property{value}[TimeSeries] & \texttt{} & 1..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
-
 
 Descriptions for attributes of \block{TimeSeries}:
 
 \begin{itemize}
 
-\item \property{sampleCount}[TimeSeries] : The number of values given for the \block{Observation} element.
+\item \property{sampleCount}[TimeSeries] \newline The number of values given for the \block{Observation} element.
 \end{itemize}

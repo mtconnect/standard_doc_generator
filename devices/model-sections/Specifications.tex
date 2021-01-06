@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:25 +0530
+% Generated 2021-01-06 15:42:26 +0530
 \subsection{Specifications} \label{sec:Specifications}
 
 
@@ -21,39 +21,7 @@
 
 
 
-\paragraph{Attributes of Characteristic}\mbox{}
-\label{sec:Attributes of Characteristic}
-
-\tbl{Attributes of Characteristic} lists the attributes of \texttt{Characteristic}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Characteristic}
-  \label{table:Attributes of Characteristic}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\property{value}[Characteristic] & \texttt{float} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for attributes of \block{Characteristic}:
-
-\begin{itemize}
-
-\item \property{value}[Characteristic] : 
-\end{itemize}
-
-\subsubsection{Rated}
-\label{sec:Rated}
-
-
-
-
+The value of \texttt{Characteristic} \MUST be \texttt{float}.
 
 
 \subsubsection{Minimum}
@@ -69,43 +37,8 @@ A numeric lower limit constraint.
 
 
 
-A numeric upper limit constraint.
+A numeric upper constraint.
 
-
-\subsubsection{GearRatio}
-\label{sec:GearRatio}
-
-
-
-
-
-
-\paragraph{Attributes of GearRatio}\mbox{}
-\label{sec:Attributes of GearRatio}
-
-\tbl{Attributes of GearRatio} lists the attributes of \texttt{GearRatio}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of GearRatio}
-  \label{table:Attributes of GearRatio}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\property{number}[GearRatio] & \texttt{integer} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for attributes of \block{GearRatio}:
-
-\begin{itemize}
-
-\item \property{number}[GearRatio] : 
-\end{itemize}
 
 \subsubsection{Nominal}
 \label{sec:Nominal}
@@ -115,43 +48,41 @@ Descriptions for attributes of \block{GearRatio}:
 The numeric target or expected value.
 
 
-\subsubsection{DutyCycle}
-\label{sec:DutyCycle}
+\subsubsection{LowerWarning}
+\label{sec:LowerWarning}
 
 
 
+The lower boundary indicating increased concern and supervision may be required.
+
+
+\subsubsection{LowerLimit}
+\label{sec:LowerLimit}
 
 
 
-\paragraph{Attributes of DutyCycle}\mbox{}
-\label{sec:Attributes of DutyCycle}
+The lower conformance boundary for a variable.
 
-\tbl{Attributes of DutyCycle} lists the attributes of \texttt{DutyCycle}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of DutyCycle}
-  \label{table:Attributes of DutyCycle}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\property{duration}[DutyCycle] & \texttt{float} & 1 \\
-\property{peak}[DutyCycle] & \texttt{float} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
+Note to Entry: immediate concern or action may be required.
 
 
-Descriptions for attributes of \block{DutyCycle}:
+\subsubsection{UpperWarning}
+\label{sec:UpperWarning}
 
-\begin{itemize}
 
-\item \property{duration}[DutyCycle] : 
 
-\item \property{peak}[DutyCycle] : 
-\end{itemize}
+The upper boundary indicating increased concern and supervision may be required.
+
+
+\subsubsection{UpperLimit}
+\label{sec:UpperLimit}
+
+
+
+The upper conformance boundary for a variable.
+
+Note to Entry: immediate concern or action may be required.
+
 
 \subsubsection{Specification}
 \label{sec:Specification}
@@ -175,6 +106,7 @@ Descriptions for attributes of \block{DutyCycle}:
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{type}[Specification] & \texttt{DataItemTypeEnum} & 1 \\
 \property{subType}[Specification] & \texttt{DataItemSubTypeEnum} & 0..1 \\
 \property{dataItemIdRef}[Specification] & \texttt{IDREF} & 0..1 \\
@@ -182,28 +114,43 @@ Descriptions for attributes of \block{DutyCycle}:
 \property{compositionIdRef}[Specification] & \texttt{IDREF} & 0..1 \\
 \property{name}[Specification] & \texttt{string} & 0..1 \\
 \property{coordinateSystemIdRef}[Specification] & \texttt{IDREF} & 0..1 \\
+\property{id}[Specification] & \texttt{ID} & 0..1 \\
+\property{originator}[Specification] & \texttt{OriginatorEnum} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
-
 
 Descriptions for attributes of \block{Specification}:
 
 \begin{itemize}
 
-\item \property{type}[Specification] : Same as \block{DataItem} type. See \sect{DataItem Types}.
+\item \property{type}[Specification] \newline Same as \block{DataItem} type. See \sect{DataItem Types}.
 
-\item \property{subType}[Specification] : Same as \block{DataItem} subtypes. See \sect{DataItem SubTypes}.
+\item \property{subType}[Specification] \newline Same as \block{DataItem} subtypes. See \sect{DataItem SubTypes}.
 
-\item \property{dataItemIdRef}[Specification] : A reference to the \property{id} attribute of the \block{DataItem} associated with this element.
+\item \property{dataItemIdRef}[Specification] \newline A reference to the \property{id} attribute of the \block{DataItem} associated with this element.
 
-\item \property{units}[Specification] : Same as \block{DataItem} units. See \sect{DataItem}.
+\item \property{units}[Specification] \newline Same as \block{DataItem} units. See \sect{DataItem}.
 
-\item \property{compositionIdRef}[Specification] : A reference to the \property{id} attribute of the \block{Composition} associated with this element.
+\item \property{compositionIdRef}[Specification] \newline A reference to the \property{id} attribute of the \block{Composition} associated with this element.
 
-\item \property{name}[Specification] : The \property{name} provides additional meaning and differentiates between \block{Specifications}.
+\item \property{name}[Specification] \newline The \property{name} provides additional meaning and differentiates between \block{Specifications}.
 
-\item \property{coordinateSystemIdRef}[Specification] : References the \block{CoordinateSystem} for geometric \block{Specification} elements.
+\item \property{coordinateSystemIdRef}[Specification] \newline References the \block{CoordinateSystem} for geometric \block{Specification} elements.
+
+\item \property{id}[Specification] \newline The unique identifier for this \block{Specification}.
+
+The \property{id} attribute \textbf{MUST} be unique within the \gls{MTConnectDevices Response Document}.
+
+\item \property{originator}[Specification] \newline 
+
+\texttt{OriginatorEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{MANUFACTURER} \newline The manufacturer of a piece of equipment or \block{Component}. 
+\item \texttt{USER} \newline The owner or implementer of a piece of equipment or \block{Component}. 
+\end{itemize}
+
 \end{itemize}
 
 \paragraph{Elements of Specification}\mbox{}
@@ -216,11 +163,11 @@ Descriptions for attributes of \block{Specification}:
   \caption{Elements of Specification}
   \label{table:Elements of Specification}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Characteristic} & \texttt{Characteristic} & 0..* \\
+\texttt{Characteristic} & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -229,7 +176,8 @@ Descriptions for attributes of \block{Specification}:
 Descriptions for elements of \block{Specification}:
 
 \begin{itemize}
-\item \block{Characteristic} : 
+
+\item \block{Characteristic} \newline 
 \end{itemize}
 
 \subsubsection{Specifications}
@@ -250,11 +198,11 @@ Descriptions for elements of \block{Specification}:
   \caption{Elements of Specifications}
   \label{table:Elements of Specifications}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Specification} & \texttt{Specification} & 1..* \\
+\texttt{Specification} & 1..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -263,5 +211,6 @@ Descriptions for elements of \block{Specification}:
 Descriptions for elements of \block{Specifications}:
 
 \begin{itemize}
-\item \block{Specification} : \block{Specification} elements define information describing the design characteristics for a piece of equipment.
+
+\item \block{Specification} \newline \block{Specification} elements define information describing the design characteristics for a piece of equipment.
 \end{itemize}

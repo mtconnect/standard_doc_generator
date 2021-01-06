@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:26 +0530
+% Generated 2021-01-06 15:42:28 +0530
 \subsection{Streams} \label{sec:Streams}
 
 
@@ -29,6 +29,7 @@
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{component}[ComponentStream] & \texttt{string} & 1 \\
 \property{componentId}[ComponentStream] & \texttt{IDREF} & 1 \\
 \property{name}[ComponentStream] & \texttt{string} & 0..1 \\
@@ -38,21 +39,20 @@
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{ComponentStream}:
 
 \begin{itemize}
 
-\item \property{component}[ComponentStream] : \property{component} identifies the \gls{Structural Element} associated with the \block{ComponentStream} element.
+\item \property{component}[ComponentStream] \newline \property{component} identifies the \gls{Structural Element} associated with the \block{ComponentStream} element.
 
-\item \property{componentId}[ComponentStream] : The identifier of the \gls{Structural Element} as defined by the \property{id}
+\item \property{componentId}[ComponentStream] \newline The identifier of the \gls{Structural Element} as defined by the \property{id}
 attribute of the corresponding \gls{Structural Element} in the \block{MTConnectDevices} \gls{Response Document}.
 
-\item \property{name}[ComponentStream] : The name of the \block{ComponentStream} element.
+\item \property{name}[ComponentStream] \newline The name of the \block{ComponentStream} element.
 
-\item \property{nativeName}[ComponentStream] : \property{nativeName} identifies the common name normally associated with the \block{ComponentStream} element.
+\item \property{nativeName}[ComponentStream] \newline \property{nativeName} identifies the common name normally associated with the \block{ComponentStream} element.
 
-\item \property{uuid}[ComponentStream] : The uuid of the \block{ComponentStream} element.
+\item \property{uuid}[ComponentStream] \newline The uuid of the \block{ComponentStream} element.
 \end{itemize}
 
 \paragraph{Elements of ComponentStream}\mbox{}
@@ -65,13 +65,13 @@ attribute of the corresponding \gls{Structural Element} in the \block{MTConnectD
   \caption{Elements of ComponentStream}
   \label{table:Elements of ComponentStream}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Events} & \texttt{Event} & 0..* \\
-\block{Samples} & \texttt{Sample} & 0..* \\
-\block{Condition} & \texttt{Condition} & 0..* \\
+\texttt{Event} (organized by \block{Events}) & 0..* \\
+\texttt{Sample} (organized by \block{Samples}) & 0..* \\
+\texttt{Condition} & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -80,9 +80,12 @@ attribute of the corresponding \gls{Structural Element} in the \block{MTConnectD
 Descriptions for elements of \block{ComponentStream}:
 
 \begin{itemize}
-\item \block{Events} : \block{Events} \glspl{organize} the \texttt{EVENT} \property{category} type \block{DataItem} elements defined in the \block{MTConnectDevices} \gls{Response Document} that are reported in each \block{ComponentStream} element.
-\item \block{Samples} : \block{Samples} \glspl{organize} the \texttt{SAMPLE} \property{category} type \block{DataItem} elements defined in the \block{MTConnectDevices} \gls{Response Document} that are reported in each \block{ComponentStream} element.
-\item \block{Condition} : \block{Condition} \glspl{organize} the \texttt{CONDITION} \property{category} type \block{DataItem} elements defined in the \block{MTConnectDevices} \gls{Response Document} that are reported in each \block{ComponentStream} element.
+
+\item \block{Events} \newline \block{Events} \glspl{organize} the \texttt{EVENT} \property{category} type \block{DataItem} elements defined in the \block{MTConnectDevices} \gls{Response Document} that are reported in each \block{ComponentStream} element.
+
+\item \block{Samples} \newline \block{Samples} \glspl{organize} the \texttt{SAMPLE} \property{category} type \block{DataItem} elements defined in the \block{MTConnectDevices} \gls{Response Document} that are reported in each \block{ComponentStream} element.
+
+\item \block{Condition} \newline \block{Condition} \glspl{organize} the \texttt{CONDITION} \property{category} type \block{DataItem} elements defined in the \block{MTConnectDevices} \gls{Response Document} that are reported in each \block{ComponentStream} element.
 \end{itemize}
 
 \subsubsection{DeviceStream}
@@ -107,22 +110,22 @@ Descriptions for elements of \block{ComponentStream}:
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{name}[DeviceStream] & \texttt{ID} & 1 \\
 \property{uuid}[DeviceStream] & \texttt{ID} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{DeviceStream}:
 
 \begin{itemize}
 
-\item \property{name}[DeviceStream] : The name of an element or a piece of equipment.
+\item \property{name}[DeviceStream] \newline The name of an element or a piece of equipment.
 
 The value reported for \property{name}[DeviceStream] \textbf{MUST} be the same as the value defined for the \property{name}[Device] attribute of the same piece of equipment in the \block{MTConnectDevices} \gls{Response Document}.
 
-\item \property{uuid}[DeviceStream] : The uuid associated with the piece of equipment.
+\item \property{uuid}[DeviceStream] \newline The uuid associated with the piece of equipment.
 
 The value reported for \property{uuid}[DeviceStream] \textbf{MUST} be the same as the value defined for the \property{uuid}[Device] attribute of the same piece of equipment in the \block{MTConnectDevices} \gls{Response Document}.
 \end{itemize}
@@ -137,11 +140,11 @@ The value reported for \property{uuid}[DeviceStream] \textbf{MUST} be the same a
   \caption{Elements of DeviceStream}
   \label{table:Elements of DeviceStream}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{ComponentStream} & \texttt{ComponentStream} & 1..* \\
+\texttt{ComponentStream} & 1..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -150,5 +153,6 @@ The value reported for \property{uuid}[DeviceStream] \textbf{MUST} be the same a
 Descriptions for elements of \block{DeviceStream}:
 
 \begin{itemize}
-\item \block{ComponentStream} : 
+
+\item \block{ComponentStream} \newline 
 \end{itemize}

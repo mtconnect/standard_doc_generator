@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:28 +0530
+% Generated 2021-01-06 15:42:30 +0530
 \subsection{Assets} \label{sec:Assets}
 
 
@@ -35,6 +35,7 @@ An Asset&#160;is something that is used in the manufacturing process, but is not
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{assetId}[Asset] & \texttt{ID} & 1 \\
 \property{deviceUuid}[Asset] & \texttt{NMTOKEN} & 1 \\
 \property{removed}[Asset] & \texttt{boolean} & 0..1 \\
@@ -43,18 +44,17 @@ An Asset&#160;is something that is used in the manufacturing process, but is not
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{Asset}:
 
 \begin{itemize}
 
-\item \property{assetId}[Asset] : The unique identifier for an Asset.
+\item \property{assetId}[Asset] \newline The unique identifier for an Asset.
 
-\item \property{deviceUuid}[Asset] : The piece of equipment's uuid that supplied the Asset's data.
+\item \property{deviceUuid}[Asset] \newline The piece of equipment's uuid that supplied the Asset's data.
 
-\item \property{removed}[Asset] : An indicator that the Asset has been removed from the piece of equipment.
+\item \property{removed}[Asset] \newline An indicator that the Asset has been removed from the piece of equipment.
 
-\item \property{timestamp}[Asset] : The point in time time the Asset data was last modified.
+\item \property{timestamp}[Asset] \newline The point in time time the Asset data was last modified.
 \end{itemize}
 
 \paragraph{Elements of Asset}\mbox{}
@@ -67,11 +67,11 @@ Descriptions for attributes of \block{Asset}:
   \caption{Elements of Asset}
   \label{table:Elements of Asset}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Description} & \texttt{Description} & 0..1 \\
+\texttt{Description} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -80,5 +80,6 @@ Descriptions for attributes of \block{Asset}:
 Descriptions for elements of \block{Asset}:
 
 \begin{itemize}
-\item \block{Description} : The descriptive content.
+
+\item \block{Description} \newline The descriptive content.
 \end{itemize}

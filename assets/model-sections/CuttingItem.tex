@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:28 +0530
+% Generated 2021-01-06 15:42:30 +0530
 \subsection{CuttingItem} \label{sec:CuttingItem}
 
 
@@ -29,6 +29,7 @@ A CuttingItem is the portion of the tool that physically removes the material fr
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{grade}[CuttingItem] & \texttt{string} & 0..1 \\
 \property{indices}[CuttingItem] & \texttt{string} & 1 \\
 \property{itemId}[CuttingItem] & \texttt{ID} & 0..1 \\
@@ -37,18 +38,17 @@ A CuttingItem is the portion of the tool that physically removes the material fr
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{CuttingItem}:
 
 \begin{itemize}
 
-\item \property{grade}[CuttingItem] : The material composition for this Cutting Item.
+\item \property{grade}[CuttingItem] \newline The material composition for this Cutting Item.
 
-\item \property{indices}[CuttingItem] : The number or numbers representing the individual Cutting Item or items on the tool.
+\item \property{indices}[CuttingItem] \newline The number or numbers representing the individual Cutting Item or items on the tool.
 
-\item \property{itemId}[CuttingItem] : The manufacturer identifier of this Cutting Item.
+\item \property{itemId}[CuttingItem] \newline The manufacturer identifier of this Cutting Item.
 
-\item \property{manufacturers}[CuttingItem] : The manufacturers of the Cutting Item or Tool.
+\item \property{manufacturers}[CuttingItem] \newline The manufacturers of the Cutting Item or Tool.
 \end{itemize}
 
 \paragraph{Elements of CuttingItem}\mbox{}
@@ -61,18 +61,18 @@ Descriptions for attributes of \block{CuttingItem}:
   \caption{Elements of CuttingItem}
   \label{table:Elements of CuttingItem}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Description} & \texttt{string} & 0..1 \\
-\block{Locus} & \texttt{string} & 0..1 \\
-\block{ProgramToolGroup} & \texttt{string} & 0..1 \\
-\block{CutterStatus} & \texttt{Status} & 1..* \\
-\block{ItemLife} & \texttt{ItemLife} & 0..1 \\
-\block{ItemLife} & \texttt{ItemLife} & 0..1 \\
-\block{ItemLife} & \texttt{ItemLife} & 0..1 \\
-\block{Measurements} & \texttt{Measurement} & 0..* \\
+\texttt{Description} & 0..1 \\
+\texttt{Locus} & 0..1 \\
+\texttt{ProgramToolGroup} & 0..1 \\
+\texttt{Status} (organized by \block{CutterStatus}) & 1..* \\
+\texttt{ItemLife} & 0..1 \\
+\texttt{ItemLife} & 0..1 \\
+\texttt{ItemLife} & 0..1 \\
+\texttt{Measurement} (organized by \block{Measurements}) & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -81,14 +81,28 @@ Descriptions for attributes of \block{CuttingItem}:
 Descriptions for elements of \block{CuttingItem}:
 
 \begin{itemize}
-\item \block{Description} : A free-form description of the Cutting Item.
-\item \block{Locus} : A free form description of the location on the Cutting Tool.
-\item \block{ProgramToolGroup} : The tool group this item is assigned in the part program.
-\item \block{CutterStatus} : 
-\item \block{ItemLife} : The life of this Cutting Item.
-\item \block{ItemLife} : The life of this Cutting Item.
-\item \block{ItemLife} : The life of this Cutting Item.
-\item \block{Measurements} : A collection of measurements relating to this Cutting Item.
+
+\item \block{Description} \newline A free-form description of the Cutting Item.
+
+The value of \block{Description} \MUST be \texttt{string}.
+
+\item \block{Locus} \newline A free form description of the location on the Cutting Tool.
+
+The value of \block{Locus} \MUST be \texttt{string}.
+
+\item \block{ProgramToolGroup} \newline The tool group this item is assigned in the part program.
+
+The value of \block{ProgramToolGroup} \MUST be \texttt{string}.
+
+\item \block{CutterStatus} \newline 
+
+\item \block{ItemLife} \newline The life of this Cutting Item.
+
+\item \block{ItemLife} \newline The life of this Cutting Item.
+
+\item \block{ItemLife} \newline The life of this Cutting Item.
+
+\item \block{Measurements} \newline A collection of measurements relating to this Cutting Item.
 \end{itemize}
 
 \subsubsection{ItemLife}
@@ -113,6 +127,7 @@ The life of this Cutting Item.
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{countDirection}[ItemLife] & \texttt{CountDirectionType} & 1 \\
 \property{initial}[ItemLife] & \texttt{float} & 0..1 \\
 \property{limit}[ItemLife] & \texttt{string} & 0..1 \\
@@ -121,16 +136,15 @@ The life of this Cutting Item.
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{ItemLife}:
 
 \begin{itemize}
 
-\item \property{countDirection}[ItemLife] : Indicates if the item life counts from zero to maximum or maximum to zero.
+\item \property{countDirection}[ItemLife] \newline Indicates if the item life counts from zero to maximum or maximum to zero.
 
-\item \property{initial}[ItemLife] : The initial life of the item when it is new
+\item \property{initial}[ItemLife] \newline The initial life of the item when it is new
 
-\item \property{limit}[ItemLife] : The end of life limit for this item.
+\item \property{limit}[ItemLife] \newline The end of life limit for this item.
 
-\item \property{warning}[ItemLife] : The point at which a item life warning will be raised.
+\item \property{warning}[ItemLife] \newline The point at which a item life warning will be raised.
 \end{itemize}

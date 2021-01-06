@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:25 +0530
+% Generated 2021-01-06 15:42:26 +0530
 \subsection{Sensor} \label{sec:Sensor}
 
 
@@ -46,20 +46,20 @@ When \block{Sensor} represents multiple \glspl{sensing element}, each \gls{sensi
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{name}[Channel] & \texttt{NMTOKEN} & 0..1 \\
 \property{number}[Channel] & \texttt{NMTOKEN} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
-
 Descriptions for attributes of \block{Channel}:
 
 \begin{itemize}
 
-\item \property{name}[Channel] : The name of an element or a piece of equipment.
+\item \property{name}[Channel] \newline The name of an element or a piece of equipment.
 
-\item \property{number}[Channel] : A unique identifier that will only refer to a specific \gls{sensing element}.
+\item \property{number}[Channel] \newline A unique identifier that will only refer to a specific \gls{sensing element}.
 \end{itemize}
 
 \paragraph{Elements of Channel}\mbox{}
@@ -72,15 +72,15 @@ Descriptions for attributes of \block{Channel}:
   \caption{Elements of Channel}
   \label{table:Elements of Channel}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{CalibrationDate} & \texttt{dateTime} & 0..1 \\
-\block{CalibrationInitials} & \texttt{string} & 0..1 \\
-\block{NextCalibrationDate} & \texttt{dateTime} & 0..1 \\
-\block{Description} & \texttt{Description} & 0..1 \\
-\block{Channels} & \texttt{SensorConfiguration} & 1 \\
+\texttt{CalibrationDate} & 0..1 \\
+\texttt{CalibrationInitials} & 0..1 \\
+\texttt{NextCalibrationDate} & 0..1 \\
+\texttt{Description} & 0..1 \\
+\texttt{SensorConfiguration} (organized by \block{Channels}) & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -89,11 +89,22 @@ Descriptions for attributes of \block{Channel}:
 Descriptions for elements of \block{Channel}:
 
 \begin{itemize}
-\item \block{CalibrationDate} : Date upon which the \gls{sensor unit} was last calibrated to the \gls{sensor element}.
-\item \block{CalibrationInitials} : The initials of the person verifying the validity of the calibration data.
-\item \block{NextCalibrationDate} : Date upon which the \gls{sensor element} is next scheduled to be calibrated with the \gls{sensor unit}.
-\item \block{Description} : The descriptive content.
-\item \block{Channels} : \block{Channels} \glspl{organize} \block{Channel} elements.
+
+\item \block{CalibrationDate} \newline Date upon which the \gls{sensor unit} was last calibrated to the \gls{sensor element}.
+
+The value of \block{CalibrationDate} \MUST be \texttt{dateTime}.
+
+\item \block{CalibrationInitials} \newline The initials of the person verifying the validity of the calibration data.
+
+The value of \block{CalibrationInitials} \MUST be \texttt{string}.
+
+\item \block{NextCalibrationDate} \newline Date upon which the \gls{sensor element} is next scheduled to be calibrated with the \gls{sensor unit}.
+
+The value of \block{NextCalibrationDate} \MUST be \texttt{dateTime}.
+
+\item \block{Description} \newline The descriptive content.
+
+\item \block{Channels} \newline \block{Channels} \glspl{organize} \block{Channel} elements.
 
 \end{itemize}
 
@@ -115,15 +126,15 @@ Descriptions for elements of \block{Channel}:
   \caption{Elements of SensorConfiguration}
   \label{table:Elements of SensorConfiguration}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{CalibrationDate} & \texttt{dateTime} & 0..1 \\
-\block{CalibrationInitials} & \texttt{string} & 0..1 \\
-\block{FirmwareVersion} & \texttt{string} & 1 \\
-\block{NextCalibrationDate} & \texttt{dateTime} & 0..1 \\
-\block{Channels} & \texttt{Channel} & 0..* \\
+\texttt{CalibrationDate} & 0..1 \\
+\texttt{CalibrationInitials} & 0..1 \\
+\texttt{FirmwareVersion} & 1 \\
+\texttt{NextCalibrationDate} & 0..1 \\
+\texttt{Channel} (organized by \block{Channels}) & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -132,10 +143,23 @@ Descriptions for elements of \block{Channel}:
 Descriptions for elements of \block{SensorConfiguration}:
 
 \begin{itemize}
-\item \block{CalibrationDate} : Date upon which the \gls{sensor unit} was last calibrated.
-\item \block{CalibrationInitials} : The initials of the person verifying the validity of the calibration data.
-\item \block{FirmwareVersion} : Version number for the sensor unit as specified by the manufacturer.
-\item \block{NextCalibrationDate} : Date upon which the \gls{sensor unit} is next scheduled to be calibrated.
-\item \block{Channels} : \block{Channels} \glspl{organize} \block{Channel} elements.
+
+\item \block{CalibrationDate} \newline Date upon which the \gls{sensor unit} was last calibrated.
+
+The value of \block{CalibrationDate} \MUST be \texttt{dateTime}.
+
+\item \block{CalibrationInitials} \newline The initials of the person verifying the validity of the calibration data.
+
+The value of \block{CalibrationInitials} \MUST be \texttt{string}.
+
+\item \block{FirmwareVersion} \newline Version number for the sensor unit as specified by the manufacturer.
+
+The value of \block{FirmwareVersion} \MUST be \texttt{string}.
+
+\item \block{NextCalibrationDate} \newline Date upon which the \gls{sensor unit} is next scheduled to be calibrated.
+
+The value of \block{NextCalibrationDate} \MUST be \texttt{dateTime}.
+
+\item \block{Channels} \newline \block{Channels} \glspl{organize} \block{Channel} elements.
 
 \end{itemize}

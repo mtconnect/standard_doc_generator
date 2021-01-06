@@ -1,4 +1,4 @@
-% Generated 2020-10-22 16:25:25 +0530
+% Generated 2021-01-06 15:42:26 +0530
 \subsection{Relationships} \label{sec:Relationships}
 
 
@@ -35,69 +35,17 @@
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\property{criticality}[Relationship] & \texttt{criticalityType} & 0..1 \\
-\property{id}[Relationship] & \texttt{ID} & 1 \\
+
 \property{name}[Relationship] & \texttt{string} & 0..1 \\
-\property{type}[Relationship] & \texttt{RelationshipType} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
-
 
 Descriptions for attributes of \block{Relationship}:
 
 \begin{itemize}
 
-\item \property{criticality}[Relationship] : Defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
-
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{criticalityType Enumeration}
-\label{enum:criticalityType} \\
-
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{criticalityType} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{CRITICAL} & The services or functions provided by the associated element is required for the operation of this element. \\ \hline
-\texttt{NONCRITICAL} & The services or functions provided by the associated element is not required for the operation of this element. \\ \hline
-\end{longtabu}
-
-
-\item \property{id}[Relationship] : The unique identifier for this \block{Relationship}.
-
-\item \property{name}[Relationship] : The name associated with this \block{Relationship}.
-
-\item \property{type}[Relationship] : Defines the authority that this piece of equipment has relative to the associated piece of equipment.
-
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{RelationshipType Enumeration}
-\label{enum:RelationshipType} \\
-
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{RelationshipType} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{PARENT} & This element functions as a parent in the relationship with the associated element. \\ \hline
-\texttt{CHILD} & This element functions as a child in the relationship with the associated element. \\ \hline
-\texttt{PEER} & This element functions as a peer which provides equal functionality and capabilities in the relationship with the associated element. \\ \hline
-\end{longtabu}
-
+\item \property{name}[Relationship] \newline The name associated with this \block{Relationship}.
 \end{itemize}
 
 \subsubsection{ComponentRelationship}
@@ -122,17 +70,43 @@ Name & Description \\
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{idRef}[ComponentRelationship] & \texttt{ID} & 1 \\
+\property{criticality}[ComponentRelationship] & \texttt{criticalityType} & 0..1 \\
+\property{id}[ComponentRelationship] & \texttt{ID} & 1 \\
+\property{type}[ComponentRelationship] & \texttt{RelationshipType} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
-
 
 Descriptions for attributes of \block{ComponentRelationship}:
 
 \begin{itemize}
 
-\item \property{idRef}[ComponentRelationship] : A reference to the associated component element.
+\item \property{idRef}[ComponentRelationship] \newline A reference to the associated component element.
+
+\item \property{criticality}[ComponentRelationship] \newline Defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
+
+\texttt{criticalityType} Enumeration:
+
+\begin{itemize}
+\item \texttt{CRITICAL} \newline The services or functions provided by the associated element is required for the operation of this element. 
+\item \texttt{NONCRITICAL} \newline The services or functions provided by the associated element is not required for the operation of this element. 
+\end{itemize}
+
+
+\item \property{id}[ComponentRelationship] \newline The unique identifier for this \block{Relationship}.
+
+\item \property{type}[ComponentRelationship] \newline Defines the authority that this piece of equipment has relative to the associated piece of equipment.
+
+\texttt{RelationshipType} Enumeration:
+
+\begin{itemize}
+\item \texttt{PARENT} \newline This element functions as a parent in the relationship with the associated element. 
+\item \texttt{CHILD} \newline This element functions as a child in the relationship with the associated element. 
+\item \texttt{PEER} \newline This element functions as a peer which provides equal functionality and capabilities in the relationship with the associated element. 
+\end{itemize}
+
 \end{itemize}
 
 \subsubsection{DeviceRelationship}
@@ -157,52 +131,48 @@ Descriptions for attributes of \block{ComponentRelationship}:
 \hline
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
+
 \property{deviceUuidRef}[DeviceRelationship] & \texttt{NMTOKEN} & 1 \\
 \property{href}[DeviceRelationship] & \texttt{xlinkhref} & 0..1 \\
 \property{role}[DeviceRelationship] & \texttt{roleType} & 0..1 \\
 \property{xlink:type}[DeviceRelationship] & \texttt{xlinktype} & 0..1 \\
+\property{criticality}[DeviceRelationship] & \texttt{criticalityType} & 0..1 \\
+\property{id}[DeviceRelationship] & \texttt{ID} & 1 \\
+\property{type}[DeviceRelationship] & \texttt{RelationshipType} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
-
 
 Descriptions for attributes of \block{DeviceRelationship}:
 
 \begin{itemize}
 
-\item \property{deviceUuidRef}[DeviceRelationship] : A reference to the associated piece of equipment. 
+\item \property{deviceUuidRef}[DeviceRelationship] \newline A reference to the associated piece of equipment. 
 
 
-\item \property{href}[DeviceRelationship] : A URI identifying the \gls{Agent} that is publishing information for the associated piece of equipment. \property{href} \textbf{MUST} also include the UUID for that specific piece of equipment.
+\item \property{href}[DeviceRelationship] \newline A URI identifying the \gls{Agent} that is publishing information for the associated piece of equipment. \property{href} \textbf{MUST} also include the UUID for that specific piece of equipment.
 
 \property{href} is of type \texttt{xlink:href} from the W3C XLink specification: \textit{https://www.w3.org/TR/xlink11/}.
 
-\item \property{role}[DeviceRelationship] : Defines the services or capabilities that the referenced piece of equipment provides relative to this piece of equipment.
+\item \property{role}[DeviceRelationship] \newline Defines the services or capabilities that the referenced piece of equipment provides relative to this piece of equipment.
 
-\tabulinesep = 5pt
-\begin{longtabu} to \textwidth {
-    |l|X|}
-\caption{roleType Enumeration}
-\label{enum:roleType} \\
+\texttt{roleType} Enumeration:
 
-\hline
-Name & Description \\
-\hline
-\endfirsthead
-\hline
-\multicolumn{2}{|c|}{Continuation of Table \texttt{roleType} Enumeration} \\
-\hline
-Name & Description \\
-\hline
-\endhead
-\texttt{SYSTEM} & The associated element performs the functions of a \block{System} for this element. \\ \hline
-\texttt{AUXILIARY} & The associated element performs the functions as an \texttt{Auxiliary} for this element. \\ \hline
-\end{longtabu}
+\begin{itemize}
+\item \texttt{SYSTEM} \newline The associated element performs the functions of a \block{System} for this element. 
+\item \texttt{AUXILIARY} \newline The associated element performs the functions as an \texttt{Auxiliary} for this element. 
+\end{itemize}
 
 
-\item \property{xlink:type}[DeviceRelationship] : The XLink \property{type} attribute \textbf{MUST} have a fixed value of \texttt{locator} as defined in W3C XLink 1.1 \textit{https://www.w3.org/TR/xlink11/}.
+\item \property{xlink:type}[DeviceRelationship] \newline The XLink \property{type} attribute \textbf{MUST} have a fixed value of \texttt{locator} as defined in W3C XLink 1.1 \textit{https://www.w3.org/TR/xlink11/}.
 
 If the \property{href} attribute is provided, it \textbf{MUST} conform to the URI syntactic rules as defined in IETF RFC 3986 for Uniform Resource Identifiers. \textit{https://www.ietf.org/rfc/rfc3986.txt}
+
+\item \property{criticality}[DeviceRelationship] \newline Defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
+
+\item \property{id}[DeviceRelationship] \newline The unique identifier for this \block{Relationship}.
+
+\item \property{type}[DeviceRelationship] \newline Defines the authority that this piece of equipment has relative to the associated piece of equipment.
 \end{itemize}
 
 \subsubsection{Relationships}
@@ -223,11 +193,11 @@ If the \property{href} attribute is provided, it \textbf{MUST} conform to the UR
   \caption{Elements of Relationships}
   \label{table:Elements of Relationships}
 \tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
-\rowfont\bfseries {Element Name} & {Type} & {Multiplicity} \\
+\rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\block{Relationship} & \texttt{Relationship} & 1..* \\
+\texttt{Relationship} & 1..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -236,5 +206,6 @@ If the \property{href} attribute is provided, it \textbf{MUST} conform to the UR
 Descriptions for elements of \block{Relationships}:
 
 \begin{itemize}
-\item \block{Relationship} : \block{Relationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
+
+\item \block{Relationship} \newline \block{Relationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
 \end{itemize}

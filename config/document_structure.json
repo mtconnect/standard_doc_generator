@@ -25,6 +25,7 @@
 					"DataItems": ["DataItems",
 						"Elements for DataItem",
 						"Elements for Definition",
+						"Relationship Types for DataItem",
 						"DataItem Types",
 						"DataItem SubTypes"
 					]
