@@ -127,7 +127,7 @@ class Type
     case assoc['xmi:type']
     when 'uml:Association'
       comment = assoc.at('./ownedComment')
-      doc = comment['body'].gsub(/<[\/]?[a-z]+>/, '') if comment
+      doc = comment['body'].gsub(/<[\/]?[a-z]+>/, '') if comment and comment.key?('body')
 
       if doc
         oend = assoc.at('./ownedEnd')
@@ -210,6 +210,8 @@ class Type
     @name = e['name']
 	
 	@subtypes = []
+	
+	@visibility = e.key?('visibility') ? e['visibility'] : 'public'
 
     @is_subtype = false
     @documentation = xmi_documentation(e) || ''
