@@ -115,7 +115,7 @@ class LatexType < Type
 	  f.puts "\\begin{itemize}\n"
 	  end
       attributes.each do |r|
-        if r.name == 'Supertype'
+        if r.name == 'Supertype' or r.name == 'value' or r.association_name == 'value'
           next
         elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty and not value_only
           
@@ -386,19 +386,34 @@ EOT
     generate_subtypes(f)
   end
 
-  def generate_latex(f = STDOUT)
+  def generate_latex(f = STDOUT, parent ='')
     # puts "--- Generating #{@name} #{@stereotype}"
-    return if @name =~ /Factory/ or @stereotype =~ /metaclass/
+    return if @name =~ /Factory/ or @stereotype =~ /metaclass/ or @visibility != 'public'
     section_name = escape_name
 
 	if @is_subtype == true
-	  if @relations.size==1
+		if @model.name == "Component Types" and parent.name != @relations[0].final_target.type.name
+			section_type = "subparagraph"
+		else
+		    section_type = "paragraph"
+		end
+		
 		f.puts <<-EOT
-\n\\paragraph{#{section_name}}\\mbox{}
+\n\\#{section_type}{#{section_name}}\\mbox{}
 #{get_label("sec:#{section_name}")}
 EOT
 		generate_documentation(f)
-	  end
+	
+	elsif @model.name == "Composition Types"
+    	f.puts <<-EOT
+\n\\subsubsection[#{section_name}]{#{section_name} \\\\ {\\small type: #{@relations[1].default.gsub("_","\\textunderscore ")}}}
+#{get_label("sec:#{section_name}")}
+
+EOT
+
+		generate_documentation(f)
+		generate_class(f)
+	
 	else
     	f.puts <<-EOT
 \n\\subsubsection{#{section_name}}
