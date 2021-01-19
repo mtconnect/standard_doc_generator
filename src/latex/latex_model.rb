@@ -83,13 +83,14 @@ class LatexModel < Model
       end
   end
 
-  def recurse_types(f, type)
+  def recurse_types(f, type, parent = '')
+    parent = parent != '' ? parent : type
     if  (type.type == 'uml:Class' or type.type == 'uml:Stereotype' or type.type == 'uml:DataType')
-      type.generate_latex(f) 
+      type.generate_latex(f, parent) 
     end
 
     type.children.each do |t|
-      recurse_types(f, t) if t.model == self
+      recurse_types(f, t, parent) if t.model == self
     end
   end  
  
