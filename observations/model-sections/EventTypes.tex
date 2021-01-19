@@ -1,4 +1,4 @@
-% Generated 2021-01-06 15:42:28 +0530
+% Generated 2021-01-20 01:46:26 +0530
 \subsection{Event Types} \label{sec:Event Types}
 
 \subsubsection{ActiveAxes}
@@ -118,6 +118,41 @@ The version of the hardware or software.
 
 \end{itemize}
 
+\paragraph{VersionApplication}\mbox{}
+\label{sec:VersionApplication}
+
+
+The version of the hardware or software.
+
+
+\paragraph{ReleaseDateApplication}\mbox{}
+\label{sec:ReleaseDateApplication}
+
+
+The date the hardware or software was released for general use.
+
+
+\paragraph{ManufacturerApplication}\mbox{}
+\label{sec:ManufacturerApplication}
+
+
+The corporate identity for the maker of the hardware or software.
+
+
+\paragraph{LicenseApplication}\mbox{}
+\label{sec:LicenseApplication}
+
+
+The license code to validate or activate the hardware or software.
+
+
+\paragraph{InstallDateApplication}\mbox{}
+\label{sec:InstallDateApplication}
+
+
+The date the hardware or software was installed.
+
+
 \subsubsection{AssetChanged}
 \label{sec:AssetChanged}
 
@@ -212,6 +247,27 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 
 \end{itemize}
+
+\paragraph{JogAxisFeedrateOverride}\mbox{}
+\label{sec:JogAxisFeedrateOverride}
+
+
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
+
+
+\paragraph{ProgrammedAxisFeedrateOverride}\mbox{}
+\label{sec:ProgrammedAxisFeedrateOverride}
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{RapidAxisFeedrateOverride}\mbox{}
+\label{sec:RapidAxisFeedrateOverride}
+
+
+The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+
 
 \subsubsection{AxisInterlock}
 \label{sec:AxisInterlock}
@@ -310,6 +366,15 @@ An indication of the state of an operator controlled interlock that can inhibit 
 
 \end{itemize}
 
+\paragraph{ManualUnclampChuckInterlock}\mbox{}
+\label{sec:ManualUnclampChuckInterlock}
+
+
+An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ACTIVE} or \block{INACTIVE}. 
+ When \block{MANUAL\textunderscore UNCLAMP} is \block{ACTIVE}, it is expected that a chuck cannot be unclamped until \block{MANUAL\textunderscore UNCLAMP} is set to \block{INACTIVE}. 
+
+
 \subsubsection{ChuckState}
 \label{sec:ChuckState}
 
@@ -405,6 +470,51 @@ An indication of the position of a mechanism that may move in a vertical directi
 
 
 \end{itemize}
+
+\paragraph{ActionCompositionState}\mbox{}
+\label{sec:ActionCompositionState}
+
+
+An indication of the operating state of a mechanism represented by a \block{Composition} type component.
+ The operating state indicates whether the \block{Composition} element is activated or disabled. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ACTIVE} or \block{INACTIVE}.
+
+
+\paragraph{LateralCompositionState}\mbox{}
+\label{sec:LateralCompositionState}
+
+
+An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a \block{Composition} type component. 
+ The position information indicates whether the \block{Composition} element is positioned to the right, to the left, or is in transition.  
+ The \gls{Valid Data Value} \textbf{MUST} be \block{RIGHT}, \block{LEFT}, or \block{TRANSITIONING}.
+
+
+\paragraph{MotionCompositionState}\mbox{}
+\label{sec:MotionCompositionState}
+
+
+An indication of the open or closed state of a mechanism.   The mechanism is represented by a \block{Composition} type component. 
+ The operating state indicates whether the state of the \block{Composition} element is open, closed, or unlatched.   
+ The \gls{Valid Data Value} \textbf{MUST} be \block{OPEN}, \block{UNLATCHED}, or \block{CLOSED}.
+
+
+\paragraph{SwitchedCompositionState}\mbox{}
+\label{sec:SwitchedCompositionState}
+
+
+An indication of the activation state of a mechanism represented by a \block{Composition} type component.
+ The activation state indicates whether the \block{Composition} element is activated or not.
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
+
+
+\paragraph{VerticalCompositionState}\mbox{}
+\label{sec:VerticalCompositionState}
+
+
+An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a \block{Composition} type component. 
+ The position information indicates whether the \block{Composition} element is positioned to the top, to the bottom, or is in transition.  
+ The \gls{Valid Data Value} \textbf{MUST} be \block{UP}, \block{DOWN}, or \block{TRANSITIONING}.
+
 
 \subsubsection{ConnectionStatus}
 \label{sec:ConnectionStatus}
@@ -539,6 +649,55 @@ A setting or operator selection that changes the behavior of the controller on a
 
 \end{itemize}
 
+\paragraph{DryRunControllerModeOverride}\mbox{}
+\label{sec:DryRunControllerModeOverride}
+
+
+A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
+ When \block{DRY\textunderscore RUN} is \block{ON}, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
+
+
+\paragraph{SingleBlockControllerModeOverride}\mbox{}
+\label{sec:SingleBlockControllerModeOverride}
+
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
+ Program execution is paused after each \block{BLOCK} of code is executed when \block{SINGLE\textunderscore BLOCK} is \block{ON}.   
+ When \block{SINGLE\textunderscore BLOCK} is \block{ON}, \block{EXECUTION} \textbf{MUST} change to \block{INTERRUPTED} after completion of each \block{BLOCK} of code. 
+
+
+\paragraph{MachineAxisLockControllerModeOverride}\mbox{}
+\label{sec:MachineAxisLockControllerModeOverride}
+
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
+ When \block{MACHINE\textunderscore AXIS\textunderscore LOCK} is \block{ON}, program execution continues normally, but no equipment motion occurs 
+
+
+\paragraph{OptionalStopControllerModeOverride}\mbox{}
+\label{sec:OptionalStopControllerModeOverride}
+
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
+ The program execution is stopped after a specific program block is executed when \block{OPTIONAL\textunderscore STOP} is \block{ON}.    
+ In the case of a G-Code program, a program \block{BLOCK} containing a M01 code designates the command for an \block{OPTIONAL\textunderscore STOP}. 
+ \block{EXECUTION} \textbf{MUST} change to \block{OPTIONAL\textunderscore STOP} after a program block specifying an optional stop is executed and the \block{OPTIONAL\textunderscore STOP} selection is \block{ON}.
+
+
+\paragraph{ToolChangeStopControllerModeOverride}\mbox{}
+\label{sec:ToolChangeStopControllerModeOverride}
+
+
+A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+ The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
+ Program execution is paused when a command is executed requesting a cutting tool to be changed. 
+ \block{EXECUTION} \textbf{MUST} change to \block{INTERRUPTED} after completion of the command requesting a cutting tool to be changed and \block{TOOL\textunderscore CHANGE\textunderscore STOP} is \block{ON}.
+
+
 \subsubsection{CoupledAxes}
 \label{sec:CoupledAxes}
 
@@ -583,6 +742,27 @@ The time and date code relating to the production of a material or other physica
 
 
 \end{itemize}
+
+\paragraph{ManufactureDateCode}\mbox{}
+\label{sec:ManufactureDateCode}
+
+
+The time and date code relating to the production of a material or other physical item.
+
+
+\paragraph{ExpirationDateCode}\mbox{}
+\label{sec:ExpirationDateCode}
+
+
+The time and date code relating to the expiration or end of useful life for a material or other physical item.
+
+
+\paragraph{FirstUseDateCode}\mbox{}
+\label{sec:FirstUseDateCode}
+
+
+The time and date code relating the first use of a material or other physical item.
+
 
 \subsubsection{DeviceAdded}
 \label{sec:DeviceAdded}
@@ -669,6 +849,21 @@ The value for \block{Direction} when \property{subType} is \texttt{ROTARY} \MUST
 
 \end{itemize}
 
+\paragraph{RotaryDirection}\mbox{}
+\label{sec:RotaryDirection}
+
+
+The rotational direction of a rotary motion using the right hand rule convention.
+ The \gls{Valid Data Value} \textbf{MUST} be \block{CLOCKWISE} or \block{COUNTER\textunderscore CLOCKWISE}.
+
+
+\paragraph{LinearDirection}\mbox{}
+\label{sec:LinearDirection}
+
+
+The direction of motion of a linear motion.
+
+
 \subsubsection{DoorState}
 \label{sec:DoorState}
 
@@ -752,6 +947,24 @@ If no \block{subType} is specified, \block{PRIMARY} \textbf{MUST} be the default
 
 \end{itemize}
 
+\paragraph{PrimaryEndOfBar}\mbox{}
+\label{sec:PrimaryEndOfBar}
+
+
+Specific applications \textbf{MAY} reference one or more locations on a piece of bar stock as the indication for the \block{END\textunderscore OF\textunderscore BAR}. 
+
+The main or most important location \textbf{MUST} be designated as the \block{PRIMARY} indication for the \block{END\textunderscore OF\textunderscore BAR}.
+
+If no \block{subType} is specified, \block{PRIMARY} \textbf{MUST} be the default \block{END\textunderscore OF\textunderscore BAR} indication.
+
+
+\paragraph{AuxiliaryEndOfBar}\mbox{}
+\label{sec:AuxiliaryEndOfBar}
+
+
+When multiple locations on a piece of bar stock are referenced as the indication for the \block{END\textunderscore OF\textunderscore BAR}, the additional location(s) \textbf{MUST} be designated as \block{AUXILIARY} indication(s) for the \block{END\textunderscore OF\textunderscore BAR}.  
+
+
 \subsubsection{EquipmentMode}
 \label{sec:EquipmentMode}
 
@@ -804,6 +1017,41 @@ A piece of equipment performing any activity, the equipment is active and perfor
 
 
 \end{itemize}
+
+\paragraph{LoadedEquipmentMode}\mbox{}
+\label{sec:LoadedEquipmentMode}
+
+
+Subparts of a piece of equipment are under load.
+
+
+\paragraph{WorkingEquipmentMode}\mbox{}
+\label{sec:WorkingEquipmentMode}
+
+
+A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
+
+
+\paragraph{OperatingEquipmentMode}\mbox{}
+\label{sec:OperatingEquipmentMode}
+
+
+A piece of equipment are powered or performing any activity.
+
+
+\paragraph{PoweredEquipmentMode}\mbox{}
+\label{sec:PoweredEquipmentMode}
+
+
+Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
+
+
+\paragraph{DelayEquipmentMode}\mbox{}
+\label{sec:DelayEquipmentMode}
+
+
+A piece of equipment waiting for an event or an action to occur.
+
 
 \subsubsection{Execution}
 \label{sec:Execution}
@@ -871,6 +1119,41 @@ The version of the hardware or software.
 
 
 \end{itemize}
+
+\paragraph{VersionFirmware}\mbox{}
+\label{sec:VersionFirmware}
+
+
+The version of the hardware or software.
+
+
+\paragraph{ReleaseDateFirmware}\mbox{}
+\label{sec:ReleaseDateFirmware}
+
+
+The date the hardware or software was released for general use.
+
+
+\paragraph{ManufacturerFirmware}\mbox{}
+\label{sec:ManufacturerFirmware}
+
+
+The corporate identity for the maker of the hardware or software.
+
+
+\paragraph{LicenseFirmware}\mbox{}
+\label{sec:LicenseFirmware}
+
+
+The license code to validate or activate the hardware or software.
+
+
+\paragraph{InstallDateFirmware}\mbox{}
+\label{sec:InstallDateFirmware}
+
+
+The date the hardware or software was installed.
+
 
 \subsubsection{FunctionalMode}
 \label{sec:FunctionalMode}
@@ -945,6 +1228,48 @@ A scale to measure the resistance to deformation of a surface.
 
 \end{itemize}
 
+\paragraph{RockwellHardness}\mbox{}
+\label{sec:RockwellHardness}
+
+
+A scale to measure the resistance to deformation of a surface.
+
+
+\paragraph{VickersHardness}\mbox{}
+\label{sec:VickersHardness}
+
+
+A scale to measure the resistance to deformation of a surface.
+
+
+\paragraph{ShoreHardness}\mbox{}
+\label{sec:ShoreHardness}
+
+
+A scale to measure the resistance to deformation of a surface.
+
+
+\paragraph{BrinellHardness}\mbox{}
+\label{sec:BrinellHardness}
+
+
+A scale to measure the resistance to deformation of a surface.
+
+
+\paragraph{LeebHardness}\mbox{}
+\label{sec:LeebHardness}
+
+
+A scale to measure the elasticity of a surface.
+
+
+\paragraph{MohsHardness}\mbox{}
+\label{sec:MohsHardness}
+
+
+A scale to measure the resistance to scratching of a surface.
+
+
 \subsubsection{Hardware}
 
 
@@ -985,6 +1310,41 @@ The version of the hardware or software.
 
 
 \end{itemize}
+
+\paragraph{VersionHardware}\mbox{}
+\label{sec:VersionHardware}
+
+
+The version of the hardware or software.
+
+
+\paragraph{ReleaseDateHardware}\mbox{}
+\label{sec:ReleaseDateHardware}
+
+
+The date the hardware or software was released for general use.
+
+
+\paragraph{ManufacturerHardware}\mbox{}
+\label{sec:ManufacturerHardware}
+
+
+The corporate identity for the maker of the hardware or software.
+
+
+\paragraph{LicenseHardware}\mbox{}
+\label{sec:LicenseHardware}
+
+
+The license code to validate or activate the hardware or software.
+
+
+\paragraph{InstallDateHardware}\mbox{}
+\label{sec:InstallDateHardware}
+
+
+The date the hardware or software was installed.
+
 
 \subsubsection{InterfaceState}
 
@@ -1047,6 +1407,41 @@ The version of the hardware or software.
 
 \end{itemize}
 
+\paragraph{VersionLibrary}\mbox{}
+\label{sec:VersionLibrary}
+
+
+The version of the hardware or software.
+
+
+\paragraph{ReleaseDateLibrary}\mbox{}
+\label{sec:ReleaseDateLibrary}
+
+
+The date the hardware or software was released for general use.
+
+
+\paragraph{ManufacturerLibrary}\mbox{}
+\label{sec:ManufacturerLibrary}
+
+
+The corporate identity for the maker of the hardware or software.
+
+
+\paragraph{LicenseLibrary}\mbox{}
+\label{sec:LicenseLibrary}
+
+
+The license code to validate or activate the hardware or software.
+
+
+\paragraph{InstallDateLibrary}\mbox{}
+\label{sec:InstallDateLibrary}
+
+
+The date the hardware or software was installed.
+
+
 \subsubsection{Line}
 \label{sec:Line}
 
@@ -1072,6 +1467,20 @@ The minimum value of a data entity or attribute.
 
 
 \end{itemize}
+
+\paragraph{MaximumLine}\mbox{}
+\label{sec:MaximumLine}
+
+
+Maximum value of a data entity or attribute.
+
+
+\paragraph{MinimumLine}\mbox{}
+\label{sec:MinimumLine}
+
+
+The minimum value of a data entity or attribute.
+
 
 \subsubsection{LineLabel}
 \label{sec:LineLabel}
@@ -1110,6 +1519,20 @@ The position of a block of program code relative to the occurrence of the last \
 
 
 \end{itemize}
+
+\paragraph{AbsoluteLineNumber}\mbox{}
+\label{sec:AbsoluteLineNumber}
+
+
+The position of a block of program code relative to the beginning of the control program.
+
+
+\paragraph{IncrementalLineNumber}\mbox{}
+\label{sec:IncrementalLineNumber}
+
+
+The position of a block of program code relative to the occurrence of the last \block{LINE\textunderscore LABEL} encountered in the control program.
+
 
 \subsubsection{MTConnectVersion}
 \label{sec:MTConnectVersion}
@@ -1170,6 +1593,20 @@ The desired measure or count for a data item value.
 
 
 \end{itemize}
+
+\paragraph{ActualMaterialLayer}\mbox{}
+\label{sec:ActualMaterialLayer}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{TargetMaterialLayer}\mbox{}
+\label{sec:TargetMaterialLayer}
+
+
+The desired measure or count for a data item value.
+
 
 \subsubsection{MaterialLoad}
 \label{sec:MaterialLoad}
@@ -1265,6 +1702,55 @@ The value for \block{Network} when \property{subType} is \texttt{WIRELESS} \MUST
 
 \end{itemize}
 
+\paragraph{IPv4AddressNetwork}\mbox{}
+\label{sec:IPv4AddressNetwork}
+
+
+The IPV4 network address of the component.
+
+
+\paragraph{IPv6AddressNetwork}\mbox{}
+\label{sec:IPv6AddressNetwork}
+
+
+The IPV6 network address of the component.
+
+
+\paragraph{GatewayNetwork}\mbox{}
+\label{sec:GatewayNetwork}
+
+
+The Gateway for the component network.
+
+
+\paragraph{SubnetMaskNetwork}\mbox{}
+\label{sec:SubnetMaskNetwork}
+
+
+The SubNet mask for the component network.
+
+
+\paragraph{VLanIdNetwork}\mbox{}
+\label{sec:VLanIdNetwork}
+
+
+The layer2 Virtual Local Network (VLAN) ID for the component network.
+
+
+\paragraph{MacAddressNetwork}\mbox{}
+\label{sec:MacAddressNetwork}
+
+
+Media Access Control Address. The unique physical address of the network hardware.
+
+
+\paragraph{WirelessNetwork}\mbox{}
+\label{sec:WirelessNetwork}
+
+
+Identifies whether the connection type is wireless.
+
+
 \subsubsection{OpenChuck}
 \label{sec:OpenChuck}
 
@@ -1321,6 +1807,41 @@ The version of the hardware or software.
 
 
 \end{itemize}
+
+\paragraph{LicenseOperatingSystem}\mbox{}
+\label{sec:LicenseOperatingSystem}
+
+
+The license code to validate or activate the hardware or software.
+
+
+\paragraph{VersionOperatingSystem}\mbox{}
+\label{sec:VersionOperatingSystem}
+
+
+The version of the hardware or software.
+
+
+\paragraph{ReleaseDateOperatingSystem}\mbox{}
+\label{sec:ReleaseDateOperatingSystem}
+
+
+The date the hardware or software was released for general use.
+
+
+\paragraph{InstallDateOperatingSystem}\mbox{}
+\label{sec:InstallDateOperatingSystem}
+
+
+The date the hardware or software was installed.
+
+
+\paragraph{ManufacturerOperatingSystem}\mbox{}
+\label{sec:ManufacturerOperatingSystem}
+
+
+The corporate identity for the maker of the hardware or software.
+
 
 \subsubsection{OperatorId}
 \label{sec:OperatorId}
@@ -1391,6 +1912,41 @@ The number of projected or planned parts to be produced.
 
 \end{itemize}
 
+\paragraph{AllPartCount}\mbox{}
+\label{sec:AllPartCount}
+
+
+The number of parts produced. 
+
+
+\paragraph{GoodPartCount}\mbox{}
+\label{sec:GoodPartCount}
+
+
+The number of parts produced that conform to specification.
+
+
+\paragraph{BadPartCount}\mbox{}
+\label{sec:BadPartCount}
+
+
+The number of parts produced that do not conform to specification.
+
+
+\paragraph{TargetPartCount}\mbox{}
+\label{sec:TargetPartCount}
+
+
+The number of projected or planned parts to be produced.
+
+
+\paragraph{RemainingPartCount}\mbox{}
+\label{sec:RemainingPartCount}
+
+
+The number of remaining or in-stock parts to be produced.
+
+
 \subsubsection{PartDetect}
 \label{sec:PartDetect}
 
@@ -1455,6 +2011,41 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 \end{itemize}
 
+\paragraph{LotPartGroupId}\mbox{}
+\label{sec:LotPartGroupId}
+
+
+An identifier that references a group of parts tracked as a lot.
+
+
+\paragraph{RawMaterialPartGroupId}\mbox{}
+\label{sec:RawMaterialPartGroupId}
+
+
+The unique identifier for a singular piece of material that is used to make multiple parts.
+
+
+\paragraph{BatchPartGroupId}\mbox{}
+\label{sec:BatchPartGroupId}
+
+
+An identifier that references a group of parts produced in a batch.
+
+
+\paragraph{UuidPartGroupId}\mbox{}
+\label{sec:UuidPartGroupId}
+
+
+The globally unique identifier as specified in ISO 11578 or RFC 4122.
+
+
+\paragraph{HeatTreatPartGroupId}\mbox{}
+\label{sec:HeatTreatPartGroupId}
+
+
+An identifier used to reference a material heat number.
+
+
 \subsubsection{PartId}
 \label{sec:PartId}
 
@@ -1500,6 +2091,34 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 
 \end{itemize}
+
+\paragraph{UuidPartKindId}\mbox{}
+\label{sec:UuidPartKindId}
+
+
+The globally unique identifier as specified in ISO 11578 or RFC 4122.
+
+
+\paragraph{PartFamilyPartKindId}\mbox{}
+\label{sec:PartFamilyPartKindId}
+
+
+An identifier given to a group of parts having similarities in geometry, manufacturing process, and/or functions.
+
+
+\paragraph{PartNamePartKindId}\mbox{}
+\label{sec:PartNamePartKindId}
+
+
+A word or set of words by which a part is known, addressed, or referred to.
+
+
+\paragraph{PartNumberPartKindId}\mbox{}
+\label{sec:PartNumberPartKindId}
+
+
+Identifier of a particular part design or model.
+
 
 \subsubsection{PartNumber}
 \label{sec:PartNumber}
@@ -1565,6 +2184,27 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 \end{itemize}
 
+\paragraph{SerialNumberPartUniqueId}\mbox{}
+\label{sec:SerialNumberPartUniqueId}
+
+
+A serial number that uniquely identifies a specific part.
+
+
+\paragraph{RawMaterialPartUniqueId}\mbox{}
+\label{sec:RawMaterialPartUniqueId}
+
+
+The unique identifier for a singular piece of material that is used to make a single part.
+
+
+\paragraph{UuidPartUniqueId}\mbox{}
+\label{sec:UuidPartUniqueId}
+
+
+The globally unique identifier as specified in ISO 11578 or RFC 4122.
+
+
 \subsubsection{PathFeedrateOverride}
 \label{sec:PathFeedrateOverride}
 
@@ -1599,6 +2239,27 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 
 \end{itemize}
+
+\paragraph{JogPathFeedrateOverride}\mbox{}
+\label{sec:JogPathFeedrateOverride}
+
+
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
+
+
+\paragraph{ProgrammedPathFeedrateOverride}\mbox{}
+\label{sec:ProgrammedPathFeedrateOverride}
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{RapidPathFeedrateOverride}\mbox{}
+\label{sec:RapidPathFeedrateOverride}
+
+
+The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+
 
 \subsubsection{PathMode}
 \label{sec:PathMode}
@@ -1660,6 +2321,20 @@ The state of the power source for the \gls{Structural Element}.
 
 \end{itemize}
 
+\paragraph{LinePowerState}\mbox{}
+\label{sec:LinePowerState}
+
+
+The state of the power source for the \gls{Structural Element}.
+
+
+\paragraph{ControlPowerState}\mbox{}
+\label{sec:ControlPowerState}
+
+
+The state of the enabling signal or control logic that enables or disables the function or operation of the \gls{Structural Element}.
+
+
 \subsubsection{PowerStatus}
 \label{sec:PowerStatus}
 
@@ -1699,6 +2374,27 @@ Identifier of the step in the process plan that this occurrence corresponds to. 
 
 \end{itemize}
 
+\paragraph{OrderNumberProcessAggregateId}\mbox{}
+\label{sec:OrderNumberProcessAggregateId}
+
+
+Identifier of the authorization of the process occurrence. Synonyms include "job id", "work order".
+
+
+\paragraph{ProcessStepProcessAggregateId}\mbox{}
+\label{sec:ProcessStepProcessAggregateId}
+
+
+Identifier of the step in the process plan that this occurrence corresponds to. Synonyms include "operation id".
+
+
+\paragraph{ProcessPlanProcessAggregateId}\mbox{}
+\label{sec:ProcessPlanProcessAggregateId}
+
+
+Identifier of the process plan that this occurrence belongs to. Synonyms include "routing id", "job id".
+
+
 \subsubsection{ProcessKindId}
 \label{sec:ProcessKindId}
 
@@ -1729,6 +2425,27 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 
 \end{itemize}
+
+\paragraph{UuidProcessKindId}\mbox{}
+\label{sec:UuidProcessKindId}
+
+
+The globally unique identifier as specified in ISO 11578 or RFC 4122.
+
+
+\paragraph{ISOStepExecutableProcessKindId}\mbox{}
+\label{sec:ISOStepExecutableProcessKindId}
+
+
+A reference to a ISO 10303 Executable.
+
+
+\paragraph{ProcessNameProcessKindId}\mbox{}
+\label{sec:ProcessNameProcessKindId}
+
+
+A word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to.
+
 
 \subsubsection{ProcessOccurrenceId}
 \label{sec:ProcessOccurrenceId}
@@ -1794,6 +2511,27 @@ The projected time and date associated with the end or completion of an activity
 
 
 \end{itemize}
+
+\paragraph{StartProcessTime}\mbox{}
+\label{sec:StartProcessTime}
+
+
+The time and date associated with the beginning of an activity or event.
+
+
+\paragraph{CompleteProcessTime}\mbox{}
+\label{sec:CompleteProcessTime}
+
+
+Completion of an action.
+
+
+\paragraph{TargetCompletionProcessTime}\mbox{}
+\label{sec:TargetCompletionProcessTime}
+
+
+The projected time and date associated with the end or completion of an activity or event.
+
 
 \subsubsection{Program}
 \label{sec:Program}
@@ -1875,6 +2613,27 @@ The identity of a control program that is used to specify the order of execution
 
 \end{itemize}
 
+\paragraph{MainProgramHeader}\mbox{}
+\label{sec:MainProgramHeader}
+
+
+The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+
+\paragraph{ScheduleProgramHeader}\mbox{}
+\label{sec:ScheduleProgramHeader}
+
+
+The identity of a control program that is used to specify the order of execution of other programs.
+
+
+\paragraph{ActiveProgramHeader}\mbox{}
+\label{sec:ActiveProgramHeader}
+
+
+The value of the \gls{Data Entity} that is engaging.
+
+
 \subsubsection{ProgramLocation}
 \label{sec:ProgramLocation}
 
@@ -1905,6 +2664,27 @@ The identity of a control program that is used to specify the order of execution
 
 
 \end{itemize}
+
+\paragraph{ScheduleProgramLocation}\mbox{}
+\label{sec:ScheduleProgramLocation}
+
+
+The identity of a control program that is used to specify the order of execution of other programs.
+
+
+\paragraph{MainProgramLocation}\mbox{}
+\label{sec:MainProgramLocation}
+
+
+The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+
+\paragraph{ActiveProgramLocation}\mbox{}
+\label{sec:ActiveProgramLocation}
+
+
+The value of the \gls{Data Entity} that is engaging.
+
 
 \subsubsection{ProgramLocationType}
 \label{sec:ProgramLocationType}
@@ -1938,6 +2718,27 @@ The identity of a control program that is used to specify the order of execution
 
 
 \end{itemize}
+
+\paragraph{ScheduleProgramLocationType}\mbox{}
+\label{sec:ScheduleProgramLocationType}
+
+
+The identity of a control program that is used to specify the order of execution of other programs.
+
+
+\paragraph{MainProgramLocationType}\mbox{}
+\label{sec:MainProgramLocationType}
+
+
+The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+
+
+\paragraph{ActiveProgramLocationType}\mbox{}
+\label{sec:ActiveProgramLocationType}
+
+
+The value of the \gls{Data Entity} that is engaging.
+
 
 \subsubsection{ProgramNestLevel}
 \label{sec:ProgramNestLevel}
@@ -2126,6 +2927,20 @@ A reference to a radial type tool offset variable.
 
 \end{itemize}
 
+\paragraph{RadialToolOffset}\mbox{}
+\label{sec:RadialToolOffset}
+
+
+A reference to a radial type tool offset variable.
+
+
+\paragraph{LengthToolOffset}\mbox{}
+\label{sec:LengthToolOffset}
+
+
+A reference to a length type tool offset variable.
+
+
 \subsubsection{Translation}
 
 
@@ -2166,6 +2981,27 @@ The identifier of the person currently responsible for preparing a piece of equi
 
 
 \end{itemize}
+
+\paragraph{OperatorUser}\mbox{}
+\label{sec:OperatorUser}
+
+
+The identifier of the person currently responsible for operating the piece of equipment.
+
+
+\paragraph{MaintenanceUser}\mbox{}
+\label{sec:MaintenanceUser}
+
+
+Action related to maintenance on the piece of equipment.
+
+
+\paragraph{SetUpUser}\mbox{}
+\label{sec:SetUpUser}
+
+
+The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
+
 
 \subsubsection{Variable}
 \label{sec:Variable}

@@ -1,4 +1,4 @@
-% Generated 2021-01-06 15:42:25 +0530
+% Generated 2021-01-20 01:46:24 +0530
 \subsection{Component Types} \label{sec:Component Types}
 
 
@@ -31,7 +31,7 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 
 
 
-{{(block(Adapter)}} is a \block{Component} that represents the connectivity state of a data source for the \gls{MTConnect Agent}.
+\block{Adapter} is a \block{Component} that represents the connectivity state of a data source for the \gls{MTConnect Agent}.
 
 
 \subsubsection{Auxiliary}
@@ -49,7 +49,7 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 \block{Loader} represents the information for a unit comprised of all the parts involved in moving and distributing materials, parts, tooling, and other items to or from a piece of equipment.
 
 
-\paragraph{BarFeeder}\mbox{}
+\subparagraph{BarFeeder}\mbox{}
 \label{sec:BarFeeder}
 
 
@@ -71,35 +71,35 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 
 
 
-\paragraph{GangToolBar}\mbox{}
+\subparagraph{GangToolBar}\mbox{}
 \label{sec:GangToolBar}
 
 
 A tool mounting mechanism that holds any number of tools. Tools are located in \block{Station}s. Tools are positioned for use in the manufacturing process by linearly positioning the \block{GangToolBar}.
 
 
-\paragraph{AutomaticToolChanger}\mbox{}
+\subparagraph{AutomaticToolChanger}\mbox{}
 \label{sec:AutomaticToolChanger}
 
 
 A tool delivery mechanism that moves tools between a \block{ToolMagazine} and a \gls{Spindle} a \block{Turret}. An \block{AutomaticToolChanger} may also transfer tools between a location outside of a piece of equipment and a \block{ToolMagazine} or \block{Turret}.
 
 
-\paragraph{ToolMagazine}\mbox{}
+\subparagraph{ToolMagazine}\mbox{}
 \label{sec:ToolMagazine}
 
 
 A tool storage mechanism that holds any number of tools. Tools are located in \block{Pot}s. \block{Pot}s are moved into position to transfer tools into or out of the \block{ToolMagazine} by an \block{AutomaticToolChanger}.
 
 
-\paragraph{ToolRack}\mbox{}
+\subparagraph{ToolRack}\mbox{}
 \label{sec:ToolRack}
 
 
 A linear or matrixed tool storage mechanism that holds any number of tools. Tools are located in \block{Station}s.
 
 
-\paragraph{Turret}\mbox{}
+\subparagraph{Turret}\mbox{}
 \label{sec:Turret}
 
 
@@ -129,7 +129,7 @@ Examples of cartesian coordinate equipment are CNC Machine Tools, Coordinate mea
 
 The following sections define the designation of names for the axes and additional guidance when selecting the correct scheme to use for a given piece of equipment.
 
-\paragraph{Cartesian Coordinate Naming Conventions}
+\paragraph{Cartesian Coordinate Naming Conventions}\mbox{}
 \label{sec:Cartesian Coordinate Naming Conventions}
 
 A Three-Dimensional Cartesian Coordinate control system organizes its axes orthogonally relative to a machine coordinate system where the manufacturer of the equipment specifies the origin. 
@@ -146,12 +146,12 @@ A piece of equipment \textbf{MUST} represent prismatic motion using a \block{Lin
 
 \gls{MTConnect} \textbf{MUST} assign the \property{name} to \block{Rotary} axes exhibiting rotary motion using \texttt{A}, \texttt{B}, and \texttt{C}. A \block{Rotary} axis \property{name} \textbf{MUST} append a monotonically increasing suffix when more than one \block{Rotary} axis rotates around the same \block{Linear} axis; for example, \texttt{A2}, \texttt{A3}, and \texttt{A4}. 
 
-\paragraph{Articulated Machine Control Systems}
+\paragraph{Articulated Machine Control Systems}\mbox{}
 \label{sec:Articulated Machine Control Systems}
 
 An articulated control system's axes represent the connecting linkages between two adjacent rigid members of an assembly. The \block{Linear} axis represents prismatic motion, and the \block{Rotary} axis represents the rotational motion of the two related members. The control organizes the axes in a kinematic chain from the mounting surface (base) to the end-effector or tooling.
 
-\paragraph{Articulated Machine Axis Names}
+\paragraph{Articulated Machine Axis Names}\mbox{}
 \label{sec:Articulated Machine Axis Names}
 
 The axes of articulated machines represent forward kinematic relationships between mechanical linkages. Each axis is a connection between linkages, also referred to as joints, and \textbf{MUST} be named using a \texttt{J} followed by a monotonically increasing number; for example, \texttt{J1}, \texttt{J2}, \texttt{J3}.  The numbering starts at the base axis connected or closest to the mounting surface, \texttt{J1}, incrementing to the mechanical interface, \texttt{Jn}, where \texttt{n} is the number of the last axis. The chain forms a parent-child relationship with the parent being the axis closest to the base.
@@ -164,6 +164,13 @@ A machine having an axis with more than one child \textbf{MUST} number each bran
 
 
 A \block{Linear} axis represents the movement of a physical piece of equipment, or a portion of the equipment, in a straight line. 
+
+
+\paragraph{Rotary}\mbox{}
+\label{sec:Rotary}
+
+
+A \block{Rotary} axis represents any non-linear or rotary movement of a physical piece of equipment or a portion of the equipment.
 
 
 \subsubsection{Chuck}
@@ -189,19 +196,6 @@ A \block{Linear} axis represents the movement of a physical piece of equipment, 
 
 \block{Interface} is a \block{Component} that represents an \gls{Interface} to coordinate actions and activities between pieces of equipment that communicate information between each other.
 
-
-\subsubsection{Organizer}
-\label{sec:Organizer}
-
-
-
-{{Organizer}} is an abstract \block{Component} that \glspl{organize} similar {{Component}} types together.
-
-
-\paragraph{\texttt{Components}}\mbox{}
-\label{sec:Components}
-
-\newline 
 
 \subsubsection{Path}
 \label{sec:Path}
@@ -234,6 +228,13 @@ A \block{Linear} axis represents the movement of a physical piece of equipment, 
 \block{PartOccurrence} \gls{organize} information about a specific part as it exists at a specific place and time, such as a specific instance of a bracket at a specific timestamp.
 
 
+\paragraph{ProcessOccurrence}\mbox{}
+\label{sec:ProcessOccurrence}
+
+
+\block{ProcessOccurrence} \glspl{organize} information about the execution of a specific process that takes place at a specific place and time, such as a specific instance of part-milling occurring at a specific timestamp.
+
+
 \subsubsection{Resource}
 \label{sec:Resource}
 
@@ -251,7 +252,7 @@ A \block{Linear} axis represents the movement of a physical piece of equipment, 
 \block{Materials} provides information about materials or other items consumed or used by the piece of equipment for production of parts, materials, or other types of goods.
 
 
-\paragraph{Stock}\mbox{}
+\subparagraph{Stock}\mbox{}
 \label{sec:Stock}
 
 
@@ -296,6 +297,13 @@ A \block{Linear} axis represents the movement of a physical piece of equipment, 
 \block{System} is a \block{Component} that represents the major sub-system(s) that are permanently integrated into a piece of equipment.
 
 
+\paragraph{Controller}\mbox{}
+\label{sec:Controller}
+
+
+\block{Controller} organizes information about an intelligent or computational function within a piece of equipment.
+
+
 \paragraph{Coolant}\mbox{}
 \label{sec:Coolant}
 
@@ -324,6 +332,13 @@ A \block{Linear} axis represents the movement of a physical piece of equipment, 
 \block{Electric} represents the information for the main power supply for device piece of equipment and the distribution of that power throughout the equipment.
 
 
+\paragraph{Enclosure}\mbox{}
+\label{sec:Enclosure}
+
+
+\block{Enclosure} represents the information for a structure used to contain or isolate a piece of equipment or area.
+
+
 \paragraph{EndEffector}\mbox{}
 \label{sec:EndEffector}
 
@@ -338,7 +353,7 @@ A \block{Linear} axis represents the movement of a physical piece of equipment, 
 \block{Environmental} represents the information for a unit or function involved in monitoring, managing, or conditioning the environment around or within a piece of equipment.
 
 
-\paragraph{Heating}\mbox{}
+\subparagraph{Heating}\mbox{}
 \label{sec:Heating}
 
 
@@ -347,14 +362,14 @@ A \block{Linear} axis represents the movement of a physical piece of equipment, 
 Note: As an example, Energy Delivery Method can be either through Electric heaters or Gas burners.
 
 
-\paragraph{Vacuum}\mbox{}
+\subparagraph{Vacuum}\mbox{}
 \label{sec:Vacuum}
 
 
 \block{Vacuum} is a system that evacuates gases and liquids from an enclosed and sealed space to a controlled negative pressure or a molecular density below the prevailing atmospheric level.
 
 
-\paragraph{Cooling}\mbox{}
+\subparagraph{Cooling}\mbox{}
 \label{sec:Cooling}
 
 
@@ -363,7 +378,7 @@ Note: As an example, Energy Delivery Method can be either through Electric heate
 Note: As an example, Energy Extraction Method can be via cooling water pipes running through the chamber.
 
 
-\paragraph{Pressure}\mbox{}
+\subparagraph{Pressure}\mbox{}
 \label{sec:Pressure}
 
 

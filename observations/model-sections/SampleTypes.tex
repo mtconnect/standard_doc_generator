@@ -1,4 +1,4 @@
-% Generated 2021-01-06 15:42:28 +0530
+% Generated 2021-01-20 01:46:26 +0530
 \subsection{Sample Types} \label{sec:Sample Types}
 
 \subsubsection{Acceleration}
@@ -59,6 +59,34 @@ The desired measure or count for a data item value.
 
 \end{itemize}
 
+\paragraph{AlternatingAmperage}\mbox{}
+\label{sec:AlternatingAmperage}
+
+
+The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
+
+
+\paragraph{DirectAmperage}\mbox{}
+\label{sec:DirectAmperage}
+
+
+The measurement of DC current or voltage.
+
+
+\paragraph{ActualAmperage}\mbox{}
+\label{sec:ActualAmperage}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{TargetAmperage}\mbox{}
+\label{sec:TargetAmperage}
+
+
+The desired measure or count for a data item value.
+
+
 \subsubsection{AmperageAC}
 \label{sec:AmperageAC}
 
@@ -91,6 +119,27 @@ The value for a current as specified by a logic or motion program or set by a sw
 
 
 \end{itemize}
+
+\paragraph{ActualAmperageAC}\mbox{}
+\label{sec:ActualAmperageAC}
+
+
+The measured amperage within an electrical circuit.
+
+
+\paragraph{CommandedAmperageAC}\mbox{}
+\label{sec:CommandedAmperageAC}
+
+
+The value for a current as specified by a component. 
+
+
+\paragraph{ProgrammedAmperageAC}\mbox{}
+\label{sec:ProgrammedAmperageAC}
+
+
+The value for a current as specified by a logic or motion program or set by a switch.
+
 
 \subsubsection{AmperageDC}
 \label{sec:AmperageDC}
@@ -126,6 +175,28 @@ The value for a current as specified by a logic or motion program or set by a sw
 
 \end{itemize}
 
+\paragraph{ActualAmperageDC}\mbox{}
+\label{sec:ActualAmperageDC}
+
+
+The measured amperage within an electrical circuit.
+
+
+\paragraph{CommandedAmperageDC}\mbox{}
+\label{sec:CommandedAmperageDC}
+
+
+The value for a current as specified by a component. 
+The \block{COMMANDED} current is a calculated value that includes adjustments and overrides.
+
+
+\paragraph{ProgrammedAmperageDC}\mbox{}
+\label{sec:ProgrammedAmperageDC}
+
+
+The value for a current as specified by a logic or motion program or set by a switch.
+
+
 \subsubsection{Angle}
 \label{sec:Angle}
 
@@ -153,6 +224,20 @@ A value specified by the \block{Controller} type component.
 
 
 \end{itemize}
+
+\paragraph{CommandedAngle}\mbox{}
+\label{sec:CommandedAngle}
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{ActualAngle}\mbox{}
+\label{sec:ActualAngle}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
 
 \subsubsection{AngularAcceleration}
 \label{sec:AngularAcceleration}
@@ -196,6 +281,27 @@ The programmed value.
 
 
 \end{itemize}
+
+\paragraph{ActualAngularDeceleration}\mbox{}
+\label{sec:ActualAngularDeceleration}
+
+
+The measured value.
+
+
+\paragraph{ProgrammedAngularDeceleration}\mbox{}
+\label{sec:ProgrammedAngularDeceleration}
+
+
+The programmed value.
+
+
+\paragraph{CommandedAngularDeceleration}\mbox{}
+\label{sec:CommandedAngularDeceleration}
+
+
+The commanded value.
+
 
 \subsubsection{AngularVelocity}
 \label{sec:AngularVelocity}
@@ -264,6 +370,48 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 
 \end{itemize}
+
+\paragraph{ActualAxisFeedrate}\mbox{}
+\label{sec:ActualAxisFeedrate}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedAxisFeedrate}\mbox{}
+\label{sec:CommandedAxisFeedrate}
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{JogAxisFeedrate}\mbox{}
+\label{sec:JogAxisFeedrate}
+
+
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
+
+
+\paragraph{ProgrammedAxisFeedrate}\mbox{}
+\label{sec:ProgrammedAxisFeedrate}
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{RapidAxisFeedrate}\mbox{}
+\label{sec:RapidAxisFeedrate}
+
+
+The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+
+
+\paragraph{OverrideAxisFeedrate}\mbox{}
+\label{sec:OverrideAxisFeedrate}
+
+
+The operators overridden value.
+
 
 \subsubsection{CapacityFluid}
 \label{sec:CapacityFluid}
@@ -348,6 +496,27 @@ The value of a signal or calculation specified by a logic or motion program or s
 
 \end{itemize}
 
+\paragraph{ActualCuttingSpeed}\mbox{}
+\label{sec:ActualCuttingSpeed}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedCuttingSpeed}\mbox{}
+\label{sec:CommandedCuttingSpeed}
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{ProgrammedCuttingSpeed}\mbox{}
+\label{sec:ProgrammedCuttingSpeed}
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
 \subsubsection{Deceleration}
 \label{sec:Deceleration}
 
@@ -380,6 +549,27 @@ The programmed value.
 
 
 \end{itemize}
+
+\paragraph{ProgrammedDeceleration}\mbox{}
+\label{sec:ProgrammedDeceleration}
+
+
+The programmed value.
+
+
+\paragraph{CommandedDeceleration}\mbox{}
+\label{sec:CommandedDeceleration}
+
+
+The commanded value.
+
+
+\paragraph{ActualDeceleration}\mbox{}
+\label{sec:ActualDeceleration}
+
+
+The measured value.
+
 
 \subsubsection{Density}
 \label{sec:Density}
@@ -419,6 +609,20 @@ A value specified by the \block{Controller} type component.
 
 \end{itemize}
 
+\paragraph{ActualDepositionAccelerationVolumetric}\mbox{}
+\label{sec:ActualDepositionAccelerationVolumetric}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedDepositionAccelerationVolumetric}\mbox{}
+\label{sec:CommandedDepositionAccelerationVolumetric}
+
+
+A value specified by the \block{Controller} type component.
+
+
 \subsubsection{DepositionDensity}
 \label{sec:DepositionDensity}
 
@@ -446,6 +650,20 @@ A value specified by the \block{Controller} type component.
 
 
 \end{itemize}
+
+\paragraph{ActualDepositionDensity}\mbox{}
+\label{sec:ActualDepositionDensity}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedDepositionDensity}\mbox{}
+\label{sec:CommandedDepositionDensity}
+
+
+A value specified by the \block{Controller} type component.
+
 
 \subsubsection{DepositionMass}
 \label{sec:DepositionMass}
@@ -475,6 +693,20 @@ A value specified by the \block{Controller} type component.
 
 \end{itemize}
 
+\paragraph{ActualDepositionMass}\mbox{}
+\label{sec:ActualDepositionMass}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedDepositionMass}\mbox{}
+\label{sec:CommandedDepositionMass}
+
+
+A value specified by the \block{Controller} type component.
+
+
 \subsubsection{DepositionRateVolumetric}
 \label{sec:DepositionRateVolumetric}
 
@@ -503,6 +735,20 @@ A value specified by the \block{Controller} type component.
 
 \end{itemize}
 
+\paragraph{ActualDepositionRateVolumetric}\mbox{}
+\label{sec:ActualDepositionRateVolumetric}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedDepositionRateVolumetric}\mbox{}
+\label{sec:CommandedDepositionRateVolumetric}
+
+
+A value specified by the \block{Controller} type component.
+
+
 \subsubsection{DepositionVolume}
 \label{sec:DepositionVolume}
 
@@ -530,6 +776,20 @@ A value specified by the \block{Controller} type component.
 
 
 \end{itemize}
+
+\paragraph{ActualDepositionVolume}\mbox{}
+\label{sec:ActualDepositionVolume}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedDepositionVolume}\mbox{}
+\label{sec:CommandedDepositionVolume}
+
+
+A value specified by the \block{Controller} type component.
+
 
 \subsubsection{Diameter}
 \label{sec:Diameter}
@@ -604,6 +864,41 @@ A piece of equipment performing any activity, the equipment is active and perfor
 
 \end{itemize}
 
+\paragraph{LoadedEquipmentTimer}\mbox{}
+\label{sec:LoadedEquipmentTimer}
+
+
+Subparts of a piece of equipment are under load.
+
+
+\paragraph{WorkingEquipmentTimer}\mbox{}
+\label{sec:WorkingEquipmentTimer}
+
+
+A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
+
+
+\paragraph{OperatingEquipmentTimer}\mbox{}
+\label{sec:OperatingEquipmentTimer}
+
+
+A piece of equipment are powered or performing any activity.
+
+
+\paragraph{PoweredEquipmentTimer}\mbox{}
+\label{sec:PoweredEquipmentTimer}
+
+
+Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
+
+
+\paragraph{DelayEquipmentTimer}\mbox{}
+\label{sec:DelayEquipmentTimer}
+
+
+A piece of equipment waiting for an event or an action to occur.
+
+
 \subsubsection{FillLevel}
 \label{sec:FillLevel}
 
@@ -670,6 +965,20 @@ The commanded value.
 
 \end{itemize}
 
+\paragraph{ActualHumidityAbsolute}\mbox{}
+\label{sec:ActualHumidityAbsolute}
+
+
+The measured value.
+
+
+\paragraph{CommandedHumidityAbsolute}\mbox{}
+\label{sec:CommandedHumidityAbsolute}
+
+
+The commanded value.
+
+
 \subsubsection{HumidityRelative}
 \label{sec:HumidityRelative}
 
@@ -698,6 +1007,20 @@ The commanded value.
 
 \end{itemize}
 
+\paragraph{CommandedHumidityRelative}\mbox{}
+\label{sec:CommandedHumidityRelative}
+
+
+The commanded value.
+
+
+\paragraph{ActualHumidityRelative}\mbox{}
+\label{sec:ActualHumidityRelative}
+
+
+The measured value.
+
+
 \subsubsection{HumiditySpecific}
 \label{sec:HumiditySpecific}
 
@@ -725,6 +1048,20 @@ The commanded value.
 
 
 \end{itemize}
+
+\paragraph{ActualHumiditySpecific}\mbox{}
+\label{sec:ActualHumiditySpecific}
+
+
+The measured value.
+
+
+\paragraph{CommandedHumiditySpecific}\mbox{}
+\label{sec:CommandedHumiditySpecific}
+
+
+The commanded value.
+
 
 \subsubsection{Length}
 \label{sec:Length}
@@ -758,6 +1095,27 @@ The remaining useable length of an object.
 
 
 \end{itemize}
+
+\paragraph{StandardLength}\mbox{}
+\label{sec:StandardLength}
+
+
+The standard or original length of an object.
+
+
+\paragraph{RemainingLength}\mbox{}
+\label{sec:RemainingLength}
+
+
+Remaining measure of an object or an action.
+
+
+\paragraph{UseableLength}\mbox{}
+\label{sec:UseableLength}
+
+
+The remaining useable length of an object.
+
 
 \subsubsection{Level}
 \label{sec:Level}
@@ -835,6 +1193,20 @@ The commanded value.
 
 \end{itemize}
 
+\paragraph{ActualOrientation}\mbox{}
+\label{sec:ActualOrientation}
+
+
+The measured value.
+
+
+\paragraph{CommandedOrientation}\mbox{}
+\label{sec:CommandedOrientation}
+
+
+The commanded value.
+
+
 \subsubsection{PH}
 \label{sec:PH}
 
@@ -893,6 +1265,48 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 \end{itemize}
 
+\paragraph{ActualPathFeedrate}\mbox{}
+\label{sec:ActualPathFeedrate}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedPathFeedrate}\mbox{}
+\label{sec:CommandedPathFeedrate}
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{JogPathFeedrate}\mbox{}
+\label{sec:JogPathFeedrate}
+
+
+The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
+
+
+\paragraph{ProgrammedPathFeedrate}\mbox{}
+\label{sec:ProgrammedPathFeedrate}
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{RapidPathFeedrate}\mbox{}
+\label{sec:RapidPathFeedrate}
+
+
+The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+
+
+\paragraph{OverridePathFeedrate}\mbox{}
+\label{sec:OverridePathFeedrate}
+
+
+The operators overridden value.
+
+
 \subsubsection{PathFeedratePerRevolution}
 \label{sec:PathFeedratePerRevolution}
 
@@ -925,6 +1339,27 @@ The value of a signal or calculation specified by a logic or motion program or s
 
 
 \end{itemize}
+
+\paragraph{ActualPathFeedratePerRevolution}\mbox{}
+\label{sec:ActualPathFeedratePerRevolution}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedPathFeedratePerRevolution}\mbox{}
+\label{sec:CommandedPathFeedratePerRevolution}
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{ProgrammedPathFeedratePerRevolution}\mbox{}
+\label{sec:ProgrammedPathFeedratePerRevolution}
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
 
 \subsubsection{PathPosition}
 \label{sec:PathPosition}
@@ -964,6 +1399,34 @@ The desired measure or count for a data item value.
 
 \end{itemize}
 
+\paragraph{ActualPathPosition}\mbox{}
+\label{sec:ActualPathPosition}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedPathPosition}\mbox{}
+\label{sec:CommandedPathPosition}
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{TargetPathPosition}\mbox{}
+\label{sec:TargetPathPosition}
+
+
+The desired measure or count for a data item value.
+
+
+\paragraph{ProbePathPosition}\mbox{}
+\label{sec:ProbePathPosition}
+
+
+The position provided by a measurement probe.
+
+
 \subsubsection{Position}
 \label{sec:Position}
 
@@ -1001,6 +1464,34 @@ The desired measure or count for a data item value.
 
 
 \end{itemize}
+
+\paragraph{ActualPosition}\mbox{}
+\label{sec:ActualPosition}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedPosition}\mbox{}
+\label{sec:CommandedPosition}
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{ProgrammedPosition}\mbox{}
+\label{sec:ProgrammedPosition}
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{TargetPosition}\mbox{}
+\label{sec:TargetPosition}
+
+
+The desired measure or count for a data item value.
+
 
 \subsubsection{PowerFactor}
 \label{sec:PowerFactor}
@@ -1042,6 +1533,20 @@ Gauge pressure is pressure measured relative to atmospheric pressure.
 
 \end{itemize}
 
+\paragraph{GaugePressure}\mbox{}
+\label{sec:GaugePressure}
+
+
+Gauge pressure is pressure measured relative to atmospheric pressure.
+
+
+\paragraph{AbsolutePressure}\mbox{}
+\label{sec:AbsolutePressure}
+
+
+Absolute pressure is pressure measured relative to a full vacuum.
+
+
 \subsubsection{ProcessTimer}
 \label{sec:ProcessTimer}
 
@@ -1069,6 +1574,20 @@ The measurement of the time from the beginning of production of a part or produc
 
 
 \end{itemize}
+
+\paragraph{ProcessProcessTimer}\mbox{}
+\label{sec:ProcessProcessTimer}
+
+
+The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
+
+
+\paragraph{DelayProcessTimer}\mbox{}
+\label{sec:DelayProcessTimer}
+
+
+A piece of equipment waiting for an event or an action to occur.
+
 
 \subsubsection{RateOfPressurization}
 \label{sec:RateOfPressurization}
@@ -1128,6 +1647,34 @@ The value of a signal or calculation specified by a logic or motion program or s
 
 \end{itemize}
 
+\paragraph{ActualRotaryVelocity}\mbox{}
+\label{sec:ActualRotaryVelocity}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedRotaryVelocity}\mbox{}
+\label{sec:CommandedRotaryVelocity}
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{ProgrammedRotaryVelocity}\mbox{}
+\label{sec:ProgrammedRotaryVelocity}
+
+
+The value of a signal or calculation specified by a logic or motion program or set by a switch.
+
+
+\paragraph{OverrideRotaryVelocity}\mbox{}
+\label{sec:OverrideRotaryVelocity}
+
+
+The operators overridden value.
+
+
 \subsubsection{SoundLevel}
 \label{sec:SoundLevel}
 
@@ -1171,6 +1718,41 @@ No weighting factor on the frequency scale
 
 \end{itemize}
 
+\paragraph{NoScaleSoundLevel}\mbox{}
+\label{sec:NoScaleSoundLevel}
+
+
+No weighting factor on the frequency scale
+
+
+\paragraph{AScaleSoundLevel}\mbox{}
+\label{sec:AScaleSoundLevel}
+
+
+A Scale weighting factor.   This is the default weighting factor if no factor is specified
+
+
+\paragraph{BScaleSoundLevel}\mbox{}
+\label{sec:BScaleSoundLevel}
+
+
+B Scale weighting factor
+
+
+\paragraph{CScaleSoundLevel}\mbox{}
+\label{sec:CScaleSoundLevel}
+
+
+C Scale weighting factor
+
+
+\paragraph{DScaleSoundLevel}\mbox{}
+\label{sec:DScaleSoundLevel}
+
+
+D Scale weighting factor
+
+
 \subsubsection{SpindleSpeed}
 \label{sec:SpindleSpeed}
 
@@ -1203,6 +1785,27 @@ The operators overridden value.
 
 
 \end{itemize}
+
+\paragraph{ActualSpindleSpeed}\mbox{}
+\label{sec:ActualSpindleSpeed}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{CommandedSpindleSpeed}\mbox{}
+\label{sec:CommandedSpindleSpeed}
+
+
+A value specified by the \block{Controller} type component.
+
+
+\paragraph{OverrideSpindleSpeed}\mbox{}
+\label{sec:OverrideSpindleSpeed}
+
+
+The operators overridden value.
+
 
 \subsubsection{Strain}
 \label{sec:Strain}
@@ -1332,6 +1935,34 @@ The desired measure or count for a data item value.
 
 \end{itemize}
 
+\paragraph{AlternatingVoltage}\mbox{}
+\label{sec:AlternatingVoltage}
+
+
+The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
+
+
+\paragraph{DirectVoltage}\mbox{}
+\label{sec:DirectVoltage}
+
+
+The measurement of DC current or voltage.
+
+
+\paragraph{ActualVoltage}\mbox{}
+\label{sec:ActualVoltage}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{TargetVoltage}\mbox{}
+\label{sec:TargetVoltage}
+
+
+The desired measure or count for a data item value.
+
+
 \subsubsection{VoltageAC}
 \label{sec:VoltageAC}
 
@@ -1364,6 +1995,27 @@ The value for a voltage as specified by a logic or motion program or set by a sw
 
 
 \end{itemize}
+
+\paragraph{ActualVoltageAC}\mbox{}
+\label{sec:ActualVoltageAC}
+
+
+The measured voltage within an electrical circuit.
+
+
+\paragraph{CommandedVoltageAC}\mbox{}
+\label{sec:CommandedVoltageAC}
+
+
+The value for a voltage as specified by a \block{Controller} component.
+
+
+\paragraph{ProgrammedVoltageAC}\mbox{}
+\label{sec:ProgrammedVoltageAC}
+
+
+The value for a voltage as specified by a logic or motion program or set by a switch.
+
 
 \subsubsection{VoltageDC}
 \label{sec:VoltageDC}
@@ -1398,6 +2050,27 @@ The value for a voltage as specified by a logic or motion program or set by a sw
 
 \end{itemize}
 
+\paragraph{ActualVoltageDC}\mbox{}
+\label{sec:ActualVoltageDC}
+
+
+The measured voltage within an electrical circuit.
+
+
+\paragraph{CommandedVoltageDC}\mbox{}
+\label{sec:CommandedVoltageDC}
+
+
+The value for a voltage as specified by a \block{Controller} component.
+
+
+\paragraph{ProgrammedVoltageDC}\mbox{}
+\label{sec:ProgrammedVoltageDC}
+
+
+The value for a voltage as specified by a logic or motion program or set by a switch.
+
+
 \subsubsection{VolumeFluid}
 \label{sec:VolumeFluid}
 
@@ -1425,6 +2098,20 @@ The amount of bulk material consumed from an object or container during a manufa
 
 
 \end{itemize}
+
+\paragraph{ActualVolumeFluid}\mbox{}
+\label{sec:ActualVolumeFluid}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{ConsumedVolumeFluid}\mbox{}
+\label{sec:ConsumedVolumeFluid}
+
+
+The amount of bulk material consumed from an object or container during a manufacturing process.
+
 
 \subsubsection{VolumeSpatial}
 \label{sec:VolumeSpatial}
@@ -1454,6 +2141,20 @@ The amount of bulk material consumed from an object or container during a manufa
 
 \end{itemize}
 
+\paragraph{ActualVolumeSpatial}\mbox{}
+\label{sec:ActualVolumeSpatial}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{ConsumedVolumeSpatial}\mbox{}
+\label{sec:ConsumedVolumeSpatial}
+
+
+The amount of bulk material consumed from an object or container during a manufacturing process.
+
+
 \subsubsection{Wattage}
 \label{sec:Wattage}
 
@@ -1481,6 +2182,20 @@ The desired measure or count for a data item value.
 
 
 \end{itemize}
+
+\paragraph{ActualWattage}\mbox{}
+\label{sec:ActualWattage}
+
+
+The measured value of the data item type given by a sensor or encoder.
+
+
+\paragraph{TargetWattage}\mbox{}
+\label{sec:TargetWattage}
+
+
+The desired measure or count for a data item value.
+
 
 \subsubsection{XDimension}
 \label{sec:XDimension}
