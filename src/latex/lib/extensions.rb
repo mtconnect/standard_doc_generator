@@ -29,9 +29,14 @@ module Extensions
   end
 
   def xmi_documentation(e)
-    documentation = ""
+	comment = e.at('ownedComment')
+    return (comment and comment['body']) ? format_markdown(comment['body']) : ''
+  end
+
+  def xmi_additional_documentation(e)
+    documentation = ''
 	e.xpath('./ownedComment').map do |comment|
-      documentation += comment['body'] ? comment.at('ownedComment') ? format_markdown(comment.at('ownedComment')['body']) : format_markdown(comment['body']) : ""
+      documentation += comment['body'] ? comment.at('ownedComment') ? format_markdown(comment.at('ownedComment')['body']) : '' : ''
 	end
 	return documentation
   end
