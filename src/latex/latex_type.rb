@@ -15,9 +15,12 @@ class LatexType < Type
   def self.add_label=(label)
     @@labels.add(label)
   end
-
-
-  def get_label(label_name)
+  
+  def self.reset_labels
+    @@labels = Set.new
+  end
+  
+  def self.get_label(label_name)
     label = ""
   	if !@@labels.include?(label_name)
 	  label = "\\label{#{label_name}}"
@@ -68,19 +71,24 @@ class LatexType < Type
     
       string_out = ""
 	  value_only = true
-      
+	  
 	  attributes.each do |r|
-        if r.name == 'Supertype'
+        name = r.association_name ? r.association_name : r.name
+        if name == 'Supertype'
           next
-		elsif r.name == 'value' or r.association_name == 'value'
+		elsif name == 'value'
 		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
+		  next
+		elsif name == 'code'
+		  f.puts "\n\\texttt{code}: \\texttt{#{r.default}}.\n\n"
+		  next
+		elsif name == 'units' and r.default
+		  f.puts "\n\\texttt{units}: \\texttt{#{r.default.gsub(/(\^)/,"\\^{}").gsub("_","\\textunderscore ")}}.\n\n"
 		  next
 		end
 		value_only = false
         stereo = r.stereotype ? "\\texttt{<<#{r.stereotype}>>} " : ""
-        
-        name = r.association_name ? r.association_name : r.name
-        
+                
         if r.redefinesProperty and r.default
           string_out += "\n#{stereo}\\property{#{name}}[#{@name}] & \\texttt{#{r.default.gsub(/(\^)/,"\\^{}")}} & #{r.multiplicity} \\\\"
         else
@@ -91,14 +99,14 @@ class LatexType < Type
 	  unless value_only
 	  f.puts %"
 \\paragraph{Attributes of #{@name}}\\mbox{}
-#{get_label("sec:Attributes of #{@name}")}
+#{self.class.get_label("sec:Attributes of #{@name}")}
 
 \\tbl{Attributes of #{@name}} lists the attributes of \\texttt{#{@name}}.
 
 \\begin{table}[ht]
 \\centering 
   \\caption{Attributes of #{@name}}
-  #{get_label("table:Attributes of #{@name}")}
+  #{self.class.get_label("table:Attributes of #{@name}")}
 \\tabulinesep=3pt
 \\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
 \\hline
@@ -135,7 +143,7 @@ class LatexType < Type
       end
 
 	  unless value_only 
-	  f.puts "\\end{itemize}\n"
+	  f.puts "\\end{itemize}\n\n"
 	  end
 	end
 	
@@ -144,14 +152,14 @@ class LatexType < Type
       f.puts <<-EOT
 
 \\paragraph{Elements of #{@name}}\\mbox{}
-#{get_label("sec:Elements of #{@name}")}
+#{self.class.get_label("sec:Elements of #{@name}")}
 
 \\tbl{Elements of #{@name}} lists the elements of \\texttt{#{@name}}.
 
 \\begin{table}[ht]
 \\centering 
   \\caption{Elements of #{@name}}
-  #{get_label("table:Elements of #{@name}")}
+  #{self.class.get_label("table:Elements of #{@name}")}
 \\tabulinesep=3pt
 \\begin{tabu} to 6in {|l|l|} \\everyrow{\\hline}
 \\hline
@@ -208,7 +216,7 @@ EOT
           end
         end
       end
-	  f.puts "\\end{itemize}\n"
+	  f.puts "\\end{itemize}\n\n"
 
 	  end
   
@@ -223,37 +231,35 @@ EOT
     
 
     unless relations_with_documentation.empty?
-
+	attributes =[]
+	elements =[]
 
   relations_with_documentation.each do |r|
     name = r.association_name ? r.association_name : r.name
   
     if name == 'Supertype'
       next
-    elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
-      
-      f.puts "\n\\paragraph{\\texttt{#{name}}}\\mbox{}\n"
-	  f.puts "#{get_label("sec:#{name}")}\n\n"
-
-      if r.association_doc
-        f.puts "\\newline #{r.association_doc}\n"
-      else r.documentation
-        f.puts "\\newline #{r.documentation}\n"
-      end
-      
-      if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty 
-        r.target.type.generate_enumerations(f)
-      end
-      
+    elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty	
+	  if /[[:lower:]]/.match(name[0])
+	    attributes.append(r)
+	  elsif /[[:upper:]]/.match(name[0])
+	    elements.append(r)
+	  end
     elsif r.redefinesProperty
       if name == 'result'
-        f.puts "\nThe value of \\texttt{#{@name}} \\MUST be one of the following: \n\n"
-        r.final_target.type.generate_enumerations(f)
-        f.puts "\\FloatBarrier"
+		if r.final_target.type.type == 'uml:Enumeration'
+			f.puts "\nThe value of \\texttt{#{@name}} \\MUST be one of the following: \n\n"
+			r.final_target.type.generate_enumerations(f)
+		elsif r.final_target.type.type == 'uml:DataType' and r.final_target.type.relations.size>0
+			f.puts "\nThe \\block{Entry} \\property{key} \\MUST be one or more from the following:\n"
+			r.final_target.type.generate_entrykeys(f)
+		else
+		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
+		end
       elsif (name == 'type' or name == 'subType') and not r.default
-        f.puts "\nThe value of \\property{#{name}}{DataItem} with \\property{category}{DataItem} \\texttt{#{@name}} \\MUST be one of the following:\n" if name == 'type'
+        f.puts "\nThe value of \\property{#{name}}[DataItem] with \\property{category}[DataItem] \\texttt{#{@name}} \\MUST be one of the following:\n" if name == 'type'
 		
-		f.puts "\nThe value of \\property{#{name}}{DataItem} for \\block{DataItem} \\MUST be one of the following:\n\n" if name == 'subType'
+		f.puts "\nThe value of \\property{#{name}}[DataItem] for \\block{DataItem} \\MUST be one of the following:\n\n" if name == 'subType'
         
 		f.puts <<-EOT
 \\begin{itemize}
@@ -276,10 +282,14 @@ EOT
 
 EOT
 	  elsif name == 'units' and r.default
-	    f.puts "\nUnits: \\texttt{#{r.default.gsub(/(\^)/,"\\^{}").gsub("_","\\textunderscore ")}}.\n"
+	    f.puts "\n\\texttt{units}: \\texttt{#{r.default.gsub(/(\^)/,"\\^{}").gsub("_","\\textunderscore ")}}.\n"
           end
         end
       end
+	  
+	  generate_attribute_doc(f, attributes) unless attributes.empty?
+	  generate_element_doc(f, elements) unless elements.empty?
+	  
     end    
   end
   
@@ -290,7 +300,7 @@ EOT
 	  if @subtypes.size>0 and @relations.size>1
 		f.puts <<-EOT
 \n\\paragraph{Subtypes of #{@name}}\\mbox{}
-#{get_label("sec:Subtypes of #{@name}")}
+#{self.class.get_label("sec:Subtypes of #{@name}")}
 
 \\begin{itemize}\n
 EOT
@@ -308,7 +318,7 @@ EOT
 			end
 		end
 		end
-		f.puts "\n\\end{itemize}"
+		f.puts "\n\\end{itemize}\n\n"
 	  end
 	end
   end
@@ -327,6 +337,29 @@ EOT
     @literals.each do |lit|
       f.puts "\\item \\texttt{#{lit.name.gsub(/(\^)/,"\^{}").gsub("_","\\textunderscore ")}} \\newline #{lit.description} \n"
       end
+	f.puts <<-EOT
+\\end{itemize}
+
+EOT
+    end
+  end
+  
+    def generate_entrykeys(f)
+    if @type == 'uml:DataType'
+      $logger.debug "***** =====> Generating Keys for #{@name}"
+
+	f.puts <<-EOT
+
+\\texttt{#{escape_name}} keys:
+
+\\begin{itemize}
+EOT
+	@relations.each do |r|
+	  name = r.name.gsub(/(\^)/,"\^{}").gsub("_","\\textunderscore ")
+	  
+	  f.puts "\\item \\texttt{#{name}} \\newline #{r.documentation} \n"
+	  f.puts "\\newline The value of \\texttt{#{name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
+	end
 	f.puts <<-EOT
 \\end{itemize}
 
@@ -398,16 +431,18 @@ EOT
 		    section_type = "paragraph"
 		end
 		
-		f.puts <<-EOT
+		if  !@model.name.include?("Sample") and !@model.name.include?("Event")
+		  f.puts <<-EOT
 \n\\#{section_type}{#{section_name}}\\mbox{}
-#{get_label("sec:#{section_name}")}
+#{self.class.get_label("sec:#{section_name}")}
 EOT
-		generate_documentation(f)
+		  generate_documentation(f)
+		end
 	
 	elsif @model.name == "Composition Types"
     	f.puts <<-EOT
 \n\\subsubsection[#{section_name}]{#{section_name} \\\\ {\\small type: #{@relations[1].default.gsub("_","\\textunderscore ")}}}
-#{get_label("sec:#{section_name}")}
+#{self.class.get_label("sec:#{section_name}")}
 
 EOT
 
@@ -417,7 +452,7 @@ EOT
 	else
     	f.puts <<-EOT
 \n\\subsubsection{#{section_name}}
-#{get_label("sec:#{section_name}")}
+#{self.class.get_label("sec:#{section_name}")}
 
 EOT
 
@@ -425,16 +460,28 @@ EOT
 		generate_class(f)
 	
 	end
+	
+	f.puts @additional_documentation
 
   end
 
 
   def generate_glossary_docs(f)
+    
+	if @name.end_with?('y')
+	  plural = "#{@name[0...-1] + 'ies'}"
+	elsif @name.end_with?('s')
+	  plural = "#{@name}"
+	else
+	  plural = "#{@name + 's'}"
+	end
+	
 	f.puts <<-EOT
 \n\\newglossaryentry{#{@name}}
 {
     name={#{@name}},
-	description={#{format_whitespaces(@documentation)}}
+	description={#{format_whitespaces(@documentation)}},
+	plural={#{plural}}
 }
 EOT
   end
