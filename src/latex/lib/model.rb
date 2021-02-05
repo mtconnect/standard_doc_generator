@@ -46,7 +46,6 @@ class Model
 
   def add_type(t)
     @types << t
-    @types.sort_by! { |t| t.name }
   end
 
   def short_name
