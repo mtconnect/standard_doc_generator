@@ -1,12 +1,11 @@
 $: << File.dirname(__FILE__)
 
-require 'latex_type'
 require 'lib/model'
+require 'latex_type'
 
 class LatexModel < Model
-  include Diagram
   include Document
-
+    
   def self.directory=(dir)
     @@directory = dir
   end
@@ -22,6 +21,7 @@ class LatexModel < Model
   def self.generate_latex(f, model)
     if @@models[model]
 	  if model.end_with?('Types')
+		@@models[model].types.sort_by! { |t| t.name }
 		@@models[model].generate_subtypes(model)
 	  end
 	  @@models[model].generate_latex(f)
@@ -37,9 +37,8 @@ class LatexModel < Model
     File.open(File.join(@@directory,"model-sections",short_name+".tex"), "w") do |fs|
       $logger.info "Generating model #{@name}"
       fs.puts "% Generated #{Time.now}"
-      fs.puts "\\subsection{#{@name}} \\label{sec:#{@name}}"
-      
-	  generate_diagram(fs)
+      fs.puts "\\subsection{#{@name}} #{LatexType.get_label("sec:#{@name}")}"
+	  LatexType.add_label = "sec:#{@name}"
       
       generate_documentation(fs)
       
