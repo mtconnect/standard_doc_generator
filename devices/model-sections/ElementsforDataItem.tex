@@ -1,8 +1,171 @@
-% Generated 2021-01-20 01:46:24 +0530
+% Generated 2021-02-06 01:28:13 +0530
 \subsection{Elements for DataItem} \label{sec:Elements for DataItem}
 
 
 This section provides detailed descriptions for the elements of a \block{DataItem}.
+
+Note: See \sect{DataItems Schema Diagrams} for XML schema of the elements for \block{DataItem}.
+
+
+\subsubsection{ResetTrigger}
+\label{sec:ResetTrigger}
+
+
+
+\block{ResetTrigger} identifies the type of event that may cause a reset to occur.
+
+
+\paragraph{Attributes of ResetTrigger}\mbox{}
+\label{sec:Attributes of ResetTrigger}
+
+\tbl{Attributes of ResetTrigger} lists the attributes of \texttt{ResetTrigger}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of ResetTrigger}
+  \label{table:Attributes of ResetTrigger}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{type}[ResetTrigger] & \texttt{ResetTriggerEnum} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{ResetTrigger}:
+
+\begin{itemize}
+
+\item \property{type}[ResetTrigger] \newline The type of \block{ResetTrigger}
+
+\texttt{ResetTriggerEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{ACTION\textunderscore COMPLETE} \newline The value of the \gls{Data Item} that is measuring an action or operation is to be reset upon completion of that action or operation. 
+\item \texttt{ANNUAL} \newline The value of the \gls{Data Item} is to be reset at the end of a 12-month period. 
+\item \texttt{DAY} \newline The value of the \gls{Data Item} is to be reset at the end of a 24-hour period. 
+\item \texttt{LIFE} \newline The value of the \gls{Data Item} is not reset and accumulates for the entire life of the piece of equipment. 
+\item \texttt{MAINTENANCE} \newline The value of the \gls{Data Item} is to be reset upon completion of a maintenance event. 
+\item \texttt{MONTH} \newline The value of the \gls{Data Item} is to be reset at the end of a monthly period. 
+\item \texttt{POWER\textunderscore ON} \newline The value of the \gls{Data Item} is to be reset when power was applied to the piece of equipment after a planned or unplanned interruption of power has occurred. 
+\item \texttt{SHIFT} \newline The value of the \gls{Data Item} is to be reset at the end of a work shift. 
+\item \texttt{WEEK} \newline The value of the \gls{Data Item} is to be reset at the end of a 7-day period. 
+\end{itemize}
+
+\end{itemize}
+
+
+
+\subsubsection{Source}
+\label{sec:Source}
+
+
+
+\block{Source} identifies the \block{Component}, \block{DataItem}, or \block{Composition} representing the area of the piece of equipment from which a measured value originates.
+
+
+The value of \texttt{Source} \MUST be \texttt{string}.
+
+
+\paragraph{Attributes of Source}\mbox{}
+\label{sec:Attributes of Source}
+
+\tbl{Attributes of Source} lists the attributes of \texttt{Source}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Source}
+  \label{table:Attributes of Source}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{componentId}[Source] & \texttt{ID} & 0..1 \\
+\property{compositionId}[Source] & \texttt{ID} & 0..1 \\
+\property{dataItemId}[Source] & \texttt{ID} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{Source}:
+
+\begin{itemize}
+
+\item \property{componentId}[Source] \newline The identifier attribute of the \block{Component} element that represents the physical part of a piece of equipment where the data represented by the \block{DataItem} element originated.
+
+\item \property{compositionId}[Source] \newline The identifier attribute of the \block{Composition} element that the reported data is most closely associated.
+
+\item \property{dataItemId}[Source] \newline The identifier attribute of the \block{DataItem} that represents the originally measured value of the data referenced by this data item.
+\end{itemize}
+
+
+
+\subsubsection{InitialValue}
+\label{sec:InitialValue}
+
+
+
+\block{InitialValue} defines the starting value for a data item as well as the value to be set for the data item after a reset event.
+
+
+The value of \texttt{InitialValue} \MUST be \texttt{string}.
+
+
+
+\subsubsection{Filter}
+
+
+
+
+\block{Filter} provides a means to control when an \gls{Agent} records updated information for a data item. 
+
+
+\paragraph{Attributes of Filter}\mbox{}
+\label{sec:Attributes of Filter}
+
+\tbl{Attributes of Filter} lists the attributes of \texttt{Filter}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Filter}
+  \label{table:Attributes of Filter}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{type}[Filter] & \texttt{FilterEnum} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{Filter}:
+
+\begin{itemize}
+
+\item \property{type}[Filter] \newline The type of \block{Filter}
+
+\texttt{FilterEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{MINIMUM\textunderscore DELTA} \newline For a \texttt{MINIMUM\textunderscore DELTA} type \block{Filter}, a new value \textbf{MUST NOT} be reported for a data item unless the measured value has changed from the
+last reported value by at least the delta given as the value of this element.
+
+The value of \block{Filter} \textbf{MUST} be an absolute value using the same units as the reported data. 
+\item \texttt{PERIOD} \newline For a \texttt{PERIOD} type \block{Filter}, the data reported for a data item is provided on a periodic basis. The \texttt{PERIOD} for reporting data is defined in the
+value of the \block{Filter}.
+
+The value of \block{Filter} \textbf{MUST} be an absolute value reported in seconds representing the time between reported samples of the value of the data item. 
+\end{itemize}
+
+\end{itemize}
+
 
 
 \subsubsection{Constraints}
@@ -63,6 +226,8 @@ The value of \block{Nominal} \MUST be \texttt{float}.
 The value of \block{Value} \MUST be \texttt{float}.
 \end{itemize}
 
+
+
 \subsubsection{Definition}
 \label{sec:Definition}
 
@@ -104,156 +269,4 @@ Descriptions for elements of \block{Definition}:
 \item \block{EntryDefinitions} \newline \block{EntryDefinitions} \glspl{organize} \block{EntryDefinition} elements.
 \end{itemize}
 
-\subsubsection{Filter}
 
-
-
-
-\block{Filter} provides a means to control when an \gls{Agent} records updated information for a data item. 
-
-
-\paragraph{Attributes of Filter}\mbox{}
-\label{sec:Attributes of Filter}
-
-\tbl{Attributes of Filter} lists the attributes of \texttt{Filter}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Filter}
-  \label{table:Attributes of Filter}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-
-\property{type}[Filter] & \texttt{FilterEnum} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-Descriptions for attributes of \block{Filter}:
-
-\begin{itemize}
-
-\item \property{type}[Filter] \newline The type of \block{Filter}
-
-\texttt{FilterEnum} Enumeration:
-
-\begin{itemize}
-\item \texttt{MINIMUM\textunderscore DELTA} \newline For a \texttt{MINIMUM\textunderscore DELTA} type \block{Filter}, a new value \textbf{MUST NOT} be reported for a data item unless the measured value has changed from the
-last reported value by at least the delta given as the value of this element.
-
-The value of \block{Filter} \textbf{MUST} be an absolute value using the same units as the reported data. 
-\item \texttt{PERIOD} \newline For a \texttt{PERIOD} type \block{Filter}, the data reported for a data item is provided on a periodic basis. The \texttt{PERIOD} for reporting data is defined in the
-value of the \block{Filter}.
-
-The value of \block{Filter} \textbf{MUST} be an absolute value reported in seconds representing the time between reported samples of the value of the data item. 
-\end{itemize}
-
-\end{itemize}
-
-\subsubsection{InitialValue}
-\label{sec:InitialValue}
-
-
-
-\block{InitialValue} defines the starting value for a data item as well as the value to be set for the data item after a reset event.
-
-
-The value of \texttt{InitialValue} \MUST be \texttt{string}.
-
-
-\subsubsection{ResetTrigger}
-\label{sec:ResetTrigger}
-
-
-
-\block{ResetTrigger} identifies the type of event that may cause a reset to occur.
-
-
-\paragraph{Attributes of ResetTrigger}\mbox{}
-\label{sec:Attributes of ResetTrigger}
-
-\tbl{Attributes of ResetTrigger} lists the attributes of \texttt{ResetTrigger}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of ResetTrigger}
-  \label{table:Attributes of ResetTrigger}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-
-\property{type}[ResetTrigger] & \texttt{ResetTriggerEnum} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-Descriptions for attributes of \block{ResetTrigger}:
-
-\begin{itemize}
-
-\item \property{type}[ResetTrigger] \newline The type of \block{ResetTrigger}
-
-\texttt{ResetTriggerEnum} Enumeration:
-
-\begin{itemize}
-\item \texttt{ACTION\textunderscore COMPLETE} \newline The value of the \gls{Data Item} that is measuring an action or operation is to be reset upon completion of that action or operation. 
-\item \texttt{ANNUAL} \newline The value of the \gls{Data Item} is to be reset at the end of a 12-month period. 
-\item \texttt{DAY} \newline The value of the \gls{Data Item} is to be reset at the end of a 24-hour period. 
-\item \texttt{LIFE} \newline The value of the \gls{Data Item} is not reset and accumulates for the entire life of the piece of equipment. 
-\item \texttt{MAINTENANCE} \newline The value of the \gls{Data Item} is to be reset upon completion of a maintenance event. 
-\item \texttt{MONTH} \newline The value of the \gls{Data Item} is to be reset at the end of a monthly period. 
-\item \texttt{POWER\textunderscore ON} \newline The value of the \gls{Data Item} is to be reset when power was applied to the piece of equipment after a planned or unplanned interruption of power has occurred. 
-\item \texttt{SHIFT} \newline The value of the \gls{Data Item} is to be reset at the end of a work shift. 
-\item \texttt{WEEK} \newline The value of the \gls{Data Item} is to be reset at the end of a 7-day period. 
-\end{itemize}
-
-\end{itemize}
-
-\subsubsection{Source}
-\label{sec:Source}
-
-
-
-\block{Source} identifies the \block{Component}, \block{DataItem}, or \block{Composition} representing the area of the piece of equipment from which a measured value originates.
-
-
-The value of \texttt{Source} \MUST be \texttt{string}.
-
-
-\paragraph{Attributes of Source}\mbox{}
-\label{sec:Attributes of Source}
-
-\tbl{Attributes of Source} lists the attributes of \texttt{Source}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Source}
-  \label{table:Attributes of Source}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-
-\property{componentId}[Source] & \texttt{ID} & 0..1 \\
-\property{compositionId}[Source] & \texttt{ID} & 0..1 \\
-\property{dataItemId}[Source] & \texttt{ID} & 0..1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-Descriptions for attributes of \block{Source}:
-
-\begin{itemize}
-
-\item \property{componentId}[Source] \newline The identifier attribute of the \block{Component} element that represents the physical part of a piece of equipment where the data represented by the \block{DataItem} element originated.
-
-\item \property{compositionId}[Source] \newline The identifier attribute of the \block{Composition} element that the reported data is most closely associated.
-
-\item \property{dataItemId}[Source] \newline The identifier attribute of the \block{DataItem} that represents the originally measured value of the data referenced by this data item.
-\end{itemize}

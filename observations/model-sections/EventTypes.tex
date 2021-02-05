@@ -1,5 +1,11 @@
-% Generated 2021-01-20 01:46:26 +0530
+% Generated 2021-02-06 01:28:16 +0530
 \subsection{Event Types} \label{sec:Event Types}
+
+
+This section lists the \block{Event} types and their subtypes. 
+
+The section also lists the \gls{Controlled Vocabulary} for types that have \property{result} type of \texttt{Enumeration}.
+
 
 \subsubsection{ActiveAxes}
 \label{sec:ActiveAxes}
@@ -9,9 +15,9 @@
 The result is a space delimited list of axes names.
 
 
-The value of \texttt{ActiveAxes} \MUST be one of the following: 
+The value of \texttt{ActiveAxes} \MUST be \texttt{arraystring}.
 
-\FloatBarrier
+
 
 \subsubsection{ActuatorState}
 \label{sec:ActuatorState}
@@ -31,7 +37,7 @@ The value of \texttt{ActuatorState} \MUST be one of the following:
 \item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{AdapterSoftwareVersion}
 \label{sec:AdapterSoftwareVersion}
@@ -39,6 +45,7 @@ The value of \texttt{ActuatorState} \MUST be one of the following:
 
 
 The originator’s software version of the \gls{Adapter}.
+
 
 
 \subsubsection{AdapterURI}
@@ -49,12 +56,14 @@ The originator’s software version of the \gls{Adapter}.
 The \gls{URI} of the \gls{Adapter}.
 
 
+
 \subsubsection{Alarm}
 \label{sec:Alarm}
 
 
 
 \textbf{DEPRECATED:} Replaced with \block{CONDITION} category data items in Version 1.1.0.
+
 
 
 \subsubsection{AlarmLimit}
@@ -65,15 +74,28 @@ The \gls{URI} of the \gls{Adapter}.
 A set of limits used to trigger warning or alarm indicators.
 
 
-The value of \texttt{AlarmLimit} \MUST be one of the following: 
+The \block{Entry} \property{key} \MUST be one or more from the following:
 
-\FloatBarrier
+\texttt{AlarmLimitResultType} keys:
 
-\subsubsection{AlarmLimitResultType}
-\label{sec:AlarmLimitResultType}
+\begin{itemize}
+\item \texttt{UPPER\textunderscore LIMIT} \newline The upper conformance boundary for a variable.
 
+\newline Note: immediate concern or action may be required. 
+\newline The value of \texttt{UPPER\textunderscore LIMIT} \MUST be \texttt{float}.
 
+\item \texttt{UPPER\textunderscore WARNING} \newline The upper boundary indicating increased concern and supervision may be required. 
+\newline The value of \texttt{UPPER\textunderscore WARNING} \MUST be \texttt{float}.
 
+\item \texttt{LOWER\textunderscore WARNING} \newline The lower boundary indicating increased concern and supervision may be required. 
+\newline The value of \texttt{LOWER\textunderscore WARNING} \MUST be \texttt{float}.
+
+\item \texttt{LOWER\textunderscore LIMIT} \newline The lower conformance boundary for a variable.
+
+\newline Note: immediate concern or action may be required. 
+\newline The value of \texttt{LOWER\textunderscore LIMIT} \MUST be \texttt{float}.
+
+\end{itemize}
 
 
 
@@ -118,39 +140,11 @@ The version of the hardware or software.
 
 \end{itemize}
 
-\paragraph{VersionApplication}\mbox{}
-\label{sec:VersionApplication}
 
 
-The version of the hardware or software.
 
 
-\paragraph{ReleaseDateApplication}\mbox{}
-\label{sec:ReleaseDateApplication}
 
-
-The date the hardware or software was released for general use.
-
-
-\paragraph{ManufacturerApplication}\mbox{}
-\label{sec:ManufacturerApplication}
-
-
-The corporate identity for the maker of the hardware or software.
-
-
-\paragraph{LicenseApplication}\mbox{}
-\label{sec:LicenseApplication}
-
-
-The license code to validate or activate the hardware or software.
-
-
-\paragraph{InstallDateApplication}\mbox{}
-\label{sec:InstallDateApplication}
-
-
-The date the hardware or software was installed.
 
 
 \subsubsection{AssetChanged}
@@ -158,7 +152,46 @@ The date the hardware or software was installed.
 
 
 
-The value of the \gls{CDATA} for the event \textbf{MUST} be the \block{assetId} of the asset that has been added or changed. There will not be a separate message for new assets.
+An \gls{MTConnect Asset} has been added or modified.
+
+The value \textbf{MUST} be the \property{assetId} of the \block{Asset} that has been modified.
+
+
+\paragraph{Attributes of AssetChanged}\mbox{}
+\label{sec:Attributes of AssetChanged}
+
+\tbl{Attributes of AssetChanged} lists the attributes of \texttt{AssetChanged}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of AssetChanged}
+  \label{table:Attributes of AssetChanged}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{assetType}[AssetChanged] & \texttt{AssetTypeEnum} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{AssetChanged}:
+
+\begin{itemize}
+
+\item \property{assetType}[AssetChanged] \newline The type of asset changed.
+
+\texttt{AssetTypeEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{CuttingTool} \newline \block{CuttingTool} \block{Asset} type. 
+\item \texttt{File} \newline \block{File} \block{Asset} type. 
+\end{itemize}
+
+\end{itemize}
+
 
 
 \subsubsection{AssetRemoved}
@@ -166,7 +199,38 @@ The value of the \gls{CDATA} for the event \textbf{MUST} be the \block{assetId} 
 
 
 
-The value of the \gls{CDATA} for the event \textbf{MUST} be the \block{assetId} of the asset that has been removed. The asset will still be visible if requested with the \block{includeRemoved} parameter as described in the protocol section. When assets are removed they are not moved to the beginning of the most recently modified list.
+An \gls{MTConnect Asset} has been removed.
+
+The value \textbf{MUST} be the \property{assetId} of the \block{Asset} that has been removed.
+
+
+\paragraph{Attributes of AssetRemoved}\mbox{}
+\label{sec:Attributes of AssetRemoved}
+
+\tbl{Attributes of AssetRemoved} lists the attributes of \texttt{AssetRemoved}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of AssetRemoved}
+  \label{table:Attributes of AssetRemoved}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{assetType}[AssetRemoved] & \texttt{AssetTypeEnum} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{AssetRemoved}:
+
+\begin{itemize}
+
+\item \property{assetType}[AssetRemoved] \newline The type of asset removed.
+\end{itemize}
+
 
 
 \subsubsection{Availability}
@@ -187,7 +251,7 @@ The value of \texttt{Availability} \MUST be one of the following:
 \item \texttt{UNAVAILABLE} \newline The value of the \gls{Data Entity} either when the data is not received or the entity is incapable of providing data. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{AxisCoupling}
 \label{sec:AxisCoupling}
@@ -196,7 +260,7 @@ The value of \texttt{Availability} \MUST be one of the following:
 
 Describes the way the axes will be associated to each other. 
   
- This is used in conjunction with \block{COUPLED\textunderscore AXES} to indicate the way they are interacting.
+This is used in conjunction with \block{CoupledAxis} to indicate the way they are interacting.
 
 
 The value of \texttt{AxisCoupling} \MUST be one of the following: 
@@ -211,7 +275,7 @@ The value of \texttt{AxisCoupling} \MUST be one of the following:
 \item \texttt{SLAVE} \newline The axis is a slave to the \block{COUPLED\textunderscore AXES} 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{AxisFeedrateOverride}
 \label{sec:AxisFeedrateOverride}
@@ -221,9 +285,8 @@ The value of \texttt{AxisCoupling} \MUST be one of the following:
 The value of a signal or calculation issued to adjust the feedrate of an individual linear type axis.
 
 
-The value of \texttt{AxisFeedrateOverride} \MUST be one of the following: 
+The value of \texttt{AxisFeedrateOverride} \MUST be \texttt{float}.
 
-\FloatBarrier
 
 \paragraph{Subtypes of AxisFeedrateOverride}\mbox{}
 \label{sec:Subtypes of AxisFeedrateOverride}
@@ -248,25 +311,9 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 \end{itemize}
 
-\paragraph{JogAxisFeedrateOverride}\mbox{}
-\label{sec:JogAxisFeedrateOverride}
 
 
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
 
-
-\paragraph{ProgrammedAxisFeedrateOverride}\mbox{}
-\label{sec:ProgrammedAxisFeedrateOverride}
-
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-
-\paragraph{RapidAxisFeedrateOverride}\mbox{}
-\label{sec:RapidAxisFeedrateOverride}
-
-
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
 
 
 \subsubsection{AxisInterlock}
@@ -287,7 +334,7 @@ The value of \texttt{AxisInterlock} \MUST be one of the following:
 \item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{AxisState}
 \label{sec:AxisState}
@@ -309,7 +356,7 @@ The value of \texttt{AxisState} \MUST be one of the following:
 \item \texttt{STOPPED} \newline The component is stopped. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{Block}
 \label{sec:Block}
@@ -317,6 +364,7 @@ The value of \texttt{AxisState} \MUST be one of the following:
 
 
 The line of code or command being executed by a \block{Controller} \gls{Structural Element}.
+
 
 
 \subsubsection{BlockCount}
@@ -327,16 +375,16 @@ The line of code or command being executed by a \block{Controller} \gls{Structur
 The total count of the number of blocks of program code that have been executed since execution started.
 
 
-The value of \texttt{BlockCount} \MUST be one of the following: 
+The value of \texttt{BlockCount} \MUST be \texttt{integer}.
 
-\FloatBarrier
+
 
 \subsubsection{ChuckInterlock}
 
 
 
 
-An indication of the state of an interlock function or control logic state intended to prevent the associated \block{CHUCK} component from being operated.
+An indication of the state of an interlock function or control logic state intended to prevent the associated \block{Chuck} component from being operated.
 
 
 The value of \texttt{ChuckInterlock} \MUST be one of the following: 
@@ -349,7 +397,6 @@ The value of \texttt{ChuckInterlock} \MUST be one of the following:
 \item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
 \end{itemize}
 
-\FloatBarrier
 
 \paragraph{Subtypes of ChuckInterlock}\mbox{}
 \label{sec:Subtypes of ChuckInterlock}
@@ -360,19 +407,13 @@ The value of \texttt{ChuckInterlock} \MUST be one of the following:
 
 
 An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
- The \gls{Valid Data Value} \textbf{MUST} be \block{ACTIVE} or \block{INACTIVE}. 
- When \block{MANUAL\textunderscore UNCLAMP} is \block{ACTIVE}, it is expected that a chuck cannot be unclamped until \block{MANUAL\textunderscore UNCLAMP} is set to \block{INACTIVE}. 
+
+When \block{MANUAL\textunderscore UNCLAMP} is \texttt{ACTIVE}, it is expected that a chuck cannot be unclamped until \block{MANUAL\textunderscore UNCLAMP} is set to \texttt{INACTIVE}. 
 
 
 \end{itemize}
 
-\paragraph{ManualUnclampChuckInterlock}\mbox{}
-\label{sec:ManualUnclampChuckInterlock}
 
-
-An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
- The \gls{Valid Data Value} \textbf{MUST} be \block{ACTIVE} or \block{INACTIVE}. 
- When \block{MANUAL\textunderscore UNCLAMP} is \block{ACTIVE}, it is expected that a chuck cannot be unclamped until \block{MANUAL\textunderscore UNCLAMP} is set to \block{INACTIVE}. 
 
 
 \subsubsection{ChuckState}
@@ -394,7 +435,7 @@ The value of \texttt{ChuckState} \MUST be one of the following:
 \item \texttt{UNLATCHED} \newline An intermediate position. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{CloseChuck}
 \label{sec:CloseChuck}
@@ -402,6 +443,7 @@ The value of \texttt{ChuckState} \MUST be one of the following:
 
 
 Service to close a chuck.
+
 
 
 \subsubsection{CloseDoor}
@@ -412,12 +454,14 @@ Service to close a chuck.
 Service to close a door.
 
 
+
 \subsubsection{Code}
 \label{sec:Code}
 
 
 
 \textbf{DEPRECATED} in Version 1.1.
+
 
 
 \subsubsection{CompositionState}
@@ -437,83 +481,103 @@ An indication of the operating condition of a mechanism represented by a \block{
 
 
 An indication of the operating state of a mechanism represented by a \block{Composition} type component.
- The operating state indicates whether the \block{Composition} element is activated or disabled. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ACTIVE} or \block{INACTIVE}.
+
+
+The value for \block{CompositionState} when \property{subType} is \texttt{ACTION} \MUST be one of the following: 
+
+
+\texttt{ActionCompositionStateEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{ACTIVE} \newline The \block{Composition} element is operating. 
+\item \texttt{INACTIVE} \newline The \block{Composition} element is not operating. 
+\end{itemize}
 
 \item \texttt{LATERAL}
 
 
 An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a \block{Composition} type component. 
- The position information indicates whether the \block{Composition} element is positioned to the right, to the left, or is in transition.  
- The \gls{Valid Data Value} \textbf{MUST} be \block{RIGHT}, \block{LEFT}, or \block{TRANSITIONING}.
+
+The position information indicates whether the \block{Composition} element is positioned to the right, to the left, or is in transition. 
+
+
+The value for \block{CompositionState} when \property{subType} is \texttt{LATERAL} \MUST be one of the following: 
+
+
+\texttt{LateralCompositionStateEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{RIGHT} \newline The position of the \block{Composition} element is oriented to the right to the point of a positive confirmation. 
+\item \texttt{LEFT} \newline The position of the \block{Composition} element is oriented to the left to the point of a positive confirmation. 
+\item \texttt{TRANSITIONING} \newline The position of the \block{Composition} element is not oriented to the right to the point of a positive confirmation and is not oriented to the left to the point of a positive confirmation. It is in an intermediate position. 
+\end{itemize}
 
 \item \texttt{MOTION}
 
 
 An indication of the open or closed state of a mechanism.   The mechanism is represented by a \block{Composition} type component. 
- The operating state indicates whether the state of the \block{Composition} element is open, closed, or unlatched.   
- The \gls{Valid Data Value} \textbf{MUST} be \block{OPEN}, \block{UNLATCHED}, or \block{CLOSED}.
+
+The operating state indicates whether the state of the \block{Composition} element is open, closed, or unlatched.  
+
+
+The value for \block{CompositionState} when \property{subType} is \texttt{MOTION} \MUST be one of the following: 
+
+
+\texttt{MotionCompositionStateEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{OPEN} \newline The position of the \block{Composition} element is open to the point of a positive confirmation. 
+\item \texttt{UNLATCHED} \newline The position of the \block{Composition} element is not open to the
+point of a positive confirmation and is not closed to the point of a positive confirmation. It is in an intermediate position. 
+\item \texttt{CLOSED} \newline The position of the \block{Composition} element is closed to the point of a positive confirmation. 
+\end{itemize}
 
 \item \texttt{SWITCHED}
 
 
 An indication of the activation state of a mechanism represented by a \block{Composition} type component.
- The activation state indicates whether the \block{Composition} element is activated or not.
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
+
+The activation state indicates whether the \block{Composition} element is activated or not.
+
+
+
+The value for \block{CompositionState} when \property{subType} is \texttt{SWITCHED} \MUST be one of the following: 
+
+
+\texttt{SwitchedCompositionStateEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{ON} \newline The activation state of the \block{Composition} element is in an \texttt{ON} condition, it is operating, or it is powered. 
+\item \texttt{OFF} \newline The activation state of the \block{Composition} element is in an \texttt{OFF} condition, it is not operating, or it is not powered. 
+\end{itemize}
 
 \item \texttt{VERTICAL}
 
 
 An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a \block{Composition} type component. 
- The position information indicates whether the \block{Composition} element is positioned to the top, to the bottom, or is in transition.  
- The \gls{Valid Data Value} \textbf{MUST} be \block{UP}, \block{DOWN}, or \block{TRANSITIONING}.
+
+The position information indicates whether the \block{Composition} element is positioned to the top, to the bottom, or is in transition.
+
+
+The value for \block{CompositionState} when \property{subType} is \texttt{VERTICAL} \MUST be one of the following: 
+
+
+\texttt{VerticalCompositionStateEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{UP} \newline The position of the \block{Composition} element is oriented in an upward direction to the point of a positive confirmation. 
+\item \texttt{DOWN} \newline The position of the \block{Composition} element is oriented in a downward direction to the point of a positive confirmation. 
+\item \texttt{TRANSITIONING} \newline The position of the \block{Composition} element is not oriented in an upward direction to the point of a positive confirmation and is not oriented in a downward direction to the point of a positive confirmation. It is in an intermediate position. 
+\end{itemize}
 
 
 \end{itemize}
 
-\paragraph{ActionCompositionState}\mbox{}
-\label{sec:ActionCompositionState}
 
 
-An indication of the operating state of a mechanism represented by a \block{Composition} type component.
- The operating state indicates whether the \block{Composition} element is activated or disabled. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ACTIVE} or \block{INACTIVE}.
 
 
-\paragraph{LateralCompositionState}\mbox{}
-\label{sec:LateralCompositionState}
 
-
-An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a \block{Composition} type component. 
- The position information indicates whether the \block{Composition} element is positioned to the right, to the left, or is in transition.  
- The \gls{Valid Data Value} \textbf{MUST} be \block{RIGHT}, \block{LEFT}, or \block{TRANSITIONING}.
-
-
-\paragraph{MotionCompositionState}\mbox{}
-\label{sec:MotionCompositionState}
-
-
-An indication of the open or closed state of a mechanism.   The mechanism is represented by a \block{Composition} type component. 
- The operating state indicates whether the state of the \block{Composition} element is open, closed, or unlatched.   
- The \gls{Valid Data Value} \textbf{MUST} be \block{OPEN}, \block{UNLATCHED}, or \block{CLOSED}.
-
-
-\paragraph{SwitchedCompositionState}\mbox{}
-\label{sec:SwitchedCompositionState}
-
-
-An indication of the activation state of a mechanism represented by a \block{Composition} type component.
- The activation state indicates whether the \block{Composition} element is activated or not.
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
-
-
-\paragraph{VerticalCompositionState}\mbox{}
-\label{sec:VerticalCompositionState}
-
-
-An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a \block{Composition} type component. 
- The position information indicates whether the \block{Composition} element is positioned to the top, to the bottom, or is in transition.  
- The \gls{Valid Data Value} \textbf{MUST} be \block{UP}, \block{DOWN}, or \block{TRANSITIONING}.
 
 
 \subsubsection{ConnectionStatus}
@@ -537,7 +601,7 @@ The value of \texttt{ConnectionStatus} \MUST be one of the following:
 The normal state for the data transfer phase of the connection. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{ControlLimit}
 \label{sec:ControlLimit}
@@ -547,15 +611,31 @@ The normal state for the data transfer phase of the connection.
 A set of limits used to indicate whether a process variable is stable and in control.
 
 
-The value of \texttt{ControlLimit} \MUST be one of the following: 
+The \block{Entry} \property{key} \MUST be one or more from the following:
 
-\FloatBarrier
+\texttt{ControlLimitResultType} keys:
 
-\subsubsection{ControlLimitResultType}
-\label{sec:ControlLimitResultType}
+\begin{itemize}
+\item \texttt{UPPER\textunderscore LIMIT} \newline The upper conformance boundary for a variable.
 
+\newline Note: immediate concern or action may be required. 
+\newline The value of \texttt{UPPER\textunderscore LIMIT} \MUST be \texttt{float}.
 
+\item \texttt{UPPER\textunderscore WARNING} \newline The upper boundary indicating increased concern and supervision may be required. 
+\newline The value of \texttt{UPPER\textunderscore WARNING} \MUST be \texttt{float}.
 
+\item \texttt{NOMINAL} \newline The ideal or desired value for a variable. 
+\newline The value of \texttt{NOMINAL} \MUST be \texttt{float}.
+
+\item \texttt{LOWER\textunderscore WARNING} \newline The lower boundary indicating increased concern and supervision may be required. 
+\newline The value of \texttt{LOWER\textunderscore WARNING} \MUST be \texttt{float}.
+
+\item \texttt{LOWER\textunderscore LIMIT} \newline The lower conformance boundary for a variable.
+
+\newline Note: immediate concern or action may be required. 
+\newline The value of \texttt{LOWER\textunderscore LIMIT} \MUST be \texttt{float}.
+
+\end{itemize}
 
 
 
@@ -580,7 +660,7 @@ The value of \texttt{ControllerMode} \MUST be one of the following:
 \item \texttt{EDIT} \newline The controller is currently functioning as a programming device and is not capable of executing an active program. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{ControllerModeOverride}
 \label{sec:ControllerModeOverride}
@@ -600,7 +680,6 @@ The value of \texttt{ControllerModeOverride} \MUST be one of the following:
 \item \texttt{OFF} \newline Off state or value. 
 \end{itemize}
 
-\FloatBarrier
 
 \paragraph{Subtypes of ControllerModeOverride}\mbox{}
 \label{sec:Subtypes of ControllerModeOverride}
@@ -611,91 +690,53 @@ The value of \texttt{ControllerModeOverride} \MUST be one of the following:
 
 
 A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
- When \block{DRY\textunderscore RUN} is \block{ON}, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
+
+When \block{DRY\textunderscore RUN} is \texttt{ON}, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
 
 \item \texttt{MACHINE\textunderscore AXIS\textunderscore LOCK}
 
 
 A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
- When \block{MACHINE\textunderscore AXIS\textunderscore LOCK} is \block{ON}, program execution continues normally, but no equipment motion occurs 
+ 
+When \block{MACHINE\textunderscore AXIS\textunderscore LOCK} is \texttt{ON}, program execution continues normally, but no equipment motion occurs.
 
 \item \texttt{OPTIONAL\textunderscore STOP}
 
 
 A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
- The program execution is stopped after a specific program block is executed when \block{OPTIONAL\textunderscore STOP} is \block{ON}.    
- In the case of a G-Code program, a program \block{BLOCK} containing a M01 code designates the command for an \block{OPTIONAL\textunderscore STOP}. 
- \block{EXECUTION} \textbf{MUST} change to \block{OPTIONAL\textunderscore STOP} after a program block specifying an optional stop is executed and the \block{OPTIONAL\textunderscore STOP} selection is \block{ON}.
+
+The program execution is stopped after a specific program block is executed when \block{OPTIONAL\textunderscore STOP} is \texttt{ON}.    
+
+In the case of a G-Code program, a program \block{Block} containing a M01 code designates the command for an \block{OPTIONAL\textunderscore STOP}. 
+
+\block{Execution} \textbf{MUST} change to \block{OPTIONAL\textunderscore STOP} after a program block specifying an optional stop is executed and the \block{OPTIONAL\textunderscore STOP} selection is \texttt{ON}.
 
 \item \texttt{SINGLE\textunderscore BLOCK}
 
 
 A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
- Program execution is paused after each \block{BLOCK} of code is executed when \block{SINGLE\textunderscore BLOCK} is \block{ON}.   
- When \block{SINGLE\textunderscore BLOCK} is \block{ON}, \block{EXECUTION} \textbf{MUST} change to \block{INTERRUPTED} after completion of each \block{BLOCK} of code. 
+
+Program execution is paused after each \block{Block} of code is executed when \block{SINGLE\textunderscore BLOCK} is \texttt{ON}.   
+
+ When \block{SINGLE\textunderscore BLOCK} is \texttt{ON}, \block{Execution} \textbf{MUST} change to \texttt{INTERRUPTED} after completion of each \block{Block} of code. 
 
 \item \texttt{TOOL\textunderscore CHANGE\textunderscore STOP}
 
 
-A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
- Program execution is paused when a command is executed requesting a cutting tool to be changed. 
- \block{EXECUTION} \textbf{MUST} change to \block{INTERRUPTED} after completion of the command requesting a cutting tool to be changed and \block{TOOL\textunderscore CHANGE\textunderscore STOP} is \block{ON}.
+A setting or operator selection that changes the behavior of the controller on a piece of equipment.  
+
+Program execution is paused when a command is executed requesting a cutting tool to be changed. 
+
+\block{Execution} \textbf{MUST} change to \texttt{INTERRUPTED} after completion of the command requesting a cutting tool to be changed and \block{TOOL\textunderscore CHANGE\textunderscore STOP} is \texttt{ON}.
 
 
 \end{itemize}
 
-\paragraph{DryRunControllerModeOverride}\mbox{}
-\label{sec:DryRunControllerModeOverride}
 
 
-A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
- When \block{DRY\textunderscore RUN} is \block{ON}, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
 
 
-\paragraph{SingleBlockControllerModeOverride}\mbox{}
-\label{sec:SingleBlockControllerModeOverride}
 
-
-A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
- Program execution is paused after each \block{BLOCK} of code is executed when \block{SINGLE\textunderscore BLOCK} is \block{ON}.   
- When \block{SINGLE\textunderscore BLOCK} is \block{ON}, \block{EXECUTION} \textbf{MUST} change to \block{INTERRUPTED} after completion of each \block{BLOCK} of code. 
-
-
-\paragraph{MachineAxisLockControllerModeOverride}\mbox{}
-\label{sec:MachineAxisLockControllerModeOverride}
-
-
-A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
- When \block{MACHINE\textunderscore AXIS\textunderscore LOCK} is \block{ON}, program execution continues normally, but no equipment motion occurs 
-
-
-\paragraph{OptionalStopControllerModeOverride}\mbox{}
-\label{sec:OptionalStopControllerModeOverride}
-
-
-A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}.
- The program execution is stopped after a specific program block is executed when \block{OPTIONAL\textunderscore STOP} is \block{ON}.    
- In the case of a G-Code program, a program \block{BLOCK} containing a M01 code designates the command for an \block{OPTIONAL\textunderscore STOP}. 
- \block{EXECUTION} \textbf{MUST} change to \block{OPTIONAL\textunderscore STOP} after a program block specifying an optional stop is executed and the \block{OPTIONAL\textunderscore STOP} selection is \block{ON}.
-
-
-\paragraph{ToolChangeStopControllerModeOverride}\mbox{}
-\label{sec:ToolChangeStopControllerModeOverride}
-
-
-A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The \gls{Valid Data Value} \textbf{MUST} be \block{ON} or \block{OFF}. 
- Program execution is paused when a command is executed requesting a cutting tool to be changed. 
- \block{EXECUTION} \textbf{MUST} change to \block{INTERRUPTED} after completion of the command requesting a cutting tool to be changed and \block{TOOL\textunderscore CHANGE\textunderscore STOP} is \block{ON}.
 
 
 \subsubsection{CoupledAxes}
@@ -706,9 +747,9 @@ A setting or operator selection that changes the behavior of the controller on a
 Refers to the set of associated axes.
 
 
-The value of \texttt{CoupledAxes} \MUST be one of the following: 
+The value of \texttt{CoupledAxes} \MUST be \texttt{arraystring}.
 
-\FloatBarrier
+
 
 \subsubsection{DateCode}
 \label{sec:DateCode}
@@ -743,25 +784,9 @@ The time and date code relating to the production of a material or other physica
 
 \end{itemize}
 
-\paragraph{ManufactureDateCode}\mbox{}
-\label{sec:ManufactureDateCode}
 
 
-The time and date code relating to the production of a material or other physical item.
 
-
-\paragraph{ExpirationDateCode}\mbox{}
-\label{sec:ExpirationDateCode}
-
-
-The time and date code relating to the expiration or end of useful life for a material or other physical item.
-
-
-\paragraph{FirstUseDateCode}\mbox{}
-\label{sec:FirstUseDateCode}
-
-
-The time and date code relating the first use of a material or other physical item.
 
 
 \subsubsection{DeviceAdded}
@@ -772,12 +797,14 @@ The time and date code relating the first use of a material or other physical it
 An \block{Event} that provides the \gls{UUID} of new device added to an \gls{MTConnect Agent}.
 
 
+
 \subsubsection{DeviceChanged}
 \label{sec:DeviceChanged}
 
 
 
 An \block{Event} that provides the \gls{UUID} of the device whose \gls{Metadata} has changed.
+
 
 
 \subsubsection{DeviceRemoved}
@@ -788,14 +815,15 @@ An \block{Event} that provides the \gls{UUID} of the device whose \gls{Metadata}
 An \block{Event} that provides the \gls{UUID} of a device removed from an \gls{MTConnect Agent}.
 
 
+
 \subsubsection{DeviceUuid}
 \label{sec:DeviceUuid}
 
 
 
 The identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function.
-  
- The \gls{Valid Data Value} \textbf{MUST} be a NMTOKEN XML type.
+
+
 
 
 \subsubsection{Direction}
@@ -832,7 +860,6 @@ The value for \block{Direction} when \property{subType} is \texttt{LINEAR} \MUST
 
 
 The rotational direction of a rotary motion using the right hand rule convention.
- The \gls{Valid Data Value} \textbf{MUST} be \block{CLOCKWISE} or \block{COUNTER\textunderscore CLOCKWISE}.
 
 
 The value for \block{Direction} when \property{subType} is \texttt{ROTARY} \MUST be one of the following: 
@@ -849,19 +876,8 @@ The value for \block{Direction} when \property{subType} is \texttt{ROTARY} \MUST
 
 \end{itemize}
 
-\paragraph{RotaryDirection}\mbox{}
-\label{sec:RotaryDirection}
 
 
-The rotational direction of a rotary motion using the right hand rule convention.
- The \gls{Valid Data Value} \textbf{MUST} be \block{CLOCKWISE} or \block{COUNTER\textunderscore CLOCKWISE}.
-
-
-\paragraph{LinearDirection}\mbox{}
-\label{sec:LinearDirection}
-
-
-The direction of motion of a linear motion.
 
 
 \subsubsection{DoorState}
@@ -869,7 +885,7 @@ The direction of motion of a linear motion.
 
 
 
-The operational state of a \block{DOOR} type component or composition element.
+The operational state of a \block{Door} type component or composition element.
 
 
 The value of \texttt{DoorState} \MUST be one of the following: 
@@ -883,7 +899,7 @@ The value of \texttt{DoorState} \MUST be one of the following:
 \item \texttt{UNLATCHED} \newline An intermediate position. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{EmergencyStop}
 \label{sec:EmergencyStop}
@@ -903,7 +919,7 @@ The value of \texttt{EmergencyStop} \MUST be one of the following:
 \item \texttt{TRIGGERED} \newline The operation of the piece of equipment, component, or composition element is inhibited. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{EndOfBar}
 
@@ -923,7 +939,6 @@ The value of \texttt{EndOfBar} \MUST be one of the following:
 \item \texttt{NO} \newline The \block{END\textunderscore OF\textunderscore BAR} has not been reached. 
 \end{itemize}
 
-\FloatBarrier
 
 \paragraph{Subtypes of EndOfBar}\mbox{}
 \label{sec:Subtypes of EndOfBar}
@@ -933,36 +948,22 @@ The value of \texttt{EndOfBar} \MUST be one of the following:
 \item \texttt{AUXILIARY}
 
 
-When multiple locations on a piece of bar stock are referenced as the indication for the \block{END\textunderscore OF\textunderscore BAR}, the additional location(s) \textbf{MUST} be designated as \block{AUXILIARY} indication(s) for the \block{END\textunderscore OF\textunderscore BAR}.  
+When multiple locations on a piece of bar stock are referenced as the indication for the \block{EndOfBar}, the additional location(s) \textbf{MUST} be designated as \block{AUXILIARY} indication(s) for the \block{EndOfBar}.  
 
 \item \texttt{PRIMARY}
 
 
-Specific applications \textbf{MAY} reference one or more locations on a piece of bar stock as the indication for the \block{END\textunderscore OF\textunderscore BAR}. 
+Specific applications \textbf{MAY} reference one or more locations on a piece of bar stock as the indication for the \block{EndOfBar}. 
 
-The main or most important location \textbf{MUST} be designated as the \block{PRIMARY} indication for the \block{END\textunderscore OF\textunderscore BAR}.
+The main or most important location \textbf{MUST} be designated as the \block{PRIMARY} indication for the \block{EndOfBar}.
 
-If no \block{subType} is specified, \block{PRIMARY} \textbf{MUST} be the default \block{END\textunderscore OF\textunderscore BAR} indication.
+If no \block{subType} is specified, \block{PRIMARY} \textbf{MUST} be the default \block{EndOfBar} indication.
 
 
 \end{itemize}
 
-\paragraph{PrimaryEndOfBar}\mbox{}
-\label{sec:PrimaryEndOfBar}
 
 
-Specific applications \textbf{MAY} reference one or more locations on a piece of bar stock as the indication for the \block{END\textunderscore OF\textunderscore BAR}. 
-
-The main or most important location \textbf{MUST} be designated as the \block{PRIMARY} indication for the \block{END\textunderscore OF\textunderscore BAR}.
-
-If no \block{subType} is specified, \block{PRIMARY} \textbf{MUST} be the default \block{END\textunderscore OF\textunderscore BAR} indication.
-
-
-\paragraph{AuxiliaryEndOfBar}\mbox{}
-\label{sec:AuxiliaryEndOfBar}
-
-
-When multiple locations on a piece of bar stock are referenced as the indication for the \block{END\textunderscore OF\textunderscore BAR}, the additional location(s) \textbf{MUST} be designated as \block{AUXILIARY} indication(s) for the \block{END\textunderscore OF\textunderscore BAR}.  
 
 
 \subsubsection{EquipmentMode}
@@ -983,7 +984,6 @@ The value of \texttt{EquipmentMode} \MUST be one of the following:
 \item \texttt{OFF} \newline Off state or value. 
 \end{itemize}
 
-\FloatBarrier
 
 \paragraph{Subtypes of EquipmentMode}\mbox{}
 \label{sec:Subtypes of EquipmentMode}
@@ -1018,39 +1018,11 @@ A piece of equipment performing any activity, the equipment is active and perfor
 
 \end{itemize}
 
-\paragraph{LoadedEquipmentMode}\mbox{}
-\label{sec:LoadedEquipmentMode}
 
 
-Subparts of a piece of equipment are under load.
 
 
-\paragraph{WorkingEquipmentMode}\mbox{}
-\label{sec:WorkingEquipmentMode}
 
-
-A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
-
-
-\paragraph{OperatingEquipmentMode}\mbox{}
-\label{sec:OperatingEquipmentMode}
-
-
-A piece of equipment are powered or performing any activity.
-
-
-\paragraph{PoweredEquipmentMode}\mbox{}
-\label{sec:PoweredEquipmentMode}
-
-
-Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
-
-
-\paragraph{DelayEquipmentMode}\mbox{}
-\label{sec:DelayEquipmentMode}
-
-
-A piece of equipment waiting for an event or an action to occur.
 
 
 \subsubsection{Execution}
@@ -1077,7 +1049,7 @@ The value of \texttt{Execution} \MUST be one of the following:
 \item \texttt{PROGRAM\textunderscore COMPLETED} \newline The execution of the controllers program has been stopped by a command from within the program. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{Firmware}
 \label{sec:Firmware}
@@ -1120,39 +1092,11 @@ The version of the hardware or software.
 
 \end{itemize}
 
-\paragraph{VersionFirmware}\mbox{}
-\label{sec:VersionFirmware}
 
 
-The version of the hardware or software.
 
 
-\paragraph{ReleaseDateFirmware}\mbox{}
-\label{sec:ReleaseDateFirmware}
 
-
-The date the hardware or software was released for general use.
-
-
-\paragraph{ManufacturerFirmware}\mbox{}
-\label{sec:ManufacturerFirmware}
-
-
-The corporate identity for the maker of the hardware or software.
-
-
-\paragraph{LicenseFirmware}\mbox{}
-\label{sec:LicenseFirmware}
-
-
-The license code to validate or activate the hardware or software.
-
-
-\paragraph{InstallDateFirmware}\mbox{}
-\label{sec:InstallDateFirmware}
-
-
-The date the hardware or software was installed.
 
 
 \subsubsection{FunctionalMode}
@@ -1176,7 +1120,7 @@ The value of \texttt{FunctionalMode} \MUST be one of the following:
 \item \texttt{PROCESS\textunderscore DEVELOPMENT} \newline A \gls{Structural Element} is being used to prove-out a new process. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{Hardness}
 \label{sec:Hardness}
@@ -1186,9 +1130,8 @@ The value of \texttt{FunctionalMode} \MUST be one of the following:
 The measurement of the hardness of a material.
 
 
-The value of \texttt{Hardness} \MUST be one of the following: 
+The value of \texttt{Hardness} \MUST be \texttt{float}.
 
-\FloatBarrier
 
 \paragraph{Subtypes of Hardness}\mbox{}
 \label{sec:Subtypes of Hardness}
@@ -1228,46 +1171,12 @@ A scale to measure the resistance to deformation of a surface.
 
 \end{itemize}
 
-\paragraph{RockwellHardness}\mbox{}
-\label{sec:RockwellHardness}
 
 
-A scale to measure the resistance to deformation of a surface.
 
 
-\paragraph{VickersHardness}\mbox{}
-\label{sec:VickersHardness}
 
 
-A scale to measure the resistance to deformation of a surface.
-
-
-\paragraph{ShoreHardness}\mbox{}
-\label{sec:ShoreHardness}
-
-
-A scale to measure the resistance to deformation of a surface.
-
-
-\paragraph{BrinellHardness}\mbox{}
-\label{sec:BrinellHardness}
-
-
-A scale to measure the resistance to deformation of a surface.
-
-
-\paragraph{LeebHardness}\mbox{}
-\label{sec:LeebHardness}
-
-
-A scale to measure the elasticity of a surface.
-
-
-\paragraph{MohsHardness}\mbox{}
-\label{sec:MohsHardness}
-
-
-A scale to measure the resistance to scratching of a surface.
 
 
 \subsubsection{Hardware}
@@ -1311,39 +1220,11 @@ The version of the hardware or software.
 
 \end{itemize}
 
-\paragraph{VersionHardware}\mbox{}
-\label{sec:VersionHardware}
 
 
-The version of the hardware or software.
 
 
-\paragraph{ReleaseDateHardware}\mbox{}
-\label{sec:ReleaseDateHardware}
 
-
-The date the hardware or software was released for general use.
-
-
-\paragraph{ManufacturerHardware}\mbox{}
-\label{sec:ManufacturerHardware}
-
-
-The corporate identity for the maker of the hardware or software.
-
-
-\paragraph{LicenseHardware}\mbox{}
-\label{sec:LicenseHardware}
-
-
-The license code to validate or activate the hardware or software.
-
-
-\paragraph{InstallDateHardware}\mbox{}
-\label{sec:InstallDateHardware}
-
-
-The date the hardware or software was installed.
 
 
 \subsubsection{InterfaceState}
@@ -1364,7 +1245,7 @@ The value of \texttt{InterfaceState} \MUST be one of the following:
 \item \texttt{DISABLED} \newline A component is currently not operational. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{Library}
 \label{sec:Library}
@@ -1407,39 +1288,11 @@ The version of the hardware or software.
 
 \end{itemize}
 
-\paragraph{VersionLibrary}\mbox{}
-\label{sec:VersionLibrary}
 
 
-The version of the hardware or software.
 
 
-\paragraph{ReleaseDateLibrary}\mbox{}
-\label{sec:ReleaseDateLibrary}
 
-
-The date the hardware or software was released for general use.
-
-
-\paragraph{ManufacturerLibrary}\mbox{}
-\label{sec:ManufacturerLibrary}
-
-
-The corporate identity for the maker of the hardware or software.
-
-
-\paragraph{LicenseLibrary}\mbox{}
-\label{sec:LicenseLibrary}
-
-
-The license code to validate or activate the hardware or software.
-
-
-\paragraph{InstallDateLibrary}\mbox{}
-\label{sec:InstallDateLibrary}
-
-
-The date the hardware or software was installed.
 
 
 \subsubsection{Line}
@@ -1468,18 +1321,8 @@ The minimum value of a data entity or attribute.
 
 \end{itemize}
 
-\paragraph{MaximumLine}\mbox{}
-\label{sec:MaximumLine}
 
 
-Maximum value of a data entity or attribute.
-
-
-\paragraph{MinimumLine}\mbox{}
-\label{sec:MinimumLine}
-
-
-The minimum value of a data entity or attribute.
 
 
 \subsubsection{LineLabel}
@@ -1487,7 +1330,8 @@ The minimum value of a data entity or attribute.
 
 
 
-An optional identifier for a \block{BLOCK} of code in a \block{PROGRAM}.
+An optional identifier for a \block{Block} of code in a \block{Program}.
+
 
 
 \subsubsection{LineNumber}
@@ -1498,9 +1342,8 @@ An optional identifier for a \block{BLOCK} of code in a \block{PROGRAM}.
 A reference to the position of a block of program code within a control program.
 
 
-The value of \texttt{LineNumber} \MUST be one of the following: 
+The value of \texttt{LineNumber} \MUST be \texttt{integer}.
 
-\FloatBarrier
 
 \paragraph{Subtypes of LineNumber}\mbox{}
 \label{sec:Subtypes of LineNumber}
@@ -1515,23 +1358,13 @@ The position of a block of program code relative to the beginning of the control
 \item \texttt{INCREMENTAL}
 
 
-The position of a block of program code relative to the occurrence of the last \block{LINE\textunderscore LABEL} encountered in the control program.
+The position of a block of program code relative to the occurrence of the last \block{LineLabel} encountered in the control program.
 
 
 \end{itemize}
 
-\paragraph{AbsoluteLineNumber}\mbox{}
-\label{sec:AbsoluteLineNumber}
 
 
-The position of a block of program code relative to the beginning of the control program.
-
-
-\paragraph{IncrementalLineNumber}\mbox{}
-\label{sec:IncrementalLineNumber}
-
-
-The position of a block of program code relative to the occurrence of the last \block{LINE\textunderscore LABEL} encountered in the control program.
 
 
 \subsubsection{MTConnectVersion}
@@ -1542,12 +1375,14 @@ The position of a block of program code relative to the occurrence of the last \
 The reference version of the MTConnect Standard supported by the \gls{Adapter}.
 
 
-\subsubsection{Material}
 
+\subsubsection{Material}
+\label{sec:Material}
 
 
 
 The identifier of a material used or consumed in the manufacturing process.
+
 
 
 \subsubsection{MaterialChange}
@@ -1558,6 +1393,7 @@ The identifier of a material used or consumed in the manufacturing process.
 Service to change the type of material or product being loaded or fed to a piece of equipment.
 
 
+
 \subsubsection{MaterialFeed}
 \label{sec:MaterialFeed}
 
@@ -1566,14 +1402,16 @@ Service to change the type of material or product being loaded or fed to a piece
 Service to advance material or feed product to a piece of equipment from a continuous or bulk source.
 
 
+
 \subsubsection{MaterialLayer}
 \label{sec:MaterialLayer}
 
 
 
 Identifies the layers of material applied to a part or product as part of an additive manufacturing process.
-  
- The \gls{Valid Data Value} \textbf{MUST} be an integer.
+
+
+The value of \texttt{MaterialLayer} \MUST be \texttt{integer}.
 
 
 \paragraph{Subtypes of MaterialLayer}\mbox{}
@@ -1594,18 +1432,8 @@ The desired measure or count for a data item value.
 
 \end{itemize}
 
-\paragraph{ActualMaterialLayer}\mbox{}
-\label{sec:ActualMaterialLayer}
 
 
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{TargetMaterialLayer}\mbox{}
-\label{sec:TargetMaterialLayer}
-
-
-The desired measure or count for a data item value.
 
 
 \subsubsection{MaterialLoad}
@@ -1616,12 +1444,14 @@ The desired measure or count for a data item value.
 Service to load a piece of material or product.
 
 
+
 \subsubsection{MaterialRetract}
 \label{sec:MaterialRetract}
 
 
 
 Service to remove or retract material or product.
+
 
 
 \subsubsection{MaterialUnload}
@@ -1632,12 +1462,14 @@ Service to remove or retract material or product.
 Service to unload a piece of material or product.
 
 
+
 \subsubsection{Message}
 \label{sec:Message}
 
 
 
 Any text string of information to be transferred from a piece of equipment to a client software application.
+
 
 
 \subsubsection{Network}
@@ -1702,53 +1534,13 @@ The value for \block{Network} when \property{subType} is \texttt{WIRELESS} \MUST
 
 \end{itemize}
 
-\paragraph{IPv4AddressNetwork}\mbox{}
-\label{sec:IPv4AddressNetwork}
 
 
-The IPV4 network address of the component.
 
 
-\paragraph{IPv6AddressNetwork}\mbox{}
-\label{sec:IPv6AddressNetwork}
 
 
-The IPV6 network address of the component.
 
-
-\paragraph{GatewayNetwork}\mbox{}
-\label{sec:GatewayNetwork}
-
-
-The Gateway for the component network.
-
-
-\paragraph{SubnetMaskNetwork}\mbox{}
-\label{sec:SubnetMaskNetwork}
-
-
-The SubNet mask for the component network.
-
-
-\paragraph{VLanIdNetwork}\mbox{}
-\label{sec:VLanIdNetwork}
-
-
-The layer2 Virtual Local Network (VLAN) ID for the component network.
-
-
-\paragraph{MacAddressNetwork}\mbox{}
-\label{sec:MacAddressNetwork}
-
-
-Media Access Control Address. The unique physical address of the network hardware.
-
-
-\paragraph{WirelessNetwork}\mbox{}
-\label{sec:WirelessNetwork}
-
-
-Identifies whether the connection type is wireless.
 
 
 \subsubsection{OpenChuck}
@@ -1759,12 +1551,14 @@ Identifies whether the connection type is wireless.
 Service to open a chuck.
 
 
+
 \subsubsection{OpenDoor}
 \label{sec:OpenDoor}
 
 
 
 Service to open a door.
+
 
 
 \subsubsection{OperatingSystem}
@@ -1808,39 +1602,11 @@ The version of the hardware or software.
 
 \end{itemize}
 
-\paragraph{LicenseOperatingSystem}\mbox{}
-\label{sec:LicenseOperatingSystem}
 
 
-The license code to validate or activate the hardware or software.
 
 
-\paragraph{VersionOperatingSystem}\mbox{}
-\label{sec:VersionOperatingSystem}
 
-
-The version of the hardware or software.
-
-
-\paragraph{ReleaseDateOperatingSystem}\mbox{}
-\label{sec:ReleaseDateOperatingSystem}
-
-
-The date the hardware or software was released for general use.
-
-
-\paragraph{InstallDateOperatingSystem}\mbox{}
-\label{sec:InstallDateOperatingSystem}
-
-
-The date the hardware or software was installed.
-
-
-\paragraph{ManufacturerOperatingSystem}\mbox{}
-\label{sec:ManufacturerOperatingSystem}
-
-
-The corporate identity for the maker of the hardware or software.
 
 
 \subsubsection{OperatorId}
@@ -1851,12 +1617,14 @@ The corporate identity for the maker of the hardware or software.
 The identifier of the person currently responsible for operating the piece of equipment.
 
 
+
 \subsubsection{PalletId}
 \label{sec:PalletId}
 
 
 
 The identifier for a pallet.
+
 
 
 \subsubsection{PartChange}
@@ -1867,6 +1635,7 @@ The identifier for a pallet.
 Service to change the part or product associated with a piece of equipment to a different part or product.
 
 
+
 \subsubsection{PartCount}
 \label{sec:PartCount}
 
@@ -1875,9 +1644,8 @@ Service to change the part or product associated with a piece of equipment to a 
 The aggregate count of parts.
 
 
-The value of \texttt{PartCount} \MUST be one of the following: 
+The value of \texttt{PartCount} \MUST be \texttt{float}.
 
-\FloatBarrier
 
 \paragraph{Subtypes of PartCount}\mbox{}
 \label{sec:Subtypes of PartCount}
@@ -1912,39 +1680,11 @@ The number of projected or planned parts to be produced.
 
 \end{itemize}
 
-\paragraph{AllPartCount}\mbox{}
-\label{sec:AllPartCount}
 
 
-The number of parts produced. 
 
 
-\paragraph{GoodPartCount}\mbox{}
-\label{sec:GoodPartCount}
 
-
-The number of parts produced that conform to specification.
-
-
-\paragraph{BadPartCount}\mbox{}
-\label{sec:BadPartCount}
-
-
-The number of parts produced that do not conform to specification.
-
-
-\paragraph{TargetPartCount}\mbox{}
-\label{sec:TargetPartCount}
-
-
-The number of projected or planned parts to be produced.
-
-
-\paragraph{RemainingPartCount}\mbox{}
-\label{sec:RemainingPartCount}
-
-
-The number of remaining or in-stock parts to be produced.
 
 
 \subsubsection{PartDetect}
@@ -1966,7 +1706,7 @@ The value of \texttt{PartDetect} \MUST be one of the following:
 \item \texttt{NOT\textunderscore PRESENT} \newline If a part or work piece is not detected or is not present. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{PartGroupId}
 \label{sec:PartGroupId}
@@ -2011,39 +1751,11 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 \end{itemize}
 
-\paragraph{LotPartGroupId}\mbox{}
-\label{sec:LotPartGroupId}
 
 
-An identifier that references a group of parts tracked as a lot.
 
 
-\paragraph{RawMaterialPartGroupId}\mbox{}
-\label{sec:RawMaterialPartGroupId}
 
-
-The unique identifier for a singular piece of material that is used to make multiple parts.
-
-
-\paragraph{BatchPartGroupId}\mbox{}
-\label{sec:BatchPartGroupId}
-
-
-An identifier that references a group of parts produced in a batch.
-
-
-\paragraph{UuidPartGroupId}\mbox{}
-\label{sec:UuidPartGroupId}
-
-
-The globally unique identifier as specified in ISO 11578 or RFC 4122.
-
-
-\paragraph{HeatTreatPartGroupId}\mbox{}
-\label{sec:HeatTreatPartGroupId}
-
-
-An identifier used to reference a material heat number.
 
 
 \subsubsection{PartId}
@@ -2052,6 +1764,7 @@ An identifier used to reference a material heat number.
 
 
 An identifier of a part in a manufacturing operation.
+
 
 
 \subsubsection{PartKindId}
@@ -2092,32 +1805,10 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 \end{itemize}
 
-\paragraph{UuidPartKindId}\mbox{}
-\label{sec:UuidPartKindId}
 
 
-The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 
-\paragraph{PartFamilyPartKindId}\mbox{}
-\label{sec:PartFamilyPartKindId}
-
-
-An identifier given to a group of parts having similarities in geometry, manufacturing process, and/or functions.
-
-
-\paragraph{PartNamePartKindId}\mbox{}
-\label{sec:PartNamePartKindId}
-
-
-A word or set of words by which a part is known, addressed, or referred to.
-
-
-\paragraph{PartNumberPartKindId}\mbox{}
-\label{sec:PartNumberPartKindId}
-
-
-Identifier of a particular part design or model.
 
 
 \subsubsection{PartNumber}
@@ -2126,7 +1817,7 @@ Identifier of a particular part design or model.
 
 
 An identifier of a part or product moving through the manufacturing process. 
- The \gls{Valid Data Value} \textbf{MUST} be a text string. 
+
 
 
 \subsubsection{PartStatus}
@@ -2149,7 +1840,7 @@ The value of \texttt{PartStatus} \MUST be one of the following:
 \item \texttt{FAIL} \newline The part does not conform to some given requirements. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{PartUniqueId}
 \label{sec:PartUniqueId}
@@ -2184,25 +1875,9 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 \end{itemize}
 
-\paragraph{SerialNumberPartUniqueId}\mbox{}
-\label{sec:SerialNumberPartUniqueId}
 
 
-A serial number that uniquely identifies a specific part.
 
-
-\paragraph{RawMaterialPartUniqueId}\mbox{}
-\label{sec:RawMaterialPartUniqueId}
-
-
-The unique identifier for a singular piece of material that is used to make a single part.
-
-
-\paragraph{UuidPartUniqueId}\mbox{}
-\label{sec:UuidPartUniqueId}
-
-
-The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 
 \subsubsection{PathFeedrateOverride}
@@ -2213,9 +1888,8 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 The value of a signal or calculation issued to adjust the feedrate for the axes associated with a \block{Path} component that may represent a single axis or the coordinated movement of multiple axes.
 
 
-The value of \texttt{PathFeedrateOverride} \MUST be one of the following: 
+The value of \texttt{PathFeedrateOverride} \MUST be \texttt{float}.
 
-\FloatBarrier
 
 \paragraph{Subtypes of PathFeedrateOverride}\mbox{}
 \label{sec:Subtypes of PathFeedrateOverride}
@@ -2240,25 +1914,9 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 \end{itemize}
 
-\paragraph{JogPathFeedrateOverride}\mbox{}
-\label{sec:JogPathFeedrateOverride}
 
 
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
 
-
-\paragraph{ProgrammedPathFeedrateOverride}\mbox{}
-\label{sec:ProgrammedPathFeedrateOverride}
-
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-
-\paragraph{RapidPathFeedrateOverride}\mbox{}
-\label{sec:RapidPathFeedrateOverride}
-
-
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
 
 
 \subsubsection{PathMode}
@@ -2281,7 +1939,7 @@ The value of \texttt{PathMode} \MUST be one of the following:
 \item \texttt{MIRROR} \newline The axes associated with the path are mirroring the motion of the \block{MASTER} path. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{PowerState}
 \label{sec:PowerState}
@@ -2301,7 +1959,6 @@ The value of \texttt{PowerState} \MUST be one of the following:
 \item \texttt{OFF} \newline Off state or value. 
 \end{itemize}
 
-\FloatBarrier
 
 \paragraph{Subtypes of PowerState}\mbox{}
 \label{sec:Subtypes of PowerState}
@@ -2321,18 +1978,8 @@ The state of the power source for the \gls{Structural Element}.
 
 \end{itemize}
 
-\paragraph{LinePowerState}\mbox{}
-\label{sec:LinePowerState}
 
 
-The state of the power source for the \gls{Structural Element}.
-
-
-\paragraph{ControlPowerState}\mbox{}
-\label{sec:ControlPowerState}
-
-
-The state of the enabling signal or control logic that enables or disables the function or operation of the \gls{Structural Element}.
 
 
 \subsubsection{PowerStatus}
@@ -2341,6 +1988,7 @@ The state of the enabling signal or control logic that enables or disables the f
 
 
 \textbf{DEPRECATED} in Version 1.1.0.
+
 
 
 \subsubsection{ProcessAggregateId}
@@ -2374,25 +2022,9 @@ Identifier of the step in the process plan that this occurrence corresponds to. 
 
 \end{itemize}
 
-\paragraph{OrderNumberProcessAggregateId}\mbox{}
-\label{sec:OrderNumberProcessAggregateId}
 
 
-Identifier of the authorization of the process occurrence. Synonyms include "job id", "work order".
 
-
-\paragraph{ProcessStepProcessAggregateId}\mbox{}
-\label{sec:ProcessStepProcessAggregateId}
-
-
-Identifier of the step in the process plan that this occurrence corresponds to. Synonyms include "operation id".
-
-
-\paragraph{ProcessPlanProcessAggregateId}\mbox{}
-\label{sec:ProcessPlanProcessAggregateId}
-
-
-Identifier of the process plan that this occurrence belongs to. Synonyms include "routing id", "job id".
 
 
 \subsubsection{ProcessKindId}
@@ -2426,25 +2058,9 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 \end{itemize}
 
-\paragraph{UuidProcessKindId}\mbox{}
-\label{sec:UuidProcessKindId}
 
 
-The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
-
-\paragraph{ISOStepExecutableProcessKindId}\mbox{}
-\label{sec:ISOStepExecutableProcessKindId}
-
-
-A reference to a ISO 10303 Executable.
-
-
-\paragraph{ProcessNameProcessKindId}\mbox{}
-\label{sec:ProcessNameProcessKindId}
-
-
-A word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to.
 
 
 \subsubsection{ProcessOccurrenceId}
@@ -2453,6 +2069,7 @@ A word or set of words by which a process being executed (process occurrence) by
 
 
 An identifier of a process being executed by the device.
+
 
 
 \subsubsection{ProcessState}
@@ -2477,7 +2094,7 @@ The value of \texttt{ProcessState} \MUST be one of the following:
 \item \texttt{COMPLETE} \newline The process occurrence is now complete. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{ProcessTime}
 \label{sec:ProcessTime}
@@ -2486,7 +2103,7 @@ The value of \texttt{ProcessState} \MUST be one of the following:
 
 The time and date associated with an activity or event.
   
- \block{PROCESS\textunderscore TIME} \textbf{MUST} be reported in ISO 8601 format.
+\block{ProcessTime} \textbf{MUST} be reported in ISO 8601 format.
 
 
 \paragraph{Subtypes of ProcessTime}\mbox{}
@@ -2512,25 +2129,9 @@ The projected time and date associated with the end or completion of an activity
 
 \end{itemize}
 
-\paragraph{StartProcessTime}\mbox{}
-\label{sec:StartProcessTime}
 
 
-The time and date associated with the beginning of an activity or event.
 
-
-\paragraph{CompleteProcessTime}\mbox{}
-\label{sec:CompleteProcessTime}
-
-
-Completion of an action.
-
-
-\paragraph{TargetCompletionProcessTime}\mbox{}
-\label{sec:TargetCompletionProcessTime}
-
-
-The projected time and date associated with the end or completion of an activity or event.
 
 
 \subsubsection{Program}
@@ -2541,13 +2142,14 @@ The projected time and date associated with the end or completion of an activity
 The name of the logic or motion program being executed by the \block{Controller} component.
 
 
+
 \subsubsection{ProgramComment}
 \label{sec:ProgramComment}
 
 
 
 A comment or non-executable statement in the control program.
- The \gls{Valid Data Value} \textbf{MUST} be a text string.
+
 
 
 \subsubsection{ProgramEdit}
@@ -2556,7 +2158,8 @@ A comment or non-executable statement in the control program.
 
 
 An indication of the status of the \block{Controller} components program editing mode. 
- On many controls, a program can be edited while another program is currently being executed.
+
+On many controls, a program can be edited while another program is currently being executed.
 
 
 The value of \texttt{ProgramEdit} \MUST be one of the following: 
@@ -2570,7 +2173,7 @@ The value of \texttt{ProgramEdit} \MUST be one of the following:
 \item \texttt{NOT\textunderscore READY} \newline A component is not ready to engage. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{ProgramEditName}
 \label{sec:ProgramEditName}
@@ -2578,8 +2181,9 @@ The value of \texttt{ProgramEdit} \MUST be one of the following:
 
 
 The name of the program being edited. 
- This is used in conjunction with \block{PROGRAM\textunderscore EDIT} when in \block{ACTIVE} state. 
- The \gls{Valid Data Value} \textbf{MUST} be a text string.
+
+This is used in conjunction with \block{ProgramEdit} when in \texttt{ACTIVE} state. 
+
 
 
 \subsubsection{ProgramHeader}
@@ -2598,7 +2202,7 @@ The non-executable header section of the control program.
 \item \texttt{ACTIVE}
 
 
-The value of the \gls{Data Entity} that is engaging.
+The identity of the logic or motion program currently executing.
 
 \item \texttt{MAIN}
 
@@ -2613,25 +2217,9 @@ The identity of a control program that is used to specify the order of execution
 
 \end{itemize}
 
-\paragraph{MainProgramHeader}\mbox{}
-\label{sec:MainProgramHeader}
 
 
-The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
 
-
-\paragraph{ScheduleProgramHeader}\mbox{}
-\label{sec:ScheduleProgramHeader}
-
-
-The identity of a control program that is used to specify the order of execution of other programs.
-
-
-\paragraph{ActiveProgramHeader}\mbox{}
-\label{sec:ActiveProgramHeader}
-
-
-The value of the \gls{Data Entity} that is engaging.
 
 
 \subsubsection{ProgramLocation}
@@ -2639,7 +2227,7 @@ The value of the \gls{Data Entity} that is engaging.
 
 
 
-The Uniform Resource Identifier (URI) for the source file associated with \block{PROGRAM}.
+The Uniform Resource Identifier (URI) for the source file associated with \block{Program}.
 
 
 \paragraph{Subtypes of ProgramLocation}\mbox{}
@@ -2650,7 +2238,7 @@ The Uniform Resource Identifier (URI) for the source file associated with \block
 \item \texttt{ACTIVE}
 
 
-The value of the \gls{Data Entity} that is engaging.
+The identity of the logic or motion program currently executing.
 
 \item \texttt{MAIN}
 
@@ -2665,25 +2253,9 @@ The identity of a control program that is used to specify the order of execution
 
 \end{itemize}
 
-\paragraph{ScheduleProgramLocation}\mbox{}
-\label{sec:ScheduleProgramLocation}
 
 
-The identity of a control program that is used to specify the order of execution of other programs.
 
-
-\paragraph{MainProgramLocation}\mbox{}
-\label{sec:MainProgramLocation}
-
-
-The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
-
-
-\paragraph{ActiveProgramLocation}\mbox{}
-\label{sec:ActiveProgramLocation}
-
-
-The value of the \gls{Data Entity} that is engaging.
 
 
 \subsubsection{ProgramLocationType}
@@ -2691,9 +2263,8 @@ The value of the \gls{Data Entity} that is engaging.
 
 
 
-Defines whether the logic or motion program defined by \block{PROGRAM} is being executed from the local memory of the controller or from an outside source.
-  
- The \gls{Valid Data Value} \textbf{MUST} be \block{LOCAL} or \block{EXTERNAL}.
+Defines whether the logic or motion program defined by \block{Program} is being executed from the local memory of the controller or from an outside source.
+
 
 
 \paragraph{Subtypes of ProgramLocationType}\mbox{}
@@ -2704,7 +2275,7 @@ Defines whether the logic or motion program defined by \block{PROGRAM} is being 
 \item \texttt{ACTIVE}
 
 
-The value of the \gls{Data Entity} that is engaging.
+The identity of the logic or motion program currently executing.
 
 \item \texttt{MAIN}
 
@@ -2719,25 +2290,9 @@ The identity of a control program that is used to specify the order of execution
 
 \end{itemize}
 
-\paragraph{ScheduleProgramLocationType}\mbox{}
-\label{sec:ScheduleProgramLocationType}
 
 
-The identity of a control program that is used to specify the order of execution of other programs.
 
-
-\paragraph{MainProgramLocationType}\mbox{}
-\label{sec:MainProgramLocationType}
-
-
-The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
-
-
-\paragraph{ActiveProgramLocationType}\mbox{}
-\label{sec:ActiveProgramLocationType}
-
-
-The value of the \gls{Data Entity} that is engaging.
 
 
 \subsubsection{ProgramNestLevel}
@@ -2747,9 +2302,12 @@ The value of the \gls{Data Entity} that is engaging.
 
 An indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed.
   
- If an Initial Value is not defined, the nesting level associated with the highest or initial nesting level of the program \textbf{MUST} default to zero (0).
-  
- The value reported for \block{PROGRAM\textunderscore NEST\textunderscore LEVEL} \textbf{MUST} be an integer.
+If an Initial Value is not defined, the nesting level associated with the highest or initial nesting level of the program \textbf{MUST} default to zero (0).
+
+
+
+The value of \texttt{ProgramNestLevel} \MUST be \texttt{integer}.
+
 
 
 \subsubsection{RotaryMode}
@@ -2771,7 +2329,7 @@ The value of \texttt{RotaryMode} \MUST be one of the following:
 \item \texttt{CONTOUR} \newline The position of the axis is being interpolated. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{RotaryVelocityOverride}
 \label{sec:RotaryVelocityOverride}
@@ -2779,22 +2337,24 @@ The value of \texttt{RotaryMode} \MUST be one of the following:
 
 
 The value of a command issued to adjust the programmed velocity for a \block{Rotary} type axis.
- This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a \block{Rotary} type axis.
+
+This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a \block{Rotary} type axis.
 
 
-The value of \texttt{RotaryVelocityOverride} \MUST be one of the following: 
+The value of \texttt{RotaryVelocityOverride} \MUST be \texttt{float}.
 
-\FloatBarrier
+
 
 \subsubsection{Rotation}
-
+\label{sec:Rotation}
 
 
 
 A three space angular rotation relative to a coordinate system.
 
 
-Units: \texttt{DEGREE\textunderscore 3D}.
+\texttt{units}: \texttt{DEGREE\textunderscore 3D}.
+
 
 \subsubsection{SensorAttachment}
 \label{sec:SensorAttachment}
@@ -2804,15 +2364,18 @@ Units: \texttt{DEGREE\textunderscore 3D}.
 The reference version of the MTConnect Standard supported by the \gls{Adapter}.
 
 
-The value of \texttt{SensorAttachment} \MUST be one of the following: 
+The \block{Entry} \property{key} \MUST be one or more from the following:
 
-\FloatBarrier
+\texttt{SensorAttachmentResultType} keys:
 
-\subsubsection{SensorAttachmentResultType}
-\label{sec:SensorAttachmentResultType}
+\begin{itemize}
+\item \texttt{SENSOR\textunderscore ID} \newline The identity of a sensor used to observe some measurement of an item. 
+\newline The value of \texttt{SENSOR\textunderscore ID} \MUST be \texttt{string}.
 
+\item \texttt{result} \newline  
+\newline The value of \texttt{result} \MUST be \texttt{string}.
 
-
+\end{itemize}
 
 
 
@@ -2821,7 +2384,8 @@ The value of \texttt{SensorAttachment} \MUST be one of the following:
 
 
 
-The serial number associated with a \block{Component}, \block{Asset}, or \block{Device}. The \gls{Valid Data Value} \textbf{MUST} be a text string.
+The serial number associated with a \block{Component}, \block{Asset}, or \block{Device}.
+
 
 
 \subsubsection{SpecificationLimit}
@@ -2832,15 +2396,25 @@ The serial number associated with a \block{Component}, \block{Asset}, or \block{
 A set of limits defining a range of values designating acceptable performance for a variable.
 
 
-The value of \texttt{SpecificationLimit} \MUST be one of the following: 
+The \block{Entry} \property{key} \MUST be one or more from the following:
 
-\FloatBarrier
+\texttt{SpecificationLimitResultType} keys:
 
-\subsubsection{SpecificationLimitResultType}
-\label{sec:SpecificationLimitResultType}
+\begin{itemize}
+\item \texttt{UPPER\textunderscore LIMIT} \newline The upper conformance boundary for a variable.
 
+\newline Note: immediate concern or action may be required. 
+\newline The value of \texttt{UPPER\textunderscore LIMIT} \MUST be \texttt{float}.
 
+\item \texttt{NOMINAL} \newline The ideal or desired value for a variable. 
+\newline The value of \texttt{NOMINAL} \MUST be \texttt{float}.
 
+\item \texttt{LOWER\textunderscore LIMIT} \newline The lower conformance boundary for a variable.
+
+\newline Note: immediate concern or action may be required. 
+\newline The value of \texttt{LOWER\textunderscore LIMIT} \MUST be \texttt{float}.
+
+\end{itemize}
 
 
 
@@ -2862,14 +2436,15 @@ The value of \texttt{SpindleInterlock} \MUST be one of the following:
 \item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{ToolAssetId}
 \label{sec:ToolAssetId}
 
 
 
-The identifier of an individual tool asset.The \gls{Valid Data Value} \textbf{MUST} be a text string.
+The identifier of an individual tool asset.
+
 
 
 \subsubsection{ToolGroup}
@@ -2880,12 +2455,14 @@ The identifier of an individual tool asset.The \gls{Valid Data Value} \textbf{MU
 An identifier for the tool group associated with a specific tool. Commonly used to designate spare tools.
 
 
+
 \subsubsection{ToolId}
 \label{sec:ToolId}
 
 
 
-\textbf{DEPRECATED} in Version 1.2.0.   See \block{TOOL\textunderscore ASSET\textunderscore ID}. \textit{DEPRECATED:The identifier of the tool currently in use for a given \block{Path}.}
+\textbf{DEPRECATED} in Version 1.2.0.   See \block{ToolAssetId}. 
+
 
 
 \subsubsection{ToolNumber}
@@ -2894,7 +2471,7 @@ An identifier for the tool group associated with a specific tool. Commonly used 
 
 
 The identifier assigned by the \block{Controller} component to a cutting tool when in use by a piece of equipment. 
- The \gls{Valid Data Value} \textbf{MUST} be a text string.
+
 
 
 \subsubsection{ToolOffset}
@@ -2905,9 +2482,8 @@ The identifier assigned by the \block{Controller} component to a cutting tool wh
 A reference to the tool offset variables applied to the active cutting tool associated with a \block{Path} in a \block{Controller} type component.
 
 
-The value of \texttt{ToolOffset} \MUST be one of the following: 
+The value of \texttt{ToolOffset} \MUST be \texttt{float}.
 
-\FloatBarrier
 
 \paragraph{Subtypes of ToolOffset}\mbox{}
 \label{sec:Subtypes of ToolOffset}
@@ -2927,29 +2503,20 @@ A reference to a radial type tool offset variable.
 
 \end{itemize}
 
-\paragraph{RadialToolOffset}\mbox{}
-\label{sec:RadialToolOffset}
 
 
-A reference to a radial type tool offset variable.
-
-
-\paragraph{LengthToolOffset}\mbox{}
-\label{sec:LengthToolOffset}
-
-
-A reference to a length type tool offset variable.
 
 
 \subsubsection{Translation}
-
+\label{sec:Translation}
 
 
 
 A three space linear translation relative to a coordinate system.
 
 
-Units: \texttt{MILLIMETER\textunderscore 3D}.
+\texttt{units}: \texttt{MILLIMETER\textunderscore 3D}.
+
 
 \subsubsection{User}
 \label{sec:User}
@@ -2982,25 +2549,9 @@ The identifier of the person currently responsible for preparing a piece of equi
 
 \end{itemize}
 
-\paragraph{OperatorUser}\mbox{}
-\label{sec:OperatorUser}
 
 
-The identifier of the person currently responsible for operating the piece of equipment.
 
-
-\paragraph{MaintenanceUser}\mbox{}
-\label{sec:MaintenanceUser}
-
-
-Action related to maintenance on the piece of equipment.
-
-
-\paragraph{SetUpUser}\mbox{}
-\label{sec:SetUpUser}
-
-
-The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
 
 
 \subsubsection{Variable}
@@ -3011,12 +2562,13 @@ The identifier of the person currently responsible for preparing a piece of equi
 A data value whose meaning may change over time due to changes in the opertion of a piece of equipment or the process being executed on that piece of equipment.
 
 
+
 \subsubsection{WaitState}
 \label{sec:WaitState}
 
 
 
-An indication of the reason that \block{EXECUTION} is reporting a value of \block{WAIT}.
+An indication of the reason that \block{Execution} is reporting a value of \texttt{WAIT}.
 
 
 The value of \texttt{WaitState} \MUST be one of the following: 
@@ -3038,14 +2590,15 @@ The value of \texttt{WaitState} \MUST be one of the following:
 \item \texttt{RESUMING} \newline An indication that the execution is waiting while the equipment is resuming the production cycle but has not yet resumed execution. 
 \end{itemize}
 
-\FloatBarrier
+
 
 \subsubsection{Wire}
-
+\label{sec:Wire}
 
 
 
 A string like piece or filament of relatively rigid or flexible material provided in a variety of diameters.
+
 
 
 \subsubsection{WorkOffset}
@@ -3056,9 +2609,9 @@ A string like piece or filament of relatively rigid or flexible material provide
 A reference to the offset variables for a work piece or part associated with a \block{Path} in a \block{Controller} type component.
 
 
-The value of \texttt{WorkOffset} \MUST be one of the following: 
+The value of \texttt{WorkOffset} \MUST be \texttt{float}.
 
-\FloatBarrier
+
 
 \subsubsection{WorkholdingId}
 \label{sec:WorkholdingId}
@@ -3066,5 +2619,5 @@ The value of \texttt{WorkOffset} \MUST be one of the following:
 
 
 The identifier for the current workholding or part clamp in use by a piece of equipment. 
- The \gls{Valid Data Value} \textbf{MUST} be a text string.
+
 

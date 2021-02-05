@@ -27,7 +27,7 @@ The \block{Streams} section of the \block{MTConnectStreams} document contains a 
 
 \item \block{MTConnectDevices} document: \glspl{Structural Element} organize information that represents the physical and logical parts and sub-parts of a piece of equipment.  (See \citetitle{MTCPart2}, Section 4 of the MTConnect Standard for more details on \glspl{Structural Element} used in the \block{MTConnectDevices} document).  
 
-\item \block{MTConnectStreams} document: \glspl{Structural Element} provide the structure to organize the data returned from a piece of equipment and establishes the proper context for that data.  The \glspl{Structural Element} specifically defined for use in the \block{MTConnectStreams} document are \block{DeviceStream} (see \ref{DeviceStream}) and \block{ComponentStream} (see \ref{ComponentStream}).   
+\item \block{MTConnectStreams} document: \glspl{Structural Element} provide the structure to organize the data returned from a piece of equipment and establishes the proper context for that data.  The \glspl{Structural Element} specifically defined for use in the \block{MTConnectStreams} document are \block{DeviceStream} (see \sect{DeviceStream}) and \block{ComponentStream} (see \sect{ComponentStream}).   
 
 \block{DeviceStream} and \block{ComponentStream} elements have a direct correlation to each of the \glspl{Structural Element} defined in the \block{MTConnectDevices} document.
 \end{itemize}
@@ -40,13 +40,24 @@ The \block{Streams} section of the \block{MTConnectStreams} document contains a 
 \item \block{MTConnectStreams} document: \gls{Data Entity} elements provide the data reported by a piece of equipment.  This data is organized in separate \block{ComponentStream} containers for each of the \glspl{Structural Element} defined in the \block{MTConnectDevices} document associated with the data that is reported by a piece of equipment.  
 \end{itemize}
 
-Within each \block{ComponentStream} container in the \block{MTConnectStreams} document, \glspl{Data Entity} are organized into three types of container elements - \block{Samples}, \block{Events}, and \block{Conditions}.  (See \sect{DataItem Types} for more information on these elements.)
+Within each \block{ComponentStream} container in the \block{MTConnectStreams} document, \glspl{Data Entity} are organized into three types of container elements - \block{Samples}, \block{Events}, and \block{Conditions}.  (See \sect{Observation Types} for more information on these elements.)
+
+\section{Structural Elements for MTConnectStreams}
+\label{sec:Structural Elements for MTConnectStreams}
+
+\glspl{Structural Element} form the logical structure for the \gls{MTConnectStreams Response Document}.  These elements are used to organize the information and data that is reported by an \gls{Agent} for a piece of equipment.
+
+\begin{figure}[ht]
+  \centering
+    \includegraphics[width=1.0\textwidth]{figures/Observations.png}
+  \caption{Observations Diagram}
+  \label{fig:Observations Diagram}
+\end{figure}
+
+\FloatBarrier
 
 
-\section{Observations}
-\label{sec:Observations}
-
-
+Note: See \sect{Observations Schema Diagrams} for XML schema.
 
 \input model-sections/Streams.tex
 

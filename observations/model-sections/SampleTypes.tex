@@ -1,5 +1,9 @@
-% Generated 2021-01-20 01:46:26 +0530
+% Generated 2021-02-06 01:28:16 +0530
 \subsection{Sample Types} \label{sec:Sample Types}
+
+
+This section lists the \block{Sample} types.
+
 
 \subsubsection{Acceleration}
 \label{sec:Acceleration}
@@ -9,7 +13,8 @@
 The measurement of the rate of change of velocity.
 
 
-Units: \texttt{MILLIMETER/SECOND\^{}2}.
+\texttt{units}: \texttt{MILLIMETER/SECOND\^{}2}.
+
 
 \subsubsection{AccumulatedTime}
 \label{sec:AccumulatedTime}
@@ -19,7 +24,8 @@ Units: \texttt{MILLIMETER/SECOND\^{}2}.
 The measurement of accumulated time for an activity or event.
 
 
-Units: \texttt{SECOND}.
+\texttt{units}: \texttt{SECOND}.
+
 
 \subsubsection{Amperage}
 \label{sec:Amperage}
@@ -29,7 +35,7 @@ Units: \texttt{SECOND}.
 The measurement of electrical current.
 
 
-Units: \texttt{AMPERE}.
+\texttt{units}: \texttt{AMPERE}.
 
 \paragraph{Subtypes of Amperage}\mbox{}
 \label{sec:Subtypes of Amperage}
@@ -59,32 +65,10 @@ The desired measure or count for a data item value.
 
 \end{itemize}
 
-\paragraph{AlternatingAmperage}\mbox{}
-\label{sec:AlternatingAmperage}
 
 
-The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
 
 
-\paragraph{DirectAmperage}\mbox{}
-\label{sec:DirectAmperage}
-
-
-The measurement of DC current or voltage.
-
-
-\paragraph{ActualAmperage}\mbox{}
-\label{sec:ActualAmperage}
-
-
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{TargetAmperage}\mbox{}
-\label{sec:TargetAmperage}
-
-
-The desired measure or count for a data item value.
 
 
 \subsubsection{AmperageAC}
@@ -95,7 +79,7 @@ The desired measure or count for a data item value.
 The measurement of an electrical current that reverses direction at regular short intervals.
 
 
-Units: \texttt{AMPERE}.
+\texttt{units}: \texttt{AMPERE}.
 
 \paragraph{Subtypes of AmperageAC}\mbox{}
 \label{sec:Subtypes of AmperageAC}
@@ -120,25 +104,9 @@ The value for a current as specified by a logic or motion program or set by a sw
 
 \end{itemize}
 
-\paragraph{ActualAmperageAC}\mbox{}
-\label{sec:ActualAmperageAC}
 
 
-The measured amperage within an electrical circuit.
 
-
-\paragraph{CommandedAmperageAC}\mbox{}
-\label{sec:CommandedAmperageAC}
-
-
-The value for a current as specified by a component. 
-
-
-\paragraph{ProgrammedAmperageAC}\mbox{}
-\label{sec:ProgrammedAmperageAC}
-
-
-The value for a current as specified by a logic or motion program or set by a switch.
 
 
 \subsubsection{AmperageDC}
@@ -149,7 +117,7 @@ The value for a current as specified by a logic or motion program or set by a sw
 The measurement of an electric current flowing in one direction only.
 
 
-Units: \texttt{AMPERE}.
+\texttt{units}: \texttt{AMPERE}.
 
 \paragraph{Subtypes of AmperageDC}\mbox{}
 \label{sec:Subtypes of AmperageDC}
@@ -175,26 +143,9 @@ The value for a current as specified by a logic or motion program or set by a sw
 
 \end{itemize}
 
-\paragraph{ActualAmperageDC}\mbox{}
-\label{sec:ActualAmperageDC}
 
 
-The measured amperage within an electrical circuit.
 
-
-\paragraph{CommandedAmperageDC}\mbox{}
-\label{sec:CommandedAmperageDC}
-
-
-The value for a current as specified by a component. 
-The \block{COMMANDED} current is a calculated value that includes adjustments and overrides.
-
-
-\paragraph{ProgrammedAmperageDC}\mbox{}
-\label{sec:ProgrammedAmperageDC}
-
-
-The value for a current as specified by a logic or motion program or set by a switch.
 
 
 \subsubsection{Angle}
@@ -205,7 +156,7 @@ The value for a current as specified by a logic or motion program or set by a sw
 The measurement of angular position.
 
 
-Units: \texttt{DEGREE}.
+\texttt{units}: \texttt{DEGREE}.
 
 \paragraph{Subtypes of Angle}\mbox{}
 \label{sec:Subtypes of Angle}
@@ -225,18 +176,8 @@ A value specified by the \block{Controller} type component.
 
 \end{itemize}
 
-\paragraph{CommandedAngle}\mbox{}
-\label{sec:CommandedAngle}
 
 
-A value specified by the \block{Controller} type component.
-
-
-\paragraph{ActualAngle}\mbox{}
-\label{sec:ActualAngle}
-
-
-The measured value of the data item type given by a sensor or encoder.
 
 
 \subsubsection{AngularAcceleration}
@@ -247,7 +188,8 @@ The measured value of the data item type given by a sensor or encoder.
 The measurement rate of change of angular velocity.
 
 
-Units: \texttt{DEGREE/SECOND\^{}2}.
+\texttt{units}: \texttt{DEGREE/SECOND\^{}2}.
+
 
 \subsubsection{AngularDeceleration}
 \label{sec:AngularDeceleration}
@@ -257,7 +199,7 @@ Units: \texttt{DEGREE/SECOND\^{}2}.
 Negative rate of change of angular velocity.
 
 
-Units: \texttt{DEGREE/SECOND\^{}2}.
+\texttt{units}: \texttt{DEGREE/SECOND\^{}2}.
 
 \paragraph{Subtypes of AngularDeceleration}\mbox{}
 \label{sec:Subtypes of AngularDeceleration}
@@ -282,25 +224,9 @@ The programmed value.
 
 \end{itemize}
 
-\paragraph{ActualAngularDeceleration}\mbox{}
-\label{sec:ActualAngularDeceleration}
 
 
-The measured value.
 
-
-\paragraph{ProgrammedAngularDeceleration}\mbox{}
-\label{sec:ProgrammedAngularDeceleration}
-
-
-The programmed value.
-
-
-\paragraph{CommandedAngularDeceleration}\mbox{}
-\label{sec:CommandedAngularDeceleration}
-
-
-The commanded value.
 
 
 \subsubsection{AngularVelocity}
@@ -311,7 +237,8 @@ The commanded value.
 The measurement of the rate of change of angular position.
 
 
-Units: \texttt{DEGREE/SECOND}.
+\texttt{units}: \texttt{DEGREE/SECOND}.
+
 
 \subsubsection{AssetUpdateRate}
 \label{sec:AssetUpdateRate}
@@ -321,7 +248,8 @@ Units: \texttt{DEGREE/SECOND}.
 The average rate of change of values for assets in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
 
 
-Units: \texttt{COUNT/SECOND}.
+\texttt{units}: \texttt{COUNT/SECOND}.
+
 
 \subsubsection{AxisFeedrate}
 \label{sec:AxisFeedrate}
@@ -331,7 +259,7 @@ Units: \texttt{COUNT/SECOND}.
 The measurement of the feedrate of a linear axis.
 
 
-Units: \texttt{MILLIMETER/SECOND}.
+\texttt{units}: \texttt{MILLIMETER/SECOND}.
 
 \paragraph{Subtypes of AxisFeedrate}\mbox{}
 \label{sec:Subtypes of AxisFeedrate}
@@ -371,46 +299,12 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 \end{itemize}
 
-\paragraph{ActualAxisFeedrate}\mbox{}
-\label{sec:ActualAxisFeedrate}
 
 
-The measured value of the data item type given by a sensor or encoder.
 
 
-\paragraph{CommandedAxisFeedrate}\mbox{}
-\label{sec:CommandedAxisFeedrate}
 
 
-A value specified by the \block{Controller} type component.
-
-
-\paragraph{JogAxisFeedrate}\mbox{}
-\label{sec:JogAxisFeedrate}
-
-
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
-
-
-\paragraph{ProgrammedAxisFeedrate}\mbox{}
-\label{sec:ProgrammedAxisFeedrate}
-
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-
-\paragraph{RapidAxisFeedrate}\mbox{}
-\label{sec:RapidAxisFeedrate}
-
-
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
-
-
-\paragraph{OverrideAxisFeedrate}\mbox{}
-\label{sec:OverrideAxisFeedrate}
-
-
-The operators overridden value.
 
 
 \subsubsection{CapacityFluid}
@@ -421,7 +315,8 @@ The operators overridden value.
 The fluid capacity of an object or container.
 
 
-Units: \texttt{MILLILITER}.
+\texttt{units}: \texttt{MILLILITER}.
+
 
 \subsubsection{CapacitySpatial}
 \label{sec:CapacitySpatial}
@@ -431,7 +326,8 @@ Units: \texttt{MILLILITER}.
 The geometric capacity of an object or container.
 
 
-Units: \texttt{CUBIC\textunderscore MILLIMETER}.
+\texttt{units}: \texttt{CUBIC\textunderscore MILLIMETER}.
+
 
 \subsubsection{ClockTime}
 \label{sec:ClockTime}
@@ -441,7 +337,8 @@ Units: \texttt{CUBIC\textunderscore MILLIMETER}.
 The value provided by a timing device at a specific point in time.
 
 
-Units: \texttt{yyyy-mm-ddthh:mm:ss.ffff}.
+\texttt{units}: \texttt{yyyy-mm-ddthh:mm:ss.ffff}.
+
 
 \subsubsection{Concentration}
 \label{sec:Concentration}
@@ -451,7 +348,8 @@ Units: \texttt{yyyy-mm-ddthh:mm:ss.ffff}.
 The measurement of the percentage of one component within a mixture of components
 
 
-Units: \texttt{PERCENT}.
+\texttt{units}: \texttt{PERCENT}.
+
 
 \subsubsection{Conductivity}
 \label{sec:Conductivity}
@@ -461,7 +359,8 @@ Units: \texttt{PERCENT}.
 The measurement of the ability of a material to conduct electricity.
 
 
-Units: \texttt{SIEMENS/METER}.
+\texttt{units}: \texttt{SIEMENS/METER}.
+
 
 \subsubsection{CuttingSpeed}
 \label{sec:CuttingSpeed}
@@ -471,7 +370,7 @@ Units: \texttt{SIEMENS/METER}.
 The speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on.
 
 
-Units: \texttt{MILLIMETER/SECOND}.
+\texttt{units}: \texttt{MILLIMETER/SECOND}.
 
 \paragraph{Subtypes of CuttingSpeed}\mbox{}
 \label{sec:Subtypes of CuttingSpeed}
@@ -496,25 +395,9 @@ The value of a signal or calculation specified by a logic or motion program or s
 
 \end{itemize}
 
-\paragraph{ActualCuttingSpeed}\mbox{}
-\label{sec:ActualCuttingSpeed}
 
 
-The measured value of the data item type given by a sensor or encoder.
 
-
-\paragraph{CommandedCuttingSpeed}\mbox{}
-\label{sec:CommandedCuttingSpeed}
-
-
-A value specified by the \block{Controller} type component.
-
-
-\paragraph{ProgrammedCuttingSpeed}\mbox{}
-\label{sec:ProgrammedCuttingSpeed}
-
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
 
 \subsubsection{Deceleration}
@@ -525,7 +408,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 Negative rate of change of velocity.
 
 
-Units: \texttt{MILLIMETER/SECOND\^{}2}.
+\texttt{units}: \texttt{MILLIMETER/SECOND\^{}2}.
 
 \paragraph{Subtypes of Deceleration}\mbox{}
 \label{sec:Subtypes of Deceleration}
@@ -550,25 +433,9 @@ The programmed value.
 
 \end{itemize}
 
-\paragraph{ProgrammedDeceleration}\mbox{}
-\label{sec:ProgrammedDeceleration}
 
 
-The programmed value.
 
-
-\paragraph{CommandedDeceleration}\mbox{}
-\label{sec:CommandedDeceleration}
-
-
-The commanded value.
-
-
-\paragraph{ActualDeceleration}\mbox{}
-\label{sec:ActualDeceleration}
-
-
-The measured value.
 
 
 \subsubsection{Density}
@@ -579,7 +446,8 @@ The measured value.
 The volumetric mass of a material per unit volume of that material.
 
 
-Units: \texttt{MILLIGRAM/CUBIC\textunderscore MILLIMETER}.
+\texttt{units}: \texttt{MILLIGRAM/CUBIC\textunderscore MILLIMETER}.
+
 
 \subsubsection{DepositionAccelerationVolumetric}
 \label{sec:DepositionAccelerationVolumetric}
@@ -589,7 +457,7 @@ Units: \texttt{MILLIGRAM/CUBIC\textunderscore MILLIMETER}.
 The rate of change in spatial volume of material deposited in an additive manufacturing process.
 
 
-Units: \texttt{CUBIC\textunderscore MILLIMETER/SECOND\^{}2}.
+\texttt{units}: \texttt{CUBIC\textunderscore MILLIMETER/SECOND\^{}2}.
 
 \paragraph{Subtypes of DepositionAccelerationVolumetric}\mbox{}
 \label{sec:Subtypes of DepositionAccelerationVolumetric}
@@ -609,18 +477,8 @@ A value specified by the \block{Controller} type component.
 
 \end{itemize}
 
-\paragraph{ActualDepositionAccelerationVolumetric}\mbox{}
-\label{sec:ActualDepositionAccelerationVolumetric}
 
 
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{CommandedDepositionAccelerationVolumetric}\mbox{}
-\label{sec:CommandedDepositionAccelerationVolumetric}
-
-
-A value specified by the \block{Controller} type component.
 
 
 \subsubsection{DepositionDensity}
@@ -631,7 +489,7 @@ A value specified by the \block{Controller} type component.
 The density of the material deposited in an additive manufacturing process per unit of volume.
 
 
-Units: \texttt{MILLIGRAM/CUBIC\textunderscore MILLIMETER}.
+\texttt{units}: \texttt{MILLIGRAM/CUBIC\textunderscore MILLIMETER}.
 
 \paragraph{Subtypes of DepositionDensity}\mbox{}
 \label{sec:Subtypes of DepositionDensity}
@@ -651,18 +509,8 @@ A value specified by the \block{Controller} type component.
 
 \end{itemize}
 
-\paragraph{ActualDepositionDensity}\mbox{}
-\label{sec:ActualDepositionDensity}
 
 
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{CommandedDepositionDensity}\mbox{}
-\label{sec:CommandedDepositionDensity}
-
-
-A value specified by the \block{Controller} type component.
 
 
 \subsubsection{DepositionMass}
@@ -673,7 +521,7 @@ A value specified by the \block{Controller} type component.
 The mass of the material deposited in an additive manufacturing process.
 
 
-Units: \texttt{MILLIGRAM}.
+\texttt{units}: \texttt{MILLIGRAM}.
 
 \paragraph{Subtypes of DepositionMass}\mbox{}
 \label{sec:Subtypes of DepositionMass}
@@ -693,18 +541,8 @@ A value specified by the \block{Controller} type component.
 
 \end{itemize}
 
-\paragraph{ActualDepositionMass}\mbox{}
-\label{sec:ActualDepositionMass}
 
 
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{CommandedDepositionMass}\mbox{}
-\label{sec:CommandedDepositionMass}
-
-
-A value specified by the \block{Controller} type component.
 
 
 \subsubsection{DepositionRateVolumetric}
@@ -715,7 +553,7 @@ A value specified by the \block{Controller} type component.
 The rate at which a spatial volume of material is deposited in an additive manufacturing process.
 
 
-Units: \texttt{CUBIC\textunderscore MILLIMETER/SECOND}.
+\texttt{units}: \texttt{CUBIC\textunderscore MILLIMETER/SECOND}.
 
 \paragraph{Subtypes of DepositionRateVolumetric}\mbox{}
 \label{sec:Subtypes of DepositionRateVolumetric}
@@ -735,18 +573,8 @@ A value specified by the \block{Controller} type component.
 
 \end{itemize}
 
-\paragraph{ActualDepositionRateVolumetric}\mbox{}
-\label{sec:ActualDepositionRateVolumetric}
 
 
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{CommandedDepositionRateVolumetric}\mbox{}
-\label{sec:CommandedDepositionRateVolumetric}
-
-
-A value specified by the \block{Controller} type component.
 
 
 \subsubsection{DepositionVolume}
@@ -757,7 +585,7 @@ A value specified by the \block{Controller} type component.
 The spatial volume of material to be deposited in an additive manufacturing process.
 
 
-Units: \texttt{CUBIC\textunderscore MILLIMETER}.
+\texttt{units}: \texttt{CUBIC\textunderscore MILLIMETER}.
 
 \paragraph{Subtypes of DepositionVolume}\mbox{}
 \label{sec:Subtypes of DepositionVolume}
@@ -777,18 +605,8 @@ A value specified by the \block{Controller} type component.
 
 \end{itemize}
 
-\paragraph{ActualDepositionVolume}\mbox{}
-\label{sec:ActualDepositionVolume}
 
 
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{CommandedDepositionVolume}\mbox{}
-\label{sec:CommandedDepositionVolume}
-
-
-A value specified by the \block{Controller} type component.
 
 
 \subsubsection{Diameter}
@@ -799,7 +617,8 @@ A value specified by the \block{Controller} type component.
 The measured dimension of a diameter.
 
 
-Units: \texttt{MILLIMETER}.
+\texttt{units}: \texttt{MILLIMETER}.
+
 
 \subsubsection{Displacement}
 \label{sec:Displacement}
@@ -809,7 +628,8 @@ Units: \texttt{MILLIMETER}.
 The measurement of the change in position of an object.
 
 
-Units: \texttt{MILLIMETER}.
+\texttt{units}: \texttt{MILLIMETER}.
+
 
 \subsubsection{ElectricalEnergy}
 \label{sec:ElectricalEnergy}
@@ -819,7 +639,8 @@ Units: \texttt{MILLIMETER}.
 The measurement of electrical energy consumption by a component.
 
 
-Units: \texttt{WATT\textunderscore SECOND}.
+\texttt{units}: \texttt{WATT\textunderscore SECOND}.
+
 
 \subsubsection{EquipmentTimer}
 \label{sec:EquipmentTimer}
@@ -829,7 +650,7 @@ Units: \texttt{WATT\textunderscore SECOND}.
 The measurement of the amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities.
 
 
-Units: \texttt{SECOND}.
+\texttt{units}: \texttt{SECOND}.
 
 \paragraph{Subtypes of EquipmentTimer}\mbox{}
 \label{sec:Subtypes of EquipmentTimer}
@@ -864,39 +685,11 @@ A piece of equipment performing any activity, the equipment is active and perfor
 
 \end{itemize}
 
-\paragraph{LoadedEquipmentTimer}\mbox{}
-\label{sec:LoadedEquipmentTimer}
 
 
-Subparts of a piece of equipment are under load.
 
 
-\paragraph{WorkingEquipmentTimer}\mbox{}
-\label{sec:WorkingEquipmentTimer}
 
-
-A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
-
-
-\paragraph{OperatingEquipmentTimer}\mbox{}
-\label{sec:OperatingEquipmentTimer}
-
-
-A piece of equipment are powered or performing any activity.
-
-
-\paragraph{PoweredEquipmentTimer}\mbox{}
-\label{sec:PoweredEquipmentTimer}
-
-
-Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
-
-
-\paragraph{DelayEquipmentTimer}\mbox{}
-\label{sec:DelayEquipmentTimer}
-
-
-A piece of equipment waiting for an event or an action to occur.
 
 
 \subsubsection{FillLevel}
@@ -907,7 +700,8 @@ A piece of equipment waiting for an event or an action to occur.
 The measurement of the amount of a substance remaining compared to the planned maximum amount of that substance.
 
 
-Units: \texttt{PERCENT}.
+\texttt{units}: \texttt{PERCENT}.
+
 
 \subsubsection{Flow}
 \label{sec:Flow}
@@ -917,7 +711,8 @@ Units: \texttt{PERCENT}.
 The measurement of the rate of flow of a fluid.
 
 
-Units: \texttt{LITER/SECOND}.
+\texttt{units}: \texttt{LITER/SECOND}.
+
 
 \subsubsection{Frequency}
 \label{sec:Frequency}
@@ -927,7 +722,8 @@ Units: \texttt{LITER/SECOND}.
 The measurement of the number of occurrences of a repeating event per unit time.
 
 
-Units: \texttt{HERTZ}.
+\texttt{units}: \texttt{HERTZ}.
+
 
 \subsubsection{GlobalPosition}
 \label{sec:GlobalPosition}
@@ -935,6 +731,7 @@ Units: \texttt{HERTZ}.
 
 
 \textbf{DEPRECATED} in Version 1.1
+
 
 
 \subsubsection{HumidityAbsolute}
@@ -945,7 +742,7 @@ Units: \texttt{HERTZ}.
 The amount of water vapor expressed in grams per cubic meter.
 
 
-Units: \texttt{GRAM/CUBIC\textunderscore METER}.
+\texttt{units}: \texttt{GRAM/CUBIC\textunderscore METER}.
 
 \paragraph{Subtypes of HumidityAbsolute}\mbox{}
 \label{sec:Subtypes of HumidityAbsolute}
@@ -965,18 +762,8 @@ The commanded value.
 
 \end{itemize}
 
-\paragraph{ActualHumidityAbsolute}\mbox{}
-\label{sec:ActualHumidityAbsolute}
 
 
-The measured value.
-
-
-\paragraph{CommandedHumidityAbsolute}\mbox{}
-\label{sec:CommandedHumidityAbsolute}
-
-
-The commanded value.
 
 
 \subsubsection{HumidityRelative}
@@ -987,7 +774,7 @@ The commanded value.
 The amount of water vapor present expressed as a percent to reach saturation at the same temperature.
 
 
-Units: \texttt{PERCENT}.
+\texttt{units}: \texttt{PERCENT}.
 
 \paragraph{Subtypes of HumidityRelative}\mbox{}
 \label{sec:Subtypes of HumidityRelative}
@@ -1007,18 +794,8 @@ The commanded value.
 
 \end{itemize}
 
-\paragraph{CommandedHumidityRelative}\mbox{}
-\label{sec:CommandedHumidityRelative}
 
 
-The commanded value.
-
-
-\paragraph{ActualHumidityRelative}\mbox{}
-\label{sec:ActualHumidityRelative}
-
-
-The measured value.
 
 
 \subsubsection{HumiditySpecific}
@@ -1029,7 +806,7 @@ The measured value.
 The ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
 
 
-Units: \texttt{PERCENT}.
+\texttt{units}: \texttt{PERCENT}.
 
 \paragraph{Subtypes of HumiditySpecific}\mbox{}
 \label{sec:Subtypes of HumiditySpecific}
@@ -1049,18 +826,8 @@ The commanded value.
 
 \end{itemize}
 
-\paragraph{ActualHumiditySpecific}\mbox{}
-\label{sec:ActualHumiditySpecific}
 
 
-The measured value.
-
-
-\paragraph{CommandedHumiditySpecific}\mbox{}
-\label{sec:CommandedHumiditySpecific}
-
-
-The commanded value.
 
 
 \subsubsection{Length}
@@ -1071,7 +838,7 @@ The commanded value.
 The measurement of the length of an object.
 
 
-Units: \texttt{MILLIMETER}.
+\texttt{units}: \texttt{MILLIMETER}.
 
 \paragraph{Subtypes of Length}\mbox{}
 \label{sec:Subtypes of Length}
@@ -1096,25 +863,9 @@ The remaining useable length of an object.
 
 \end{itemize}
 
-\paragraph{StandardLength}\mbox{}
-\label{sec:StandardLength}
 
 
-The standard or original length of an object.
 
-
-\paragraph{RemainingLength}\mbox{}
-\label{sec:RemainingLength}
-
-
-Remaining measure of an object or an action.
-
-
-\paragraph{UseableLength}\mbox{}
-\label{sec:UseableLength}
-
-
-The remaining useable length of an object.
 
 
 \subsubsection{Level}
@@ -1125,6 +876,7 @@ The remaining useable length of an object.
 \textbf{DEPRECATED} in Version 1.2.  See \block{FILL\textunderscore LEVEL}
 
 
+
 \subsubsection{LinearForce}
 \label{sec:LinearForce}
 
@@ -1133,7 +885,8 @@ The remaining useable length of an object.
 The measurement of the push or pull introduced by an actuator or exerted on an object.
 
 
-Units: \texttt{NEWTON}.
+\texttt{units}: \texttt{NEWTON}.
+
 
 \subsubsection{Load}
 \label{sec:Load}
@@ -1143,7 +896,8 @@ Units: \texttt{NEWTON}.
 The measurement of the actual versus the standard rating of a piece of equipment.
 
 
-Units: \texttt{PERCENT}.
+\texttt{units}: \texttt{PERCENT}.
+
 
 \subsubsection{Mass}
 \label{sec:Mass}
@@ -1153,7 +907,8 @@ Units: \texttt{PERCENT}.
 The measurement of the mass of an object(s) or an amount of material.
 
 
-Units: \texttt{KILOGRAM}.
+\texttt{units}: \texttt{KILOGRAM}.
+
 
 \subsubsection{ObservationUpdateRate}
 \label{sec:ObservationUpdateRate}
@@ -1163,7 +918,8 @@ Units: \texttt{KILOGRAM}.
 The average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
 
 
-Units: \texttt{COUNT/SECOND}.
+\texttt{units}: \texttt{COUNT/SECOND}.
+
 
 \subsubsection{Orientation}
 \label{sec:Orientation}
@@ -1173,7 +929,7 @@ Units: \texttt{COUNT/SECOND}.
 A measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
 
 
-Units: \texttt{DEGREE\textunderscore 3D}.
+\texttt{units}: \texttt{DEGREE\textunderscore 3D}.
 
 \paragraph{Subtypes of Orientation}\mbox{}
 \label{sec:Subtypes of Orientation}
@@ -1193,18 +949,8 @@ The commanded value.
 
 \end{itemize}
 
-\paragraph{ActualOrientation}\mbox{}
-\label{sec:ActualOrientation}
 
 
-The measured value.
-
-
-\paragraph{CommandedOrientation}\mbox{}
-\label{sec:CommandedOrientation}
-
-
-The commanded value.
 
 
 \subsubsection{PH}
@@ -1215,7 +961,8 @@ The commanded value.
 A measure of the acidity or alkalinity of a solution.
 
 
-Units: \texttt{PH}.
+\texttt{units}: \texttt{PH}.
+
 
 \subsubsection{PathFeedrate}
 \label{sec:PathFeedrate}
@@ -1225,7 +972,7 @@ Units: \texttt{PH}.
 The measurement of the feedrate for the axes, or a single axis, associated with a \block{Path} component-a vector.
 
 
-Units: \texttt{MILLIMETER/SECOND}.
+\texttt{units}: \texttt{MILLIMETER/SECOND}.
 
 \paragraph{Subtypes of PathFeedrate}\mbox{}
 \label{sec:Subtypes of PathFeedrate}
@@ -1265,46 +1012,12 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 \end{itemize}
 
-\paragraph{ActualPathFeedrate}\mbox{}
-\label{sec:ActualPathFeedrate}
 
 
-The measured value of the data item type given by a sensor or encoder.
 
 
-\paragraph{CommandedPathFeedrate}\mbox{}
-\label{sec:CommandedPathFeedrate}
 
 
-A value specified by the \block{Controller} type component.
-
-
-\paragraph{JogPathFeedrate}\mbox{}
-\label{sec:JogPathFeedrate}
-
-
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the \block{Axes}. 
-
-
-\paragraph{ProgrammedPathFeedrate}\mbox{}
-\label{sec:ProgrammedPathFeedrate}
-
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-
-\paragraph{RapidPathFeedrate}\mbox{}
-\label{sec:RapidPathFeedrate}
-
-
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
-
-
-\paragraph{OverridePathFeedrate}\mbox{}
-\label{sec:OverridePathFeedrate}
-
-
-The operators overridden value.
 
 
 \subsubsection{PathFeedratePerRevolution}
@@ -1315,7 +1028,7 @@ The operators overridden value.
 The feedrate for the axes, or a single axis.
 
 
-Units: \texttt{MILLIMETER/REVOLUTION}.
+\texttt{units}: \texttt{MILLIMETER/REVOLUTION}.
 
 \paragraph{Subtypes of PathFeedratePerRevolution}\mbox{}
 \label{sec:Subtypes of PathFeedratePerRevolution}
@@ -1340,25 +1053,9 @@ The value of a signal or calculation specified by a logic or motion program or s
 
 \end{itemize}
 
-\paragraph{ActualPathFeedratePerRevolution}\mbox{}
-\label{sec:ActualPathFeedratePerRevolution}
 
 
-The measured value of the data item type given by a sensor or encoder.
 
-
-\paragraph{CommandedPathFeedratePerRevolution}\mbox{}
-\label{sec:CommandedPathFeedratePerRevolution}
-
-
-A value specified by the \block{Controller} type component.
-
-
-\paragraph{ProgrammedPathFeedratePerRevolution}\mbox{}
-\label{sec:ProgrammedPathFeedratePerRevolution}
-
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
 
 
 \subsubsection{PathPosition}
@@ -1369,7 +1066,7 @@ The value of a signal or calculation specified by a logic or motion program or s
 A measured or calculated position of a control point associated with a \block{Controller} element, or \block{Path} element if provided, of a piece of equipment.
 
 
-Units: \texttt{MILLIMETER\textunderscore 3D}.
+\texttt{units}: \texttt{MILLIMETER\textunderscore 3D}.
 
 \paragraph{Subtypes of PathPosition}\mbox{}
 \label{sec:Subtypes of PathPosition}
@@ -1399,32 +1096,10 @@ The desired measure or count for a data item value.
 
 \end{itemize}
 
-\paragraph{ActualPathPosition}\mbox{}
-\label{sec:ActualPathPosition}
 
 
-The measured value of the data item type given by a sensor or encoder.
 
 
-\paragraph{CommandedPathPosition}\mbox{}
-\label{sec:CommandedPathPosition}
-
-
-A value specified by the \block{Controller} type component.
-
-
-\paragraph{TargetPathPosition}\mbox{}
-\label{sec:TargetPathPosition}
-
-
-The desired measure or count for a data item value.
-
-
-\paragraph{ProbePathPosition}\mbox{}
-\label{sec:ProbePathPosition}
-
-
-The position provided by a measurement probe.
 
 
 \subsubsection{Position}
@@ -1435,7 +1110,7 @@ The position provided by a measurement probe.
 A measured or calculated position of a \block{Component} element as reported by a piece of equipment.
 
 
-Units: \texttt{MILLIMETER}.
+\texttt{units}: \texttt{MILLIMETER}.
 
 \paragraph{Subtypes of Position}\mbox{}
 \label{sec:Subtypes of Position}
@@ -1465,32 +1140,10 @@ The desired measure or count for a data item value.
 
 \end{itemize}
 
-\paragraph{ActualPosition}\mbox{}
-\label{sec:ActualPosition}
 
 
-The measured value of the data item type given by a sensor or encoder.
 
 
-\paragraph{CommandedPosition}\mbox{}
-\label{sec:CommandedPosition}
-
-
-A value specified by the \block{Controller} type component.
-
-
-\paragraph{ProgrammedPosition}\mbox{}
-\label{sec:ProgrammedPosition}
-
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-
-\paragraph{TargetPosition}\mbox{}
-\label{sec:TargetPosition}
-
-
-The desired measure or count for a data item value.
 
 
 \subsubsection{PowerFactor}
@@ -1501,10 +1154,11 @@ The desired measure or count for a data item value.
 The measurement of the ratio of real power flowing to a load to the apparent power in that AC circuit.
 
 
-Units: \texttt{PERCENT}.
+\texttt{units}: \texttt{PERCENT}.
+
 
 \subsubsection{Pressure}
-
+\label{sec:Pressure}
 
 
 
@@ -1513,7 +1167,7 @@ The measurement of force per unit area exerted by a gas or liquid.
 Note: The default \property{subType}[Observation] is \texttt{GAUGE}.
 
 
-Units: \texttt{PASCAL}.
+\texttt{units}: \texttt{PASCAL}.
 
 \paragraph{Subtypes of Pressure}\mbox{}
 \label{sec:Subtypes of Pressure}
@@ -1533,18 +1187,8 @@ Gauge pressure is pressure measured relative to atmospheric pressure.
 
 \end{itemize}
 
-\paragraph{GaugePressure}\mbox{}
-\label{sec:GaugePressure}
 
 
-Gauge pressure is pressure measured relative to atmospheric pressure.
-
-
-\paragraph{AbsolutePressure}\mbox{}
-\label{sec:AbsolutePressure}
-
-
-Absolute pressure is pressure measured relative to a full vacuum.
 
 
 \subsubsection{ProcessTimer}
@@ -1555,7 +1199,7 @@ Absolute pressure is pressure measured relative to a full vacuum.
 The measurement of the amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment.
 
 
-Units: \texttt{SECOND}.
+\texttt{units}: \texttt{SECOND}.
 
 \paragraph{Subtypes of ProcessTimer}\mbox{}
 \label{sec:Subtypes of ProcessTimer}
@@ -1575,18 +1219,8 @@ The measurement of the time from the beginning of production of a part or produc
 
 \end{itemize}
 
-\paragraph{ProcessProcessTimer}\mbox{}
-\label{sec:ProcessProcessTimer}
 
 
-The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
-
-
-\paragraph{DelayProcessTimer}\mbox{}
-\label{sec:DelayProcessTimer}
-
-
-A piece of equipment waiting for an event or an action to occur.
 
 
 \subsubsection{RateOfPressurization}
@@ -1597,7 +1231,8 @@ A piece of equipment waiting for an event or an action to occur.
 The change of pressure per unit time.
 
 
-Units: \texttt{PASCAL/SECOND}.
+\texttt{units}: \texttt{PASCAL/SECOND}.
+
 
 \subsubsection{Resistance}
 \label{sec:Resistance}
@@ -1607,7 +1242,8 @@ Units: \texttt{PASCAL/SECOND}.
 The measurement of the degree to which a substance opposes the passage of an electric current.
 
 
-Units: \texttt{OHM}.
+\texttt{units}: \texttt{OHM}.
+
 
 \subsubsection{RotaryVelocity}
 \label{sec:RotaryVelocity}
@@ -1617,7 +1253,7 @@ Units: \texttt{OHM}.
 The measurement of the rotational speed of a rotary axis.
 
 
-Units: \texttt{REVOLUTION/MINUTE}.
+\texttt{units}: \texttt{REVOLUTION/MINUTE}.
 
 \paragraph{Subtypes of RotaryVelocity}\mbox{}
 \label{sec:Subtypes of RotaryVelocity}
@@ -1647,32 +1283,10 @@ The value of a signal or calculation specified by a logic or motion program or s
 
 \end{itemize}
 
-\paragraph{ActualRotaryVelocity}\mbox{}
-\label{sec:ActualRotaryVelocity}
 
 
-The measured value of the data item type given by a sensor or encoder.
 
 
-\paragraph{CommandedRotaryVelocity}\mbox{}
-\label{sec:CommandedRotaryVelocity}
-
-
-A value specified by the \block{Controller} type component.
-
-
-\paragraph{ProgrammedRotaryVelocity}\mbox{}
-\label{sec:ProgrammedRotaryVelocity}
-
-
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
-
-
-\paragraph{OverrideRotaryVelocity}\mbox{}
-\label{sec:OverrideRotaryVelocity}
-
-
-The operators overridden value.
 
 
 \subsubsection{SoundLevel}
@@ -1683,7 +1297,7 @@ The operators overridden value.
 The measurement of a sound level or sound pressure level relative to atmospheric pressure.
 
 
-Units: \texttt{DECIBEL}.
+\texttt{units}: \texttt{DECIBEL}.
 
 \paragraph{Subtypes of SoundLevel}\mbox{}
 \label{sec:Subtypes of SoundLevel}
@@ -1718,39 +1332,11 @@ No weighting factor on the frequency scale
 
 \end{itemize}
 
-\paragraph{NoScaleSoundLevel}\mbox{}
-\label{sec:NoScaleSoundLevel}
 
 
-No weighting factor on the frequency scale
 
 
-\paragraph{AScaleSoundLevel}\mbox{}
-\label{sec:AScaleSoundLevel}
 
-
-A Scale weighting factor.   This is the default weighting factor if no factor is specified
-
-
-\paragraph{BScaleSoundLevel}\mbox{}
-\label{sec:BScaleSoundLevel}
-
-
-B Scale weighting factor
-
-
-\paragraph{CScaleSoundLevel}\mbox{}
-\label{sec:CScaleSoundLevel}
-
-
-C Scale weighting factor
-
-
-\paragraph{DScaleSoundLevel}\mbox{}
-\label{sec:DScaleSoundLevel}
-
-
-D Scale weighting factor
 
 
 \subsubsection{SpindleSpeed}
@@ -1761,7 +1347,7 @@ D Scale weighting factor
 \textbf{DEPRECATED} in Version 1.2.  Replaced by \block{ROTARY\textunderscore VELOCITY}
 
 
-Units: \texttt{REVOLUTION/MINUTE}.
+\texttt{units}: \texttt{REVOLUTION/MINUTE}.
 
 \paragraph{Subtypes of SpindleSpeed}\mbox{}
 \label{sec:Subtypes of SpindleSpeed}
@@ -1786,25 +1372,9 @@ The operators overridden value.
 
 \end{itemize}
 
-\paragraph{ActualSpindleSpeed}\mbox{}
-\label{sec:ActualSpindleSpeed}
 
 
-The measured value of the data item type given by a sensor or encoder.
 
-
-\paragraph{CommandedSpindleSpeed}\mbox{}
-\label{sec:CommandedSpindleSpeed}
-
-
-A value specified by the \block{Controller} type component.
-
-
-\paragraph{OverrideSpindleSpeed}\mbox{}
-\label{sec:OverrideSpindleSpeed}
-
-
-The operators overridden value.
 
 
 \subsubsection{Strain}
@@ -1815,7 +1385,8 @@ The operators overridden value.
 The measurement of the amount of deformation per unit length of an object when a load is applied.
 
 
-Units: \texttt{PERCENT}.
+\texttt{units}: \texttt{PERCENT}.
+
 
 \subsubsection{Temperature}
 \label{sec:Temperature}
@@ -1825,7 +1396,8 @@ Units: \texttt{PERCENT}.
 The measurement of temperature.
 
 
-Units: \texttt{CELSIUS}.
+\texttt{units}: \texttt{CELSIUS}.
+
 
 \subsubsection{Tension}
 \label{sec:Tension}
@@ -1835,7 +1407,8 @@ Units: \texttt{CELSIUS}.
 The measurement of a force that stretches or elongates an object.
 
 
-Units: \texttt{NEWTON}.
+\texttt{units}: \texttt{NEWTON}.
+
 
 \subsubsection{Tilt}
 \label{sec:Tilt}
@@ -1845,7 +1418,8 @@ Units: \texttt{NEWTON}.
 The measurement of angular displacement.
 
 
-Units: \texttt{MICRO\textunderscore RADIAN}.
+\texttt{units}: \texttt{MICRO\textunderscore RADIAN}.
+
 
 \subsubsection{Torque}
 \label{sec:Torque}
@@ -1855,7 +1429,8 @@ Units: \texttt{MICRO\textunderscore RADIAN}.
 The measurement of the turning force exerted on an object or by an object.
 
 
-Units: \texttt{NEWTON\textunderscore METER}.
+\texttt{units}: \texttt{NEWTON\textunderscore METER}.
+
 
 \subsubsection{Velocity}
 \label{sec:Velocity}
@@ -1865,7 +1440,8 @@ Units: \texttt{NEWTON\textunderscore METER}.
 The measurement of the rate of change of position of a \block{Component}.
 
 
-Units: \texttt{MILLIMETER/SECOND}.
+\texttt{units}: \texttt{MILLIMETER/SECOND}.
+
 
 \subsubsection{Viscosity}
 \label{sec:Viscosity}
@@ -1875,7 +1451,8 @@ Units: \texttt{MILLIMETER/SECOND}.
 The measurement of a fluids resistance to flow.
 
 
-Units: \texttt{PASCAL\textunderscore SECOND}.
+\texttt{units}: \texttt{PASCAL\textunderscore SECOND}.
+
 
 \subsubsection{VoltAmpere}
 \label{sec:VoltAmpere}
@@ -1885,7 +1462,8 @@ Units: \texttt{PASCAL\textunderscore SECOND}.
 The measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA).
 
 
-Units: \texttt{VOLT\textunderscore AMPERE}.
+\texttt{units}: \texttt{VOLT\textunderscore AMPERE}.
+
 
 \subsubsection{VoltAmpereReactive}
 \label{sec:VoltAmpereReactive}
@@ -1895,7 +1473,8 @@ Units: \texttt{VOLT\textunderscore AMPERE}.
 The measurement of reactive power in an AC electrical circuit (commonly referred to as VAR).
 
 
-Units: \texttt{VOLT\textunderscore AMPERE\textunderscore REACTIVE}.
+\texttt{units}: \texttt{VOLT\textunderscore AMPERE\textunderscore REACTIVE}.
+
 
 \subsubsection{Voltage}
 \label{sec:Voltage}
@@ -1905,7 +1484,7 @@ Units: \texttt{VOLT\textunderscore AMPERE\textunderscore REACTIVE}.
 The measurement of electrical potential between two points.
 
 
-Units: \texttt{VOLT}.
+\texttt{units}: \texttt{VOLT}.
 
 \paragraph{Subtypes of Voltage}\mbox{}
 \label{sec:Subtypes of Voltage}
@@ -1935,32 +1514,10 @@ The desired measure or count for a data item value.
 
 \end{itemize}
 
-\paragraph{AlternatingVoltage}\mbox{}
-\label{sec:AlternatingVoltage}
 
 
-The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
 
 
-\paragraph{DirectVoltage}\mbox{}
-\label{sec:DirectVoltage}
-
-
-The measurement of DC current or voltage.
-
-
-\paragraph{ActualVoltage}\mbox{}
-\label{sec:ActualVoltage}
-
-
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{TargetVoltage}\mbox{}
-\label{sec:TargetVoltage}
-
-
-The desired measure or count for a data item value.
 
 
 \subsubsection{VoltageAC}
@@ -1971,7 +1528,7 @@ The desired measure or count for a data item value.
 The measurement of the electrical potential between two points in an electrical circuit in which the current periodically reverses direction.
 
 
-Units: \texttt{VOLT}.
+\texttt{units}: \texttt{VOLT}.
 
 \paragraph{Subtypes of VoltageAC}\mbox{}
 \label{sec:Subtypes of VoltageAC}
@@ -1996,25 +1553,9 @@ The value for a voltage as specified by a logic or motion program or set by a sw
 
 \end{itemize}
 
-\paragraph{ActualVoltageAC}\mbox{}
-\label{sec:ActualVoltageAC}
 
 
-The measured voltage within an electrical circuit.
 
-
-\paragraph{CommandedVoltageAC}\mbox{}
-\label{sec:CommandedVoltageAC}
-
-
-The value for a voltage as specified by a \block{Controller} component.
-
-
-\paragraph{ProgrammedVoltageAC}\mbox{}
-\label{sec:ProgrammedVoltageAC}
-
-
-The value for a voltage as specified by a logic or motion program or set by a switch.
 
 
 \subsubsection{VoltageDC}
@@ -2025,7 +1566,7 @@ The value for a voltage as specified by a logic or motion program or set by a sw
 The measurement of the electrical potential between two points in an electrical circuit in which the current is unidirectional.
 
 
-Units: \texttt{VOLT}.
+\texttt{units}: \texttt{VOLT}.
 
 \paragraph{Subtypes of VoltageDC}\mbox{}
 \label{sec:Subtypes of VoltageDC}
@@ -2050,25 +1591,9 @@ The value for a voltage as specified by a logic or motion program or set by a sw
 
 \end{itemize}
 
-\paragraph{ActualVoltageDC}\mbox{}
-\label{sec:ActualVoltageDC}
 
 
-The measured voltage within an electrical circuit.
 
-
-\paragraph{CommandedVoltageDC}\mbox{}
-\label{sec:CommandedVoltageDC}
-
-
-The value for a voltage as specified by a \block{Controller} component.
-
-
-\paragraph{ProgrammedVoltageDC}\mbox{}
-\label{sec:ProgrammedVoltageDC}
-
-
-The value for a voltage as specified by a logic or motion program or set by a switch.
 
 
 \subsubsection{VolumeFluid}
@@ -2079,7 +1604,7 @@ The value for a voltage as specified by a logic or motion program or set by a sw
 The fluid volume of an object or container.
 
 
-Units: \texttt{MILLILITER}.
+\texttt{units}: \texttt{MILLILITER}.
 
 \paragraph{Subtypes of VolumeFluid}\mbox{}
 \label{sec:Subtypes of VolumeFluid}
@@ -2099,18 +1624,8 @@ The amount of bulk material consumed from an object or container during a manufa
 
 \end{itemize}
 
-\paragraph{ActualVolumeFluid}\mbox{}
-\label{sec:ActualVolumeFluid}
 
 
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{ConsumedVolumeFluid}\mbox{}
-\label{sec:ConsumedVolumeFluid}
-
-
-The amount of bulk material consumed from an object or container during a manufacturing process.
 
 
 \subsubsection{VolumeSpatial}
@@ -2121,7 +1636,7 @@ The amount of bulk material consumed from an object or container during a manufa
 The geometric volume of an object or container.
 
 
-Units: \texttt{CUBIC\textunderscore MILLIMETER}.
+\texttt{units}: \texttt{CUBIC\textunderscore MILLIMETER}.
 
 \paragraph{Subtypes of VolumeSpatial}\mbox{}
 \label{sec:Subtypes of VolumeSpatial}
@@ -2141,18 +1656,8 @@ The amount of bulk material consumed from an object or container during a manufa
 
 \end{itemize}
 
-\paragraph{ActualVolumeSpatial}\mbox{}
-\label{sec:ActualVolumeSpatial}
 
 
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{ConsumedVolumeSpatial}\mbox{}
-\label{sec:ConsumedVolumeSpatial}
-
-
-The amount of bulk material consumed from an object or container during a manufacturing process.
 
 
 \subsubsection{Wattage}
@@ -2163,7 +1668,7 @@ The amount of bulk material consumed from an object or container during a manufa
 The measurement of power flowing through or dissipated by an electrical circuit or piece of equipment.
 
 
-Units: \texttt{WATT}.
+\texttt{units}: \texttt{WATT}.
 
 \paragraph{Subtypes of Wattage}\mbox{}
 \label{sec:Subtypes of Wattage}
@@ -2183,18 +1688,8 @@ The desired measure or count for a data item value.
 
 \end{itemize}
 
-\paragraph{ActualWattage}\mbox{}
-\label{sec:ActualWattage}
 
 
-The measured value of the data item type given by a sensor or encoder.
-
-
-\paragraph{TargetWattage}\mbox{}
-\label{sec:TargetWattage}
-
-
-The desired measure or count for a data item value.
 
 
 \subsubsection{XDimension}
@@ -2205,7 +1700,8 @@ The desired measure or count for a data item value.
 Measured dimension of an entity relative to the X direction of the referenced coordinate system.
 
 
-Units: \texttt{MILLIMETER}.
+\texttt{units}: \texttt{MILLIMETER}.
+
 
 \subsubsection{YDimension}
 \label{sec:YDimension}
@@ -2215,7 +1711,8 @@ Units: \texttt{MILLIMETER}.
 Measured dimension of an entity relative to the Y direction of the referenced coordinate system.
 
 
-Units: \texttt{MILLIMETER}.
+\texttt{units}: \texttt{MILLIMETER}.
+
 
 \subsubsection{ZDimension}
 \label{sec:ZDimension}
@@ -2225,4 +1722,5 @@ Units: \texttt{MILLIMETER}.
 Measured dimension of an entity relative to the Z direction of the referenced coordinate system.
 
 
-Units: \texttt{MILLIMETER}.
+\texttt{units}: \texttt{MILLIMETER}.
+

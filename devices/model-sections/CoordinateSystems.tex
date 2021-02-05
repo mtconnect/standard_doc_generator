@@ -1,15 +1,56 @@
-% Generated 2021-01-20 01:46:25 +0530
+% Generated 2021-02-06 01:28:14 +0530
 \subsection{CoordinateSystems} \label{sec:CoordinateSystems}
 
+
+This section provides semantic information for the \block{CoordinateSystem} model.
 
 \begin{figure}[ht]
   \centering
     \includegraphics[width=1.0\textwidth]{figures/CoordinateSystem.png}
   \caption{CoordinateSystem Diagram}
-  \label{fig:CoordinateSystem}
+  \label{fig:CoordinateSystem Diagram}
 \end{figure}
 
 \FloatBarrier
+
+
+Note: See \fig{CoordinateSystem Schema Diagram} for XML schema.
+
+
+\subsubsection{CoordinateSystems}
+
+
+
+
+\block{CoordinateSystems} \glspl{organize} \block{CoordinateSystem} elements for a \block{Component} and its children.
+
+
+\paragraph{Elements of CoordinateSystems}\mbox{}
+\label{sec:Elements of CoordinateSystems}
+
+\tbl{Elements of CoordinateSystems} lists the elements of \texttt{CoordinateSystems}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of CoordinateSystems}
+  \label{table:Elements of CoordinateSystems}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{CoordinateSystem} & 1..* \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \block{CoordinateSystems}:
+
+\begin{itemize}
+
+\item \block{CoordinateSystem} \newline A \block{CoordinateSystem} is a reference system that associates a unique set of n parameters with each point in an n-dimensional space. \textit{Ref: ISO 10303-218:2004}
+\end{itemize}
 
 
 
@@ -81,6 +122,7 @@ For non-robotic devices, it is the connection surface between the device and its
 
 \end{itemize}
 
+
 \paragraph{Elements of CoordinateSystem}\mbox{}
 \label{sec:Elements of CoordinateSystem}
 
@@ -111,40 +153,7 @@ Descriptions for elements of \block{CoordinateSystem}:
 \item \block{Transformation} \newline  The process of transforming to the origin position of the coordinate system from a parent coordinate system using \block{Translation} and \block{Rotation}.
 \end{itemize}
 
-\subsubsection{CoordinateSystems}
-\label{sec:CoordinateSystems}
 
-
-
-\block{CoordinateSystems} \glspl{organize} \block{CoordinateSystem} elements for a \block{Component} and its children.
-
-
-\paragraph{Elements of CoordinateSystems}\mbox{}
-\label{sec:Elements of CoordinateSystems}
-
-\tbl{Elements of CoordinateSystems} lists the elements of \texttt{CoordinateSystems}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Elements of CoordinateSystems}
-  \label{table:Elements of CoordinateSystems}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Element} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{CoordinateSystem} & 1..* \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for elements of \block{CoordinateSystems}:
-
-\begin{itemize}
-
-\item \block{CoordinateSystem} \newline A \block{CoordinateSystem} is a reference system that associates a unique set of n parameters with each point in an n-dimensional space. \textit{Ref: ISO 10303-218:2004}
-\end{itemize}
 
 \subsubsection{Origin}
 \label{sec:Origin}
@@ -156,17 +165,6 @@ The coordinates of the origin position of a coordinate system.
 
 The value of \texttt{Origin} \MUST be \texttt{Origin}.
 
-
-\subsubsection{Rotation}
-\label{sec:Rotation}
-
-
-
-Rotations about X, Y, and Z axes are expressed in A, B, and C respectively within a 3-dimensional vector. 
-
-
-
-The value of \texttt{Rotation} \MUST be \texttt{Rotation}.
 
 
 \subsubsection{Transformation}
@@ -208,6 +206,21 @@ Descriptions for elements of \block{Transformation}:
 
 \end{itemize}
 
+
+
+\subsubsection{Rotation}
+\label{sec:Rotation}
+
+
+
+Rotations about X, Y, and Z axes are expressed in A, B, and C respectively within a 3-dimensional vector. 
+
+
+
+The value of \texttt{Rotation} \MUST be \texttt{Rotation}.
+
+
+
 \subsubsection{Translation}
 \label{sec:Translation}
 
@@ -217,4 +230,5 @@ Translations along X, Y, and Z axes are expressed as x,y, and z respectively wit
 
 
 The value of \texttt{Translation} \MUST be \texttt{Translation}.
+
 

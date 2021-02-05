@@ -1,4 +1,4 @@
-% Generated 2021-01-20 01:46:27 +0530
+% Generated 2021-02-06 01:28:17 +0530
 \subsection{CuttingItem} \label{sec:CuttingItem}
 
 
@@ -6,13 +6,25 @@ A \block{CuttingItem} is the portion of the tool that physically removes the mat
 
 MTConnect Standard considers \block{CuttingItems} as part of the \block{CuttingTool}.  A \block{CuttingItems} \textbf{MUST NOT} exist in MTConnect unless it is attached to a \block{CuttingTool}.  Some of the measurements, such as \block{FunctionalLength}, \textbf{MUST} be made with reference to the entire \block{CuttingTool} to be meaningful.
 
+\begin{figure}[ht]
+  \centering
+    \includegraphics[width=1.0\textwidth]{figures/CuttingItem.png}
+  \caption{CuttingItem Diagram}
+  \label{fig:CuttingItem Diagram}
+\end{figure}
+
+\FloatBarrier
+
+
+Note: See \sect{CuttingItem Schema Diagrams} for XML schema.
+
 
 \subsubsection{CuttingItem}
-\label{sec:CuttingItem}
 
 
 
-A CuttingItem is the portion of the tool that physically removes the material from the workpiece by shear deformation.
+
+A \block{CuttingItem} is the portion of the tool that physically removes the material from the workpiece by shear deformation.
 
 
 \paragraph{Attributes of CuttingItem}\mbox{}
@@ -48,8 +60,11 @@ Descriptions for attributes of \block{CuttingItem}:
 
 \item \property{itemId}[CuttingItem] \newline The manufacturer identifier of this Cutting Item.
 
-\item \property{manufacturers}[CuttingItem] \newline The manufacturers of the Cutting Item or Tool.
+\item \property{manufacturers}[CuttingItem] \newline The manufacturers of the Cutting Item.
+
+The representation will be a comma(,) delimited list of manufacturer names.
 \end{itemize}
+
 
 \paragraph{Elements of CuttingItem}\mbox{}
 \label{sec:Elements of CuttingItem}
@@ -69,9 +84,7 @@ Descriptions for attributes of \block{CuttingItem}:
 \texttt{Locus} & 0..1 \\
 \texttt{ProgramToolGroup} & 0..1 \\
 \texttt{Status} (organized by \block{CutterStatus}) & 1..* \\
-\texttt{ItemLife} & 0..1 \\
-\texttt{ItemLife} & 0..1 \\
-\texttt{ItemLife} & 0..1 \\
+\texttt{ItemLife} & 0..3 \\
 \texttt{Measurement} (organized by \block{Measurements}) & 0..* \\
 \end{tabu}
 \end{table}
@@ -94,23 +107,21 @@ The value of \block{Locus} \MUST be \texttt{string}.
 
 The value of \block{ProgramToolGroup} \MUST be \texttt{string}.
 
-\item \block{CutterStatus} \newline 
+\item \block{CutterStatus} \newline The status of the assembly. \block{CutterStatus} can be a combined set of \block{Status} elements.
 
-\item \block{ItemLife} \newline The life of this Cutting Item.
-
-\item \block{ItemLife} \newline The life of this Cutting Item.
-
-\item \block{ItemLife} \newline The life of this Cutting Item.
+\item \block{ItemLife} \newline The life of a \block{CuttingItem}.
 
 \item \block{Measurements} \newline A collection of measurements relating to this Cutting Item.
 \end{itemize}
+
+
 
 \subsubsection{ItemLife}
 \label{sec:ItemLife}
 
 
 
-The life of this Cutting Item.
+The life of a \block{CuttingItem}.
 
 
 \paragraph{Attributes of ItemLife}\mbox{}
@@ -130,7 +141,7 @@ The life of this Cutting Item.
 
 \property{countDirection}[ItemLife] & \texttt{CountDirectionType} & 1 \\
 \property{initial}[ItemLife] & \texttt{float} & 0..1 \\
-\property{limit}[ItemLife] & \texttt{string} & 0..1 \\
+\property{limit}[ItemLife] & \texttt{float} & 0..1 \\
 \property{warning}[ItemLife] & \texttt{float} & 0..1 \\
 \end{tabu}
 \end{table}
@@ -148,3 +159,5 @@ Descriptions for attributes of \block{ItemLife}:
 
 \item \property{warning}[ItemLife] \newline The point at which a item life warning will be raised.
 \end{itemize}
+
+

@@ -1,4 +1,4 @@
-% Generated 2021-01-20 01:46:24 +0530
+% Generated 2021-02-06 01:28:13 +0530
 \subsection{DataItem Types} \label{sec:DataItem Types}
 
 
@@ -32,14 +32,14 @@ Many types of data items provide two forms of data: a value (reported as either 
 
 
 
-\block{CONDITION} category data items report data representing a \gls{Structural Element}’s status regarding its ability to operate or it provides an indication whether the data reported for the \gls{Structural Element} is within an expected range.
+\block{Condition} is an abstract \block{DataItem} with \texttt{CONDITION} \property{category} report data representing a \gls{Structural Element}’s status regarding its ability to operate or it provides an indication whether the data reported for the \gls{Structural Element} is within an expected range.
 
-\block{CONDITION} is reported differently than \block{SAMPLE} or \block{EVENT}.  \block{CONDITION} \textbf{MUST} be reported as \block{Normal}, \block{Warning}, or \block{Fault}.
+\block{Condition} is reported differently than \block{Sample} or \block{Event}.  \block{Condition} \textbf{MUST} be reported as \block{Normal}, \block{Warning}, or \block{Fault}.
 
-All \block{DataItem} types in the \block{SAMPLE} category \textbf{MAY} have associated \block{CONDITION} states.  \block{CONDITION} states indicate whether the value for the data is within an expected range and \textbf{MUST} be reported as \block{Normal}, or the value is unexpected or out of tolerance for the data and a \block{Warning} or \block{Fault} \textbf{MUST} be provided.
+All \block{Sample}s \textbf{MAY} have associated \block{Condition} states.  \block{Condition} states indicate whether the value for the data is within an expected range and \textbf{MUST} be reported as \block{Normal}, or the value is unexpected or out of tolerance for the data and a \block{Warning} or \block{Fault} \textbf{MUST} be provided.
 
 
-The value of \property{type}{DataItem} with \property{category}{DataItem} \texttt{Condition} \MUST be one of the following:
+The value of \property{type}[DataItem] with \property{category}[DataItem] \texttt{Condition} \MUST be one of the following:
 \begin{itemize}
 
 
@@ -72,7 +72,33 @@ An indication that an error occurred in the motion program associated with a pie
 
 A general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware.
 
+
+\item \texttt{ACTUATOR}  
+
+An indication of a fault associated with an actuator.
+
+
+\item \texttt{CHUCK\textunderscore INTERLOCK}  
+
+An indication of the operational condition of the interlock function for an electronically controller chuck.
+
+
+\item \texttt{DIRECTION}  
+
+An indication of a fault associated with the direction of motion of a \gls{Structural Element}.
+
+
+\item \texttt{END\textunderscore OF\textunderscore BAR}  
+
+An indication that the end of a piece of bar stock has been reached.
+
+
+\item \texttt{INTERFACE\textunderscore STATE}  
+
+An indication of the operation condition of an \block{Interface} component.
+
 \end{itemize}
+
 
 
 \subsubsection{Event}
@@ -80,12 +106,12 @@ A general purpose indication associated with an electronic component of a piece 
 
 
 
-\block{DataItem} types in the \block{EVENT} category represent a discrete piece of information from a piece of equipment.  \block{EVENT} does not have intermediate values that vary over time.
+\block{Event} is an abstract \block{DataItem} with \texttt{EVENT} \property{category} that represents a discrete piece of information from a piece of equipment. It does not have intermediate values that vary over time.
 
-An \block{EVENT} is information that, when provided at any specific point in time, represents the current state of the piece of equipment.
+An \block{Event} is information that, when provided at any specific point in time, represents the current state of the piece of equipment.
 
 
-The value of \property{type}{DataItem} with \property{category}{DataItem} \texttt{Event} \MUST be one of the following:
+The value of \property{type}[DataItem] with \property{category}[DataItem] \texttt{Event} \MUST be one of the following:
 \begin{itemize}
 
 
@@ -258,7 +284,7 @@ An indication of the operational state of an \block{Interface} component.
 
 \item \texttt{LINE\textunderscore LABEL}  
 
-An optional identifier for a \block{BLOCK} of code in a \block{PROGRAM}.
+An optional identifier for a \block{Block} of code in a \block{Program}.
 
 
 \item \texttt{LINE\textunderscore NUMBER}  
@@ -397,7 +423,7 @@ An indication of the status of the \block{Controller} components program editing
 \item \texttt{PROGRAM\textunderscore EDIT\textunderscore NAME}  
 
 The name of the program being edited. 
- This is used in conjunction with \block{PROGRAM\textunderscore EDIT} when in \block{ACTIVE} state. 
+ This is used in conjunction with \block{ProgramEdit} when in \texttt{ACTIVE} state. 
 
 
 \item \texttt{PROGRAM\textunderscore HEADER}  
@@ -407,12 +433,12 @@ The non-executable header section of the control program.
 
 \item \texttt{PROGRAM\textunderscore LOCATION}  
 
-The Uniform Resource Identifier (URI) for the source file associated with \block{PROGRAM}.
+The Uniform Resource Identifier (URI) for the source file associated with \block{Program}.
 
 
 \item \texttt{PROGRAM\textunderscore LOCATION\textunderscore TYPE}  
 
-Defines whether the logic or motion program defined by \block{PROGRAM} is being executed from the local memory of the controller or from an outside source.
+Defines whether the logic or motion program defined by \block{Program} is being executed from the local memory of the controller or from an outside source.
 
 
 \item \texttt{PROGRAM\textunderscore NEST\textunderscore LEVEL}  
@@ -452,7 +478,7 @@ An identifier for the tool group associated with a specific tool. Commonly used 
 
 \item \texttt{TOOL\textunderscore ID}  
 
-\textbf{DEPRECATED} in Version 1.2.0.   See \block{TOOL\textunderscore ASSET\textunderscore ID}. \textit{DEPRECATED:The identifier of the tool currently in use for a given \block{Path}.}
+\textbf{DEPRECATED} in Version 1.2.0.   See \block{TOOL\textunderscore ASSET\textunderscore ID}.
 
 
 \item \texttt{TOOL\textunderscore NUMBER}  
@@ -477,7 +503,7 @@ A data value whose meaning may change over time due to changes in the opertion o
 
 \item \texttt{WAIT\textunderscore STATE}  
 
-An indication of the reason that \block{EXECUTION} is reporting a value of \block{WAIT}.
+An indication of the reason that \block{Execution} is reporting a value of \texttt{WAIT}.
 
 
 \item \texttt{WIRE}  
@@ -632,17 +658,18 @@ A set of limits used to trigger warning or alarm indicators.
 \end{itemize}
 
 
+
 \subsubsection{Sample}
 \label{sec:Sample}
 
 
 
-The types of \block{DataItem} elements in the \block{SAMPLE} category report data representing a continuously changing or analog data value.
+\block{Sample} is an abstract \block{DataItem} with \texttt{SAMPLE} \property{category} report data representing a continuously changing or analog data value.
 
 This data can be measured at any point-in-time and will always produce a result.
 
 
-The value of \property{type}{DataItem} with \property{category}{DataItem} \texttt{Sample} \MUST be one of the following:
+The value of \property{type}[DataItem] with \property{category}[DataItem] \texttt{Sample} \MUST be one of the following:
 \begin{itemize}
 
 
@@ -1011,4 +1038,5 @@ Negative rate of change of velocity.
 Negative rate of change of angular velocity.
 
 \end{itemize}
+
 

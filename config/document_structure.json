@@ -19,10 +19,10 @@
 					]
 				},
 				{
-					"Compositions": ["Compositions", "Composition Types"]
+					"Compositions Model": ["Compositions", "Composition Types"]
 				},
 				{
-					"DataItems": ["DataItems",
+					"DataItems Model": ["DataItems",
 						"Elements for DataItem",
 						"Elements for Definition",
 						"Relationship Types for DataItem",
@@ -31,15 +31,17 @@
 					]
 				},
 				{
-					"References": ["References"]
+					"References Model": ["References"]
 				},
 				{
-					"Configuration": ["Configuration",
+					"Configuration Model": ["Configuration",
 						"CoordinateSystems",
 						"Motion",
 						"Relationships",
 						"Sensor",
-						"Specifications"
+						"SolidModel",
+						"Specifications",
+						"Limits for ProcessSpecification"
 					]
 				}
 			]
@@ -49,7 +51,7 @@
 			"doc_title": "Observations Information Model",
 			"models": ["Observations Information Model",
 				{
-					"Observations": ["Streams",
+					"Structural Elements for MTConnectStreams": ["Streams",
 						"Observations",
 						"Representation"
 					]
@@ -66,12 +68,20 @@
 		"Part 4.0": {
 			"directory": "assets",
 			"doc_title": "Assets Information Model",
-			"models": ["Assets Information Model",
+			"models": [
 				{
-					"Assets": ["Assets",
-						"CuttingTool",
-						"CuttingItem"
+					"Assets Information Model": ["Assets"]
+				},
+				{
+					"CuttingTool Information Model":["CuttingTool",
+						"CuttingToolLifeCycle",
+						"CuttingItem",
+						"CuttingTool Measurement Types",
+						"CuttingItem Measurement Types"
 					]
+				},
+				{
+					"Files Information Model":["Files"]
 				}
 			]
 		}

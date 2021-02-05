@@ -1,8 +1,20 @@
-% Generated 2021-01-20 01:46:27 +0530
+% Generated 2021-02-06 01:28:17 +0530
 \subsection{Assets} \label{sec:Assets}
 
 
-\block{Assets} \glspl{organize} the \block{Asset} elements.
+\block{Assets} \glspl{organize} the \block{Asset} types. \sect{Asset} provides the common semantic information for all the \block{Asset} types.
+
+\begin{figure}[ht]
+  \centering
+    \includegraphics[width=1.0\textwidth]{figures/Asset.png}
+  \caption{Asset Diagram}
+  \label{fig:Asset Diagram}
+\end{figure}
+
+\FloatBarrier
+
+
+Note: See \sect{Assets Schema Diagrams} for XML schema.
 
 
 \subsubsection{Asset}
@@ -10,15 +22,7 @@
 
 
 
-<html>
-  <head>
-		<style>
-			p {padding:0px; margin:0px;}
-		</style>
-	</head>
-  <body>
-An Asset&#160;is something that is used in the manufacturing process, but is not permanently associated with a single piece of equipment, can be removed from the piece of equipment without compromising its function, and can be associated with other pieces of equipment during its lifecycle.</body>
-</html>
+\block{Asset} is an \gls{MTConnect Asset}. It is used in the manufacturing process, but is not permanently associated with a single piece of equipment. It can be removed from the piece of equipment without compromising its function, and can be associated with other pieces of equipment during its lifecycle.
 
 
 \paragraph{Attributes of Asset}\mbox{}
@@ -37,7 +41,7 @@ An Asset&#160;is something that is used in the manufacturing process, but is not
 \tabucline[1.5pt]{}
 
 \property{assetId}[Asset] & \texttt{ID} & 1 \\
-\property{deviceUuid}[Asset] & \texttt{NMTOKEN} & 1 \\
+\property{deviceUuid}[Asset] & \texttt{NMTOKEN} & 0..1 \\
 \property{removed}[Asset] & \texttt{boolean} & 0..1 \\
 \property{timestamp}[Asset] & \texttt{dateTime} & 1 \\
 \end{tabu}
@@ -48,14 +52,15 @@ Descriptions for attributes of \block{Asset}:
 
 \begin{itemize}
 
-\item \property{assetId}[Asset] \newline The unique identifier for an Asset.
+\item \property{assetId}[Asset] \newline The unique identifier for an \block{Asset}.
 
-\item \property{deviceUuid}[Asset] \newline The piece of equipment's uuid that supplied the Asset's data.
+\item \property{deviceUuid}[Asset] \newline The piece of equipment's uuid that supplied the \block{Asset}'s data.
 
-\item \property{removed}[Asset] \newline An indicator that the Asset has been removed from the piece of equipment.
+\item \property{removed}[Asset] \newline An indicator that the \block{Asset} has been removed from the piece of equipment.
 
-\item \property{timestamp}[Asset] \newline The point in time time the Asset data was last modified.
+\item \property{timestamp}[Asset] \newline The point in time the \block{Asset} data was last modified.
 \end{itemize}
+
 
 \paragraph{Elements of Asset}\mbox{}
 \label{sec:Elements of Asset}
@@ -81,5 +86,7 @@ Descriptions for elements of \block{Asset}:
 
 \begin{itemize}
 
-\item \block{Description} \newline The descriptive content.
+\item \block{Description} \newline The descriptive content. This can contain configuration information and manufacturer specific details.
 \end{itemize}
+
+

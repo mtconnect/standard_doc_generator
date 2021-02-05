@@ -97,6 +97,10 @@
 
 \usepackage{titlesec}
 
+%Watermark
+\usepackage{background}
+\backgroundsetup{contents=DRAFT, opacity=0.3, color=cyan, scale=9}
+
 % \textbf{\textit{}\textbf{}}* %
 % 	Options   %
 % \textbf{\textit{}\textbf{}}* %

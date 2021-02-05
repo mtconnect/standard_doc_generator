@@ -1,15 +1,56 @@
-% Generated 2021-01-20 01:46:25 +0530
+% Generated 2021-02-06 01:28:14 +0530
 \subsection{Relationships} \label{sec:Relationships}
 
+
+This section provides semantic definition for the \block{Relationships} model.
 
 \begin{figure}[ht]
   \centering
     \includegraphics[width=1.0\textwidth]{figures/Relationships.png}
   \caption{Relationships Diagram}
-  \label{fig:Relationships}
+  \label{fig:Relationships Diagram}
 \end{figure}
 
 \FloatBarrier
+
+
+Note: See \fig{Relationships Schema Diagram} for XML schema.
+
+
+\subsubsection{Relationships}
+
+
+
+
+\block{Relationships} \glspl{organize} \block{Relationship} elements.
+
+
+\paragraph{Elements of Relationships}\mbox{}
+\label{sec:Elements of Relationships}
+
+\tbl{Elements of Relationships} lists the elements of \texttt{Relationships}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of Relationships}
+  \label{table:Elements of Relationships}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{Relationship} & 1..* \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \block{Relationships}:
+
+\begin{itemize}
+
+\item \block{Relationship} \newline \block{Relationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
+\end{itemize}
 
 
 
@@ -47,6 +88,8 @@ Descriptions for attributes of \block{Relationship}:
 
 \item \property{name}[Relationship] \newline The name associated with this \block{Relationship}.
 \end{itemize}
+
+
 
 \subsubsection{ComponentRelationship}
 \label{sec:ComponentRelationship}
@@ -108,6 +151,8 @@ Descriptions for attributes of \block{ComponentRelationship}:
 \end{itemize}
 
 \end{itemize}
+
+
 
 \subsubsection{DeviceRelationship}
 \label{sec:DeviceRelationship}
@@ -175,37 +220,4 @@ If the \property{href} attribute is provided, it \textbf{MUST} conform to the UR
 \item \property{type}[DeviceRelationship] \newline Defines the authority that this piece of equipment has relative to the associated piece of equipment.
 \end{itemize}
 
-\subsubsection{Relationships}
-\label{sec:Relationships}
 
-
-
-\block{Relationships} \glspl{organize} \block{Relationship} elements.
-
-
-\paragraph{Elements of Relationships}\mbox{}
-\label{sec:Elements of Relationships}
-
-\tbl{Elements of Relationships} lists the elements of \texttt{Relationships}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Elements of Relationships}
-  \label{table:Elements of Relationships}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Element} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{Relationship} & 1..* \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for elements of \block{Relationships}:
-
-\begin{itemize}
-
-\item \block{Relationship} \newline \block{Relationship} describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
-\end{itemize}

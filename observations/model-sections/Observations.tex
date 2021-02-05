@@ -1,18 +1,10 @@
-% Generated 2021-01-20 01:46:26 +0530
+% Generated 2021-02-06 01:28:16 +0530
 \subsection{Observations} \label{sec:Observations}
 
 
 \block{Observations} \glspl{organize} \block{Observation} elements.
 
-\begin{figure}[ht]
-  \centering
-    \includegraphics[width=1.0\textwidth]{figures/Observations.png}
-  \caption{Observations Diagram}
-  \label{fig:Observations}
-\end{figure}
-
-\FloatBarrier
-
+Note: See \sect{Observations Schema Diagrams} for XML schema of \block{Observation} types.
 
 
 \subsubsection{Observation}
@@ -20,7 +12,7 @@
 
 
 
-\block{Observation} provides telemetry data for a \block{DataItem} at a point in time.
+\block{Observation} is an abstract element that provides telemetry data for a \block{DataItem} at a point in time.
 
 
 \paragraph{Attributes of Observation}\mbox{}
@@ -77,12 +69,16 @@ Descriptions for attributes of \block{Observation}:
 \item \property{result}[Observation] \newline The \gls{observation} of the \block{Observation} element.
 \end{itemize}
 
+
+
 \subsubsection{Condition}
+\label{sec:Condition}
 
 
 
+\block{Condition} is an \block{Observation} that provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{CONDITION} in the \block{MTConnectDevices} \gls{Response Document}.
 
-\block{Condition} provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{CONDITION} in the \block{MTConnectDevices} \gls{Response Document}.
+The following \sect{Attributes of Condition} lists the additional and/or updated attributes for \block{Condition}.
 
 
 \paragraph{Attributes of Condition}\mbox{}
@@ -123,8 +119,8 @@ Descriptions for attributes of \block{Condition}:
 \texttt{QualifierEnum} Enumeration:
 
 \begin{itemize}
-\item \texttt{HIGH} \newline  
-\item \texttt{LOW} \newline  
+\item \texttt{HIGH} \newline When the measured value is greater than the expected value for a process variable, \property{qualifier} \textbf{MUST} report a value of \texttt{HIGH}. 
+\item \texttt{LOW} \newline When the measured value is less than the expected value for a process variable, \property{qualifier} \textbf{MUST} report a value of \texttt{LOW}. 
 \end{itemize}
 
 
@@ -135,12 +131,16 @@ Descriptions for attributes of \block{Condition}:
 See \textit{IETF RFC 4646} (http://www.ietf.org/rfc/rfc4646.txt).
 \end{itemize}
 
+
+
 \subsubsection{Event}
+\label{sec:Event}
 
 
 
+\block{Event} is an \block{Observation} that provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{EVENT} in the \block{MTConnectDevices} \gls{Response Document}.
 
-\block{Event} provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{EVENT} in the \block{MTConnectDevices} \gls{Response Document}.
+The following \sect{Attributes of Event} lists the additional and/or updated attributes for \block{Event}.
 
 
 \paragraph{Attributes of Event}\mbox{}
@@ -186,12 +186,16 @@ Descriptions for attributes of \block{Event}:
 
 \end{itemize}
 
+
+
 \subsubsection{Sample}
+\label{sec:Sample}
 
 
 
+\block{Sample} is an \block{Observation} that provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{SAMPLE} in the \block{MTConnectDevices} \gls{Response Document}.
 
-\block{Sample} provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{SAMPLE} in the \block{MTConnectDevices} \gls{Response Document}.
+The following \sect{Attributes of Sample} lists the additional and/or updated attributes for \block{Sample}.
 
 
 \paragraph{Attributes of Sample}\mbox{}
@@ -235,29 +239,4 @@ Descriptions for attributes of \block{Sample}:
 \item \property{statistic}[Sample] \newline The type of statistical calculation defined by the \property{statistic} attribute of the \block{DataItem} element defined in the \block{MTConnectDevices} \gls{Response Document} that this element represents.
 \end{itemize}
 
-\paragraph{Elements of Sample}\mbox{}
-\label{sec:Elements of Sample}
 
-\tbl{Elements of Sample} lists the elements of \texttt{Sample}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Elements of Sample}
-  \label{table:Elements of Sample}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Element} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{ComponentStream} (organized by \block{Samples}) & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for elements of \block{Sample}:
-
-\begin{itemize}
-
-\item \block{Samples} \newline \block{Samples} \glspl{organize} the \texttt{SAMPLE} \property{category} type \block{DataItem} elements defined in the \block{MTConnectDevices} \gls{Response Document} that are reported in each \block{ComponentStream} element.
-\end{itemize}

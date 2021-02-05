@@ -1,76 +1,57 @@
-% Generated 2021-01-20 01:46:25 +0530
+% Generated 2021-02-06 01:28:14 +0530
 \subsection{Specifications} \label{sec:Specifications}
 
+
+This section provides semantic information for the \block{Specifications} model.
 
 \begin{figure}[ht]
   \centering
     \includegraphics[width=1.0\textwidth]{figures/Specifications.png}
   \caption{Specifications Diagram}
-  \label{fig:Specifications}
+  \label{fig:Specifications Diagram}
 \end{figure}
 
 \FloatBarrier
 
 
-
-\subsubsection{Minimum}
-\label{sec:Minimum}
+Note: See \fig{Specifications Schema Diagram} for XML schema.
 
 
-
-A numeric lower limit constraint.
-
-
-\subsubsection{Maximum}
-\label{sec:Maximum}
+\subsubsection{Specifications}
 
 
 
-A numeric upper constraint.
+
+\block{Specifications} \glspl{organize} \block{Specification} elements for a \block{Component}.
 
 
-\subsubsection{Nominal}
-\label{sec:Nominal}
+\paragraph{Elements of Specifications}\mbox{}
+\label{sec:Elements of Specifications}
+
+\tbl{Elements of Specifications} lists the elements of \texttt{Specifications}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of Specifications}
+  \label{table:Elements of Specifications}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{Specification} & 1..* \\
+\end{tabu}
+\end{table}
+\FloatBarrier
 
 
+Descriptions for elements of \block{Specifications}:
 
-The numeric target or expected value.
+\begin{itemize}
 
+\item \block{Specification} \newline \block{Specification} elements define information describing the design characteristics for a piece of equipment.
+\end{itemize}
 
-\subsubsection{LowerWarning}
-\label{sec:LowerWarning}
-
-
-
-The lower boundary indicating increased concern and supervision may be required.
-
-
-\subsubsection{LowerLimit}
-\label{sec:LowerLimit}
-
-
-
-The lower conformance boundary for a variable.
-
-Note to Entry: immediate concern or action may be required.
-
-
-\subsubsection{UpperWarning}
-\label{sec:UpperWarning}
-
-
-
-The upper boundary indicating increased concern and supervision may be required.
-
-
-\subsubsection{UpperLimit}
-\label{sec:UpperLimit}
-
-
-
-The upper conformance boundary for a variable.
-
-Note to Entry: immediate concern or action may be required.
 
 
 \subsubsection{Specification}
@@ -131,7 +112,7 @@ Descriptions for attributes of \block{Specification}:
 
 The \property{id} attribute \textbf{MUST} be unique within the \gls{MTConnectDevices Response Document}.
 
-\item \property{originator}[Specification] \newline 
+\item \property{originator}[Specification] \newline A reference to the creator of the \block{Specification}.
 
 \texttt{OriginatorEnum} Enumeration:
 
@@ -141,6 +122,7 @@ The \property{id} attribute \textbf{MUST} be unique within the \gls{MTConnectDev
 \end{itemize}
 
 \end{itemize}
+
 
 \paragraph{Elements of Specification}\mbox{}
 \label{sec:Elements of Specification}
@@ -166,40 +148,125 @@ Descriptions for elements of \block{Specification}:
 
 \begin{itemize}
 
-\item \block{Characteristic} \newline 
+\item \block{Characteristic} \newline \block{Characteristic} is an abstract element of \block{Specification}.
 \end{itemize}
 
-\subsubsection{Specifications}
-\label{sec:Specifications}
+
+
+\subsubsection{ProcessSpecification}
+\label{sec:ProcessSpecification}
 
 
 
-\block{Specifications} \glspl{organize} \block{Specification} elements for a \block{Component}.
+\block{ProcessSpecification} provides information used to assess the conformance of a variable to process requirements.
+
+See \sect{Limits for ProcessSpecification} for details on the \block{ProcessSpecification} model.
 
 
-\paragraph{Elements of Specifications}\mbox{}
-\label{sec:Elements of Specifications}
+\paragraph{Elements of ProcessSpecification}\mbox{}
+\label{sec:Elements of ProcessSpecification}
 
-\tbl{Elements of Specifications} lists the elements of \texttt{Specifications}.
+\tbl{Elements of ProcessSpecification} lists the elements of \texttt{ProcessSpecification}.
 
 \begin{table}[ht]
 \centering 
-  \caption{Elements of Specifications}
-  \label{table:Elements of Specifications}
+  \caption{Elements of ProcessSpecification}
+  \label{table:Elements of ProcessSpecification}
 \tabulinesep=3pt
 \begin{tabu} to 6in {|l|l|} \everyrow{\hline}
 \hline
 \rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Specification} & 1..* \\
+\texttt{Limits} & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
 
 
-Descriptions for elements of \block{Specifications}:
+Descriptions for elements of \block{ProcessSpecification}:
 
 \begin{itemize}
 
-\item \block{Specification} \newline \block{Specification} elements define information describing the design characteristics for a piece of equipment.
+\item \block{Limits} \newline \block{Limits} is an abstract element of \block{ProcessSpecification} that represents a set of conformance boundaries or conditions for a variable.
 \end{itemize}
+
+
+
+\subsubsection{Characteristic}
+\label{sec:Characteristic}
+
+
+
+\block{Characteristic} is an abstract element of \block{Specification}.
+
+
+The value of \texttt{Characteristic} \MUST be \texttt{float}.
+
+The following sections define the types of \block{Characteristic}s.
+
+\subsubsection{Maximum}
+\label{sec:Maximum}
+
+
+
+A numeric upper constraint.
+
+
+
+\subsubsection{Minimum}
+\label{sec:Minimum}
+
+
+
+A numeric lower limit constraint.
+
+
+
+\subsubsection{Nominal}
+\label{sec:Nominal}
+
+
+
+The numeric target or expected value.
+
+
+
+\subsubsection{LowerLimit}
+\label{sec:LowerLimit}
+
+
+
+The lower conformance boundary for a variable.
+
+Note to Entry: immediate concern or action may be required.
+
+
+
+\subsubsection{LowerWarning}
+\label{sec:LowerWarning}
+
+
+
+The lower boundary indicating increased concern and supervision may be required.
+
+
+
+\subsubsection{UpperLimit}
+\label{sec:UpperLimit}
+
+
+
+The upper conformance boundary for a variable.
+
+Note to Entry: immediate concern or action may be required.
+
+
+
+\subsubsection{UpperWarning}
+\label{sec:UpperWarning}
+
+
+
+The upper boundary indicating increased concern and supervision may be required.
+
+

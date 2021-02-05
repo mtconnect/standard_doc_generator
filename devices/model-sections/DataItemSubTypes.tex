@@ -1,4 +1,4 @@
-% Generated 2021-01-20 01:46:24 +0530
+% Generated 2021-02-06 01:28:13 +0530
 \subsection{DataItem SubTypes} \label{sec:DataItem SubTypes}
 
 
@@ -13,31 +13,29 @@
 
 
 
-The value of \property{subType}{DataItem} for \block{DataItem} \MUST be one of the following:
+The value of \property{subType}[DataItem] for \block{DataItem} \MUST be one of the following:
 
 \begin{itemize}
 
 
 \item \texttt{ABSOLUTE}  
 
-The position of a block of program code relative to the beginning of the control program.
+Relating to or derived in the simplest manner from the fundamental units or measurements.
 
 
 \item \texttt{ACTION}  
 
-An indication of the operating state of a mechanism represented by a composition type component.
- The operating state indicates whether the composition element is activated or disabled. 
- The valid data value must be active value or inactive value.
+An indication of the operating state of a mechanism.
 
 
 \item \texttt{ACTUAL}  
 
-The measured value of the data item type given by a sensor or encoder.
+The measured value.
 
 
 \item \texttt{ALL}  
 
-The count of all the parts produced.  If the subtype is not given, this is the default.
+The number of parts produced.
 
 
 \item \texttt{ALTERNATING}  
@@ -47,17 +45,17 @@ The measurement of alternating voltage or current.   If not specified further in
 
 \item \texttt{A\textunderscore SCALE}  
 
-A Scale weighting factor.   This is the default weighting factor if no factor is specified
+A Scale weighting factor.
 
 
 \item \texttt{AUXILIARY}  
 
-When multiple locations on a piece of bar stock are referenced as the indication for the endofbar event, the additional location(s) must be designated as auxiliary subtype indication(s) for the endofbar event.  
+When multiple locations on a piece of bar stock being feed by a bar feeder are referenced as the indication of whether the end of that piece of bar stock has been reached.
 
 
 \item \texttt{BAD}  
 
-Indicates the count of incorrect parts produced.
+The number of parts produced that do not conform to specification.
 
 
 \item \texttt{BRINELL}  
@@ -67,17 +65,17 @@ A scale to measure the resistance to deformation of a surface.
 
 \item \texttt{B\textunderscore SCALE}  
 
-B Scale weighting factor
+B Scale weighting factor.
 
 
 \item \texttt{COMMANDED}  
 
-A value specified by the controller type component.
+The commanded value.
 
 
 \item \texttt{CONSUMED}  
 
-The amount of bulk material consumed from an object or container during a manufacturing process.
+The amount of material consumed from an object or container during a manufacturing process.
 
 
 \item \texttt{CONTROL}  
@@ -87,12 +85,12 @@ The state of the enabling signal or control logic that enables or disables the f
 
 \item \texttt{C\textunderscore SCALE}  
 
-C Scale weighting factor
+C Scale weighting factor.
 
 
 \item \texttt{DELAY}  
 
-A piece of equipment waiting for an event or an action to occur.
+A piece of equipment or process waiting for an event or an action to occur.
 
 
 \item \texttt{DIRECT}  
@@ -102,14 +100,12 @@ The measurement of DC current or voltage.
 
 \item \texttt{DRY\textunderscore RUN}  
 
-A setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
- The valid data value must be on value or off value. 
- When dryrun subtype is on value, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
+A setting or operator selection used to execute a test mode to confirm the execution of machine functions.
 
 
 \item \texttt{D\textunderscore SCALE}  
 
-D Scale weighting factor
+D Scale weighting factor.
 
 
 \item \texttt{EXPIRATION}  
@@ -124,24 +120,22 @@ The time and date code relating the first use of a material or other physical it
 
 \item \texttt{GOOD}  
 
-Indicates the count of correct parts made.
+The number of parts produced that conform to specification.
 
 
 \item \texttt{INCREMENTAL}  
 
-The position of a block of program code relative to the occurrence of the last linelabel event encountered in the control program.
+Relating to or derived from the last \gls{observation}.
 
 
 \item \texttt{JOG}  
 
-The feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the axes. 
+The feedrate specified by a logic or motion program when operating in a manual state or method (jogging).
 
 
 \item \texttt{LATERAL}  
 
-An indication of the position of a mechanism that may move in a lateral direction.   The mechanism is represented by a composition type component. 
- The position information indicates whether the composition element is positioned to the right, to the left, or is in transition.  
- The valid data value must be right value, left value, or transitioning value.
+An indication of the position of a mechanism that may move in a lateral direction.
 
 
 \item \texttt{LEEB}  
@@ -156,7 +150,7 @@ A reference to a length type tool offset variable.
 
 \item \texttt{LINE}  
 
-The state of the power source for the structural element.
+The state of the power source.
 
 
 \item \texttt{LINEAR}  
@@ -171,41 +165,37 @@ Subparts of a piece of equipment are under load.
 
 \item \texttt{MACHINE\textunderscore AXIS\textunderscore LOCK}  
 
-A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value. 
- When machineaxislock subtype is on value, program execution continues normally, but no equipment motion occurs 
+A setting or operator selection that changes the behavior of the controller on a piece of equipment.
 
 
 \item \texttt{MAIN}  
 
-The identity of the primary logic or motion program currently being executed. It is the starting nest level in a call structure and may contain calls to sub programs.
+The identity of the primary logic or motion program currently being executed.
 
 
 \item \texttt{MAINTENANCE}  
 
-Action related to maintenance on the piece of equipment.
+Relating to maintenance on the piece of equipment.
 
 
 \item \texttt{MANUAL\textunderscore UNCLAMP}  
 
 An indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
- The valid data value must be active value or inactive value. 
- When manualunclamp subtype is active value, it is expected that a chuck cannot be unclamped until manualunclamp subtype is set to inactive value. 
 
 
 \item \texttt{MANUFACTURE}  
 
-The time and date code relating to the production of a material or other physical item.
+Related to the production of a material or other physical item.
 
 
 \item \texttt{MAXIMUM}  
 
-Maximum value of a data entity or attribute.
+The maximum value.
 
 
 \item \texttt{MINIMUM}  
 
-The minimum value of a data entity or attribute.
+The minimum value.
 
 
 \item \texttt{MOHS}  
@@ -215,64 +205,57 @@ A scale to measure the resistance to scratching of a surface.
 
 \item \texttt{MOTION}  
 
-An indication of the open or closed state of a mechanism.   The mechanism is represented by a composition type component. 
- The operating state indicates whether the state of the composition element is open, closed, or unlatched.   
- The valid data value must be open value, unlatched value, or closed value.
+An indication of the open or closed state of a mechanism.
 
 
 \item \texttt{NO\textunderscore SCALE}  
 
-No weighting factor on the frequency scale
+No weighting factor on the frequency scale.
 
 
 \item \texttt{OPERATING}  
 
-A piece of equipment are powered or performing any activity.
+A piece of equipment that is powered or performing any activity.
 
 
 \item \texttt{OPERATOR}  
 
-The identifier of the person currently responsible for operating the piece of equipment.
+Relating to the person currently responsible for operating the piece of equipment.
 
 
 \item \texttt{OPTIONAL\textunderscore STOP}  
 
 A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value.
- The program execution is stopped after a specific program block is executed when optionalstop subtype is on value.    
- In the case of a G-Code program, a program block event containing a M01 code designates the command for an optionalstop subtype. 
- execution event must change to optionalstop subtype after a program block specifying an optional stop is executed and the optionalstop subtype selection is on value.
 
 
 \item \texttt{OVERRIDE}  
 
-DEPRECATED: The operators overridden value.
+The overridden value.
 
 
 \item \texttt{POWERED}  
 
-Primary  power is  applied  to the  piece  of  equipment and,  as  a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
+A piece of equipment is powered and functioning or \glspl{Component} that are required to remain on are powered.
 
 
 \item \texttt{PRIMARY}  
 
-Specific applications MAY reference one or more locations on a piece of bar stock as the indication for the endofbar event. The main or most important location must be designated as the primary subtype indication for the endofbar event.   
- If no subtype is specified, primary subtype must be the default endofbar event indication.
+The main or most important location \textbf{MUST} be designated as the end of a piece of bar stock.
 
 
 \item \texttt{PROBE}  
 
-The position provided by a measurement probe.
+The value provided by a measurement probe.
 
 
 \item \texttt{PROCESS}  
 
-The measurement of the time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on that piece of equipment.  This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
+Relating to production of a part or product on a piece of equipment.
 
 
 \item \texttt{PROGRAMMED}  
 
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+The programmed value.
 
 
 \item \texttt{RADIAL}  
@@ -282,12 +265,12 @@ A reference to a radial type tool offset variable.
 
 \item \texttt{RAPID}  
 
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+The feedrate specified by a logic or motion program when operating in a rapid positioning mode.
 
 
 \item \texttt{REMAINING}  
 
-Remaining measure of an object or an action.
+The remaining measure of an object or an action.
 
 
 \item \texttt{ROCKWELL}  
@@ -297,8 +280,7 @@ A scale to measure the resistance to deformation of a surface.
 
 \item \texttt{ROTARY}  
 
-The rotational direction of a rotary motion using the right hand rule convention.
- The valid data value must be clockwise value or counterclockwise value.
+The direction of a rotary motion using the right hand rule convention.
 
 
 \item \texttt{SCHEDULE}  
@@ -308,7 +290,7 @@ The identity of a control program that is used to specify the order of execution
 
 \item \texttt{SET\textunderscore UP}  
 
-The identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
+Relating to the preparation of a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
 
 
 \item \texttt{SHORE}  
@@ -319,56 +301,46 @@ A scale to measure the resistance to deformation of a surface.
 \item \texttt{SINGLE\textunderscore BLOCK}  
 
 A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value.
- Program execution is paused after each block event of code is executed when singleblock subtype is on value.   
- When singleblock subtype is on value, execution event must change to interrupted value after completion of each block event of code. 
 
 
 \item \texttt{STANDARD}  
 
-The standard or original length of an object.
+The standard measure of an object or an action.
 
 
 \item \texttt{START}  
 
-The time and date associated with the beginning of an activity or event.
+Relating to the beginning of an activity or event.
 
 
 \item \texttt{SWITCHED}  
 
-An indication of the activation state of a mechanism represented by a composition type component.
- The activation state indicates whether the composition element is activated or not.
- The valid data value must be on value or off value.
+An indication of the activation state of a mechanism represented by a \gls{Composition}.
 
 
 \item \texttt{TARGET}  
 
-The desired measure or count for a data item value.
+The targeted or desired value.
 
 
 \item \texttt{TARGET\textunderscore COMPLETION}  
 
-The projected time and date associated with the end or completion of an activity or event.
+Relating to the end or completion of an activity or event.
 
 
 \item \texttt{TOOL\textunderscore CHANGE\textunderscore STOP}  
 
-A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
- The valid data value must be on value or off value. 
- Program execution is paused when a command is executed requesting a cutting tool to be changed. 
- execution event must change to interrupted value after completion of the command requesting a cutting tool to be changed and toolchangestop subtype is on value.
+A setting or operator selection that changes the behavior of the controller on a piece of equipment.
 
 
 \item \texttt{USEABLE}  
 
-The remaining useable length of an object.
+The remaining usable measure of an object or action.
 
 
 \item \texttt{VERTICAL}  
 
-An indication of the position of a mechanism that may move in a vertical direction. The mechanism is represented by a composition type component. 
- The position information indicates whether the composition element is positioned to the top, to the bottom, or is in transition.  
- The valid data value must be up value, down value, or transitioning value.
+An indication of the position of a mechanism that may move in a vertical direction.
 
 
 \item \texttt{VICKERS}  
@@ -438,12 +410,12 @@ The date the hardware or software was installed.
 
 \item \texttt{MANUFACTURER}  
 
-The corporate identity for the maker of the hardware or software
+The corporate identity for the maker of the hardware or software.
 
 
 \item \texttt{GAUGE}  
 
-Gauge pressure is pressure measured relative to atmospheric pressure.
+Pressure measured relative to atmospheric pressure.
 
 
 \item \texttt{UUID}  
@@ -458,32 +430,32 @@ A serial number that uniquely identifies a specific part.
 
 \item \texttt{RAW\textunderscore MATERIAL}  
 
-The unique identifier for a singular piece of material.
+A singular piece of material.
 
 
 \item \texttt{LOT}  
 
-An identifier that references a group of parts tracked as a lot.
+A group of parts tracked as a lot.
 
 
 \item \texttt{BATCH}  
 
-An identifier that references a group of parts produced in a batch.
+A group of parts produced in a batch.
 
 
 \item \texttt{HEAT\textunderscore TREAT}  
 
-An identifier used to reference a material heat number.
+A material heat number.
 
 
 \item \texttt{PART\textunderscore NUMBER}  
 
-Identifier of a particular part design or model.
+A particular part design or model.
 
 
 \item \texttt{PART\textunderscore FAMILY}  
 
-An identifier given to a group of parts having similarities in geometry, manufacturing process, and/or functions.
+A group of parts having similarities in geometry, manufacturing process, and/or functions.
 
 
 \item \texttt{PART\textunderscore NAME}  
@@ -493,17 +465,17 @@ A word or set of words by which a part is known, addressed, or referred to.
 
 \item \texttt{PROCESS\textunderscore STEP}  
 
-Identifier of the step in the process plan that this occurrence corresponds to. Synonyms include "operation id".
+A step in the process plan that this occurrence corresponds to. 
 
 
 \item \texttt{PROCESS\textunderscore PLAN}  
 
-Identifier of the process plan that this occurrence belongs to. Synonyms include "routing id", "job id".
+A process plan that a process occurrence belongs to.
 
 
 \item \texttt{ORDER\textunderscore NUMBER}  
 
-Identifier of the authorization of the process occurrence. Synonyms include "job id", "work order".
+The authorization of a process occurrence.
 
 
 \item \texttt{PROCESS\textunderscore NAME}  
@@ -516,4 +488,5 @@ A word or set of words by which a process being executed (process occurrence) by
 A reference to a ISO 10303 Executable.
 
 \end{itemize}
+
 

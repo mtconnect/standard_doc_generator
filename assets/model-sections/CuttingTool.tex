@@ -1,16 +1,29 @@
-% Generated 2021-01-20 01:46:27 +0530
+% Generated 2021-02-06 01:28:17 +0530
 \subsection{CuttingTool} \label{sec:CuttingTool}
 
 
-The \block{CuttingTool} \gls{Information Model} illustrated in \ref{cuttingtool-schema} has the identical structure as the \block{CuttingToolArchetype} \gls{Information Model} except for the XML element \block{CuttingToolDefinition} that has been \textbf{DEPRECATED} in the \block{CuttingTool} schema.
+This section provides the semantic information for the \block{CuttingTool} model.
+
+\begin{figure}[ht]
+  \centering
+    \includegraphics[width=1.0\textwidth]{figures/CuttingTool.png}
+  \caption{CuttingTool Diagram}
+  \label{fig:CuttingTool Diagram}
+\end{figure}
+
+\FloatBarrier
+
+
+Note: See \sect{CuttingTool Schema Diagrams} for XML schema.
+
 
 
 \subsubsection{CuttingTool}
-\label{sec:CuttingTool}
 
 
 
-A CuttingTool physically removes the material from the workpiece by shear deformation.
+
+A \block{CuttingTool} physically removes the material from the workpiece by shear deformation.
 
 
 \paragraph{Attributes of CuttingTool}\mbox{}
@@ -39,12 +52,15 @@ Descriptions for attributes of \block{CuttingTool}:
 
 \begin{itemize}
 
-\item \property{manufacturers}[CuttingTool] \newline The manufacturers of the Cutting Item or Tool.
+\item \property{manufacturers}[CuttingTool] \newline The manufacturers of the Cutting Tool.
+
+The representation will be a comma(,) delimited list of manufacturer names.
 
 \item \property{serialNumber}[CuttingTool] \newline The unique identifier for this assembly.
 
 \item \property{toolId}[CuttingTool] \newline The identifier for a class of cutting tools.
 \end{itemize}
+
 
 \paragraph{Elements of CuttingTool}\mbox{}
 \label{sec:Elements of CuttingTool}
@@ -72,19 +88,23 @@ Descriptions for elements of \block{CuttingTool}:
 
 \begin{itemize}
 
-\item \block{CuttingToolLifeCycle} \newline Data regarding the use of the cutting tool.
+\item \block{CuttingToolLifeCycle} \newline Data regarding the application or use of the tool.
 
-\item \block{CuttingToolArchetypeReference} \newline CuttingToolArchetypeReference has reference information about the assetId and/or the URL of the data source of CuttingToolArchetype.
+This data is provided by various pieces of equipment (i.e. machine tool, presetter) and statistical process control applications. Life cycle data will not remain static, but will change 395 periodically when a tool is used or measured.
 
-\item \block{CuttingToolDefinition} \newline Reference to an ISO 13399.
+\item \block{CuttingToolArchetypeReference} \newline \block{CuttingToolArchetypeReference} has reference information about the \property{assetId} and/or the URL of the data source of \block{CuttingToolArchetype}.
+
+\item \block{CuttingToolDefinition} \newline The \block{CuttingToolDefinition} contains the detailed structure of the Cutting Tool which is be static during its lifecycle. \textit{Ref:ISO 13399}.
 \end{itemize}
+
+
 
 \subsubsection{CuttingToolArchetype}
 \label{sec:CuttingToolArchetype}
 
 
 
-The CuttingToolArchetype represents the static cutting tool geometries and nominal values as one would expect from a tool catalog.
+The \block{CuttingToolArchetype} represents the static cutting tool geometries and nominal values as one would expect from a tool catalog.
 
 
 \paragraph{Attributes of CuttingToolArchetype}\mbox{}
@@ -113,12 +133,15 @@ Descriptions for attributes of \block{CuttingToolArchetype}:
 
 \begin{itemize}
 
-\item \property{manufacturers}[CuttingToolArchetype] \newline 
+\item \property{manufacturers}[CuttingToolArchetype] \newline The manufacturers of the Cutting Tool.
+
+The representation will be a comma(,) delimited list of manufacturer names.
 
 \item \property{serialNumber}[CuttingToolArchetype] \newline The unique identifier for this assembly.
 
 \item \property{toolId}[CuttingToolArchetype] \newline The identifier for a class of cutting tools.
 \end{itemize}
+
 
 \paragraph{Elements of CuttingToolArchetype}\mbox{}
 \label{sec:Elements of CuttingToolArchetype}
@@ -145,17 +168,21 @@ Descriptions for elements of \block{CuttingToolArchetype}:
 
 \begin{itemize}
 
-\item \block{CuttingToolDefinition} \newline Reference to an ISO 13399.
+\item \block{CuttingToolDefinition} \newline The \block{CuttingToolDefinition} contains the detailed structure of the Cutting Tool which is be static during its lifecycle. \textit{Ref:ISO 13399}.
 
-\item \block{CuttingToolLifeCycle} \newline Data regarding the use of the cutting tool.
+\item \block{CuttingToolLifeCycle} \newline Data regarding the application or use of the tool.
+
+This data is provided by various pieces of equipment (i.e. machine tool, presetter) and statistical process control applications. Life cycle data will not remain static, but will change 395 periodically when a tool is used or measured.
 \end{itemize}
+
+
 
 \subsubsection{CuttingToolArchetypeReference}
 \label{sec:CuttingToolArchetypeReference}
 
 
 
-CuttingToolArchetypeReference has reference information about the assetId and/or the URL of the data source of CuttingToolArchetype.
+\block{CuttingToolArchetypeReference} has reference information about the \property{assetId} and/or the URL of the data source of \block{CuttingToolArchetype}.
 
 
 The value of \texttt{CuttingToolArchetypeReference} \MUST be \texttt{CuttingToolArchetype}.
@@ -188,12 +215,14 @@ Descriptions for attributes of \block{CuttingToolArchetypeReference}:
 \item \property{source}[CuttingToolArchetypeReference] \newline The URL of the CuttingToolArchetype Information Model.
 \end{itemize}
 
+
+
 \subsubsection{CuttingToolDefinition}
 \label{sec:CuttingToolDefinition}
 
 
 
-Reference to an ISO 13399.
+The \block{CuttingToolDefinition} contains the detailed structure of the Cutting Tool which is be static during its lifecycle. \textit{Ref:ISO 13399}.
 
 
 The value of \texttt{CuttingToolDefinition} \MUST be \texttt{string}.
@@ -236,422 +265,4 @@ Descriptions for attributes of \block{CuttingToolDefinition}:
 
 \end{itemize}
 
-\subsubsection{CuttingToolLifeCycle}
-\label{sec:CuttingToolLifeCycle}
 
-
-
-Data regarding the use of the cutting tool.
-
-
-\paragraph{Elements of CuttingToolLifeCycle}\mbox{}
-\label{sec:Elements of CuttingToolLifeCycle}
-
-\tbl{Elements of CuttingToolLifeCycle} lists the elements of \texttt{CuttingToolLifeCycle}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Elements of CuttingToolLifeCycle}
-  \label{table:Elements of CuttingToolLifeCycle}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Element} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{ConnectionCodeMachineSide} & 0..1 \\
-\texttt{ProgramToolGroup} & 0..1 \\
-\texttt{ProgramToolNumber} & 0..1 \\
-\texttt{ProcessFeedRate} & 0..1 \\
-\texttt{ToolLife} & 0..1 \\
-\texttt{ToolLife} & 0..1 \\
-\texttt{ProcessSpindleSpeed} & 0..1 \\
-\texttt{ToolLife} & 0..1 \\
-\texttt{Status} (organized by \block{CutterStatus}) & 1..* \\
-\texttt{CuttingItem} (organized by \block{CuttingItems}) & 0..* \\
-\texttt{Measurement} (organized by \block{Measurements}) & 0..* \\
-\texttt{ReconditionCount} & 0..1 \\
-\texttt{Location} & 0..1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for elements of \block{CuttingToolLifeCycle}:
-
-\begin{itemize}
-
-\item \block{ConnectionCodeMachineSide} \newline Identifier for the capability to connect any Component of the cutting tool together, except Assembly Items, on the machine side. Code: CCMS
-
-The value of \block{ConnectionCodeMachineSide} \MUST be \texttt{string}.
-
-\item \block{ProgramToolGroup} \newline The tool group this tool is assigned in the part program.
-
-The value of \block{ProgramToolGroup} \MUST be \texttt{string}.
-
-\item \block{ProgramToolNumber} \newline The number of the tool as referenced in the part program.
-
-The value of \block{ProgramToolNumber} \MUST be \texttt{integer}.
-
-\item \block{ProcessFeedRate} \newline The constrained process feed rate for this tool in mm/s.
-
-\item \block{ToolLife} \newline The cutting tool life as related to this assembly.
-
-\item \block{ToolLife} \newline The cutting tool life as related to this assembly.
-
-\item \block{ProcessSpindleSpeed} \newline The constrained process spindle speed for this tool.
-
-\item \block{ToolLife} \newline The cutting tool life as related to this assembly.
-
-\item \block{CutterStatus} \newline 
-
-\item \block{CuttingItems} \newline 
-
-\item \block{Measurements} \newline 
-
-\item \block{ReconditionCount} \newline The number of times this cutter has been reconditioned.
-
-\item \block{Location} \newline The Pot or Spindle the cutting tool currently resides in.
-\end{itemize}
-
-\subsubsection{Location}
-\label{sec:Location}
-
-
-
-The Pot or Spindle the cutting tool currently resides in.
-
-
-\paragraph{Attributes of Location}\mbox{}
-\label{sec:Attributes of Location}
-
-\tbl{Attributes of Location} lists the attributes of \texttt{Location}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Location}
-  \label{table:Attributes of Location}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-
-\property{negativeOverlap}[Location] & \texttt{integer} & 0..1 \\
-\property{positiveOverlap}[Location] & \texttt{integer} & 0..1 \\
-\property{type}[Location] & \texttt{LocationType} & 1 \\
-\property{turret}[Location] & \texttt{NMTOKEN} & 0..1 \\
-\property{toolMagazine}[Location] & \texttt{NMTOKEN} & 0..1 \\
-\property{toolBar}[Location] & \texttt{NMTOKEN} & 0..1 \\
-\property{toolRack}[Location] & \texttt{NMTOKEN} & 0..1 \\
-\property{automaticToolChanger}[Location] & \texttt{NMTOKEN} & 0..1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-Descriptions for attributes of \block{Location}:
-
-\begin{itemize}
-
-\item \property{negativeOverlap}[Location] \newline The number of location at lower index values from this location.
-
-\item \property{positiveOverlap}[Location] \newline The number of locations at higher index value from this location.
-
-\item \property{type}[Location] \newline The type of location being identified. 
-
-\texttt{LocationType} Enumeration:
-
-\begin{itemize}
-\item \texttt{POT} \newline The number of the pot in the tool handling system. 
-\item \texttt{STATION} \newline The tool location in a horizontal turning machine. 
-\item \texttt{CRIB} \newline The location with regard to a tool crib. 
-\item \texttt{SPINDLE} \newline A location associated with a \gls{Spindle}. 
-\item \texttt{TRANSFER\textunderscore POT} \newline A location for a tool awaiting transfer from a tool magazine to spindle or a turret. 
-\item \texttt{RETURN\textunderscore POT} \newline A location for a tool removed from a \gls{Spindle} or turret and awaiting return to a tool magazine. 
-\item \texttt{STAGING\textunderscore POT} \newline A location for a tool awaiting transfer to a tool magazine or turret from outside of the piece of equipment. 
-\item \texttt{REMOVAL\textunderscore POT} \newline A location for a tool removed from a tool magazine or turret awaiting transfer to a location outside of the piece of equipment. 
-\item \texttt{EXPIRED\textunderscore POT} \newline A location for a tool that is no longer usable and is awaiting removal from a tool magazine or turret. 
-\item \texttt{END\textunderscore EFFECTOR} \newline A location associated with an end effector. 
-\end{itemize}
-
-
-\item \property{turret}[Location] \newline The turret associated with a tool.
-
-\item \property{toolMagazine}[Location] \newline The tool magazine associated with a tool.
-
-\item \property{toolBar}[Location] \newline The tool bar associated with a tool.
-
-\item \property{toolRack}[Location] \newline The tool rack associated with a tool.
-
-\item \property{automaticToolChanger}[Location] \newline The automatic tool changer associated with a tool.
-\end{itemize}
-
-\subsubsection{Measurement}
-\label{sec:Measurement}
-
-
-
-A constrained scalar value associated with this cutting tool.
-
-
-\paragraph{Attributes of Measurement}\mbox{}
-\label{sec:Attributes of Measurement}
-
-\tbl{Attributes of Measurement} lists the attributes of \texttt{Measurement}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Measurement}
-  \label{table:Attributes of Measurement}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-
-\property{code}[Measurement] & \texttt{CodeEnum} & 1 \\
-\property{maximum}[Measurement] & \texttt{float} & 0..1 \\
-\property{minimum}[Measurement] & \texttt{float} & 0..1 \\
-\property{nativeUnits}[Measurement] & \texttt{NativeUnitEnum} & 0..1 \\
-\property{nominal}[Measurement] & \texttt{float} & 0..1 \\
-\property{significantDigits}[Measurement] & \texttt{integer} & 0..1 \\
-\property{units}[Measurement] & \texttt{UnitEnum} & 0..1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-Descriptions for attributes of \block{Measurement}:
-
-\begin{itemize}
-
-\item \property{code}[Measurement] \newline A shop specific code for this measurement. ISO 13399 codes MAY be used for these codes as well.
-
-\texttt{CodeEnum} Enumeration:
-
-\begin{itemize}
-\item \texttt{BDX} \newline The largest diameter of the body of a Tool Item. 
-\item \texttt{LBX} \newline The distance measured along the X axis from that point of the item closest to the workpiece, including the Cutting Item for a Tool Item but excluding a protruding locking mechanism for an Adaptive Item, to either the front of the flange on a flanged body or the beginning of the connection interface feature on the machine side for cylindrical or prismatic shanks. 
-\item \texttt{APMX} \newline The maximum engagement of the cutting edge or edges with the workpiece measured perpendicular to the feed motion. 
-\item \texttt{DC} \newline The maximum diameter of a circle on which the defined point Pk of each of the master inserts is located on a Tool Item. The normal of the machined peripheral surface points towards the axis of the Cutting Tool. 
-\item \texttt{DF} \newline The dimension between two parallel tangents on the outside edge of a flange. 
-\item \texttt{OAL} \newline The largest length dimension of the Cutting Tool including the master insert where applicable. 
-\item \texttt{DMM} \newline The dimension of the diameter of a cylindrical portion of a Tool Item or an Adaptive Item that can participate in a connection. 
-\item \texttt{H} \newline The dimension of the height of the shank. 
-\item \texttt{LS} \newline The dimension of the length of the shank. 
-\item \texttt{LUX} \newline Maximum length of a Cutting Tool that can be used in a particular cutting operation including the non-cutting portions of the tool. 
-\item \texttt{LPR} \newline The dimension from the yz-plane to the furthest point of the Tool Item or Adaptive Item measured in the -X direction. 
-\item \texttt{WT} \newline The total weight of the Cutting Tool in grams. The force exerted by the mass of the Cutting Tool. 
-\item \texttt{LF} \newline The distance from the gauge plane or from the end of the shank to the furthest point on the tool, if a gauge plane does not exist, to the cutting reference point determined by the main function of the tool. The \block{CuttingTool} functional length will be the length of the entire tool, not a single Cutting Item. Each \block{CuttingItem} can have an independent \block{FunctionalLength} represented in its measurements.  
-\item \texttt{CRP} \newline The theoretical sharp point of the Cutting Tool from which the major functional dimensions are taken. 
-\item \texttt{L} \newline The theoretical length of the cutting edge of a Cutting Item over sharp corners. 
-\item \texttt{DRVA} \newline Angle between the driving mechanism locator on a Tool Item and the main cutting edge. 
-\item \texttt{WF} \newline The distance between the cutting reference point and the rear backing surface of a turning tool or the axis of a boring bar. 
-\item \texttt{IC} \newline The diameter of a circle to which all edges of a equilateral and round regular insert are tangential. 
-\item \texttt{SIG} \newline The angle between the major cutting edge and the same cutting edge rotated by 180 degrees about the tool axis. 
-\item \texttt{KAPR} \newline The angle between the tool cutting edge plane and the tool feed plane measured in a plane parallel the xy-plane. 
-\item \texttt{PSIR} \newline The angle between the tool cutting edge plane and a plane perpendicular to the tool feed plane measured in a plane parallel the xy-plane. 
-\item \texttt{N/A} \newline The angle of the tool with respect to the workpiece for a given process. The value is application specific. 
-\item \texttt{BS} \newline The measure of the length of a wiper edge of a Cutting Item. 
-\item \texttt{SDLx} \newline The length of a portion of a stepped tool that is related to a corresponding cutting diameter measured from the cutting reference point of that cutting diameter to the point on the next cutting edge at which the diameter starts to change. 
-\item \texttt{STAx} \newline The angle between a major edge on a step of a stepped tool and the same cutting edge rotated 180 degrees about its tool axis. 
-\item \texttt{DCx} \newline The diameter of a circle on which the defined point Pk located on this Cutting Tool. The normal of the machined peripheral surface points towards the axis of the Cutting Tool. 
-\item \texttt{HF} \newline The distance from the basal plane of the Tool Item to the cutting point. 
-\item \texttt{RE} \newline The nominal radius of a rounded corner measured in the X Y-plane. 
-\item \texttt{LFx} \newline The distance from the gauge plane or from the end of the shank of the Cutting Tool, if a gauge plane does not exist, to the cutting reference point determined by the main function of the tool. This measurement will be with reference to the Cutting Tool and \textbf{MUSTNOT} exist without a Cutting Tool. 
-\item \texttt{BCH} \newline The flat length of a chamfer. 
-\item \texttt{CHW} \newline The width of the chamfer. 
-\item \texttt{W1} \newline W1 is used for the insert width when an inscribed circle diameter is not practical. 
-\end{itemize}
-
-
-\item \property{maximum}[Measurement] \newline The maximum value for this measurement. 
-
-\item \property{minimum}[Measurement] \newline The minimum value for this measurement. 
-
-\item \property{nativeUnits}[Measurement] \newline The units the measurement was originally recorded in.
-
-\item \property{nominal}[Measurement] \newline The as advertised value for this measurement.
-
-\item \property{significantDigits}[Measurement] \newline The number of significant digits in the reported value. 
-
-\item \property{units}[Measurement] \newline The units for the measurements. 
-\end{itemize}
-
-\subsubsection{ProcessFeedRate}
-\label{sec:ProcessFeedRate}
-
-
-
-The constrained process feed rate for this tool in mm/s.
-
-
-\paragraph{Attributes of ProcessFeedRate}\mbox{}
-\label{sec:Attributes of ProcessFeedRate}
-
-\tbl{Attributes of ProcessFeedRate} lists the attributes of \texttt{ProcessFeedRate}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of ProcessFeedRate}
-  \label{table:Attributes of ProcessFeedRate}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-
-\property{maximum}[ProcessFeedRate] & \texttt{float} & 0..1 \\
-\property{minimum}[ProcessFeedRate] & \texttt{float} & 0..1 \\
-\property{nominal}[ProcessFeedRate] & \texttt{float} & 0..1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-Descriptions for attributes of \block{ProcessFeedRate}:
-
-\begin{itemize}
-
-\item \property{maximum}[ProcessFeedRate] \newline The upper bound for the tool’s process target feedrate.
-
-\item \property{minimum}[ProcessFeedRate] \newline The lower bound for the tools feedrate.
-
-\item \property{nominal}[ProcessFeedRate] \newline The nominal feedrate the tool is designed to operate at.
-\end{itemize}
-
-\subsubsection{ProcessSpindleSpeed}
-\label{sec:ProcessSpindleSpeed}
-
-
-
-The constrained process spindle speed for this tool.
-
-
-\paragraph{Attributes of ProcessSpindleSpeed}\mbox{}
-\label{sec:Attributes of ProcessSpindleSpeed}
-
-\tbl{Attributes of ProcessSpindleSpeed} lists the attributes of \texttt{ProcessSpindleSpeed}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of ProcessSpindleSpeed}
-  \label{table:Attributes of ProcessSpindleSpeed}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-
-\property{maximum}[ProcessSpindleSpeed] & \texttt{float} & 0..1 \\
-\property{minimum}[ProcessSpindleSpeed] & \texttt{float} & 0..1 \\
-\property{nominal}[ProcessSpindleSpeed] & \texttt{float} & 0..1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-Descriptions for attributes of \block{ProcessSpindleSpeed}:
-
-\begin{itemize}
-
-\item \property{maximum}[ProcessSpindleSpeed] \newline The upper bound for the tool’s target spindle speed.
-
-\item \property{minimum}[ProcessSpindleSpeed] \newline The lower bound for the tools spindle speed.
-
-\item \property{nominal}[ProcessSpindleSpeed] \newline The nominal speed the tool is designed to operate at.
-\end{itemize}
-
-\subsubsection{ReconditionCount}
-\label{sec:ReconditionCount}
-
-
-
-The number of times this cutter has been reconditioned.
-
-
-\paragraph{Attributes of ReconditionCount}\mbox{}
-\label{sec:Attributes of ReconditionCount}
-
-\tbl{Attributes of ReconditionCount} lists the attributes of \texttt{ReconditionCount}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of ReconditionCount}
-  \label{table:Attributes of ReconditionCount}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-
-\property{maximumCount}[ReconditionCount] & \texttt{integer} & 0..1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-Descriptions for attributes of \block{ReconditionCount}:
-
-\begin{itemize}
-
-\item \property{maximumCount}[ReconditionCount] \newline The maximum number of times this tool may be reconditioned.
-\end{itemize}
-
-\subsubsection{Status}
-\label{sec:Status}
-
-
-
-The status of the cutting tool.
-
-
-The value of \texttt{Status} \MUST be \texttt{CutterStatusType}.
-
-
-\subsubsection{ToolLife}
-\label{sec:ToolLife}
-
-
-
-The cutting tool life as related to this assembly.
-
-
-\paragraph{Attributes of ToolLife}\mbox{}
-\label{sec:Attributes of ToolLife}
-
-\tbl{Attributes of ToolLife} lists the attributes of \texttt{ToolLife}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of ToolLife}
-  \label{table:Attributes of ToolLife}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-
-\property{countDirection}[ToolLife] & \texttt{CountDirectionType} & 1 \\
-\property{initial}[ToolLife] & \texttt{float} & 0..1 \\
-\property{limit}[ToolLife] & \texttt{float} & 0..1 \\
-\property{warning}[ToolLife] & \texttt{float} & 0..1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-Descriptions for attributes of \block{ToolLife}:
-
-\begin{itemize}
-
-\item \property{countDirection}[ToolLife] \newline Indicates if the tool life counts from zero to maximum or maximum to zero.
-
-\texttt{CountDirectionType} Enumeration:
-
-\begin{itemize}
-\item \texttt{UP} \newline The tool life counts up from zero to the maximum. 
-\item \texttt{DOWN} \newline The tool life counts down from the maximum to zero. 
-\end{itemize}
-
-
-\item \property{initial}[ToolLife] \newline The initial life of the tool when it is new.
-
-\item \property{limit}[ToolLife] \newline The end of life limit for this tool.
-
-\item \property{warning}[ToolLife] \newline The point at which a tool life warning will be raised.
-\end{itemize}

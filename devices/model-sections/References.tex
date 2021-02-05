@@ -1,18 +1,22 @@
-% Generated 2021-01-20 01:46:25 +0530
+% Generated 2021-02-06 01:28:14 +0530
 \subsection{References} \label{sec:References}
 
 
 \block{References} \glspl{organize} \block{Reference} elements.
 
+\block{References} may be modeled as part of a \block{Device}, \block{Component} or \block{Interface} type \gls{Structural Element}.
+
 \begin{figure}[ht]
   \centering
     \includegraphics[width=1.0\textwidth]{figures/References.png}
   \caption{References Diagram}
-  \label{fig:References}
+  \label{fig:References Diagram}
 \end{figure}
 
 \FloatBarrier
 
+
+Note: See \sect{References Schema Diagrams} for XML schema of \block{Reference} and its types.
 
 
 \subsubsection{Reference}
@@ -53,6 +57,8 @@ Descriptions for attributes of \block{Reference}:
 \item \property{name}[Reference] \newline The name of an element or a piece of equipment.
 \end{itemize}
 
+
+
 \subsubsection{DataItemRef}
 \label{sec:DataItemRef}
 
@@ -88,6 +94,8 @@ Descriptions for attributes of \block{DataItemRef}:
 \item \property{idRef}[DataItemRef] \newline A pointer to the \property{id} attribute of the \block{DataItem} that contains the information to be associated with this element.
 \end{itemize}
 
+
+
 \subsubsection{ComponentRef}
 \label{sec:ComponentRef}
 
@@ -122,3 +130,5 @@ Descriptions for attributes of \block{ComponentRef}:
 
 \item \property{idRef}[ComponentRef] \newline A pointer to the \property{id} attribute of the \block{Component} that contains the information to be associated with this element.
 \end{itemize}
+
+

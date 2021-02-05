@@ -32,7 +32,7 @@ Note:  The \gls{MTConnect Standard} also defines the information model for \glsp
   \centering
     \includegraphics[width=1.0\textwidth]{figures/MTConnectDevices Structural Elements.png}
   \caption{MTConnectDevices Structural Elements Diagram}
-  \label{fig:MTConnectDevices Structural Elements}
+  \label{fig:MTConnectDevices Structural Elements Diagram}
 \end{figure}
 
 \FloatBarrier
@@ -66,12 +66,12 @@ This parent-child relationship can continue to any depth required to fully defin
 
 \input model-sections/ComponentTypes.tex
 
-\section{Compositions}
-\label{sec:Compositions}
+\section{Compositions Model}
+\label{sec:Compositions Model}
 
 \block{Composition} \glspl{Structural Element} are used to describe the lowest level physical building blocks of a piece of equipment contained within a \block{Component}. By referencing a specific \block{Composition} element, further clarification and meaning to data associated with a specific \block{Component} can be achieved.
 
-Both \block{Component} and \block{Composition} elements are \gls{Lower Level} child \block{Component} \gls{XML} elements representing the sub-parts of the parent \block{Component}.  However, there are distinct differences between \block{Component} and \block{Composition} type elements.
+Both \block{Component} and \block{Composition} elements are \gls{Lower Level} child elements representing the sub-parts of the parent \block{Component}.  However, there are distinct differences between \block{Component} and \block{Composition} type elements.
 
 \block{Component} elements may be further defined with \gls{Lower Level} \block{Component} elements and may have associated \glspl{Data Entity}.
 
@@ -81,8 +81,8 @@ Both \block{Component} and \block{Composition} elements are \gls{Lower Level} ch
 
 \input model-sections/CompositionTypes.tex
 
-\section{DataItems}
-\label{sec:DataItems}
+\section{DataItems Model}
+\label{sec:DataItems Model}
 
 In the \block{MTConnectDevices} document, \glspl{Data Entity} describe data that can be reported by a piece of equipment and are associated with \block{Device} and \block{Component} \glspl{Structural Element}.   While the \glspl{Data Entity} describe the data that can be reported by a piece of equipment in the \block{MTConnectDevices} document, the actual data values are provided in the \gls{Observations Information Model}.   See \citetitle{MTCPart3} for detail on the reported values.
 
@@ -104,28 +104,17 @@ When \glspl{Data Entity} are associated with a \gls{Structural Element}, they ar
 
 \input model-sections/DataItemSubTypes.tex
 
-\section{References}
-\label{sec:References}
+\section{References Model}
+\label{sec:References Model}
 
-\block{References} organizes pointers to information defined elsewhere for a piece of equipment.
-
-\block{References} may be modeled as part of a \block{Device}, \block{Component} or \block{Interface} type \gls{Structural Element}.
+This section provides semantic information for \block{Reference} and its types.
 
 \input model-sections/References.tex
 
-\section{Configuration}
-\label{sec:Configuration}
+\section{Configuration Model}
+\label{sec:Configuration Model}
 
 This section provides semantic information for \block{Configuration} and its types.
-
-\begin{figure}[ht]
-  \centering
-    \includegraphics[width=1.0\textwidth]{figures/Configuration.png}
-  \caption{Configuration Diagram}
-  \label{fig:Configuration}
-\end{figure}
-
-\FloatBarrier
 
 \input model-sections/Configuration.tex
 
@@ -137,4 +126,8 @@ This section provides semantic information for \block{Configuration} and its typ
 
 \input model-sections/Sensor.tex
 
+\input model-sections/SolidModel.tex
+
 \input model-sections/Specifications.tex
+
+\input model-sections/LimitsforProcessSpecification.tex

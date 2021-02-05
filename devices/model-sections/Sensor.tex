@@ -1,5 +1,5 @@
-% Generated 2021-01-20 01:46:25 +0530
-\subsection{Sensor} \label{sec:Sensor}
+% Generated 2021-02-06 01:28:14 +0530
+\subsection{Sensor} 
 
 
 \gls{Sensor} is a unique type of a piece of equipment.  A \gls{Sensor} is typically comprised of two major components: a \gls{sensor unit} that provides signal processing, conversion, and communications and the \glspl{sensing element} that provides a signal or measured value.
@@ -16,97 +16,15 @@ When \block{Sensor} represents the \gls{sensor unit} for multiple \gls{sensing e
   \centering
     \includegraphics[width=1.0\textwidth]{figures/SensorConfiguration.png}
   \caption{SensorConfiguration Diagram}
-  \label{fig:SensorConfiguration}
+  \label{fig:SensorConfiguration Diagram}
 \end{figure}
 
 \FloatBarrier
 
 
+Note: See \fig{SensorConfiguration Schema Diagram} for XML schema.
 
 
-\subsubsection{Channel}
-\label{sec:Channel}
-
-
-
-When \block{Sensor} represents multiple \glspl{sensing element}, each \gls{sensing element} is represented by a \block{Channel} for the \block{Sensor}. 
-
-
-\paragraph{Attributes of Channel}\mbox{}
-\label{sec:Attributes of Channel}
-
-\tbl{Attributes of Channel} lists the attributes of \texttt{Channel}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Attributes of Channel}
-  \label{table:Attributes of Channel}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-
-\property{name}[Channel] & \texttt{NMTOKEN} & 0..1 \\
-\property{number}[Channel] & \texttt{NMTOKEN} & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-Descriptions for attributes of \block{Channel}:
-
-\begin{itemize}
-
-\item \property{name}[Channel] \newline The name of an element or a piece of equipment.
-
-\item \property{number}[Channel] \newline A unique identifier that will only refer to a specific \gls{sensing element}.
-\end{itemize}
-
-\paragraph{Elements of Channel}\mbox{}
-\label{sec:Elements of Channel}
-
-\tbl{Elements of Channel} lists the elements of \texttt{Channel}.
-
-\begin{table}[ht]
-\centering 
-  \caption{Elements of Channel}
-  \label{table:Elements of Channel}
-\tabulinesep=3pt
-\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
-\hline
-\rowfont\bfseries {Element} & {Multiplicity} \\
-\tabucline[1.5pt]{}
-\texttt{CalibrationDate} & 0..1 \\
-\texttt{CalibrationInitials} & 0..1 \\
-\texttt{NextCalibrationDate} & 0..1 \\
-\texttt{Description} & 0..1 \\
-\texttt{SensorConfiguration} (organized by \block{Channels}) & 1 \\
-\end{tabu}
-\end{table}
-\FloatBarrier
-
-
-Descriptions for elements of \block{Channel}:
-
-\begin{itemize}
-
-\item \block{CalibrationDate} \newline Date upon which the \gls{sensor unit} was last calibrated to the \gls{sensor element}.
-
-The value of \block{CalibrationDate} \MUST be \texttt{dateTime}.
-
-\item \block{CalibrationInitials} \newline The initials of the person verifying the validity of the calibration data.
-
-The value of \block{CalibrationInitials} \MUST be \texttt{string}.
-
-\item \block{NextCalibrationDate} \newline Date upon which the \gls{sensor element} is next scheduled to be calibrated with the \gls{sensor unit}.
-
-The value of \block{NextCalibrationDate} \MUST be \texttt{dateTime}.
-
-\item \block{Description} \newline The descriptive content.
-
-\item \block{Channels} \newline \block{Channels} \glspl{organize} \block{Channel} elements.
-
-\end{itemize}
 
 \subsubsection{SensorConfiguration}
 \label{sec:SensorConfiguration}
@@ -163,3 +81,92 @@ The value of \block{NextCalibrationDate} \MUST be \texttt{dateTime}.
 \item \block{Channels} \newline \block{Channels} \glspl{organize} \block{Channel} elements.
 
 \end{itemize}
+
+
+
+\subsubsection{Channel}
+\label{sec:Channel}
+
+
+
+When \block{Sensor} represents multiple \glspl{sensing element}, each \gls{sensing element} is represented by a \block{Channel} for the \block{Sensor}. 
+
+
+\paragraph{Attributes of Channel}\mbox{}
+\label{sec:Attributes of Channel}
+
+\tbl{Attributes of Channel} lists the attributes of \texttt{Channel}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Channel}
+  \label{table:Attributes of Channel}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{name}[Channel] & \texttt{NMTOKEN} & 0..1 \\
+\property{number}[Channel] & \texttt{NMTOKEN} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{Channel}:
+
+\begin{itemize}
+
+\item \property{name}[Channel] \newline The name of an element or a piece of equipment.
+
+\item \property{number}[Channel] \newline A unique identifier that will only refer to a specific \gls{sensing element}.
+\end{itemize}
+
+
+\paragraph{Elements of Channel}\mbox{}
+\label{sec:Elements of Channel}
+
+\tbl{Elements of Channel} lists the elements of \texttt{Channel}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of Channel}
+  \label{table:Elements of Channel}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{CalibrationDate} & 0..1 \\
+\texttt{CalibrationInitials} & 0..1 \\
+\texttt{NextCalibrationDate} & 0..1 \\
+\texttt{Description} & 0..1 \\
+\texttt{SensorConfiguration} (organized by \block{Channels}) & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \block{Channel}:
+
+\begin{itemize}
+
+\item \block{CalibrationDate} \newline Date upon which the \gls{sensor unit} was last calibrated to the \gls{sensor element}.
+
+The value of \block{CalibrationDate} \MUST be \texttt{dateTime}.
+
+\item \block{CalibrationInitials} \newline The initials of the person verifying the validity of the calibration data.
+
+The value of \block{CalibrationInitials} \MUST be \texttt{string}.
+
+\item \block{NextCalibrationDate} \newline Date upon which the \gls{sensor element} is next scheduled to be calibrated with the \gls{sensor unit}.
+
+The value of \block{NextCalibrationDate} \MUST be \texttt{dateTime}.
+
+\item \block{Description} \newline The descriptive content.
+
+\item \block{Channels} \newline \block{Channels} \glspl{organize} \block{Channel} elements.
+
+\end{itemize}
+
+
