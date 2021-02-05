@@ -16,6 +16,9 @@ module MarkDownParser
 		
 		#format styles
 		description = format_math_char(format_italics(format_bolds(format_monospaces(description))))
+		
+		#format notes
+		description = format_notes(description)
 
 		return description
 	end
@@ -29,7 +32,7 @@ module MarkDownParser
   \\centering
     \\includegraphics[width=1.0\\textwidth]{figures/#{diagram[0]}}
   \\caption{#{diagram_name} Diagram}
-  \\label{fig:#{diagram_name}}
+  \\label{fig:#{diagram_name} Diagram}
 \\end{figure}
 
 \\FloatBarrier
@@ -186,5 +189,9 @@ EOT
 	
 	def format_math_char(description)
 		return description.gsub("^2","$^2$").gsub("^3","$^3$").gsub("_","\\textunderscore ")
+	end
+	
+	def format_notes(description)
+		return description.gsub("* Note","\\newline Note")
 	end
 end
