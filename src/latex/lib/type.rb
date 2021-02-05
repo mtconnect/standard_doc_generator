@@ -215,6 +215,8 @@ class Type
 
     @is_subtype = false
     @documentation = xmi_documentation(e) || ''
+	
+	@additional_documentation = xmi_additional_documentation(e) || ''
 
     
     sn = @name.sub(/^MT/, '').sub(/Type$/, '').sub(/Class$/, '').sub(/Sub$/, '')
