@@ -21,12 +21,11 @@ SkipModels.add('Simulation')
 SkipModels.add('MTConnect')
 SkipModels.add('Agent Architecture')
 SkipModels.add('Development Process')
-SkipModels.add('Files')
 
 LatexModel.skip_models = SkipModels
 LatexModel.new(RootModel).find_definitions
 
-$enums = ['DataItemTypeEnum','DataItemSubTypeEnum', 'CompositionTypeEnum']
+$enums = ['DataItemTypeEnum','DataItemSubTypeEnum','CompositionTypeEnum','CodeEnum']
 
 #Generating Documentation
 document_structure = File.read(File.join(File.dirname(__FILE__),'..','config','document_structure.json'))
@@ -65,5 +64,7 @@ document_structure_json['documents'].each do |partno, partinfo|
       end
     end
   end
+
+  LatexModel.type_class.reset_labels()
 end
 
