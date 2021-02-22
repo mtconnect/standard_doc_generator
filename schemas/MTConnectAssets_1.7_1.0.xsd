@@ -966,9 +966,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='CHUCK_INTERLOCK'>
         <xs:annotation>
           <xs:documentation>
-            An indication of the state of an interlock function or control logic
-            state intended to prevent the associated {{block(Chuck)}} component
-            from being operated.
+            An indication of the operational condition of the interlock function
+            for an electronically controller chuck.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1053,7 +1052,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='DIRECTION'>
         <xs:annotation>
           <xs:documentation>
-            The direction of motion.
+            An indication of a fault associated with the direction of motion of
+            a {{term(Structural Element)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1077,8 +1077,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='END_OF_BAR'>
         <xs:annotation>
           <xs:documentation>
-            An indication of whether the end of a piece of bar stock being feed
-            by a bar feeder has been reached.
+            An indication that the end of a piece of bar stock has been reached.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1114,7 +1113,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='INTERFACE_STATE'>
         <xs:annotation>
           <xs:documentation>
-            An indication of the operational state of an {{block(Interface)}}
+            An indication of the operation condition of an {{block(Interface)}}
             component.
           </xs:documentation>
         </xs:annotation>
@@ -1129,8 +1128,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='LINE_LABEL'>
         <xs:annotation>
           <xs:documentation>
-            An optional identifier for a {{block(BLOCK)}} of code in a
-            {{block(PROGRAM)}}.
+            An optional identifier for a {{block(Block)}} of code in a
+            {{block(Program)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1344,7 +1343,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             The name of the program being edited. This is used in conjunction
-            with {{block(PROGRAM_EDIT)}} when in {{block(ACTIVE)}} state. 
+            with {{block(ProgramEdit)}} when in `ACTIVE` state. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1359,7 +1358,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             The Uniform Resource Identifier (URI) for the source file associated
-            with {{block(PROGRAM)}}.
+            with {{block(Program)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1367,7 +1366,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             Defines whether the logic or motion program defined by
-            {{block(PROGRAM)}} is being executed from the local memory of the
+            {{block(Program)}} is being executed from the local memory of the
             controller or from an outside source.
           </xs:documentation>
         </xs:annotation>
@@ -1431,8 +1430,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             **DEPRECATED** in Version 1.2.0. See {{block(TOOL_ASSET_ID)}}.
-            *DEPRECATED:The identifier of the tool currently in use for a given
-            {{block(Path)}}.*
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1473,8 +1470,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='WAIT_STATE'>
         <xs:annotation>
           <xs:documentation>
-            An indication of the reason that {{block(EXECUTION)}} is reporting a
-            value of {{block(WAIT)}}.
+            An indication of the reason that {{block(Execution)}} is reporting a
+            value of `WAIT`.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1746,6 +1743,13 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value='ACTUATOR'>
+        <xs:annotation>
+          <xs:documentation>
+            An indication of a fault associated with an actuator.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value='VARIABLE'>
         <xs:annotation>
           <xs:documentation>
@@ -1783,34 +1787,29 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='ABSOLUTE'>
         <xs:annotation>
           <xs:documentation>
-            The position of a block of program code relative to the beginning of
-            the control program.
+            Relating to or derived in the simplest manner from the fundamental
+            units or measurements.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='ACTION'>
         <xs:annotation>
           <xs:documentation>
-            An indication of the operating state of a mechanism represented by a
-            composition type component. The operating state indicates whether
-            the composition element is activated or disabled. The valid data
-            value must be active value or inactive value.
+            An indication of the operating state of a mechanism.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='ACTUAL'>
         <xs:annotation>
           <xs:documentation>
-            The measured value of the data item type given by a sensor or
-            encoder.
+            The measured value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='ALL'>
         <xs:annotation>
           <xs:documentation>
-            The count of all the parts produced. If the subtype is not given,
-            this is the default.
+            The number of parts produced.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1825,25 +1824,23 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='A_SCALE'>
         <xs:annotation>
           <xs:documentation>
-            A Scale weighting factor. This is the default weighting factor if no
-            factor is specified
+            A Scale weighting factor.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='AUXILIARY'>
         <xs:annotation>
           <xs:documentation>
-            When multiple locations on a piece of bar stock are referenced as
-            the indication for the endofbar event, the additional location(s)
-            must be designated as auxiliary subtype indication(s) for the
-            endofbar event. 
+            When multiple locations on a piece of bar stock being feed by a bar
+            feeder are referenced as the indication of whether the end of that
+            piece of bar stock has been reached.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='BAD'>
         <xs:annotation>
           <xs:documentation>
-            Indicates the count of incorrect parts produced.
+            The number of parts produced that do not conform to specification.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1857,22 +1854,22 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='B_SCALE'>
         <xs:annotation>
           <xs:documentation>
-            B Scale weighting factor
+            B Scale weighting factor.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='COMMANDED'>
         <xs:annotation>
           <xs:documentation>
-            A value specified by the controller type component.
+            The commanded value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='CONSUMED'>
         <xs:annotation>
           <xs:documentation>
-            The amount of bulk material consumed from an object or container
-            during a manufacturing process.
+            The amount of material consumed from an object or container during a
+            manufacturing process.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1887,14 +1884,15 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='C_SCALE'>
         <xs:annotation>
           <xs:documentation>
-            C Scale weighting factor
+            C Scale weighting factor.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='DELAY'>
         <xs:annotation>
           <xs:documentation>
-            A piece of equipment waiting for an event or an action to occur.
+            A piece of equipment or process waiting for an event or an action to
+            occur.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1909,18 +1907,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A setting or operator selection used to execute a test mode to
-            confirm the execution of machine functions. The valid data value
-            must be on value or off value. When dryrun subtype is on value, the
-            equipment performs all of its normal functions, except no part or
-            product is produced. If the equipment has a spindle, spindle
-            operation is suspended.
+            confirm the execution of machine functions.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='D_SCALE'>
         <xs:annotation>
           <xs:documentation>
-            D Scale weighting factor
+            D Scale weighting factor.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1943,23 +1937,22 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='GOOD'>
         <xs:annotation>
           <xs:documentation>
-            Indicates the count of correct parts made.
+            The number of parts produced that conform to specification.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='INCREMENTAL'>
         <xs:annotation>
           <xs:documentation>
-            The position of a block of program code relative to the occurrence
-            of the last linelabel event encountered in the control program.
+            Relating to or derived from the last {{term(observation)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='JOG'>
         <xs:annotation>
           <xs:documentation>
-            The feedrate specified by a logic or motion program, by a pre-set
-            value, or set by a switch as the feedrate for the axes. 
+            The feedrate specified by a logic or motion program when operating
+            in a manual state or method (jogging).
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1967,11 +1960,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             An indication of the position of a mechanism that may move in a
-            lateral direction. The mechanism is represented by a composition
-            type component. The position information indicates whether the
-            composition element is positioned to the right, to the left, or is
-            in transition. The valid data value must be right value, left value,
-            or transitioning value.
+            lateral direction.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1992,7 +1981,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='LINE'>
         <xs:annotation>
           <xs:documentation>
-            The state of the power source for the structural element.
+            The state of the power source.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2014,10 +2003,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A setting or operator selection that changes the behavior of the
-            controller on a piece of equipment. The valid data value must be on
-            value or off value. When machineaxislock subtype is on value,
-            program execution continues normally, but no equipment motion occurs
-            
+            controller on a piece of equipment.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2025,15 +2011,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             The identity of the primary logic or motion program currently being
-            executed. It is the starting nest level in a call structure and may
-            contain calls to sub programs.
+            executed.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='MAINTENANCE'>
         <xs:annotation>
           <xs:documentation>
-            Action related to maintenance on the piece of equipment.
+            Relating to maintenance on the piece of equipment.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2042,32 +2027,28 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           <xs:documentation>
             An indication of the state of an operator controlled interlock that
             can inhibit the ability to initiate an unclamp action of an
-            electronically controlled chuck. The valid data value must be active
-            value or inactive value. When manualunclamp subtype is active value,
-            it is expected that a chuck cannot be unclamped until manualunclamp
-            subtype is set to inactive value. 
+            electronically controlled chuck.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='MANUFACTURE'>
         <xs:annotation>
           <xs:documentation>
-            The time and date code relating to the production of a material or
-            other physical item.
+            Related to the production of a material or other physical item.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='MAXIMUM'>
         <xs:annotation>
           <xs:documentation>
-            Maximum value of a data entity or attribute.
+            The maximum value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='MINIMUM'>
         <xs:annotation>
           <xs:documentation>
-            The minimum value of a data entity or attribute.
+            The minimum value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2081,33 +2062,29 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='MOTION'>
         <xs:annotation>
           <xs:documentation>
-            An indication of the open or closed state of a mechanism. The
-            mechanism is represented by a composition type component. The
-            operating state indicates whether the state of the composition
-            element is open, closed, or unlatched. The valid data value must be
-            open value, unlatched value, or closed value.
+            An indication of the open or closed state of a mechanism.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='NO_SCALE'>
         <xs:annotation>
           <xs:documentation>
-            No weighting factor on the frequency scale
+            No weighting factor on the frequency scale.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='OPERATING'>
         <xs:annotation>
           <xs:documentation>
-            A piece of equipment are powered or performing any activity.
+            A piece of equipment that is powered or performing any activity.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='OPERATOR'>
         <xs:annotation>
           <xs:documentation>
-            The identifier of the person currently responsible for operating the
-            piece of equipment.
+            Relating to the person currently responsible for operating the piece
+            of equipment.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2115,69 +2092,52 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A setting or operator selection that changes the behavior of the
-            controller on a piece of equipment. The valid data value must be on
-            value or off value. The program execution is stopped after a
-            specific program block is executed when optionalstop subtype is on
-            value. In the case of a G-Code program, a program block event
-            containing a M01 code designates the command for an optionalstop
-            subtype. execution event must change to optionalstop subtype after a
-            program block specifying an optional stop is executed and the
-            optionalstop subtype selection is on value.
+            controller on a piece of equipment. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='OVERRIDE'>
         <xs:annotation>
           <xs:documentation>
-            DEPRECATED: The operators overridden value.
+            The overridden value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='POWERED'>
         <xs:annotation>
           <xs:documentation>
-            Primary power is applied to the piece of equipment and, as a
-            minimum, the controller or logic portion of the piece of equipment
-            is powered and functioning or components that are required to remain
-            on are powered.
+            A piece of equipment is powered and functioning or
+            {{termplural(Component)}} that are required to remain on are
+            powered.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PRIMARY'>
         <xs:annotation>
           <xs:documentation>
-            Specific applications MAY reference one or more locations on a piece
-            of bar stock as the indication for the endofbar event. The main or
-            most important location must be designated as the primary subtype
-            indication for the endofbar event. If no subtype is specified,
-            primary subtype must be the default endofbar event indication.
+            The main or most important location **MUST** be designated as the
+            end of a piece of bar stock.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PROBE'>
         <xs:annotation>
           <xs:documentation>
-            The position provided by a measurement probe.
+            The value provided by a measurement probe.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PROCESS'>
         <xs:annotation>
           <xs:documentation>
-            The measurement of the time from the beginning of production of a
-            part or product on a piece of equipment until the time that
-            production is complete for that part or product on that piece of
-            equipment. This includes the time that the piece of equipment is
-            running, producing parts or products, or in the process of producing
-            parts.
+            Relating to production of a part or product on a piece of equipment.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PROGRAMMED'>
         <xs:annotation>
           <xs:documentation>
-            The value of a signal or calculation specified by a logic or motion
-            program or set by a switch.
+            The programmed value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2191,16 +2151,15 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='RAPID'>
         <xs:annotation>
           <xs:documentation>
-            The value of a signal or calculation issued to adjust the feedrate
-            of a component or composition that is operating in a rapid
-            positioning mode.
+            The feedrate specified by a logic or motion program when operating
+            in a rapid positioning mode.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='REMAINING'>
         <xs:annotation>
           <xs:documentation>
-            Remaining measure of an object or an action.
+            The remaining measure of an object or an action.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2214,9 +2173,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='ROTARY'>
         <xs:annotation>
           <xs:documentation>
-            The rotational direction of a rotary motion using the right hand
-            rule convention. The valid data value must be clockwise value or
-            counterclockwise value.
+            The direction of a rotary motion using the right hand rule
+            convention.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2231,9 +2189,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='SET_UP'>
         <xs:annotation>
           <xs:documentation>
-            The identifier of the person currently responsible for preparing a
-            piece of equipment for production or restoring the piece of
-            equipment to a neutral state after production.
+            Relating to the preparation of a piece of equipment for production
+            or restoring the piece of equipment to a neutral state after
+            production.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2248,26 +2206,21 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A setting or operator selection that changes the behavior of the
-            controller on a piece of equipment. The valid data value must be on
-            value or off value. Program execution is paused after each block
-            event of code is executed when singleblock subtype is on value. When
-            singleblock subtype is on value, execution event must change to
-            interrupted value after completion of each block event of code. 
+            controller on a piece of equipment. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='STANDARD'>
         <xs:annotation>
           <xs:documentation>
-            The standard or original length of an object.
+            The standard measure of an object or an action.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='START'>
         <xs:annotation>
           <xs:documentation>
-            The time and date associated with the beginning of an activity or
-            event.
+            Relating to the beginning of an activity or event.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2275,24 +2228,21 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             An indication of the activation state of a mechanism represented by
-            a composition type component. The activation state indicates whether
-            the composition element is activated or not. The valid data value
-            must be on value or off value.
+            a {{term(Composition)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='TARGET'>
         <xs:annotation>
           <xs:documentation>
-            The desired measure or count for a data item value.
+            The targeted or desired value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='TARGET_COMPLETION'>
         <xs:annotation>
           <xs:documentation>
-            The projected time and date associated with the end or completion of
-            an activity or event.
+            Relating to the end or completion of an activity or event.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2300,19 +2250,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A setting or operator selection that changes the behavior of the
-            controller on a piece of equipment. The valid data value must be on
-            value or off value. Program execution is paused when a command is
-            executed requesting a cutting tool to be changed. execution event
-            must change to interrupted value after completion of the command
-            requesting a cutting tool to be changed and toolchangestop subtype
-            is on value.
+            controller on a piece of equipment.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='USEABLE'>
         <xs:annotation>
           <xs:documentation>
-            The remaining useable length of an object.
+            The remaining usable measure of an object or action.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2320,11 +2265,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             An indication of the position of a mechanism that may move in a
-            vertical direction. The mechanism is represented by a composition
-            type component. The position information indicates whether the
-            composition element is positioned to the top, to the bottom, or is
-            in transition. The valid data value must be up value, down value, or
-            transitioning value.
+            vertical direction.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2425,15 +2366,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='MANUFACTURER'>
         <xs:annotation>
           <xs:documentation>
-            The corporate identity for the maker of the hardware or software
+            The corporate identity for the maker of the hardware or software.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='GAUGE'>
         <xs:annotation>
           <xs:documentation>
-            Gauge pressure is pressure measured relative to atmospheric
-            pressure.
+            Pressure measured relative to atmospheric pressure.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2455,43 +2395,43 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='RAW_MATERIAL'>
         <xs:annotation>
           <xs:documentation>
-            The unique identifier for a singular piece of material.
+            A singular piece of material.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='LOT'>
         <xs:annotation>
           <xs:documentation>
-            An identifier that references a group of parts tracked as a lot.
+            A group of parts tracked as a lot.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='BATCH'>
         <xs:annotation>
           <xs:documentation>
-            An identifier that references a group of parts produced in a batch.
+            A group of parts produced in a batch.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='HEAT_TREAT'>
         <xs:annotation>
           <xs:documentation>
-            An identifier used to reference a material heat number.
+            A material heat number.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PART_NUMBER'>
         <xs:annotation>
           <xs:documentation>
-            Identifier of a particular part design or model.
+            A particular part design or model.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PART_FAMILY'>
         <xs:annotation>
           <xs:documentation>
-            An identifier given to a group of parts having similarities in
-            geometry, manufacturing process, and/or functions.
+            A group of parts having similarities in geometry, manufacturing
+            process, and/or functions.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2506,24 +2446,21 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='PROCESS_STEP'>
         <xs:annotation>
           <xs:documentation>
-            Identifier of the step in the process plan that this occurrence
-            corresponds to. Synonyms include &quot;operation id&quot;.
+            A step in the process plan that this occurrence corresponds to. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PROCESS_PLAN'>
         <xs:annotation>
           <xs:documentation>
-            Identifier of the process plan that this occurrence belongs to.
-            Synonyms include &quot;routing id&quot;, &quot;job id&quot;.
+            A process plan that a process occurrence belongs to.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='ORDER_NUMBER'>
         <xs:annotation>
           <xs:documentation>
-            Identifier of the authorization of the process occurrence. Synonyms
-            include &quot;job id&quot;, &quot;work order&quot;.
+            The authorization of a process occurrence.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2539,6 +2476,13 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A reference to a ISO 10303 Executable.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='COMPLETE'>
+        <xs:annotation>
+          <xs:documentation>
+            Associated with the completion of an activity or event.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -3835,7 +3779,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:element name='Assets' type='AssetsType'>
         <xs:annotation>
           <xs:documentation>
-            Assets Model
+            CuttingTool Information Model
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -3868,7 +3812,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='AssetsType'>
     <xs:annotation>
       <xs:documentation>
-        Assets Model
+        CuttingTool Information Model
       </xs:documentation>
     </xs:annotation>
     <xs:choice minOccurs='0' maxOccurs='unbounded'>
@@ -3911,8 +3855,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:documentation>
           The identifier of another piece of equipment that is temporarily
           associated with a component of this piece of equipment to perform a
-          particular function. The {{term(Valid Data Value)}} **MUST** be a
-          NMTOKEN XML type.
+          particular function. 
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -4126,7 +4069,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         {{property(category,DataItem)}} `EVENT` or `SAMPLE` \item A
         {{block(DataItem)}} with {{property(representation,DataItem)}} `TABLE`
         **MUST** have a {{property(category,DataItem)}} `EVENT` or `SAMPLE`
-        \end{itemize} !Representation.png!
+        \end{itemize} The following sections provide semantic information for
+        the {{block(Representation)}} model. !Representation.png! Note: See
+        {{sect(Representation Schema Diagrams)}} for XML schema.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base='xs:string'>
@@ -4429,7 +4374,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           {{property(category,DataItem)}} `EVENT` or `SAMPLE` \item A
           {{block(DataItem)}} with {{property(representation,DataItem)}} `TABLE`
           **MUST** have a {{property(category,DataItem)}} `EVENT` or `SAMPLE`
-          \end{itemize} !Representation.png!
+          \end{itemize} The following sections provide semantic information for
+          the {{block(Representation)}} model. !Representation.png! Note: See
+          {{sect(Representation Schema Diagrams)}} for XML schema.
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -4928,11 +4875,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='StreamsType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Streams)}} {{termplural(organize)}} {{block(DeviceStream)}}
-        elements. {{block(Streams)}} is the first, or highest, level element in
-        an {{block(MTConnectStreams)}} {{term(Response Document)}} provided by
-        an {{term(Agent)}} in response to a {{term(Sample Request)}} or a
-        {{term(Current Request)}}.
+        Structural Elements for MTConnectStreams
       </xs:documentation>
     </xs:annotation>
     <xs:all>
@@ -4961,11 +4904,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:element name='ComponentStream' type='ComponentStreamType' minOccurs='0' maxOccurs='unbounded'>
         <xs:annotation>
           <xs:documentation>
-            {{block(ComponentStream)}} {{termplural(organize)}} the data
-            associated with each {{term(Structural Element)}} ({{block(Device)}}
-            element or {{block(Component)}} element) defined for that piece of
-            equipment in the associated {{block(MTConnectDevices)}}
-            {{term(Response Document)}}.
+            See the following {{sect(ComponentStream)}} for details.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -4988,30 +4927,25 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='ComponentStreamType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(ComponentStream)}} {{termplural(organize)}} the data associated
-        with each {{term(Structural Element)}} ({{block(Device)}} element or
-        {{block(Component)}} element) defined for that piece of equipment in the
-        associated {{block(MTConnectDevices)}} {{term(Response Document)}}.
+        See the following {{sect(ComponentStream)}} for details.
       </xs:documentation>
     </xs:annotation>
     <xs:all>
       <xs:element name='Samples' type='SamplesType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            {{block(Samples)}} {{termplural(organize)}} the `SAMPLE`
-            {{property(category)}} type {{block(DataItem)}} elements defined in
-            the {{block(MTConnectDevices)}} {{term(Response Document)}} that are
-            reported in each {{block(ComponentStream)}} element.
+            {{block(Samples)}} {{termplural(organize)}} the {{block(Sample)}}
+            elements. See {{sect(Sample)}} for details on the {{block(Sample)}}
+            model.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name='Events' type='EventsType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            {{block(Events)}} {{termplural(organize)}} the `EVENT`
-            {{property(category)}} type {{block(DataItem)}} elements defined in
-            the {{block(MTConnectDevices)}} {{term(Response Document)}} that are
-            reported in each {{block(ComponentStream)}} element.
+            {{block(Events)}} {{termplural(organize)}} the {{block(Event)}}
+            elements. See {{sect(Event)}} for details on the {{block(Event)}}
+            model.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -5063,10 +4997,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='SamplesType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Samples)}} {{termplural(organize)}} the `SAMPLE`
-        {{property(category)}} type {{block(DataItem)}} elements defined in the
-        {{block(MTConnectDevices)}} {{term(Response Document)}} that are
-        reported in each {{block(ComponentStream)}} element.
+        {{block(Samples)}} {{termplural(organize)}} the {{block(Sample)}}
+        elements. See {{sect(Sample)}} for details on the {{block(Sample)}}
+        model.
       </xs:documentation>
     </xs:annotation>
     <xs:all>
@@ -5076,10 +5009,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='EventsType'>
     <xs:annotation>
       <xs:documentation>
-        {{block(Events)}} {{termplural(organize)}} the `EVENT`
-        {{property(category)}} type {{block(DataItem)}} elements defined in the
-        {{block(MTConnectDevices)}} {{term(Response Document)}} that are
-        reported in each {{block(ComponentStream)}} element.
+        {{block(Events)}} {{termplural(organize)}} the {{block(Event)}}
+        elements. See {{sect(Event)}} for details on the {{block(Event)}} model.
       </xs:documentation>
     </xs:annotation>
     <xs:all>
@@ -5379,9 +5310,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='AssetChangedType'>
     <xs:annotation>
       <xs:documentation>
-        The value of the {{term(CDATA)}} for the event **MUST** be the
-        {{block(assetId)}} of the asset that has been added or changed. There
-        will not be a separate message for new assets.
+        An {{term(MTConnect Asset)}} has been added or modified. The value
+        **MUST** be the {{property(assetId)}} of the {{block(Asset)}} that has
+        been modified.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -5399,20 +5330,17 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='AssetChanged' type='AssetChangedType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        The value of the {{term(CDATA)}} for the event **MUST** be the
-        {{block(assetId)}} of the asset that has been added or changed. There
-        will not be a separate message for new assets.
+        An {{term(MTConnect Asset)}} has been added or modified. The value
+        **MUST** be the {{property(assetId)}} of the {{block(Asset)}} that has
+        been modified.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name='AssetRemovedType'>
     <xs:annotation>
       <xs:documentation>
-        The value of the {{term(CDATA)}} for the event **MUST** be the
-        {{block(assetId)}} of the asset that has been removed. The asset will
-        still be visible if requested with the {{block(includeRemoved)}}
-        parameter as described in the protocol section. When assets are removed
-        they are not moved to the beginning of the most recently modified list.
+        An {{term(MTConnect Asset)}} has been removed. The value **MUST** be the
+        {{property(assetId)}} of the {{block(Asset)}} that has been removed.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -5430,11 +5358,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='AssetRemoved' type='AssetRemovedType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        The value of the {{term(CDATA)}} for the event **MUST** be the
-        {{block(assetId)}} of the asset that has been removed. The asset will
-        still be visible if requested with the {{block(includeRemoved)}}
-        parameter as described in the protocol section. When assets are removed
-        they are not moved to the beginning of the most recently modified list.
+        An {{term(MTConnect Asset)}} has been removed. The value **MUST** be the
+        {{property(assetId)}} of the {{block(Asset)}} that has been removed.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -5543,8 +5468,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         Describes the way the axes will be associated to each other. This is
-        used in conjunction with {{block(COUPLED_AXES)}} to indicate the way
-        they are interacting.
+        used in conjunction with {{block(CoupledAxis)}} to indicate the way they
+        are interacting.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -5559,8 +5484,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         Describes the way the axes will be associated to each other. This is
-        used in conjunction with {{block(COUPLED_AXES)}} to indicate the way
-        they are interacting.
+        used in conjunction with {{block(CoupledAxis)}} to indicate the way they
+        are interacting.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -6100,8 +6025,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:documentation>
         The identifier of another piece of equipment that is temporarily
         associated with a component of this piece of equipment to perform a
-        particular function. The {{term(Valid Data Value)}} **MUST** be a
-        NMTOKEN XML type.
+        particular function. 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -6113,8 +6037,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:documentation>
         The identifier of another piece of equipment that is temporarily
         associated with a component of this piece of equipment to perform a
-        particular function. The {{term(Valid Data Value)}} **MUST** be a
-        NMTOKEN XML type.
+        particular function. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -6177,7 +6100,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='DoorStateType'>
     <xs:annotation>
       <xs:documentation>
-        The operational state of a {{block(DOOR)}} type component or composition
+        The operational state of a {{block(Door)}} type component or composition
         element.
       </xs:documentation>
     </xs:annotation>
@@ -6192,7 +6115,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='DoorState' type='DoorStateType' substitutionGroup='Event'>
     <xs:annotation>
       <xs:documentation>
-        The operational state of a {{block(DOOR)}} type component or composition
+        The operational state of a {{block(Door)}} type component or composition
         element.
       </xs:documentation>
     </xs:annotation>
@@ -6622,8 +6545,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='LineLabelType'>
     <xs:annotation>
       <xs:documentation>
-        An optional identifier for a {{block(BLOCK)}} of code in a
-        {{block(PROGRAM)}}.
+        An optional identifier for a {{block(Block)}} of code in a
+        {{block(Program)}}.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -6633,8 +6556,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='LineLabel' type='LineLabelType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        An optional identifier for a {{block(BLOCK)}} of code in a
-        {{block(PROGRAM)}}.
+        An optional identifier for a {{block(Block)}} of code in a
+        {{block(Program)}}.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -6720,20 +6643,18 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         Identifies the layers of material applied to a part or product as part
-        of an additive manufacturing process. The {{term(Valid Data Value)}}
-        **MUST** be an integer.
+        of an additive manufacturing process.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
-      <xs:extension base='StringEventType'/>
+      <xs:extension base='IntegerEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='MaterialLayer' type='MaterialLayerType' substitutionGroup='StringEvent'>
+  <xs:element name='MaterialLayer' type='MaterialLayerType' substitutionGroup='IntegerEvent'>
     <xs:annotation>
       <xs:documentation>
         Identifies the layers of material applied to a part or product as part
-        of an additive manufacturing process. The {{term(Valid Data Value)}}
-        **MUST** be an integer.
+        of an additive manufacturing process.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -6985,7 +6906,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         An identifier of a part or product moving through the manufacturing
-        process. The {{term(Valid Data Value)}} **MUST** be a text string. 
+        process. 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -6996,7 +6917,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         An identifier of a part or product moving through the manufacturing
-        process. The {{term(Valid Data Value)}} **MUST** be a text string. 
+        process. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7176,7 +7097,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The time and date associated with an activity or event.
-        {{block(PROCESS_TIME)}} **MUST** be reported in ISO 8601 format.
+        {{block(ProcessTime)}} **MUST** be reported in ISO 8601 format.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7187,7 +7108,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The time and date associated with an activity or event.
-        {{block(PROCESS_TIME)}} **MUST** be reported in ISO 8601 format.
+        {{block(ProcessTime)}} **MUST** be reported in ISO 8601 format.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7213,8 +7134,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='ProgramCommentType'>
     <xs:annotation>
       <xs:documentation>
-        A comment or non-executable statement in the control program. The
-        {{term(Valid Data Value)}} **MUST** be a text string.
+        A comment or non-executable statement in the control program.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7224,8 +7144,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='ProgramComment' type='ProgramCommentType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        A comment or non-executable statement in the control program. The
-        {{term(Valid Data Value)}} **MUST** be a text string.
+        A comment or non-executable statement in the control program.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7295,8 +7214,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The name of the program being edited. This is used in conjunction with
-        {{block(PROGRAM_EDIT)}} when in {{block(ACTIVE)}} state. The
-        {{term(Valid Data Value)}} **MUST** be a text string.
+        {{block(ProgramEdit)}} when in `ACTIVE` state. 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7307,8 +7225,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The name of the program being edited. This is used in conjunction with
-        {{block(PROGRAM_EDIT)}} when in {{block(ACTIVE)}} state. The
-        {{term(Valid Data Value)}} **MUST** be a text string.
+        {{block(ProgramEdit)}} when in `ACTIVE` state. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7333,7 +7250,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The Uniform Resource Identifier (URI) for the source file associated
-        with {{block(PROGRAM)}}.
+        with {{block(Program)}}.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7344,7 +7261,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The Uniform Resource Identifier (URI) for the source file associated
-        with {{block(PROGRAM)}}.
+        with {{block(Program)}}.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7352,9 +7269,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         Defines whether the logic or motion program defined by
-        {{block(PROGRAM)}} is being executed from the local memory of the
-        controller or from an outside source. The {{term(Valid Data Value)}}
-        **MUST** be {{block(LOCAL)}} or {{block(EXTERNAL)}}.
+        {{block(Program)}} is being executed from the local memory of the
+        controller or from an outside source. 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7365,9 +7281,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         Defines whether the logic or motion program defined by
-        {{block(PROGRAM)}} is being executed from the local memory of the
-        controller or from an outside source. The {{term(Valid Data Value)}}
-        **MUST** be {{block(LOCAL)}} or {{block(EXTERNAL)}}.
+        {{block(Program)}} is being executed from the local memory of the
+        controller or from an outside source. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7378,23 +7293,21 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         associated with the code or instructions that is currently being
         executed. If an Initial Value is not defined, the nesting level
         associated with the highest or initial nesting level of the program
-        **MUST** default to zero (0). The value reported for
-        {{block(PROGRAM_NEST_LEVEL)}} **MUST** be an integer.
+        **MUST** default to zero (0). 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
-      <xs:extension base='StringEventType'/>
+      <xs:extension base='IntegerEventType'/>
     </xs:simpleContent>
   </xs:complexType>
-  <xs:element name='ProgramNestLevel' type='ProgramNestLevelType' substitutionGroup='StringEvent'>
+  <xs:element name='ProgramNestLevel' type='ProgramNestLevelType' substitutionGroup='IntegerEvent'>
     <xs:annotation>
       <xs:documentation>
         An indication of the nesting level within a control program that is
         associated with the code or instructions that is currently being
         executed. If an Initial Value is not defined, the nesting level
         associated with the highest or initial nesting level of the program
-        **MUST** default to zero (0). The value reported for
-        {{block(PROGRAM_NEST_LEVEL)}} **MUST** be an integer.
+        **MUST** default to zero (0). 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7483,8 +7396,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The serial number associated with a {{block(Component)}},
-        {{block(Asset)}}, or {{block(Device)}}. The {{term(Valid Data Value)}}
-        **MUST** be a text string.
+        {{block(Asset)}}, or {{block(Device)}}.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7495,8 +7407,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The serial number associated with a {{block(Component)}},
-        {{block(Asset)}}, or {{block(Device)}}. The {{term(Valid Data Value)}}
-        **MUST** be a text string.
+        {{block(Asset)}}, or {{block(Device)}}.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7556,8 +7467,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='ToolAssetIdType'>
     <xs:annotation>
       <xs:documentation>
-        The identifier of an individual tool asset.The {{term(Valid Data
-        Value)}} **MUST** be a text string.
+        The identifier of an individual tool asset.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7567,8 +7477,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='ToolAssetId' type='ToolAssetIdType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        The identifier of an individual tool asset.The {{term(Valid Data
-        Value)}} **MUST** be a text string.
+        The identifier of an individual tool asset.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7594,9 +7503,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='ToolIdType'>
     <xs:annotation>
       <xs:documentation>
-        **DEPRECATED** in Version 1.2.0. See {{block(TOOL_ASSET_ID)}}.
-        *DEPRECATED:The identifier of the tool currently in use for a given
-        {{block(Path)}}.*
+        **DEPRECATED** in Version 1.2.0. See {{block(ToolAssetId)}}. 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7606,9 +7513,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='ToolId' type='ToolIdType' substitutionGroup='StringEvent'>
     <xs:annotation>
       <xs:documentation>
-        **DEPRECATED** in Version 1.2.0. See {{block(TOOL_ASSET_ID)}}.
-        *DEPRECATED:The identifier of the tool currently in use for a given
-        {{block(Path)}}.*
+        **DEPRECATED** in Version 1.2.0. See {{block(ToolAssetId)}}. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7616,8 +7521,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The identifier assigned by the {{block(Controller)}} component to a
-        cutting tool when in use by a piece of equipment. The {{term(Valid Data
-        Value)}} **MUST** be a text string.
+        cutting tool when in use by a piece of equipment. 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7628,8 +7532,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The identifier assigned by the {{block(Controller)}} component to a
-        cutting tool when in use by a piece of equipment. The {{term(Valid Data
-        Value)}} **MUST** be a text string.
+        cutting tool when in use by a piece of equipment. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7803,8 +7706,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='WaitStateType'>
     <xs:annotation>
       <xs:documentation>
-        An indication of the reason that {{block(EXECUTION)}} is reporting a
-        value of {{block(WAIT)}}.
+        An indication of the reason that {{block(Execution)}} is reporting a
+        value of `WAIT`.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7818,8 +7721,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='WaitState' type='WaitStateType' substitutionGroup='Event'>
     <xs:annotation>
       <xs:documentation>
-        An indication of the reason that {{block(EXECUTION)}} is reporting a
-        value of {{block(WAIT)}}.
+        An indication of the reason that {{block(Execution)}} is reporting a
+        value of `WAIT`.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7846,8 +7749,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The identifier for the current workholding or part clamp in use by a
-        piece of equipment. The {{term(Valid Data Value)}} **MUST** be a text
-        string.
+        piece of equipment. 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -7858,8 +7760,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         The identifier for the current workholding or part clamp in use by a
-        piece of equipment. The {{term(Valid Data Value)}} **MUST** be a text
-        string.
+        piece of equipment. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -8539,9 +8440,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='ToolIdDiscreteType'>
     <xs:annotation>
       <xs:documentation>
-        Discrete of **DEPRECATED** in Version 1.2.0. See
-        {{block(TOOL_ASSET_ID)}}. *DEPRECATED:The identifier of the tool
-        currently in use for a given {{block(Path)}}.*
+        Discrete of **DEPRECATED** in Version 1.2.0. See {{block(ToolAssetId)}}.
+        
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -8551,9 +8451,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='ToolIdDiscrete' type='ToolIdDiscreteType' substitutionGroup='ToolId'>
     <xs:annotation>
       <xs:documentation>
-        Discrete of **DEPRECATED** in Version 1.2.0. See
-        {{block(TOOL_ASSET_ID)}}. *DEPRECATED:The identifier of the tool
-        currently in use for a given {{block(Path)}}.*
+        Discrete of **DEPRECATED** in Version 1.2.0. See {{block(ToolAssetId)}}.
+        
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -8561,8 +8460,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         Discrete of The identifier assigned by the {{block(Controller)}}
-        component to a cutting tool when in use by a piece of equipment. The
-        {{term(Valid Data Value)}} **MUST** be a text string.
+        component to a cutting tool when in use by a piece of equipment. 
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -8573,16 +8471,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         Discrete of The identifier assigned by the {{block(Controller)}}
-        component to a cutting tool when in use by a piece of equipment. The
-        {{term(Valid Data Value)}} **MUST** be a text string.
+        component to a cutting tool when in use by a piece of equipment. 
       </xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name='ToolAssetIdDiscreteType'>
     <xs:annotation>
       <xs:documentation>
-        Discrete of The identifier of an individual tool asset.The {{term(Valid
-        Data Value)}} **MUST** be a text string.
+        Discrete of The identifier of an individual tool asset.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -8592,8 +8488,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='ToolAssetIdDiscrete' type='ToolAssetIdDiscreteType' substitutionGroup='ToolAssetId'>
     <xs:annotation>
       <xs:documentation>
-        Discrete of The identifier of an individual tool asset.The {{term(Valid
-        Data Value)}} **MUST** be a text string.
+        Discrete of The identifier of an individual tool asset.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -8809,7 +8704,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         {{term(observation)}} **MUST** set the {{property(timestamp)}} to the
         time the last value was observed. The {{property(duration)}} **MAY**
         indicate the time interval from the first to the last value in the
-        series.
+        series. {{sect(Attributes of TimeSeries)}} defines additional attributes
+        provided for a {{block(DataItem)}} of `category` `SAMPLE` with a
+        {{property(representation)}} attribute of `TIME_SERIES`.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -8836,7 +8733,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         {{term(observation)}} **MUST** set the {{property(timestamp)}} to the
         time the last value was observed. The {{property(duration)}} **MAY**
         indicate the time interval from the first to the last value in the
-        series.
+        series. {{sect(Attributes of TimeSeries)}} defines additional attributes
+        provided for a {{block(DataItem)}} of `category` `SAMPLE` with a
+        {{property(representation)}} attribute of `TIME_SERIES`.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -12122,7 +12021,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='CuttingToolDefinitionType' mixed='true'>
     <xs:annotation>
       <xs:documentation>
-        Reference to an ISO 13399.
+        The {{block(CuttingToolDefinition)}} contains the detailed structure of
+        the Cutting Tool which is be static during its lifecycle.
+        {{textit(Ref:ISO 13399)}}.
       </xs:documentation>
     </xs:annotation>
     <xs:all>
@@ -12145,8 +12046,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='CuttingToolType'>
     <xs:annotation>
       <xs:documentation>
-        A CuttingTool physically removes the material from the workpiece by
-        shear deformation.
+        {{block(CuttingTool)}} {{block(Asset)}} type.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -12164,14 +12064,21 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
               <xs:element name='CuttingToolDefinition' type='CuttingToolDefinitionType'>
                 <xs:annotation>
                   <xs:documentation>
-                    Reference to an ISO 13399.
+                    The {{block(CuttingToolDefinition)}} contains the detailed
+                    structure of the Cutting Tool which is be static during its
+                    lifecycle. {{textit(Ref:ISO 13399)}}.
                   </xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element name='CuttingToolLifeCycle' type='CuttingToolLifeCycleType' minOccurs='0' maxOccurs='1'>
                 <xs:annotation>
                   <xs:documentation>
-                    Data regarding the use of the cutting tool.
+                    Data regarding the application or use of the tool. This data
+                    is provided by various pieces of equipment (i.e. machine
+                    tool, presetter) and statistical process control
+                    applications. Life cycle data will not remain static, but
+                    will change 395 periodically when a tool is used or
+                    measured.
                   </xs:documentation>
                 </xs:annotation>
               </xs:element>
@@ -12179,7 +12086,11 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
             <xs:element name='CuttingToolLifeCycle' type='CuttingToolLifeCycleType'>
               <xs:annotation>
                 <xs:documentation>
-                  Data regarding the use of the cutting tool.
+                  Data regarding the application or use of the tool. This data
+                  is provided by various pieces of equipment (i.e. machine tool,
+                  presetter) and statistical process control applications. Life
+                  cycle data will not remain static, but will change 395
+                  periodically when a tool is used or measured.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
@@ -12189,8 +12100,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           <xs:annotation>
             <xs:documentation>
               The serial number associated with a {{block(Component)}},
-              {{block(Asset)}}, or {{block(Device)}}. The {{term(Valid Data
-              Value)}} **MUST** be a text string.
+              {{block(Asset)}}, or {{block(Device)}}.
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -12204,9 +12114,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:attribute name='toolId' type='CuttingToolIdType' use='required'>
           <xs:annotation>
             <xs:documentation>
-              **DEPRECATED** in Version 1.2.0. See {{block(TOOL_ASSET_ID)}}.
-              *DEPRECATED:The identifier of the tool currently in use for a
-              given {{block(Path)}}.*
+              **DEPRECATED** in Version 1.2.0. See {{block(ToolAssetId)}}. 
             </xs:documentation>
           </xs:annotation>
         </xs:attribute>
@@ -12216,16 +12124,15 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='CuttingTool' type='CuttingToolType' substitutionGroup='Asset'>
     <xs:annotation>
       <xs:documentation>
-        A CuttingTool physically removes the material from the workpiece by
-        shear deformation.
+        {{block(CuttingTool)}} {{block(Asset)}} type.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name='CuttingToolArchetypeType'>
     <xs:annotation>
       <xs:documentation>
-        The CuttingToolArchetype represents the static cutting tool geometries
-        and nominal values as one would expect from a tool catalog.
+        The {{block(CuttingToolArchetype)}} represents the static cutting tool
+        geometries and nominal values as one would expect from a tool catalog.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -12243,14 +12150,21 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
               <xs:element name='CuttingToolDefinition' type='CuttingToolDefinitionType'>
                 <xs:annotation>
                   <xs:documentation>
-                    Reference to an ISO 13399.
+                    The {{block(CuttingToolDefinition)}} contains the detailed
+                    structure of the Cutting Tool which is be static during its
+                    lifecycle. {{textit(Ref:ISO 13399)}}.
                   </xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element name='CuttingToolLifeCycle' type='CuttingToolLifeCycleArchetypeType' minOccurs='0' maxOccurs='1'>
                 <xs:annotation>
                   <xs:documentation>
-                    Data regarding the use of the cutting tool.
+                    Data regarding the application or use of the tool. This data
+                    is provided by various pieces of equipment (i.e. machine
+                    tool, presetter) and statistical process control
+                    applications. Life cycle data will not remain static, but
+                    will change 395 periodically when a tool is used or
+                    measured.
                   </xs:documentation>
                 </xs:annotation>
               </xs:element>
@@ -12258,7 +12172,11 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
             <xs:element name='CuttingToolLifeCycle' type='CuttingToolLifeCycleArchetypeType'>
               <xs:annotation>
                 <xs:documentation>
-                  Data regarding the use of the cutting tool.
+                  Data regarding the application or use of the tool. This data
+                  is provided by various pieces of equipment (i.e. machine tool,
+                  presetter) and statistical process control applications. Life
+                  cycle data will not remain static, but will change 395
+                  periodically when a tool is used or measured.
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
@@ -12277,8 +12195,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='CuttingToolArchetype' type='CuttingToolArchetypeType' substitutionGroup='Asset'>
     <xs:annotation>
       <xs:documentation>
-        The CuttingToolArchetype represents the static cutting tool geometries
-        and nominal values as one would expect from a tool catalog.
+        The {{block(CuttingToolArchetype)}} represents the static cutting tool
+        geometries and nominal values as one would expect from a tool catalog.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -12306,7 +12224,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:element name='ProgramToolGroup' type='ProgramToolGroupType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            The tool group this item is assigned in the part program.
+            The tool group this tool is assigned in the part program.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -12343,14 +12261,16 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:element name='Measurements' type='AssemblyMeasurementsType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            A set of measurements associated with the cutting tool
+            {{block(Measurements)}} {{termplural(organize)}}
+            {{block(Measurement)}} types.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name='CuttingItems' type='CuttingItemsType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            An optional list of edges for this assembly
+            {{block(CuttingItems)}} {{termplural(organize)}}
+            {{block(CuttingItem)}} elements.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -12359,14 +12279,19 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='CuttingToolLifeCycleType'>
     <xs:annotation>
       <xs:documentation>
-        Data regarding the use of the cutting tool.
+        Data regarding the application or use of the tool. This data is provided
+        by various pieces of equipment (i.e. machine tool, presetter) and
+        statistical process control applications. Life cycle data will not
+        remain static, but will change 395 periodically when a tool is used or
+        measured.
       </xs:documentation>
     </xs:annotation>
     <xs:all>
       <xs:element name='CutterStatus' type='CutterStatusType' minOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            The state of the tool assembly - only for Instance (not archetype)
+            The status of the assembly. {{block(CutterStatus)}} can be a
+            combined set of {{block(Status)}} elements.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -12380,14 +12305,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:element name='ToolLife' type='LifeType' minOccurs='0' maxOccurs='3'>
         <xs:annotation>
           <xs:documentation>
-            The cutting tool life as related to this assembly.
+            The cutting tool life as related to the assembly.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name='ProgramToolGroup' type='ProgramToolGroupType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            The tool group this item is assigned in the part program.
+            The tool group this tool is assigned in the part program.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -12431,14 +12356,16 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:element name='Measurements' type='AssemblyMeasurementsType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            A set of measurements associated with the cutting tool
+            {{block(Measurements)}} {{termplural(organize)}}
+            {{block(Measurement)}} types.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name='CuttingItems' type='CuttingItemsType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            An optional list of edges for this assembly
+            {{block(CuttingItems)}} {{termplural(organize)}}
+            {{block(CuttingItem)}} elements.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -12447,8 +12374,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='CuttingToolArchetypeReferenceType'>
     <xs:annotation>
       <xs:documentation>
-        CuttingToolArchetypeReference has reference information about the
-        assetId and/or the URL of the data source of CuttingToolArchetype.
+        {{block(CuttingToolArchetypeReference)}} has reference information about
+        the {{property(assetId)}} and/or the URL of the data source of
+        {{block(CuttingToolArchetype)}}.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -12469,7 +12397,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='CutterStatusType'>
     <xs:annotation>
       <xs:documentation>
-        The set of applicatable status for this cutting tool
+        The status of the assembly. {{block(CutterStatus)}} can be a combined
+        set of {{block(Status)}} elements.
       </xs:documentation>
     </xs:annotation>
     <xs:all>
@@ -12652,7 +12581,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='MeasurementType' abstract='true'>
     <xs:annotation>
       <xs:documentation>
-        A constrained scalar value associated with this cutting tool.
+        A constrained scalar value associated with a cutting tool.
       </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -12716,7 +12645,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element abstract='true' name='Measurement' type='MeasurementType'>
     <xs:annotation>
       <xs:documentation>
-        A constrained scalar value associated with this cutting tool.
+        A constrained scalar value associated with a cutting tool.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -13419,15 +13348,16 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='CuttingItemsType'>
     <xs:annotation>
       <xs:documentation>
-        A list of edge
+        {{block(CuttingItems)}} {{termplural(organize)}} {{block(CuttingItem)}}
+        elements.
       </xs:documentation>
     </xs:annotation>
     <xs:all>
       <xs:element name='CuttingItem' type='CuttingItemType' minOccurs='1' maxOccurs='unbounded'>
         <xs:annotation>
           <xs:documentation>
-            A CuttingItem is the portion of the tool that physically removes the
-            material from the workpiece by shear deformation.
+            A {{block(CuttingItem)}} is the portion of the tool that physically
+            removes the material from the workpiece by shear deformation.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -13443,8 +13373,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='CuttingItemType'>
     <xs:annotation>
       <xs:documentation>
-        A CuttingItem is the portion of the tool that physically removes the
-        material from the workpiece by shear deformation.
+        A {{block(CuttingItem)}} is the portion of the tool that physically
+        removes the material from the workpiece by shear deformation.
       </xs:documentation>
     </xs:annotation>
     <xs:all>
@@ -13458,7 +13388,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:element name='CutterStatus' type='CutterStatusType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            The status of an individual cutting item
+            The status of the assembly. {{block(CutterStatus)}} can be a
+            combined set of {{block(Status)}} elements.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -13472,21 +13403,22 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:element name='ItemLife' type='LifeType' minOccurs='0' maxOccurs='3'>
         <xs:annotation>
           <xs:documentation>
-            The life of this Cutting Item.
+            The life of a {{block(CuttingItem)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name='ProgramToolGroup' type='ProgramToolGroupType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            The tool group this item is assigned in the part program.
+            The tool group this tool is assigned in the part program.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name='Measurements' type='CuttingItemMeasurementsType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            A set of measurements associated with the cutting tool
+            {{block(Measurements)}} {{termplural(organize)}}
+            {{block(Measurement)}} types.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -13893,8 +13825,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='FileType'>
     <xs:annotation>
       <xs:documentation>
-        The {{block(File)}} {{block(Asset)}} is an {{block(AbstractFile)}} with
-        information about the {{block(File)}} instance and its {{term(URL)}}.
+        {{block(File)}} {{block(Asset)}} type.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -13972,8 +13903,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:element name='File' type='FileType' substitutionGroup='AbstractFile'>
     <xs:annotation>
       <xs:documentation>
-        The {{block(File)}} {{block(Asset)}} is an {{block(AbstractFile)}} with
-        information about the {{block(File)}} instance and its {{term(URL)}}.
+        {{block(File)}} {{block(Asset)}} type.
       </xs:documentation>
     </xs:annotation>
   </xs:element>

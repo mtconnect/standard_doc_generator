@@ -27,6 +27,7 @@ class XMIParser
 	@compositions = generate_enum('CompositionTypeEnum')
 	
 	@components = generate_element_types('Components', 'Component', 'Component Types')
+	@components = @components.merge(generate_element_types('Components', 'Component', 'Devices'))
 	@samples = generate_element_types('Observations', 'Sample', 'Sample Types')
 	@events = generate_element_types('Observations', 'Event', 'Event Types')
   end
@@ -68,7 +69,8 @@ class XMIParser
 	element_types_package = package.at("[@name='"+types_package+"']")
 	
 	element_types_package.children.each do |element|
-	  next unless element["xmi:type"] == "uml:Class"
+	  next unless element["xmi:type"] == "uml:Class" or element["xmi:type"] == "uml:AssociationClass"
+	  next if element["xmi:type"] == "uml:Class" and types_package == "Devices"
 	  name = element['name']
 	  description = element.at("./ownedComment") ? element.at("./ownedComment")['body'] : ""
 	  parent_id = element.at("./generalization")['general']
@@ -86,6 +88,10 @@ class XMIParser
 	end
 	
 	element_attr.each do |name, element|
+	  if types_package == "Devices"
+	    element_attr[name]['parent'] = "Component"
+		next
+	  end
 	  element_attr[name]['parent'] = element_type_ids[element['parent']]
 	end
 	

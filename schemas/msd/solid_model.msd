@@ -31,12 +31,10 @@ package :SolidModel, 'Solid model eternal reference' do
     value :GDML, 'Geometry Description Markup Language'
     value :OBJ, 'Wavefront OBJ file format'
     value :COLLADA, 'ISO 17506'
-    value :IGES, 'Initial Graphics Exchange Specification'
-    value :DXF, 'Drawing eXchange Format. Autodesk data interchange format'
+    value :IGES, 'Initial Graphics Exchange Specification'   
     value :'3DS', 'Autodesk file format'
-    value :DWG, 'Autodesk file format'
     value :ACIS, 'Dassault file format'
-    value :PXT, 'Parasolid XT Siemens data interchange format'
+    value :X_T, 'Parasolid XT Siemens data interchange format'
   end
   
 end

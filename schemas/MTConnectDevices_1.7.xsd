@@ -966,9 +966,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='CHUCK_INTERLOCK'>
         <xs:annotation>
           <xs:documentation>
-            An indication of the state of an interlock function or control logic
-            state intended to prevent the associated {{block(Chuck)}} component
-            from being operated.
+            An indication of the operational condition of the interlock function
+            for an electronically controller chuck.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1053,7 +1052,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='DIRECTION'>
         <xs:annotation>
           <xs:documentation>
-            The direction of motion.
+            An indication of a fault associated with the direction of motion of
+            a {{term(Structural Element)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1077,8 +1077,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='END_OF_BAR'>
         <xs:annotation>
           <xs:documentation>
-            An indication of whether the end of a piece of bar stock being feed
-            by a bar feeder has been reached.
+            An indication that the end of a piece of bar stock has been reached.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1114,7 +1113,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='INTERFACE_STATE'>
         <xs:annotation>
           <xs:documentation>
-            An indication of the operational state of an {{block(Interface)}}
+            An indication of the operation condition of an {{block(Interface)}}
             component.
           </xs:documentation>
         </xs:annotation>
@@ -1129,8 +1128,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='LINE_LABEL'>
         <xs:annotation>
           <xs:documentation>
-            An optional identifier for a {{block(BLOCK)}} of code in a
-            {{block(PROGRAM)}}.
+            An optional identifier for a {{block(Block)}} of code in a
+            {{block(Program)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1344,7 +1343,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             The name of the program being edited. This is used in conjunction
-            with {{block(PROGRAM_EDIT)}} when in {{block(ACTIVE)}} state. 
+            with {{block(ProgramEdit)}} when in `ACTIVE` state. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1359,7 +1358,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             The Uniform Resource Identifier (URI) for the source file associated
-            with {{block(PROGRAM)}}.
+            with {{block(Program)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1367,7 +1366,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             Defines whether the logic or motion program defined by
-            {{block(PROGRAM)}} is being executed from the local memory of the
+            {{block(Program)}} is being executed from the local memory of the
             controller or from an outside source.
           </xs:documentation>
         </xs:annotation>
@@ -1431,8 +1430,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             **DEPRECATED** in Version 1.2.0. See {{block(TOOL_ASSET_ID)}}.
-            *DEPRECATED:The identifier of the tool currently in use for a given
-            {{block(Path)}}.*
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1473,8 +1470,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='WAIT_STATE'>
         <xs:annotation>
           <xs:documentation>
-            An indication of the reason that {{block(EXECUTION)}} is reporting a
-            value of {{block(WAIT)}}.
+            An indication of the reason that {{block(Execution)}} is reporting a
+            value of `WAIT`.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1746,6 +1743,13 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value='ACTUATOR'>
+        <xs:annotation>
+          <xs:documentation>
+            An indication of a fault associated with an actuator.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value='VARIABLE'>
         <xs:annotation>
           <xs:documentation>
@@ -1783,34 +1787,29 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='ABSOLUTE'>
         <xs:annotation>
           <xs:documentation>
-            The position of a block of program code relative to the beginning of
-            the control program.
+            Relating to or derived in the simplest manner from the fundamental
+            units or measurements.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='ACTION'>
         <xs:annotation>
           <xs:documentation>
-            An indication of the operating state of a mechanism represented by a
-            composition type component. The operating state indicates whether
-            the composition element is activated or disabled. The valid data
-            value must be active value or inactive value.
+            An indication of the operating state of a mechanism.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='ACTUAL'>
         <xs:annotation>
           <xs:documentation>
-            The measured value of the data item type given by a sensor or
-            encoder.
+            The measured value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='ALL'>
         <xs:annotation>
           <xs:documentation>
-            The count of all the parts produced. If the subtype is not given,
-            this is the default.
+            The number of parts produced.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1825,25 +1824,23 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='A_SCALE'>
         <xs:annotation>
           <xs:documentation>
-            A Scale weighting factor. This is the default weighting factor if no
-            factor is specified
+            A Scale weighting factor.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='AUXILIARY'>
         <xs:annotation>
           <xs:documentation>
-            When multiple locations on a piece of bar stock are referenced as
-            the indication for the endofbar event, the additional location(s)
-            must be designated as auxiliary subtype indication(s) for the
-            endofbar event. 
+            When multiple locations on a piece of bar stock being feed by a bar
+            feeder are referenced as the indication of whether the end of that
+            piece of bar stock has been reached.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='BAD'>
         <xs:annotation>
           <xs:documentation>
-            Indicates the count of incorrect parts produced.
+            The number of parts produced that do not conform to specification.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1857,22 +1854,22 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='B_SCALE'>
         <xs:annotation>
           <xs:documentation>
-            B Scale weighting factor
+            B Scale weighting factor.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='COMMANDED'>
         <xs:annotation>
           <xs:documentation>
-            A value specified by the controller type component.
+            The commanded value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='CONSUMED'>
         <xs:annotation>
           <xs:documentation>
-            The amount of bulk material consumed from an object or container
-            during a manufacturing process.
+            The amount of material consumed from an object or container during a
+            manufacturing process.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1887,14 +1884,15 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='C_SCALE'>
         <xs:annotation>
           <xs:documentation>
-            C Scale weighting factor
+            C Scale weighting factor.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='DELAY'>
         <xs:annotation>
           <xs:documentation>
-            A piece of equipment waiting for an event or an action to occur.
+            A piece of equipment or process waiting for an event or an action to
+            occur.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1909,18 +1907,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A setting or operator selection used to execute a test mode to
-            confirm the execution of machine functions. The valid data value
-            must be on value or off value. When dryrun subtype is on value, the
-            equipment performs all of its normal functions, except no part or
-            product is produced. If the equipment has a spindle, spindle
-            operation is suspended.
+            confirm the execution of machine functions.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='D_SCALE'>
         <xs:annotation>
           <xs:documentation>
-            D Scale weighting factor
+            D Scale weighting factor.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1943,23 +1937,22 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='GOOD'>
         <xs:annotation>
           <xs:documentation>
-            Indicates the count of correct parts made.
+            The number of parts produced that conform to specification.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='INCREMENTAL'>
         <xs:annotation>
           <xs:documentation>
-            The position of a block of program code relative to the occurrence
-            of the last linelabel event encountered in the control program.
+            Relating to or derived from the last {{term(observation)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='JOG'>
         <xs:annotation>
           <xs:documentation>
-            The feedrate specified by a logic or motion program, by a pre-set
-            value, or set by a switch as the feedrate for the axes. 
+            The feedrate specified by a logic or motion program when operating
+            in a manual state or method (jogging).
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1967,11 +1960,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             An indication of the position of a mechanism that may move in a
-            lateral direction. The mechanism is represented by a composition
-            type component. The position information indicates whether the
-            composition element is positioned to the right, to the left, or is
-            in transition. The valid data value must be right value, left value,
-            or transitioning value.
+            lateral direction.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1992,7 +1981,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='LINE'>
         <xs:annotation>
           <xs:documentation>
-            The state of the power source for the structural element.
+            The state of the power source.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2014,10 +2003,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A setting or operator selection that changes the behavior of the
-            controller on a piece of equipment. The valid data value must be on
-            value or off value. When machineaxislock subtype is on value,
-            program execution continues normally, but no equipment motion occurs
-            
+            controller on a piece of equipment.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2025,15 +2011,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             The identity of the primary logic or motion program currently being
-            executed. It is the starting nest level in a call structure and may
-            contain calls to sub programs.
+            executed.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='MAINTENANCE'>
         <xs:annotation>
           <xs:documentation>
-            Action related to maintenance on the piece of equipment.
+            Relating to maintenance on the piece of equipment.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2042,32 +2027,28 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           <xs:documentation>
             An indication of the state of an operator controlled interlock that
             can inhibit the ability to initiate an unclamp action of an
-            electronically controlled chuck. The valid data value must be active
-            value or inactive value. When manualunclamp subtype is active value,
-            it is expected that a chuck cannot be unclamped until manualunclamp
-            subtype is set to inactive value. 
+            electronically controlled chuck.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='MANUFACTURE'>
         <xs:annotation>
           <xs:documentation>
-            The time and date code relating to the production of a material or
-            other physical item.
+            Related to the production of a material or other physical item.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='MAXIMUM'>
         <xs:annotation>
           <xs:documentation>
-            Maximum value of a data entity or attribute.
+            The maximum value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='MINIMUM'>
         <xs:annotation>
           <xs:documentation>
-            The minimum value of a data entity or attribute.
+            The minimum value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2081,33 +2062,29 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='MOTION'>
         <xs:annotation>
           <xs:documentation>
-            An indication of the open or closed state of a mechanism. The
-            mechanism is represented by a composition type component. The
-            operating state indicates whether the state of the composition
-            element is open, closed, or unlatched. The valid data value must be
-            open value, unlatched value, or closed value.
+            An indication of the open or closed state of a mechanism.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='NO_SCALE'>
         <xs:annotation>
           <xs:documentation>
-            No weighting factor on the frequency scale
+            No weighting factor on the frequency scale.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='OPERATING'>
         <xs:annotation>
           <xs:documentation>
-            A piece of equipment are powered or performing any activity.
+            A piece of equipment that is powered or performing any activity.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='OPERATOR'>
         <xs:annotation>
           <xs:documentation>
-            The identifier of the person currently responsible for operating the
-            piece of equipment.
+            Relating to the person currently responsible for operating the piece
+            of equipment.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2115,69 +2092,52 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A setting or operator selection that changes the behavior of the
-            controller on a piece of equipment. The valid data value must be on
-            value or off value. The program execution is stopped after a
-            specific program block is executed when optionalstop subtype is on
-            value. In the case of a G-Code program, a program block event
-            containing a M01 code designates the command for an optionalstop
-            subtype. execution event must change to optionalstop subtype after a
-            program block specifying an optional stop is executed and the
-            optionalstop subtype selection is on value.
+            controller on a piece of equipment. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='OVERRIDE'>
         <xs:annotation>
           <xs:documentation>
-            DEPRECATED: The operators overridden value.
+            The overridden value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='POWERED'>
         <xs:annotation>
           <xs:documentation>
-            Primary power is applied to the piece of equipment and, as a
-            minimum, the controller or logic portion of the piece of equipment
-            is powered and functioning or components that are required to remain
-            on are powered.
+            A piece of equipment is powered and functioning or
+            {{termplural(Component)}} that are required to remain on are
+            powered.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PRIMARY'>
         <xs:annotation>
           <xs:documentation>
-            Specific applications MAY reference one or more locations on a piece
-            of bar stock as the indication for the endofbar event. The main or
-            most important location must be designated as the primary subtype
-            indication for the endofbar event. If no subtype is specified,
-            primary subtype must be the default endofbar event indication.
+            The main or most important location **MUST** be designated as the
+            end of a piece of bar stock.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PROBE'>
         <xs:annotation>
           <xs:documentation>
-            The position provided by a measurement probe.
+            The value provided by a measurement probe.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PROCESS'>
         <xs:annotation>
           <xs:documentation>
-            The measurement of the time from the beginning of production of a
-            part or product on a piece of equipment until the time that
-            production is complete for that part or product on that piece of
-            equipment. This includes the time that the piece of equipment is
-            running, producing parts or products, or in the process of producing
-            parts.
+            Relating to production of a part or product on a piece of equipment.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PROGRAMMED'>
         <xs:annotation>
           <xs:documentation>
-            The value of a signal or calculation specified by a logic or motion
-            program or set by a switch.
+            The programmed value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2191,16 +2151,15 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='RAPID'>
         <xs:annotation>
           <xs:documentation>
-            The value of a signal or calculation issued to adjust the feedrate
-            of a component or composition that is operating in a rapid
-            positioning mode.
+            The feedrate specified by a logic or motion program when operating
+            in a rapid positioning mode.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='REMAINING'>
         <xs:annotation>
           <xs:documentation>
-            Remaining measure of an object or an action.
+            The remaining measure of an object or an action.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2214,9 +2173,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='ROTARY'>
         <xs:annotation>
           <xs:documentation>
-            The rotational direction of a rotary motion using the right hand
-            rule convention. The valid data value must be clockwise value or
-            counterclockwise value.
+            The direction of a rotary motion using the right hand rule
+            convention.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2231,9 +2189,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='SET_UP'>
         <xs:annotation>
           <xs:documentation>
-            The identifier of the person currently responsible for preparing a
-            piece of equipment for production or restoring the piece of
-            equipment to a neutral state after production.
+            Relating to the preparation of a piece of equipment for production
+            or restoring the piece of equipment to a neutral state after
+            production.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2248,26 +2206,21 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A setting or operator selection that changes the behavior of the
-            controller on a piece of equipment. The valid data value must be on
-            value or off value. Program execution is paused after each block
-            event of code is executed when singleblock subtype is on value. When
-            singleblock subtype is on value, execution event must change to
-            interrupted value after completion of each block event of code. 
+            controller on a piece of equipment. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='STANDARD'>
         <xs:annotation>
           <xs:documentation>
-            The standard or original length of an object.
+            The standard measure of an object or an action.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='START'>
         <xs:annotation>
           <xs:documentation>
-            The time and date associated with the beginning of an activity or
-            event.
+            Relating to the beginning of an activity or event.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2275,24 +2228,21 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             An indication of the activation state of a mechanism represented by
-            a composition type component. The activation state indicates whether
-            the composition element is activated or not. The valid data value
-            must be on value or off value.
+            a {{term(Composition)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='TARGET'>
         <xs:annotation>
           <xs:documentation>
-            The desired measure or count for a data item value.
+            The targeted or desired value.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='TARGET_COMPLETION'>
         <xs:annotation>
           <xs:documentation>
-            The projected time and date associated with the end or completion of
-            an activity or event.
+            Relating to the end or completion of an activity or event.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2300,19 +2250,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A setting or operator selection that changes the behavior of the
-            controller on a piece of equipment. The valid data value must be on
-            value or off value. Program execution is paused when a command is
-            executed requesting a cutting tool to be changed. execution event
-            must change to interrupted value after completion of the command
-            requesting a cutting tool to be changed and toolchangestop subtype
-            is on value.
+            controller on a piece of equipment.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='USEABLE'>
         <xs:annotation>
           <xs:documentation>
-            The remaining useable length of an object.
+            The remaining usable measure of an object or action.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2320,11 +2265,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             An indication of the position of a mechanism that may move in a
-            vertical direction. The mechanism is represented by a composition
-            type component. The position information indicates whether the
-            composition element is positioned to the top, to the bottom, or is
-            in transition. The valid data value must be up value, down value, or
-            transitioning value.
+            vertical direction.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2425,15 +2366,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='MANUFACTURER'>
         <xs:annotation>
           <xs:documentation>
-            The corporate identity for the maker of the hardware or software
+            The corporate identity for the maker of the hardware or software.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='GAUGE'>
         <xs:annotation>
           <xs:documentation>
-            Gauge pressure is pressure measured relative to atmospheric
-            pressure.
+            Pressure measured relative to atmospheric pressure.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2455,43 +2395,43 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='RAW_MATERIAL'>
         <xs:annotation>
           <xs:documentation>
-            The unique identifier for a singular piece of material.
+            A singular piece of material.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='LOT'>
         <xs:annotation>
           <xs:documentation>
-            An identifier that references a group of parts tracked as a lot.
+            A group of parts tracked as a lot.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='BATCH'>
         <xs:annotation>
           <xs:documentation>
-            An identifier that references a group of parts produced in a batch.
+            A group of parts produced in a batch.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='HEAT_TREAT'>
         <xs:annotation>
           <xs:documentation>
-            An identifier used to reference a material heat number.
+            A material heat number.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PART_NUMBER'>
         <xs:annotation>
           <xs:documentation>
-            Identifier of a particular part design or model.
+            A particular part design or model.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PART_FAMILY'>
         <xs:annotation>
           <xs:documentation>
-            An identifier given to a group of parts having similarities in
-            geometry, manufacturing process, and/or functions.
+            A group of parts having similarities in geometry, manufacturing
+            process, and/or functions.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2506,24 +2446,21 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='PROCESS_STEP'>
         <xs:annotation>
           <xs:documentation>
-            Identifier of the step in the process plan that this occurrence
-            corresponds to. Synonyms include &quot;operation id&quot;.
+            A step in the process plan that this occurrence corresponds to. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='PROCESS_PLAN'>
         <xs:annotation>
           <xs:documentation>
-            Identifier of the process plan that this occurrence belongs to.
-            Synonyms include &quot;routing id&quot;, &quot;job id&quot;.
+            A process plan that a process occurrence belongs to.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value='ORDER_NUMBER'>
         <xs:annotation>
           <xs:documentation>
-            Identifier of the authorization of the process occurrence. Synonyms
-            include &quot;job id&quot;, &quot;work order&quot;.
+            The authorization of a process occurrence.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2539,6 +2476,13 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             A reference to a ISO 10303 Executable.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='COMPLETE'>
+        <xs:annotation>
+          <xs:documentation>
+            Associated with the completion of an activity or event.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -3932,8 +3876,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             {{block(Configuration)}} contains technical information about a
-            piece of equipment describing its physical layout or functional
-            characteristics.
+            piece of equipment describing its physical layout, functional
+            characteristics, and relationships with other pieces of equipment.
+            See {{sect(Configuration)}} for details on {{block(Configuration)}}
+            model.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -3953,14 +3899,14 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:element name='Compositions' type='CompositionsType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            Compositions
+            Compositions Model
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name='References' type='ReferencesType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            References
+            References Model
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -4034,8 +3980,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:annotation>
         <xs:documentation>
           The serial number associated with a {{block(Component)}},
-          {{block(Asset)}}, or {{block(Device)}}. The {{term(Valid Data Value)}}
-          **MUST** be a text string.
+          {{block(Asset)}}, or {{block(Device)}}.
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
@@ -5176,7 +5121,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         {{Organizer}} is an abstract {{block(Component)}} that
-        {{termplural(organize)}} similar {{Component}} types together.
+        {{termplural(organize)}} similar {{block(Component)}} types together.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -5187,7 +5132,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         {{Organizer}} is an abstract {{block(Component)}} that
-        {{termplural(organize)}} similar {{Component}} types together.
+        {{termplural(organize)}} similar {{block(Component)}} types together.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -5237,10 +5182,162 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
+  <xs:complexType name='StructuresType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Structures)}} {{termplural(organize)}} {{block(Structure)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='CommonComponentType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Structures' type='StructuresType' substitutionGroup='CommonComponent'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Structures)}} {{termplural(organize)}} {{block(Structure)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='AxesType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Axes)}} {{termplural(organize)}} {{block(Axis)}} component
+        types. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='CommonComponentType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Axes' type='AxesType' substitutionGroup='CommonComponent'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Axes)}} {{termplural(organize)}} {{block(Axis)}} component
+        types. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='InterfacesType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Interfaces)}} {{termplural(organize)}} {{block(Interface)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='CommonComponentType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Interfaces' type='InterfacesType' substitutionGroup='CommonComponent'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Interfaces)}} {{termplural(organize)}} {{block(Interface)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='SystemsType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Systems)}} {{termplural(organize)}} {{block(System)}} component
+        types. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='CommonComponentType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Systems' type='SystemsType' substitutionGroup='CommonComponent'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Systems)}} {{termplural(organize)}} {{block(System)}} component
+        types. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ResourcesType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Resources)}} {{termplural(organize)}} {{block(Resource)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='CommonComponentType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Resources' type='ResourcesType' substitutionGroup='CommonComponent'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Resources)}} {{termplural(organize)}} {{block(Resource)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='AuxiliariesType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Auxiliaries)}} {{termplural(organize)}} {{block(Auxiliary)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='CommonComponentType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Auxiliaries' type='AuxiliariesType' substitutionGroup='CommonComponent'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Auxiliaries)}} {{termplural(organize)}} {{block(Auxiliary)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='ProcessesType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Processes)}} {{termplural(organize)}} {{block(Process)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='CommonComponentType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Processes' type='ProcessesType' substitutionGroup='CommonComponent'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Processes)}} {{termplural(organize)}} {{block(Process)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name='AdaptersType'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Adapters)}} {{termplural(organize)}} {{block(Adapter)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base='CommonComponentType'/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name='Adapters' type='AdaptersType' substitutionGroup='CommonComponent'>
+    <xs:annotation>
+      <xs:documentation>
+        {{block(Adapters)}} {{termplural(organize)}} {{block(Adapter)}}
+        component types. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
   <xs:complexType name='CompositionsType'>
     <xs:annotation>
       <xs:documentation>
-        Compositions
+        Compositions Model
       </xs:documentation>
     </xs:annotation>
     <xs:all>
@@ -5702,8 +5799,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             {{block(Configuration)}} contains technical information about a
-            piece of equipment describing its physical layout or functional
-            characteristics.
+            piece of equipment describing its physical layout, functional
+            characteristics, and relationships with other pieces of equipment.
+            See {{sect(Configuration)}} for details on {{block(Configuration)}}
+            model.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -5748,7 +5847,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
   <xs:complexType name='ReferencesType'>
     <xs:annotation>
       <xs:documentation>
-        References
+        References Model
       </xs:documentation>
     </xs:annotation>
     <xs:all>
@@ -5922,15 +6021,16 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           <xs:element name='CalibrationDate' type='CalibrationDateType' minOccurs='0' maxOccurs='1'>
             <xs:annotation>
               <xs:documentation>
-                Date upon which the {{term(sensor unit)}} was last calibrated.
+                Date upon which the {{term(sensor unit)}} was last calibrated to
+                the {{term(sensor element)}}.
               </xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name='NextCalibrationDate' type='NextCalibrationDateType' minOccurs='0' maxOccurs='1'>
             <xs:annotation>
               <xs:documentation>
-                Date upon which the {{term(sensor unit)}} is next scheduled to
-                be calibrated.
+                Date upon which the {{term(sensor element)}} is next scheduled
+                to be calibrated with the {{term(sensor unit)}}. 
               </xs:documentation>
             </xs:annotation>
           </xs:element>
@@ -6007,15 +6107,16 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:element name='CalibrationDate' type='CalibrationDateType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            Date upon which the {{term(sensor unit)}} was last calibrated.
+            Date upon which the {{term(sensor unit)}} was last calibrated to the
+            {{term(sensor element)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name='NextCalibrationDate' type='NextCalibrationDateType' minOccurs='0' maxOccurs='1'>
         <xs:annotation>
           <xs:documentation>
-            Date upon which the {{term(sensor unit)}} is next scheduled to be
-            calibrated.
+            Date upon which the {{term(sensor element)}} is next scheduled to be
+            calibrated with the {{term(sensor unit)}}. 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -6435,7 +6536,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         {{block(ProcessSpecification)}} provides information used to assess the
-        conformance of a variable to process requirements.
+        conformance of a variable to process requirements. See {{sect(Limits for
+        ProcessSpecification)}} for details on the
+        {{block(ProcessSpecification)}} model.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -6472,7 +6575,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         {{block(ProcessSpecification)}} provides information used to assess the
-        conformance of a variable to process requirements.
+        conformance of a variable to process requirements. See {{sect(Limits for
+        ProcessSpecification)}} for details on the
+        {{block(ProcessSpecification)}} model.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -7432,21 +7537,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='DXF'>
-        <xs:annotation>
-          <xs:documentation>
-            Drawing eXchange Format. Autodesk data interchange format
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value='3DS'>
-        <xs:annotation>
-          <xs:documentation>
-            Autodesk file format
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='DWG'>
         <xs:annotation>
           <xs:documentation>
             Autodesk file format
@@ -7460,7 +7551,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='PXT'>
+      <xs:enumeration value='X_T'>
         <xs:annotation>
           <xs:documentation>
             Parasolid XT Siemens data interchange format
@@ -7661,7 +7752,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         {{property(category,DataItem)}} `EVENT` or `SAMPLE` \item A
         {{block(DataItem)}} with {{property(representation,DataItem)}} `TABLE`
         **MUST** have a {{property(category,DataItem)}} `EVENT` or `SAMPLE`
-        \end{itemize} !Representation.png!
+        \end{itemize} The following sections provide semantic information for
+        the {{block(Representation)}} model. !Representation.png! Note: See
+        {{sect(Representation Schema Diagrams)}} for XML schema.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base='xs:string'>
@@ -7964,7 +8057,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           {{property(category,DataItem)}} `EVENT` or `SAMPLE` \item A
           {{block(DataItem)}} with {{property(representation,DataItem)}} `TABLE`
           **MUST** have a {{property(category,DataItem)}} `EVENT` or `SAMPLE`
-          \end{itemize} !Representation.png!
+          \end{itemize} The following sections provide semantic information for
+          the {{block(Representation)}} model. !Representation.png! Note: See
+          {{sect(Representation Schema Diagrams)}} for XML schema.
         </xs:documentation>
       </xs:annotation>
     </xs:attribute>
