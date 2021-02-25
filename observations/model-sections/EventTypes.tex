@@ -1,4 +1,4 @@
-% Generated 2021-02-25 13:56:54 +0530
+% Generated 2021-02-25 22:49:48 +0530
 \subsection{Event Types} \label{sec:Event Types}
 
 
@@ -2078,30 +2078,6 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 
 An identifier of a process being executed by the device.
-
-
-
-\subsubsection{ProcessState}
-\label{sec:ProcessState}
-
-
-
-The condition of the part or process occurrence.
-
-
-The value of \texttt{ProcessState} \MUST be one of the following: 
-
-
-\texttt{ProcessStateEnum} Enumeration:
-
-\begin{itemize}
-\item \texttt{RAW} \newline This is a raw material process occurrence, prior to active execution or preparation of raw material for processing. 
-\item \texttt{IN\textunderscore PROCESS} \newline The process occurrence is actively executing. 
-\item \texttt{REWORK} \newline Process occurrence for correcting defective, failed, or non-conforming items after inspection. 
-\item \texttt{ON\textunderscore HOLD} \newline The process occurrence is currently on hold. 
-\item \texttt{SCRAP} \newline The target part has been scrapped and no further processes will be executed. 
-\item \texttt{COMPLETE} \newline The process occurrence is now complete. 
-\end{itemize}
 
 
 
