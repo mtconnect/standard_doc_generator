@@ -1,4 +1,4 @@
-% Generated 2021-02-06 01:28:13 +0530
+% Generated 2021-02-25 13:56:51 +0530
 \subsection{DataItem SubTypes} \label{sec:DataItem SubTypes}
 
 
@@ -43,19 +43,24 @@ The number of parts produced.
 The measurement of alternating voltage or current.   If not specified further in statistic, defaults to RMS voltage. 
 
 
-\item \texttt{A\textunderscore SCALE}  
-
-A Scale weighting factor.
-
-
 \item \texttt{AUXILIARY}  
 
 When multiple locations on a piece of bar stock being feed by a bar feeder are referenced as the indication of whether the end of that piece of bar stock has been reached.
 
 
+\item \texttt{A\textunderscore SCALE}  
+
+A Scale weighting factor.
+
+
 \item \texttt{BAD}  
 
 The number of parts produced that do not conform to specification.
+
+
+\item \texttt{BATCH}  
+
+A group of parts produced in a batch.
 
 
 \item \texttt{BRINELL}  
@@ -71,6 +76,11 @@ B Scale weighting factor.
 \item \texttt{COMMANDED}  
 
 The commanded value.
+
+
+\item \texttt{COMPLETE}  
+
+Associated with the completion of an activity or event.
 
 
 \item \texttt{CONSUMED}  
@@ -118,14 +128,44 @@ The time and date code relating to the expiration or end of useful life for a ma
 The time and date code relating the first use of a material or other physical item.
 
 
+\item \texttt{GATEWAY}  
+
+The Gateway for the component network.
+
+
 \item \texttt{GOOD}  
 
 The number of parts produced that conform to specification.
 
 
+\item \texttt{HEAT\textunderscore TREAT}  
+
+A material heat number.
+
+
 \item \texttt{INCREMENTAL}  
 
 Relating to or derived from the last \gls{observation}.
+
+
+\item \texttt{INSTALL\textunderscore DATE}  
+
+The date the hardware or software was installed.
+
+
+\item \texttt{IPV4\textunderscore ADDRESS}  
+
+The IPV4 network address of the component.
+
+
+\item \texttt{IPV6\textunderscore ADDRESS}  
+
+The IPV6 network address of the component.
+
+
+\item \texttt{ISO\textunderscore STEP\textunderscore EXECUTABLE}  
+
+A reference to a ISO 10303 Executable.
 
 
 \item \texttt{JOG}  
@@ -147,11 +187,18 @@ A scale to measure the elasticity of a surface.
 
 A reference to a length type tool offset variable.
 
+Subtypes of \texttt{LENGTH}: \texttt{STANDARD}, \texttt{REMAINING}, \texttt{USEABLE}.
+
+\item \texttt{LICENSE}  
+
+The license code to validate or activate the hardware or software.
+
 
 \item \texttt{LINE}  
 
 The state of the power source.
 
+Subtypes of \texttt{LINE}: \texttt{MAXIMUM}, \texttt{MINIMUM}.
 
 \item \texttt{LINEAR}  
 
@@ -163,9 +210,19 @@ The direction of motion of a linear motion.
 Subparts of a piece of equipment are under load.
 
 
+\item \texttt{LOT}  
+
+A group of parts tracked as a lot.
+
+
 \item \texttt{MACHINE\textunderscore AXIS\textunderscore LOCK}  
 
 A setting or operator selection that changes the behavior of the controller on a piece of equipment.
+
+
+\item \texttt{MAC\textunderscore ADDRESS}  
+
+Media Access Control Address. The unique physical address of the network hardware.
 
 
 \item \texttt{MAIN}  
@@ -186,6 +243,11 @@ An indication of the state of an operator controlled interlock that can inhibit 
 \item \texttt{MANUFACTURE}  
 
 Related to the production of a material or other physical item.
+
+
+\item \texttt{MANUFACTURER}  
+
+The corporate identity for the maker of the hardware or software.
 
 
 \item \texttt{MAXIMUM}  
@@ -228,9 +290,29 @@ Relating to the person currently responsible for operating the piece of equipmen
 A setting or operator selection that changes the behavior of the controller on a piece of equipment. 
 
 
+\item \texttt{ORDER\textunderscore NUMBER}  
+
+The authorization of a process occurrence.
+
+
 \item \texttt{OVERRIDE}  
 
 The overridden value.
+
+
+\item \texttt{PART\textunderscore FAMILY}  
+
+A group of parts having similarities in geometry, manufacturing process, and/or functions.
+
+
+\item \texttt{PART\textunderscore NAME}  
+
+A word or set of words by which a part is known, addressed, or referred to.
+
+
+\item \texttt{PART\textunderscore NUMBER}  
+
+A particular part design or model.
 
 
 \item \texttt{POWERED}  
@@ -253,6 +335,21 @@ The value provided by a measurement probe.
 Relating to production of a part or product on a piece of equipment.
 
 
+\item \texttt{PROCESS\textunderscore NAME}  
+
+A word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to.
+
+
+\item \texttt{PROCESS\textunderscore PLAN}  
+
+A process plan that a process occurrence belongs to.
+
+
+\item \texttt{PROCESS\textunderscore STEP}  
+
+A step in the process plan that this occurrence corresponds to. 
+
+
 \item \texttt{PROGRAMMED}  
 
 The programmed value.
@@ -266,6 +363,16 @@ A reference to a radial type tool offset variable.
 \item \texttt{RAPID}  
 
 The feedrate specified by a logic or motion program when operating in a rapid positioning mode.
+
+
+\item \texttt{RAW\textunderscore MATERIAL}  
+
+A singular piece of material.
+
+
+\item \texttt{RELEASE\textunderscore DATE}  
+
+The date the hardware or software was released for general use.
 
 
 \item \texttt{REMAINING}  
@@ -286,6 +393,11 @@ The direction of a rotary motion using the right hand rule convention.
 \item \texttt{SCHEDULE}  
 
 The identity of a control program that is used to specify the order of execution of other programs.
+
+
+\item \texttt{SERIAL\textunderscore NUMBER}  
+
+A serial number that uniquely identifies a specific part.
 
 
 \item \texttt{SET\textunderscore UP}  
@@ -313,6 +425,11 @@ The standard measure of an object or an action.
 Relating to the beginning of an activity or event.
 
 
+\item \texttt{SUBNET\textunderscore MASK}  
+
+The SubNet mask for the component network.
+
+
 \item \texttt{SWITCHED}  
 
 An indication of the activation state of a mechanism represented by a \gls{Composition}.
@@ -338,6 +455,16 @@ A setting or operator selection that changes the behavior of the controller on a
 The remaining usable measure of an object or action.
 
 
+\item \texttt{UUID}  
+
+The globally unique identifier as specified in ISO 11578 or RFC 4122.
+
+
+\item \texttt{VERSION}  
+
+The version of the hardware or software.
+
+
 \item \texttt{VERTICAL}  
 
 An indication of the position of a mechanism that may move in a vertical direction.
@@ -348,39 +475,9 @@ An indication of the position of a mechanism that may move in a vertical directi
 A scale to measure the resistance to deformation of a surface.
 
 
-\item \texttt{WORKING}  
-
-A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
-
-
-\item \texttt{IPV4\textunderscore ADDRESS}  
-
-The IPV4 network address of the component.
-
-
-\item \texttt{IPV6\textunderscore ADDRESS}  
-
-The IPV6 network address of the component.
-
-
-\item \texttt{GATEWAY}  
-
-The Gateway for the component network.
-
-
-\item \texttt{SUBNET\textunderscore MASK}  
-
-The SubNet mask for the component network.
-
-
 \item \texttt{VLAN\textunderscore ID}  
 
 The layer2 Virtual Local Network (VLAN) ID for the component network.
-
-
-\item \texttt{MAC\textunderscore ADDRESS}  
-
-Media Access Control Address. The unique physical address of the network hardware.
 
 
 \item \texttt{WIRELESS}  
@@ -388,104 +485,9 @@ Media Access Control Address. The unique physical address of the network hardwar
 Identifies whether the connection type is wireless.
 
 
-\item \texttt{LICENSE}  
+\item \texttt{WORKING}  
 
-The license code to validate or activate the hardware or software.
-
-
-\item \texttt{VERSION}  
-
-The version of the hardware or software.
-
-
-\item \texttt{RELEASE\textunderscore DATE}  
-
-The date the hardware or software was released for general use.
-
-
-\item \texttt{INSTALL\textunderscore DATE}  
-
-The date the hardware or software was installed.
-
-
-\item \texttt{MANUFACTURER}  
-
-The corporate identity for the maker of the hardware or software.
-
-
-\item \texttt{GAUGE}  
-
-Pressure measured relative to atmospheric pressure.
-
-
-\item \texttt{UUID}  
-
-The globally unique identifier as specified in ISO 11578 or RFC 4122.
-
-
-\item \texttt{SERIAL\textunderscore NUMBER}  
-
-A serial number that uniquely identifies a specific part.
-
-
-\item \texttt{RAW\textunderscore MATERIAL}  
-
-A singular piece of material.
-
-
-\item \texttt{LOT}  
-
-A group of parts tracked as a lot.
-
-
-\item \texttt{BATCH}  
-
-A group of parts produced in a batch.
-
-
-\item \texttt{HEAT\textunderscore TREAT}  
-
-A material heat number.
-
-
-\item \texttt{PART\textunderscore NUMBER}  
-
-A particular part design or model.
-
-
-\item \texttt{PART\textunderscore FAMILY}  
-
-A group of parts having similarities in geometry, manufacturing process, and/or functions.
-
-
-\item \texttt{PART\textunderscore NAME}  
-
-A word or set of words by which a part is known, addressed, or referred to.
-
-
-\item \texttt{PROCESS\textunderscore STEP}  
-
-A step in the process plan that this occurrence corresponds to. 
-
-
-\item \texttt{PROCESS\textunderscore PLAN}  
-
-A process plan that a process occurrence belongs to.
-
-
-\item \texttt{ORDER\textunderscore NUMBER}  
-
-The authorization of a process occurrence.
-
-
-\item \texttt{PROCESS\textunderscore NAME}  
-
-A word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to.
-
-
-\item \texttt{ISO\textunderscore STEP\textunderscore EXECUTABLE}  
-
-A reference to a ISO 10303 Executable.
+A piece of equipment performing any activity, the equipment is active and performing a function under load or not.
 
 \end{itemize}
 

@@ -330,7 +330,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='AMPERAGE'>
         <xs:annotation>
           <xs:documentation>
-            The measurement of electrical current.
+            **DEPRECATED** in *Version 1.6*. Replaced by `AMPERAGE_AC` and
+            `AMPERAGE_DC`. The measurement of electrical current.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -515,7 +516,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='LEVEL'>
         <xs:annotation>
           <xs:documentation>
-            **DEPRECATED** in Version 1.2. See {{block(FILL_LEVEL)}}
+            **DEPRECATED** in *Version 1.2*. See `FILL_LEVEL`. Represents the
+            level of a resource.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -592,7 +594,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='PRESSURE'>
         <xs:annotation>
           <xs:documentation>
-            The measurement of force per unit area exerted by a gas or liquid.
+            The force per unit area measured relative to atmospheric pressure.
+            Commonly referred to as gauge pressure.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -631,8 +634,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='SPINDLE_SPEED'>
         <xs:annotation>
           <xs:documentation>
-            **DEPRECATED** in Version 1.2. Replaced by
-            {{block(ROTARY_VELOCITY)}}
+            **DEPRECATED** in *Version 1.2*. Replaced by `ROTARY_VELOCITY`. The
+            rotational speed of the rotary axis.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -691,7 +694,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='VOLTAGE'>
         <xs:annotation>
           <xs:documentation>
-            The measurement of electrical potential between two points.
+            **DEPRECATED** in *Version 1.6*. Replaced by `VOLTAGE_AC` and
+            `VOLTAGE_DC`. The measurement of electrical potential between two
+            points.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -847,7 +852,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='RATE_OF_PRESSURIZATION'>
+      <xs:enumeration value='PRESSURIZATION_RATE'>
         <xs:annotation>
           <xs:documentation>
             The change of pressure per unit time.
@@ -865,6 +870,13 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             Negative rate of change of angular velocity.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='PRESSURE_ABSOLUTE'>
+        <xs:annotation>
+          <xs:documentation>
+            The force per unit area measured relative to a vacuum.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -998,7 +1010,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='CODE'>
         <xs:annotation>
           <xs:documentation>
-            **DEPRECATED** in Version 1.1.
+            **DEPRECATED** in *Version 1.1*. The programmatic code being
+            executed.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1121,7 +1134,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='LINE'>
         <xs:annotation>
           <xs:documentation>
-            **DEPRECATED** in Version 1.4.0.
+            **DEPRECATED** in *Version 1.4.0*. The current line of code being
+            executed.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1264,9 +1278,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='PART_NUMBER'>
         <xs:annotation>
           <xs:documentation>
-            An identifier of a part or product moving through the manufacturing
-            process. **DEPRECATED** in *Version 1.7*. `PART_NUMBER` is now a
-            `subType` of `PART_KIND_ID`.
+            **DEPRECATED** in *Version 1.7*. `PART_NUMBER` is now a `subType` of
+            `PART_KIND_ID`. An identifier of a part or product moving through
+            the manufacturing process.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1304,7 +1318,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='POWER_STATUS'>
         <xs:annotation>
           <xs:documentation>
-            **DEPRECATED** in Version 1.1.0.
+            **DEPRECATED** in *Version 1.1.0*. The `ON` or `OFF` status of the
+            component.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1429,7 +1444,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='TOOL_ID'>
         <xs:annotation>
           <xs:documentation>
-            **DEPRECATED** in Version 1.2.0. See {{block(TOOL_ASSET_ID)}}.
+            **DEPRECATED** in *Version 1.2.0*. See `TOOL_ASSET_ID`. The
+            identifier of the tool currently in use for a given `Path`.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2367,13 +2383,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             The corporate identity for the maker of the hardware or software.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='GAUGE'>
-        <xs:annotation>
-          <xs:documentation>
-            Pressure measured relative to atmospheric pressure.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -6796,7 +6805,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='NON_CRITICAL'>
+      <xs:enumeration value='NONCRITICAL'>
         <xs:annotation>
           <xs:documentation>
             Not critical

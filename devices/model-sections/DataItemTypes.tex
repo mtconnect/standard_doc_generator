@@ -1,4 +1,4 @@
-% Generated 2021-02-06 01:28:13 +0530
+% Generated 2021-02-25 13:56:51 +0530
 \subsection{DataItem Types} \label{sec:DataItem Types}
 
 
@@ -43,6 +43,17 @@ The value of \property{type}[DataItem] with \property{category}[DataItem] \textt
 \begin{itemize}
 
 
+\item \texttt{ACTUATOR}  
+
+An indication of a fault associated with an actuator.
+
+
+\item \texttt{CHUCK\textunderscore INTERLOCK}  
+
+An indication of the operational condition of the interlock function for an electronically controller chuck.
+
+Subtypes of \texttt{CHUCK\textunderscore INTERLOCK}: \texttt{MANUAL\textunderscore UNCLAMP}.
+
 \item \texttt{COMMUNICATIONS}  
 
 An indication that the piece of equipment has experienced a communications failure.
@@ -53,9 +64,26 @@ An indication that the piece of equipment has experienced a communications failu
 An indication that the value of the data associated with a measured value or a calculation is outside of an expected range.
 
 
+\item \texttt{DIRECTION}  
+
+An indication of a fault associated with the direction of motion of a \gls{Structural Element}.
+
+Subtypes of \texttt{DIRECTION}: \texttt{ROTARY}, \texttt{LINEAR}.
+
+\item \texttt{END\textunderscore OF\textunderscore BAR}  
+
+An indication that the end of a piece of bar stock has been reached.
+
+Subtypes of \texttt{END\textunderscore OF\textunderscore BAR}: \texttt{PRIMARY}, \texttt{AUXILIARY}.
+
 \item \texttt{HARDWARE}  
 
 An indication of a fault associated with the hardware subsystem of the \gls{Structural Element}.
+
+
+\item \texttt{INTERFACE\textunderscore STATE}  
+
+An indication of the operation condition of an \block{Interface} component.
 
 
 \item \texttt{LOGIC\textunderscore PROGRAM}  
@@ -71,31 +99,6 @@ An indication that an error occurred in the motion program associated with a pie
 \item \texttt{SYSTEM}  
 
 A general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware.
-
-
-\item \texttt{ACTUATOR}  
-
-An indication of a fault associated with an actuator.
-
-
-\item \texttt{CHUCK\textunderscore INTERLOCK}  
-
-An indication of the operational condition of the interlock function for an electronically controller chuck.
-
-
-\item \texttt{DIRECTION}  
-
-An indication of a fault associated with the direction of motion of a \gls{Structural Element}.
-
-
-\item \texttt{END\textunderscore OF\textunderscore BAR}  
-
-An indication that the end of a piece of bar stock has been reached.
-
-
-\item \texttt{INTERFACE\textunderscore STATE}  
-
-An indication of the operation condition of an \block{Interface} component.
 
 \end{itemize}
 
@@ -125,10 +128,31 @@ The set of axes currently associated with a \block{Path} or \block{Controller} \
 Represents the operational state of an apparatus for moving or controlling a mechanism or system.
 
 
+\item \texttt{ADAPTER\textunderscore SOFTWARE\textunderscore VERSION}  
+
+The originator’s software version of the \gls{Adapter}.
+
+
+\item \texttt{ADAPTER\textunderscore URI}  
+
+The \gls{URI} of the \gls{Adapter}.
+
+
 \item \texttt{ALARM}  
 
 \textbf{DEPRECATED:} Replaced with \block{CONDITION} category data items in Version 1.1.0.
 
+
+\item \texttt{ALARM\textunderscore LIMIT}  
+
+A set of limits used to trigger warning or alarm indicators.
+
+
+\item \texttt{APPLICATION}  
+
+The application on a component.
+
+Subtypes of \texttt{APPLICATION}: \texttt{VERSION}, \texttt{RELEASE\textunderscore DATE}, \texttt{MANUFACTURER}, \texttt{LICENSE}, \texttt{INSTALL\textunderscore DATE}.
 
 \item \texttt{ASSET\textunderscore CHANGED}  
 
@@ -156,6 +180,7 @@ This is used in conjunction with \block{COUPLED\textunderscore AXES} to indicate
 
 The value of a signal or calculation issued to adjust the feedrate of an individual linear type axis.
 
+Subtypes of \texttt{AXIS\textunderscore FEEDRATE\textunderscore OVERRIDE}: \texttt{JOG}, \texttt{PROGRAMMED}, \texttt{RAPID}.
 
 \item \texttt{AXIS\textunderscore INTERLOCK}  
 
@@ -181,6 +206,7 @@ The total count of the number of blocks of program code that have been executed 
 
 An indication of the state of an interlock function or control logic state intended to prevent the associated \block{Chuck} component from being operated.
 
+Subtypes of \texttt{CHUCK\textunderscore INTERLOCK}: \texttt{MANUAL\textunderscore UNCLAMP}.
 
 \item \texttt{CHUCK\textunderscore STATE}  
 
@@ -199,12 +225,20 @@ Service to close a door.
 
 \item \texttt{CODE}  
 
-\textbf{DEPRECATED} in Version 1.1.
+\textbf{DEPRECATED} in \textit{Version 1.1}.
+
+The programmatic code being executed.
 
 
 \item \texttt{COMPOSITION\textunderscore STATE}  
 
 An indication of the operating condition of a mechanism represented by a \block{Composition} type element.
+
+Subtypes of \texttt{COMPOSITION\textunderscore STATE}: \texttt{ACTION}, \texttt{LATERAL}, \texttt{MOTION}, \texttt{SWITCHED}, \texttt{VERTICAL}.
+
+\item \texttt{CONNECTION\textunderscore STATUS}  
+
+The status of the connection between an \gls{Adapter} and an \gls{Agent}.
 
 
 \item \texttt{CONTROLLER\textunderscore MODE}  
@@ -216,6 +250,12 @@ The current operating mode of the \block{Controller} component.
 
 A setting or operator selection that changes the behavior of a piece of equipment.
 
+Subtypes of \texttt{CONTROLLER\textunderscore MODE\textunderscore OVERRIDE}: \texttt{DRY\textunderscore RUN}, \texttt{SINGLE\textunderscore BLOCK}, \texttt{MACHINE\textunderscore AXIS\textunderscore LOCK}, \texttt{OPTIONAL\textunderscore STOP}, \texttt{TOOL\textunderscore CHANGE\textunderscore STOP}.
+
+\item \texttt{CONTROL\textunderscore LIMIT}  
+
+A set of limits used to indicate whether a process variable is stable and in control.
+
 
 \item \texttt{COUPLED\textunderscore AXES}  
 
@@ -225,6 +265,22 @@ Refers to the set of associated axes.
 \item \texttt{DATE\textunderscore CODE}  
 
 The time and date code associated with a material or other physical item.
+
+Subtypes of \texttt{DATE\textunderscore CODE}: \texttt{MANUFACTURE}, \texttt{EXPIRATION}, \texttt{FIRST\textunderscore USE}.
+
+\item \texttt{DEVICE\textunderscore ADDED}  
+
+An \block{Event} that provides the \gls{UUID} of new device added to an \gls{MTConnect Agent}.
+
+
+\item \texttt{DEVICE\textunderscore CHANGED}  
+
+An \block{Event} that provides the \gls{UUID} of the device whose \gls{Metadata} has changed.
+
+
+\item \texttt{DEVICE\textunderscore REMOVED}  
+
+An \block{Event} that provides the \gls{UUID} of a device removed from an \gls{MTConnect Agent}.
 
 
 \item \texttt{DEVICE\textunderscore UUID}  
@@ -236,6 +292,7 @@ The identifier of another piece of equipment that is temporarily associated with
 
 The direction of motion.
 
+Subtypes of \texttt{DIRECTION}: \texttt{ROTARY}, \texttt{LINEAR}.
 
 \item \texttt{DOOR\textunderscore STATE}  
 
@@ -251,16 +308,24 @@ The current state of the emergency stop signal for a piece of equipment, control
 
 An indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached.
 
+Subtypes of \texttt{END\textunderscore OF\textunderscore BAR}: \texttt{PRIMARY}, \texttt{AUXILIARY}.
 
 \item \texttt{EQUIPMENT\textunderscore MODE}  
 
 An indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities.
 
+Subtypes of \texttt{EQUIPMENT\textunderscore MODE}: \texttt{LOADED}, \texttt{WORKING}, \texttt{OPERATING}, \texttt{POWERED}, \texttt{DELAY}.
 
 \item \texttt{EXECUTION}  
 
 The execution status of the \block{Component}.
 
+
+\item \texttt{FIRMWARE}  
+
+The embedded software of a component.
+
+Subtypes of \texttt{FIRMWARE}: \texttt{VERSION}, \texttt{RELEASE\textunderscore DATE}, \texttt{MANUFACTURER}, \texttt{LICENSE}, \texttt{INSTALL\textunderscore DATE}.
 
 \item \texttt{FUNCTIONAL\textunderscore MODE}  
 
@@ -271,16 +336,31 @@ The current intended production status of the device or component.
 
 The measurement of the hardness of a material.
 
+Subtypes of \texttt{HARDNESS}: \texttt{ROCKWELL}, \texttt{VICKERS}, \texttt{SHORE}, \texttt{BRINELL}, \texttt{LEEB}, \texttt{MOHS}.
+
+\item \texttt{HARDWARE}  
+
+The hardware of a component.
+
 
 \item \texttt{INTERFACE\textunderscore STATE}  
 
 An indication of the operational state of an \block{Interface} component.
 
 
+\item \texttt{LIBRARY}  
+
+The software library on a component
+
+Subtypes of \texttt{LIBRARY}: \texttt{VERSION}, \texttt{RELEASE\textunderscore DATE}, \texttt{MANUFACTURER}, \texttt{LICENSE}, \texttt{INSTALL\textunderscore DATE}.
+
 \item \texttt{LINE}  
 
-\textbf{DEPRECATED} in Version 1.4.0.
+\textbf{DEPRECATED} in \textit{Version 1.4.0}.
 
+The current line of code being executed.
+
+Subtypes of \texttt{LINE}: \texttt{MAXIMUM}, \texttt{MINIMUM}.
 
 \item \texttt{LINE\textunderscore LABEL}  
 
@@ -291,6 +371,7 @@ An optional identifier for a \block{Block} of code in a \block{Program}.
 
 A reference to the position of a block of program code within a control program.
 
+Subtypes of \texttt{LINE\textunderscore NUMBER}: \texttt{ABSOLUTE}, \texttt{INCREMENTAL}.
 
 \item \texttt{MATERIAL}  
 
@@ -311,6 +392,7 @@ Service to advance material or feed product to a piece of equipment from a conti
 
 Identifies the layers of material applied to a part or product as part of an additive manufacturing process.
 
+Subtypes of \texttt{MATERIAL\textunderscore LAYER}: \texttt{ACTUAL}, \texttt{TARGET}.
 
 \item \texttt{MATERIAL\textunderscore LOAD}  
 
@@ -332,6 +414,17 @@ Service to unload a piece of material or product.
 Any text string of information to be transferred from a piece of equipment to a client software application.
 
 
+\item \texttt{MTCONNECT\textunderscore VERSION}  
+
+The reference version of the MTConnect Standard supported by the \gls{Adapter}.
+
+
+\item \texttt{NETWORK}  
+
+Network details of a component.
+
+Subtypes of \texttt{NETWORK}: \texttt{IPV4\textunderscore ADDRESS}, \texttt{IPV6\textunderscore ADDRESS}, \texttt{GATEWAY}, \texttt{SUBNET\textunderscore MASK}, \texttt{VLAN\textunderscore ID}, \texttt{MAC\textunderscore ADDRESS}, \texttt{WIRELESS}.
+
 \item \texttt{OPEN\textunderscore CHUCK}  
 
 Service to open a chuck.
@@ -341,6 +434,12 @@ Service to open a chuck.
 
 Service to open a door.
 
+
+\item \texttt{OPERATING\textunderscore SYSTEM}  
+
+The Operating System of a component.
+
+Subtypes of \texttt{OPERATING\textunderscore SYSTEM}: \texttt{LICENSE}, \texttt{VERSION}, \texttt{RELEASE\textunderscore DATE}, \texttt{INSTALL\textunderscore DATE}, \texttt{MANUFACTURER}, \texttt{VERSION}, \texttt{RELEASE\textunderscore DATE}, \texttt{MANUFACTURER}, \texttt{LICENSE}, \texttt{INSTALL\textunderscore DATE}.
 
 \item \texttt{OPERATOR\textunderscore ID}  
 
@@ -361,29 +460,54 @@ Service to change the part or product associated with a piece of equipment to a 
 
 The aggregate count of parts.
 
+Subtypes of \texttt{PART\textunderscore COUNT}: \texttt{ALL}, \texttt{GOOD}, \texttt{BAD}, \texttt{TARGET}, \texttt{REMAINING}.
 
 \item \texttt{PART\textunderscore DETECT}  
 
 An indication designating whether a part or work piece has been detected or is present.
 
 
+\item \texttt{PART\textunderscore GROUP\textunderscore ID}  
+
+Identifier given to a collection of individual parts. 
+
+Subtypes of \texttt{PART\textunderscore GROUP\textunderscore ID}: \texttt{LOT}, \texttt{RAW\textunderscore MATERIAL}, \texttt{BATCH}, \texttt{UUID}, \texttt{HEAT\textunderscore TREAT}.
+
 \item \texttt{PART\textunderscore ID}  
 
 An identifier of a part in a manufacturing operation.
 
 
-\item \texttt{PART\textunderscore NUMBER}  
+\item \texttt{PART\textunderscore KIND\textunderscore ID}  
 
-An identifier of a part or product moving through the manufacturing process.
+Identifier given to link the individual occurrence to a class of parts, typically distinguished by a particular part design.
+
+Subtypes of \texttt{PART\textunderscore KIND\textunderscore ID}: \texttt{UUID}, \texttt{PART\textunderscore FAMILY}, \texttt{PART\textunderscore NAME}, \texttt{PART\textunderscore NUMBER}.
+
+\item \texttt{PART\textunderscore NUMBER}  
 
 \textbf{DEPRECATED} in \textit{Version 1.7}. \texttt{PART\textunderscore NUMBER} is now a \texttt{subType} of
 \texttt{PART\textunderscore KIND\textunderscore ID}.
 
+An identifier of a part or product moving through the manufacturing process.
+
+
+\item \texttt{PART\textunderscore STATUS}  
+
+State or condition of a part.
+
+
+\item \texttt{PART\textunderscore UNIQUE\textunderscore ID}  
+
+Identifier given to a distinguishable, individual part. 
+
+Subtypes of \texttt{PART\textunderscore UNIQUE\textunderscore ID}: \texttt{SERIAL\textunderscore NUMBER}, \texttt{RAW\textunderscore MATERIAL}, \texttt{UUID}.
 
 \item \texttt{PATH\textunderscore FEEDRATE\textunderscore OVERRIDE}  
 
 The value of a signal or calculation issued to adjust the feedrate for the axes associated with a \block{Path} component that may represent a single axis or the coordinated movement of multiple axes.
 
+Subtypes of \texttt{PATH\textunderscore FEEDRATE\textunderscore OVERRIDE}: \texttt{JOG}, \texttt{PROGRAMMED}, \texttt{RAPID}.
 
 \item \texttt{PATH\textunderscore MODE}  
 
@@ -394,16 +518,42 @@ Describes the operational relationship between a \block{Path} \gls{Structural El
 
 The indication of the status of the source of energy for a \gls{Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the \gls{Structural Element} to perform its functions.
 
+Subtypes of \texttt{POWER\textunderscore STATE}: \texttt{LINE}, \texttt{CONTROL}.
 
 \item \texttt{POWER\textunderscore STATUS}  
 
-\textbf{DEPRECATED} in Version 1.1.0.
+\textbf{DEPRECATED} in \textit{Version 1.1.0}.
+
+The \texttt{ON} or \texttt{OFF} status of the component.
+
+
+\item \texttt{PROCESS\textunderscore AGGREGATE\textunderscore ID}  
+
+Identifier given to link the individual occurrence to a group of related occurrences, such as a process step in a process plan.
+
+Subtypes of \texttt{PROCESS\textunderscore AGGREGATE\textunderscore ID}: \texttt{ORDER\textunderscore NUMBER}, \texttt{PROCESS\textunderscore STEP}, \texttt{PROCESS\textunderscore PLAN}.
+
+\item \texttt{PROCESS\textunderscore KIND\textunderscore ID}  
+
+Identifier given to link the individual occurrence to a class of processes or process definition.
+
+Subtypes of \texttt{PROCESS\textunderscore KIND\textunderscore ID}: \texttt{UUID}, \texttt{ISO\textunderscore STEP\textunderscore EXECUTABLE}, \texttt{PROCESS\textunderscore NAME}.
+
+\item \texttt{PROCESS\textunderscore OCCURRENCE\textunderscore ID}  
+
+An identifier of a process being executed by the device.
+
+
+\item \texttt{PROCESS\textunderscore STATE}  
+
+The condition of the part or process occurrence.
 
 
 \item \texttt{PROCESS\textunderscore TIME}  
 
 The time and date associated with an activity or event.
 
+Subtypes of \texttt{PROCESS\textunderscore TIME}: \texttt{START}, \texttt{COMPLETE}, \texttt{TARGET\textunderscore COMPLETION}.
 
 \item \texttt{PROGRAM}  
 
@@ -430,16 +580,19 @@ The name of the program being edited.
 
 The non-executable header section of the control program.
 
+Subtypes of \texttt{PROGRAM\textunderscore HEADER}: \texttt{MAIN}, \texttt{SCHEDULE}, \texttt{ACTIVE}.
 
 \item \texttt{PROGRAM\textunderscore LOCATION}  
 
 The Uniform Resource Identifier (URI) for the source file associated with \block{Program}.
 
+Subtypes of \texttt{PROGRAM\textunderscore LOCATION}: \texttt{SCHEDULE}, \texttt{MAIN}, \texttt{ACTIVE}.
 
 \item \texttt{PROGRAM\textunderscore LOCATION\textunderscore TYPE}  
 
 Defines whether the logic or motion program defined by \block{Program} is being executed from the local memory of the controller or from an outside source.
 
+Subtypes of \texttt{PROGRAM\textunderscore LOCATION\textunderscore TYPE}: \texttt{SCHEDULE}, \texttt{MAIN}, \texttt{ACTIVE}.
 
 \item \texttt{PROGRAM\textunderscore NEST\textunderscore LEVEL}  
 
@@ -456,9 +609,24 @@ The current operating mode for a \block{Rotary} type axis.
 The percentage change to the velocity of the programmed velocity for a \block{Rotary} type axis.
 
 
+\item \texttt{ROTATION}  
+
+A three space angular rotation relative to a coordinate system.
+
+
+\item \texttt{SENSOR\textunderscore ATTACHMENT}  
+
+An \block{Event} defining an \gls{Attachment} between a sensor and an entity.
+
+
 \item \texttt{SERIAL\textunderscore NUMBER}  
 
 The serial number associated with a \block{Component}, \block{Asset}, or \block{Device}.
+
+
+\item \texttt{SPECIFICATION\textunderscore LIMIT}  
+
+A set of limits defining a range of values designating acceptable performance for a variable.
 
 
 \item \texttt{SPINDLE\textunderscore INTERLOCK}  
@@ -478,7 +646,9 @@ An identifier for the tool group associated with a specific tool. Commonly used 
 
 \item \texttt{TOOL\textunderscore ID}  
 
-\textbf{DEPRECATED} in Version 1.2.0.   See \block{TOOL\textunderscore ASSET\textunderscore ID}.
+\textbf{DEPRECATED} in \textit{Version 1.2.0}.   See \texttt{TOOL\textunderscore ASSET\textunderscore ID}.
+
+The identifier of the tool currently in use for a given \texttt{Path}.
 
 
 \item \texttt{TOOL\textunderscore NUMBER}  
@@ -490,11 +660,18 @@ The identifier assigned by the \block{Controller} component to a cutting tool wh
 
 A reference to the tool offset variables applied to the active cutting tool associated with a \block{Path} in a \block{Controller} type component.
 
+Subtypes of \texttt{TOOL\textunderscore OFFSET}: \texttt{RADIAL}, \texttt{LENGTH}.
+
+\item \texttt{TRANSLATION}  
+
+A three space linear translation relative to a coordinate system.
+
 
 \item \texttt{USER}  
 
 The identifier of the person currently responsible for operating the piece of equipment.
 
+Subtypes of \texttt{USER}: \texttt{OPERATOR}, \texttt{MAINTENANCE}, \texttt{SET\textunderscore UP}.
 
 \item \texttt{VARIABLE}  
 
@@ -519,141 +696,6 @@ The identifier for the current workholding or part clamp in use by a piece of eq
 \item \texttt{WORK\textunderscore OFFSET}  
 
 A reference to the offset variables for a work piece or part associated with a \block{Path} in a \block{Controller} type component.
-
-
-\item \texttt{OPERATING\textunderscore SYSTEM}  
-
-The Operating System of a component.
-
-
-\item \texttt{FIRMWARE}  
-
-The embedded software of a component.
-
-
-\item \texttt{APPLICATION}  
-
-The application on a component.
-
-
-\item \texttt{LIBRARY}  
-
-The software library on a component
-
-
-\item \texttt{HARDWARE}  
-
-The hardware of a component.
-
-
-\item \texttt{NETWORK}  
-
-Network details of a component.
-
-
-\item \texttt{ROTATION}  
-
-A three space angular rotation relative to a coordinate system.
-
-
-\item \texttt{TRANSLATION}  
-
-A three space linear translation relative to a coordinate system.
-
-
-\item \texttt{DEVICE\textunderscore ADDED}  
-
-An \block{Event} that provides the \gls{UUID} of new device added to an \gls{MTConnect Agent}.
-
-
-\item \texttt{DEVICE\textunderscore REMOVED}  
-
-An \block{Event} that provides the \gls{UUID} of a device removed from an \gls{MTConnect Agent}.
-
-
-\item \texttt{DEVICE\textunderscore CHANGED}  
-
-An \block{Event} that provides the \gls{UUID} of the device whose \gls{Metadata} has changed.
-
-
-\item \texttt{CONNECTION\textunderscore STATUS}  
-
-The status of the connection between an \gls{Adapter} and an \gls{Agent}.
-
-
-\item \texttt{ADAPTER\textunderscore SOFTWARE\textunderscore VERSION}  
-
-The originator’s software version of the \gls{Adapter}.
-
-
-\item \texttt{ADAPTER\textunderscore URI}  
-
-The \gls{URI} of the \gls{Adapter}.
-
-
-\item \texttt{MTCONNECT\textunderscore VERSION}  
-
-The reference version of the MTConnect Standard supported by the \gls{Adapter}.
-
-
-\item \texttt{SENSOR\textunderscore ATTACHMENT}  
-
-An \block{Event} defining an \gls{Attachment} between a sensor and an entity.
-
-
-\item \texttt{PART\textunderscore STATUS}  
-
-State or condition of a part.
-
-
-\item \texttt{PROCESS\textunderscore OCCURRENCE\textunderscore ID}  
-
-An identifier of a process being executed by the device.
-
-
-\item \texttt{PROCESS\textunderscore AGGREGATE\textunderscore ID}  
-
-Identifier given to link the individual occurrence to a group of related occurrences, such as a process step in a process plan.
-
-
-\item \texttt{PROCESS\textunderscore KIND\textunderscore ID}  
-
-Identifier given to link the individual occurrence to a class of processes or process definition.
-
-
-\item \texttt{PROCESS\textunderscore STATE}  
-
-The condition of the part or process occurrence.
-
-
-\item \texttt{PART\textunderscore GROUP\textunderscore ID}  
-
-Identifier given to a collection of individual parts. 
-
-
-\item \texttt{PART\textunderscore KIND\textunderscore ID}  
-
-Identifier given to link the individual occurrence to a class of parts, typically distinguished by a particular part design.
-
-
-\item \texttt{PART\textunderscore UNIQUE\textunderscore ID}  
-
-Identifier given to a distinguishable, individual part. 
-
-
-\item \texttt{CONTROL\textunderscore LIMIT}  
-
-A set of limits used to indicate whether a process variable is stable and in control.
-
-
-\item \texttt{SPECIFICATION\textunderscore LIMIT}  
-
-A set of limits defining a range of values designating acceptable performance for a variable.
-
-
-\item \texttt{ALARM\textunderscore LIMIT}  
-
-A set of limits used to trigger warning or alarm indicators.
 
 \end{itemize}
 
@@ -685,28 +727,56 @@ The measurement of accumulated time for an activity or event.
 
 \item \texttt{AMPERAGE}  
 
+\textbf{DEPRECATED} in \textit{Version 1.6}. Replaced by \texttt{AMPERAGE\textunderscore AC} and \texttt{AMPERAGE\textunderscore DC}.
+
 The measurement of electrical current.
 
+Subtypes of \texttt{AMPERAGE}: \texttt{ALTERNATING}, \texttt{DIRECT}, \texttt{ACTUAL}, \texttt{TARGET}.
+
+\item \texttt{AMPERAGE\textunderscore AC}  
+
+The measurement of an electrical current that reverses direction at regular short intervals.
+
+Subtypes of \texttt{AMPERAGE\textunderscore AC}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED}.
+
+\item \texttt{AMPERAGE\textunderscore DC}  
+
+The measurement of an electric current flowing in one direction only.
+
+Subtypes of \texttt{AMPERAGE\textunderscore DC}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED}.
 
 \item \texttt{ANGLE}  
 
 The measurement of angular position.
 
+Subtypes of \texttt{ANGLE}: \texttt{COMMANDED}, \texttt{ACTUAL}.
 
 \item \texttt{ANGULAR\textunderscore ACCELERATION}  
 
 The measurement rate of change of angular velocity.
 
 
+\item \texttt{ANGULAR\textunderscore DECELERATION}  
+
+Negative rate of change of angular velocity.
+
+Subtypes of \texttt{ANGULAR\textunderscore DECELERATION}: \texttt{ACTUAL}, \texttt{PROGRAMMED}, \texttt{COMMANDED}.
+
 \item \texttt{ANGULAR\textunderscore VELOCITY}  
 
 The measurement of the rate of change of angular position.
+
+
+\item \texttt{ASSET\textunderscore UPDATE\textunderscore RATE}  
+
+The average rate of change of values for assets in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
 
 
 \item \texttt{AXIS\textunderscore FEEDRATE}  
 
 The measurement of the feedrate of a linear axis.
 
+Subtypes of \texttt{AXIS\textunderscore FEEDRATE}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{JOG}, \texttt{PROGRAMMED}, \texttt{RAPID}, \texttt{OVERRIDE}.
 
 \item \texttt{CAPACITY\textunderscore FLUID}  
 
@@ -737,6 +807,13 @@ The measurement of the ability of a material to conduct electricity.
 
 The speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on.
 
+Subtypes of \texttt{CUTTING\textunderscore SPEED}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED}.
+
+\item \texttt{DECELERATION}  
+
+Negative rate of change of velocity.
+
+Subtypes of \texttt{DECELERATION}: \texttt{PROGRAMMED}, \texttt{COMMANDED}, \texttt{ACTUAL}.
 
 \item \texttt{DENSITY}  
 
@@ -747,25 +824,35 @@ The volumetric mass of a material per unit volume of that material.
 
 The rate of change in spatial volume of material deposited in an additive manufacturing process.
 
+Subtypes of \texttt{DEPOSITION\textunderscore ACCELERATION\textunderscore VOLUMETRIC}: \texttt{ACTUAL}, \texttt{COMMANDED}.
 
 \item \texttt{DEPOSITION\textunderscore DENSITY}  
 
 The density of the material deposited in an additive manufacturing process per unit of volume.
 
+Subtypes of \texttt{DEPOSITION\textunderscore DENSITY}: \texttt{ACTUAL}, \texttt{COMMANDED}.
 
 \item \texttt{DEPOSITION\textunderscore MASS}  
 
 The mass of the material deposited in an additive manufacturing process.
 
+Subtypes of \texttt{DEPOSITION\textunderscore MASS}: \texttt{ACTUAL}, \texttt{COMMANDED}.
 
 \item \texttt{DEPOSITION\textunderscore RATE\textunderscore VOLUMETRIC}  
 
 The rate at which a spatial volume of material is deposited in an additive manufacturing process.
 
+Subtypes of \texttt{DEPOSITION\textunderscore RATE\textunderscore VOLUMETRIC}: \texttt{ACTUAL}, \texttt{COMMANDED}.
 
 \item \texttt{DEPOSITION\textunderscore VOLUME}  
 
 The spatial volume of material to be deposited in an additive manufacturing process.
+
+Subtypes of \texttt{DEPOSITION\textunderscore VOLUME}: \texttt{ACTUAL}, \texttt{COMMANDED}.
+
+\item \texttt{DIAMETER}  
+
+The measured dimension of a diameter.
 
 
 \item \texttt{DISPLACEMENT}  
@@ -782,6 +869,7 @@ The measurement of electrical energy consumption by a component.
 
 The measurement of the amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities.
 
+Subtypes of \texttt{EQUIPMENT\textunderscore TIMER}: \texttt{LOADED}, \texttt{WORKING}, \texttt{OPERATING}, \texttt{POWERED}, \texttt{DELAY}.
 
 \item \texttt{FILL\textunderscore LEVEL}  
 
@@ -803,14 +891,35 @@ The measurement of the number of occurrences of a repeating event per unit time.
 \textbf{DEPRECATED} in Version 1.1
 
 
+\item \texttt{HUMIDITY\textunderscore ABSOLUTE}  
+
+The amount of water vapor expressed in grams per cubic meter.
+
+Subtypes of \texttt{HUMIDITY\textunderscore ABSOLUTE}: \texttt{ACTUAL}, \texttt{COMMANDED}.
+
+\item \texttt{HUMIDITY\textunderscore RELATIVE}  
+
+The amount of water vapor present expressed as a percent to reach saturation at the same temperature.
+
+Subtypes of \texttt{HUMIDITY\textunderscore RELATIVE}: \texttt{COMMANDED}, \texttt{ACTUAL}.
+
+\item \texttt{HUMIDITY\textunderscore SPECIFIC}  
+
+The ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
+
+Subtypes of \texttt{HUMIDITY\textunderscore SPECIFIC}: \texttt{ACTUAL}, \texttt{COMMANDED}.
+
 \item \texttt{LENGTH}  
 
 The measurement of the length of an object.
 
+Subtypes of \texttt{LENGTH}: \texttt{STANDARD}, \texttt{REMAINING}, \texttt{USEABLE}.
 
 \item \texttt{LEVEL}  
 
-\textbf{DEPRECATED} in Version 1.2.  See \block{FILL\textunderscore LEVEL}
+\textbf{DEPRECATED} in \textit{Version 1.2}.  See \texttt{FILL\textunderscore LEVEL}.
+
+Represents the level of a resource.
 
 
 \item \texttt{LINEAR\textunderscore FORCE}  
@@ -828,20 +937,34 @@ The measurement of the actual versus the standard rating of a piece of equipment
 The measurement of the mass of an object(s) or an amount of material.
 
 
+\item \texttt{OBSERVATION\textunderscore UPDATE\textunderscore RATE}  
+
+The average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
+
+
+\item \texttt{ORIENTATION}  
+
+A measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
+
+Subtypes of \texttt{ORIENTATION}: \texttt{ACTUAL}, \texttt{COMMANDED}.
+
 \item \texttt{PATH\textunderscore FEEDRATE}  
 
 The measurement of the feedrate for the axes, or a single axis, associated with a \block{Path} component-a vector.
 
+Subtypes of \texttt{PATH\textunderscore FEEDRATE}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{JOG}, \texttt{PROGRAMMED}, \texttt{RAPID}, \texttt{OVERRIDE}.
 
 \item \texttt{PATH\textunderscore FEEDRATE\textunderscore PER\textunderscore REVOLUTION}  
 
 The feedrate for the axes, or a single axis.
 
+Subtypes of \texttt{PATH\textunderscore FEEDRATE\textunderscore PER\textunderscore REVOLUTION}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED}.
 
 \item \texttt{PATH\textunderscore POSITION}  
 
 A measured or calculated position of a control point associated with a \block{Controller} element, or \block{Path} element if provided, of a piece of equipment.
 
+Subtypes of \texttt{PATH\textunderscore POSITION}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{TARGET}, \texttt{PROBE}.
 
 \item \texttt{PH}  
 
@@ -852,6 +975,7 @@ A measure of the acidity or alkalinity of a solution.
 
 A measured or calculated position of a \block{Component} element as reported by a piece of equipment.
 
+Subtypes of \texttt{POSITION}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED}, \texttt{TARGET}.
 
 \item \texttt{POWER\textunderscore FACTOR}  
 
@@ -860,13 +984,26 @@ The measurement of the ratio of real power flowing to a load to the apparent pow
 
 \item \texttt{PRESSURE}  
 
-The measurement of force per unit area exerted by a gas or liquid.
+The force per unit area measured relative to atmospheric pressure. 
+
+Commonly referred to as gauge pressure.
+
+
+\item \texttt{PRESSURE\textunderscore ABSOLUTE}  
+
+The force per unit area measured relative to a vacuum.
+
+
+\item \texttt{PRESSURIZATION\textunderscore RATE}  
+
+The change of pressure per unit time.
 
 
 \item \texttt{PROCESS\textunderscore TIMER}  
 
 The measurement of the amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment.
 
+Subtypes of \texttt{PROCESS\textunderscore TIMER}: \texttt{PROCESS}, \texttt{DELAY}.
 
 \item \texttt{RESISTANCE}  
 
@@ -877,16 +1014,21 @@ The measurement of the degree to which a substance opposes the passage of an ele
 
 The measurement of the rotational speed of a rotary axis.
 
+Subtypes of \texttt{ROTARY\textunderscore VELOCITY}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED}, \texttt{OVERRIDE}.
 
 \item \texttt{SOUND\textunderscore LEVEL}  
 
 The measurement of a sound level or sound pressure level relative to atmospheric pressure.
 
+Subtypes of \texttt{SOUND\textunderscore LEVEL}: \texttt{NO\textunderscore SCALE}, \texttt{A\textunderscore SCALE}, \texttt{B\textunderscore SCALE}, \texttt{C\textunderscore SCALE}, \texttt{D\textunderscore SCALE}.
 
 \item \texttt{SPINDLE\textunderscore SPEED}  
 
-\textbf{DEPRECATED} in Version 1.2.  Replaced by \block{ROTARY\textunderscore VELOCITY}
+\textbf{DEPRECATED} in \textit{Version 1.2}.  Replaced by \texttt{ROTARY\textunderscore VELOCITY}.
 
+The rotational speed of the rotary axis.
+
+Subtypes of \texttt{SPINDLE\textunderscore SPEED}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{OVERRIDE}.
 
 \item \texttt{STRAIN}  
 
@@ -925,8 +1067,23 @@ The measurement of a fluids resistance to flow.
 
 \item \texttt{VOLTAGE}  
 
+\textbf{DEPRECATED} in \textit{Version 1.6}. Replaced by \texttt{VOLTAGE\textunderscore AC} and \texttt{VOLTAGE\textunderscore DC}.
+
 The measurement of electrical potential between two points.
 
+Subtypes of \texttt{VOLTAGE}: \texttt{ALTERNATING}, \texttt{DIRECT}, \texttt{ACTUAL}, \texttt{TARGET}.
+
+\item \texttt{VOLTAGE\textunderscore AC}  
+
+The measurement of the electrical potential between two points in an electrical circuit in which the current periodically reverses direction.
+
+Subtypes of \texttt{VOLTAGE\textunderscore AC}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED}.
+
+\item \texttt{VOLTAGE\textunderscore DC}  
+
+The measurement of the electrical potential between two points in an electrical circuit in which the current is unidirectional.
+
+Subtypes of \texttt{VOLTAGE\textunderscore DC}: \texttt{ACTUAL}, \texttt{COMMANDED}, \texttt{PROGRAMMED}.
 
 \item \texttt{VOLT\textunderscore AMPERE}  
 
@@ -942,36 +1099,19 @@ The measurement of reactive power in an AC electrical circuit (commonly referred
 
 The fluid volume of an object or container.
 
+Subtypes of \texttt{VOLUME\textunderscore FLUID}: \texttt{ACTUAL}, \texttt{CONSUMED}.
 
 \item \texttt{VOLUME\textunderscore SPATIAL}  
 
 The geometric volume of an object or container.
 
+Subtypes of \texttt{VOLUME\textunderscore SPATIAL}: \texttt{ACTUAL}, \texttt{CONSUMED}.
 
 \item \texttt{WATTAGE}  
 
 The measurement of power flowing through or dissipated by an electrical circuit or piece of equipment.
 
-
-\item \texttt{AMPERAGE\textunderscore AC}  
-
-The measurement of an electrical current that reverses direction at regular short intervals.
-
-
-\item \texttt{AMPERAGE\textunderscore DC}  
-
-The measurement of an electric current flowing in one direction only.
-
-
-\item \texttt{VOLTAGE\textunderscore AC}  
-
-The measurement of the electrical potential between two points in an electrical circuit in which the current periodically reverses direction.
-
-
-\item \texttt{VOLTAGE\textunderscore DC}  
-
-The measurement of the electrical potential between two points in an electrical circuit in which the current is unidirectional.
-
+Subtypes of \texttt{WATTAGE}: \texttt{ACTUAL}, \texttt{TARGET}.
 
 \item \texttt{X\textunderscore DIMENSION}  
 
@@ -986,56 +1126,6 @@ Measured dimension of an entity relative to the Y direction of the referenced co
 \item \texttt{Z\textunderscore DIMENSION}  
 
 Measured dimension of an entity relative to the Z direction of the referenced coordinate system.
-
-
-\item \texttt{DIAMETER}  
-
-The measured dimension of a diameter.
-
-
-\item \texttt{ORIENTATION}  
-
-A measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
-
-
-\item \texttt{HUMIDITY\textunderscore RELATIVE}  
-
-The amount of water vapor present expressed as a percent to reach saturation at the same temperature.
-
-
-\item \texttt{HUMIDITY\textunderscore ABSOLUTE}  
-
-The amount of water vapor expressed in grams per cubic meter.
-
-
-\item \texttt{HUMIDITY\textunderscore SPECIFIC}  
-
-The ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
-
-
-\item \texttt{OBSERVATION\textunderscore UPDATE\textunderscore RATE}  
-
-The average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
-
-
-\item \texttt{ASSET\textunderscore UPDATE\textunderscore RATE}  
-
-The average rate of change of values for assets in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
-
-
-\item \texttt{RATE\textunderscore OF\textunderscore PRESSURIZATION}  
-
-The change of pressure per unit time.
-
-
-\item \texttt{DECELERATION}  
-
-Negative rate of change of velocity.
-
-
-\item \texttt{ANGULAR\textunderscore DECELERATION}  
-
-Negative rate of change of angular velocity.
 
 \end{itemize}
 

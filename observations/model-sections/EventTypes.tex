@@ -1,4 +1,4 @@
-% Generated 2021-02-06 01:28:16 +0530
+% Generated 2021-02-25 13:56:54 +0530
 \subsection{Event Types} \label{sec:Event Types}
 
 
@@ -460,7 +460,9 @@ Service to close a door.
 
 
 
-\textbf{DEPRECATED} in Version 1.1.
+\textbf{DEPRECATED} in \textit{Version 1.1}.
+
+The programmatic code being executed.
 
 
 
@@ -1300,7 +1302,9 @@ The version of the hardware or software.
 
 
 
-\textbf{DEPRECATED} in Version 1.4.0.
+\textbf{DEPRECATED} in \textit{Version 1.4.0}.
+
+The current line of code being executed.
 
 
 \paragraph{Subtypes of Line}\mbox{}
@@ -1311,12 +1315,12 @@ The version of the hardware or software.
 \item \texttt{MAXIMUM}
 
 
-Maximum value of a data entity or attribute.
+The maximum line number of the code being executed.
 
 \item \texttt{MINIMUM}
 
 
-The minimum value of a data entity or attribute.
+The minimum line number of the code being executed.
 
 
 \end{itemize}
@@ -1816,7 +1820,10 @@ The globally unique identifier as specified in ISO 11578 or RFC 4122.
 
 
 
-An identifier of a part or product moving through the manufacturing process. 
+\textbf{DEPRECATED} in \textit{Version 1.7}. \block{PartNumber} is now a \texttt{subType} of
+\block{PartKindId}.
+
+An identifier of a part or product moving through the manufacturing process.
 
 
 
@@ -1987,7 +1994,9 @@ The state of the power source for the \gls{Structural Element}.
 
 
 
-\textbf{DEPRECATED} in Version 1.1.0.
+\textbf{DEPRECATED} in \textit{Version 1.1.0}.
+
+The \texttt{ON} or \texttt{OFF} status of the component.
 
 
 
@@ -2461,7 +2470,9 @@ An identifier for the tool group associated with a specific tool. Commonly used 
 
 
 
-\textbf{DEPRECATED} in Version 1.2.0.   See \block{ToolAssetId}. 
+\textbf{DEPRECATED} in \textit{Version 1.2.0}.   See \block{ToolAssetId}.
+
+The identifier of the tool currently in use for a given \texttt{Path}.
 
 
 
