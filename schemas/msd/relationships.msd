@@ -17,7 +17,7 @@ package :Relationships, 'Relationship models' do
 
   enum :CriticalityEnum, 'The criticality' do
     value :CRITICAL, 'critical'
-    value :NON_CRITICAL, 'Not critical'
+    value :NONCRITICAL, 'Not critical'
   end
 
   type :Relationship, 'A relationship between this component and something else' do
