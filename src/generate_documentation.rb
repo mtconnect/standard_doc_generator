@@ -27,6 +27,9 @@ LatexModel.new(RootModel).find_definitions
 
 $enums = ['DataItemTypeEnum','DataItemSubTypeEnum','CompositionTypeEnum','CodeEnum']
 
+$dataitemtypes = Hash.new
+LatexModel.generate_subtypes
+
 #Generating Documentation
 document_structure = File.read(File.join(File.dirname(__FILE__),'..','config','document_structure.json'))
 document_structure_json = JSON.parse(document_structure)
