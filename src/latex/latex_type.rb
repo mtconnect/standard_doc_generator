@@ -265,14 +265,19 @@ EOT
 \\begin{itemize}
 
 EOT
-      
+        r.final_target.type.literals.sort_by! { |t| t.name }
         r.final_target.type.literals.each do |lit|
+		  lit_name = lit.name.gsub(/_/,"\\textunderscore ")
+		  lit_subtypes = ""
+		  if $dataitemtypes.has_key?(lit_name) and !$dataitemtypes[lit_name].empty?
+		    lit_subtypes = "\nSubtypes of \\texttt{#{lit_name}}: "+ $dataitemtypes[lit_name].join(", ")+"."
+		  end
           f.puts <<-EOT
 
-\\item \\texttt{#{lit.name.gsub(/_/,"\\textunderscore ")}}  
+\\item \\texttt{#{lit_name}}  
 
 #{lit.description.gsub(/(\^)/,"\\^{}")}
-
+#{lit_subtypes}
 EOT
         end
         

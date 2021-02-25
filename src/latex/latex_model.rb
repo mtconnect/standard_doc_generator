@@ -62,6 +62,31 @@ class LatexModel < Model
 	end
   end
 
+  def self.generate_subtypes
+	models = ["Sample Types", "Event Types"]
+	list_of_types = []
+	
+	models.each do |model|
+	  @@models[model].types.each do |type|
+		if type.relation("type")
+		  list_of_types << type.id
+	      $dataitemtypes[type.relation("type").default.gsub(/_/,"\\textunderscore ")] = []
+		end
+	  end
+	end
+	
+	models.each do |model|
+	  @@models[model].types.each do |type|
+        type.relations.each do |rel|
+		  if list_of_types.include?(rel.final_target.type.id)
+			$dataitemtypes[rel.final_target.type.relation("type").default.gsub(/_/,"\\textunderscore ")] << "\\texttt{#{type.relation("subType").default.gsub(/_/,"\\textunderscore ")}}"
+		  end
+		end
+	  end
+	end
+	
+	
+  end
 
   def generate_subtypes(model)
 	list_of_types = []
