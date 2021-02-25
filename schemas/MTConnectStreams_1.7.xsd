@@ -1664,13 +1664,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='PROCESS_STATE'>
-        <xs:annotation>
-          <xs:documentation>
-            The condition of the part or process occurrence.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value='PART_GROUP_ID'>
         <xs:annotation>
           <xs:documentation>
@@ -9891,88 +9884,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:documentation>
         Identifier given to link the individual occurrence to a group of related
         occurrences, such as a process step in a process plan.
-      </xs:documentation>
-    </xs:annotation>
-  </xs:element>
-  <xs:simpleType name='ProcessStateValueType'>
-    <xs:annotation>
-      <xs:documentation>
-        Controlled vocabulary for ProcessState
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base='xs:string'>
-      <xs:enumeration value='RAW'>
-        <xs:annotation>
-          <xs:documentation>
-            This is a raw material process occurrence, prior to active execution
-            or preparation of raw material for processing.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='IN_PROCESS'>
-        <xs:annotation>
-          <xs:documentation>
-            The process occurrence is actively executing. 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='REWORK'>
-        <xs:annotation>
-          <xs:documentation>
-            Process occurrence for correcting defective, failed, or
-            non-conforming items after inspection.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='ON_HOLD'>
-        <xs:annotation>
-          <xs:documentation>
-            The process occurrence is currently on hold.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='SCRAP'>
-        <xs:annotation>
-          <xs:documentation>
-            The target part has been scrapped and no further processes will be
-            executed.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='COMPLETE'>
-        <xs:annotation>
-          <xs:documentation>
-            The process occurrence is now complete. 
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='UNAVAILABLE'>
-        <xs:annotation>
-          <xs:documentation>
-            Value is indeterminate
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name='ProcessStateType'>
-    <xs:annotation>
-      <xs:documentation>
-        The condition of the part or process occurrence.
-      </xs:documentation>
-    </xs:annotation>
-    <xs:simpleContent>
-      <xs:restriction base='EventType'>
-        <xs:simpleType>
-          <xs:restriction base='ProcessStateValueType'/>
-        </xs:simpleType>
-      </xs:restriction>
-    </xs:simpleContent>
-  </xs:complexType>
-  <xs:element name='ProcessState' type='ProcessStateType' substitutionGroup='Event'>
-    <xs:annotation>
-      <xs:documentation>
-        The condition of the part or process occurrence.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
