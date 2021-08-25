@@ -73,7 +73,7 @@
 					"Assets Information Model": ["Assets"]
 				},
 				{
-					"CuttingTool Information Model":["CuttingTool",
+					"CuttingTool Asset Information Model":["CuttingTool",
 						"CuttingToolLifeCycle",
 						"CuttingItem",
 						"CuttingTool Measurement Types",
@@ -81,9 +81,60 @@
 					]
 				},
 				{
-					"Files Information Model":["Files"]
+					"Files Asset Information Model":["Files"]
+				},
+				{
+					"RawMaterial Asset Information Model":["RawMaterial"]
+				},
+				{
+					"QIF Asset Information Model":["QIF"]
 				}
 			]
+		},
+		"Part 5.0": {
+			"directory": "interfaces",
+			"doc_title": "Interfaces",
+			"models": [
+				"Interfaces Overview",
+				{
+					"Interfaces for Device and Observation Information Models":["Interfaces",
+						"Interface Types",
+						"Data for Interface",
+						"DataItem Types for Interface"
+					]
+				},
+				{
+					"Operation and Error Recovery":["Scenarios",
+						"Request and Response Failure Handling and Recovery"
+					]
+				}
+			]
+		}
+	},
+	"glossary": {
+		"General Terms": {
+			"model": "MTConnect Glossary",
+			"type": "general"
+		},
+		"Information Model Terms": {
+			"model": "Information Model Terms",
+			"type": "informationmodel"
+		},
+		"Protocol Terms": {
+			"model": "Protocol Terms",
+			"type": "protocol"
+		},
+		"XML Terms": {
+			"model": "XML Terms",
+			"type": "xml"
+		},
+		"HTTP Terms": {
+			"model": "HTTP Terms",
+			"type": "http"
+		},
+		"Concept Model Terms": {
+			"model": "Concept Model",
+			"type": "conceptmodel"
 		}
 	}
 }
