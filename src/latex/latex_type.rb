@@ -31,7 +31,7 @@ class LatexType < Type
   
   def generate_property_doc(f)
     if not relations.empty? and relations[0].name == 'Supertype' and @model.name and relations[0].final_target.type.name
-        if @model.name.split(' ')[0] == relations[0].final_target.type.name
+        if @model.name.split(' ')[0] == relations[0].final_target.type.name or relations[0].final_target.type.name == "Event"
 	      generate_types(f) 
           return
 		end
@@ -40,8 +40,8 @@ class LatexType < Type
 	$logger.info "Generating docs for #{@name}"
     relations_with_documentation =
       @relations.select do |r|
-      $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target.type.nil?
-      (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and @model.name.split('Type')[0] != r.final_target.type.name and r.visibility == 'public'
+      $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target and r.target.type.nil?
+      r.type!= 'uml:Constraint' and (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and @model.name.split('Type')[0] != r.final_target.type.name and r.visibility == 'public'
     end
 	
 	attributes = relations_with_documentation.select do |a| 
@@ -211,7 +211,7 @@ EOT
 		    f.puts "\nThe value of \\block{#{name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n"
 		  end
           
-          if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty and not r.stereotype.include?('deprecated')
+          if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty and not (r.stereotype and r.stereotype.include?('deprecated'))
             r.target.type.generate_enumerations(f)
           end
         end
@@ -250,9 +250,11 @@ EOT
 		if r.final_target.type.type == 'uml:Enumeration'
 			f.puts "\nThe value of \\texttt{#{@name}} \\MUST be one of the following: \n\n"
 			r.final_target.type.generate_enumerations(f)
-		elsif r.final_target.type.type == 'uml:DataType' and r.final_target.type.relations.size>0
+		elsif r.final_target.type.type == 'uml:Class'
 			f.puts "\nThe \\block{Entry} \\property{key} \\MUST be one or more from the following:\n"
 			r.final_target.type.generate_entrykeys(f)
+		elsif r.final_target.type.type == 'uml:DataType' and r.final_target.type.multiplicity.end_with?('*')
+		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be a space delimited list of \\texttt{#{r.final_target.type.name}s}.\n\n"
 		else
 		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
 		end
@@ -316,7 +318,7 @@ EOT
 			subtype.relations.each do |r|
 			  name = r.association_name ? r.association_name : r.name
 			  if r.redefinesProperty and name == 'result'
-				f.puts "\nThe value for \\block{#{@name}} when \\property{subType} is \\texttt{#{subtype.relation("subType").default}} \\MUST be one of the following: \n\n"
+				f.puts "\nThe value for \\block{#{@name}} when \\property{subType} is \\texttt{#{subtype.relation("subType").default.gsub("_","\\textunderscore ")}} \\MUST be one of the following: \n\n"
 				r.final_target.type.generate_enumerations(f)
 				break
 			  end
@@ -350,26 +352,24 @@ EOT
   end
   
     def generate_entrykeys(f)
-    if @type == 'uml:DataType'
-      $logger.debug "***** =====> Generating Keys for #{@name}"
+	  $logger.debug "***** =====> Generating Keys for #{@name}"
 
-	f.puts <<-EOT
+	  f.puts <<-EOT
 
 \\texttt{#{escape_name}} keys:
 
 \\begin{itemize}
 EOT
-	@relations.each do |r|
-	  name = r.name.gsub(/(\^)/,"\^{}").gsub("_","\\textunderscore ")
-	  
-	  f.puts "\\item \\texttt{#{name}} \\newline #{r.documentation} \n"
-	  f.puts "\\newline The value of \\texttt{#{name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
-	end
-	f.puts <<-EOT
+	  @relations.each do |r|
+	    name = r.name.gsub(/(\^)/,"\^{}").gsub("_","\\textunderscore ")
+	    next if name == 'Supertype'
+	    f.puts "\\item \\texttt{#{name}} \\newline #{r.documentation} \n"
+	    f.puts "\\newline The value of \\texttt{#{name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
+	  end
+	  f.puts <<-EOT
 \\end{itemize}
 
 EOT
-    end
   end
 
   def generate_data_type(f)
@@ -436,7 +436,7 @@ EOT
 		    section_type = "paragraph"
 		end
 		
-		if  !@model.name.include?("Sample") and !@model.name.include?("Event")
+		if  !@model.name.include?("Sample") and !@model.name.include?("Event") and !@model.name.include?("Interface")
 		  f.puts <<-EOT
 \n\\#{section_type}{#{section_name}}\\mbox{}
 #{self.class.get_label("sec:#{section_name}")}
@@ -454,6 +454,8 @@ EOT
 		generate_documentation(f)
 		generate_class(f)
 	
+	elsif @model.name.end_with?('Types') and section_name.end_with?('Result')
+		#pass
 	else
     	f.puts <<-EOT
 \n\\subsubsection{#{section_name}}
@@ -471,7 +473,7 @@ EOT
   end
 
 
-  def generate_glossary_docs(f)
+  def generate_glossary_docs(f, glossary_type)
     
 	if @name.end_with?('y')
 	  plural = "#{@name[0...-1] + 'ies'}"
@@ -484,6 +486,7 @@ EOT
 	f.puts <<-EOT
 \n\\newglossaryentry{#{@name}}
 {
+	type={#{glossary_type}},
     name={#{@name}},
 	description={#{format_whitespaces(@documentation)}},
 	plural={#{plural}}
