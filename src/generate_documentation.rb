@@ -21,6 +21,7 @@ SkipModels.add('Simulation')
 SkipModels.add('MTConnect')
 SkipModels.add('Agent Architecture')
 SkipModels.add('Development Process')
+SkipModels.add('Examples')
 
 LatexModel.skip_models = SkipModels
 LatexModel.new(RootModel).find_definitions
@@ -36,7 +37,7 @@ document_structure_json = JSON.parse(document_structure)
 
 document_structure_json['documents'].each do |partno, partinfo|
   LatexModel.directory = File.join(File.dirname(__FILE__),'..',partinfo['directory'])
-  LatexModel.generate_glossary
+  LatexModel.generate_glossary(document_structure_json['glossary'])
 
   #latex variables
   doc_num = partno
