@@ -2,8 +2,8 @@ module MarkDownParser
 
 	def format_markdown(description)
 		
-		#format figures
-		description = format_diagram(description)
+		#format figures and code
+		description = format_code(format_diagram(description))
 		
 		#format terms
 		description = format_block(format_property(format_glossary_term(description)))
@@ -17,14 +17,17 @@ module MarkDownParser
 		#format styles
 		description = format_math_char(format_italics(format_bolds(format_monospaces(description))))
 		
-		#format notes
-		description = format_notes(description)
+		#format lists and notes
+		description = format_list(description)
+		
+		#format section headings
+		description = format_section_headings(description)
 
-		return description
+		return format_remaining_cmd(description)
 	end
 
 	def format_diagram(description)
-		diagrams = description.scan(/!([0-9a-zA-Z .-_]+)!/)
+		diagrams = description.scan(/!([0-9a-zA-Z .\-_]+)!/)
 		diagrams.each do |diagram|
 			diagram_name = diagram[0].split('.')[0]
 			latex_out = <<-EOT
@@ -106,7 +109,7 @@ EOT
 	end
 	
 	def format_reference(description)
-		refs = description.scan(/{{([a-z]+)\(([a-zA-Z0-9*\/\-: _]+)\)}}/)
+		refs = description.scan(/{{([a-z]+)\(([a-zA-Z0-9*@.\/\-: _]+)\)}}/)
 		refs.each do |ref|
 			command = "{{#{ref[0]}(#{ref[1]})}}"
 			latex = "\\#{ref[0]}{#{ref[1]}}"
@@ -191,7 +194,86 @@ EOT
 		return description.gsub("^2","$^2$").gsub("^3","$^3$").gsub("_","\\textunderscore ")
 	end
 	
-	def format_notes(description)
-		return description.gsub("* Note","\\newline Note")
+	def get_section_level(string)
+		return "section" if string == "#"
+		return "subsection" if string == "##"
+		return "subsubsection" if string == "###"
+		return "paragraph" if string == "####"
+		return "subparagraph" if string == "#####"
+	end
+
+	def format_section_headings(description)
+		description = "\n"+description if description[0] == "#"
+		sections = description.scan(/\n([#]+) (.*)\n/)
+		sections.each do |section|
+			section_md = "\n"+section[0]+" "+section[1]+"\n"
+			section_heading = section[1].gsub("_","\\textunderscore ")
+			section_latex = "\n\\#{get_section_level(section[0])}{#{section_heading}}\n\\label{sec:#{section_heading}}\n"
+			description = description.gsub(section_md,section_latex)
+		end
+		return description
+	end
+	
+	def format_list(description)
+		return description if (not description.include?("\n* "))
+
+		list_md_begin = ""
+		list_md_end = ""
+		list_in_latex = "\n\\begin{itemize}"
+		sublist_in_latex = "\n    \\begin{itemize}"
+
+		lines = description.split(/\n(?=[^\n])/).delete_if{|x| x.strip==""}
+		lines.each_with_index do |line, i|
+			if line.start_with?("* ")
+				list_md_begin = description.split(line)[0] if list_md_begin == ""
+				list_in_latex += "\n    \\item "+ line[2..-1]
+				if (i+1 < lines.length) and lines[i+1].start_with?(" - ")
+					lines[i+1..-1].each_with_index do |subline,j|
+						sublist_in_latex += "\n        \\item "+ subline[3..-1]
+						if (j+1 < lines[i+1..-1].length and (not lines[i+1..-1][j+1].start_with?(" - "))) or (j+1 == lines[i+1..-1].length)
+							list_md_end = "\n"+lines[i+1..-1][j+1..-1].join("\n")
+							break
+						end
+					end
+					list_in_latex += sublist_in_latex + "\n    \\end{itemize}\n"
+				elsif (i+1 < lines.length and (not lines[i+1].start_with?("* "))) or (i+1 == lines.length)
+					list_md_end = "\n"+lines[i+1..-1].join("\n")
+					break
+				end
+			end
+		end	
+		list_in_latex += "\n\\end{itemize}\n"
+		
+		description = list_md_begin + list_in_latex + list_md_end
+		description = format_list(description) if description.include?("\n* ")
+		
+		return description
+	end
+	
+	def format_code(description)
+		codes = description.scan(/```(.+?)```/m)
+		codes.each do |code|
+			caption = code[0].scan(/Caption: ([a-zA-Z0-9\- .]+)\n/)
+			caption_name = "Example 1" #Default caption
+			caption_name = caption[0][0] if caption[0]
+			latex_out = <<-EOT
+	\\begin{lstlisting}[firstnumber=1,escapechar=|,% 
+	caption={#{caption_name}}, label={lst:#{caption_name}}]
+	#{code[0].split("Caption: #{caption_name}")[-1]}
+	\\end{lstlisting}
+	EOT
+			description = description.gsub("```#{code[0]}```",latex_out)
+		end
+		return description
+	end
+	
+	def format_remaining_cmd(description)
+		cmds = description.scan(/{{(.+?)\(\)}}/)
+		cmds.each do |cmd|
+			cmd_md = "{{"+ cmd[0] +"()}}"
+			cmd_latex = "\\" +cmd[0]
+			description = description.gsub(cmd_md,cmd_latex)
+		end
+		return description
 	end
 end
