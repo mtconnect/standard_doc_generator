@@ -20,7 +20,7 @@ class LatexModel < Model
 
   def self.generate_latex(f, model)
     if @@models[model]
-	  if model.end_with?('Types')
+	  if model.end_with?('Types') or model == "DataItem Types for Interface"
 		@@models[model].types.sort_by! { |t| t.name }
 		@@models[model].generate_subtypes(model)
 	  end
@@ -50,20 +50,21 @@ class LatexModel < Model
     end
   end
   
-  def self.generate_glossary
+  def self.generate_glossary(glossary_config)
 
-	model = "Glossary"
-    File.open(File.join(@@directory, "glossary.tex"), "w") do |fs|
-		@@models[model].types.each do |type|
-			if type.parent.nil? or type.parent.model != self
-				@@models[model].recurse_terms(fs, type)
+	File.open(File.join(@@directory, "glossary.tex"), "w") do |fs|
+		glossary_config.each do |glossary_name, glossary_info|
+			@@models[glossary_info['model']].types.each do |type|
+				if type.parent.nil? or type.parent.model != self
+					@@models[glossary_info['model']].recurse_terms(fs, type, glossary_info['type'])
+				end
 			end
 		end
 	end
   end
 
   def self.generate_subtypes
-	models = ["Sample Types", "Event Types"]
+	models = ["Sample Types", "Event Types", "DataItem Types for Interface"]
 	list_of_types = []
 	
 	models.each do |model|
@@ -118,8 +119,8 @@ class LatexModel < Model
     end
   end  
  
-  def recurse_terms(f, type)
-	type.generate_glossary_docs(f)
+  def recurse_terms(f, type, glossary_type)
+	type.generate_glossary_docs(f, glossary_type)
   end 
 
 end
