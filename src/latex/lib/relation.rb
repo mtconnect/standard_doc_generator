@@ -51,11 +51,12 @@ module Relation
   class Constraint
     include Extensions
     
-    attr_reader :owner, :name, :specification, :documentation
+    attr_reader :owner, :name, :specification, :documentation, :assoc, :target, :type
                 
     def initialize(owner, r)
       @name = r['name']
       @specification = r['specification']
+	  @type = r['xmi:type']
     end
   end
 
@@ -350,7 +351,7 @@ module Relation
     def initialize(owner, r)
       super(owner, r)
       
-      @target = Connection.new('Target', Type::LazyPointer.new(r['general']))
+      @target = Connection.new('Target', Type::LazyPointer.new(r['general'])) if r['general']
       @name = 'Supertype' unless @name
     end
 
