@@ -9,7 +9,7 @@ class Type
   include Extensions
   
   attr_reader :name, :id, :type, :model, :parent, :children, :relations, :stereotype, :is_subtype,
-              :constraints, :extended, :literals, :invariants, :classifier, :assoc, :xmi, :subtypes
+              :constraints, :extended, :literals, :invariants, :classifier, :assoc, :xmi, :subtypes, :multiplicity, :optional
   attr_accessor :documentation
 
   attr_writer :is_subtype
@@ -213,7 +213,10 @@ class Type
 	
 	@visibility = e.key?('visibility') ? e['visibility'] : 'public'
 
+	@multiplicity, @optional = get_multiplicity(e)
+
     @is_subtype = false
+	
     @documentation = xmi_documentation(e) || ''
 	
 	@additional_documentation = xmi_additional_documentation(e) || ''
@@ -417,7 +420,7 @@ class Type
       @parent = nil
       @relations.each do |r|
         if r.is_a?(Relation::Generalization)
-          @parent = r.target.type
+          @parent = r.target.type if r.target
         end
       end
     end
