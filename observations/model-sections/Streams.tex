@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:48 +0530
+% Generated 2021-08-25 18:02:23 +0530
 \subsection{Streams} \label{sec:Streams}
 
 
@@ -6,7 +6,7 @@
 
 \block{Streams} \textbf{MAY} contain any number of \block{DeviceStream} elements. If there is no data to be reported for a request for data, an \block{MTConnectStreams} document \textbf{MUST} be returned with an empty \block{Streams} container.
 
-\block{Streams} is the first, or highest, level element in an \block{MTConnectStreams} \gls{Response Document} provided by an \gls{Agent} in response to a \gls{Sample Request} or a \gls{Current Request}.
+\block{Streams} is the first, or highest, level element in an \block{MTConnectStreams} \gls{response document} provided by an \gls{agent} in response to a \gls{sample request} or a \gls{current request}.
 
 Note: See \sect{Observations Schema Diagrams} for XML schema of \block{Streams} model.
 
@@ -16,7 +16,7 @@ Note: See \sect{Observations Schema Diagrams} for XML schema of \block{Streams} 
 
 
 
-\block{DeviceStream} \glspl{organize} data reported from a single piece of equipment. A \block{DeviceStream} element \textbf{MUST} be provided for each piece of equipment reporting data in an \block{MTConnectStreams} \gls{Response Document}.
+\block{DeviceStream} \glspl{organize} data reported from a single piece of equipment. A \block{DeviceStream} element \textbf{MUST} be provided for each piece of equipment reporting data in an \block{MTConnectStreams} \gls{response document}.
 
 
 \paragraph{Attributes of DeviceStream}\mbox{}
@@ -46,11 +46,11 @@ Descriptions for attributes of \block{DeviceStream}:
 
 \item \property{name}[DeviceStream] \newline The name of an element or a piece of equipment.
 
-The value reported for \property{name}[DeviceStream] \textbf{MUST} be the same as the value defined for the \property{name}[Device] attribute of the same piece of equipment in the \block{MTConnectDevices} \gls{Response Document}.
+The value reported for \property{name}[DeviceStream] \textbf{MUST} be the same as the value defined for the \property{name}[Device] attribute of the same piece of equipment in the \block{MTConnectDevices} \gls{response document}.
 
 \item \property{uuid}[DeviceStream] \newline The uuid associated with the piece of equipment.
 
-The value reported for \property{uuid}[DeviceStream] \textbf{MUST} be the same as the value defined for the \property{uuid}[Device] attribute of the same piece of equipment in the \block{MTConnectDevices} \gls{Response Document}.
+The value reported for \property{uuid}[DeviceStream] \textbf{MUST} be the same as the value defined for the \property{uuid}[Device] attribute of the same piece of equipment in the \block{MTConnectDevices} \gls{response document}.
 \end{itemize}
 
 
@@ -88,7 +88,7 @@ Descriptions for elements of \block{DeviceStream}:
 
 
 
-\block{ComponentStream} \glspl{organize} the data associated with each \gls{Structural Element} (\block{Device} element or \block{Component} element) defined for that piece of equipment in the associated \block{MTConnectDevices} \gls{Response Document}.
+\block{ComponentStream} \glspl{organize} the data associated with each \gls{structural element} (\block{Device} element or \block{Component} element) defined for that piece of equipment in the associated \block{MTConnectDevices} \gls{response document}.
 
 There \textbf{MUST} be at least one of \block{Sample}, \block{Event}, or \block{Condition} organized by a \block{ComponentStream} element.
 
@@ -121,10 +121,10 @@ Descriptions for attributes of \block{ComponentStream}:
 
 \begin{itemize}
 
-\item \property{component}[ComponentStream] \newline \property{component} identifies the \gls{Structural Element} associated with the \block{ComponentStream} element.
+\item \property{component}[ComponentStream] \newline \property{component} identifies the \gls{structural element} associated with the \block{ComponentStream} element.
 
-\item \property{componentId}[ComponentStream] \newline The identifier of the \gls{Structural Element} as defined by the \property{id}
-attribute of the corresponding \gls{Structural Element} in the \block{MTConnectDevices} \gls{Response Document}.
+\item \property{componentId}[ComponentStream] \newline The identifier of the \gls{structural element} as defined by the \property{id}
+attribute of the corresponding \gls{structural element} in the \block{MTConnectDevices} \gls{response document}.
 
 \item \property{name}[ComponentStream] \newline The name of the \block{ComponentStream} element.
 

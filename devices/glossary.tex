@@ -1,964 +1,503 @@
 
-\newglossaryentry{array3d}
+\newglossaryentry{adapter}
 {
-    name={array3d},
-	description={A three dimensional \gls{float} array.},
-	plural={array3ds}
+	type={general},
+    name={adapter},
+	description={An optional piece of hardware or software that transforms information provided by a piece of equipment into a form that can be received by an \gls{agent}.},
+	plural={adapters}
 }
 
-\newglossaryentry{arraystring}
+\newglossaryentry{agent}
 {
-    name={arraystring},
-	description={An array of \gls{string}.},
-	plural={arraystrings}
+	type={general},
+    name={agent},
+	description={Software that collects data published from one or more piece(s) of equipment, organizes that data in a structured manner, and responds to requests for data from client software systems by providing a structured response in the form of a \gls{response document} that is constructed using the \gls{semantic data model} of a Standard. 
+},
+	plural={agents}
+}
+
+\newglossaryentry{alarm limit}
+{
+	type={general},
+    name={alarm limit},
+	description={A limit used to trigger warning or alarm indicators.},
+	plural={alarm limits}
+}
+
+\newglossaryentry{application}
+{
+	type={general},
+    name={application},
+	description={Software or a program that is specific to the solution of an application problem.
+\textit{ISO/IEC 20944-1:2013}},
+	plural={applications}
+}
+
+\newglossaryentry{archetype}
+{
+	type={general},
+    name={archetype},
+	description={\gls{archetype} provides the requirements, constraints, and common properties for a type of \gls{MTConnect Asset}.},
+	plural={archetypes}
 }
 
 \newglossaryentry{asset buffer}
 {
+	type={general},
     name={asset buffer},
-	description={A \gls{buffer} for \block{Assets}.},
+	description={A \gls{buffer} for \glspl{MTConnect Asset}.},
 	plural={asset buffers}
 }
 
-\newglossaryentry{Assets Information Model}
+\newglossaryentry{attachment}
 {
-    name={Assets Information Model},
-	description={An {{Information Model}} that provides semantic models for \glspl{MTConnect Asset}.},
-	plural={Assets Information Models}
-}
-
-\newglossaryentry{Asset Request}
-{
-    name={Asset Request},
-	description={An \gls{HTTP Request} to the \gls{Agent} regarding \glspl{MTConnect Asset}.},
-	plural={Asset Requests}
-}
-
-\newglossaryentry{Asset Response Document}
-{
-    name={Asset Response Document},
-	description={Used to describe an \gls{Information Model} that contains the rules and terminology that describe information that may be included in electronic documents representing \glspl{MTConnect Asset}.},
-	plural={Asset Response Documents}
-}
-
-\newglossaryentry{boolean}
-{
-    name={boolean},
-	description={Boolean data type.},
-	plural={booleans}
-}
-
-\newglossaryentry{Data Model}
-{
-    name={Data Model},
-	description={A data model organizes elements of data and standardizes how they relate to one another and to the properties of real-world entities.},
-	plural={Data Models}
-}
-
-\newglossaryentry{datetime}
-{
-    name={datetime},
-	description={DateTime (yyyy-mm-ddthh:mm:ss.ffff) data type.},
-	plural={datetimes}
-}
-
-\newglossaryentry{float}
-{
-    name={float},
-	description={Float data type.},
-	plural={floats}
-}
-
-\newglossaryentry{Header}
-{
-    name={Header},
-	description={Supplemental data usually placed at the beginning of a \gls{Document}.},
-	plural={Headers}
-}
-
-\newglossaryentry{HTTP Body}
-{
-    name={HTTP Body},
-	description={\gls{HTTP Body} is the data bytes transmitted in an HTTP transaction message immediately following the headers.},
-	plural={HTTP Bodies}
-}
-
-\newglossaryentry{HTTP Header Field}
-{
-    name={HTTP Header Field},
-	description={\gls{HTTP Header Field} are components of the header section of request and response messages in an HTTP transaction.},
-	plural={HTTP Header Fields}
-}
-
-\newglossaryentry{HTTP Messaging}
-{
-    name={HTTP Messaging},
-	description={\gls{HTTP Messaging} is an \gls{Interface} for information exchange functionality.},
-	plural={HTTP Messagings}
-}
-
-\newglossaryentry{HTTP Request Method}
-{
-    name={HTTP Request Method},
-	description={The Method  token indicates the method to be performed on the resource identified by the Request-URI. \textit{IETF RFC2616}},
-	plural={HTTP Request Methods}
-}
-
-\newglossaryentry{HTTP Request URI}
-{
-    name={HTTP Request URI},
-	description={The Request-URI is a Uniform Resource Identifier and identifies the resource upon which to apply the request. \textit{IETF RFC2616}},
-	plural={HTTP Request URIs}
-}
-
-\newglossaryentry{HTTP Version}
-{
-    name={HTTP Version},
-	description={Version of the HTTP protocol.},
-	plural={HTTP Versions}
-}
-
-\newglossaryentry{integer}
-{
-    name={integer},
-	description={Integer data type.},
-	plural={integers}
-}
-
-\newglossaryentry{Lower Camel Case}
-{
-    name={Lower Camel Case},
-	description={the first word is lowercase and the remaining words are capitalized and all spaces between words are removed.},
-	plural={Lower Camel Cases}
-}
-
-\newglossaryentry{major}
-{
-    name={major},
-	description={Identifier representing a consistent set of functionalities defined by the MTConnect Standard.},
-	plural={majors}
-}
-
-\newglossaryentry{minor}
-{
-    name={minor},
-	description={Identifier representing a specific set of functionalities defined by the MTConnect Standard.},
-	plural={minors}
-}
-
-\newglossaryentry{MODBUS}
-{
-    name={MODBUS},
-	description={Modbus is a communication protocol developed by Modicon systems and is a method used for transmitting information over serial lines between electronic devices.},
-	plural={MODBUSs}
-}
-
-\newglossaryentry{MTConnect}
-{
-    name={MTConnect},
-	description={The name of the standard.},
-	plural={MTConnects}
-}
-
-\newglossaryentry{MTConnect Asset}
-{
-    name={MTConnect Asset},
-	description={An \gls{MTConnect Asset} is an \gls{Asset} used by the manufacturing process to perform tasks.
-\newline Note 1 to Entry: An \gls{MTConnect Asset} relies upon an \gls{MTConnect Device} to provide \glspl{observation} and information about itself and the \gls{MTConnect Device} revises the information to reflect changes to the \gls{MTConnect Asset} during their interaction. Examples of \glspl{MTConnect Asset} are Cutting Tools, Part Information, Manufacturing Processes, Fixtures, and Files.
-\newline Note 2 to Entry: A singular \property{assetId}[Asset] uniquely identifies an \gls{MTConnect Asset} throughout its lifecycle and is used to track and relate the \gls{MTConnect Asset} to other \glspl{MTConnect Device} and entities.
-\newline Note 3 to Entry: \glspl{MTConnect Asset} are temporally associated with a device and can be removed from the device without damage or alteration to its primary functions.},
-	plural={MTConnect Assets}
-}
-
-\newglossaryentry{MTConnect Information Model}
-{
-    name={MTConnect Information Model},
-	description={An \gls{Information Model} that defined the semantics of the MTConnect Standard.},
-	plural={MTConnect Information Models}
-}
-
-\newglossaryentry{MTConnect Response Document}
-{
-    name={MTConnect Response Document},
-	description={A \gls{Response Document} published by an \gls{MTConnect Agent}.},
-	plural={MTConnect Response Documents}
-}
-
-\newglossaryentry{MTConnect Standard}
-{
-    name={MTConnect Standard},
-	description={The name of the standard.},
-	plural={MTConnect Standards}
-}
-
-\newglossaryentry{namespace}
-{
-    name={namespace},
-	description={\gls{namespace} are used to organize code into logical groups.},
-	plural={namespaces}
-}
-
-\newglossaryentry{occurrence}
-{
-    name={occurrence},
-	description={Occurrence defines the number of times the content defined \textbf{MAY} be provided in the usage case specified.},
-	plural={occurrences}
-}
-
-\newglossaryentry{ontology}
-{
-    name={ontology},
-	description={logical structure of the terms used to describe a domain of knowledge, including both the definitions of the applicable terms and their relationships. \textit{ISO 20534:2018}},
-	plural={ontologies}
-}
-
-\newglossaryentry{Part}
-{
-    name={Part},
-	description={\gls{Part} is a discrete item that has both defined and measurable physical characteristics including mass, material and features and is created by applying one or more manufacturing process steps to a workpiece},
-	plural={Parts}
-}
-
-\newglossaryentry{Pascal Case}
-{
-    name={Pascal Case},
-	description={The first letter of each word is capitalized and the remaining letters are in lowercase. All space is removed between letters},
-	plural={Pascal Cases}
-}
-
-\newglossaryentry{Physical Connection}
-{
-    name={Physical Connection},
-	description={The network transmission technologies that physically interconnect an \gls{Agent}.},
-	plural={Physical Connections}
-}
-
-\newglossaryentry{Probe Request}
-{
-    name={Probe Request},
-	description={A \gls{Probe Request} is a \gls{Request} to an \gls{Agent} to produce an \gls{MTConnectDevices Response Document} containing the \gls{Devices Information Model}.},
-	plural={Probe Requests}
-}
-
-\newglossaryentry{Publish}
-{
-    name={Publish},
-	description={Sending of messages in a \gls{Publish/Subscribe} pattern.},
-	plural={Publishs}
-}
-
-\newglossaryentry{Realization}
-{
-    name={Realization},
-	description={Realization is a specialized abstraction relationship between two sets of model elements, one representing a specification (the supplier) and the other represents an implementation of the latter (the client). Realization can be used to model stepwise refinement, optimizations, transformations, templates, model synthesis, framework composition, etc.},
-	plural={Realizations}
-}
-
-\newglossaryentry{Reference}
-{
-    name={Reference},
-	description={\block{Reference} is a pointer to information that is associated with another \gls{Structural Element}.},
-	plural={References}
-}
-
-\newglossaryentry{Response}
-{
-    name={Response},
-	description={A response \gls{Interface} which responds to a \gls{Request}.},
-	plural={Responses}
-}
-
-\newglossaryentry{revision}
-{
-    name={revision},
-	description={A supplemental identifier representing only organizational or editorial changes to a \gls{minor} version document with no changes in the functionality described in that document.},
-	plural={revisions}
-}
-
-\newglossaryentry{sensing element}
-{
-    name={sensing element},
-	description={A mechanism that provides a signal or measured value.},
-	plural={sensing elements}
-}
-
-\newglossaryentry{sensor element}
-{
-    name={sensor element},
-	description={A \gls{sensor element} provides a signal or measured value.},
-	plural={sensor elements}
-}
-
-\newglossaryentry{Sensor}
-{
-    name={Sensor},
-	description={A \gls{sensing element} that responds to a physical stimulus and transmits a resulting signal.},
-	plural={Sensors}
-}
-
-\newglossaryentry{sensor unit}
-{
-    name={sensor unit},
-	description={An intelligent piece of equipment that manages the signals of one or more \glspl{sensing element} and provides the measured values.},
-	plural={sensor units}
-}
-
-\newglossaryentry{string}
-{
-    name={string},
-	description={String data type.},
-	plural={strings}
-}
-
-\newglossaryentry{Subscribe}
-{
-    name={Subscribe},
-	description={Receiving messages in a \gls{Publish/Subscribe} pattern.},
-	plural={Subscribes}
-}
-
-\newglossaryentry{Time Series}
-{
-    name={Time Series},
-	description={A \block{DataItem} representation of a contiguous vector of values supporting high frequency data rates.},
-	plural={Time Series}
-}
-
-\newglossaryentry{Transport Protocol}
-{
-    name={Transport Protocol},
-	description={A set of capabilities that provide the rules and procedures used to transport information between an \gls{Agent} and a client software application through a \gls{Physical Connection}.},
-	plural={Transport Protocols}
-}
-
-\newglossaryentry{XML Declaration}
-{
-    name={XML Declaration},
-	description={It is a processing instruction that identifies the document as being XML.},
-	plural={XML Declarations}
-}
-
-\newglossaryentry{Abstract Element}
-{
-    name={Abstract Element},
-	description={An element that defines a set of common characteristics that are shared by a group of elements.
-An abstract element cannot appear in a document. In a specific implementation, an abstract element is replaced by a derived element that is itself not an abstract element. The characteristics for the derived element are inherited from the abstract element. 
-},
-	plural={Abstract Elements}
-}
-
-\newglossaryentry{Adapter}
-{
-    name={Adapter},
-	description={An optional piece of hardware or software that transforms information provided by a piece of equipment into a form that can be received by an \gls{Agent}.},
-	plural={Adapters}
-}
-
-\newglossaryentry{Agent}
-{
-    name={Agent},
-	description={Software that collects data published from one or more piece(s) of equipment, organizes that data in a structured manner, and responds to requests for data from client software systems by providing a structured response in the form of a \gls{Response Document} that is constructed using the \gls{semantic data model} of a Standard. 
-},
-	plural={Agents}
-}
-
-\newglossaryentry{Application Programming Interface}
-{
-    name={Application Programming Interface},
-	description={Collection of invocation methods and associated parameters used by one piece of software to request actions from another piece of software. \textit{ISO/IEC 18012-1:2004}
-\newline Note 1 to entry: The API defined in the MTConnect Standard describes the methods for providing the \gls{Request/Response} Information Exchange between an \gls{Agent} and client software applications.},
-	plural={Application Programming Interfaces}
-}
-
-\newglossaryentry{Archetype}
-{
-    name={Archetype},
-	description={\block{Archetype} is an \gls{Asset} that provides the requirements, constraints, and common properties for a type of \gls{Asset}.},
-	plural={Archetypes}
-}
-
-\newglossaryentry{Asset Document}
-{
-    name={Asset Document},
-	description={An electronic document published by an \gls{Agent} in response to a \gls{Request} for information from a client software application relating to Assets.
-},
-	plural={Asset Documents}
-}
-
-\newglossaryentry{Attribute}
-{
-    name={Attribute},
-	description={Used to provide additional information or properties for an \gls{Element}.
-},
-	plural={Attributes}
-}
-
-\newglossaryentry{Base Functional Structure}
-{
-    name={Base Functional Structure},
-	description={A consistent set of functionalities defined by the MTConnect Standard. This functionality includes the protocol(s) used to communicate data to a client software application, the \gls{semantic data model} defining how that data is organized into \gls{Response Document}, and the encoding of those \gls{Response Document}.
-},
-	plural={Base Functional Structures}
+	type={general},
+    name={attachment},
+	description={the connection by which one thing is associated with another.},
+	plural={attachments}
 }
 
 \newglossaryentry{buffer}
 {
+	type={general},
     name={buffer},
-	description={A section of an \gls{Agent} that provides storage for information published from pieces of equipment.},
+	description={A section of an \gls{agent} that provides storage for information published from pieces of equipment.},
 	plural={buffers}
 }
 
-\newglossaryentry{CDATA}
+\newglossaryentry{client}
 {
-    name={CDATA},
-	description={\gls{CDATA} is used to describe a value (text or data) published as part of an XML element.},
-	plural={CDATAs}
-}
-
-\newglossaryentry{Child Element}
-{
-    name={Child Element},
-	description={An \gls{Element} of a data modeling structure that illustrates the relationship between itself and the higher-level \gls{Parent Element} within which it is contained.},
-	plural={Child Elements}
-}
-
-\newglossaryentry{Client}
-{
-    name={Client},
-	description={A \gls{Application} that sends \gls{Request} for information to an \gls{Agent}; e.g. software applications or a function that implements the \gls{Request} portion of an \gls{Interface} \gls{Interaction Model}.
+	type={general},
+    name={client},
+	description={An \gls{application} that sends \gls{request} for information to an \gls{agent}; e.g. software applications or a function that implements the \gls{request} portion of an \gls{interface} \gls{interaction model}.
 },
-	plural={Clients}
+	plural={clients}
 }
 
-\newglossaryentry{Component}
+\newglossaryentry{control limit}
 {
-    name={Component},
-	description={A \gls{Structural Element} that represents a physical or logical part or subpart of a piece of equipment.},
-	plural={Components}
+	type={general},
+    name={control limit},
+	description={A limit used to indicate whether a process variable is stable and in control.},
+	plural={control limits}
 }
 
-\newglossaryentry{Composition}
+\newglossaryentry{controlled vocabulary}
 {
-    name={Composition},
-	description={A \gls{Structural Element} that describes the lowest level basic structural or functional building block contained within a \block{Component} element.},
-	plural={Compositions}
-}
-
-\newglossaryentry{Condition}
-{
-    name={Condition},
-	description={An indicator of the ability of a piece of equipment or \gls{Component} to function to specification.},
-	plural={Conditions}
-}
-
-\newglossaryentry{Controlled Vocabulary}
-{
-    name={Controlled Vocabulary},
-	description={A restricted set of values that may be published as the \gls{Valid Data Value} for a \gls{Data Entity}.},
-	plural={Controlled Vocabularies}
-}
-
-\newglossaryentry{Current Request}
-{
-    name={Current Request},
-	description={A \gls{Current Request} is a \gls{Request} to an \gls{Agent} to produce an \gls{MTConnectStreams Response Document} containing the \gls{Observations Information Model} for a snapshot of the latest \glspl{observation} at the moment of the \gls{Request} or at a given \gls{sequence number}.},
-	plural={Current Requests}
-}
-
-\newglossaryentry{Current}
-{
-    name={Current},
-	description={occurring in or existing at the present time.},
-	plural={Currents}
+	type={general},
+    name={controlled vocabulary},
+	description={A restricted set of values that may be published for an \gls{observation}.},
+	plural={controlled vocabularies}
 }
 
 \newglossaryentry{data dictionary}
 {
+	type={general},
     name={data dictionary},
 	description={Listing of standardized terms and definitions used in \gls{MTConnect Information Model}.},
 	plural={data dictionaries}
 }
 
-\newglossaryentry{Data Entity}
+\newglossaryentry{data entity}
 {
-    name={Data Entity},
-	description={A primary data modeling element that represents all elements that either describe \glspl{Data Item} that may be reported by an \gls{Agent} or the \glspl{observation} that contain the actual data published by an \gls{Agent}.
+	type={general},
+    name={data entity},
+	description={A primary data modeling element that represents all elements that either describe \glspl{Data Item} that may be reported by an \gls{agent} or the \glspl{observation} that contain the actual data published by an \gls{agent}.
 },
-	plural={Data Entities}
+	plural={data entities}
 }
 
-\newglossaryentry{Data Item}
+\newglossaryentry{data model}
 {
-    name={Data Item},
-	description={Descriptive information or properties and characteristics associated with a piece of data.
-},
-	plural={Data Items}
+	type={general},
+    name={data model},
+	description={A data model organizes elements of data and standardizes how they relate to one another and to the properties of real-world entities.},
+	plural={data models}
 }
 
-\newglossaryentry{Data Set}
+\newglossaryentry{data set}
 {
-    name={Data Set},
+	type={general},
+    name={data set},
 	description={A set of \glspl{key-value pair} where each entry is uniquely identified by the \gls{key}.},
-	plural={Data Sets}
+	plural={data sets}
 }
 
-\newglossaryentry{Data Source}
+\newglossaryentry{data source}
 {
-    name={Data Source},
-	description={Any piece of equipment that can produce data that is published to an \gls{Agent}.
+	type={general},
+    name={data source},
+	description={Any piece of equipment that can produce data that is published to an \gls{agent}.
 },
-	plural={Data Sources}
+	plural={data sources}
 }
 
-\newglossaryentry{Data Streaming}
+\newglossaryentry{deprecated}
 {
-    name={Data Streaming},
-	description={A method for an \gls{Agent} to provide a continuous stream of information in response to a single \gls{Request} from a \gls{Client}.},
-	plural={Data Streamings}
-}
-
-\newglossaryentry{Deprecated}
-{
-    name={Deprecated},
+	type={general},
+    name={deprecated},
 	description={An indication that specific content in an \gls{MTConnect Document} is currently usable but is regarded as being obsolete or superseded. },
-	plural={Deprecateds}
+	plural={deprecateds}
 }
 
-\newglossaryentry{Deprecation Warning}
+\newglossaryentry{deprecation warning}
 {
-    name={Deprecation Warning},
-	description={An indication that specific content in an \gls{MTConnect Document} may be changed to \gls{Deprecated} in a future release of the standard.},
-	plural={Deprecation Warnings}
+	type={general},
+    name={deprecation warning},
+	description={An indication that specific content in an \gls{MTConnect Document} may be changed to \gls{deprecated} in a future release of the standard.},
+	plural={deprecation warnings}
 }
 
-\newglossaryentry{Devices Information Model}
+\newglossaryentry{document}
 {
-    name={Devices Information Model},
-	description={An \gls{Information Model} that describes the physical and logical configuration for a piece of equipment and the data that may be reported by that equipment. },
-	plural={Devices Information Models}
-}
-
-\newglossaryentry{Device}
-{
-    name={Device},
-	description={A \gls{Device} is a \gls{Component} representing a piece of equipment or a manufacturing system that produces observations about itself or publishes data. It organizes its parts as \glspl{Component}.},
-	plural={Devices}
-}
-
-\newglossaryentry{Document}
-{
-    name={Document},
+	type={general},
+    name={document},
 	description={A piece of written, printed, or electronic matter that provides information or evidence that serves as an official record.},
-	plural={Documents}
+	plural={documents}
 }
 
-\newglossaryentry{Document Body}
+\newglossaryentry{electric current}
 {
-    name={Document Body},
-	description={The portion of the content of an \gls{MTConnect Response Document} that is defined by the relative \gls{MTConnect Information Model}. The \gls{Document Body} contains the \glspl{Structural Element} and \glspl{Data Entity} reported in a \gls{Response Document}.
-},
-	plural={Document Bodies}
+	type={general},
+    name={electric current},
+	description={The rate of flow of electric charge.},
+	plural={electric currents}
 }
 
-\newglossaryentry{Document Header}
+\newglossaryentry{engineering units}
 {
-    name={Document Header},
-	description={The portion of the content of an \gls{MTConnect Response Document} that provides information from an \gls{Agent} defining version information, storage capacity, protocol, and other information associated with the management of the data stored in or retrieved from the \gls{Agent}.
-},
-	plural={Document Headers}
+	type={general},
+    name={engineering units},
+	description={A quantity, dimension, or magnitude used in engineering adopted as a standard in terms of which the magnitude of other quantities of the same kind can be expressed or calculated.},
+	plural={engineering units}
 }
 
-\newglossaryentry{Element}
+\newglossaryentry{equipment}
 {
-    name={Element},
-	description={A constituent part or a basic unit of identifiable and definable data.},
-	plural={Elements}
-}
-
-\newglossaryentry{Element QName}
-{
-    name={Element QName},
-	description={A \gls{QName} of an \gls{Element} in an XML document.},
-	plural={Element QNames}
-}
-
-\newglossaryentry{Equipment}
-{
-    name={Equipment},
+	type={general},
+    name={equipment},
 	description={Represents anything that can publish information and is used in the operations of a manufacturing facility shop floor.  Examples of equipment are machine tools, ovens, sensor units, workstations, software applications, and bar feeders.},
-	plural={Equipments}
+	plural={equipments}
 }
 
-\newglossaryentry{Equipment Metadata}
+\newglossaryentry{equipment metadata}
 {
-    name={Equipment Metadata},
-	description={\gls{Equipment Metadata} is {{Metadata}} that defines both the \glspl{Structural Element} that represent the physical and logical parts and sub-parts of each piece of equipment, the relationships between those parts and sub-parts, and the definitions of the \glspl{Data Entity} associated with that piece of equipment.},
-	plural={Equipment Metadatas}
+	type={general},
+    name={equipment metadata},
+	description={\gls{equipment metadata} is \gls{metadata} that defines both the \glspl{structural element} that represent the physical and logical parts and sub-parts of each piece of equipment, the relationships between those parts and sub-parts, and the definitions of the \glspl{data entity} associated with that piece of equipment.},
+	plural={equipment metadatas}
 }
 
-\newglossaryentry{Error Information Model}
+\newglossaryentry{extensible}
 {
-    name={Error Information Model},
-	description={An \gls{Information Model} that describes the \gls{Response Document} returned by an \gls{Agent} when it encounters an error while interpreting a \gls{Request} for information from a \gls{Client} or when an \gls{Agent} experiences an error while publishing the \gls{Response} to a \gls{Request} for information.},
-	plural={Error Information Models}
-}
-
-\newglossaryentry{Event}
-{
-    name={Event},
-	description={Something that happens or takes place.},
-	plural={Events}
-}
-
-\newglossaryentry{Extensible}
-{
-    name={Extensible},
+	type={general},
+    name={extensible},
 	description={The ability for an implementer to extend \gls{MTConnect Information Model} by adding content not currently addressed in the MTConnect Standard.
 },
-	plural={Extensibles}
+	plural={extensibles}
 }
 
-\newglossaryentry{heartbeat}
+\newglossaryentry{force}
 {
-    name={heartbeat},
-	description={A function that indicates to a \gls{Client} that the communications connection to an \gls{Agent} is still viable during times when there is no new data available to report  often referred to as a "keep alive" message.},
-	plural={heartbeats}
+	type={general},
+    name={force},
+	description={A push or pull on a mass which results in an acceleration.},
+	plural={forces}
 }
 
-\newglossaryentry{Higher Level}
+\newglossaryentry{implementation}
 {
-    name={Higher Level},
-	description={A nested element that is above a lower level element.},
-	plural={Higher Levels}
-}
-
-\newglossaryentry{HTTP}
-{
-    name={HTTP},
-	description={Hyper-Text Transport Protocol. \textit{IETF RFC 7230}
-},
-	plural={HTTPs}
-}
-
-\newglossaryentry{HTTP Error Message}
-{
-    name={HTTP Error Message},
-	description={A response provided by an \gls{Agent} indicating that an \gls{HTTP Request} is incorrectly formatted or identifies that the requested data is not available from the \gls{Agent}. },
-	plural={HTTP Error Messages}
-}
-
-\newglossaryentry{HTTP Header}
-{
-    name={HTTP Header},
-	description={The \gls{Header} of either an \gls{HTTP Request} from a \gls{Client} or an \gls{HTTP Response} from an \gls{Agent}.},
-	plural={HTTP Headers}
-}
-
-\newglossaryentry{HTTP Method}
-{
-    name={HTTP Method},
-	description={A portion of a command in an \gls{HTTP Request} that indicates the desired action to be performed on the identified resource; often referred to as verbs.
-},
-	plural={HTTP Methods}
-}
-
-\newglossaryentry{HTTP Request}
-{
-    name={HTTP Request},
-	description={A request message from a client to a server includes, within the first line of that message, the method to be applied to the resource, the identifier of the resource, and the protocol version in use. \textit{IETF RFC2616}
-Note 1 to entry: In MTConnect Standard, a request issued by a \gls{Client} to an \gls{Agent} requesting information defined in the \gls{HTTP Request Line}.},
-	plural={HTTP Requests}
-}
-
-\newglossaryentry{HTTP Request Line}
-{
-    name={HTTP Request Line},
-	description={The Request-Line begins with a method token, followed by the Request-URI and the protocol version, and ending with CRLF. A CRLF is allowed in the definition of TEXT only as part of a header field continuation.\textit{IETF RFC2616}
-Note 1 to entry: the first line of an \gls{HTTP Request} describing a specific \gls{Response Document} to be published by an \gls{Agent}.},
-	plural={HTTP Request Lines}
-}
-
-\newglossaryentry{HTTP Response}
-{
-    name={HTTP Response},
-	description={After receiving and interpreting a request message, a server responds with an HTTP response message. \textit{IETF RFC2616}
-Note 1 to entry: In MTConnect Standard, the information published from an \gls{Agent} in reply to an \gls{HTTP Request}. },
-	plural={HTTP Responses}
-}
-
-\newglossaryentry{HTTP Server}
-{
-    name={HTTP Server},
-	description={A server that accepts \gls{HTTP Request} from \gls{Client} and publishes \gls{HTTP Response} as a reply to those \gls{HTTP Request}.},
-	plural={HTTP Servers}
-}
-
-\newglossaryentry{HTTP Status Code}
-{
-    name={HTTP Status Code},
-	description={The Status-Code element is a 3-digit integer result code of the attempt to understand and satisfy the request.  \textit{IETF RFC2616}},
-	plural={HTTP Status Codes}
-}
-
-\newglossaryentry{id}
-{
-    name={id},
-	description={An identifier used to distinguish a piece of information.},
-	plural={ids}
-}
-
-\newglossaryentry{Implementation}
-{
-    name={Implementation},
+	type={general},
+    name={implementation},
 	description={A specific instantiation of the MTConnect Standard.},
-	plural={Implementations}
+	plural={implementations}
 }
 
-\newglossaryentry{Information Model}
+\newglossaryentry{information model}
 {
-    name={Information Model},
+	type={general},
+    name={information model},
 	description={The rules, relationships, and terminology that are used to define how information is structured.},
-	plural={Information Models}
+	plural={information models}
 }
 
 \newglossaryentry{instance}
 {
+	type={general},
     name={instance},
-	description={Describes a set of \gls{Streaming Data} in an \gls{Agent}.  Each time an \gls{Agent} is restarted with an empty \gls{buffer}, data placed in the \gls{buffer} represents a new \gls{instance} of the \gls{Agent}.},
+	description={Describes a set of \gls{streaming data} in an \gls{agent}.  Each time an \gls{agent} is restarted with an empty \gls{buffer}, data placed in the \gls{buffer} represents a new \gls{instance} of the \gls{agent}.},
 	plural={instances}
 }
 
-\newglossaryentry{Interaction Model}
+\newglossaryentry{interaction model}
 {
-    name={Interaction Model},
-	description={Defines how information is exchanged across an \gls{Interface} to enable interactions between independent systems.},
-	plural={Interaction Models}
+	type={general},
+    name={interaction model},
+	description={Defines how information is exchanged across an \gls{interface} to enable interactions between independent systems.},
+	plural={interaction models}
 }
 
-\newglossaryentry{Interface}
+\newglossaryentry{interface}
 {
-    name={Interface},
+	type={general},
+    name={interface},
 	description={The means by which communication is achieved between independent systems.},
-	plural={Interfaces}
+	plural={interfaces}
+}
+
+\newglossaryentry{key}
+{
+	type={general},
+    name={key},
+	description={A unique identifier in a \gls{key-value pair} association.},
+	plural={keies}
 }
 
 \newglossaryentry{key-value pair}
 {
+	type={general},
     name={key-value pair},
 	description={An association between an identifier referred to as the \gls{key} and a value which taken together create a \gls{key-value pair}. When used in a set of \glspl{key-value pair} each \gls{key} is unique and will only have one value associated with it at any point in time.},
 	plural={key-value pairs}
 }
 
-\newglossaryentry{Lower Level}
+\newglossaryentry{lower camel case}
 {
-    name={Lower Level},
-	description={A nested element that is below a higher level element.},
-	plural={Lower Levels}
+	type={general},
+    name={lower camel case},
+	description={the first word is lowercase and the remaining words are capitalized and all spaces between words are removed.},
+	plural={lower camel cases}
 }
 
-\newglossaryentry{Message}
+\newglossaryentry{lower limit}
 {
-    name={Message},
+	type={general},
+    name={lower limit},
+	description={The lower conformance boundary for a variable.
+Note to Entry: immediate concern or action may be required},
+	plural={lower limits}
+}
+
+\newglossaryentry{lower warning}
+{
+	type={general},
+    name={lower warning},
+	description={he lower boundary indicating increased concern and supervision may be required.},
+	plural={lower warnings}
+}
+
+\newglossaryentry{major}
+{
+	type={general},
+    name={major},
+	description={Identifier representing a consistent set of functionalities defined by the MTConnect Standard.},
+	plural={majors}
+}
+
+\newglossaryentry{maximum}
+{
+	type={general},
+    name={maximum},
+	description={A numeric upper constraint.},
+	plural={maximums}
+}
+
+\newglossaryentry{message}
+{
+	type={general},
+    name={message},
 	description={A communication in writing, in speech, or by signals.},
-	plural={Messages}
+	plural={messages}
 }
 
-\newglossaryentry{Metadata}
+\newglossaryentry{metadata}
 {
-    name={Metadata},
+	type={general},
+    name={metadata},
 	description={Data that provides information about other data.
 },
-	plural={Metadatas}
+	plural={metadatas}
+}
+
+\newglossaryentry{minimum}
+{
+	type={general},
+    name={minimum},
+	description={A numeric lower constraint.},
+	plural={minimums}
+}
+
+\newglossaryentry{minor}
+{
+	type={general},
+    name={minor},
+	description={Identifier representing a specific set of functionalities defined by the MTConnect Standard.},
+	plural={minors}
 }
 
 \newglossaryentry{MTConnect Agent}
 {
+	type={general},
     name={MTConnect Agent},
-	description={An \gls{Agent} for the \gls{MTConnect Information Model}.},
+	description={An \gls{agent} for the \gls{MTConnect Information Model}.},
 	plural={MTConnect Agents}
 }
 
 \newglossaryentry{MTConnect Document}
 {
+	type={general},
     name={MTConnect Document},
 	description={Printed or electronic document(s) that represent a Part(s) of the MTConnect Standard.},
 	plural={MTConnect Documents}
 }
 
-\newglossaryentry{MTConnect Request}
+\newglossaryentry{MTConnect Interface}
 {
-    name={MTConnect Request},
-	description={A \gls{Request} for information issued from a \gls{Client} to an \gls{MTConnect Agent}.},
-	plural={MTConnect Requests}
+	type={general},
+    name={MTConnect Interface},
+	description={An \gls{interaction model} for interoperability between pieces of equipment.},
+	plural={MTConnect Interfaces}
 }
 
-\newglossaryentry{MTConnect XML Document}
+\newglossaryentry{nominal}
 {
-    name={MTConnect XML Document},
-	description={An XML \gls{Response Document}.},
-	plural={MTConnect XML Documents}
+	type={general},
+    name={nominal},
+	description={The ideal or desired value for a variable.},
+	plural={nominals}
 }
 
-\newglossaryentry{MTConnectAssets Response Document}
+\newglossaryentry{observe}
 {
-    name={MTConnectAssets Response Document},
-	description={A \gls{Response Document} published by an \gls{MTConnect Agent} in response to an \gls{Asset Request}.},
-	plural={MTConnectAssets Response Documents}
+	type={general},
+    name={observe},
+	description={The act of measuring or determining the value of a property at a point in time.},
+	plural={observes}
 }
 
-\newglossaryentry{MTConnectDevices Response Document}
+\newglossaryentry{organize}
 {
-    name={MTConnectDevices Response Document},
-	description={A \gls{Response Document} published by an \gls{MTConnect Agent} in response to a \gls{Probe Request}.},
-	plural={MTConnectDevices Response Documents}
+	type={general},
+    name={organize},
+	description={The act of containing and owning one or more elements.},
+	plural={organizes}
 }
 
-\newglossaryentry{MTConnectErrors Response Document}
+\newglossaryentry{organizer}
 {
-    name={MTConnectErrors Response Document},
-	description={A \gls{Response Document} published by an \gls{MTConnect Agent} whenever it encounters an error while interpreting an \gls{MTConnect Request}.},
-	plural={MTConnectErrors Response Documents}
-}
-
-\newglossaryentry{MTConnectStreams Response Document}
-{
-    name={MTConnectStreams Response Document},
-	description={A \gls{Response Document} published by an \gls{MTConnect Agent} in response to a \gls{Current Request} or a \gls{Current Request}.},
-	plural={MTConnectStreams Response Documents}
-}
-
-\newglossaryentry{NMTOKEN}
-{
-    name={NMTOKEN},
-	description={The data type for XML identifiers.},
-	plural={NMTOKENs}
+	type={general},
+    name={organizer},
+	description={An element that contains and owns one or more elements.},
+	plural={organizers}
 }
 
 \newglossaryentry{parameter}
 {
+	type={general},
     name={parameter},
 	description={A variable that must be given a value during the execution of a program or a communications command.},
 	plural={parameters}
 }
 
-\newglossaryentry{Parent Element}
+\newglossaryentry{part}
 {
-    name={Parent Element},
-	description={An \gls{Element} of a data modeling structure that illustrates the relationship between itself and the lower-level \gls{Child Element}.},
-	plural={Parent Elements}
+	type={general},
+    name={part},
+	description={\gls{part} is a discrete item that has both defined and measurable physical characteristics including mass, material, and features, and is created by applying one or more manufacturing process steps to a workpiece},
+	plural={parts}
 }
 
-\newglossaryentry{Persistence}
+\newglossaryentry{pascal case}
 {
-    name={Persistence},
+	type={general},
+    name={pascal case},
+	description={The first letter of each word is capitalized and the remaining letters are in lowercase. All space is removed between letters},
+	plural={pascal cases}
+}
+
+\newglossaryentry{persistence}
+{
+	type={general},
+    name={persistence},
 	description={A method for retaining or restoring information.},
-	plural={Persistences}
+	plural={persistences}
 }
 
-\newglossaryentry{Probe}
+\newglossaryentry{physical connection}
 {
-    name={Probe},
-	description={An instrument commonly used for measuring the physical geometrical characteristics of an object.},
-	plural={Probes}
+	type={general},
+    name={physical connection},
+	description={The network transmission technologies that physically interconnect an \gls{agent}.},
+	plural={physical connections}
 }
 
-\newglossaryentry{Protocol}
+\newglossaryentry{raw material}
 {
-    name={Protocol},
-	description={A set of rules that allow two or more entities to transmit information from one to the other.},
-	plural={Protocols}
+	type={general},
+    name={raw material},
+	description={Crude or processed material that can be converted by manufacture, processing, or combination into a new and useful product.},
+	plural={raw materials}
 }
 
-\newglossaryentry{Publish/Subscribe}
+\newglossaryentry{realization}
 {
-    name={Publish/Subscribe},
-	description={An asynchronous communication method in which messages are exchanged between applications without knowing the identity of the sender or recipient.
-Note 1 to entry: In the MTConnect Standard, a communications messaging pattern that may be used to publish \gls{Streaming Data} from an \gls{Agent}. },
-	plural={Publish/Subscribes}
+	type={general},
+    name={realization},
+	description={Realization is a specialized abstraction relationship between two sets of model elements, one representing a specification (the supplier) and the other represents an implementation of the latter (the client). Realization can be used to model stepwise refinement, optimizations, transformations, templates, model synthesis, framework composition, etc.},
+	plural={realizations}
 }
 
-\newglossaryentry{HTTP Query}
+\newglossaryentry{reference}
 {
-    name={HTTP Query},
-	description={A portion of a request for information that more precisely defines the specific information to be published in response to the request. },
-	plural={HTTP Queries}
+	type={general},
+    name={reference},
+	description={\block{Reference} is a pointer to information that is associated with another \gls{structural element}.},
+	plural={references}
 }
 
-\newglossaryentry{Request}
+\newglossaryentry{requester}
 {
-    name={Request},
-	description={A communications method where a \gls{Client} transmits a message to an \gls{Agent}.  That message instructs the \gls{Agent} to respond with specific information.},
-	plural={Requests}
-}
-
-\newglossaryentry{Requester}
-{
-    name={Requester},
-	description={An entity that initiates a \gls{Request} for information in a communications exchange.},
-	plural={Requesters}
-}
-
-\newglossaryentry{Request/Response}
-{
-    name={Request/Response},
-	description={A communications pattern that supports the transfer of information between an \gls{Agent} and a \gls{Client}. 
-In a \gls{Request/Response} information exchange, a client software application requests specific information from an \gls{Agent}. An \gls{Agent} responds to the \gls{Request} by publishing a \gls{Response Document}. },
-	plural={Request/Responses}
+	type={general},
+    name={requester},
+	description={An entity that initiates a \gls{request} for information in a communications exchange.},
+	plural={requesters}
 }
 
 \newglossaryentry{reset}
 {
+	type={general},
     name={reset},
-	description={A reset is associated with an occurrence of a \gls{Data Entity} indicated by the \\block{resetTriggered} attribute. When a reset occurs, the accumulated value or statistic are reverted back to their initial value. A \gls{Data Entity} with a \gls{Data Set} representation removes all \glspl{key-value pair}, setting the \gls{Data Set} to an empty set.},
+	description={A reset is associated with an occurrence of a \gls{data entity} indicated by the \block{resetTriggered} attribute. When a reset occurs, the accumulated value or statistic are reverted back to their initial value. A \gls{data entity} with a \gls{data set} representation removes all \glspl{key-value pair}, setting the \gls{data set} to an empty set.},
 	plural={resets}
 }
 
-\newglossaryentry{Responder}
+\newglossaryentry{responder}
 {
-    name={Responder},
-	description={An entity that responds to a \gls{Request} for information in a communications exchange.},
-	plural={Responders}
+	type={general},
+    name={responder},
+	description={An entity that responds to a \gls{request} for information in a communications exchange.},
+	plural={responders}
 }
 
-\newglossaryentry{Response Document}
+\newglossaryentry{response document}
 {
-    name={Response Document},
-	description={An electronic document published by an \gls{MTConnect Agent} in response to a \gls{Probe Request}, \gls{Current Request}, \gls{Sample Request} or \gls{Asset Request}.},
-	plural={Response Documents}
+	type={general},
+    name={response document},
+	description={An electronic document published by an \gls{MTConnect Agent} in response to a \gls{probe request}, \gls{current request}, \gls{sample request} or \gls{asset request}.},
+	plural={response documents}
 }
 
-\newglossaryentry{REST}
+\newglossaryentry{revision}
 {
-    name={REST},
-	description={REpresentational State Transfer:  A software architecture where a client and a server move through a series of state transitions based solely on the request from the client and the response from the server. 
-},
-	plural={RESTs}
-}
-
-\newglossaryentry{Root Element}
-{
-    name={Root Element},
-	description={The first \gls{Structural Element} provided in a \gls{Response Document} encoded using XML. },
-	plural={Root Elements}
-}
-
-\newglossaryentry{Sample Request}
-{
-    name={Sample Request},
-	description={A \gls{Sample Request} is a \gls{Request} to an \gls{Agent} to produce an \gls{MTConnectStreams Response Document} containing the \gls{Observations Information Model} for a set of timestamped \glspl{observation} made by \glspl{Component}.},
-	plural={Sample Requests}
-}
-
-\newglossaryentry{Sample}
-{
-    name={Sample},
-	description={The collection of one or more pieces of information.  
-},
-	plural={Samples}
+	type={general},
+    name={revision},
+	description={A supplemental identifier representing only organizational or editorial changes to a \gls{minor} version document with no changes in the functionality described in that document.},
+	plural={revisions}
 }
 
 \newglossaryentry{schema}
 {
+	type={general},
     name={schema},
 	description={The definition of the structure, rules, and vocabularies used to define the information published in an electronic document.},
 	plural={schemas}
@@ -966,422 +505,1040 @@ In a \gls{Request/Response} information exchange, a client software application 
 
 \newglossaryentry{semantic data model}
 {
+	type={general},
     name={semantic data model},
 	description={A methodology for defining the structure and meaning for data in a specific logical way. It provides the rules for encoding electronic information such that it can be interpreted by a software system. },
 	plural={semantic data models}
 }
 
+\newglossaryentry{sensing element}
+{
+	type={general},
+    name={sensing element},
+	description={A mechanism that provides a signal or measured value.},
+	plural={sensing elements}
+}
+
+\newglossaryentry{sensor}
+{
+	type={general},
+    name={sensor},
+	description={A \gls{sensing element} that responds to a physical stimulus and transmits a resulting signal.},
+	plural={sensors}
+}
+
+\newglossaryentry{sensor configuration}
+{
+	type={general},
+    name={sensor configuration},
+	description={Data in the \gls{MTConnectDevices Response Document} that provides the information required for maintenance and support of the \gls{sensor unit}.},
+	plural={sensor configurations}
+}
+
+\newglossaryentry{sensor data}
+{
+	type={general},
+    name={sensor data},
+	description={The value of a physical quantity reported by a measuring instrument or controller as an \gls{observation}.},
+	plural={sensor datas}
+}
+
+\newglossaryentry{sensor element}
+{
+	type={general},
+    name={sensor element},
+	description={A \gls{sensor element} provides a signal or measured value.},
+	plural={sensor elements}
+}
+
+\newglossaryentry{sensor unit}
+{
+	type={general},
+    name={sensor unit},
+	description={An intelligent piece of equipment that manages the signals of one or more \glspl{sensing element} and provides the measured values.},
+	plural={sensor units}
+}
+
 \newglossaryentry{sequence number}
 {
+	type={general},
     name={sequence number},
-	description={The primary key identifier used to manage and locate a specific piece of \gls{Streaming Data} in an \gls{Agent}.},
+	description={The primary key identifier used to manage and locate a specific piece of \gls{streaming data} in an \gls{agent}.},
 	plural={sequence numbers}
 }
 
-\newglossaryentry{Standard}
+\newglossaryentry{specification limit}
 {
-    name={Standard},
+	type={general},
+    name={specification limit},
+	description={A limit defining a range of values designating acceptable performance for a variable.},
+	plural={specification limits}
+}
+
+\newglossaryentry{spindle}
+{
+	type={general},
+    name={spindle},
+	description={A mechanism that provides rotational capabilities to a piece of equipment. 
+Note to Entry: Typically used for either work holding, materials or cutting tools.},
+	plural={spindles}
+}
+
+\newglossaryentry{standard}
+{
+	type={general},
+    name={standard},
 	description={A document established by consensus that provides rules, guidelines, or characteristics for activities or their results.. \textit{ISO/IEC Guide 2:2004}},
-	plural={Standards}
+	plural={standards}
 }
 
-\newglossaryentry{Streaming Data}
+\newglossaryentry{structural element}
 {
-    name={Streaming Data},
-	description={The \glspl{observation} published by a piece of equipment defined by the \gls{Equipment Metadata}.},
-	plural={Streaming Datas}
-}
-
-\newglossaryentry{Observations Information Model}
-{
-    name={Observations Information Model},
-	description={An \gls{Information Model} that describes the \gls{Streaming Data} reported by a piece of equipment.},
-	plural={Observations Information Models}
-}
-
-\newglossaryentry{Structural Element}
-{
-    name={Structural Element},
-	description={An \gls{Element} that organizes information that represents the physical and logical parts and sub-parts of a piece of equipment.},
-	plural={Structural Elements}
+	type={general},
+    name={structural element},
+	description={An \gls{element} that organizes information that represents the physical and logical parts and sub-parts of a piece of equipment.},
+	plural={structural elements}
 }
 
 \newglossaryentry{subtype}
 {
+	type={general},
     name={subtype},
 	description={A secondary or subordinate type of categorization or classification of information.},
 	plural={subtypes}
 }
 
-\newglossaryentry{time stamp}
+\newglossaryentry{table}
 {
-    name={time stamp},
-	description={The best available estimate of the time that the \glspl{observation} was measured or determined.},
-	plural={time stamps}
+	type={general},
+    name={table},
+	description={A two dimensional set of values given by a set of \glspl{key-value pair} \glspl{table entry}. },
+	plural={tables}
 }
 
-\newglossaryentry{Top Level}
+\newglossaryentry{table cell}
 {
-    name={Top Level},
-	description={\glspl{Structural Element} that represent the most significant physical or logical functions of a piece of equipment.},
-	plural={Top Levels}
+	type={general},
+    name={table cell},
+	description={A subdivision of a \gls{table entry} representing a singular value.},
+	plural={table cells}
+}
+
+\newglossaryentry{table entry}
+{
+	type={general},
+    name={table entry},
+	description={A subdivision of a \gls{table} containing a set of \glspl{key-value pair} representing \glspl{table cell}.},
+	plural={table entries}
+}
+
+\newglossaryentry{time series}
+{
+	type={general},
+    name={time series},
+	description={A \block{DataItem} representation of a contiguous vector of values supporting high frequency data rates.},
+	plural={time series}
+}
+
+\newglossaryentry{top level}
+{
+	type={general},
+    name={top level},
+	description={\glspl{structural element} that represent the most significant physical or logical functions of a piece of equipment.},
+	plural={top levels}
 }
 
 \newglossaryentry{type}
 {
+	type={general},
     name={type},
 	description={A classification or categorization of information.},
 	plural={types}
 }
 
-\newglossaryentry{URI}
-{
-    name={URI},
-	description={Stands for Universal Resource Identifier. \textit{IETF RFC3986}
-},
-	plural={URIs}
-}
-
-\newglossaryentry{URN}
-{
-    name={URN},
-	description={Stands for Uniform Resource Name. \textit{IETF RFC3986}
-},
-	plural={URNs}
-}
-
-\newglossaryentry{UTC/GMT}
-{
-    name={UTC/GMT},
-	description={Stands for Coordinated Universal Time/Greenwich Mean Time.  
-Note 1 to entry: The \gls{time stamp} for all information reported in an \gls{MTConnect Response Document} is provided in UTC/GMT format.},
-	plural={UTC/GMTs}
-}
-
-\newglossaryentry{UUID}
-{
-    name={UUID},
-	description={Stands for Universally Unique Identifier.  \textit{IETF RFC4122}},
-	plural={UUIDs}
-}
-
-\newglossaryentry{Valid Data Value}
-{
-    name={Valid Data Value},
-	description={One or more acceptable values or constrained values that can be reported for a \gls{Data Entity}.},
-	plural={Valid Data Values}
-}
-
-\newglossaryentry{W3C}
-{
-    name={W3C},
-	description={The World Wide Web Consortium (W3C) is an international community that develops open standards to ensure the long-term growth of the Web. See \textit{https://www.w3.org/}},
-	plural={W3Cs}
-}
-
-\newglossaryentry{WARNING}
-{
-    name={WARNING},
-	description={A statement or action that indicates a possible danger, problem, or other unexpected situation.
-Note 1 to entry: Used to indicate that specific content in an \gls{MTConnect Document} may be changed in a future release of the standard.},
-	plural={WARNINGs}
-}
-
-\newglossaryentry{XML}
-{
-    name={XML},
-	description={Stands for eXtensible Markup Language. \textit{http://www.w3.org/XML}},
-	plural={XMLs}
-}
-
-\newglossaryentry{XML Container}
-{
-    name={XML Container},
-	description={An XML container is an XML element that \glspl{organize} other XML elements that are logically related to each other. },
-	plural={XML Containers}
-}
-
-\newglossaryentry{XML Document}
-{
-    name={XML Document},
-	description={A \gls{Document} encoded using XML.
-},
-	plural={XML Documents}
-}
-
-\newglossaryentry{XML Schema}
-{
-    name={XML Schema},
-	description={A \gls{schema} defining a specific document encoded in XML.
-},
-	plural={XML Schemas}
-}
-
-\newglossaryentry{XPath}
-{
-    name={XPath},
-	description={\gls{XPath} is a command structure that describes a way for a software system to locate information in an \gls{XML Document}. },
-	plural={XPaths}
-}
-
-\newglossaryentry{Application}
-{
-    name={Application},
-	description={Software or a program that is specific to the solution of an application problem.
-\textit{ISO/IEC 20944-1:2013}},
-	plural={Applications}
-}
-
-\newglossaryentry{observation}
-{
-    name={observation},
-	description={The observed value of a property at a point in time.},
-	plural={observations}
-}
-
-\newglossaryentry{Version}
-{
-    name={Version},
-	description={unique identifier of the administered item. \textit{ISO/IEC 11179-:2015}},
-	plural={Versions}
-}
-
-\newglossaryentry{observe}
-{
-    name={observe},
-	description={The act of measuring or determining the value of a property at a point in time.},
-	plural={observes}
-}
-
-\newglossaryentry{Asset}
-{
-    name={Asset},
-	description={Item, thing or entity that has potential or actual value to an organization. \textit{ISO 55000:2014}
-\newline Note 1 to entry: Value can be tangible or intangible, financial or non-financial, and includes consideration of risks and liabilities. It can be positive or negative at different stages of the asset life.
-\newline Note 2 to entry: Physical assets usually refer to equipment, inventory and properties owned by the organization. Physical assets are the opposite of intangible assets, which are non-physical assets such as leases, brands, digital assets, use rights, licences, intellectual property rights, reputation or agreements.
-\newline Note 3 to entry: A grouping of assets referred to as an asset system could also be considered as an asset.
-},
-	plural={Assets}
-}
-
-\newglossaryentry{engineering units}
-{
-    name={engineering units},
-	description={A quantity, dimension, or magnitude used in engineering adopted as a standard in terms of which the magnitude of other quantities of the same kind can be expressed or calculated.},
-	plural={engineering units}
-}
-
-\newglossaryentry{organizer}
-{
-    name={organizer},
-	description={An element that contains and owns one or more elements.},
-	plural={organizers}
-}
-
-\newglossaryentry{observable}
-{
-    name={observable},
-	description={A quality, property, or characteristic that can be observed.},
-	plural={observables}
-}
-
-\newglossaryentry{organize}
-{
-    name={organize},
-	description={The act of containing and owning one or more elements.},
-	plural={organizes}
-}
-
-\newglossaryentry{electric current}
-{
-    name={electric current},
-	description={The rate of flow of electric charge.},
-	plural={electric currents}
-}
-
-\newglossaryentry{QName}
-{
-    name={QName},
-	description={A \gls{QName}, or qualified name, is the fully qualified name of an element, attribute, or identifier in an XML document.},
-	plural={QNames}
-}
-
-\newglossaryentry{MTConnect Interface}
-{
-    name={MTConnect Interface},
-	description={An \gls{Interaction Model} for interoperability between pieces of equipment.},
-	plural={MTConnect Interfaces}
-}
-
-\newglossaryentry{HTTP Message}
-{
-    name={HTTP Message},
-	description={HTTP messages consist of requests from client to server and responses from server to client. \textit{IETF:RFC-2616}
-Note to Entry 1: In MTConnect Standard, it describes the information that is exchanged between an \gls{Agent} and a \gls{Client}.},
-	plural={HTTP Messages}
-}
-
-\newglossaryentry{Table}
-{
-    name={Table},
-	description={A two dimensional set of values given by a set of \glspl{key-value pair} \glspl{Table Entry}. },
-	plural={Tables}
-}
-
-\newglossaryentry{key}
-{
-    name={key},
-	description={A unique identifier in a \gls{key-value pair} association.},
-	plural={keies}
-}
-
-\newglossaryentry{Table Entry}
-{
-    name={Table Entry},
-	description={A subdivision of a \gls{Table} containing a set of \glspl{key-value pair} representing \glspl{Table Cell}.},
-	plural={Table Entries}
-}
-
-\newglossaryentry{Table Cell}
-{
-    name={Table Cell},
-	description={A subdivision of a \gls{Table Entry} representing a singular value.},
-	plural={Table Cells}
-}
-
-\newglossaryentry{Condition State}
-{
-    name={Condition State},
-	description={A \gls{Condition State} indicates the reported status of \gls{Condition} for a \gls{Structural Element}.},
-	plural={Condition States}
-}
-
-\newglossaryentry{alarm limit}
-{
-    name={alarm limit},
-	description={A limit used to trigger warning or alarm indicators.},
-	plural={alarm limits}
-}
-
-\newglossaryentry{lower limit}
-{
-    name={lower limit},
-	description={The lower conformance boundary for a variable.
-Note to Entry: immediate concern or action may be required},
-	plural={lower limits}
-}
-
-\newglossaryentry{control limit}
-{
-    name={control limit},
-	description={A limit used to indicate whether a process variable is stable and in control.},
-	plural={control limits}
-}
-
 \newglossaryentry{upper limit}
 {
+	type={general},
     name={upper limit},
 	description={The upper conformance boundary for a variable.
 Note to Entry: immediate concern or action may be required.},
 	plural={upper limits}
 }
 
-\newglossaryentry{Spindle}
-{
-    name={Spindle},
-	description={A mechanism that provides rotational capabilities to a piece of equipment. 
-Note to Entry: Typically used for either work holding, materials or cutting tools.},
-	plural={Spindles}
-}
-
-\newglossaryentry{Attachment}
-{
-    name={Attachment},
-	description={the connection by which one thing is associated with another.},
-	plural={Attachments}
-}
-
-\newglossaryentry{nominal}
-{
-    name={nominal},
-	description={The ideal or desired value for a variable.},
-	plural={nominals}
-}
-
-\newglossaryentry{Sensor Configuration}
-{
-    name={Sensor Configuration},
-	description={Data in the \gls{MTConnectDevices Response Document} that provides the information required for maintenance and support of the \gls{sensor unit}.},
-	plural={Sensor Configurations}
-}
-
 \newglossaryentry{upper warning}
 {
+	type={general},
     name={upper warning},
 	description={The upper boundary indicating increased concern and supervision may be required.},
 	plural={upper warnings}
 }
 
-\newglossaryentry{specification limit}
+\newglossaryentry{version}
 {
-    name={specification limit},
-	description={A limit defining a range of values designating acceptable performance for a variable.},
-	plural={specification limits}
+	type={general},
+    name={version},
+	description={unique identifier of the administered item. \textit{ISO/IEC 11179-:2015}},
+	plural={versions}
 }
 
-\newglossaryentry{lower warning}
+\newglossaryentry{probe}
 {
-    name={lower warning},
-	description={he lower boundary indicating increased concern and supervision may be required.},
-	plural={lower warnings}
+	type={general},
+    name={probe},
+	description={An instrument commonly used for measuring the physical geometrical characteristics of an object.},
+	plural={probes}
 }
 
-\newglossaryentry{Sensor Data}
+\newglossaryentry{heartbeat}
 {
-    name={Sensor Data},
-	description={The value of a physical quantity reported by a measuring instrument or controller as an \gls{observation}.},
-	plural={Sensor Datas}
+	type={general},
+    name={heartbeat},
+	description={A function that indicates to a \gls{client} that the communications connection to an \gls{agent} is still viable during times when there is no new data available to report  often referred to as a "keep alive" message.},
+	plural={heartbeats}
 }
 
-\newglossaryentry{Force}
+\newglossaryentry{observation}
 {
-    name={Force},
-	description={A push or pull on a mass which results in an acceleration.},
-	plural={Forces}
+	type={general},
+    name={observation},
+	description={The observed value of a property at a point in time.},
+	plural={observations}
 }
 
-\newglossaryentry{maximum}
+\newglossaryentry{observable}
 {
-    name={maximum},
-	description={A numeric upper constraint.},
-	plural={maximums}
+	type={general},
+    name={observable},
+	description={A quality, property, or characteristic that can be observed.},
+	plural={observables}
 }
 
-\newglossaryentry{minimum}
+\newglossaryentry{parent element}
 {
-    name={minimum},
-	description={A numeric lower constraint.},
-	plural={minimums}
+	type={general},
+    name={parent element},
+	description={An \gls{element} of a data modeling structure that illustrates the relationship between itself and the lower-level \gls{child element}.},
+	plural={parent elements}
 }
 
-\newglossaryentry{MTConnect Device}
+\newglossaryentry{element}
 {
-    name={MTConnect Device},
-	description={An \gls{MTConnect Device} is a piece of equipment or a manufacturing system that produces \glspl{observation} about itself and/or publishes data using the \gls{MTConnect Information Model}.},
-	plural={MTConnect Devices}
+	type={general},
+    name={element},
+	description={A constituent part or a basic unit of identifiable and definable data.},
+	plural={elements}
+}
+
+\newglossaryentry{higher level}
+{
+	type={general},
+    name={higher level},
+	description={A nested element that is above a lower level element.},
+	plural={higher levels}
+}
+
+\newglossaryentry{child element}
+{
+	type={general},
+    name={child element},
+	description={An \gls{element} of a data modeling structure that illustrates the relationship between itself and the higher-level \gls{parent element} within which it is contained.},
+	plural={child elements}
+}
+
+\newglossaryentry{attribute}
+{
+	type={general},
+    name={attribute},
+	description={Used to provide additional information or properties for an \gls{element}.
+},
+	plural={attributes}
+}
+
+\newglossaryentry{abstract element}
+{
+	type={general},
+    name={abstract element},
+	description={An element that defines a set of common characteristics that are shared by a group of elements.
+An abstract element cannot appear in a document. In a specific implementation, an abstract element is replaced by a derived element that is itself not an abstract element. The characteristics for the derived element are inherited from the abstract element. 
+},
+	plural={abstract elements}
+}
+
+\newglossaryentry{lower level}
+{
+	type={general},
+    name={lower level},
+	description={A nested element that is below a higher level element.},
+	plural={lower levels}
+}
+
+\newglossaryentry{Error Information Model}
+{
+	type={informationmodel},
+    name={Error Information Model},
+	description={An \gls{information model} that describes the \gls{response document} returned by an \gls{agent} when it encounters an error while interpreting a \gls{request} for information from a \gls{client} or when an \gls{agent} experiences an error while publishing the \gls{response} to a \gls{request} for information.},
+	plural={Error Information Models}
+}
+
+\newglossaryentry{Asset Information Model}
+{
+	type={informationmodel},
+    name={Asset Information Model},
+	description={An {{Information Model}} that provides semantic models for \glspl{MTConnect Asset}.},
+	plural={Asset Information Models}
+}
+
+\newglossaryentry{MTConnect Information Model}
+{
+	type={informationmodel},
+    name={MTConnect Information Model},
+	description={An \gls{information model} that defines the semantics of the MTConnect Standard.},
+	plural={MTConnect Information Models}
+}
+
+\newglossaryentry{Observation Information Model}
+{
+	type={informationmodel},
+    name={Observation Information Model},
+	description={An \gls{information model} that describes the \gls{streaming data} reported by a piece of equipment.},
+	plural={Observation Information Models}
+}
+
+\newglossaryentry{Device Information Model}
+{
+	type={informationmodel},
+    name={Device Information Model},
+	description={An \gls{information model} that describes the physical and logical configuration for a piece of equipment and the data that may be reported by that equipment. },
+	plural={Device Information Models}
+}
+
+\newglossaryentry{MTConnectStreams Response Document}
+{
+	type={protocol},
+    name={MTConnectStreams Response Document},
+	description={A \gls{response document} published by an \gls{MTConnect Agent} in response to a \gls{current request} or a \gls{current request}.},
+	plural={MTConnectStreams Response Documents}
+}
+
+\newglossaryentry{MTConnectAssets Response Document}
+{
+	type={protocol},
+    name={MTConnectAssets Response Document},
+	description={A \gls{response document} published by an \gls{MTConnect Agent} in response to an \gls{asset request}.},
+	plural={MTConnectAssets Response Documents}
+}
+
+\newglossaryentry{MTConnectDevices Response Document}
+{
+	type={protocol},
+    name={MTConnectDevices Response Document},
+	description={A \gls{response document} published by an \gls{MTConnect Agent} in response to a \gls{probe request}.},
+	plural={MTConnectDevices Response Documents}
+}
+
+\newglossaryentry{MTConnectErrors Response Document}
+{
+	type={protocol},
+    name={MTConnectErrors Response Document},
+	description={A \gls{response document} published by an \gls{MTConnect Agent} whenever it encounters an error while interpreting an \gls{MTConnect Request}.},
+	plural={MTConnectErrors Response Documents}
+}
+
+\newglossaryentry{MTConnect Response Document}
+{
+	type={protocol},
+    name={MTConnect Response Document},
+	description={A \gls{response document} published by an \gls{MTConnect Agent}.},
+	plural={MTConnect Response Documents}
+}
+
+\newglossaryentry{transport protocol}
+{
+	type={protocol},
+    name={transport protocol},
+	description={A set of capabilities that provide the rules and procedures used to transport information between an \gls{agent} and a client software application through a \gls{physical connection}.},
+	plural={transport protocols}
+}
+
+\newglossaryentry{sample request}
+{
+	type={protocol},
+    name={sample request},
+	description={A \gls{sample request} is a \gls{request} to an \gls{agent} to produce an \gls{MTConnectStreams Response Document} containing the \gls{Observation Information Model} for a set of timestamped \glspl{observation} made by \glspl{Component}.},
+	plural={sample requests}
+}
+
+\newglossaryentry{MTConnect Request}
+{
+	type={protocol},
+    name={MTConnect Request},
+	description={A \gls{request} for information issued from a \gls{client} to an \gls{MTConnect Agent}.},
+	plural={MTConnect Requests}
+}
+
+\newglossaryentry{probe request}
+{
+	type={protocol},
+    name={probe request},
+	description={A \gls{probe request} is a \gls{request} to an \gls{agent} to produce an \gls{MTConnectDevices Response Document} containing the \gls{Device Information Model}.},
+	plural={probe requests}
+}
+
+\newglossaryentry{streaming data}
+{
+	type={protocol},
+    name={streaming data},
+	description={The \glspl{observation} published by a piece of equipment defined by the \gls{equipment metadata}.},
+	plural={streaming datas}
+}
+
+\newglossaryentry{publish}
+{
+	type={protocol},
+    name={publish},
+	description={Sending of messages in a \gls{publish and subscribe} pattern.},
+	plural={publishs}
+}
+
+\newglossaryentry{current request}
+{
+	type={protocol},
+    name={current request},
+	description={A \gls{current request} is a \gls{request} to an \gls{agent} to produce an \gls{MTConnectStreams Response Document} containing the \gls{Observation Information Model} for a snapshot of the latest \glspl{observation} at the moment of the \gls{request} or at a given \gls{sequence number}.},
+	plural={current requests}
+}
+
+\newglossaryentry{protocol}
+{
+	type={protocol},
+    name={protocol},
+	description={A set of rules that allow two or more entities to transmit information from one to the other.},
+	plural={protocols}
+}
+
+\newglossaryentry{data streaming}
+{
+	type={protocol},
+    name={data streaming},
+	description={A method for an \gls{agent} to provide a continuous stream of information in response to a single \gls{request} from a \gls{client}.},
+	plural={data streamings}
+}
+
+\newglossaryentry{publish and subscribe}
+{
+	type={protocol},
+    name={publish and subscribe},
+	description={An asynchronous communication method in which messages are exchanged between applications without knowing the identity of the sender or recipient.
+Note 1 to entry: In the MTConnect Standard, a communications messaging pattern that may be used to publish \gls{streaming data} from an \gls{agent}. },
+	plural={publish and subscribes}
+}
+
+\newglossaryentry{subscribe}
+{
+	type={protocol},
+    name={subscribe},
+	description={Receiving messages in a \gls{publish and subscribe} pattern.},
+	plural={subscribes}
+}
+
+\newglossaryentry{asset request}
+{
+	type={protocol},
+    name={asset request},
+	description={An \gls{HTTP Request} to the \gls{agent} regarding \glspl{MTConnect Asset}.},
+	plural={asset requests}
+}
+
+\newglossaryentry{request}
+{
+	type={protocol},
+    name={request},
+	description={A communications method where a \gls{client} transmits a message to an \gls{agent}.  That message instructs the \gls{agent} to respond with specific information.},
+	plural={requests}
+}
+
+\newglossaryentry{response}
+{
+	type={protocol},
+    name={response},
+	description={A response \gls{interface} which responds to a \gls{request}.},
+	plural={responses}
+}
+
+\newglossaryentry{request and response}
+{
+	type={protocol},
+    name={request and response},
+	description={A communications pattern that supports the transfer of information between an \gls{agent} and a \gls{client}. 
+In a \gls{request and response} information exchange, a client software application requests specific information from an \gls{agent}. An \gls{agent} responds to the \gls{request} by publishing a \gls{response document}. },
+	plural={request and responses}
+}
+
+\newglossaryentry{namespace}
+{
+	type={xml},
+    name={namespace},
+	description={\gls{namespace} are used to organize information into logical groups.},
+	plural={namespaces}
+}
+
+\newglossaryentry{XML Schema}
+{
+	type={xml},
+    name={XML Schema},
+	description={A \gls{schema} defining a specific document encoded in XML.
+},
+	plural={XML Schemas}
+}
+
+\newglossaryentry{root element}
+{
+	type={xml},
+    name={root element},
+	description={The first \gls{structural element} provided in a \gls{response document} encoded using XML. },
+	plural={root elements}
+}
+
+\newglossaryentry{document body}
+{
+	type={xml},
+    name={document body},
+	description={The portion of the content of an \gls{MTConnect Response Document} that is defined by the relative \gls{MTConnect Information Model}. The \gls{document body} contains the \glspl{structural element} and \glspl{data entity} reported in a \gls{response document}.
+},
+	plural={document bodies}
+}
+
+\newglossaryentry{XML Document}
+{
+	type={xml},
+    name={XML Document},
+	description={},
+	plural={XML Documents}
+}
+
+\newglossaryentry{document header}
+{
+	type={xml},
+    name={document header},
+	description={The portion of the content of an \gls{MTConnect Response Document} that provides information from an \gls{agent} defining version information, storage capacity, protocol, and other information associated with the management of the data stored in or retrieved from the \gls{agent}.
+},
+	plural={document headers}
+}
+
+\newglossaryentry{HTTP Status Code}
+{
+	type={http},
+    name={HTTP Status Code},
+	description={The Status-Code element is a 3-digit integer result code of the attempt to understand and satisfy the request.  \textit{IETF:RFC-2616}},
+	plural={HTTP Status Codes}
+}
+
+\newglossaryentry{HTTP Server}
+{
+	type={http},
+    name={HTTP Server},
+	description={A server that accepts \gls{HTTP Request} from \gls{client} and publishes \gls{HTTP Response} as a reply to those \gls{HTTP Request}. \textit{IETF:RFC-2616}},
+	plural={HTTP Servers}
+}
+
+\newglossaryentry{HTTP Body}
+{
+	type={http},
+    name={HTTP Body},
+	description={\gls{HTTP Body} is the data bytes transmitted in an HTTP transaction message immediately following the headers. \textit{IETF:RFC-2616}},
+	plural={HTTP Bodies}
+}
+
+\newglossaryentry{HTTP Header Field}
+{
+	type={http},
+    name={HTTP Header Field},
+	description={\gls{HTTP Header Field} are components of the header section of request and response messages in an HTTP transaction. \textit{IETF:RFC-2616}},
+	plural={HTTP Header Fields}
+}
+
+\newglossaryentry{HTTP Request URI}
+{
+	type={http},
+    name={HTTP Request URI},
+	description={The Request-URI is a Uniform Resource Identifier and identifies the resource upon which to apply the request. \textit{IETF:RFC-2616}},
+	plural={HTTP Request URIs}
+}
+
+\newglossaryentry{HTTP Request Method}
+{
+	type={http},
+    name={HTTP Request Method},
+	description={The Method  token indicates the method to be performed on the resource identified by the Request-URI. \textit{IETF:RFC-2616}},
+	plural={HTTP Request Methods}
+}
+
+\newglossaryentry{HTTP Response}
+{
+	type={http},
+    name={HTTP Response},
+	description={After receiving and interpreting a request message, a server responds with an HTTP response message. \textit{IETF:RFC-2616}
+Note 1 to entry: In MTConnect Standard, the information published from an \gls{agent} in reply to an \gls{HTTP Request}. },
+	plural={HTTP Responses}
+}
+
+\newglossaryentry{HTTP Messaging}
+{
+	type={http},
+    name={HTTP Messaging},
+	description={\gls{HTTP Messaging} is an \gls{interface} for information exchange functionality. \textit{IETF:RFC-2616}},
+	plural={HTTP Messagings}
+}
+
+\newglossaryentry{HTTP Request}
+{
+	type={http},
+    name={HTTP Request},
+	description={A request message from a client to a server includes, within the first line of that message, the method to be applied to the resource, the identifier of the resource, and the protocol version in use. \textit{IETF:RFC-2616}
+Note 1 to entry: In MTConnect Standard, a request issued by a \gls{client} to an \gls{agent} requesting information defined in the \gls{HTTP Request Line}.},
+	plural={HTTP Requests}
+}
+
+\newglossaryentry{HTTP Query}
+{
+	type={http},
+    name={HTTP Query},
+	description={A portion of a request for information that more precisely defines the specific information to be published in response to the request. \textit{IETF:RFC-2616}},
+	plural={HTTP Queries}
+}
+
+\newglossaryentry{HTTP Version}
+{
+	type={http},
+    name={HTTP Version},
+	description={Version of the HTTP protocol. \textit{IETF:RFC-2616}},
+	plural={HTTP Versions}
+}
+
+\newglossaryentry{HTTP Message}
+{
+	type={http},
+    name={HTTP Message},
+	description={HTTP messages consist of requests from client to server and responses from server to client. \textit{IETF:RFC-2616}
+Note to Entry 1: In MTConnect Standard, it describes the information that is exchanged between an \gls{agent} and a \gls{client}.},
+	plural={HTTP Messages}
+}
+
+\newglossaryentry{HTTP Header}
+{
+	type={http},
+    name={HTTP Header},
+	description={The header of either an \gls{HTTP Request} from a \gls{client} or an \gls{HTTP Response} from an \gls{agent}. \textit{IETF:RFC-2616}},
+	plural={HTTP Headers}
+}
+
+\newglossaryentry{HTTP Error Message}
+{
+	type={http},
+    name={HTTP Error Message},
+	description={A response provided by an \gls{agent} indicating that an \gls{HTTP Request} is incorrectly formatted or identifies that the requested data is not available from the \gls{agent}.  \textit{IETF:RFC-2616}},
+	plural={HTTP Error Messages}
+}
+
+\newglossaryentry{HTTP Request Line}
+{
+	type={http},
+    name={HTTP Request Line},
+	description={The Request-Line begins with a method token, followed by the Request-URI and the protocol version, and ending with CRLF. A CRLF is allowed in the definition of TEXT only as part of a header field continuation. \textit{IETF:RFC-2616}
+Note 1 to entry: the first line of an \gls{HTTP Request} describing a specific \gls{response document} to be published by an \gls{agent}.},
+	plural={HTTP Request Lines}
+}
+
+\newglossaryentry{HTTP Method}
+{
+	type={http},
+    name={HTTP Method},
+	description={A portion of a command in an \gls{HTTP Request} that indicates the desired action to be performed on the identified resource; often referred to as verbs. \textit{IETF:RFC-2616}
+},
+	plural={HTTP Methods}
+}
+
+\newglossaryentry{Axis of Motion}
+{
+	type={conceptmodel},
+    name={Axis of Motion},
+	description={},
+	plural={Axis of Motions}
+}
+
+\newglossaryentry{AssetId}
+{
+	type={conceptmodel},
+    name={AssetId},
+	description={The unique identifier for an Asset.},
+	plural={AssetIds}
+}
+
+\newglossaryentry{Aggregations}
+{
+	type={conceptmodel},
+    name={Aggregations},
+	description={},
+	plural={Aggregations}
+}
+
+\newglossaryentry{Axis}
+{
+	type={conceptmodel},
+    name={Axis},
+	description={},
+	plural={Axis}
+}
+
+\newglossaryentry{Asset}
+{
+	type={conceptmodel},
+    name={Asset},
+	description={Item, thing or entity that has potential or actual value to an organization. \textit{ISO 55000:2014}
+\begin{itemize}
+    \item Note 1 to entry: Value can be tangible or intangible, financial or non-financial, and includes consideration of risks and liabilities. It can be positive or negative at different stages of the asset life.
+    \item Note 2 to entry: Physical assets usually refer to equipment, inventory and properties owned by the organization. Physical assets are the opposite of intangible assets, which are non-physical assets such as leases, brands, digital assets, use rights, licences, intellectual property rights, reputation or agreements.
+    \item Note 3 to entry: A grouping of assets referred to as an asset system could also be considered as an asset.
+\end{itemize}
+},
+	plural={Assets}
+}
+
+\newglossaryentry{Component}
+{
+	type={conceptmodel},
+    name={Component},
+	description={A \gls{structural element} that represents a physical or logical part or subpart of a piece of equipment.},
+	plural={Components}
+}
+
+\newglossaryentry{Components}
+{
+	type={conceptmodel},
+    name={Components},
+	description={},
+	plural={Components}
+}
+
+\newglossaryentry{Description}
+{
+	type={conceptmodel},
+    name={Description},
+	description={descriptive information about a component.},
+	plural={Descriptions}
+}
+
+\newglossaryentry{DataProperty}
+{
+	type={conceptmodel},
+    name={DataProperty},
+	description={},
+	plural={DataProperties}
+}
+
+\newglossaryentry{Data Item}
+{
+	type={conceptmodel},
+    name={Data Item},
+	description={Descriptive information or properties and characteristics associated with a piece of data.
+},
+	plural={Data Items}
+}
+
+\newglossaryentry{Configuration}
+{
+	type={conceptmodel},
+    name={Configuration},
+	description={},
+	plural={Configurations}
+}
+
+\newglossaryentry{Coordinate System}
+{
+	type={conceptmodel},
+    name={Coordinate System},
+	description={},
+	plural={Coordinate Systems}
+}
+
+\newglossaryentry{DataItems}
+{
+	type={conceptmodel},
+    name={DataItems},
+	description={},
+	plural={DataItems}
+}
+
+\newglossaryentry{Device}
+{
+	type={conceptmodel},
+    name={Device},
+	description={A \gls{Device} is a \gls{Component} representing a piece of equipment or a manufacturing system that produces observations about itself or publishes data. It organizes its parts as \glspl{Component}.},
+	plural={Devices}
+}
+
+\newglossaryentry{ID}
+{
+	type={conceptmodel},
+    name={ID},
+	description={An identifier used to distinguish a piece of information.},
+	plural={IDs}
+}
+
+\newglossaryentry{Joint}
+{
+	type={conceptmodel},
+    name={Joint},
+	description={},
+	plural={Joints}
+}
+
+\newglossaryentry{Linear}
+{
+	type={conceptmodel},
+    name={Linear},
+	description={},
+	plural={Linears}
+}
+
+\newglossaryentry{Motion}
+{
+	type={conceptmodel},
+    name={Motion},
+	description={},
+	plural={Motions}
+}
+
+\newglossaryentry{MTConnect Asset}
+{
+	type={conceptmodel},
+    name={MTConnect Asset},
+	description={An \gls{MTConnect Asset} is an \gls{Asset} used by the manufacturing process to perform tasks.
+\begin{itemize}
+    \item Note 1 to Entry: An \gls{MTConnect Asset} relies upon an \gls{MTConnect Device} to provide \glspl{observation} and information about itself and the \gls{MTConnect Device} revises the information to reflect changes to the \gls{MTConnect Asset} during their interaction. Examples of \glspl{MTConnect Asset} are Cutting Tools, Part Information, Manufacturing Processes, Fixtures, and Files.
+    \item Note 2 to Entry: A singular \property{assetId}[Asset] uniquely identifies an \gls{MTConnect Asset} throughout its lifecycle and is used to track and relate the \gls{MTConnect Asset} to other \glspl{MTConnect Device} and entities.
+    \item Note 3 to Entry: \glspl{MTConnect Asset} are temporally associated with a device and can be removed from the device without damage or alteration to its primary functions.
+\end{itemize}
+},
+	plural={MTConnect Assets}
+}
+
+\newglossaryentry{Observable Measurement}
+{
+	type={conceptmodel},
+    name={Observable Measurement},
+	description={},
+	plural={Observable Measurements}
+}
+
+\newglossaryentry{Observable Condition}
+{
+	type={conceptmodel},
+    name={Observable Condition},
+	description={},
+	plural={Observable Conditions}
+}
+
+\newglossaryentry{Observable Sample}
+{
+	type={conceptmodel},
+    name={Observable Sample},
+	description={},
+	plural={Observable Samples}
+}
+
+\newglossaryentry{ObjectProperty}
+{
+	type={conceptmodel},
+    name={ObjectProperty},
+	description={},
+	plural={ObjectProperties}
+}
+
+\newglossaryentry{Observable}
+{
+	type={conceptmodel},
+    name={Observable},
+	description={A quality, property, or characteristic that can be observed.
+---
+An observable quality (property, characteristic) of a FeatureOfInterest.
+[W3C SSN 2017 4.3.2.1]
+Note 1: Component is acts as the FeatureOfInterest.},
+	plural={Observables}
+}
+
+\newglossaryentry{Observable State}
+{
+	type={conceptmodel},
+    name={Observable State},
+	description={},
+	plural={Observable States}
+}
+
+\newglossaryentry{Observable Event}
+{
+	type={conceptmodel},
+    name={Observable Event},
+	description={},
+	plural={Observable Events}
+}
+
+\newglossaryentry{Observation}
+{
+	type={conceptmodel},
+    name={Observation},
+	description={The observed value of a property at a point in time. (MTConnect Definition)
+---
+a observed quality made by a component for an observable or data item.
+---
+Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with.
+[W3C SSN 2017 4.3.2.2]
+Note 1: Components act as Sensor and FeatureOfInterest.
+Note 2: ObservableProperty is the Observable or Data Item when associate with a Component.},
+	plural={Observations}
+}
+
+\newglossaryentry{Observed Condition}
+{
+	type={conceptmodel},
+    name={Observed Condition},
+	description={},
+	plural={Observed Conditions}
+}
+
+\newglossaryentry{Observed Event}
+{
+	type={conceptmodel},
+    name={Observed Event},
+	description={},
+	plural={Observed Events}
+}
+
+\newglossaryentry{Observed Fault}
+{
+	type={conceptmodel},
+    name={Observed Fault},
+	description={},
+	plural={Observed Faults}
+}
+
+\newglossaryentry{Observed Measurement}
+{
+	type={conceptmodel},
+    name={Observed Measurement},
+	description={},
+	plural={Observed Measurements}
+}
+
+\newglossaryentry{Observed Normal}
+{
+	type={conceptmodel},
+    name={Observed Normal},
+	description={},
+	plural={Observed Normals}
+}
+
+\newglossaryentry{Observed State}
+{
+	type={conceptmodel},
+    name={Observed State},
+	description={},
+	plural={Observed States}
+}
+
+\newglossaryentry{Observed Warning}
+{
+	type={conceptmodel},
+    name={Observed Warning},
+	description={},
+	plural={Observed Warnings}
+}
+
+\newglossaryentry{Rotary}
+{
+	type={conceptmodel},
+    name={Rotary},
+	description={},
+	plural={Rotaries}
+}
+
+\newglossaryentry{Sample}
+{
+	type={conceptmodel},
+    name={Sample},
+	description={The collection of one or more pieces of information.  
+},
+	plural={Samples}
+}
+
+\newglossaryentry{Specification}
+{
+	type={conceptmodel},
+    name={Specification},
+	description={},
+	plural={Specifications}
+}
+
+\newglossaryentry{Thing}
+{
+	type={conceptmodel},
+    name={Thing},
+	description={},
+	plural={Things}
+}
+
+\newglossaryentry{Unique Identifier}
+{
+	type={conceptmodel},
+    name={Unique Identifier},
+	description={},
+	plural={Unique Identifiers}
+}
+
+\newglossaryentry{UUID}
+{
+	type={conceptmodel},
+    name={UUID},
+	description={Universally Unique Identifier. \textit{IETF:RFC-4122}},
+	plural={UUIDs}
+}
+
+\newglossaryentry{Composition}
+{
+	type={conceptmodel},
+    name={Composition},
+	description={A \gls{structural element} that describes the lowest level basic structural or functional building block contained within a \block{Component} element.},
+	plural={Compositions}
+}
+
+\newglossaryentry{Event}
+{
+	type={conceptmodel},
+    name={Event},
+	description={Something that happens or takes place.},
+	plural={Events}
+}
+
+\newglossaryentry{Condition}
+{
+	type={conceptmodel},
+    name={Condition},
+	description={An indicator of the ability of a piece of equipment or \gls{Component} to function to specification.},
+	plural={Conditions}
 }
 
 \newglossaryentry{MTConnect Event}
 {
+	type={conceptmodel},
     name={MTConnect Event},
 	description={An \gls{MTConnect Event} is an \gls{observation} of either a state or discrete value of the \gls{Component}. \gls{Component} states \textbf{SHOULD} have a controlled vocabulary.},
 	plural={MTConnect Events}
 }
 
-\newglossaryentry{URL}
+\newglossaryentry{MTConnect Device}
 {
-    name={URL},
-	description={Stands for Uniform Resource Locator. \textit{IETF RFC3986}
-},
-	plural={URLs}
+	type={conceptmodel},
+    name={MTConnect Device},
+	description={An \gls{MTConnect Device} is a piece of equipment or a manufacturing system that produces \glspl{observation} about itself and/or publishes data using the \gls{MTConnect Information Model}.},
+	plural={MTConnect Devices}
 }

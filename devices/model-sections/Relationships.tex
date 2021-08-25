@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:46 +0530
+% Generated 2021-08-25 18:02:23 +0530
 \subsection{Relationships} \label{sec:Relationships}
 
 
@@ -114,10 +114,10 @@ Descriptions for attributes of \block{Relationship}:
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 
-\property{idRef}[ComponentRelationship] & \texttt{ID} & 1 \\
-\property{criticality}[ComponentRelationship] & \texttt{criticalityType} & 0..1 \\
+\property{idRef}[ComponentRelationship] & \texttt{IDREF} & 1 \\
+\property{criticality}[ComponentRelationship] & \texttt{CriticalityTypeEnum} & 0..1 \\
 \property{id}[ComponentRelationship] & \texttt{ID} & 1 \\
-\property{type}[ComponentRelationship] & \texttt{RelationshipType} & 1 \\
+\property{type}[ComponentRelationship] & \texttt{RelationshipTypeEnum} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -130,7 +130,7 @@ Descriptions for attributes of \block{ComponentRelationship}:
 
 \item \property{criticality}[ComponentRelationship] \newline Defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
 
-\texttt{criticalityType} Enumeration:
+\texttt{CriticalityTypeEnum} Enumeration:
 
 \begin{itemize}
 \item \texttt{CRITICAL} \newline The services or functions provided by the associated element is required for the operation of this element. 
@@ -142,7 +142,7 @@ Descriptions for attributes of \block{ComponentRelationship}:
 
 \item \property{type}[ComponentRelationship] \newline Defines the authority that this piece of equipment has relative to the associated piece of equipment.
 
-\texttt{RelationshipType} Enumeration:
+\texttt{RelationshipTypeEnum} Enumeration:
 
 \begin{itemize}
 \item \texttt{PARENT} \newline This element functions as a parent in the relationship with the associated element. 
@@ -177,13 +177,13 @@ Descriptions for attributes of \block{ComponentRelationship}:
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 
-\property{deviceUuidRef}[DeviceRelationship] & \texttt{NMTOKEN} & 1 \\
+\property{deviceUuidRef}[DeviceRelationship] & \texttt{IDREF} & 1 \\
 \property{href}[DeviceRelationship] & \texttt{xlinkhref} & 0..1 \\
-\property{role}[DeviceRelationship] & \texttt{roleType} & 0..1 \\
+\property{role}[DeviceRelationship] & \texttt{RoleTypeEnum} & 0..1 \\
 \property{xlink:type}[DeviceRelationship] & \texttt{xlinktype} & 0..1 \\
-\property{criticality}[DeviceRelationship] & \texttt{criticalityType} & 0..1 \\
+\property{criticality}[DeviceRelationship] & \texttt{CriticalityTypeEnum} & 0..1 \\
 \property{id}[DeviceRelationship] & \texttt{ID} & 1 \\
-\property{type}[DeviceRelationship] & \texttt{RelationshipType} & 1 \\
+\property{type}[DeviceRelationship] & \texttt{RelationshipTypeEnum} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -195,13 +195,13 @@ Descriptions for attributes of \block{DeviceRelationship}:
 \item \property{deviceUuidRef}[DeviceRelationship] \newline A reference to the associated piece of equipment. 
 
 
-\item \property{href}[DeviceRelationship] \newline A URI identifying the \gls{Agent} that is publishing information for the associated piece of equipment. \property{href} \textbf{MUST} also include the UUID for that specific piece of equipment.
+\item \property{href}[DeviceRelationship] \newline A URI identifying the \gls{agent} that is publishing information for the associated piece of equipment. \property{href} \textbf{MUST} also include the UUID for that specific piece of equipment.
 
 \property{href} is of type \texttt{xlink:href} from the W3C XLink specification: \textit{https://www.w3.org/TR/xlink11/}.
 
 \item \property{role}[DeviceRelationship] \newline Defines the services or capabilities that the referenced piece of equipment provides relative to this piece of equipment.
 
-\texttt{roleType} Enumeration:
+\texttt{RoleTypeEnum} Enumeration:
 
 \begin{itemize}
 \item \texttt{SYSTEM} \newline The associated element performs the functions of a \block{System} for this element. 

@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:48 +0530
+% Generated 2021-08-25 18:02:23 +0530
 \subsection{Representation} \label{sec:Representation}
 
 
@@ -6,37 +6,36 @@ A \property{representation}[DataItem] specifies the format and structure of the 
 
 A \property{representation}[DataItem], other than \texttt{VALUE}, will modify the element name of the \gls{observation} by appending the pascal case of the \property{representation}[DataItem] as follows:
 
+
 \begin{itemize}
-\item  A \block{DataItem} with \property{type} \texttt{TEMPERATURE} and \property{representation}[DataItem] of \texttt{TIME\textunderscore SERIES} becomes \texttt{TemperatureTimeSeries}
+    \item A \block{DataItem} with \property{type} \texttt{TEMPERATURE} and \property{representation}[DataItem] of \texttt{TIME\textunderscore SERIES} becomes \texttt{TemperatureTimeSeries}
 
 
-\item  \textbf{DEPRECATED} A \block{DataItem} with \property{type} \texttt{PART\textunderscore COUNT} and \property{representation}[DataItem] of \texttt{DISCRETE} becomes \texttt{PartCountDiscrete}
+    \item \textbf{DEPRECATED} A \block{DataItem} with \property{type} \texttt{PART\textunderscore COUNT} and \property{representation}[DataItem] of \texttt{DISCRETE} becomes \texttt{PartCountDiscrete}
 
 
-\item  A \block{DataItem} with \property{type} \texttt{VARIABLE} and \property{representation}[DataItem] of \texttt{DATA\textunderscore SET} becomes \texttt{VariableDataSet}
+    \item A \block{DataItem} with \property{type} \texttt{VARIABLE} and \property{representation}[DataItem] of \texttt{DATA\textunderscore SET} becomes \texttt{VariableDataSet}
 
 
-\item  A \block{DataItem} with \property{type} \texttt{WORK\textunderscore OFFSET} and \property{representation}[DataItem] of \texttt{TABLE} becomes \texttt{WorkOffsetTable}
+    \item A \block{DataItem} with \property{type} \texttt{WORK\textunderscore OFFSET} and \property{representation}[DataItem] of \texttt{TABLE} becomes \texttt{WorkOffsetTable}
 
 
 \end{itemize}
 
-
-
 The following constraints apply to each \property{representation}[DataItem]:
 
+
 \begin{itemize}
-\item  A \block{DataItem} with \property{representation}[DataItem] \texttt{TIME\textunderscore SERIES} \textbf{MUST} have a \property{category}[DataItem] \texttt{SAMPLE}
+    \item A \block{DataItem} with \property{representation}[DataItem] \texttt{TIME\textunderscore SERIES} \textbf{MUST} have a \property{category}[DataItem] \texttt{SAMPLE}
 
 
-\item  \DEPRECATED A \block{DataItem} with \property{representation}[DataItem] \texttt{DISCRETE} \textbf{MUST} have a \property{category}[DataItem] \texttt{EVENT}
+    \item \textbf{DEPRECATED} A \block{DataItem} with \property{representation}[DataItem] \texttt{DISCRETE} \textbf{MUST} have a \property{category}[DataItem] \texttt{EVENT}
 
 
-\item  A \block{DataItem} with \property{representation}[DataItem] \texttt{DATA\textunderscore SET} \textbf{MUST} have a \property{category}[DataItem] \texttt{EVENT} or \texttt{SAMPLE}
+    \item A \block{DataItem} with \property{representation}[DataItem] \texttt{DATA\textunderscore SET} \textbf{MUST} have a \property{category}[DataItem] \texttt{EVENT} or \texttt{SAMPLE}
 
 
-\item  A \block{DataItem} with \property{representation}[DataItem] \texttt{TABLE} \textbf{MUST} have a \property{category}[DataItem] \texttt{EVENT} or \texttt{SAMPLE}
-
+    \item A \block{DataItem} with \property{representation}[DataItem] \texttt{TABLE} \textbf{MUST} have a \property{category}[DataItem] \texttt{EVENT} or \texttt{SAMPLE}
 
 \end{itemize}
 
@@ -52,7 +51,12 @@ The following sections provide semantic information for the \block{Representatio
 \FloatBarrier
 
 
-Note: See \sect{Representation Schema Diagrams} for XML schema.
+
+\begin{itemize}
+    \item Note: See \sect{Representation Schema Diagrams} for XML schema.
+\end{itemize}
+
+
 
 
 \subsubsection{TimeSeries}
@@ -108,7 +112,7 @@ Descriptions for attributes of \block{TimeSeries}:
 
 \textit{MTConnect Version 1.5} replaced \property{representation} \texttt{DISCRETE} with a \property{discrete} attribute for \block{DataItem}.
 
-\texttt{DISCRETE} \MUST only be used with a \block{DataItem} with a \property{category} of \texttt{EVENT}.
+\texttt{DISCRETE} \textbf{MUST} only be used with a \block{DataItem} with a \property{category} of \texttt{EVENT}.
 
 Each occurrence of the \gls{observation} \textbf{MAY} have the same value as the previous occurrence, and \textbf{MUST NOT} suppress duplicates.
 
@@ -124,9 +128,9 @@ Examples of \texttt{DISCRETE} information as follows: A \texttt{PartCount} repor
 
 A \block{DataItem} with \texttt{DATA\textunderscore SET} \property{representation} \textbf{MUST} have a \property{category} of \texttt{SAMPLE} or \texttt{EVENT}. 
 
-A \gls{Data Set} \gls{observation} \textbf{MUST} have a \property{count} attribute.
+A \gls{data set} \gls{observation} \textbf{MUST} have a \property{count} attribute.
 
-\gls{Data Set} \gls{observation} reports multiple values as a set of \gls{key-value pair} where each \gls{key} \textbf{MUST} be unique. The representation of the \gls{key-value pair} is an \block{Entry}. The value of each \block{Entry} \textbf{MUST} have the same constraints and format as the \gls{observation} defined for the \texttt{VALUE} \property{representation} for the \block{DataItem} \property{type}. 
+\gls{data set} \gls{observation} reports multiple values as a set of \gls{key-value pair} where each \gls{key} \textbf{MUST} be unique. The representation of the \gls{key-value pair} is an \block{Entry}. The value of each \block{Entry} \textbf{MUST} have the same constraints and format as the \gls{observation} defined for the \texttt{VALUE} \property{representation} for the \block{DataItem} \property{type}. 
 
 The meaning of each \block{Entry} \textbf{MAY} be provided as the \block{DataItem} \block{EntryDefinition}.
 
@@ -186,29 +190,30 @@ Descriptions for elements of \block{DataSet}:
 \item \block{Entry} \newline See \sect{Entry} for details on \texttt{Entry} element for \block{DataSet}.
 \end{itemize}
 
-\paragraph{Management of Data Set Observations} \mbox{}
+
+\paragraph{Management of Data Set Observations}
 \label{sec:Management of Data Set Observations}
 
-An \gls{Agent} \textbf{MUST} maintain the current state of the \gls{Data Set} as described in \citetitle{MTCPart1} \textit{Section Part 1: Management of Streaming Data Storage}.
+An \gls{agent} \textbf{MUST} maintain the current state of the \gls{data set} as described in \citetitle{MTCPart1} \textit{Section Part 1: Management of Streaming Data Storage}.
 
-One or more \glspl{key-value pair} \textbf{MAY} be added, removed, or changed in an \gls{observation}. An \gls{Agent} \textbf{MUST} publish the changes to one or more \glspl{key-value pair} as a single \gls{observation}. An \gls{Agent} \textbf{MUST} indicate the removal of a \gls{key-value pair} from a \gls{Data Set} using the \property{removed} attribute equal \texttt{true}.
+One or more \glspl{key-value pair} \textbf{MAY} be added, removed, or changed in an \gls{observation}. An \gls{agent} \textbf{MUST} publish the changes to one or more \glspl{key-value pair} as a single \gls{observation}. An \gls{agent} \textbf{MUST} indicate the removal of a \gls{key-value pair} from a \gls{data set} using the \property{removed} attribute equal \texttt{true}.
 
-When the \block{DataItem} \property{discrete}[DataItem] attribute is \texttt{false} or is not present, an \gls{Agent} in response to a \gls{Sample Request} \textbf{MUST} only publish the changed \gls{key-value pair} since the previous state of the \gls{Data Set}.
+When the \block{DataItem} \property{discrete}[DataItem] attribute is \texttt{false} or is not present, an \gls{agent} in response to a \gls{sample request} \textbf{MUST} only publish the changed \gls{key-value pair} since the previous state of the \gls{data set}.
 
-When the \block{DataItem} \property{discrete}[DataItem] attribute is \texttt{true}, an \gls{Agent}, in response to a \gls{Sample Request}, \textbf{MUST} report all \glspl{key-value pair} ignoring the state of the \gls{Data Set}.
+When the \block{DataItem} \property{discrete}[DataItem] attribute is \texttt{true}, an \gls{agent}, in response to a \gls{sample request}, \textbf{MUST} report all \glspl{key-value pair} ignoring the state of the \gls{data set}.
 
-When an \gls{Agent} responds to a \gls{Current Request}, the \gls{Response Document} \textbf{MUST} include the full set of \glspl{key-value pair}. If the \gls{Current Request} includes an \texttt{at} query parameter, the \gls{Agent} \textbf{MUST} provide the set of \glspl{key-value pair} at the  \gls{sequence number}.
+When an \gls{agent} responds to a \gls{current request}, the \gls{response document} \textbf{MUST} include the full set of \glspl{key-value pair}. If the \gls{current request} includes an \texttt{at} query parameter, the \gls{agent} \textbf{MUST} provide the set of \glspl{key-value pair} at the  \gls{sequence number}.
 
-When an \gls{observation} \gls{reset} occurs, the \gls{Data Set} \textbf{MUST} remove all \glspl{key-value pair} making the set empty. The \gls{observation} \textbf{MAY} simultaneously populate the \gls{Data Set} with new \glspl{key-value pair}. The previous entries \textbf{MUST NOT} be included and \textbf{MUST NOT} have \property{removed} attribute equal \texttt{true}.
+When an \gls{observation} \gls{reset} occurs, the \gls{data set} \textbf{MUST} remove all \glspl{key-value pair} making the set empty. The \gls{observation} \textbf{MAY} simultaneously populate the \gls{data set} with new \glspl{key-value pair}. The previous entries \textbf{MUST NOT} be included and \textbf{MUST NOT} have \property{removed} attribute equal \texttt{true}.
 
-When the \gls{observation} is \texttt{UNAVAILABLE} the \gls{Data Set} \textbf{MUST} remove all \glspl{key-value pair} making the set empty.
+When the \gls{observation} is \texttt{UNAVAILABLE} the \gls{data set} \textbf{MUST} remove all \glspl{key-value pair} making the set empty.
 
 \subsubsection{Entry}
 \label{sec:Entry}
 
 
 
-A \gls{key-value pair} published as part of a \gls{Data Set} \gls{observation}.
+A \gls{key-value pair} published as part of a \gls{data set} \gls{observation}.
 
 
 \paragraph{Attributes of Entry}\mbox{}
@@ -241,7 +246,8 @@ Descriptions for attributes of \block{Entry}:
 \item \property{removed}[Entry] \newline Boolean removal indicator of a \gls{key-value pair} that \textbf{MUST} be \texttt{true} or \texttt{false}.
 \end{itemize}
 
-\paragraph{Constraints for Entry Values}\mbox{}
+
+\paragraph{Constraints for Entry Values}
 \label{sec:Constraints for Entry Values}
 
 The value of each \block{Entry} \textbf{MUST} have the same restrictions as the value of an \gls{observation} with \property{representation} of \texttt{VALUE}.
@@ -255,7 +261,7 @@ The \citetitle{MTCPart2} \block{DataItem} \block{Definition} \textbf{MAY} provid
 
 
 
-A \gls{Table} represents two-dimensional sets of \glspl{key-value pair} where the \block{Entry} represents rows containing sets of \glspl{key-value pair} given by \block{Cell} elements. The \gls{Table} has the same behavior as the \gls{Data Set} for change tracking, clearing, and history. When an \block{Entry} changes. All \block{Cell} elements update at the same time; they are not tracked separately like \block{Entry}.
+A \gls{table} represents two-dimensional sets of \glspl{key-value pair} where the \block{Entry} represents rows containing sets of \glspl{key-value pair} given by \block{Cell} elements. The \gls{table} has the same behavior as the \gls{data set} for change tracking, clearing, and history. When an \block{Entry} changes. All \block{Cell} elements update at the same time; they are not tracked separately like \block{Entry}.
 
 The meaning of each \block{Entry} and \block{Cell} \textbf{MAY} be provided as the \block{DataItem} \block{EntryDefinition} and \block{CellDefinition}.
 
@@ -325,7 +331,7 @@ Descriptions for elements of \block{Table}:
 
 
 
-A \gls{key-value pair} published as part of a \gls{Table} \gls{observation}.
+A \gls{key-value pair} published as part of a \gls{table} \gls{observation}.
 
 Note: Represented as \block{Entry} in XML.
 
@@ -425,7 +431,8 @@ Descriptions for attributes of \block{Cell}:
 \item \property{key}[Cell] \newline A unique identifier for each \gls{key-value pair}.
 \end{itemize}
 
-\paragraph{Constraints for Cell Values}\mbox{}
+
+\paragraph{Constraints for Cell Values}
 \label{sec:Constraints for Cell Values}
 
 The value of each \block{Cell} \textbf{MUST} have the same restrictions as the value of an \gls{observation} with \property{representation} of \texttt{VALUE}.

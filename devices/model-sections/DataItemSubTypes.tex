@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:46 +0530
+% Generated 2021-08-25 18:02:23 +0530
 \subsection{DataItem SubTypes} \label{sec:DataItem SubTypes}
 
 
@@ -18,6 +18,13 @@ The value of \property{subType}[DataItem] for \block{DataItem} \MUST be one of t
 \begin{itemize}
 
 
+\item \texttt{ABORTED}  
+
+Actions or activities that were attempted, but terminated before they could be completed.
+
+
+
+
 \item \texttt{ABSOLUTE}  
 
 Relating to or derived in the simplest manner from the fundamental units or measurements.
@@ -28,9 +35,14 @@ Relating to or derived in the simplest manner from the fundamental units or meas
 An indication of the operating state of a mechanism.
 
 
+\item \texttt{ACTIVE}  
+
+Relating to logic or motion program currently executing.
+
+
 \item \texttt{ACTUAL}  
 
-The measured value.
+The measured or reported value of an \gls{observation}.
 
 
 \item \texttt{ALL}  
@@ -75,7 +87,7 @@ B Scale weighting factor.
 
 \item \texttt{COMMANDED}  
 
-The commanded value.
+Directive value including adjustments such as an offset or overrides.
 
 
 \item \texttt{COMPLETE}  
@@ -100,7 +112,7 @@ C Scale weighting factor.
 
 \item \texttt{DELAY}  
 
-A piece of equipment or process waiting for an event or an action to occur.
+The elapsed time of a temporary halt of action.
 
 
 \item \texttt{DIRECT}  
@@ -118,9 +130,19 @@ A setting or operator selection used to execute a test mode to confirm the execu
 D Scale weighting factor.
 
 
+\item \texttt{ENDED}  
+
+Boundary when an activity or an event terminates.
+
+
 \item \texttt{EXPIRATION}  
 
 The time and date code relating to the expiration or end of useful life for a material or other physical item.
+
+
+\item \texttt{FAILED}  
+
+Actions or activities that were attempted , but failed to complete or resulted in an unexpected or unacceptable outcome.
 
 
 \item \texttt{FIRST\textunderscore USE}  
@@ -227,7 +249,7 @@ Media Access Control Address. The unique physical address of the network hardwar
 
 \item \texttt{MAIN}  
 
-The identity of the primary logic or motion program currently being executed.
+Relating to the primary logic or motion program currently being executed.
 
 
 \item \texttt{MAINTENANCE}  
@@ -300,6 +322,11 @@ The authorization of a process occurrence.
 The overridden value.
 
 
+\item \texttt{PART}  
+
+Reported or measured value of amount included in the \gls{part}.
+
+
 \item \texttt{PART\textunderscore FAMILY}  
 
 A group of parts having similarities in geometry, manufacturing process, and/or functions.
@@ -327,7 +354,9 @@ The main or most important location \textbf{MUST} be designated as the end of a 
 
 \item \texttt{PROBE}  
 
-The value provided by a measurement probe.
+The position provided by a measurement probe.
+
+\textbf{DEPRECATION WARNING}: May be deprecated in the future.
 
 
 \item \texttt{PROCESS}  
@@ -352,7 +381,7 @@ A step in the process plan that this occurrence corresponds to.
 
 \item \texttt{PROGRAMMED}  
 
-The programmed value.
+Directive value without offsets and adjustments.
 
 
 \item \texttt{RADIAL}  
@@ -362,12 +391,12 @@ A reference to a radial type tool offset variable.
 
 \item \texttt{RAPID}  
 
-The feedrate specified by a logic or motion program when operating in a rapid positioning mode.
+Performing an operation faster or in less time than nominal rate.
 
 
 \item \texttt{RAW\textunderscore MATERIAL}  
 
-A singular piece of material.
+Material that is used to produce parts.
 
 
 \item \texttt{RELEASE\textunderscore DATE}  
@@ -378,6 +407,16 @@ The date the hardware or software was released for general use.
 \item \texttt{REMAINING}  
 
 The remaining measure of an object or an action.
+
+
+\item \texttt{REQUEST}  
+
+\gls{request} by an \block{Interface} for a task.
+
+
+\item \texttt{RESPONSE}  
+
+\gls{response} by an \block{Interface} to a \gls{request} for a task.
 
 
 \item \texttt{ROCKWELL}  
@@ -422,7 +461,7 @@ The standard measure of an object or an action.
 
 \item \texttt{START}  
 
-Relating to the beginning of an activity or event.
+Boundary when an activity or an event commences.
 
 
 \item \texttt{SUBNET\textunderscore MASK}  
@@ -437,7 +476,7 @@ An indication of the activation state of a mechanism represented by a \gls{Compo
 
 \item \texttt{TARGET}  
 
-The targeted or desired value.
+The goal of the operation or process.
 
 
 \item \texttt{TARGET\textunderscore COMPLETION}  
@@ -478,6 +517,11 @@ A scale to measure the resistance to deformation of a surface.
 \item \texttt{VLAN\textunderscore ID}  
 
 The layer2 Virtual Local Network (VLAN) ID for the component network.
+
+
+\item \texttt{WASTE}  
+
+Reported or measured value of the amount discarded.
 
 
 \item \texttt{WIRELESS}  

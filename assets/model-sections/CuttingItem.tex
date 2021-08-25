@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:50 +0530
+% Generated 2021-08-25 18:02:25 +0530
 \subsection{CuttingItem} \label{sec:CuttingItem}
 
 
@@ -124,6 +124,9 @@ The value of \block{ProgramToolGroup} \MUST be \texttt{string}.
 The life of a \block{CuttingItem}.
 
 
+The value of \texttt{ItemLife} \MUST be \texttt{float}.
+
+
 \paragraph{Attributes of ItemLife}\mbox{}
 \label{sec:Attributes of ItemLife}
 
@@ -139,7 +142,7 @@ The life of a \block{CuttingItem}.
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 
-\property{countDirection}[ItemLife] & \texttt{CountDirectionType} & 1 \\
+\property{countDirection}[ItemLife] & \texttt{CountDirectionTypeEnum} & 1 \\
 \property{initial}[ItemLife] & \texttt{float} & 0..1 \\
 \property{limit}[ItemLife] & \texttt{float} & 0..1 \\
 \property{warning}[ItemLife] & \texttt{float} & 0..1 \\

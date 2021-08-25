@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:50 +0530
+% Generated 2021-08-25 18:02:25 +0530
 \subsection{CuttingToolLifeCycle} \label{sec:CuttingToolLifeCycle}
 
 
@@ -72,7 +72,7 @@ The value of \block{ProgramToolGroup} \MUST be \texttt{string}.
 
 \item \block{ProgramToolNumber} \newline The number of the tool as referenced in the part program.
 
-The value of \block{ProgramToolNumber} \MUST be \texttt{integer}.
+The value of \block{ProgramToolNumber} \MUST be \texttt{string}.
 
 \item \block{ProcessFeedRate} \newline The constrained process feed rate for this tool in mm/s.
 
@@ -101,6 +101,9 @@ The value of \block{ProgramToolNumber} \MUST be \texttt{integer}.
 The cutting tool life as related to the assembly.
 
 
+The value of \texttt{ToolLife} \MUST be \texttt{float}.
+
+
 \paragraph{Attributes of ToolLife}\mbox{}
 \label{sec:Attributes of ToolLife}
 
@@ -116,7 +119,7 @@ The cutting tool life as related to the assembly.
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 
-\property{countDirection}[ToolLife] & \texttt{CountDirectionType} & 1 \\
+\property{countDirection}[ToolLife] & \texttt{CountDirectionTypeEnum} & 1 \\
 \property{initial}[ToolLife] & \texttt{float} & 0..1 \\
 \property{limit}[ToolLife] & \texttt{float} & 0..1 \\
 \property{warning}[ToolLife] & \texttt{float} & 0..1 \\
@@ -130,7 +133,7 @@ Descriptions for attributes of \block{ToolLife}:
 
 \item \property{countDirection}[ToolLife] \newline Indicates if the tool life counts from zero to maximum or maximum to zero.
 
-\texttt{CountDirectionType} Enumeration:
+\texttt{CountDirectionTypeEnum} Enumeration:
 
 \begin{itemize}
 \item \texttt{UP} \newline The tool life counts up from zero to the maximum. 
@@ -172,12 +175,12 @@ The Pot or Spindle the cutting tool currently resides in.
 
 \property{negativeOverlap}[Location] & \texttt{integer} & 0..1 \\
 \property{positiveOverlap}[Location] & \texttt{integer} & 0..1 \\
-\property{type}[Location] & \texttt{LocationType} & 1 \\
-\property{turret}[Location] & \texttt{NMTOKEN} & 0..1 \\
-\property{toolMagazine}[Location] & \texttt{NMTOKEN} & 0..1 \\
-\property{toolBar}[Location] & \texttt{NMTOKEN} & 0..1 \\
-\property{toolRack}[Location] & \texttt{NMTOKEN} & 0..1 \\
-\property{automaticToolChanger}[Location] & \texttt{NMTOKEN} & 0..1 \\
+\property{type}[Location] & \texttt{LocationTypeEnum} & 1 \\
+\property{turret}[Location] & \texttt{string} & 0..1 \\
+\property{toolMagazine}[Location] & \texttt{string} & 0..1 \\
+\property{toolBar}[Location] & \texttt{string} & 0..1 \\
+\property{toolRack}[Location] & \texttt{string} & 0..1 \\
+\property{automaticToolChanger}[Location] & \texttt{string} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -192,15 +195,15 @@ Descriptions for attributes of \block{Location}:
 
 \item \property{type}[Location] \newline The type of location being identified. 
 
-\texttt{LocationType} Enumeration:
+\texttt{LocationTypeEnum} Enumeration:
 
 \begin{itemize}
 \item \texttt{POT} \newline The number of the pot in the tool handling system. 
 \item \texttt{STATION} \newline The tool location in a horizontal turning machine. 
 \item \texttt{CRIB} \newline The location with regard to a tool crib. 
-\item \texttt{SPINDLE} \newline A location associated with a \gls{Spindle}. 
+\item \texttt{SPINDLE} \newline A location associated with a \gls{spindle}. 
 \item \texttt{TRANSFER\textunderscore POT} \newline A location for a tool awaiting transfer from a tool magazine to spindle or a turret. 
-\item \texttt{RETURN\textunderscore POT} \newline A location for a tool removed from a \gls{Spindle} or turret and awaiting return to a tool magazine. 
+\item \texttt{RETURN\textunderscore POT} \newline A location for a tool removed from a \gls{spindle} or turret and awaiting return to a tool magazine. 
 \item \texttt{STAGING\textunderscore POT} \newline A location for a tool awaiting transfer to a tool magazine or turret from outside of the piece of equipment. 
 \item \texttt{REMOVAL\textunderscore POT} \newline A location for a tool removed from a tool magazine or turret awaiting transfer to a location outside of the piece of equipment. 
 \item \texttt{EXPIRED\textunderscore POT} \newline A location for a tool that is no longer usable and is awaiting removal from a tool magazine or turret. 
@@ -352,7 +355,7 @@ Descriptions for attributes of \block{ProcessFeedRate}:
 The status of the cutting tool.
 
 
-The value of \texttt{Status} \MUST be \texttt{CutterStatusType}.
+The value of \texttt{Status} \MUST be \texttt{CutterStatusTypeEnum}.
 
 
 

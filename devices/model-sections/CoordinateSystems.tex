@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:46 +0530
+% Generated 2021-08-25 18:02:23 +0530
 \subsection{CoordinateSystems} \label{sec:CoordinateSystems}
 
 
@@ -139,6 +139,7 @@ For non-robotic devices, it is the connection surface between the device and its
 \tabucline[1.5pt]{}
 \texttt{Origin} & 0..1 \\
 \texttt{Transformation} & 0..1 \\
+\texttt{Description} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -151,6 +152,10 @@ Descriptions for elements of \block{CoordinateSystem}:
 \item \block{Origin} \newline The coordinates of the origin position of a coordinate system.
 
 \item \block{Transformation} \newline  The process of transforming to the origin position of the coordinate system from a parent coordinate system using \block{Translation} and \block{Rotation}.
+
+\item \block{Description} \newline The natural language description of the \block{CoordinateSystem}.
+
+The value of \block{Description} \MUST be \texttt{string}.
 \end{itemize}
 
 
@@ -163,7 +168,7 @@ Descriptions for elements of \block{CoordinateSystem}:
 The coordinates of the origin position of a coordinate system.
 
 
-The value of \texttt{Origin} \MUST be \texttt{Origin}.
+The value of \texttt{Origin} \MUST be \texttt{millimeter}.
 
 
 
@@ -217,7 +222,7 @@ Rotations about X, Y, and Z axes are expressed in A, B, and C respectively withi
 
 
 
-The value of \texttt{Rotation} \MUST be \texttt{Rotation}.
+The value of \texttt{Rotation} \MUST be \texttt{degree}.
 
 
 
@@ -229,6 +234,6 @@ The value of \texttt{Rotation} \MUST be \texttt{Rotation}.
 Translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
 
 
-The value of \texttt{Translation} \MUST be \texttt{Translation}.
+The value of \texttt{Translation} \MUST be \texttt{millimeter}.
 
 

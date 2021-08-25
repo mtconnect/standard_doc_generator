@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:50 +0530
+% Generated 2021-08-25 18:02:25 +0530
 \subsection{Files} \label{sec:Files}
 
 
@@ -41,7 +41,7 @@ An \block{AbstractFile} is an abstract \block{Asset} type model that contains th
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 
-\property{mediaType}[AbstractFile] & \texttt{MimeType} & 1 \\
+\property{mediaType}[AbstractFile] & \texttt{string} & 1 \\
 \property{applicationCategory}[AbstractFile] & \texttt{ApplicationCategoryEnum} & 1 \\
 \property{applicationType}[AbstractFile] & \texttt{ApplicationTypeEnum} & 1 \\
 \end{tabu}
@@ -199,9 +199,13 @@ Descriptions for elements of \block{File}:
 
 The value for \property{Signature} \textbf{MUST} be an x509 data block.
 
+The value of \block{Signature} \MUST be \texttt{string}.
+
 \item \block{PublicKey} \newline The public key used to verify the signature.
 
 The value for \property{PublicKey} \textbf{MUST} be an x509 data block.
+
+The value of \block{PublicKey} \MUST be \texttt{string}.
 
 \item \block{CreationTime} \newline The time the file was created.
 
@@ -323,5 +327,33 @@ Descriptions for attributes of \block{FileLocation}:
 
 
 The \block{Destination} is a reference to the target \block{Device} for this \block{File}.
+
+
+\paragraph{Attributes of Destination}\mbox{}
+\label{sec:Attributes of Destination}
+
+\tbl{Attributes of Destination} lists the attributes of \texttt{Destination}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of Destination}
+  \label{table:Attributes of Destination}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{deviceUuid}[Destination] & \texttt{IDREF} & 1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{Destination}:
+
+\begin{itemize}
+
+\item \property{deviceUuid}[Destination] \newline \texttt{uuid} of the target device or application.
+\end{itemize}
 
 

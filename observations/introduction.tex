@@ -1,22 +1,35 @@
-\section{Purpose of This Document}
 
-This document, \citetitle{MTCPart3} of the MTConnect  Standard, establishes the rules and terminology that describes the information returned by an \gls{MTConnect Agent} from a piece of equipment.  The {{term(Observations Information Model}} also defines, in \sect{Observations Information Model}, the structure for the \glspl{Response Document} that are returned from an \gls{Agent} in response to a \gls{Sample Request} or \gls{Current Request}.  
+\section{Purpose of This Document}
+\label{sec:Purpose of This Document}
+
+This document, \citetitle{MTCPart3} of the MTConnect Standard, establishes the rules and terminology that describes the information returned by an \gls{MTConnect Agent} from a piece of equipment.  The {{term(Observation Information Model}} also defines, in \sect{Observations Information Model}, the structure for the \glspl{response document} that are returned from an \gls{agent} in response to a \gls{sample request} or \gls{current request}.  
 
 \citetitle{MTCPart3} is not a stand-alone document.   This document is used in conjunction with \citetitle{MTCPart1}  which defines the fundamentals of the operation of the MTConnect Standard and \citetitle{MTCPart2} that defines the semantic model representing the information that may be returned from a piece of equipment.
 
-\begin{note}
-Note: \citetitle{MTCPart5} provides details on extensions to the \gls{Observations Information Model} required to describe the interactions between pieces of equipment.
-\end{note}
+
+\begin{itemize}
+    \item Note: \citetitle{MTCPart5} provides details on extensions to the \gls{Observation Information Model} required to describe the interactions between pieces of equipment.
+
+\end{itemize}
 
 In the MTConnect Standard, equipment represents any tangible property that is used in the operation of a manufacturing facility.  Examples of equipment are machine tools, ovens, sensor units, workstations, software applications, and bar feeders.
 
-\section{Terminology and Conventions}
-Refer to \textit{Section 3} of \citetitle{MTCPart1} for a dictionary of terms, reserved language, and document conventions used in the MTConnect Standard.
+\subsection{Terminology and Conventions}
+\label{sec:Terminology and Conventions}
 
-\printglossary
+Refer to Section 3 of \citetitle{MTCPart1} for a dictionary of terms, reserved language, and document conventions used in the MTConnect Standard.
 
-\printacronyms  
+\printglossary[title=General Terms, type=general]
+\printglossary[title=Information Model Terms, type=informationmodel]
+\printglossary[title=Protocol Terms, type=protocol]
+\printglossary[title=HTTP Terms, type=http]
+\printglossary[title=XML Terms, type=xml]
+\printglossary[title=Concept Model Terms, type=conceptmodel]
+
+\printacronyms
 
 \printbibliography[title=MTConnect References,keyword=MTC]
 
 \printbibliography[title=Other References,notkeyword=MTC]
+
+\glsaddall

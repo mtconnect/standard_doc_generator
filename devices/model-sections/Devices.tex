@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:45 +0530
+% Generated 2021-08-25 18:02:22 +0530
 \subsection{Devices} \label{sec:Devices}
 
 
@@ -35,10 +35,10 @@ See \sect{Component} for details on the \block{Device} model.
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 
-\texttt{<<deprecated>>} \property{iso841Class}[Device] & \texttt{string} & 0..1 \\
-\property{name}[Device] & \texttt{string} & 1 \\
-\property{uuid}[Device] & \texttt{NMTOKEN} & 1 \\
+\property{iso841Class}[Device] & \texttt{string} & 0..1 \\
+\property{uuid}[Device] & \texttt{ID} & 1 \\
 \property{mtconnectVersion}[Device] & \texttt{string} & 0..1 \\
+\property{name}[Device] & \texttt{string} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -49,7 +49,7 @@ Descriptions for attributes of \block{Device}:
 
 \item \property{iso841Class}[Device] \newline \textbf{DEPRECATED} in \textit{MTConnect Version 1.1}.
 
-\item \property{mtconnectVersion}[Device] \newline The MTConnect version of the \gls{Devices Information Model} used to configure the information to be published for a piece of equipment in an \gls{MTConnect Response Document}.
+\item \property{mtconnectVersion}[Device] \newline The MTConnect version of the \gls{Device Information Model} used to configure the information to be published for a piece of equipment in an \gls{MTConnect Response Document}.
 \end{itemize}
 
 
@@ -67,14 +67,15 @@ Descriptions for attributes of \block{Device}:
 \hline
 \rowfont\bfseries {Element} & {Multiplicity} \\
 \tabucline[1.5pt]{}
-\texttt{Axis} (organized by \block{Axes}) & 0..* \\
-\texttt{Resource} (organized by \block{Resources}) & 0..* \\
-\texttt{System} (organized by \block{Systems}) & 0..* \\
-\texttt{Auxiliary} (organized by \block{Auxiliaries}) & 0..* \\
-\texttt{Interface} (organized by \block{Interfaces}) & 0..* \\
-\texttt{Adapter} (organized by \block{Adapters}) & 0..* \\
 \texttt{Process} (organized by \block{Processes}) & 0..* \\
 \texttt{Structure} (organized by \block{Structures}) & 0..* \\
+\texttt{Resource} (organized by \block{Resources}) & 0..* \\
+\texttt{Interface} (organized by \block{Interfaces}) & 0..* \\
+\texttt{Adapter} (organized by \block{Adapters}) & 0..* \\
+\texttt{Axis} (organized by \block{Axes}) & 0..* \\
+\texttt{System} (organized by \block{Systems}) & 0..* \\
+\texttt{Auxiliary} (organized by \block{Auxiliaries}) & 0..* \\
+\texttt{Part} (organized by \block{Parts}) & 0..* \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -84,21 +85,23 @@ Descriptions for elements of \block{Device}:
 
 \begin{itemize}
 
-\item \block{Axes} \newline \block{Axes} \glspl{organize} \block{Axis} component types. 
+\item \block{Processes} \newline \block{Processes} \glspl{organize} \block{Process} component types. 
+
+\item \block{Structures} \newline \block{Structures} \glspl{organize} \block{Structure} component types. 
 
 \item \block{Resources} \newline \block{Resources} \glspl{organize} \block{Resource} component types. 
-
-\item \block{Systems} \newline \block{Systems} \glspl{organize} \block{System} component types. 
-
-\item \block{Auxiliaries} \newline \block{Auxiliaries} \glspl{organize} \block{Auxiliary} component types. 
 
 \item \block{Interfaces} \newline \block{Interfaces} \glspl{organize} \block{Interface} component types. 
 
 \item \block{Adapters} \newline \block{Adapters} \glspl{organize} \block{Adapter} component types. 
 
-\item \block{Processes} \newline \block{Processes} \glspl{organize} \block{Process} component types. 
+\item \block{Axes} \newline \block{Axes} \glspl{organize} \block{Axis} component types. 
 
-\item \block{Structures} \newline \block{Structures} \glspl{organize} \block{Structure} component types. 
+\item \block{Systems} \newline \block{Systems} \glspl{organize} \block{System} component types. 
+
+\item \block{Auxiliaries} \newline \block{Auxiliaries} \glspl{organize} \block{Auxiliary} component types. 
+
+\item \block{Parts} \newline \block{Parts} \glspl{organize} information for \glspl{part} being processed by a piece of equipment.
 \end{itemize}
 
 
@@ -110,11 +113,14 @@ Descriptions for elements of \block{Device}:
 
 \block{Agent} is a \block{Device} representing the \gls{MTConnect Agent} and all its connected data sources.
 
+* It \textbf{MUST} be provided by all \gls{MTConnect Agent} implementations.
 
 \begin{itemize}
     \item It \textbf{MUST} be provided by all \gls{MTConnect Agent} implementations.
     \item It \textbf{MUST} provide notifications when devices are added or changed.
     \item It \textbf{MUST} provide connection information for each data source currently supplying data to the \gls{MTConnect Agent}.
-    \item It \textbf{MAY} provide information about telemetry relating to data sources.
+    \item \textbf{MAY} provide information about telemetry relating to data sources.
     \item It \textbf{MAY} provide information about the \gls{MTConnect Agent} resource utilization.
+
 \end{itemize}
+

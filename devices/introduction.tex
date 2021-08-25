@@ -1,21 +1,33 @@
-\section{Purpose of This Document}
 
-This document, \citetitle{MTCPart2} of the \gls{MTConnect}  Standard, establishes the rules and terminology to be used by designers to describe the function and operation of a piece of equipment and to define the data that is provided by an \gls{Agent} from the equipment.  The \gls{Devices Information Model}  also defines the structure for the \gls{XML} document that is returned from an \gls{Agent} in response to a \gls{Probe Request}. 
+\section{Purpose of This Document}
+\label{sec:Purpose of This Document}
+
+This document, \citetitle{MTCPart2} of the MTConnect Standard, establishes the rules and terminology to be used by designers to describe the function and operation of a piece of equipment and to define the data that is provided by an \gls{agent} from the equipment.  The \gls{Device Information Model}  also defines the structure for the \gls{response document} that is returned from an \gls{agent} in response to a \gls{probe request}. 
 
 In the MTConnect Standard, equipment represents any tangible property that is used in the operations of a manufacturing facility.  Examples of equipment are machine tools, ovens, sensor units, workstations, software applications, and bar feeders. 
 
-\begin{note}
-Note: See \citetitle{MTCPart3} of the MTConnect Standard for details on the \gls{XML} documents that are returned from an \gls{Agent} in response to a \gls{Sample Request} or \gls{Current Request}.
 
-\end{note}
+\begin{itemize}
+    \item Note: See \citetitle{MTCPart3} of the MTConnect Standard for details on the \gls{response document} that are returned from an \gls{agent} in response to a \gls{sample request} or \gls{current request}.
 
-\section{Terminology and Conventions}
-Refer to \textit{Section 3} of \citetitle{MTCPart1} for a dictionary of terms, reserved language, and document conventions used in the MTConnect Standard.
+\end{itemize}
 
-\printglossary
+\subsection{Terminology and Conventions}
+\label{sec:Terminology and Conventions}
 
-\printacronyms  
+Refer to Section 3 of \citetitle{MTCPart1} for a dictionary of terms, reserved language, and document conventions used in the MTConnect Standard.
+
+\printglossary[title=General Terms, type=general]
+\printglossary[title=Information Model Terms, type=informationmodel]
+\printglossary[title=Protocol Terms, type=protocol]
+\printglossary[title=HTTP Terms, type=http]
+\printglossary[title=XML Terms, type=xml]
+\printglossary[title=Concept Model Terms, type=conceptmodel]
+
+\printacronyms
 
 \printbibliography[title=MTConnect References,keyword=MTC]
 
 \printbibliography[title=Other References,notkeyword=MTC]
+
+\glsaddall

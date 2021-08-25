@@ -1,10 +1,10 @@
-% Generated 2021-02-25 22:49:46 +0530
+% Generated 2021-08-25 18:02:23 +0530
 \subsection{References} \label{sec:References}
 
 
 \block{References} \glspl{organize} \block{Reference} elements.
 
-\block{References} may be modeled as part of a \block{Device}, \block{Component} or \block{Interface} type \gls{Structural Element}.
+\block{References} may be modeled as part of a \block{Device}, \block{Component} or \block{Interface} type \gls{structural element}.
 
 \begin{figure}[ht]
   \centering
@@ -24,7 +24,7 @@ Note: See \sect{References Schema Diagrams} for XML schema of \block{Reference} 
 
 
 
-\block{Reference} is a pointer to information that is associated with another \gls{Structural Element} defined elsewhere for a piece of equipment.
+\block{Reference} is a pointer to information that is associated with another \gls{structural element} defined elsewhere for a piece of equipment.
 
 
 \paragraph{Attributes of Reference}\mbox{}
@@ -42,7 +42,7 @@ Note: See \sect{References Schema Diagrams} for XML schema of \block{Reference} 
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 
-\property{idRef}[Reference] & \texttt{ID} & 1 \\
+\property{idRef}[Reference] & \texttt{IDREF} & 1 \\
 \property{name}[Reference] & \texttt{string} & 0..1 \\
 \end{tabu}
 \end{table}
@@ -64,7 +64,7 @@ Descriptions for attributes of \block{Reference}:
 
 
 
-\block{DataItemRef} is a pointer to a \gls{Data Entity} associated with another \gls{Structural Element} defined for a piece of equipment.  \block{DataItemRef} allows the data associated with a data item defined in another \gls{Structural Element} to be directly associated with this element.
+\block{DataItemRef} is a pointer to a \gls{data entity} associated with another \gls{structural element} defined for a piece of equipment.  \block{DataItemRef} allows the data associated with a data item defined in another \gls{structural element} to be directly associated with this element.
 
 
 \paragraph{Attributes of DataItemRef}\mbox{}
@@ -101,7 +101,7 @@ Descriptions for attributes of \block{DataItemRef}:
 
 
 
-\block{ComponentRef} is a pointer to all of the information associated with another \gls{Structural Element} defined for a piece of equipment.  \block{ComponentRef} allows all of the information (\gls{Lower Level} \block{Components} and all \glspl{Data Entity}) that is associated with the other \gls{Structural Element} to be directly associated with this element.
+\block{ComponentRef} is a pointer to all of the information associated with another \gls{structural element} defined for a piece of equipment.  \block{ComponentRef} allows all of the information (\gls{Lower Level} \block{Components} and all \glspl{data entity}) that is associated with the other \gls{structural element} to be directly associated with this element.
 
 
 \paragraph{Attributes of ComponentRef}\mbox{}

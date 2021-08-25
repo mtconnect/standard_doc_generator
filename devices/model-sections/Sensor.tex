@@ -1,8 +1,8 @@
-% Generated 2021-02-25 22:49:46 +0530
+% Generated 2021-08-25 18:02:23 +0530
 \subsection{Sensor} 
 
 
-\gls{Sensor} is a unique type of a piece of equipment.  A \gls{Sensor} is typically comprised of two major components: a \gls{sensor unit} that provides signal processing, conversion, and communications and the \glspl{sensing element} that provides a signal or measured value.
+\gls{sensor} is a unique type of a piece of equipment.  A \gls{sensor} is typically comprised of two major components: a \gls{sensor unit} that provides signal processing, conversion, and communications and the \glspl{sensing element} that provides a signal or measured value.
 
 The \gls{sensor unit} is modeled as a \gls{Lower Level} \block{Component} called \block{Sensor}.  The \gls{sensing element} may be modeled as a \block{Composition} element of a \block{Sensor} element and the measured value would be modeled as a \block{DataItem} (See \sect{DataItems} for more information on \block{DataItem} elements).  Each \gls{sensor unit} may have multiple \glspl{sensing element}; each representing the data for a variety of measured values.
 
@@ -107,8 +107,8 @@ When \block{Sensor} represents multiple \glspl{sensing element}, each \gls{sensi
 \rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
 \tabucline[1.5pt]{}
 
-\property{name}[Channel] & \texttt{NMTOKEN} & 0..1 \\
-\property{number}[Channel] & \texttt{NMTOKEN} & 1 \\
+\property{name}[Channel] & \texttt{string} & 0..1 \\
+\property{number}[Channel] & \texttt{string} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier

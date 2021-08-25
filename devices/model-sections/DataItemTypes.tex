@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:46 +0530
+% Generated 2021-08-25 18:02:23 +0530
 \subsection{DataItem Types} \label{sec:DataItem Types}
 
 
@@ -6,24 +6,19 @@ In the MTConnect Standard, \block{DataItem} elements are defined and organized b
 
 These categories are:
 
+
 \begin{itemize}
+    \item \texttt{SAMPLE}: A \texttt{SAMPLE} reports a continuously variable or analog data value. 
 
-\item \block{SAMPLE}
+    \item \texttt{EVENT}: An \texttt{EVENT} reports information representing a functional state, with two or more discrete values, associated with a component or it contains a message.  The data provided may be a numeric value or text.
 
-A \block{SAMPLE} reports a continuously variable or analog data value. 
+    \item \texttt{CONDITION}: A \texttt{CONDITION} reports information about the health of a piece of equipment and its ability to function.
 
-\item \block{EVENT}
-
-An \block{EVENT} reports information representing a functional state, with two or more discrete values, associated with a component or it contains a message.  The data provided may be a numeric value or text.
-
-\item \block{CONDITION}
-
-A \block{CONDITION} reports information about the health of a piece of equipment and its ability to function.
 \end{itemize}
 
 The \property{type} attribute specifies the specific kind of data that is reported.   For some types of data items, a \property{subType} attribute may also be used to differentiate between multiple data items of the same \property{type} where the information reported by the data item has a different, but related, meaning.
 
-Many types of data items provide two forms of data: a value (reported as either a \block{SAMPLE} or \block{EVENT}) and a health status (reported as a \block{CONDITION}).  These \block{DataItem} types \textbf{MAY} be defined in more than one \property{category} based on the data that they report.
+Many types of data items provide two forms of data: a value (reported as either a \texttt{SAMPLE} or \texttt{EVENT}) and a health status (reported as a \texttt{CONDITION}).  These \block{DataItem} types \textbf{MAY} be defined in more than one \property{category} based on the data that they report.
 
 
 
@@ -32,7 +27,7 @@ Many types of data items provide two forms of data: a value (reported as either 
 
 
 
-\block{Condition} is an abstract \block{DataItem} with \texttt{CONDITION} \property{category} report data representing a \gls{Structural Element}’s status regarding its ability to operate or it provides an indication whether the data reported for the \gls{Structural Element} is within an expected range.
+\block{Condition} is an abstract \block{DataItem} with \texttt{CONDITION} \property{category} report data representing a \gls{structural element}’s status regarding its ability to operate or it provides an indication whether the data reported for the \gls{structural element} is within an expected range.
 
 \block{Condition} is reported differently than \block{Sample} or \block{Event}.  \block{Condition} \textbf{MUST} be reported as \block{Normal}, \block{Warning}, or \block{Fault}.
 
@@ -66,7 +61,7 @@ An indication that the value of the data associated with a measured value or a c
 
 \item \texttt{DIRECTION}  
 
-An indication of a fault associated with the direction of motion of a \gls{Structural Element}.
+An indication of a fault associated with the direction of motion of a \gls{structural element}.
 
 Subtypes of \texttt{DIRECTION}: \texttt{ROTARY}, \texttt{LINEAR}.
 
@@ -78,7 +73,7 @@ Subtypes of \texttt{END\textunderscore OF\textunderscore BAR}: \texttt{PRIMARY},
 
 \item \texttt{HARDWARE}  
 
-An indication of a fault associated with the hardware subsystem of the \gls{Structural Element}.
+An indication of a fault associated with the hardware subsystem of the \gls{structural element}.
 
 
 \item \texttt{INTERFACE\textunderscore STATE}  
@@ -118,9 +113,14 @@ The value of \property{type}[DataItem] with \property{category}[DataItem] \textt
 \begin{itemize}
 
 
+\item \texttt{ACTIVATION\textunderscore COUNT}  
+
+Accumulation of the number of times a function has attempted to, or is planned to attempt to, activate or be performed.
+
+
 \item \texttt{ACTIVE\textunderscore AXES}  
 
-The set of axes currently associated with a \block{Path} or \block{Controller} \gls{Structural Element}.
+The set of axes currently associated with a \block{Path} or \block{Controller} \gls{structural element}.
 
 
 \item \texttt{ACTUATOR\textunderscore STATE}  
@@ -130,17 +130,17 @@ Represents the operational state of an apparatus for moving or controlling a mec
 
 \item \texttt{ADAPTER\textunderscore SOFTWARE\textunderscore VERSION}  
 
-The originator’s software version of the \gls{Adapter}.
+The originator’s software version of the \gls{adapter}.
 
 
 \item \texttt{ADAPTER\textunderscore URI}  
 
-The \gls{URI} of the \gls{Adapter}.
+The \gls{URI} of the \gls{adapter}.
 
 
 \item \texttt{ALARM}  
 
-\textbf{DEPRECATED:} Replaced with \block{CONDITION} category data items in Version 1.1.0.
+\textbf{DEPRECATED:} Replaced with \texttt{CONDITION} category data items in Version 1.1.0.
 
 
 \item \texttt{ALARM\textunderscore LIMIT}  
@@ -166,7 +166,7 @@ The \block{assetId} of the asset that has been removed.
 
 \item \texttt{AVAILABILITY}  
 
-Represents the \gls{Agent}'s ability to communicate with the data source.
+Represents the \gls{agent}'s ability to communicate with the data source.
 
 
 \item \texttt{AXIS\textunderscore COUPLING}  
@@ -194,7 +194,7 @@ An indicator of the controlled state of a \block{Linear} or \block{Rotary} compo
 
 \item \texttt{BLOCK}  
 
-The line of code or command being executed by a \block{Controller} \gls{Structural Element}.
+The line of code or command being executed by a \block{Controller} \gls{structural element}.
 
 
 \item \texttt{BLOCK\textunderscore COUNT}  
@@ -217,11 +217,13 @@ An indication of the operating state of a mechanism that holds a part or stock m
 
 Service to close a chuck.
 
+Subtypes of \texttt{CLOSE\textunderscore CHUCK}: \texttt{REQUEST}, \texttt{RESPONSE}.
 
 \item \texttt{CLOSE\textunderscore DOOR}  
 
 Service to close a door.
 
+Subtypes of \texttt{CLOSE\textunderscore DOOR}: \texttt{REQUEST}, \texttt{RESPONSE}.
 
 \item \texttt{CODE}  
 
@@ -238,7 +240,7 @@ Subtypes of \texttt{COMPOSITION\textunderscore STATE}: \texttt{ACTION}, \texttt{
 
 \item \texttt{CONNECTION\textunderscore STATUS}  
 
-The status of the connection between an \gls{Adapter} and an \gls{Agent}.
+The status of the connection between an \gls{adapter} and an \gls{agent}.
 
 
 \item \texttt{CONTROLLER\textunderscore MODE}  
@@ -262,11 +264,21 @@ A set of limits used to indicate whether a process variable is stable and in con
 Refers to the set of associated axes.
 
 
+\item \texttt{CYCLE\textunderscore COUNT}  
+
+Accumulation of the number of times a cyclic function has attempted to, or is planned to attempt to execute.
+
+
 \item \texttt{DATE\textunderscore CODE}  
 
 The time and date code associated with a material or other physical item.
 
 Subtypes of \texttt{DATE\textunderscore CODE}: \texttt{MANUFACTURE}, \texttt{EXPIRATION}, \texttt{FIRST\textunderscore USE}.
+
+\item \texttt{DEACTIVATION\textunderscore COUNT}  
+
+Accumulation of the number of times a function has attempted to, or is planned to attempt to, deactivate or cease.
+
 
 \item \texttt{DEVICE\textunderscore ADDED}  
 
@@ -275,7 +287,7 @@ An \block{Event} that provides the \gls{UUID} of new device added to an \gls{MTC
 
 \item \texttt{DEVICE\textunderscore CHANGED}  
 
-An \block{Event} that provides the \gls{UUID} of the device whose \gls{Metadata} has changed.
+An \block{Event} that provides the \gls{UUID} of the device whose \gls{metadata} has changed.
 
 
 \item \texttt{DEVICE\textunderscore REMOVED}  
@@ -373,6 +385,17 @@ A reference to the position of a block of program code within a control program.
 
 Subtypes of \texttt{LINE\textunderscore NUMBER}: \texttt{ABSOLUTE}, \texttt{INCREMENTAL}.
 
+\item \texttt{LOAD\textunderscore COUNT}  
+
+Accumulation of the number of times an operation has attempted to, or is planned to attempt to, load materials, parts, or other items.
+
+Subtypes of \texttt{LOAD\textunderscore COUNT}: \texttt{REMAINING}, \texttt{TARGET}, \texttt{GOOD}, \texttt{GOOD}, \texttt{GOOD}, \texttt{ALL}, \texttt{REMAINING}, \texttt{BAD}, \texttt{ALL}, \texttt{BAD}, \texttt{BAD}, \texttt{COMPLETE}, \texttt{BAD}, \texttt{ALL}, \texttt{FAILED}, \texttt{FAILED}, \texttt{FAILED}, \texttt{REMAINING}, \texttt{ALL}, \texttt{FAILED}, \texttt{ALL}, \texttt{TARGET}, \texttt{BAD}, \texttt{FAILED}, \texttt{REMAINING}, \texttt{COMPLETE}, \texttt{ALL}, \texttt{GOOD}, \texttt{REMAINING}, \texttt{BAD}, \texttt{COMPLETE}, \texttt{COMPLETE}, \texttt{ALL}, \texttt{FAILED}, \texttt{ALL}, \texttt{TARGET}, \texttt{TARGET}, \texttt{TARGET}, \texttt{COMPLETE}, \texttt{GOOD}, \texttt{ALL}, \texttt{COMPLETE}, \texttt{ALL}, \texttt{ALL}, \texttt{REMAINING}, \texttt{GOOD}, \texttt{TARGET}, \texttt{ALL}.
+
+\item \texttt{LOCK\textunderscore STATE}  
+
+The state or operating mode of a \block{Lock}.
+
+
 \item \texttt{MATERIAL}  
 
 The identifier of a material used or consumed in the manufacturing process.
@@ -382,11 +405,13 @@ The identifier of a material used or consumed in the manufacturing process.
 
 Service to change the type of material or product being loaded or fed to a piece of equipment.
 
+Subtypes of \texttt{MATERIAL\textunderscore CHANGE}: \texttt{REQUEST}, \texttt{RESPONSE}.
 
 \item \texttt{MATERIAL\textunderscore FEED}  
 
 Service to advance material or feed product to a piece of equipment from a continuous or bulk source.
 
+Subtypes of \texttt{MATERIAL\textunderscore FEED}: \texttt{REQUEST}, \texttt{RESPONSE}.
 
 \item \texttt{MATERIAL\textunderscore LAYER}  
 
@@ -398,16 +423,19 @@ Subtypes of \texttt{MATERIAL\textunderscore LAYER}: \texttt{ACTUAL}, \texttt{TAR
 
 Service to load a piece of material or product.
 
+Subtypes of \texttt{MATERIAL\textunderscore LOAD}: \texttt{REQUEST}, \texttt{RESPONSE}.
 
 \item \texttt{MATERIAL\textunderscore RETRACT}  
 
 Service to remove or retract material or product.
 
+Subtypes of \texttt{MATERIAL\textunderscore RETRACT}: \texttt{REQUEST}, \texttt{RESPONSE}.
 
 \item \texttt{MATERIAL\textunderscore UNLOAD}  
 
 Service to unload a piece of material or product.
 
+Subtypes of \texttt{MATERIAL\textunderscore UNLOAD}: \texttt{REQUEST}, \texttt{RESPONSE}.
 
 \item \texttt{MESSAGE}  
 
@@ -416,7 +444,7 @@ Any text string of information to be transferred from a piece of equipment to a 
 
 \item \texttt{MTCONNECT\textunderscore VERSION}  
 
-The reference version of the MTConnect Standard supported by the \gls{Adapter}.
+The reference version of the MTConnect Standard supported by the \gls{adapter}.
 
 
 \item \texttt{NETWORK}  
@@ -429,11 +457,13 @@ Subtypes of \texttt{NETWORK}: \texttt{IPV4\textunderscore ADDRESS}, \texttt{IPV6
 
 Service to open a chuck.
 
+Subtypes of \texttt{OPEN\textunderscore CHUCK}: \texttt{REQUEST}, \texttt{RESPONSE}.
 
 \item \texttt{OPEN\textunderscore DOOR}  
 
 Service to open a door.
 
+Subtypes of \texttt{OPEN\textunderscore DOOR}: \texttt{REQUEST}, \texttt{RESPONSE}.
 
 \item \texttt{OPERATING\textunderscore SYSTEM}  
 
@@ -455,12 +485,13 @@ The identifier for a pallet.
 
 Service to change the part or product associated with a piece of equipment to a different part or product.
 
+Subtypes of \texttt{PART\textunderscore CHANGE}: \texttt{REQUEST}, \texttt{RESPONSE}.
 
 \item \texttt{PART\textunderscore COUNT}  
 
 The aggregate count of parts.
 
-Subtypes of \texttt{PART\textunderscore COUNT}: \texttt{ALL}, \texttt{GOOD}, \texttt{BAD}, \texttt{TARGET}, \texttt{REMAINING}.
+Subtypes of \texttt{PART\textunderscore COUNT}: \texttt{ALL}, \texttt{GOOD}, \texttt{BAD}, \texttt{TARGET}, \texttt{REMAINING}, \texttt{COMPLETE}, \texttt{ALL}, \texttt{FAILED}.
 
 \item \texttt{PART\textunderscore DETECT}  
 
@@ -492,6 +523,11 @@ Subtypes of \texttt{PART\textunderscore KIND\textunderscore ID}: \texttt{UUID}, 
 An identifier of a part or product moving through the manufacturing process.
 
 
+\item \texttt{PART\textunderscore PROCESSING\textunderscore STATE}  
+
+The particular condition of the part occurrence at a specific time.
+
+
 \item \texttt{PART\textunderscore STATUS}  
 
 State or condition of a part.
@@ -511,12 +547,12 @@ Subtypes of \texttt{PATH\textunderscore FEEDRATE\textunderscore OVERRIDE}: \text
 
 \item \texttt{PATH\textunderscore MODE}  
 
-Describes the operational relationship between a \block{Path} \gls{Structural Element} and another \block{Path} \gls{Structural Element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
+Describes the operational relationship between a \block{Path} \gls{structural element} and another \block{Path} \gls{structural element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
 
 
 \item \texttt{POWER\textunderscore STATE}  
 
-The indication of the status of the source of energy for a \gls{Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the \gls{Structural Element} to perform its functions.
+The indication of the status of the source of energy for a \gls{structural element} to allow it to perform its intended function or the state of an enabling signal providing permission for the \gls{structural element} to perform its functions.
 
 Subtypes of \texttt{POWER\textunderscore STATE}: \texttt{LINE}, \texttt{CONTROL}.
 
@@ -542,6 +578,11 @@ Subtypes of \texttt{PROCESS\textunderscore KIND\textunderscore ID}: \texttt{UUID
 \item \texttt{PROCESS\textunderscore OCCURRENCE\textunderscore ID}  
 
 An identifier of a process being executed by the device.
+
+
+\item \texttt{PROCESS\textunderscore STATE}  
+
+The particular condition of the process occurrence at a specific time.
 
 
 \item \texttt{PROCESS\textunderscore TIME}  
@@ -611,7 +652,7 @@ A three space angular rotation relative to a coordinate system.
 
 \item \texttt{SENSOR\textunderscore ATTACHMENT}  
 
-An \block{Event} defining an \gls{Attachment} between a sensor and an entity.
+An \block{Event} defining an \gls{attachment} between a sensor and an entity.
 
 
 \item \texttt{SERIAL\textunderscore NUMBER}  
@@ -657,9 +698,19 @@ A reference to the tool offset variables applied to the active cutting tool asso
 
 Subtypes of \texttt{TOOL\textunderscore OFFSET}: \texttt{RADIAL}, \texttt{LENGTH}.
 
+\item \texttt{TRANSFER\textunderscore COUNT}  
+
+Accumulation of the number of times an operation has attempted to, or is planned to attempt to, transfer materials, parts, or other items from one location to another.
+
+
 \item \texttt{TRANSLATION}  
 
 A three space linear translation relative to a coordinate system.
+
+
+\item \texttt{UNLOAD\textunderscore COUNT}  
+
+Accumulation of the number of times an operation has attempted to, or is planned to attempt to, unload materials, parts, or other items.
 
 
 \item \texttt{USER}  
@@ -667,6 +718,12 @@ A three space linear translation relative to a coordinate system.
 The identifier of the person currently responsible for operating the piece of equipment.
 
 Subtypes of \texttt{USER}: \texttt{OPERATOR}, \texttt{MAINTENANCE}, \texttt{SET\textunderscore UP}.
+
+\item \texttt{VALVE\textunderscore STATE}  
+
+The state of a valve is one of open, closed, or transitioning between the states.
+
+Subtypes of \texttt{VALVE\textunderscore STATE}: \texttt{ACTUAL}, \texttt{PROGRAMMED}.
 
 \item \texttt{VARIABLE}  
 
@@ -712,8 +769,9 @@ The value of \property{type}[DataItem] with \property{category}[DataItem] \textt
 
 \item \texttt{ACCELERATION}  
 
-The measurement of the rate of change of velocity.
+Positive rate of change of velocity.
 
+Subtypes of \texttt{ACCELERATION}: \texttt{ACTUAL}, \texttt{PROGRAMMED}, \texttt{COMMANDED}.
 
 \item \texttt{ACCUMULATED\textunderscore TIME}  
 
@@ -748,8 +806,9 @@ Subtypes of \texttt{ANGLE}: \texttt{COMMANDED}, \texttt{ACTUAL}.
 
 \item \texttt{ANGULAR\textunderscore ACCELERATION}  
 
-The measurement rate of change of angular velocity.
+Positive rate of change of angular velocity.
 
+Subtypes of \texttt{ANGULAR\textunderscore ACCELERATION}: \texttt{PROGRAMMED}, \texttt{ACTUAL}, \texttt{COMMANDED}.
 
 \item \texttt{ANGULAR\textunderscore DECELERATION}  
 
@@ -857,7 +916,7 @@ The measurement of the change in position of an object.
 
 \item \texttt{ELECTRICAL\textunderscore ENERGY}  
 
-The measurement of electrical energy consumption by a component.
+The value of the \block{Wattage} used or generated by a component over an interval of time.
 
 
 \item \texttt{EQUIPMENT\textunderscore TIMER}  
@@ -919,7 +978,7 @@ Represents the level of a resource.
 
 \item \texttt{LINEAR\textunderscore FORCE}  
 
-A \gls{Force} applied to a mass in one direction only.
+A \gls{force} applied to a mass in one direction only.
 
 
 \item \texttt{LOAD}  
@@ -993,6 +1052,7 @@ The force per unit area measured relative to a vacuum.
 
 The change of pressure per unit time.
 
+Subtypes of \texttt{PRESSURIZATION\textunderscore RATE}: \texttt{COMMANDED}, \texttt{ACTUAL}, \texttt{PROGRAMMED}.
 
 \item \texttt{PROCESS\textunderscore TIMER}  
 
@@ -1094,13 +1154,13 @@ The measurement of reactive power in an AC electrical circuit (commonly referred
 
 The fluid volume of an object or container.
 
-Subtypes of \texttt{VOLUME\textunderscore FLUID}: \texttt{ACTUAL}, \texttt{CONSUMED}.
+Subtypes of \texttt{VOLUME\textunderscore FLUID}: \texttt{ACTUAL}, \texttt{CONSUMED}, \texttt{PART}, \texttt{WASTE}, \texttt{START}, \texttt{ENDED}.
 
 \item \texttt{VOLUME\textunderscore SPATIAL}  
 
 The geometric volume of an object or container.
 
-Subtypes of \texttt{VOLUME\textunderscore SPATIAL}: \texttt{ACTUAL}, \texttt{CONSUMED}.
+Subtypes of \texttt{VOLUME\textunderscore SPATIAL}: \texttt{ACTUAL}, \texttt{CONSUMED}, \texttt{PART}, \texttt{WASTE}, \texttt{ENDED}, \texttt{START}.
 
 \item \texttt{WATTAGE}  
 

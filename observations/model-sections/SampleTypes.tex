@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:48 +0530
+% Generated 2021-08-25 18:02:24 +0530
 \subsection{Sample Types} \label{sec:Sample Types}
 
 
@@ -10,10 +10,37 @@ This section lists the \block{Sample} types.
 
 
 
-The measurement of the rate of change of velocity.
+Positive rate of change of velocity.
 
 
 \texttt{units}: \texttt{MILLIMETER/SECOND\^{}2}.
+
+\paragraph{Subtypes of Acceleration}\mbox{}
+\label{sec:Subtypes of Acceleration}
+
+\begin{itemize}
+
+\item \texttt{ACTUAL}
+
+
+The measured or reported value of an \gls{observation}.
+
+\item \texttt{COMMANDED}
+
+
+Directive value including adjustments such as an offset or overrides.
+
+\item \texttt{PROGRAMMED}
+
+
+Directive value without offsets and adjustments.
+
+
+\end{itemize}
+
+
+
+
 
 
 \subsubsection{AccumulatedTime}
@@ -47,7 +74,7 @@ The measurement of electrical current.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{ALTERNATING}
 
@@ -62,7 +89,7 @@ The measurement of DC current or voltage.
 \item \texttt{TARGET}
 
 
-The desired measure or count for a data item value.
+The goal of the operation or process.
 
 
 \end{itemize}
@@ -91,17 +118,17 @@ The measurement of an electrical current that reverses direction at regular shor
 \item \texttt{ACTUAL}
 
 
-The measured amperage within an electrical circuit.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-The value for a current as specified by a component. 
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{PROGRAMMED}
 
 
-The value for a current as specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 
 \end{itemize}
@@ -129,18 +156,17 @@ The measurement of an electric current flowing in one direction only.
 \item \texttt{ACTUAL}
 
 
-The measured amperage within an electrical circuit.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-The value for a current as specified by a component. 
-The \block{COMMANDED} current is a calculated value that includes adjustments and overrides.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{PROGRAMMED}
 
 
-The value for a current as specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 
 \end{itemize}
@@ -168,12 +194,12 @@ The measurement of angular position.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 
 \end{itemize}
@@ -187,10 +213,37 @@ A value specified by the \block{Controller} type component.
 
 
 
-The measurement rate of change of angular velocity.
+Positive rate of change of angular velocity.
 
 
 \texttt{units}: \texttt{DEGREE/SECOND\^{}2}.
+
+\paragraph{Subtypes of AngularAcceleration}\mbox{}
+\label{sec:Subtypes of AngularAcceleration}
+
+\begin{itemize}
+
+\item \texttt{ACTUAL}
+
+
+The measured or reported value of an \gls{observation}.
+
+\item \texttt{COMMANDED}
+
+
+Directive value including adjustments such as an offset or overrides.
+
+\item \texttt{PROGRAMMED}
+
+
+Directive value without offsets and adjustments.
+
+
+\end{itemize}
+
+
+
+
 
 
 \subsubsection{AngularDeceleration}
@@ -211,17 +264,17 @@ Negative rate of change of angular velocity.
 \item \texttt{ACTUAL}
 
 
-The measured value.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-The commanded value.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{PROGRAMMED}
 
 
-The programmed value.
+Directive value without offsets and adjustments.
 
 
 \end{itemize}
@@ -271,12 +324,12 @@ The measurement of the feedrate of a linear axis.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{JOG}
 
@@ -291,12 +344,12 @@ The operators overridden value.
 \item \texttt{PROGRAMMED}
 
 
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 \item \texttt{RAPID}
 
 
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+Performing an operation faster or in less time than nominal rate.
 
 
 \end{itemize}
@@ -382,17 +435,17 @@ The speed difference (relative velocity) between the cutting mechanism and the s
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{PROGRAMMED}
 
 
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 
 \end{itemize}
@@ -420,17 +473,17 @@ Negative rate of change of velocity.
 \item \texttt{ACTUAL}
 
 
-The measured value.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-The commanded value.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{PROGRAMMED}
 
 
-The programmed value.
+Directive value without offsets and adjustments.
 
 
 \end{itemize}
@@ -469,12 +522,12 @@ The rate of change in spatial volume of material deposited in an additive manufa
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 
 \end{itemize}
@@ -501,12 +554,12 @@ The density of the material deposited in an additive manufacturing process per u
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 
 \end{itemize}
@@ -533,12 +586,12 @@ The mass of the material deposited in an additive manufacturing process.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 
 \end{itemize}
@@ -565,12 +618,12 @@ The rate at which a spatial volume of material is deposited in an additive manuf
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 
 \end{itemize}
@@ -597,12 +650,12 @@ The spatial volume of material to be deposited in an additive manufacturing proc
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 
 \end{itemize}
@@ -638,7 +691,7 @@ The measurement of the change in position of an object.
 
 
 
-The measurement of electrical energy consumption by a component.
+The value of the \block{Wattage} used or generated by a \block{Component} over an interval of time.
 
 
 \texttt{units}: \texttt{WATT\textunderscore SECOND}.
@@ -662,7 +715,7 @@ The measurement of the amount of time a piece of equipment or a sub-part of a pi
 \item \texttt{DELAY}
 
 
-A piece of equipment waiting for an event or an action to occur.
+The elapsed time of a temporary halt of action.
 
 \item \texttt{LOADED}
 
@@ -754,12 +807,12 @@ The amount of water vapor expressed in grams per cubic meter.
 \item \texttt{ACTUAL}
 
 
-The measured value.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-The commanded value.
+Directive value including adjustments such as an offset or overrides.
 
 
 \end{itemize}
@@ -786,12 +839,12 @@ The amount of water vapor present expressed as a percent to reach saturation at 
 \item \texttt{ACTUAL}
 
 
-The measured value.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-The commanded value.
+Directive value including adjustments such as an offset or overrides.
 
 
 \end{itemize}
@@ -818,12 +871,12 @@ The ratio of the water vapor present over the total weight of the water vapor an
 \item \texttt{ACTUAL}
 
 
-The measured value.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-The commanded value.
+Directive value including adjustments such as an offset or overrides.
 
 
 \end{itemize}
@@ -943,12 +996,12 @@ A measured or calculated orientation of a plane or vector relative to a cartesia
 \item \texttt{ACTUAL}
 
 
-The measured value.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-The commanded value.
+Directive value including adjustments such as an offset or overrides.
 
 
 \end{itemize}
@@ -986,12 +1039,12 @@ The measurement of the feedrate for the axes, or a single axis, associated with 
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{JOG}
 
@@ -1006,12 +1059,12 @@ The operators overridden value.
 \item \texttt{PROGRAMMED}
 
 
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 \item \texttt{RAPID}
 
 
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+Performing an operation faster or in less time than nominal rate.
 
 
 \end{itemize}
@@ -1042,17 +1095,17 @@ The feedrate for the axes, or a single axis.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{PROGRAMMED}
 
 
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 
 \end{itemize}
@@ -1080,22 +1133,24 @@ A measured or calculated position of a control point associated with a \block{Co
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{PROBE}
 
 
 The position provided by a measurement probe.
 
+\textbf{DEPRECATION WARNING}: May be deprecated in the future.
+
 \item \texttt{TARGET}
 
 
-The desired measure or count for a data item value.
+The goal of the operation or process.
 
 
 \end{itemize}
@@ -1124,22 +1179,22 @@ A measured or calculated position of a \block{Component} element as reported by 
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{PROGRAMMED}
 
 
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 \item \texttt{TARGET}
 
 
-The desired measure or count for a data item value.
+The goal of the operation or process.
 
 
 \end{itemize}
@@ -1195,6 +1250,33 @@ The change of pressure per unit time.
 
 \texttt{units}: \texttt{PASCAL/SECOND}.
 
+\paragraph{Subtypes of PressurizationRate}\mbox{}
+\label{sec:Subtypes of PressurizationRate}
+
+\begin{itemize}
+
+\item \texttt{ACTUAL}
+
+
+The measured or reported value of an \gls{observation}.
+
+\item \texttt{COMMANDED}
+
+
+Directive value including adjustments such as an offset or overrides.
+
+\item \texttt{PROGRAMMED}
+
+
+Directive value without offsets and adjustments.
+
+
+\end{itemize}
+
+
+
+
+
 
 \subsubsection{ProcessTimer}
 \label{sec:ProcessTimer}
@@ -1214,7 +1296,7 @@ The measurement of the amount of time a piece of equipment has performed differe
 \item \texttt{DELAY}
 
 
-A piece of equipment waiting for an event or an action to occur.
+The elapsed time of a temporary halt of action.
 
 \item \texttt{PROCESS}
 
@@ -1257,12 +1339,12 @@ The measurement of the rotational speed of a rotary axis.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{OVERRIDE}
 
@@ -1272,7 +1354,7 @@ The operators overridden value.
 \item \texttt{PROGRAMMED}
 
 
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 
 \end{itemize}
@@ -1353,12 +1435,12 @@ The rotational speed of the rotary axis.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-A value specified by the \block{Controller} type component.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{OVERRIDE}
 
@@ -1492,7 +1574,7 @@ The measurement of electrical potential between two points.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{ALTERNATING}
 
@@ -1507,7 +1589,7 @@ The measurement of DC current or voltage.
 \item \texttt{TARGET}
 
 
-The desired measure or count for a data item value.
+The goal of the operation or process.
 
 
 \end{itemize}
@@ -1536,17 +1618,17 @@ The measurement of the electrical potential between two points in an electrical 
 \item \texttt{ACTUAL}
 
 
-The measured voltage within an electrical circuit.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-The value for a voltage as specified by a \block{Controller} component.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{PROGRAMMED}
 
 
-The value for a voltage as specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 
 \end{itemize}
@@ -1574,17 +1656,17 @@ The measurement of the electrical potential between two points in an electrical 
 \item \texttt{ACTUAL}
 
 
-The measured voltage within an electrical circuit.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{COMMANDED}
 
 
-The value for a voltage as specified by a \block{Controller} component.
+Directive value including adjustments such as an offset or overrides.
 
 \item \texttt{PROGRAMMED}
 
 
-The value for a voltage as specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 
 \end{itemize}
@@ -1612,15 +1694,39 @@ The fluid volume of an object or container.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{CONSUMED}
 
 
-The amount of bulk material consumed from an object or container during a manufacturing process.
+Reported or measured value of the amount used in the manufacturing process.
+
+\item \texttt{ENDED}
+
+
+Boundary when an activity or an event terminates.
+
+\item \texttt{PART}
+
+
+Reported or measured value of amount included in the \gls{part}.
+
+\item \texttt{START}
+
+
+Boundary when an activity or an event commences.
+
+\item \texttt{WASTE}
+
+
+Reported or measured value of the amount discarded.
 
 
 \end{itemize}
+
+
+
+
 
 
 
@@ -1644,15 +1750,39 @@ The geometric volume of an object or container.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{CONSUMED}
 
 
-The amount of bulk material consumed from an object or container during a manufacturing process.
+Reported or measured value of the amount used in the manufacturing process.
+
+\item \texttt{ENDED}
+
+
+Boundary when an activity or an event terminates.
+
+\item \texttt{PART}
+
+
+Reported or measured value of amount included in the \gls{part}.
+
+\item \texttt{START}
+
+
+Boundary when an activity or an event commences.
+
+\item \texttt{WASTE}
+
+
+Reported or measured value of the amount discarded.
 
 
 \end{itemize}
+
+
+
+
 
 
 
@@ -1676,12 +1806,12 @@ The measurement of power flowing through or dissipated by an electrical circuit 
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{TARGET}
 
 
-The desired measure or count for a data item value.
+The goal of the operation or process.
 
 
 \end{itemize}

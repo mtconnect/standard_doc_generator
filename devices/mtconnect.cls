@@ -119,7 +119,7 @@
 % Formatting for MTConnect with registration mark, which is required in title and footer. 
 \newcommand{\mtconnectregistered}{MTConnect\textsuperscript{\textregistered} }
 % Formatting for MTConnect without registration mark, which can be used everywhere except title page(s) and footer. 
-%\newcommand{\mtconnect}{MTConnect } %Use \gls{mtconnect}
+%\newcommand{\mtconnect}{MTConnect } %Use MTConnect
 
 \newcommand{\storedstringPCR}[1]{{\fontfamily{pcr}\selectfont #1}}
 
@@ -194,7 +194,7 @@
         	Prepared on: \@preparedon \\%
 		\end{tabular}%
 		\vfill%
-		\noindent \footnotesize{\mtconnectregistered is a registered trademark of AMT - The Association for Manufacturing Technology. Use of \gls{MTConnect} is limited to use as specified on \url{http://www.mtconnect.org/}.}%
+		\noindent \footnotesize{\mtconnectregistered is a registered trademark of AMT - The Association for Manufacturing Technology. Use of MTConnect is limited to use as specified on \url{http://www.mtconnect.org/}.}%
     \end{titlepage}%
     \setcounter{page}{1}%
 }
@@ -355,6 +355,13 @@
 %}
 
 \newglossary*{mtc}{MTConnect Terms}
+\newglossary*{general}{General Terms}
+\newglossary*{informationmodel}{Information Model Terms}
+\newglossary*{protocol}{Protocol Terms}
+\newglossary*{xml}{XML Terms}
+\newglossary*{http}{HTTP Terms}
+\newglossary*{conceptmodel}{Concept Model Terms}
+
 \makeglossaries
 
 \glsaddkey

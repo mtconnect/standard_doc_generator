@@ -1,10 +1,77 @@
-% Generated 2021-02-25 22:49:48 +0530
+% Generated 2021-08-25 18:02:24 +0530
 \subsection{Event Types} \label{sec:Event Types}
 
 
 This section lists the \block{Event} types and their subtypes. 
 
-The section also lists the \gls{Controlled Vocabulary} for types that have \property{result} type of \texttt{Enumeration}.
+The section also lists the \gls{controlled vocabulary} for types that have \property{result} type of \texttt{Enumeration}.
+
+
+\subsubsection{ActivationCount}
+\label{sec:ActivationCount}
+
+
+
+Accumulation of the number of times a function has attempted to, or is planned to attempt to, activate or be performed.
+
+
+\paragraph{Subtypes of ActivationCount}\mbox{}
+\label{sec:Subtypes of ActivationCount}
+
+\begin{itemize}
+
+\item \texttt{ALL}
+
+
+An accumulation representing actions or activities that were attempted, but terminated before they could be completed.
+
+\item \texttt{ALL}
+
+
+An accumulation representing all actions, items, or activities being counted independent of the outcome.
+
+\item \texttt{BAD}
+
+
+An accumulation representing actions, items, or activities being counted that do not conform to specification or expectation.
+
+\item \texttt{COMPLETE}
+
+
+An accumulation representing actions, items, or activities that have been completed, independent of the outcome.
+
+\item \texttt{FAILED}
+
+
+An accumulation representing actions or activities that were attempted, but failed to
+complete or resulted in an unexpected or unacceptable outcome.
+
+\item \texttt{GOOD}
+
+
+An accumulation representing actions, items, or activities being counted that conform to specification or expectation.
+
+\item \texttt{REMAINING}
+
+
+An accumulation representing actions, items, or activities yet to be counted.
+
+\item \texttt{TARGET}
+
+
+The goal of the operation or process.
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
 
 
 \subsubsection{ActiveAxes}
@@ -15,7 +82,7 @@ The section also lists the \gls{Controlled Vocabulary} for types that have \prop
 The result is a space delimited list of axes names.
 
 
-The value of \texttt{ActiveAxes} \MUST be \texttt{arraystring}.
+The value of \texttt{ActiveAxes} \MUST be \texttt{string}.
 
 
 
@@ -33,8 +100,8 @@ The value of \texttt{ActuatorState} \MUST be one of the following:
 \texttt{ActuatorStateEnum} Enumeration:
 
 \begin{itemize}
-\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
-\item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
+\item \texttt{ACTIVE} \newline The value of the \gls{data entity} that is engaging. 
+\item \texttt{INACTIVE} \newline The value of the \gls{data entity} that is not engaging. 
 \end{itemize}
 
 
@@ -44,7 +111,7 @@ The value of \texttt{ActuatorState} \MUST be one of the following:
 
 
 
-The originator’s software version of the \gls{Adapter}.
+The originator’s software version of the \gls{adapter}.
 
 
 
@@ -53,7 +120,7 @@ The originator’s software version of the \gls{Adapter}.
 
 
 
-The \gls{URI} of the \gls{Adapter}.
+The \gls{URI} of the \gls{adapter}.
 
 
 
@@ -62,7 +129,7 @@ The \gls{URI} of the \gls{Adapter}.
 
 
 
-\textbf{DEPRECATED:} Replaced with \block{CONDITION} category data items in Version 1.1.0.
+\textbf{DEPRECATED:} Replaced with \texttt{CONDITION} category data items in Version 1.1.0.
 
 
 
@@ -74,28 +141,33 @@ The \gls{URI} of the \gls{Adapter}.
 A set of limits used to trigger warning or alarm indicators.
 
 
-The \block{Entry} \property{key} \MUST be one or more from the following:
+\paragraph{Attributes of AlarmLimit}\mbox{}
+\label{sec:Attributes of AlarmLimit}
 
-\texttt{AlarmLimitResultType} keys:
+\tbl{Attributes of AlarmLimit} lists the attributes of \texttt{AlarmLimit}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of AlarmLimit}
+  \label{table:Attributes of AlarmLimit}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{result}[AlarmLimit] & \texttt{AlarmLimitResult} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{AlarmLimit}:
 
 \begin{itemize}
-\item \texttt{UPPER\textunderscore LIMIT} \newline The upper conformance boundary for a variable.
 
-\newline Note: immediate concern or action may be required. 
-\newline The value of \texttt{UPPER\textunderscore LIMIT} \MUST be \texttt{float}.
-
-\item \texttt{UPPER\textunderscore WARNING} \newline The upper boundary indicating increased concern and supervision may be required. 
-\newline The value of \texttt{UPPER\textunderscore WARNING} \MUST be \texttt{float}.
-
-\item \texttt{LOWER\textunderscore WARNING} \newline The lower boundary indicating increased concern and supervision may be required. 
-\newline The value of \texttt{LOWER\textunderscore WARNING} \MUST be \texttt{float}.
-
-\item \texttt{LOWER\textunderscore LIMIT} \newline The lower conformance boundary for a variable.
-
-\newline Note: immediate concern or action may be required. 
-\newline The value of \texttt{LOWER\textunderscore LIMIT} \MUST be \texttt{float}.
-
+\item \property{result}[AlarmLimit] \newline 
 \end{itemize}
+
 
 
 
@@ -117,6 +189,9 @@ The application on a component.
 
 The date the hardware or software was installed.
 
+
+The value for \block{Application} when \property{subType} is \texttt{INSTALL\textunderscore DATE} \MUST be one of the following: 
+
 \item \texttt{LICENSE}
 
 
@@ -131,6 +206,9 @@ The corporate identity for the maker of the hardware or software.
 
 
 The date the hardware or software was released for general use.
+
+
+The value for \block{Application} when \property{subType} is \texttt{RELEASE\textunderscore DATE} \MUST be one of the following: 
 
 \item \texttt{VERSION}
 
@@ -238,7 +316,7 @@ Descriptions for attributes of \block{AssetRemoved}:
 
 
 
-Represents the \gls{Agent}'s ability to communicate with the data source.
+Represents the \gls{agent}'s ability to communicate with the data source.
 
 
 The value of \texttt{Availability} \MUST be one of the following: 
@@ -248,7 +326,7 @@ The value of \texttt{Availability} \MUST be one of the following:
 
 \begin{itemize}
 \item \texttt{AVAILABLE} \newline The value or status of an XML element when it is available. 
-\item \texttt{UNAVAILABLE} \newline The value of the \gls{Data Entity} either when the data is not received or the entity is incapable of providing data. 
+\item \texttt{UNAVAILABLE} \newline The value of the \gls{data entity} either when the data is not received or the entity is incapable of providing data. 
 \end{itemize}
 
 
@@ -301,12 +379,12 @@ The feedrate specified by a logic or motion program, by a pre-set value, or set 
 \item \texttt{PROGRAMMED}
 
 
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 \item \texttt{RAPID}
 
 
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+Performing an operation faster or in less time than nominal rate.
 
 
 \end{itemize}
@@ -330,8 +408,8 @@ The value of \texttt{AxisInterlock} \MUST be one of the following:
 \texttt{ActuatorStateEnum} Enumeration:
 
 \begin{itemize}
-\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
-\item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
+\item \texttt{ACTIVE} \newline The value of the \gls{data entity} that is engaging. 
+\item \texttt{INACTIVE} \newline The value of the \gls{data entity} that is not engaging. 
 \end{itemize}
 
 
@@ -363,7 +441,7 @@ The value of \texttt{AxisState} \MUST be one of the following:
 
 
 
-The line of code or command being executed by a \block{Controller} \gls{Structural Element}.
+The line of code or command being executed by a \block{Controller} \gls{structural element}.
 
 
 
@@ -393,8 +471,8 @@ The value of \texttt{ChuckInterlock} \MUST be one of the following:
 \texttt{ActuatorStateEnum} Enumeration:
 
 \begin{itemize}
-\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
-\item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
+\item \texttt{ACTIVE} \newline The value of the \gls{data entity} that is engaging. 
+\item \texttt{INACTIVE} \newline The value of the \gls{data entity} that is not engaging. 
 \end{itemize}
 
 
@@ -434,24 +512,6 @@ The value of \texttt{ChuckState} \MUST be one of the following:
 \item \texttt{CLOSED} \newline A component is closed to the point of a positive confirmation. 
 \item \texttt{UNLATCHED} \newline An intermediate position. 
 \end{itemize}
-
-
-
-\subsubsection{CloseChuck}
-\label{sec:CloseChuck}
-
-
-
-Service to close a chuck.
-
-
-
-\subsubsection{CloseDoor}
-\label{sec:CloseDoor}
-
-
-
-Service to close a door.
 
 
 
@@ -587,7 +647,7 @@ The value for \block{CompositionState} when \property{subType} is \texttt{VERTIC
 
 
 
-The status of the connection between an \gls{Adapter} and an \gls{Agent}.
+The status of the connection between an \gls{adapter} and an \gls{agent}.
 
 
 The value of \texttt{ConnectionStatus} \MUST be one of the following: 
@@ -597,7 +657,7 @@ The value of \texttt{ConnectionStatus} \MUST be one of the following:
 
 \begin{itemize}
 \item \texttt{CLOSED} \newline represents no connection at all. 
-\item \texttt{LISTEN} \newline represents the \gls{Agent} waiting for a connection request from an \gls{Adapter}. 
+\item \texttt{LISTEN} \newline represents the \gls{agent} waiting for a connection request from an \gls{adapter}. 
 \item \texttt{ESTABLISHED} \newline represents an open connection.
 
 The normal state for the data transfer phase of the connection. 
@@ -613,31 +673,33 @@ The normal state for the data transfer phase of the connection.
 A set of limits used to indicate whether a process variable is stable and in control.
 
 
-The \block{Entry} \property{key} \MUST be one or more from the following:
+\paragraph{Attributes of ControlLimit}\mbox{}
+\label{sec:Attributes of ControlLimit}
 
-\texttt{ControlLimitResultType} keys:
+\tbl{Attributes of ControlLimit} lists the attributes of \texttt{ControlLimit}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of ControlLimit}
+  \label{table:Attributes of ControlLimit}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{result}[ControlLimit] & \texttt{ControlLimitResult} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{ControlLimit}:
 
 \begin{itemize}
-\item \texttt{UPPER\textunderscore LIMIT} \newline The upper conformance boundary for a variable.
 
-\newline Note: immediate concern or action may be required. 
-\newline The value of \texttt{UPPER\textunderscore LIMIT} \MUST be \texttt{float}.
-
-\item \texttt{UPPER\textunderscore WARNING} \newline The upper boundary indicating increased concern and supervision may be required. 
-\newline The value of \texttt{UPPER\textunderscore WARNING} \MUST be \texttt{float}.
-
-\item \texttt{NOMINAL} \newline The ideal or desired value for a variable. 
-\newline The value of \texttt{NOMINAL} \MUST be \texttt{float}.
-
-\item \texttt{LOWER\textunderscore WARNING} \newline The lower boundary indicating increased concern and supervision may be required. 
-\newline The value of \texttt{LOWER\textunderscore WARNING} \MUST be \texttt{float}.
-
-\item \texttt{LOWER\textunderscore LIMIT} \newline The lower conformance boundary for a variable.
-
-\newline Note: immediate concern or action may be required. 
-\newline The value of \texttt{LOWER\textunderscore LIMIT} \MUST be \texttt{float}.
-
+\item \property{result}[ControlLimit] \newline 
 \end{itemize}
+
 
 
 
@@ -749,7 +811,74 @@ Program execution is paused when a command is executed requesting a cutting tool
 Refers to the set of associated axes.
 
 
-The value of \texttt{CoupledAxes} \MUST be \texttt{arraystring}.
+The value of \texttt{CoupledAxes} \MUST be \texttt{string}.
+
+
+
+\subsubsection{CycleCount}
+\label{sec:CycleCount}
+
+
+
+Accumulation of the number of times a cyclic function has attempted to, or is planned to attempt to execute.
+
+
+\paragraph{Subtypes of CycleCount}\mbox{}
+\label{sec:Subtypes of CycleCount}
+
+\begin{itemize}
+
+\item \texttt{ALL}
+
+
+An accumulation representing actions or activities that were attempted, but terminated before they could be completed.
+
+\item \texttt{ALL}
+
+
+An accumulation representing all actions, items, or activities being counted independent of the outcome.
+
+\item \texttt{BAD}
+
+
+An accumulation representing actions, items, or activities being counted that do not conform to specification or expectation.
+
+\item \texttt{COMPLETE}
+
+
+An accumulation representing actions, items, or activities that have been completed, independent of the outcome.
+
+\item \texttt{FAILED}
+
+
+An accumulation representing actions or activities that were attempted, but failed to
+complete or resulted in an unexpected or unacceptable outcome.
+
+\item \texttt{GOOD}
+
+
+An accumulation representing actions, items, or activities being counted that conform to specification or expectation.
+
+\item \texttt{REMAINING}
+
+
+An accumulation representing actions, items, or activities yet to be counted.
+
+\item \texttt{TARGET}
+
+
+The goal of the operation or process.
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
 
 
 
@@ -791,6 +920,73 @@ The time and date code relating to the production of a material or other physica
 
 
 
+\subsubsection{DeactivationCount}
+\label{sec:DeactivationCount}
+
+
+
+Accumulation of the number of times a function has attempted to, or is planned to attempt to, de-activate or cease.
+
+
+\paragraph{Subtypes of DeactivationCount}\mbox{}
+\label{sec:Subtypes of DeactivationCount}
+
+\begin{itemize}
+
+\item \texttt{ALL}
+
+
+An accumulation representing actions or activities that were attempted, but terminated before they could be completed.
+
+\item \texttt{ALL}
+
+
+An accumulation representing all actions, items, or activities being counted independent of the outcome.
+
+\item \texttt{BAD}
+
+
+An accumulation representing actions, items, or activities being counted that do not conform to specification or expectation.
+
+\item \texttt{COMPLETE}
+
+
+An accumulation representing actions, items, or activities that have been completed, independent of the outcome.
+
+\item \texttt{FAILED}
+
+
+An accumulation representing actions or activities that were attempted, but failed to
+complete or resulted in an unexpected or unacceptable outcome.
+
+\item \texttt{GOOD}
+
+
+An accumulation representing actions, items, or activities being counted that conform to specification or expectation.
+
+\item \texttt{REMAINING}
+
+
+An accumulation representing actions, items, or activities yet to be counted.
+
+\item \texttt{TARGET}
+
+
+The goal of the operation or process.
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
 \subsubsection{DeviceAdded}
 \label{sec:DeviceAdded}
 
@@ -805,7 +1001,7 @@ An \block{Event} that provides the \gls{UUID} of new device added to an \gls{MTC
 
 
 
-An \block{Event} that provides the \gls{UUID} of the device whose \gls{Metadata} has changed.
+An \block{Event} that provides the \gls{UUID} of the device whose \gls{metadata} has changed.
 
 
 
@@ -995,7 +1191,7 @@ The value of \texttt{EquipmentMode} \MUST be one of the following:
 \item \texttt{DELAY}
 
 
-A piece of equipment waiting for an event or an action to occur.
+The elapsed time of a temporary halt of action.
 
 \item \texttt{LOADED}
 
@@ -1042,7 +1238,7 @@ The value of \texttt{Execution} \MUST be one of the following:
 
 \begin{itemize}
 \item \texttt{READY} \newline A component is ready to engage. 
-\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
+\item \texttt{ACTIVE} \newline The value of the \gls{data entity} that is engaging. 
 \item \texttt{INTERRUPTED} \newline The action of a \block{Component} has been suspended due to an external signal. 
 \item \texttt{FEED\textunderscore HOLD} \newline Motion of a \block{Component} has been commanded to stop at its current position. 
 \item \texttt{STOPPED} \newline The component is stopped. 
@@ -1071,6 +1267,9 @@ The embedded software of a component.
 
 The date the hardware or software was installed.
 
+
+The value for \block{Firmware} when \property{subType} is \texttt{INSTALL\textunderscore DATE} \MUST be one of the following: 
+
 \item \texttt{LICENSE}
 
 
@@ -1085,6 +1284,9 @@ The corporate identity for the maker of the hardware or software.
 
 
 The date the hardware or software was released for general use.
+
+
+The value for \block{Firmware} when \property{subType} is \texttt{RELEASE\textunderscore DATE} \MUST be one of the following: 
 
 \item \texttt{VERSION}
 
@@ -1115,11 +1317,11 @@ The value of \texttt{FunctionalMode} \MUST be one of the following:
 \texttt{FunctionalModeEnum} Enumeration:
 
 \begin{itemize}
-\item \texttt{PRODUCTION} \newline A \gls{Structural Element} is currently producing product. 
-\item \texttt{SETUP} \newline A \gls{Structural Element} is being prepared or modified to begin production of product. 
-\item \texttt{TEARDOWN} \newline Typically, a \gls{Structural Element} has completed the production of a product and is being modified or returned to a neutral state such that it may then be prepared to begin production of a different product. 
+\item \texttt{PRODUCTION} \newline A \gls{structural element} is currently producing product. 
+\item \texttt{SETUP} \newline A \gls{structural element} is being prepared or modified to begin production of product. 
+\item \texttt{TEARDOWN} \newline Typically, a \gls{structural element} has completed the production of a product and is being modified or returned to a neutral state such that it may then be prepared to begin production of a different product. 
 \item \texttt{MAINTENANCE} \newline Action related to maintenance on the piece of equipment. 
-\item \texttt{PROCESS\textunderscore DEVELOPMENT} \newline A \gls{Structural Element} is being used to prove-out a new process. 
+\item \texttt{PROCESS\textunderscore DEVELOPMENT} \newline A \gls{structural element} is being used to prove-out a new process. 
 \end{itemize}
 
 
@@ -1199,6 +1401,9 @@ The hardware of a component.
 
 The date the hardware or software was installed.
 
+
+The value for \block{Hardware} when \property{subType} is \texttt{INSTALL\textunderscore DATE} \MUST be one of the following: 
+
 \item \texttt{LICENSE}
 
 
@@ -1214,6 +1419,9 @@ The corporate identity for the maker of the hardware or software.
 
 The date the hardware or software was released for general use.
 
+
+The value for \block{Hardware} when \property{subType} is \texttt{RELEASE\textunderscore DATE} \MUST be one of the following: 
+
 \item \texttt{VERSION}
 
 
@@ -1226,26 +1434,6 @@ The version of the hardware or software.
 
 
 
-
-
-
-\subsubsection{InterfaceState}
-
-
-
-
-An indication of the operational state of an \block{Interface} component.
-
-
-The value of \texttt{InterfaceState} \MUST be one of the following: 
-
-
-\texttt{EnabledStateEnum} Enumeration:
-
-\begin{itemize}
-\item \texttt{ENABLED} \newline A component is currently operational and performing as expected. 
-\item \texttt{DISABLED} \newline A component is currently not operational. 
-\end{itemize}
 
 
 
@@ -1267,6 +1455,9 @@ The software library on a component.
 
 The date the hardware or software was installed.
 
+
+The value for \block{Library} when \property{subType} is \texttt{INSTALL\textunderscore DATE} \MUST be one of the following: 
+
 \item \texttt{LICENSE}
 
 
@@ -1281,6 +1472,9 @@ The corporate identity for the maker of the hardware or software.
 
 
 The date the hardware or software was released for general use.
+
+
+The value for \block{Library} when \property{subType} is \texttt{RELEASE\textunderscore DATE} \MUST be one of the following: 
 
 \item \texttt{VERSION}
 
@@ -1371,12 +1565,99 @@ The position of a block of program code relative to the occurrence of the last \
 
 
 
+\subsubsection{LoadCount}
+\label{sec:LoadCount}
+
+
+
+Accumulation of the number of times an operation has attempted to, or is planned to attempt to, load materials, parts, or other items.
+
+
+\paragraph{Subtypes of LoadCount}\mbox{}
+\label{sec:Subtypes of LoadCount}
+
+\begin{itemize}
+
+\item \texttt{ALL}
+
+
+An accumulation representing actions or activities that were attempted, but terminated before they could be completed.
+
+\item \texttt{ALL}
+
+
+An accumulation representing all actions, items, or activities being counted independent of the outcome.
+
+\item \texttt{BAD}
+
+
+An accumulation representing actions, items, or activities being counted that do not conform to specification or expectation.
+
+\item \texttt{COMPLETE}
+
+
+An accumulation representing actions, items, or activities that have been completed, independent of the outcome.
+
+\item \texttt{FAILED}
+
+
+An accumulation representing actions or activities that were attempted, but failed to
+complete or resulted in an unexpected or unacceptable outcome.
+
+\item \texttt{GOOD}
+
+
+An accumulation representing actions, items, or activities being counted that conform to specification or expectation.
+
+\item \texttt{REMAINING}
+
+
+An accumulation representing actions, items, or activities yet to be counted.
+
+\item \texttt{TARGET}
+
+
+The goal of the operation or process.
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{LockState}
+\label{sec:LockState}
+
+
+
+The state of a valve is one of open, closed, or transitioning between the states.
+
+
+The value of \texttt{LockState} \MUST be one of the following: 
+
+
+\texttt{LockStateEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{LOCKED} \newline The mechanism is engaged and preventing the associated device or component from being opened or operated. 
+\item \texttt{UNLOCKED} \newline The mechanism is disengaged and the associated device or component is able to be opened or operated. 
+\end{itemize}
+
+
+
 \subsubsection{MTConnectVersion}
 \label{sec:MTConnectVersion}
 
 
 
-The reference version of the MTConnect Standard supported by the \gls{Adapter}.
+The reference version of the MTConnect Standard supported by the \gls{adapter}.
 
 
 
@@ -1386,24 +1667,6 @@ The reference version of the MTConnect Standard supported by the \gls{Adapter}.
 
 
 The identifier of a material used or consumed in the manufacturing process.
-
-
-
-\subsubsection{MaterialChange}
-\label{sec:MaterialChange}
-
-
-
-Service to change the type of material or product being loaded or fed to a piece of equipment.
-
-
-
-\subsubsection{MaterialFeed}
-\label{sec:MaterialFeed}
-
-
-
-Service to advance material or feed product to a piece of equipment from a continuous or bulk source.
 
 
 
@@ -1426,7 +1689,7 @@ The value of \texttt{MaterialLayer} \MUST be \texttt{integer}.
 \item \texttt{ACTUAL}
 
 
-The measured value of the data item type given by a sensor or encoder.
+The measured or reported value of an \gls{observation}.
 
 \item \texttt{TARGET}
 
@@ -1437,33 +1700,6 @@ The desired measure or count for a data item value.
 \end{itemize}
 
 
-
-
-
-\subsubsection{MaterialLoad}
-\label{sec:MaterialLoad}
-
-
-
-Service to load a piece of material or product.
-
-
-
-\subsubsection{MaterialRetract}
-\label{sec:MaterialRetract}
-
-
-
-Service to remove or retract material or product.
-
-
-
-\subsubsection{MaterialUnload}
-\label{sec:MaterialUnload}
-
-
-
-Service to unload a piece of material or product.
 
 
 
@@ -1547,24 +1783,6 @@ The value for \block{Network} when \property{subType} is \texttt{WIRELESS} \MUST
 
 
 
-\subsubsection{OpenChuck}
-\label{sec:OpenChuck}
-
-
-
-Service to open a chuck.
-
-
-
-\subsubsection{OpenDoor}
-\label{sec:OpenDoor}
-
-
-
-Service to open a door.
-
-
-
 \subsubsection{OperatingSystem}
 \label{sec:OperatingSystem}
 
@@ -1583,6 +1801,9 @@ The Operating System of a component.
 
 The date the hardware or software was installed.
 
+
+The value for \block{OperatingSystem} when \property{subType} is \texttt{INSTALL\textunderscore DATE} \MUST be one of the following: 
+
 \item \texttt{LICENSE}
 
 
@@ -1597,6 +1818,9 @@ The corporate identity for the maker of the hardware or software.
 
 
 The date the hardware or software was released for general use.
+
+
+The value for \block{OperatingSystem} when \property{subType} is \texttt{RELEASE\textunderscore DATE} \MUST be one of the following: 
 
 \item \texttt{VERSION}
 
@@ -1631,15 +1855,6 @@ The identifier for a pallet.
 
 
 
-\subsubsection{PartChange}
-\label{sec:PartChange}
-
-
-
-Service to change the part or product associated with a piece of equipment to a different part or product.
-
-
-
 \subsubsection{PartCount}
 \label{sec:PartCount}
 
@@ -1659,12 +1874,28 @@ The value of \texttt{PartCount} \MUST be \texttt{float}.
 \item \texttt{ALL}
 
 
+An accumulation representing actions or activities that were attempted, but terminated before they could be completed.
+
+\item \texttt{ALL}
+
+
 The number of parts produced. 
 
 \item \texttt{BAD}
 
 
 The number of parts produced that do not conform to specification.
+
+\item \texttt{COMPLETE}
+
+
+An accumulation representing actions, items, or activities that have been completed, independent of the outcome.
+
+\item \texttt{FAILED}
+
+
+An accumulation representing actions or activities that were attempted, but failed to
+complete or resulted in an unexpected or unacceptable outcome.
 
 \item \texttt{GOOD}
 
@@ -1679,10 +1910,13 @@ The number of remaining or in-stock parts to be produced.
 \item \texttt{TARGET}
 
 
-The number of projected or planned parts to be produced.
+The goal of the operation or process.
 
 
 \end{itemize}
+
+
+
 
 
 
@@ -1745,7 +1979,7 @@ An identifier that references a group of parts tracked as a lot.
 \item \texttt{RAW\textunderscore MATERIAL}
 
 
-The unique identifier for a singular piece of material that is used to make multiple parts.
+Material that is used to produce parts.
 
 \item \texttt{UUID}
 
@@ -1827,6 +2061,36 @@ An identifier of a part or product moving through the manufacturing process.
 
 
 
+\subsubsection{PartProcessingState}
+\label{sec:PartProcessingState}
+
+
+
+The particular condition of the part occurrence at a specific time.
+
+
+The value of \texttt{PartProcessingState} \MUST be one of the following: 
+
+
+\texttt{PartProcessingStateEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{NEEDS\textunderscore PROCESSING} \newline The part occurrence is not actively being processed, but the processing has not ended. Processing requirements exist that have not yet been fulfilled. This is the default entry state when the part occurrence is originally received. In some cases, the part occurrence may return to this state while it waits for additional processing to be performed. 
+\item \texttt{IN\textunderscore PROCESS} \newline The part occurrence is actively being processed. 
+\item \texttt{PROCESSING\textunderscore ENDED} \newline The part occurrence is no longer being processed. A general state when the reason for termination is unknown. 
+\item \texttt{PROCESSING\textunderscore ENDED\textunderscore COMPLETE} \newline The part occurrence has completed processing successfully. 
+\item \texttt{PROCESSING\textunderscore ENDED\textunderscore STOPPED} \newline The process has been stopped during the processing. The part occurrence will require special treatment. 
+\item \texttt{PROCESSING\textunderscore ENDED\textunderscore ABORTED} \newline The processing of the part occurrence has come to a premature end. 
+\item \texttt{PROCESSING\textunderscore ENDED\textunderscore LOST} \newline The terminal state when the part occurrence has been removed from the equipment by an external entity and it no longer exists at the equipment. 
+\item \texttt{PROCESSING\textunderscore ENDED\textunderscore SKIPPED} \newline The part occurrence has been skipped for processing on the piece of equipment. 
+\item \texttt{PROCESSING\textunderscore ENDED\textunderscore REJECTED} \newline The part occurrence has been processed completely; however, the processing may have a problem. 
+\item \texttt{WAITING\textunderscore FOR\textunderscore TRANSIT} \newline The part occurrence is waiting for transit. 
+\item \texttt{IN\textunderscore TRANSIT} \newline The part occurrence is being transported to its destination. 
+\item \texttt{TRANSIT\textunderscore COMPLETE} \newline The part occurrence has been placed at its designated destination. 
+\end{itemize}
+
+
+
 \subsubsection{PartStatus}
 \label{sec:PartStatus}
 
@@ -1867,7 +2131,7 @@ If no \property{subType} is specified, \texttt{UUID} is default.
 \item \texttt{RAW\textunderscore MATERIAL}
 
 
-The unique identifier for a singular piece of material that is used to make a single part.
+Material that is used to produce parts.
 
 \item \texttt{SERIAL\textunderscore NUMBER}
 
@@ -1911,12 +2175,12 @@ The feedrate specified by a logic or motion program, by a pre-set value, or set 
 \item \texttt{PROGRAMMED}
 
 
-The value of a signal or calculation specified by a logic or motion program or set by a switch.
+Directive value without offsets and adjustments.
 
 \item \texttt{RAPID}
 
 
-The value of a signal or calculation issued to adjust the feedrate of a component or composition that is operating in a rapid positioning mode.
+Performing an operation faster or in less time than nominal rate.
 
 
 \end{itemize}
@@ -1931,7 +2195,7 @@ The value of a signal or calculation issued to adjust the feedrate of a componen
 
 
 
-Describes the operational relationship between a \block{Path} \gls{Structural Element} and another \block{Path} \gls{Structural Element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
+Describes the operational relationship between a \block{Path} \gls{structural element} and another \block{Path} \gls{structural element} for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
 
 
 The value of \texttt{PathMode} \MUST be one of the following: 
@@ -1953,7 +2217,7 @@ The value of \texttt{PathMode} \MUST be one of the following:
 
 
 
-The indication of the status of the source of energy for a \gls{Structural Element} to allow it to perform its intended function or the state of an enabling signal providing permission for the \gls{Structural Element} to perform its functions.
+The indication of the status of the source of energy for a \gls{structural element} to allow it to perform its intended function or the state of an enabling signal providing permission for the \gls{structural element} to perform its functions.
 
 
 The value of \texttt{PowerState} \MUST be one of the following: 
@@ -1975,12 +2239,12 @@ The value of \texttt{PowerState} \MUST be one of the following:
 \item \texttt{CONTROL}
 
 
-The state of the enabling signal or control logic that enables or disables the function or operation of the \gls{Structural Element}.
+The state of the enabling signal or control logic that enables or disables the function or operation of the \gls{structural element}.
 
 \item \texttt{LINE}
 
 
-The state of the power source for the \gls{Structural Element}.
+The state of the power source for the \gls{structural element}.
 
 
 \end{itemize}
@@ -2081,6 +2345,30 @@ An identifier of a process being executed by the device.
 
 
 
+\subsubsection{ProcessState}
+\label{sec:ProcessState}
+
+
+
+The particular condition of the process occurrence at a specific time.
+
+
+The value of \texttt{ProcessState} \MUST be one of the following: 
+
+
+\texttt{ProcessStateEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{INITIALIZING} \newline The device is preparing to execute the process occurrence. 
+\item \texttt{READY} \newline The process occurrence is ready to be executed. 
+\item \texttt{ACTIVE} \newline The process occurrence is actively executing. 
+\item \texttt{COMPLETE} \newline The process occurrence is now finished. 
+\item \texttt{INTERRUPTED} \newline The process occurrence has been stopped and may be resumed. 
+\item \texttt{ABORTED} \newline The process occurrence has come to a premature end and cannot be resumed. 
+\end{itemize}
+
+
+
 \subsubsection{ProcessTime}
 \label{sec:ProcessTime}
 
@@ -2104,7 +2392,7 @@ Completion of an action.
 \item \texttt{START}
 
 
-The time and date associated with the beginning of an activity or event.
+Boundary when an activity or an event commences.
 
 \item \texttt{TARGET\textunderscore COMPLETION}
 
@@ -2153,7 +2441,7 @@ The value of \texttt{ProgramEdit} \MUST be one of the following:
 \texttt{ActiveStateEnum} Enumeration:
 
 \begin{itemize}
-\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
+\item \texttt{ACTIVE} \newline The value of the \gls{data entity} that is engaging. 
 \item \texttt{READY} \newline A component is ready to engage. 
 \item \texttt{NOT\textunderscore READY} \newline A component is not ready to engage. 
 \end{itemize}
@@ -2346,21 +2634,36 @@ A three space angular rotation relative to a coordinate system.
 
 
 
-The reference version of the MTConnect Standard supported by the \gls{Adapter}.
+The reference version of the MTConnect Standard supported by the \gls{adapter}.
 
 
-The \block{Entry} \property{key} \MUST be one or more from the following:
+\paragraph{Attributes of SensorAttachment}\mbox{}
+\label{sec:Attributes of SensorAttachment}
 
-\texttt{SensorAttachmentResultType} keys:
+\tbl{Attributes of SensorAttachment} lists the attributes of \texttt{SensorAttachment}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of SensorAttachment}
+  \label{table:Attributes of SensorAttachment}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{result}[SensorAttachment] & \texttt{SensorAttachmentResult} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{SensorAttachment}:
 
 \begin{itemize}
-\item \texttt{SENSOR\textunderscore ID} \newline The identity of a sensor used to observe some measurement of an item. 
-\newline The value of \texttt{SENSOR\textunderscore ID} \MUST be \texttt{string}.
 
-\item \texttt{result} \newline  
-\newline The value of \texttt{result} \MUST be \texttt{string}.
-
+\item \property{result}[SensorAttachment] \newline 
 \end{itemize}
+
 
 
 
@@ -2381,25 +2684,33 @@ The serial number associated with a \block{Component}, \block{Asset}, or \block{
 A set of limits defining a range of values designating acceptable performance for a variable.
 
 
-The \block{Entry} \property{key} \MUST be one or more from the following:
+\paragraph{Attributes of SpecificationLimit}\mbox{}
+\label{sec:Attributes of SpecificationLimit}
 
-\texttt{SpecificationLimitResultType} keys:
+\tbl{Attributes of SpecificationLimit} lists the attributes of \texttt{SpecificationLimit}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Attributes of SpecificationLimit}
+  \label{table:Attributes of SpecificationLimit}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Attribute} & {Type} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+
+\property{result}[SpecificationLimit] & \texttt{SpecificationLimitResult} & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+Descriptions for attributes of \block{SpecificationLimit}:
 
 \begin{itemize}
-\item \texttt{UPPER\textunderscore LIMIT} \newline The upper conformance boundary for a variable.
 
-\newline Note: immediate concern or action may be required. 
-\newline The value of \texttt{UPPER\textunderscore LIMIT} \MUST be \texttt{float}.
-
-\item \texttt{NOMINAL} \newline The ideal or desired value for a variable. 
-\newline The value of \texttt{NOMINAL} \MUST be \texttt{float}.
-
-\item \texttt{LOWER\textunderscore LIMIT} \newline The lower conformance boundary for a variable.
-
-\newline Note: immediate concern or action may be required. 
-\newline The value of \texttt{LOWER\textunderscore LIMIT} \MUST be \texttt{float}.
-
+\item \property{result}[SpecificationLimit] \newline 
 \end{itemize}
+
 
 
 
@@ -2417,8 +2728,8 @@ The value of \texttt{SpindleInterlock} \MUST be one of the following:
 \texttt{ActuatorStateEnum} Enumeration:
 
 \begin{itemize}
-\item \texttt{ACTIVE} \newline The value of the \gls{Data Entity} that is engaging. 
-\item \texttt{INACTIVE} \newline The value of the \gls{Data Entity} that is not engaging. 
+\item \texttt{ACTIVE} \newline The value of the \gls{data entity} that is engaging. 
+\item \texttt{INACTIVE} \newline The value of the \gls{data entity} that is not engaging. 
 \end{itemize}
 
 
@@ -2494,6 +2805,73 @@ A reference to a radial type tool offset variable.
 
 
 
+\subsubsection{TransferCount}
+\label{sec:TransferCount}
+
+
+
+Accumulation of the number of times an operation has attempted to, or is planned to attempt to, transfer materials, parts, or other items from one location to another.
+
+
+\paragraph{Subtypes of TransferCount}\mbox{}
+\label{sec:Subtypes of TransferCount}
+
+\begin{itemize}
+
+\item \texttt{ALL}
+
+
+An accumulation representing actions or activities that were attempted, but terminated before they could be completed.
+
+\item \texttt{ALL}
+
+
+An accumulation representing all actions, items, or activities being counted independent of the outcome.
+
+\item \texttt{BAD}
+
+
+An accumulation representing actions, items, or activities being counted that do not conform to specification or expectation.
+
+\item \texttt{COMPLETE}
+
+
+An accumulation representing actions, items, or activities that have been completed, independent of the outcome.
+
+\item \texttt{FAILED}
+
+
+An accumulation representing actions or activities that were attempted, but failed to
+complete or resulted in an unexpected or unacceptable outcome.
+
+\item \texttt{GOOD}
+
+
+An accumulation representing actions, items, or activities being counted that conform to specification or expectation.
+
+\item \texttt{REMAINING}
+
+
+An accumulation representing actions, items, or activities yet to be counted.
+
+\item \texttt{TARGET}
+
+
+The goal of the operation or process.
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
 \subsubsection{Translation}
 \label{sec:Translation}
 
@@ -2503,6 +2881,73 @@ A three space linear translation relative to a coordinate system.
 
 
 \texttt{units}: \texttt{MILLIMETER\textunderscore 3D}.
+
+
+\subsubsection{UnloadCount}
+\label{sec:UnloadCount}
+
+
+
+Accumulation of the number of times an operation has attempted to, or is planned to attempt to, unload materials, parts, or other items.
+
+
+\paragraph{Subtypes of UnloadCount}\mbox{}
+\label{sec:Subtypes of UnloadCount}
+
+\begin{itemize}
+
+\item \texttt{ALL}
+
+
+An accumulation representing actions or activities that were attempted, but terminated before they could be completed.
+
+\item \texttt{ALL}
+
+
+An accumulation representing all actions, items, or activities being counted independent of the outcome.
+
+\item \texttt{BAD}
+
+
+An accumulation representing actions, items, or activities being counted that do not conform to specification or expectation.
+
+\item \texttt{COMPLETE}
+
+
+An accumulation representing actions, items, or activities that have been completed, independent of the outcome.
+
+\item \texttt{FAILED}
+
+
+An accumulation representing actions or activities that were attempted, but failed to
+complete or resulted in an unexpected or unacceptable outcome.
+
+\item \texttt{GOOD}
+
+
+An accumulation representing actions, items, or activities being counted that conform to specification or expectation.
+
+\item \texttt{REMAINING}
+
+
+An accumulation representing actions, items, or activities yet to be counted.
+
+\item \texttt{TARGET}
+
+
+The goal of the operation or process.
+
+
+\end{itemize}
+
+
+
+
+
+
+
+
+
 
 
 \subsubsection{User}
@@ -2536,6 +2981,53 @@ The identifier of the person currently responsible for preparing a piece of equi
 
 \end{itemize}
 
+
+
+
+
+
+\subsubsection{ValveState}
+\label{sec:ValveState}
+
+
+
+The state of a valve is one of open, closed, or transitioning between the states.
+
+
+The value of \texttt{ValveState} \MUST be one of the following: 
+
+
+\texttt{ValveStateEnum} Enumeration:
+
+\begin{itemize}
+\item \texttt{OPEN} \newline \block{ValveState} where flow is allowed and the aperture is static.
+
+Note: For a binary value, \texttt{OPEN} indicates the valve has the maximum possible aperture. 
+\item \texttt{OPENING} \newline The valve is transitioning from a \texttt{CLOSED} state to an \texttt{OPEN} state. 
+\item \texttt{CLOSED} \newline \block{ValveState} where flow is not possible, the aperture is static, and the valve is completely shut. 
+\item \texttt{CLOSING} \newline The valve is transitioning from an \texttt{OPEN} state to a \texttt{CLOSED} state. 
+\end{itemize}
+
+
+\paragraph{Subtypes of ValveState}\mbox{}
+\label{sec:Subtypes of ValveState}
+
+\begin{itemize}
+
+\item \texttt{ACTUAL}
+
+
+The measured or reported value of an \gls{observation}.
+
+\item \texttt{PROGRAMMED}
+
+
+Directive value without offsets and adjustments.
+
+
+
+
+\end{itemize}
 
 
 

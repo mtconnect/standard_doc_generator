@@ -1,21 +1,22 @@
-% Generated 2021-02-25 22:49:45 +0530
+% Generated 2021-08-25 18:02:22 +0530
 \subsection{Component Types} \label{sec:Component Types}
 
 
-\block{Component} \glspl{Structural Element} are used to represent physical parts or logical functions of a piece of equipment.
+\block{Component} \glspl{structural element} are used to represent physical parts or logical functions of a piece of equipment.
 
-\block{Component} \glspl{Structural Element} are defined into two major categories:
+\block{Component} \glspl{structural element} are defined into two major categories:
+
 
 \begin{itemize}
+    \item \gls{top level} \block{Component} elements are used to group the \glspl{structural element} representing the most significant physical or logical functions of a piece of equipment.  The \gls{top level} \block{Component} elements provided in an \block{MTConnectDevices} document \textbf{SHOULD} be restricted to those defined in this section.  However, these \gls{top level} \block{Component} elements \textbf{MAY} also be used as \gls{Lower Level} \block{Component} elements; as required.
 
-\item \gls{Top Level} \block{Component} elements are used to group the \glspl{Structural Element} representing the most significant physical or logical functions of a piece of equipment.  The \gls{Top Level} \block{Component} elements provided in an \block{MTConnectDevices} document \textbf{SHOULD} be restricted to those defined in this section.  However, these \gls{Top Level} \block{Component} elements \textbf{MAY} also be used as \gls{Lower Level} \block{Component} elements; as required.
+    \item \gls{lower level} \block{Component} elements are used to describe the sub-parts of the parent \block{Component} to provide more clarity and granularity to the physical or logical structure of the \gls{top level} \block{Component} elements.
 
-\item \gls{Lower Level} \block{Component} elements are used to describe the sub-parts of the parent \block{Component} to provide more clarity and granularity to the physical or logical structure of the \gls{Top Level} \block{Component} elements.
 \end{itemize}
 
-This section of the \gls{Devices Information Model} provides guidance for the most common relationships between \gls{Top Level} \block{Component} elements and \gls{Lower Level} child components.  However, all \block{Component} elements \textbf{MAY} be used in any configuration, as required, to fully describe a piece of equipment.
+This section of the \gls{Device Information Model} provides guidance for the most common relationships between \gls{top level} \block{Component} elements and \gls{Lower Level} child components.  However, all \block{Component} elements \textbf{MAY} be used in any configuration, as required, to fully describe a piece of equipment.
 
-As described in \sect{Structural Elements for MTConnectDevices}, \block{Component} is an abstract type \gls{Structural Element} within the \gls{Devices Information Model} and will never appear directly in the \block{MTConnectDevices} document.  As abstract elements, \block{Component} will be replaced in the document by a specific \block{Component} type.
+As described in \sect{Structural Elements for MTConnectDevices}, \block{Component} is an abstract type \gls{structural element} within the \gls{Device Information Model} and will never appear directly in the \block{MTConnectDevices} document.  As abstract elements, \block{Component} will be replaced in the document by a specific \block{Component} type.
 
 
 \subsubsection{Actuator}
@@ -32,7 +33,7 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 
 
 
-\block{Adapter} is a \block{Component} that represents the connectivity state of a data source for the \gls{MTConnect Agent}.
+{{(block(Adapter)}} is a \block{Component} that represents the connectivity state of a data source for the \gls{MTConnect Agent}.
 
 
 
@@ -41,7 +42,7 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 
 
 
-\block{Auxiliary} is a \block{Component} that represents functional sub-system(s) that provides supplementary or extended capabilities for a piece of equipment, but they are not required for the basic operation of the equipment.
+\block{Auxiliary} is an abstract \block{Component} that represents removable part(s) of a piece of equipment providing supplementary or extended functionality.
 
 
 
@@ -49,7 +50,7 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 \label{sec:Loader}
 
 
-\block{Loader} represents the information for a unit comprised of all the parts involved in moving and distributing materials, parts, tooling, and other items to or from a piece of equipment.
+\block{Loader} is an \block{Auxiliary} comprised of all the parts involved in moving and distributing materials, parts, tooling, and other items to or from a piece of equipment.
 
 
 
@@ -57,7 +58,7 @@ As described in \sect{Structural Elements for MTConnectDevices}, \block{Componen
 \label{sec:BarFeeder}
 
 
-\block{BarFeeder} represents the information for a unit involved in delivering bar stock to a piece of equipment.
+\block{BarFeeder} is a \block{Loader} involved in delivering bar stock to a piece of equipment.
 
 
 
@@ -90,7 +91,7 @@ A tool mounting mechanism that holds any number of tools. Tools are located in \
 \label{sec:AutomaticToolChanger}
 
 
-A tool delivery mechanism that moves tools between a \block{ToolMagazine} and a \gls{Spindle} a \block{Turret}. An \block{AutomaticToolChanger} may also transfer tools between a location outside of a piece of equipment and a \block{ToolMagazine} or \block{Turret}.
+A tool delivery mechanism that moves tools between a \block{ToolMagazine} and a \gls{spindle} a \block{Turret}. An \block{AutomaticToolChanger} may also transfer tools between a location outside of a piece of equipment and a \block{ToolMagazine} or \block{Turret}.
 
 
 
@@ -138,40 +139,40 @@ In robotics, the term \textit{Axis} is synonymous with \textit{Joint}. A \textit
 
 \block{Linear} and \block{Rotary} components \textbf{MUST} have a \property{name} attribute that \textbf{MUST} follow the conventions described below. Use the \property{nativeName} attribute for the manufacturer's name of the axis if it differs from the assigned \property{name}.
 
-\gls{MTConnect} has two high-level classes for automation equipment as follows: (1) Equipment that controls cartesian coordinate axes and (2) Equipment that controls articulated axes. There are ambiguous cases where some machines exhibit both characteristics; when this occurs, the primary control system's configuration determines the classification.
+MTConnect has two high-level classes for automation equipment as follows: (1) Equipment that controls cartesian coordinate axes and (2) Equipment that controls articulated axes. There are ambiguous cases where some machines exhibit both characteristics; when this occurs, the primary control system's configuration determines the classification.
 
 Examples of cartesian coordinate equipment are CNC Machine Tools, Coordinate measurement machines, as specified in ISO 841, and 3D Printers. Examples of articulated automation equipment are Robotic systems as specified in ISO 8373.
 
 The following sections define the designation of names for the axes and additional guidance when selecting the correct scheme to use for a given piece of equipment.
 
-\paragraph{Cartesian Coordinate Naming Conventions}\mbox{}
+\paragraph{Cartesian Coordinate Naming Conventions}
 \label{sec:Cartesian Coordinate Naming Conventions}
 
 A Three-Dimensional Cartesian Coordinate control system organizes its axes orthogonally relative to a machine coordinate system where the manufacturer of the equipment specifies the origin. 
 
 \block{Axes} \property{name} \textbf{SHOULD} comply with ISO 841, if possible.
 
-\subparagraph{Linear Motion}\mbox{}
+\subparagraph{Linear Motion}
 \label{sec:Linear Motion}
 
 A piece of equipment \textbf{MUST} represent prismatic motion using a \block{Linear} axis \block{Component} and assign its \property{name} using the designations \texttt{X}, \texttt{Y}, and \texttt{Z}. A \block{Linear} axis \property{name} \textbf{MUST} append a monotonically increasing suffix when there are more than one parallel axes; for example, \texttt{X2}, \texttt{X3}, and \texttt{X4}. 
 
-\subparagraph{Rotary Motion}\mbox{}
+\subparagraph{Rotary Motion}
 \label{sec:Rotary Motion}
 
-\gls{MTConnect} \textbf{MUST} assign the \property{name} to \block{Rotary} axes exhibiting rotary motion using \texttt{A}, \texttt{B}, and \texttt{C}. A \block{Rotary} axis \property{name} \textbf{MUST} append a monotonically increasing suffix when more than one \block{Rotary} axis rotates around the same \block{Linear} axis; for example, \texttt{A2}, \texttt{A3}, and \texttt{A4}. 
+MTConnect \textbf{MUST} assign the \property{name} to \block{Rotary} axes exhibiting rotary motion using \texttt{A}, \texttt{B}, and \texttt{C}. A \block{Rotary} axis \property{name} \textbf{MUST} append a monotonically increasing suffix when more than one \block{Rotary} axis rotates around the same \block{Linear} axis; for example, \texttt{A2}, \texttt{A3}, and \texttt{A4}. 
 
-\paragraph{Articulated Machine Control Systems}\mbox{}
+\paragraph{Articulated Machine Control Systems}
 \label{sec:Articulated Machine Control Systems}
 
 An articulated control system's axes represent the connecting linkages between two adjacent rigid members of an assembly. The \block{Linear} axis represents prismatic motion, and the \block{Rotary} axis represents the rotational motion of the two related members. The control organizes the axes in a kinematic chain from the mounting surface (base) to the end-effector or tooling.
 
-\paragraph{Articulated Machine Axis Names}\mbox{}
+\paragraph{Articulated Machine Axis Names}
 \label{sec:Articulated Machine Axis Names}
 
 The axes of articulated machines represent forward kinematic relationships between mechanical linkages. Each axis is a connection between linkages, also referred to as joints, and \textbf{MUST} be named using a \texttt{J} followed by a monotonically increasing number; for example, \texttt{J1}, \texttt{J2}, \texttt{J3}.  The numbering starts at the base axis connected or closest to the mounting surface, \texttt{J1}, incrementing to the mechanical interface, \texttt{Jn}, where \texttt{n} is the number of the last axis. The chain forms a parent-child relationship with the parent being the axis closest to the base.
 
-A machine having an axis with more than one child \textbf{MUST} number each branch using its numeric designation followed by a branch number and a monotonically increasing number. For example, if \texttt{J2} has two children, the first child branch \textbf{MUST} be named \texttt{J2.1.1} and the second child branch \texttt{J2.2.1}. A child of the first branch \MUST be named \texttt{J2.1.2}, incrementing to \texttt{J2.1.n}, where \texttt{J2.1.n} is the number of the last axis in that branch.
+A machine having an axis with more than one child \textbf{MUST} number each branch using its numeric designation followed by a branch number and a monotonically increasing number. For example, if \texttt{J2} has two children, the first child branch \textbf{MUST} be named \texttt{J2.1.1} and the second child branch \texttt{J2.2.1}. A child of the first branch \textbf{MUST} be named \texttt{J2.1.2}, incrementing to \texttt{J2.1.n}, where \texttt{J2.1.n} is the number of the last axis in that branch.
 
 \paragraph{Linear}\mbox{}
 \label{sec:Linear}
@@ -207,12 +208,57 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 
 
 
-\subsubsection{Interface}
-\label{sec:Interface}
+\subsubsection{Lock}
+\label{sec:Lock}
 
 
 
-\block{Interface} is a \block{Component} that represents an \gls{Interface} to coordinate actions and activities between pieces of equipment that communicate information between each other.
+\block{Lock} is a \block{Component} that represents a mechanism which physically prohibits a device or component from opening or operating.
+
+
+\paragraph{Elements of Lock}\mbox{}
+\label{sec:Elements of Lock}
+
+\tbl{Elements of Lock} lists the elements of \texttt{Lock}.
+
+\begin{table}[ht]
+\centering 
+  \caption{Elements of Lock}
+  \label{table:Elements of Lock}
+\tabulinesep=3pt
+\begin{tabu} to 6in {|l|l|} \everyrow{\hline}
+\hline
+\rowfont\bfseries {Element} & {Multiplicity} \\
+\tabucline[1.5pt]{}
+\texttt{LockState} (organized by \block{Observations}) & 0..1 \\
+\end{tabu}
+\end{table}
+\FloatBarrier
+
+
+Descriptions for elements of \block{Lock}:
+
+\begin{itemize}
+
+\item \block{Observations} \newline 
+\end{itemize}
+
+
+
+\subsubsection{Part}
+\label{sec:Part}
+
+
+
+\block{Part} is an abstract \block{Component} that represents a \gls{part} being processed by a piece of equipment.
+
+
+
+\paragraph{PartOccurrence}\mbox{}
+\label{sec:PartOccurrence}
+
+
+\block{PartOccurrence} \gls{organize} information about a specific part as it exists at a specific place and time, such as a specific instance of a bracket at a specific timestamp.
 
 
 
@@ -243,14 +289,6 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 
 
 
-\paragraph{PartOccurrence}\mbox{}
-\label{sec:PartOccurrence}
-
-
-\block{PartOccurrence} \gls{organize} information about a specific part as it exists at a specific place and time, such as a specific instance of a bracket at a specific timestamp.
-
-
-
 \paragraph{ProcessOccurrence}\mbox{}
 \label{sec:ProcessOccurrence}
 
@@ -264,9 +302,7 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 
 
 
-\block{Resource} is an abstract \block{Component} that represents types of items, materials, and personnel that support the operation of a piece of equipment or work to be performed at a location.
-
-\block{Resource} also represents materials or other items consumed or transformed by a piece of equipment for production of parts or other types of goods.
+\block{Resource} is an abstract \block{Component} that represents materials or personnel involved in a manufacturing process.
 
 
 
@@ -325,7 +361,7 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 
 
 
-\block{System} is a \block{Component} that represents the major sub-system(s) that are permanently integrated into a piece of equipment.
+\block{System} is an abstract \block{Component} that represents part(s) of a piece of equipment that is permanently integrated into the piece of equipment.
 
 
 
@@ -333,7 +369,7 @@ A \block{Rotary} axis represents any non-linear or rotary movement of a physical
 \label{sec:Controller}
 
 
-\block{Controller} organizes information about an intelligent or computational function within a piece of equipment.
+\block{Controller} represents the computational regulation and management function of a piece of equipment.
 
 
 

@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:48 +0530
+% Generated 2021-08-25 18:02:23 +0530
 \subsection{Observations} \label{sec:Observations}
 
 
@@ -48,13 +48,13 @@ Descriptions for attributes of \block{Observation}:
 
 \begin{itemize}
 
-\item \property{compositionId}[Observation] \newline The identifier of the \block{Composition} element defined in the \block{MTConnectDevices} \gls{Response Document} associated with the data reported for the \block{Observation} element.
+\item \property{compositionId}[Observation] \newline The identifier of the \block{Composition} element defined in the \block{MTConnectDevices} \gls{response document} associated with the data reported for the \block{Observation} element.
 
 \item \property{dataItemId}[Observation] \newline The unique identifier for the \block{Observation} element.
 
 \item \property{name}[Observation] \newline The name of the \block{Observation} element.
 
-\item \property{sequence}[Observation] \newline A number representing the sequential position of an occurrence of an \gls{observation} in the data buffer of an \gls{Agent}.
+\item \property{sequence}[Observation] \newline A number representing the sequential position of an occurrence of an \gls{observation} in the data buffer of an \gls{agent}.
 
 \item \property{subType}[Observation] \newline The \property{subType} of the \block{Observation}.
 
@@ -76,7 +76,7 @@ Descriptions for attributes of \block{Observation}:
 
 
 
-\block{Condition} is an \block{Observation} that provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{CONDITION} in the \block{MTConnectDevices} \gls{Response Document}.
+\block{Condition} is an \block{Observation} that provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{CONDITION} in the \block{MTConnectDevices} \gls{response document}.
 
 The following \sect{Attributes of Condition} lists the additional and/or updated attributes for \block{Condition}.
 
@@ -138,7 +138,7 @@ See \textit{IETF RFC 4646} (http://www.ietf.org/rfc/rfc4646.txt).
 
 
 
-\block{Event} is an \block{Observation} that provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{EVENT} in the \block{MTConnectDevices} \gls{Response Document}.
+\block{Event} is an \block{Observation} that provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{EVENT} in the \block{MTConnectDevices} \gls{response document}.
 
 The following \sect{Attributes of Event} lists the additional and/or updated attributes for \block{Event}.
 
@@ -193,7 +193,7 @@ Descriptions for attributes of \block{Event}:
 
 
 
-\block{Sample} is an \block{Observation} that provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{SAMPLE} in the \block{MTConnectDevices} \gls{Response Document}.
+\block{Sample} is an \block{Observation} that provides the information and data reported from a piece of equipment for those \block{DataItem} elements defined with a \property{category}[DataItem] attribute of \texttt{SAMPLE} in the \block{MTConnectDevices} \gls{response document}.
 
 The following \sect{Attributes of Sample} lists the additional and/or updated attributes for \block{Sample}.
 
@@ -236,7 +236,7 @@ Descriptions for attributes of \block{Sample}:
 
 \property{sampleRate} is expressed in terms of samples per second.
 
-\item \property{statistic}[Sample] \newline The type of statistical calculation defined by the \property{statistic} attribute of the \block{DataItem} element defined in the \block{MTConnectDevices} \gls{Response Document} that this element represents.
+\item \property{statistic}[Sample] \newline The type of statistical calculation defined by the \property{statistic} attribute of the \block{DataItem} element defined in the \block{MTConnectDevices} \gls{response document} that this element represents.
 \end{itemize}
 
 

@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:45 +0530
+% Generated 2021-08-25 18:02:22 +0530
 \subsection{Components} \label{sec:Components}
 
 
@@ -44,8 +44,9 @@ A \block{Component} organizes information describing a physical part or logical 
 \property{name}[Component] & \texttt{string} & 0..1 \\
 \property{nativeName}[Component] & \texttt{string} & 0..1 \\
 \property{sampleInterval}[Component] & \texttt{integer} & 0..1 \\
-\texttt{<<deprecated>>} \property{sampleRate}[Component] & \texttt{float} & 0..1 \\
-\property{uuid}[Component] & \texttt{NMTOKEN} & 0..1 \\
+\property{sampleRate}[Component] & \texttt{float} & 0..1 \\
+\property{uuid}[Component] & \texttt{ID} & 0..1 \\
+\property{coordinateSystemIdRef}[Component] & \texttt{IDREF} & 0..1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -65,6 +66,8 @@ Descriptions for attributes of \block{Component}:
 \item \property{sampleRate}[Component] \newline \textbf{DEPRECATED} in \textit{MTConnect Version 1.2}. Replaced by \property{sampleInterval}[Component].
 
 \item \property{uuid}[Component] \newline The unique identifier for an element.
+
+\item \property{coordinateSystemIdRef}[Component] \newline Specifies the \block{CoordinateSystem} for this \block{Component} and its children.
 \end{itemize}
 
 

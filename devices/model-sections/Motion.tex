@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:46 +0530
+% Generated 2021-08-25 18:02:23 +0530
 \subsection{Motion} \label{sec:Motion}
 
 
@@ -41,10 +41,10 @@ Note: See \fig{Motion Schema Diagram} for XML schema.
 \tabucline[1.5pt]{}
 
 \property{actuation}[Motion] & \texttt{MotionActuationTypeEnum} & 1 \\
-\property{cooridnateSystemIdRef}[Motion] & \texttt{IDREF} & 1 \\
+\property{coordinateSystemIdRef}[Motion] & \texttt{IDREF} & 1 \\
 \property{id}[Motion] & \texttt{ID} & 1 \\
 \property{parentIdRef}[Motion] & \texttt{IDREF} & 0..1 \\
-\property{type}[Motion] & \texttt{MotionTypes} & 1 \\
+\property{type}[Motion] & \texttt{MotionTypeEnum} & 1 \\
 \end{tabu}
 \end{table}
 \FloatBarrier
@@ -64,7 +64,7 @@ Descriptions for attributes of \block{Motion}:
 \end{itemize}
 
 
-\item \property{cooridnateSystemIdRef}[Motion] \newline The coordinate system within which the kinematic motion occurs.
+\item \property{coordinateSystemIdRef}[Motion] \newline The coordinate system within which the kinematic motion occurs.
 
 \item \property{id}[Motion] \newline The identifier of this element.
 
@@ -72,7 +72,7 @@ Descriptions for attributes of \block{Motion}:
 
 \item \property{type}[Motion] \newline Describes the type of motion.
 
-\texttt{MotionTypes} Enumeration:
+\texttt{MotionTypeEnum} Enumeration:
 
 \begin{itemize}
 \item \texttt{PRISMATIC} \newline Sliding linear motion along an axis with a fixed range of motion. 
@@ -130,6 +130,6 @@ Descriptions for elements of \block{Motion}:
 \block{Axis} defines the axis along or around which the component moves relative to a coordinate system.
 
 
-The value of \texttt{Axis} \MUST be \texttt{UnitVector}.
+The value of \texttt{Axis} \MUST be \texttt{float}.
 
 

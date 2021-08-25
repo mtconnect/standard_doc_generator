@@ -1,4 +1,4 @@
-% Generated 2021-02-25 22:49:46 +0530
+% Generated 2021-08-25 18:02:22 +0530
 \subsection{DataItems} \label{sec:DataItems}
 
 
@@ -88,7 +88,7 @@ coordinates will be used.
 \end{itemize}
 
 
-\item \property{discrete}[DataItem] \newline An indication signifying whether each value reported for the \gls{Data Entity} is significant and whether duplicate values are to be suppressed.
+\item \property{discrete}[DataItem] \newline An indication signifying whether each value reported for the \gls{data entity} is significant and whether duplicate values are to be suppressed.
 
 If a value is not defined for \property{discrete}, the default value \textbf{MUST} be \texttt{false}.
 
@@ -164,7 +164,7 @@ If a value is not defined for \property{discrete}, the default value \textbf{MUS
 
 \item \property{subType}[DataItem] \newline A sub-categorization of the data item \block{type}.
 
-\item \property{type}[DataItem] \newline The type of either a \gls{Structural Element} or a \block{DataItem} being measured.
+\item \property{type}[DataItem] \newline The type of either a \gls{structural element} or a \block{DataItem} being measured.
 
 \item \property{units}[DataItem] \newline The unit of measurement for the reported value of the data item.
 
@@ -238,14 +238,14 @@ The data is reported for a specified number of samples and each sample is report
 If no \property{representation}[DataItem] is specified for a data item, the \property{representation}[DataItem] \textbf{MUST} be determined to be \texttt{VALUE}. 
 \item \texttt{DATA\textunderscore SET} \newline The reported value(s) are represented as a set of \glspl{key-value pair}.
 
-Each reported value in the \gls{Data Set} \textbf{MUST} have a unique key. 
+Each reported value in the \gls{data set} \textbf{MUST} have a unique key. 
 \item \texttt{DISCRETE} \newline \textbf{DEPRECATED} as a \property{representation} in \textit{MTConnect Version. 1.5}. Replaced by the \property{discrete}[DataItem] attribute of a \block{DataItem}. 
-\item \texttt{TABLE} \newline A \gls{Table} is a two dimensional set of \glspl{key-value pair} where the \block{Entry} represents a row, and the value is a set of \gls{key-value pair} \block{Cell} elements. The \gls{Table} follows the same behavior as the \gls{Data Set} for change tracking, clearing, and history. When an \block{Entry} changes, all \block{Cell} elements update as a single unit following the behavior of a \gls{Data Set}.
+\item \texttt{TABLE} \newline A \gls{table} is a two dimensional set of \glspl{key-value pair} where the \block{Entry} represents a row, and the value is a set of \gls{key-value pair} \block{Cell} elements. The \gls{table} follows the same behavior as the \gls{data set} for change tracking, clearing, and history. When an \block{Entry} changes, all \block{Cell} elements update as a single unit following the behavior of a \gls{data set}.
 
 Note 1 to Entry: It is best to use the \block{Variable} \block{DataItem} \property{type} if the \block{Cell} elements represent multiple
 semantic types.
 
-Each \block{Entry} in the \gls{Table} \textbf{MUST} have a unique key. Each \block{Cell} of each \block{Entry} in the \gls{Table} \textbf{MUST} have a unique key.
+Each \block{Entry} in the \gls{table} \textbf{MUST} have a unique key. Each \block{Cell} of each \block{Entry} in the \gls{table} \textbf{MUST} have a unique key.
 
 See \textit{Section 5.6.5} of \citetitle{MTCPart3}, for a description of
 \block{Entry} and \block{Cell} elements. 
