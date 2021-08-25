@@ -1,0 +1,9 @@
+[submodule "devices"]
+	path = devices
+	url = https://git.overleaf.com/5f293c83adf9e80001c5795a
+[submodule "observations"]
+	path = observations
+	url = https://git.overleaf.com/6007efaf5b6d7bf8a9c6933d
+[submodule "assets"]
+	path = assets
+	url = https://git.overleaf.com/6007efc55b6d7b9b20c6934b
