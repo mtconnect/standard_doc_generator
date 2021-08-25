@@ -7,3 +7,6 @@
 [submodule "assets"]
 	path = assets
 	url = https://git.overleaf.com/6007efc55b6d7b9b20c6934b
+[submodule "interfaces"]
+	path = interfaces
+	url = https://git.overleaf.com/611e5197509bbdc7173f2742
