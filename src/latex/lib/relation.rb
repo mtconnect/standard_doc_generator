@@ -64,7 +64,7 @@ module Relation
     include Extensions
     
     attr_reader :id, :name, :type, :xmi, :multiplicity, 
-                :source, :target, :owner, :stereotype, :visibility, :association_name,
+                :source, :target, :owner, :stereotype, :property_stereotype, :visibility, :association_name,
                 :constraints, :invariants, :assoc, :redefinesProperty, :default, :association_doc
     attr_accessor :documentation
 
@@ -100,7 +100,7 @@ module Relation
       @assoc = r['association']
 	  @visibility = r['visibility'] ? r['visibility'] : 'public'
 
-      @stereotype = xmi_stereotype(r)
+      @stereotype, @property_stereotype = xmi_stereotype(r)
       @documentation = xmi_documentation(r)
 
       $logger.debug "       -- :: Creating Relation <<#{@stereotype}>> #{@name} #{@id} #{@assoc}" 
@@ -215,6 +215,7 @@ module Relation
       assoc = r.document.at("//packagedElement[@xmi:id='#{aid}']")
 	  
 	  @association_name = assoc['name']
+	  @redefinesProperty = r.at('./redefinedProperty') ? true : false
 	  
 	  member_end = assoc.at('./memberEnd')  
 	  if member_end
@@ -296,7 +297,7 @@ module Relation
 
 	  @redefinesProperty = a.at('./redefinedProperty') ? true : false
 	  
-      @stereotype = xmi_stereotype(a)
+      @stereotype, @property_stereotype = xmi_stereotype(a)
       @documentation = xmi_documentation(a)
 
       $logger.debug "  Searching for docs for #{owner.name}::#{name}"

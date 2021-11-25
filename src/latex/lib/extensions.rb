@@ -13,18 +13,25 @@ module Extensions
              'base_Class'
            elsif type == 'uml:Realization'
              'base_Realization'
+		   elsif type == 'uml:Enumeration'
+		     'base_Enumeration'
            else
              if e['association']
                id = e['association']
                'base_Association'
              else
-               'base_Property'
+               'base_Element'
              end
            end
     if attr
-      stereo = e.document.root.at("/xmi:XMI/*[@base_Element='#{id}']")
-      stereo = e.document.root.at("/xmi:XMI/*[@#{attr}='#{id}']") unless stereo
-      stereo.name if stereo and stereo.name != 'ValueProperty' #since every value type has ValueProperty stereotype
+      element_stereo = e.document.root.at("/xmi:XMI/*[@base_Element='#{id}']")
+      element_stereo = e.document.root.at("/xmi:XMI/*[@#{attr}='#{id}']") unless element_stereo
+	  element_stereo_name = element_stereo ? element_stereo.name : ''
+	  
+	  property_stereo = e.document.root.at("/xmi:XMI/*[@base_Property='#{e['xmi:id']}']")
+	  property_stereo_name = (property_stereo and property_stereo.name!='Restriction') ? property_stereo.name : ''
+      
+	  return [element_stereo_name, property_stereo_name]
     end
   end
 

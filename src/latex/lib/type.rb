@@ -8,9 +8,9 @@ require 'extensions'
 class Type
   include Extensions
   
-  attr_reader :name, :id, :type, :model, :parent, :children, :relations, :stereotype, :is_subtype,
+  attr_reader :name, :id, :type, :model, :parent, :children, :relations, :stereotype, :property_stereotype, :is_subtype,
               :constraints, :extended, :literals, :invariants, :classifier, :assoc, :xmi, :subtypes, :multiplicity, :optional
-  attr_accessor :documentation
+  attr_accessor :documentation, :additional_documentation
 
   attr_writer :is_subtype
   
@@ -224,7 +224,7 @@ class Type
     
     sn = @name.sub(/^MT/, '').sub(/Type$/, '').sub(/Class$/, '').sub(/Sub$/, '')
     
-    @stereotype = xmi_stereotype(e)
+    @stereotype, @property_stereotype = xmi_stereotype(e)
     
     @type = e['xmi:type']
 	   
