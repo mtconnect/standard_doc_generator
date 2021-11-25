@@ -28,7 +28,7 @@ class LatexType < Type
 	end	
 	return label
   end
-  
+	
   def generate_property_doc(f)
     if not relations.empty? and relations[0].name == 'Supertype' and @model.name and relations[0].final_target.type.name
         if @model.name.split(' ')[0] == relations[0].final_target.type.name or relations[0].final_target.type.name == "Event"
@@ -41,76 +41,86 @@ class LatexType < Type
     relations_with_documentation =
       @relations.select do |r|
       $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target and r.target.type.nil?
-      r.type!= 'uml:Constraint' and (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and @model.name.split('Type')[0] != r.final_target.type.name and r.visibility == 'public'
+      r.type!= 'uml:Constraint' and 
+	  (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and 
+	  (r.final_target and @model.name.split('Type')[0] != r.final_target.type.name) and r.visibility == 'public'
     end
 	
-	attributes = relations_with_documentation.select do |a| 
-		if a.association_name
-		    /[[:lower:]]/.match(a.association_name[0])
-		else
-			/[[:lower:]]/.match(a.name[0])
-		end
+	value_properties = relations_with_documentation.select do |a| 
+		(a.property_stereotype == '' or a.property_stereotype == 'ValueProperty') and
+		a.name != 'Supertype'
 	end
 
-	elements = relations_with_documentation.select do |a| 
-		if a.association_name
-		    /[[:upper:]]/.match(a.association_name[0])
-		else
-			/[[:upper:]]/.match(a.name[0])
-		end
+	reference_properties = relations_with_documentation.select do |a| 
+		a.property_stereotype == 'ReferenceProperty'
+	end
+	
+	part_properties = relations_with_documentation.select do |a| 
+		a.property_stereotype == 'PartProperty'
 	end
 	
 	unless relations_with_documentation.empty? or (relations_with_documentation[0].name == 'Supertype' and relations_with_documentation.length == 1)
-		generate_attribute_doc(f, attributes) unless attributes.empty?
-		generate_element_doc(f, elements) unless elements.empty? or (elements[0].name == 'Supertype' and elements.length == 1)
+		generate_value_property_doc(f, value_properties) unless value_properties.empty?
+		generate_associated_property_doc(f, reference_properties, 'Reference') unless reference_properties.empty?
+		generate_associated_property_doc(f, part_properties, 'Part') unless part_properties.empty?
 	end
 	
   end
   
-  def generate_attribute_doc(f, attributes)
+    def generate_value_property_doc(f, value_properties)
     
       string_out = ""
 	  value_only = true
+	  redefinesResult = false
 	  
-	  attributes.each do |r|
+	  value_properties.each do |r|
         name = r.association_name ? r.association_name : r.name
         if name == 'Supertype'
           next
 		elsif name == 'value'
-		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
+		  if r.final_target.type.type == 'uml:Enumeration'
+			f.puts "\nThe value of \\texttt{#{@name}} \\MUST be one of the #{r.final_target.type.name} enumeration. \n\n"
+			r.final_target.type.generate_enumerations(f)
+		  elsif r.final_target.type.type == 'uml:DataType' and r.final_target.type.multiplicity.include?('3')
+		    f.puts "\nThe value of \\texttt{#{@name}} \\MUST be reported in \\texttt{#{r.final_target.type.name}\\textunderscore 3D}.\n\n"
+		  else
+		    f.puts "\nThe value of \\texttt{#{@name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
+		  end
 		  next
-		elsif name == 'code'
+		elsif name == 'code' and r.redefinesProperty
 		  f.puts "\n\\texttt{code}: \\texttt{#{r.default}}.\n\n"
 		  next
 		elsif name == 'units' and r.default
 		  f.puts "\n\\texttt{units}: \\texttt{#{r.default.gsub(/(\^)/,"\\^{}").gsub("_","\\textunderscore ")}}.\n\n"
 		  next
+		elsif name == 'result' and r.redefinesProperty
+		  redefinesResult = true
 		end
 		value_only = false
-        stereo = r.stereotype ? "\\texttt{<<#{r.stereotype}>>} " : ""
+        stereo = r.stereotype!='' ? "\\texttt{<<#{r.stereotype}>>} " : ""
                 
         if r.redefinesProperty and r.default
-          string_out += "\n#{stereo}\\property{#{name}}[#{@name}] & \\texttt{#{r.default.gsub(/(\^)/,"\\^{}")}} & #{r.multiplicity} \\\\"
+          string_out += "\n#{stereo}\\property{#{name}}[#{@name}] & \\texttt{#{r.default.gsub(/(\^)/,"\\^{}").gsub("_","\\textunderscore ")}} & #{r.multiplicity} \\\\"
         else
-          string_out += "\n#{stereo}\\property{#{name}}[#{@name}] & \\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
+          string_out += "\n#{stereo}\\property{#{name}}[#{@name}] & \\texttt{#{r.final_target.type.name.gsub("_","\\textunderscore ")}} & #{r.multiplicity} \\\\"
         end
       end
       
 	  unless value_only
 	  f.puts %"
-\\paragraph{Attributes of #{@name}}\\mbox{}
-#{self.class.get_label("sec:Attributes of #{@name}")}
+\\paragraph{Value Properties of #{@name}}\\mbox{}
+#{self.class.get_label("sec:Value Properties of #{@name}")}
 
-\\tbl{Attributes of #{@name}} lists the attributes of \\texttt{#{@name}}.
+\\tbl{Value Properties of #{@name}} lists the Value Properties of \\texttt{#{@name}}.
 
 \\begin{table}[ht]
 \\centering 
-  \\caption{Attributes of #{@name}}
-  #{self.class.get_label("table:Attributes of #{@name}")}
+  \\caption{Value Properties of #{@name}}
+  #{self.class.get_label("table:Value Properties of #{@name}")}
 \\tabulinesep=3pt
 \\begin{tabu} to 6in {|l|l|l|} \\everyrow{\\hline}
 \\hline
-\\rowfont\\bfseries {Attribute} & {Type} & {Multiplicity} \\\\
+\\rowfont\\bfseries {Value Property name} & {Value Property type} & {Multiplicity} \\\\
 \\tabucline[1.5pt]{}
 " + string_out + %"
 \\end{tabu}
@@ -118,71 +128,75 @@ class LatexType < Type
 \\FloatBarrier
 "
       
-
-	  f.puts "\nDescriptions for attributes of \\block{#{@name}}:\n\n"
-	  f.puts "\\begin{itemize}\n"
+ 	    if not (redefinesResult and value_properties.length <= 1)
+		  f.puts "\nDescriptions for Value Properties of \\block{#{@name}}:\n\n"
+		  f.puts "\\begin{itemize}\n"
+	    end
 	  end
-      attributes.each do |r|
+      value_properties.each do |r|
         if r.name == 'Supertype' or r.name == 'value' or r.association_name == 'value'
           next
         elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty and not value_only
           
           name = r.association_name ? r.association_name : r.name
+		  stereo = r.stereotype!='' ? "\\texttt{<<#{r.stereotype}>>} " : ""
           if r.association_doc
-            f.puts "\n\\item \\property{#{name}}[#{@name}] \\newline #{r.association_doc}\n"
+            f.puts "\n\\item #{stereo}\\property{#{name}}[#{@name}] \\newline #{r.association_doc}\n"
           elsif r.documentation
-            f.puts "\n\\item \\property{#{name}}[#{@name}] \\newline #{r.documentation}\n"
+            f.puts "\n\\item #{stereo}\\property{#{name}}[#{@name}] \\newline #{r.documentation}\n"
           end
           
-		  stereo = r.stereotype ? "\\texttt{<<#{r.stereotype}>>} " : ""
-          if r.target.type.type == 'uml:Enumeration' and !$enums.include?(r.final_target.type.name) and not stereo.include?('deprecated')
-            r.target.type.generate_enumerations(f)
-			$enums << r.final_target.type.name
+          if r.target.type.type == 'uml:Enumeration'and not stereo.include?('deprecated')
+            f.puts "\nThe value of \\texttt{#{name}} \\MUST be one of the \\texttt{#{r.final_target.type.name}} enumeration."
+			if !$enums.include?(r.final_target.type.name)
+			  r.target.type.generate_enumerations(f)
+			  $enums << r.final_target.type.name
+			end
           end
         end
       end
 
-	  unless value_only 
-	  f.puts "\\end{itemize}\n\n"
+	  unless value_only
+	  f.puts "\\end{itemize}\n\n" if not (redefinesResult and value_properties.length <= 1)
 	  end
 	end
 	
-	def generate_element_doc(f, elements)
+	def generate_associated_property_doc(f, properties, property_stereotype)
 
       f.puts <<-EOT
 
-\\paragraph{Elements of #{@name}}\\mbox{}
-#{self.class.get_label("sec:Elements of #{@name}")}
+\\paragraph{#{property_stereotype} Properties of #{@name}}\\mbox{}
+#{self.class.get_label("sec:#{property_stereotype} Properties of #{@name}")}
 
-\\tbl{Elements of #{@name}} lists the elements of \\texttt{#{@name}}.
+\\tbl{#{property_stereotype} Properties of #{@name}} lists the #{property_stereotype} Properties of \\texttt{#{@name}}.
 
 \\begin{table}[ht]
 \\centering 
-  \\caption{Elements of #{@name}}
-  #{self.class.get_label("table:Elements of #{@name}")}
+  \\caption{#{property_stereotype} Properties of #{@name}}
+  #{self.class.get_label("table:#{property_stereotype} Properties of #{@name}")}
 \\tabulinesep=3pt
 \\begin{tabu} to 6in {|l|l|} \\everyrow{\\hline}
 \\hline
-\\rowfont\\bfseries {Element} & {Multiplicity} \\\\
+\\rowfont\\bfseries {#{property_stereotype} Property type} & {Multiplicity} \\\\
 \\tabucline[1.5pt]{}
 EOT
       
-      elements.each do |r|
+      properties.each do |r|
         if r.name == 'Supertype'
           next
         end
-        stereo = r.stereotype ? "\\texttt{<<#{r.stereotype}>>} " : nil
+        stereo = r.stereotype!='' ? "\\texttt{<<#{r.stereotype}>>} " : ''
         
         name = r.association_name ? r.association_name : r.name
         
         if r.redefinesProperty and r.default
-          f.puts "\\texttt{#{r.default}} & #{r.multiplicity} \\\\"
-        elsif r.association_name and r.final_target.type.name != name
-          f.puts "\\texttt{#{r.final_target.type.name}} (organized by \\block{#{name}}) & #{r.multiplicity} \\\\"
+          f.puts "#{stereo}\\texttt{#{r.default}} & #{r.multiplicity} \\\\"
+        elsif r.association_name and (r.final_target.type.name != name or name == 'Condition')
+          f.puts "#{stereo}\\texttt{#{r.final_target.type.name}} (organized by \\block{#{name}}) & #{r.multiplicity} \\\\"
 		elsif not r.association_name and r.final_target.type.name != name
-		  f.puts "\\texttt{#{name}} & #{r.multiplicity} \\\\"
+		  f.puts "#{stereo}\\texttt{#{name}} & #{r.multiplicity} \\\\"
 		else
-		  f.puts "\\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
+		  f.puts "#{stereo}\\texttt{#{r.final_target.type.name}} & #{r.multiplicity} \\\\"
         end
       end
       
@@ -193,22 +207,19 @@ EOT
 
 EOT
 
-	  f.puts "\nDescriptions for elements of \\block{#{@name}}:\n\n"
+	  f.puts "\nDescriptions for #{property_stereotype} Properties of \\block{#{@name}}:\n\n"
 	  f.puts "\\begin{itemize}\n"
-      elements.each do |r|
+      properties.each do |r|
         if r.name == 'Supertype'
           next
-        elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty
-          
-          name = r.association_name ? r.association_name : r.name
-          if r.association_doc
-            f.puts "\n\\item \\block{#{name}} \\newline #{r.association_doc}\n"
-          else r.documentation
-            f.puts "\n\\item \\block{#{name}} \\newline #{r.documentation}\n"
-          end
+        elsif (r.association_doc or r.final_target.type.documentation or r.target.type.type == 'uml:Enumeration') and (not r.redefinesProperty or r.final_target.type.type == 'uml:Class')
+          stereo = r.stereotype!='' ? "\\texttt{<<#{r.stereotype}>>} " : ''
+          name = r.final_target.type.name
+          f.puts "\n\\item #{stereo}\\block{#{name}} \\newline #{r.final_target.type.documentation}\n"
+          f.puts "\\newline #{r.association_doc}\n" if r.association_doc
 		  
 		  if not r.association_name and r.final_target.type.name != name and not r.target.type.type == 'uml:Enumeration'
-		    f.puts "\nThe value of \\block{#{name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n"
+		    f.puts "\nThe value of \\block{#{name}} \\MUST be a \\texttt{#{r.final_target.type.name}}.\n"
 		  end
           
           if r.target.type.type == 'uml:Enumeration' and not r.redefinesProperty and not (r.stereotype and r.stereotype.include?('deprecated'))
@@ -218,7 +229,14 @@ EOT
       end
 	  f.puts "\\end{itemize}\n\n"
 
-	  end
+	end
+  
+  
+  
+  
+  
+  
+  
   
   def generate_types(f)
     $logger.info "Generating docs for #{@name}"
@@ -226,37 +244,47 @@ EOT
       @relations.select do |r|
       $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target.type.nil?
       (r.documentation or r.target.type.type == 'uml:Enumeration' or not r.documentation) and @model.name.split('Type')[0] != r.final_target.type.name and r.visibility == 'public'
-    end
-
-    
+    end   
 
     unless relations_with_documentation.empty?
-	attributes =[]
-	elements =[]
+	value_properties = []
+	reference_properties =[]
+	part_properties = []
 
+  data_type_defined = false
   relations_with_documentation.each do |r|
     name = r.association_name ? r.association_name : r.name
-  
+	
     if name == 'Supertype'
       next
     elsif (r.association_doc or r.documentation or r.target.type.type == 'uml:Enumeration') and not r.redefinesProperty	
-	  if /[[:lower:]]/.match(name[0])
-	    attributes.append(r)
-	  elsif /[[:upper:]]/.match(name[0])
-	    elements.append(r)
-	  end
+		if (r.property_stereotype == '' or r.property_stereotype == 'ValueProperty') and
+			r.name != 'Supertype'
+			value_properties.append(r)
+		elsif r.property_stereotype == 'ReferenceProperty'
+		    reference_properties.append(r)
+		elsif r.property_stereotype == 'PartProperty'
+			part_properties.append(r)
+		end
     elsif r.redefinesProperty
       if name == 'result'
+	    data_type_defined = true
 		if r.final_target.type.type == 'uml:Enumeration'
-			f.puts "\nThe value of \\texttt{#{@name}} \\MUST be one of the following: \n\n"
+			f.puts "\nThe value of \\texttt{#{@name}} \\MUST be one of the #{r.final_target.type.name} enumeration. \n\n"
 			r.final_target.type.generate_enumerations(f)
 		elsif r.final_target.type.type == 'uml:Class'
-			f.puts "\nThe \\block{Entry} \\property{key} \\MUST be one or more from the following:\n"
+			f.puts "\nThe \\block{Entry} \\property{key} \\MUST be one or more from the #{r.final_target.type.name} keys.\n"
 			r.final_target.type.generate_entrykeys(f)
 		elsif r.final_target.type.type == 'uml:DataType' and r.final_target.type.multiplicity.end_with?('*')
-		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be a space delimited list of \\texttt{#{r.final_target.type.name}s}.\n\n"
+		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be a list of one or more \\texttt{#{r.final_target.type.name}s}.\n\n"
+		elsif r.final_target.type.type == 'uml:DataType' and r.final_target.type.multiplicity.include?('3')
+		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be reported in \\texttt{#{r.final_target.type.name}\\textunderscore 3D}.\n\n"
+		elsif r.final_target.type.name == 'dateTime'
+		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be reported in ISO 8601 format."
+		elsif r.final_target.type.name == 'x509'
+		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be an \\texttt{x509} data block."
 		else
-		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
+		  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be a \\texttt{#{r.final_target.type.name}}.\n\n"
 		end
       elsif (name == 'type' or name == 'subType') and not r.default
         f.puts "\nThe value of \\property{#{name}}[DataItem] with \\property{category}[DataItem] \\texttt{#{@name}} \\MUST be one of the following:\n" if name == 'type'
@@ -271,8 +299,11 @@ EOT
         r.final_target.type.literals.each do |lit|
 		  lit_name = lit.name.gsub(/_/,"\\textunderscore ")
 		  lit_subtypes = ""
-		  if $dataitemtypes.has_key?(lit_name) and !$dataitemtypes[lit_name].empty?
-		    lit_subtypes = "\nSubtypes of \\texttt{#{lit_name}}: "+ $dataitemtypes[lit_name].join(", ")+"."
+		  if $dataitemtypes.has_key?(lit_name) and lit.description
+		    $dataitemtypes[lit_name]['documentation'] = lit.description
+		  end
+		  if $dataitemtypes.has_key?(lit_name) and $dataitemtypes[lit_name].has_key?('subTypes') and !$dataitemtypes[lit_name]['subTypes'].empty? and escape_name != "Condition" and name != 'subType'
+		    lit_subtypes = "\nSubtypes of \\texttt{#{lit_name}} : "+ $dataitemtypes[lit_name]['subTypes'].join(", ")+"."
 		  end
           f.puts <<-EOT
 
@@ -289,13 +320,19 @@ EOT
 
 EOT
 	  elsif name == 'units' and r.default
-	    f.puts "\n\\texttt{units}: \\texttt{#{r.default.gsub(/(\^)/,"\\^{}").gsub("_","\\textunderscore ")}}.\n"
+	    data_type_defined = true
+	    f.puts "\nThe \\texttt{units} of \\texttt{#{@name}} \\MUST be \\texttt{#{r.default.gsub(/(\^)/,"\\^{}").gsub("_","\\textunderscore ")}}.\n"
           end
         end
       end
 	  
-	  generate_attribute_doc(f, attributes) unless attributes.empty?
-	  generate_element_doc(f, elements) unless elements.empty?
+	  if (not data_type_defined and ["Sample Types", "Event Types"].include?(@model.name))
+	    f.puts "\nThe value of \\texttt{#{@name}} \\MUST be a \\texttt{string}.\n\n"
+	  end
+	  
+	  generate_value_property_doc(f, value_properties) unless value_properties.empty?
+	  generate_associated_property_doc(f, reference_properties, 'Reference') unless reference_properties.empty?
+	  generate_associated_property_doc(f, part_properties, 'Part') unless part_properties.empty?
 	  
     end    
   end
@@ -303,7 +340,7 @@ EOT
   def generate_subtypes(f)
     return if @is_subtype == true or @subtypes.length == 0
 
-	if @model.name.include?("Types")
+	if ["Sample Types", "Event Types", "DataItem Types for Interface"].include?(@model.name)
 	  if @subtypes.size>0 and @relations.size>1
 		f.puts <<-EOT
 \n\\paragraph{Subtypes of #{@name}}\\mbox{}
@@ -318,8 +355,17 @@ EOT
 			subtype.relations.each do |r|
 			  name = r.association_name ? r.association_name : r.name
 			  if r.redefinesProperty and name == 'result'
-				f.puts "\nThe value for \\block{#{@name}} when \\property{subType} is \\texttt{#{subtype.relation("subType").default.gsub("_","\\textunderscore ")}} \\MUST be one of the following: \n\n"
-				r.final_target.type.generate_enumerations(f)
+			    if r.final_target.type.type == 'uml:Enumeration'
+				  f.puts "\nThe value for \\block{#{@name}} when \\property{subType} is \\texttt{#{subtype.relation("subType").default.gsub("_","\\textunderscore ")}} \\MUST be one of the #{r.final_target.type.name} enumeration.\n\n"
+				  if !$enums.include?(r.final_target.type.name)
+				    r.final_target.type.generate_enumerations(f)
+					$enums << r.final_target.type.name
+				  end
+				elsif r.final_target.type.name == 'dateTime'
+				  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be reported in ISO 8601 format."
+				else
+				  f.puts "\nThe value of \\texttt{#{@name}} \\MUST be a \\texttt{#{r.final_target.type.name}}.\n\n"
+				end
 				break
 			  end
 			end
@@ -335,9 +381,10 @@ EOT
     if @type == 'uml:Enumeration'
       $logger.debug "***** =====> Generating Enumerations for #{@name}"
 
-	f.puts <<-EOT
+	  stereo = @stereotype != '' ? "\\texttt{<<#{@stereotype}>>}" : ''
+	  f.puts <<-EOT
 
-\\texttt{#{escape_name}} Enumeration:
+#{stereo}\\texttt{#{escape_name}} Enumeration:
 
 \\begin{itemize}
 EOT
@@ -364,7 +411,7 @@ EOT
 	    name = r.name.gsub(/(\^)/,"\^{}").gsub("_","\\textunderscore ")
 	    next if name == 'Supertype'
 	    f.puts "\\item \\texttt{#{name}} \\newline #{r.documentation} \n"
-	    f.puts "\\newline The value of \\texttt{#{name}} \\MUST be \\texttt{#{r.final_target.type.name}}.\n\n"
+	    f.puts "\\newline The value of \\texttt{#{name}} \\MUST be a \\texttt{#{r.final_target.type.name}}.\n\n"
 	  end
 	  f.puts <<-EOT
 \\end{itemize}
@@ -372,51 +419,6 @@ EOT
 EOT
   end
 
-  def generate_data_type(f)
-    generate_property_doc(f)
-  end
-
-  def generate_class_diagram
-    File.open(File.join(LatexModel.directory,'classes',@name.gsub(/[<>]/, '-')+".tex"), 'w') do |f|
-      if @abstract
-        f.puts "\\umlabstract{#{@name}}{"
-      else
-        f.puts "\\umlclass{#{@name}}{"
-      end
-
-      @relations.each do |r|
-        if r.is_property?
-          if r.stereotype
-            stereo = "<<#{r.stereotype}>> "
-          end
-          f.puts "#{stereo}+ #{r.name}: #{r.target.type.name}#{r.is_optional? ? '[0..1]' : ''} \\\\"
-        end
-      end
-    
-      f.puts "}{}"
-      f.puts "\n% Relationships\n\n"
-    
-      @relations.each do |r|
-        if !r.is_property?
-          if r.stereotype
-            stereo = "stereo=#{r.stereotype},"
-          end
-          case r
-          when Relation::Generalization
-            f.puts "\\umlinherit[geometry=|-|]{#{r.source.type.name}}{#{r.target.type.name}}"
-
-          when Relation::Association
-            f.puts <<-EOT
-\\umluniassoc[geometry=|-,#{stereo}%
-              arg1=#{r.name},%
-              mult1=#{r.source.multiplicity},%
-              mult2=#{r.target.multiplicity}]{#{r.source.type.name}}{#{r.target.type.name}}
-EOT
-          end
-        end
-      end
-    end
-  end
 
   def generate_class(f)
   
@@ -446,30 +448,35 @@ EOT
 	
 	elsif @model.name == "Composition Types"
     	f.puts <<-EOT
-\n\\subsubsection[#{section_name}]{#{section_name} \\\\ {\\small type: #{@relations[1].default.gsub("_","\\textunderscore ")}}}
-#{self.class.get_label("sec:#{section_name}")}
-
-EOT
-
-		generate_documentation(f)
-		generate_class(f)
-	
-	elsif @model.name.end_with?('Types') and section_name.end_with?('Result')
-		#pass
-	else
-    	f.puts <<-EOT
 \n\\subsubsection{#{section_name}}
 #{self.class.get_label("sec:#{section_name}")}
 
 EOT
 
 		generate_documentation(f)
+		generate_class(f)		
+	
+	elsif @model.name.end_with?('Types') and section_name.end_with?('Result')
+		#pass	
+	else
+	
+	    f.puts <<-EOT
+\n\\subsubsection{#{section_name}}
+#{self.class.get_label("sec:#{section_name}")}
+
+EOT
+		if ['Sample Types', 'Event Types', 'Condition Types', 'DataItem Types for Interface'].include?(@model.name)
+          dataitem_type = self.relation("type").default.gsub(/_/,"\\textunderscore ")
+		  if $dataitemtypes.has_key?(dataitem_type) and $dataitemtypes[dataitem_type]['documentation']
+			f.puts "#{$dataitemtypes[dataitem_type]['documentation']}\n\n"
+		  end
+		end
+	  
+		generate_documentation(f)
 		generate_class(f)
 	
 	end
 	
-	f.puts @additional_documentation
-
   end
 
 
@@ -492,6 +499,17 @@ EOT
 	plural={#{plural}}
 }
 EOT
+  end
+  
+  def generate_profile_docs(f)
+	return if @visibility != 'public'
+	f.puts <<-EOT
+\n\\subsubsection{#{@name}}
+\\label{sec:#{@name}}
+
+EOT
+
+	generate_documentation(f)
   end
 
 end
