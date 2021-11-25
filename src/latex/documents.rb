@@ -21,7 +21,7 @@ module Document
     if documentation_exists?
       f.puts "\n\n\\input #{documentation_name}\n\n"
     elsif @documentation
-      f.puts "\n\n#{format_markdown(@documentation)}\n\n"
+      f.puts "\n#{format_markdown(@documentation)}\n\n#{@additional_documentation}\n"
     end
   end
   def get_section_documentation(root_model,section_package_name, section_name)
