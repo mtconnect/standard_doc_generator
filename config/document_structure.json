@@ -13,9 +13,10 @@
 			"models": [
 				"Devices Information Model",
 				{
-					"Structural Elements for MTConnectDevices": ["Components",
+					"Entities for MTConnectDevices": ["Components",
 						"Devices",
-						"Component Types"
+						"Component Types",
+						"ComponentOrganizer Types"
 					]
 				},
 				{
@@ -23,8 +24,8 @@
 				},
 				{
 					"DataItems Model": ["DataItems",
-						"Elements for DataItem",
-						"Elements for Definition",
+						"Properties of DataItem",
+						"Properties of Definition",
 						"Relationship Types for DataItem",
 						"DataItem Types",
 						"DataItem SubTypes"
@@ -34,14 +35,13 @@
 					"References Model": ["References"]
 				},
 				{
-					"Configuration Model": ["Configuration",
+					"Configurations Model": ["Configurations",
 						"CoordinateSystems",
 						"Motion",
 						"Relationships",
 						"Sensor",
 						"SolidModel",
-						"Specifications",
-						"Limits for ProcessSpecification"
+						"Specifications"
 					]
 				}
 			]
@@ -51,9 +51,9 @@
 			"doc_title": "Observations Information Model",
 			"models": ["Observations Information Model",
 				{
-					"Structural Elements for MTConnectStreams": ["Streams",
+					"Entities for MTConnectStreams": ["Streams",
 						"Observations",
-						"Representation"
+						"Representations"
 					]
 				},
 				{
@@ -73,18 +73,18 @@
 					"Assets Information Model": ["Assets"]
 				},
 				{
-					"CuttingTool Asset Information Model":["CuttingTool",
-						"CuttingToolLifeCycle",
-						"CuttingItem",
-						"CuttingTool Measurement Types",
-						"CuttingItem Measurement Types"
+					"Cutting Tool Asset Information Model":["Cutting Tool",
+						"Cutting Tool Life Cycle",
+						"Cutting Item",
+						"Cutting Tool Measurement Subtypes",
+						"Cutting Item Measurement Subtypes"
 					]
 				},
 				{
 					"Files Asset Information Model":["Files"]
 				},
 				{
-					"RawMaterial Asset Information Model":["RawMaterial"]
+					"Raw Material Asset Information Model":["Raw Material"]
 				},
 				{
 					"QIF Asset Information Model":["QIF"]
@@ -104,7 +104,7 @@
 					]
 				},
 				{
-					"Operation and Error Recovery":["Scenarios",
+					"Operation and Error Recovery":[
 						"Request and Response Failure Handling and Recovery"
 					]
 				}
@@ -132,9 +132,17 @@
 			"model": "HTTP Terms",
 			"type": "http"
 		},
-		"Concept Model Terms": {
-			"model": "Concept Model",
+		"MTConnect Terms": {
+			"model": "MTConnect Terms",
 			"type": "conceptmodel"
+		}
+	},
+	"profile":{
+		"Data Types": {
+			"model": "DataTypes"
+		},
+		"Stereotypes": {
+			"model": "Profile"
 		}
 	}
 }
