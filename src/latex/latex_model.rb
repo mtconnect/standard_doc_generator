@@ -2,9 +2,11 @@ $: << File.dirname(__FILE__)
 
 require 'lib/model'
 require 'latex_type'
+require 'markdown_parser'
 
 class LatexModel < Model
   include Document
+  include MarkDownParser
     
   def self.directory=(dir)
     @@directory = dir
@@ -63,15 +65,31 @@ class LatexModel < Model
 	end
   end
 
+  def self.generate_profile(f, profile_config)
+	profile_config.each do |profile_type, profile_info|
+		
+		f.puts "\n\\subsection{#{profile_type}} \n\\label{sec:#{profile_type}}\n\n"
+		f.puts "#{format_diagram("!#{profile_type}.png!")}"
+		
+		@@models[profile_info['model']].types.each do |type|
+			if type.type == 'uml:DataType' or type.type == 'uml:Stereotype'
+				type.generate_profile_docs(f)
+			end
+		end
+	end
+  end
+
   def self.generate_subtypes
-	models = ["Sample Types", "Event Types", "DataItem Types for Interface"]
+	models = ["Sample Types", "Event Types", "Condition Types", "DataItem Types for Interface"]
 	list_of_types = []
 	
 	models.each do |model|
 	  @@models[model].types.each do |type|
 		if type.relation("type")
 		  list_of_types << type.id
-	      $dataitemtypes[type.relation("type").default.gsub(/_/,"\\textunderscore ")] = []
+		  type_name = type.relation("type").default.gsub(/_/,"\\textunderscore ")
+	      $dataitemtypes[type_name] = {} unless $dataitemtypes.include?(type_name)
+		  $dataitemtypes[type_name]['subTypes'] = [] if model!="Condition Types"
 		end
 	  end
 	end
@@ -79,15 +97,16 @@ class LatexModel < Model
 	models.each do |model|
 	  @@models[model].types.each do |type|
         type.relations.each do |rel|
-		  if list_of_types.include?(rel.final_target.type.id)
-			$dataitemtypes[rel.final_target.type.relation("type").default.gsub(/_/,"\\textunderscore ")] << "\\texttt{#{type.relation("subType").default.gsub(/_/,"\\textunderscore ")}}"
+		  if list_of_types.include?(rel.final_target.type.id) and model!="Condition Types"
+			$dataitemtypes[rel.final_target.type.relation("type").default.gsub(/_/,"\\textunderscore ")]['subTypes'] << "\\texttt{#{type.relation("subType").default.gsub(/_/,"\\textunderscore ")}}"
 		  end
 		end
 	  end
 	end
 	
 	
-  end
+  end  
+  
 
   def generate_subtypes(model)
 	list_of_types = []
@@ -110,7 +129,7 @@ class LatexModel < Model
 
   def recurse_types(f, type, parent = '')
     parent = parent != '' ? parent : type
-    if  (type.type == 'uml:Class' or type.type == 'uml:Stereotype' or type.type == 'uml:DataType')
+    if  (type.type == 'uml:Class' or type.type == 'uml:AssociationClass' or type.type == 'uml:Stereotype' or type.type == 'uml:DataType')
       type.generate_latex(f, parent) 
     end
 
