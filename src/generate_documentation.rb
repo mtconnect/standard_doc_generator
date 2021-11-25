@@ -68,6 +68,13 @@ document_structure_json['documents'].each do |partno, partinfo|
       end
     end
   end
+  
+  #MTConnect Profile
+  $logger.info "\nGenerating MTConnect Profile"
+  File.open(File.join(LatexModel.directory, "profile.tex"), "w") do |f|
+	  generate_section_intro(f,RootModel, 'Supporting Documents', 'MTConnect Profile')
+	  LatexModel.generate_profile(f, document_structure_json['profile'])
+  end
 
   LatexModel.type_class.reset_labels()
 end
