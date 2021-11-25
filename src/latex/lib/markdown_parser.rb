@@ -18,7 +18,7 @@ module MarkDownParser
 		description = format_math_char(format_italics(format_bolds(format_monospaces(description))))
 		
 		#format lists and notes
-		description = format_list(description)
+		description = format_list(format_note(description))
 		
 		#format section headings
 		description = format_section_headings(description)
@@ -30,12 +30,13 @@ module MarkDownParser
 		diagrams = description.scan(/!([0-9a-zA-Z .\-_]+)!/)
 		diagrams.each do |diagram|
 			diagram_name = diagram[0].split('.')[0]
+			diagram_name += ' Diagram' if (not diagram_name.end_with?('Diagram') and not diagram_name.end_with?('Example'))
 			latex_out = <<-EOT
 \\begin{figure}[ht]
   \\centering
     \\includegraphics[width=1.0\\textwidth]{figures/#{diagram[0]}}
-  \\caption{#{diagram_name} Diagram}
-  \\label{fig:#{diagram_name} Diagram}
+  \\caption{#{diagram_name}}
+  \\label{fig:#{diagram_name}}
 \\end{figure}
 
 \\FloatBarrier
@@ -85,6 +86,12 @@ EOT
 			term_latex = "\\gls{" +term[0]+ "}"
 			description = description.gsub(term_command,term_latex)
 		end
+		capitalizedTerms = description.scan(/{{Term\(([a-zA-Z0-9*\/\-: _]+)\)}}/)
+		capitalizedTerms.each do |term|
+			term_command = "{{Term("+ term[0] +")}}"
+			term_latex = "\\Gls{" +term[0]+ "}"
+			description = description.gsub(term_command,term_latex)
+		end
 		return format_glossary_termplural(description)
 	end
 	
@@ -93,6 +100,12 @@ EOT
 		terms.each do |term|
 			term_command = "{{termplural("+ term[0] +")}}"
 			term_latex = "\\glspl{" +term[0]+ "}"
+			description = description.gsub(term_command,term_latex)
+		end
+		capitalizedTerms = description.scan(/{{Termplural\(([a-zA-Z0-9*\/\-: _]+)\)}}/)
+		capitalizedTerms.each do |term|
+			term_command = "{{Termplural("+ term[0] +")}}"
+			term_latex = "\\Glspl{" +term[0]+ "}"
 			description = description.gsub(term_command,term_latex)
 		end
 		return description
@@ -206,9 +219,11 @@ EOT
 		description = "\n"+description if description[0] == "#"
 		sections = description.scan(/\n([#]+) (.*)\n/)
 		sections.each do |section|
+			section_level = get_section_level(section[0])
 			section_md = "\n"+section[0]+" "+section[1]+"\n"
 			section_heading = section[1].gsub("_","\\textunderscore ")
-			section_latex = "\n\\#{get_section_level(section[0])}{#{section_heading}}\n\\label{sec:#{section_heading}}\n"
+			section_latex = "\n\\#{section_level}{#{section_heading}}\n\\label{sec:#{section_heading}}\n"
+			section_latex += "\\mbox{}\n" if section_level.include?('paragraph')
 			description = description.gsub(section_md,section_latex)
 		end
 		return description
@@ -246,6 +261,32 @@ EOT
 		
 		description = list_md_begin + list_in_latex + list_md_end
 		description = format_list(description) if description.include?("\n* ")
+		
+		return description
+	end
+	
+	def format_note(description)
+		return description if (not description.include?("* Note"))
+
+		list_md_begin = ""
+		list_md_end = ""
+		list_in_latex = "\n\\begin{note}"
+
+		lines = description.split(/\n(?=[^\n])/).delete_if{|x| x.strip==""}
+		lines.each_with_index do |line, i|
+			if line.start_with?("* Note")
+				list_md_begin = description.split(line)[0] if list_md_begin == "" and not description.start_with?("* Note")
+				list_in_latex += "\n\\newline #{line[2..-1].split(":",2)[0].upcase} \\tab \\tab #{line.split(":",2)[-1]}"
+				if (i+1 < lines.length and (not lines[i+1].start_with?("* Note"))) or (i+1 == lines.length)
+					list_md_end = "\n"+lines[i+1..-1].join("\n")
+					break
+				end
+			end
+		end	
+		list_in_latex += "\n\\end{note}\n"
+		
+		description = list_md_begin + list_in_latex + list_md_end
+		description = format_note(description) if description.include?("* Note")
 		
 		return description
 	end
