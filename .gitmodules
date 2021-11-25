@@ -1,6 +1,3 @@
-[submodule "protocols"]
-	path = protocols
-	url = https://git.overleaf.com/619e7d969720bc2ecd011552
 [submodule "devices"]
 	path = devices
 	url = https://git.overleaf.com/5f293c83adf9e80001c5795a
@@ -13,3 +10,6 @@
 [submodule "interfaces"]
 	path = interfaces
 	url = https://git.overleaf.com/611e5197509bbdc7173f2742
+[submodule "protocols"]
+	path = protocols
+	url = https://git.overleaf.com/619e7d969720bc2ecd011552

@@ -1,0 +1,29 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|}
+\caption{Path of the HTTP Request Line for a Probe Request} \label{table:path-for-probe-httprequest} \\
+
+\hline
+Path Segments & Description \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \ref{table:path-for-probe-httprequest}}\\
+\hline
+Path Segments & Description \\
+\hline
+\endhead
+
+\gls{name} or \gls{uuid}
+&
+If present, specifies that only the \gls{equipment metadata} for the piece of equipment represented by the \gls{name} or \gls{uuid} will be published. 
+\newline If not present, \gls{metadata} for all pieces of equipment associated with the \gls{agent} will be published.
+\\ \hline
+
+\cfont{<request>}
+&
+\gls{probe httprequest} \MUST be provided.  
+\\ \hline
+
+\end{longtabu}

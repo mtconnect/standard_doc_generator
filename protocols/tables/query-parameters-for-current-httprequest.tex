@@ -1,0 +1,41 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|}
+\caption{Query Parameters of the HTTP Request Line for a Current Request} \label{table:query-parameters-for-current-httprequest} \\
+
+\hline
+Query Parameters & Description \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \ref{table:query-parameters-for-current-httprequest}}\\
+\hline
+Query Parameters & Description \\
+\hline
+\endhead
+
+\gls{path query}
+&
+An XPath that defines specific information or a set of information to be included in an \gls{mtconnectstreams response document}.
+\newline The value for the XPath is the location of the information defined in the \glspl{device information model} that represents the \gls{structural element}(s) and/or the specific \glspl{data entity} to be included in the \gls{mtconnectstreams response document} .
+\newline When a \gls{component} element is referenced by the XPath, all \gls{lower level} components and the \glspl{data entity} associated with those elements \MUST be included in the \gls{mtconnectstreams response document}. \\
+\hline
+
+\gls{at query}
+&
+Requests that the \glspl{mtconnect response document} \MUST include the current value for all \glspl{data entity} relative to the time that a specific \gls{sequence number} was recorded.
+\newline The value associated with the \gls{at query} parameter references a specific \gls{sequence number}.  The value \MUST be an unsigned 64-bit value.
+\newline The \gls{at query} parameter \MUSTNOT be used in conjunction with the \gls{interval query} parameter since this would cause an \gls{agent} to repeatedly return the same data. 
+\newline If the value provided for the \gls{at query} parameter is a negative number or is not a, the \gls{request} \MUST be determined to be invalid.  The \gls{agent} \MUST return a 400 \gls{http status code}.  Also, the \gls{agent} \MUST publish an \gls{mtconnecterrors response document} that identifies an \gls{invalidrequest value} \gls{errorcode}. 
+\newline If the value provided for the \gls{at query} parameter is either lower than the value of \gls{firstsequence} or greater than the value of \gls{lastsequence}, the \gls{request} \MUST be determined to be invalid.  The \gls{agent} \MUST return a 404 \gls{http status code}.  The \gls{agent} \MUST also publish an \gls{mtconnecterrors response document} that identifies an \gls{outofrange value} \gls{errorcode}. 
+\newline Note:  Some information stored in the \gls{buffer} of an \gls{agent} may not be returned for a \gls{current request} with a \gls{query} containing an \gls{at query} parameter if the \gls{sequence number} associated with the most current value for that information is greater than the \gls{sequence number} specified in the \gls{query}.
+\\ \hline
+
+\gls{interval query}
+&
+The \gls{agent} \MUST continuously publish \glspl{response document} when the query parameters include \gls{interval query} using the value as the period between adjacent publications.
+\newline The \gls{interval query} value \MUST be in milliseconds, and \MUST be a positive integer greater than zero (0).
+\newline The \gls{query} \MUSTNOT specify both \gls{interval query} and \gls{at query} parameters. \\
+\hline
+\end{longtabu}

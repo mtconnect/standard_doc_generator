@@ -1,0 +1,82 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[1l]|X[3l]|}
+\caption{HTTP Status Codes for a Probe Request} \label{table:status-codes-for-probe-httprequest} \\
+
+\hline
+HTTP Status Code & Code Name & Description \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:status-codes-for-probe-httprequest}}\\
+\hline
+HTTP Status Code & Code Name & Description \\
+\hline
+\endhead
+ 
+200
+&
+OK
+&
+The \gls{request} was handled successfully. \\
+\hline
+
+400
+&
+Bad Request
+&
+The \gls{request} could not be interpreted.  
+\newline The \gls{agent} \MUST return a 400 \gls{http status code}.  Also, the \gls{agent} \MUST publish an \gls{mtconnecterrors response document} that identifies either \gls{invaliduri value} or \gls{invalidrequest value} as the \gls{errorcode}.
+\\
+\hline
+
+404
+&
+Not Found
+&
+The \gls{request} could not be interpreted.  
+\newline The \gls{agent} \MUST return a 404 \gls{http status code}.  Also, the \gls{agent} \MUST publish an \gls{mtconnecterrors response document} that identifies \gls{nodevice value} as the \gls{errorcode}.
+\\
+\hline
+
+405
+&
+Method Not Allowed
+&
+A method other than \cfont{GET} was specified in the \gls{request} or the piece of equipment specified in the \gls{request} could not be found. 
+\newline The \gls{agent} \MUST return a 405 \gls{http status code}.  Also, the \gls{agent} \MUST publish an \gls{mtconnecterrors response document} that identifies \gls{unsupported value} as the \gls{errorcode}. 
+\\
+\hline
+
+406
+&
+Not Acceptable
+&
+The \textit{HTTP Accept Header} in the \gls{request} was not one of the supported representations. 
+\newline The \gls{agent} \MUST return a 406 \gls{http status code}.  Also, the \gls{agent} \MUST publish an \gls{mtconnecterrors response document} that identifies \gls{unsupported value} as the \gls{errorcode}.
+\\
+\hline
+
+
+431
+&
+Request Header Fields Too Large
+&
+The fields in the \gls{http request} exceed the limit of the implementation of the \gls{agent}. 
+\newline The \gls{agent} \MUST return a 431 \gls{http status code}.  Also, the \gls{agent} \MUST publish an \gls{mtconnecterrors response document} that identifies \gls{invalidrequest value} as the \gls{errorcode}. 
+\\
+\hline
+
+
+500
+&
+Internal Server Error
+&
+There was an unexpected error in the \gls{agent} while responding to a \gls{request}.  
+\newline The \gls{agent} \MUST return a 500 \gls{http status code}.  Also, the \gls{agent} \MUST publish an \gls{mtconnecterrors response document} that identifies \gls{internalerror value} as the \gls{errorcode}.  
+\\
+\hline
+
+
+\end{longtabu}

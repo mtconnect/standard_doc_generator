@@ -1,6 +1,6 @@
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textit{*} %
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textit{\textit{}} MTCONNECT DOCUMENT CLASS \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textit{*} %
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textit{*} %
+% ************************************************************************* %
+% ************************ MTCONNECT DOCUMENT CLASS *********************** %
+% ************************************************************************* %
 % 	FILENAME: 		mtconnect.cls											%
 %	VERSION:		0.1														%
 % 	DATE:			02/13/2018												%
@@ -15,30 +15,25 @@
 % 	DESCRIPTION:	Style template for MTConnect documentation;				%
 % 					Initial attempt for testing and discussion				%
 % 	USAGE:			\documentclass[options]{mtconnect}						%
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textit{*} %
+% ************************************************************************* %
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{mtconnect}[2018/02/13 LaTeX document class for MTConnect]
 
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{*}\textit{*} %
+% **************************** %
 % 	Preliminary Declarations   %
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{*}\textit{*} %
+% **************************** %
 
 \LoadClass[12pt,letterpaper,twoside]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[letterpaper,top=1.25in,%
             bottom=1.25in,footskip=0.5in]{geometry}
 
-\usepackage[citations,hybrid,smartEllipses,hashEnumerators,html,%
-           pipeTables,tableCaptions,fencedCode,codeSpans,tightLists=false,%
-           cacheDir=markdowncache]{markdown}%
-\usepackage[absolute]{textpos}
 \RequirePackage[htt]{hyphenat}				% Allow hyphenation of fixed space fonts
 \RequirePackage{fancyvrb}
 \RequirePackage{placeins}
 \RequirePackage{booktabs}
 \RequirePackage{tabu}
-\usepackage{morewrites}
 \RequirePackage{times}					% Loads Adobe Times Roman Font (clone of Times New Roman)
 \RequirePackage{mathptmx}				% Loads Adobe Times Roman Math Font
 \RequirePackage{ifpdf}					% Enables switch between latex and pdflatex
@@ -46,9 +41,10 @@
 \RequirePackage{ifthen}					% Loads ifthen package for conditional statements
 \RequirePackage[T1]{fontenc}			% Loads fontenc package for controlled vocabulary formatting
 \let\BreakableUnderscore\undefined
+\RequirePackage{underscore}
 \RequirePackage{graphicx}				% Loads graphicx package to include figures and images
 \RequirePackage{fancyhdr}				% Loads fancyhdr package to modify headers and footers
-%\RequirePackage[hyphens]{url}					% Loads url package to typeset URLs
+\RequirePackage[hyphens]{url}					% Loads url package to typeset URLs
 \RequirePackage{lineno}					% Loads lineno package to apply line numbers to document
 \RequirePackage{etoolbox}				% Loads etoolbox package to patch lineno package and suppress line numbers in section headings
 \RequirePackage{sectsty}				% Loads sectsty package to modify font of section headings
@@ -88,7 +84,6 @@
 \usepackage{hanging}
 %\usepackage{scrextend}
 \usepackage{titlesec}
-\usepackage{xargs}
 \newcommand{\sectionbreak}{\clearpage}
 
 \usepackage[backend=biber,style=alphabetic,]{biblatex}
@@ -97,13 +92,9 @@
 
 \usepackage{titlesec}
 
-%Watermark
-\usepackage{background}
-\backgroundsetup{contents=DRAFT, opacity=0.3, color=cyan, scale=9}
-
-% \textbf{\textit{}\textbf{}}* %
+% *********** %
 % 	Options   %
-% \textbf{\textit{}\textbf{}}* %
+% *********** %
 
 %\DeclareOption{draft}{\linenumbers}								% Includes line numbers
 %\DeclareOption{final}{}											% Document for public release
@@ -112,14 +103,14 @@
 %\ExecuteOptions{draft}		% Default option if none selected by user
 %\ProcessOptions				% Executes each option selected
 
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{*} %
+% ************************* %
 % 	Controlled Vocabulary   %
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{*} %
+% ************************* %
 
 % Formatting for MTConnect with registration mark, which is required in title and footer. 
 \newcommand{\mtconnectregistered}{MTConnect\textsuperscript{\textregistered} }
 % Formatting for MTConnect without registration mark, which can be used everywhere except title page(s) and footer. 
-%\newcommand{\mtconnect}{MTConnect } %Use MTConnect
+%\newcommand{\mtconnect}{MTConnect } %Use \gls{mtconnect}
 
 \newcommand{\storedstringPCR}[1]{{\fontfamily{pcr}\selectfont #1}}
 
@@ -140,16 +131,16 @@
 	    \noblanks[q]{\thestring}%
 	    {\fontfamily{pcr}\selectfont \storedstringPCR\thestring}}{%
 	\ifthenelse{\equal{#1}{limited}}{%
-	    \convertchar[e]{#2}{ }{\\textunderscore }%
+	    \convertchar[e]{#2}{ }{\_}%
 	    {\fontfamily{pcr}\selectfont \caseupper[v]{\thestring}}}{
 	\ifthenelse{\equal{#1}{noref}}{
 	    #2}{%
 	\textbf{INCORRECT CONTROL VOCABULARY!!!}}}}}
 }
 
-% \textbf{\textit{}\textbf{}}\textbf{*} %
+% *************** %
 % 	Page Layout   %
-% \textbf{\textit{}\textbf{}}\textbf{*} %
+% *************** %
 
 \setlength\paperheight{11in}
 \setlength\paperwidth{8.5in}
@@ -159,9 +150,9 @@
 \setlength\parindent{0pt}
 \setlength\parskip{1em}
 
-% \textbf{\textit{}\textbf{}}\textit{\textit{}} %
+% ************** %
 % 	Title Page   %
-% \textbf{\textit{}\textbf{}}\textit{\textit{}} %
+% ************** %
 
 \newcommand\@docnum{}
 \newcommand\@doctitle{}
@@ -194,14 +185,14 @@
         	Prepared on: \@preparedon \\%
 		\end{tabular}%
 		\vfill%
-		\noindent \footnotesize{\mtconnectregistered is a registered trademark of AMT - The Association for Manufacturing Technology. Use of MTConnect is limited to use as specified on \url{http://www.mtconnect.org/}.}%
+		\noindent \footnotesize{\mtconnectregistered is a registered trademark of AMT - The Association for Manufacturing Technology. Use of \gls{mtconnect} is limited to use as specified on \url{http://www.mtconnect.org/}.}%
     \end{titlepage}%
     \setcounter{page}{1}%
 }
 
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}} %
+% ************************************ %
 % 	Table of Contents/Figures/Tables   %
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}} %
+% ************************************ %
 
 \addto\captionsenglish{%
 \renewcommand\contentsname{\color{mtc1} Table of Contents}}
@@ -224,9 +215,9 @@
 
 \renewcommand{\newline}{\vskip 0.1in}
 
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textit{*} %
+% ********************************* %
 % 	Header and Footer Definitions   %
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textit{*} %
+% ********************************* %
 
 \newcommand\@doctitleshort{}
 \newcommand{\doctitleshort}[1]{\gdef\@doctitleshort{#1}}
@@ -238,12 +229,12 @@
 \rfoot{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}} %
+% ************************** %
 % 	Sections and Enumerate   %
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}\textbf{\textit{}} %
+% ************************** %
 
 \setcounter{secnumdepth}{5}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{5}
 
 \makeatletter
 \renewcommand\subparagraph{%
@@ -264,9 +255,9 @@
 \newcommand{\foursection}[1]{\paragraph{#1}\mbox{}\\}
 \newcommand{\fivesection}[1]{\subparagraph{#1}\mbox{}\\}
 
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}** %
+% ********************** %
 % 	Tables and Figures   %
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}\textbf{}}** %
+% ********************** %
 
 \definecolor{mtc2}{RGB}{0,128,128}
 \newcommand{\tblh}[1]{\normalsize\textbf{\textcolor{white}{#1}}}
@@ -278,9 +269,9 @@
 
 \newcommand{\tabuheader}{\rowcolor{mtc2}\rowfont[c]{\fontsize{10pt}{12pt}\selectfont\bfseries\color{white}}}
 
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}} %
+% **************** %
 % 	Line Numbers   %
-% \textbf{\textit{}\textbf{}}\textbf{\textit{}} %
+% **************** %
 
 \renewcommand\linenumberfont{\footnotesize\fontfamily{pcr}\selectfont}
 \makeatletter
@@ -289,9 +280,9 @@
 \makeatother
 \linenumbers
 
-% \textbf{\textit{}\textbf{}}\textbf{*}\textit{*} %
+% ****************** %
 % 	Other Commands   %
-% \textbf{\textit{}\textbf{}}\textbf{*}\textit{*} %
+% ****************** %
 
 % Courier font selection:
 \newcommand{\cfont}[1]{{\fontfamily{pcr}\selectfont #1}}
@@ -355,13 +346,6 @@
 %}
 
 \newglossary*{mtc}{MTConnect Terms}
-\newglossary*{general}{General Terms}
-\newglossary*{informationmodel}{Information Model Terms}
-\newglossary*{protocol}{Protocol Terms}
-\newglossary*{xml}{XML Terms}
-\newglossary*{http}{HTTP Terms}
-\newglossary*{conceptmodel}{Concept Model Terms}
-
 \makeglossaries
 
 \glsaddkey
@@ -568,6 +552,3 @@
 \glssetcategoryattribute{model}{nohyper}{true}
 
 \glssetcategoryattribute{term}{nohyper}{true}
-
-\newcommand{\block}[1]{\cfont{#1}}
-\newcommandx{\property}[2][2=\text{}]{\cfont{#1}}

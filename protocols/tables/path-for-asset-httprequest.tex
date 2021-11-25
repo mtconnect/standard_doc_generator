@@ -1,0 +1,28 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|}
+\caption{Path of the HTTP Request Line for an Asset Request} \label{table:path-for-asset-httprequest} \\
+
+\hline
+Path Segments & Description \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \ref{table:path-for-asset-httprequest}}\\
+\hline
+Path Segments & Description \\
+\hline
+\endhead
+
+\cfont{<request>}
+&
+\gls{asset httprequest} or \glspl{asset httprequest} \MUST be provided.  
+\\ \hline
+
+\gls{assetid path}
+&
+Identifies the \gls{id} attribute of an \gls{mtconnect asset} to be provided by an \gls{agent}.
+\\ \hline
+
+\end{longtabu}

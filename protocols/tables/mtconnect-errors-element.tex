@@ -1,0 +1,28 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{MTConnect Errors Element} \label{table:mtconnect-errors-element} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:mtconnect-errors-element}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{errors}	
+&
+An \gls{xml} container element in an \gls{mtconnecterrors response document} provided by an \gls{agent} when an error is encountered associated with a \gls{request} for information from a client software application.
+\newline There \MUST be only one \gls{errors} element in an \gls{mtconnecterrors response document}.
+\newline The \gls{errors} element \MUST contain at least one \gls{error} \gls{data entity} element.
+&
+1 \\
+\hline
+
+
+\end{longtabu}

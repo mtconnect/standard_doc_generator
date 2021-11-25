@@ -1,0 +1,41 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|}
+\caption{Query Parameters of the HTTP Request Line for an Asset Request} \label{table:query-parameters-for-asset-httprequest} \\
+
+\hline
+Query Parameters & Description \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{2}{|c|}{Continuation of Table \ref{table:query-parameters-for-asset-httprequest}}\\
+\hline
+Query Parameters & Description \\
+\hline
+\endhead
+
+\gls{type}
+&
+Defines the type of \gls{mtconnect asset} to be returned in the \gls{mtconnectassets response document}.
+\newline The type for an \gls{asset} is the term used in the \gls{asset information model} to describe different types of \glspl{asset}.  It is the term that is substituted for the \gls{asset mtconnectassets} container and describes the highest-level element in the \gls{asset} hierarchy.  See \citetitle{MTCPart40}, \textit{Section 3.2.3} for more information on the type of an \gls{asset}.
+\\ \hline
+
+\gls{removed}
+&
+\glspl{asset} can have an attribute that indicates whether the \gls{asset} has been removed from a piece of equipment.
+\newline The valid values for \gls{removed} are \gls{true removed} or \gls{false removed}.
+\newline If the value of the \gls{removed} parameter in the \gls{query http request} is \gls{true removed}, then \glspl{asset document} for \glspl{asset} that have been marked as removed from a piece of equipment will be included in the \gls{response document}. 
+\newline If the value of the \gls{removed} parameter in the \gls{query http request} is \gls{false removed}, then \glspl{asset document} for \glspl{asset} that have been marked as \gls{removed} from a piece of equipment will not be included in the \gls{response document}. 
+\newline If \gls{removed} is not defined in a \gls{query http request}, the default value for \gls{removed} \MUST be determined to be \gls{false removed}. 
+\\ \hline
+
+\gls{count model}
+&
+Defines the maximum number of \glspl{asset document} to return in an \gls{mtconnectassets response document}.
+\newline If \gls{count model} is not defined in the \gls{query http request}, the default vale for \gls{count model} \MUST be determined to be 100.  
+\\ \hline
+
+
+
+\end{longtabu}

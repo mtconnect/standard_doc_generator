@@ -1,0 +1,33 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{Elements for MTConnectDevices} \label{table:elements-for-mtconnectdevices} \\
+
+\hline
+Element & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:elements-for-mtconnectdevices}}\\
+\hline
+Element & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{header}
+&
+An \gls{xml} container in an \gls{mtconnect response document} that provides information from an \gls{agent} defining version information, storage capacity, and parameters associated with the data management within the \gls{agent}.
+&
+1 \\
+\hline
+
+\gls{devices}
+&
+The \gls{xml} container in an \gls{mtconnect response document} that provides the \gls{equipment metadata} for each of the pieces of equipment associated with an \gls{agent}.
+&
+1 \\
+\hline
+
+
+\end{longtabu}

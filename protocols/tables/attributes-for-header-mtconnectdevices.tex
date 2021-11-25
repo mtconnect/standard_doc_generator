@@ -1,0 +1,109 @@
+\tabulinesep = 5pt
+\begin{longtabu} to \textwidth {
+    |l|X[3l]|X[0.75l]|}
+\caption{MTConnectDevices Header} \label{table:attributes-for-header-mtconnectdevices} \\
+
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endfirsthead
+
+\hline
+\multicolumn{3}{|c|}{Continuation of Table \ref{table:attributes-for-header-mtconnectdevices}}\\
+\hline
+Attribute & Description & Occurrence \\
+\hline
+\endhead
+ 
+\gls{version}
+&
+The \gls{major}, \gls{minor}, and \gls{revision} number of the MTConnect Standard that defines the \gls{semantic data model} that represents the content of the \gls{response document}.   It also includes the revision number of the \gls{schema} associated with that specific \gls{semantic data model}.
+\newline The value reported for \gls{version} \MUST be a series of four numeric values, separated by a decimal point, representing a \gls{major}, \gls{minor}, and \gls{revision} number of the MTConnect Standard and the revision number of a specific \gls{schema}.  
+\newline As an example, the value reported for \gls{version} for a \gls{response document} that was structured based on \gls{schema} revision 10 associated with Version 1.4.0 of the MTConnect Standard would be:  1.4.0.10
+\newline \gls{version} is a required attribute.
+&
+1 \\
+\hline
+
+\gls{creationtime}
+&
+\gls{creationtime} represents the time that an \gls{agent} published the \gls{response document}. 
+\newline \gls{creationtime} \MUST be reported in UTC (Coordinated Universal Time) format; e.g., "2010-04-01T21:22:43Z".
+\newline Note:  Z refers to UTC/GMT time, not local time.
+\newline \gls{creationtime} is a required attribute.
+&
+1 \\
+\hline
+
+\gls{testindicator}
+&
+A flag indicating that the \gls{agent} that published the \gls{response document} is operating in a test mode.  The contents of the \gls{response document} may not be valid and SHOULD be used for testing and simulation purposes only. 
+\newline The values reported for \gls{testindicator} are:
+\newline -	  \gls{true value}:  The \gls{agent} is functioning in a test mode.
+\newline -	  \gls{false value}:  The \gls{agent} is not functioning in a test mode.
+\newline If \gls{testindicator} is not specified, the value for \gls{testindicator} \MUST be interpreted to be \gls{false value}.
+\newline \gls{testindicator} is an optional attribute.
+&
+0..1 \\
+\hline
+
+\gls{instanceid}
+&
+A number indicating a specific instantiation of the \gls{buffer} associated with the \gls{agent} that published the \gls{response document}.  
+\newline The value reported for \gls{instanceid} \MUST be a unique unsigned 64-bit integer.   
+\newline The value for \gls{instanceid} \MUST be changed to a different unique number each time the \gls{buffer} is cleared and a new set of data begins to be collected.
+\newline \gls{instanceid} is a required attribute.
+&
+1 \\
+\hline
+
+\gls{sender}
+&
+An identification defining where the \gls{agent} that published the \gls{response document} is installed or hosted.
+\newline The value reported for \gls{sender} \MUST be either an IP Address or Hostname describing where the \gls{agent} is installed or the URL of the \gls{agent}; e.g., \cfont{http://<address>[:port]/}. 
+\newline Note:  The port number need not be specified if it is the default HTTP port 80.
+\newline \gls{sender} is a required attribute.
+&
+1 \\
+\hline
+
+\gls{buffersize}
+&
+A value representing the maximum number of \glspl{data entity} that \MAY be retained in the \gls{agent} that published the \gls{response document} at any point in time.
+\newline The value reported for \gls{buffersize} \MUST be a number representing an unsigned 32-bit integer.
+\newline \gls{buffersize} is a required attribute. 
+\newline Note 1:  \gls{buffersize} represents the maximum number of sequence numbers that \MAY be stored in the \gls{agent}. 
+\newline Note 2: The implementer is responsible for allocating the appropriate amount of storage capacity required to accommodate the \gls{buffersize}.
+&
+1 \\
+\hline
+
+
+\gls{assetbuffersize}
+&
+A value representing the maximum number of \glspl{asset document} that can be stored in the \gls{agent} that published the \gls{response document}.  
+\newline The value reported for \gls{assetbuffersize} \MUST be a number representing an unsigned 32-bit integer.
+\newline \gls{assetbuffersize} is a required attribute.
+\newline Note: The implementer is responsible for allocating the appropriate amount of storage capacity required to accommodate the \gls{assetbuffersize}.
+&
+1 \\
+\hline
+
+\gls{assetcount}
+&
+A number representing the current number of \glspl{asset document} that are currently stored in the \gls{agent} as of the \gls{creationtime} that the \gls{agent} published the \gls{response document}.  
+\newline The value reported for \gls{assetcount} \MUST be a number representing an unsigned 32-bit integer and \MUSTNOT be larger than the value reported for \gls{assetbuffersize}.
+\newline \gls{assetcount} is a required attribute.
+&
+1 \\
+\hline
+
+
+\gls{devicemodelchangetime}
+&
+\glsentrydesc{devicemodelchangetime}
+&
+1 \\
+\hline
+
+\end{longtabu}
