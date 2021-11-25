@@ -627,7 +627,7 @@ class Schema
         simple_type.add_element('xs:annotation').
           add_element('xs:documentation').text = "Extended tyoe for #{annotation}"
         simple_type.add_element('xs:restriction', 'base' => 'xs:string').
-          add_element('xs:pattern', 'value' => '[a-ln-z][a-z]+:[A-Z_0-9]+')
+          add_element('xs:pattern', 'value' => '[a-ln-z][a-z]*:[A-Z_0-9]+')
         elements << simple_type
       else
         ele_name = name_as_xsd_type
