@@ -1,91 +1,67 @@
 ## Agent
 
-An {{term(agent)}} is the centerpiece of an MTConnect implementation.  It provides two primary functions:
+The MTConnect Standard specifies the minimum functionality of the {{term(agent)}}. The functionality is as follows:
 
-* Organizes and manages individual pieces of information published by one or more pieces of equipment.
-* Publishes that information in the form of a {{term(response document)}} to client software applications.
-
-The MTConnect Standard addresses the behavior of an {{term(agent)}} and the structure and meaning of the data published by an {{term(agent)}}.  It is the responsibility of the implementer of an {{term(agent)}} to determine the means by which the behavior is achieved for a specific {{term(agent)}}.
-
-An {{term(agent)}} is software that may be installed as part of a piece of equipment or it may be installed separately.  When installed separately, an {{term(agent)}} may receive information from one or more pieces of equipment.
-
-Some pieces of equipment may be able to communicate directly to an {{term(agent)}}.  Other pieces of equipment may require an {{term(adapter)}} to transform the information provided by the equipment into a form that can be sent to an {{term(agent)}}.  In either case, the method of transmitting information from the piece of equipment to an {{term(agent)}} is implementation dependent and is not addressed as part of the MTConnect Standard.
-
-One function of an {{term(agent)}} is to store information that it receives from a piece of equipment in an organized manner.  A second function of an {{term(agent)}} is to receive {{termplural(request)}} for information from one or many client software applications and then respond to those {{termplural(request)}} by publishing a {{term(response document)}} that contains the requested information.
+* Provides store and forward messaging middleware service.
+* Provides a key-value information storage and retrivial service.
+* Implements the ReST API for the MTConnect Standard.
+  * {{term(device)}} metadata.
+  * {{termplural(observation)}} collected by the agent.
+  * {{termplural(asset)}} colleted by the agent.
 
 There are three types of information stored by an {{term(agent)}} that **MAY** be published in a {{term(response document)}}.  These are as follows:
 
-* {{term(equipment metadata)}} defines the {{termplural(structural element)}} that represent the physical and logical parts and sub-parts of each piece of equipment that can publish data to the {{term(agent)}}, the relationships between those parts and sub-parts, and the {{termplural(data entity)}} associated with each of those {{termplural(structural element)}}.  This {{term(equipment metadata)}} is provided in an {{term(mtconnectdevices response document)}}. See {{latex(\citetitle{MTCPart2})}} for more information on {{term(equipment metadata)}}.
-* {{term(streaming data)}} provides the values published by pieces of equipment for the {{termplural(data entity)}} defined by the {{term(equipment metadata)}}.  {{term(streaming data)}} is provided in an {{term(mtconnectstreams response document)}}.  See {{latex(\citetitle{MTCPart2})}} for more information on {{term(streaming data)}}.
-* {{termplural(mtconnect asset)}} represent information used in a manufacturing operation that is commonly shared amongst multiple pieces of equipment and/or software applications.  {{termplural(mtconnect asset)}} are provided in an {{term(mtconnectassets response document)}}.  See {{latex(\citetitle{MTCPart40})}} for more information on {{termplural(mtconnect asset)}}.
+* {{term(equipment metadata)}} soecified in {{cite(MTCPart2)}}.
+* {{term(streaming data)}} provides the {{termplural(observation)}} specified in {{cite(MTCPart2)}}.
+* {{termplural(mtconnect asset)}} specified in {{cite(MTCPart40)}}.
 
-The exchange between an {{term(agent)}} and a client software application is a {{term(request)}} and {{term(response)}} information exchange mechanism.  See {{latex(\sect{Request/Response Information Exchange})}} for details on this {{term(requestresponse)}} information exchange mechanism.
+### Agent Instance ID
 
-### Instance of an Agent
-
-As described above, an {{term(agent)}} collects and organizes values published by pieces of equipment.  As with any piece of software, an {{term(agent)}} may be periodically restarted.  When an {{term(agent)}} restarts, it **MUST** indicate to client software applications whether the information available in the {{term(buffer)}} represents a completely new set of data or if the {{term(buffer)}} includes data that had been collected prior to the restart of the {{term(agent)}}.
-
-Any time an {{term(agent)}} is restarted and begins to collect a completely new set of {{term(streaming data)}}, that set of data is referred to as an {{term(instance)}} of the {{term(agent)}}.  The {{term(agent)}} **MUST** maintain a piece of information called {{term(instanceid)}} that represents the specific {{term(instance)}} of the {{term(agent)}}.
-
-{{term(instanceid)}} is represented by a 64-bit integer.  The {{term(instanceid)}} **MAY** be implemented using any mechanism that will guarantee that the value for {{term(instanceid)}} will be unique each time the {{term(agent)}} begins collecting a new set of data.
-
-When an {{term(agent)}} is restarted and it provides a method to recover all, or some portion, of the data that was stored in the {{term(buffer)}} before it stopped operating, the {{term(agent)}} **MUST** use the same {{term(instanceid)}} that was defined prior to the restart. 
+Every time the {{term(agent)}} sets the {{term(observation)}} sequence number to `1`, the MTConnect Agent **MUST** set the {{term(agent)}} {{term(instanceid)}} to a unique value. 
 
 ### Storage of Equipment Metadata for a Piece of Equipment
 
-An {{term(agent)}} **MUST** be capable of publishing {{term(equipment metadata)}} for each piece of equipment that publishes information through the {{term(agent)}}.  {{term(equipment metadata)}} is typically a static file defining the {{termplural(structural element)}} associated with each piece of equipment reporting information through the {{term(agent)}} and the {{termplural(data entity)}} that can be associated with each of these {{termplural(structural element)}}.  See details on {{termplural(structural element)}} and {{termplural(data entity)}} in {{latex(\citetitle{MTCPart2})}}.
-
-The MTConnect Standard does not define the mechanism to be used by an {{term(agent)}} to acquire, maintain, or store the {{term(equipment metadata)}}.  This mechanism **MUST** be defined as part of the implementation of a specific {{term(agent)}}.
+An {{term(agent)}} **MUST** be capable of publishing {{term(equipment metadata)}} for the {{term(agent)}} and each piece of equipment.  {{term(equipment metadata)}} is specified in {{cite(MTCPart2)}}.
 
 ### Storage of Streaming Data
 
-{{term(streaming data)}} that is published from a piece(s) of equipment to an {{term(agent)}} is stored by the {{term(agent)}} based upon the sequence upon which each piece of data is received.  As described below, the order in which data is stored by the {{term(agent)}} is one of the factors that determines the data that may be included in a specific {{term(mtconnectstreams response document)}}. 
+The {{term(agent)}} **MUST** assign sequence numbers of {{termplural(observation)}} on order of arival.
 
 #### Management of Streaming Data Storage
 
-An {{term(agent)}} stores a fixed amount of data.  The amount of data stored by an {{term(agent)}} is dependent upon the implementation of a specific {{term(agent)}}.  The examples below demonstrate how discrete pieces of data received from pieces of equipment are stored.
-
-The method for storing {{term(streaming data)}} in an {{term(agent)}} can be thought of as a tube that can hold a finite set of balls.  Each ball represents the occurrence of a {{term(data entity)}} published by a piece of equipment.  This data is pushed in one end of the tube until there is no more room for additional balls.  At that point, any new data inserted will push the oldest data out the back of the tube.  The data in the tube will continue to shift in this manner as new data is received.
-
-This tube is referred to as a {{term(buffer)}} in an {{term(agent)}}.
+The {{term(agent)}} **MUST**, at a minimum, store {{termplural(observation)}} using a first-in-first-out pattern. The {{term(buffer)}} will remove the oldest {{termplural(observation)}} when the buffer is full and a new {{term(observation)}} arrives.
 
 ![Data Storage in Buffer](figures/data-storage-in-buffer.png "data-storage-in-buffer")
 
-In {{figure(first-in-first-out-buffer-management)}}, the maximum number of {{termplural(data entity)}} that can be stored in the {{term(buffer)}} of the {{term(agent)}} is 8.  The maximum number of {{termplural(data entity)}} that can be stored in the {{term(buffer)}} is represented by a value called {{term(buffersize)}}.  This example illustrates that when the {{term(buffer)}} fills up, the oldest piece of data falls out the other end.
+In {{figure(first-in-first-out-buffer-management)}}, the maximum number of {{termplural(observation)}} that can be stored in the {{term(buffer)}} of the {{term(agent)}} is 8.  The {{term(bufffersize)}} in the header reports the maximum number of {{termplural(observation)}}.  This example illustrates that when the {{term(buffer)}} fills up, the oldest piece of data falls out the other end.
 
 ![First In First Out Buffer Management](figures/first-in-first-out-buffer-management.png "first-in-first-out-buffer-management")
 
-This process constrains the memory storage requirements for an {{term(agent)}} to a fixed maximum size since the MTConnect Standard only requires an {{term(agent)}} to store a finite number of pieces of data.
+> Note: As an implementation suggestion, the {{term(buffer)}} should be sized large enough to provide a continuous stream of {{termplural(observations)}}.  The implementer should also consider the impact of a temporary loss of communications when determining the size for the {{term(buffer)}}.  A larger {{term(buffer)}} will allow more time to reconnect to an {{term(agent)}} without losing data.
 
-As an implementation guideline, the {{term(buffer)}} {{latex(\SHOULD)}} be sized large enough to provide storage for a reasonable amount of information received from all pieces of equipment that are publishing information to that {{term(agent)}}.  The implementer should also consider the impact of a temporary loss of communications between a client software application and an {{term(agent)}} when determining the size for the {{term(buffer)}}.  A larger {{term(buffer)}} will allow a client software application more time to reconnect to an {{term(agent)}} without losing data.
+#### Sequence Numbers
 
-#### Sequence Numbers{{latex(\mbox)}}{}
+In an {{term(agent)}}, each occurrence of an {{term(observation)}} in the {{term(buffer)}} will be assigned a monotonically increasing unsigned 64-bit integer ({{term(sequence number)}}) when it arrives. The first sequence number **MUST** be `1`.
 
-In an {{term(agent)}}, each occurrence of a {{term(data entity)}} in the {{term(buffer)}} will be assigned a monotonically increasing {{term(sequence number)}} as it is inserted into the {{term(buffer)}}.  The {{term(sequence number)}} is a 64-bit integer and the values assigned as {{termplural(sequence number)}} will never wrap around or be exhausted; at least within the next 100,000 years based on the size of a 64-bit number.
+The {{term(sequence number)}} for each {{term(observation)}} **MUST** be unique for an instance of an {{term(agent)}} identified by an {{term(iinstanceid)}}.
 
-{{term(sequence number)}} is the primary key identifier used to manage and locate a specific piece of data in an {{term(agent)}}.  The {{term(sequence number)}} associated with each {{term(data entity)}} reported by an {{term(agent)}} is identified with an attribute called {{term(sequence)}}.
-
-The {{term(sequence number)}} for each piece of data **MUST** be unique for an instance of an {{term(agent)}} (see {{latex(\sect{Instance of an Agent})}} for information on {{termplural(instance)}} of an {{term(agent)}}).  If data is received from more than one piece of equipment, the {{termplural(sequence number)}} are based on the order in which the data is received regardless of which piece of equipment produced that data.  The {{term(sequence number)}} **MUST** be a monotonically increasing number that spans all pieces of equipment publishing data to an {{term(agent)}}.  This allows for multiple pieces of equipment to publish data through a single {{term(agent)}} with no {{term(sequence number)}} collisions and unnecessary protocol complexity.
-
-The {{term(sequence number)}} **MUST** be reset to one (1) each time an {{term(agent)}} is restarted and begins to collect a fresh set of data; i.e., each time {{term(instanceid)}} is changed.
-
-{{figure(instanceid-and-sequence)}} demonstrates the relationship between {{term(instanceid)}} and sequence when an {{term(agent)}} stops and restarts and begins collecting a new set of data.  In this case, the {{term(instanceid)}} is changed to a new value and value for {{term(sequence)}} resets to one (1):
+{{figure(instanceid-and-sequence)}} illustrates the changing of the {{term(instanceid)}} when an {{term(agent)}} resets the sequence number to `1`.
 
 ![instanceId and sequence](figures/instanceid-and-sequence.png "instanceid-and-sequence")
 
-{{figure(identifying-the-range-of-data-with-firstsequence-and-lastsequence)}} also shows two additional pieces of information defined for an {{term(agent)}}:
+{{figure(identifying-the-range-of-data-with-firstsequence-and-lastsequence)}} shows two additional pieces of information defined for an {{term(agent)}}:
 
 * {{term(firstsequence)}} -- the oldest piece of data contained in the {{term(buffer)}}; i.e., the next piece of data to be moved out of the {{term(buffer)}}
+
 * {{term(lastsequence)}} -- the newest data added to the {{term(buffer)}}
 
-{{term(firstsequence)}} and {{term(lastsequence)}} provide guidance to a software application identifying the range of data avail
-able that may be requested from an {{term(agent)}}. 
+{{term(firstsequence)}} and {{term(lastsequence)}} provide the range of values usable in the ReST API.
 
 ![Indentifying the range of data with firstSequence and lastSequence](figures/identifying-the-range-of-data-with-firstsequence-and-lastsequence.png "identifying-the-range-of-data-with-firstsequence-and-lastsequence")
 
-When a client software application requests data from an {{term(agent)}}, it can specify both the {{term(sequence number)}} of the first piece of data ({{term(from query)}}) that **MUST** be included in the {{term(response document)}} and the total number ({{term(count model)}}) of pieces of data that {{latex(\SHOULD)}} be included in that document.
+The {{term(sample request)}} uses the ({{term(from query)}}) that **MUST** be included in the {{term(response document)}} and the total number ({{term(count model)}}) of pieces of data that {{latex(\SHOULD)}} be included in that document.
 
-In {{figure(identifying-the-range-of-data-with-from-and-count)}}, the request specifies that the data to be returned starts at {{term(sequence number)}} 15 ({{term(from query)}}) and includes a total of three items ({{term(count model)}}).
+In {{figure(identifying-the-range-of-data-with-from-and-count)}}, the request specifies the {{termplural(observation)}} start at {{term(sequence number)}} `15` ({{term(from query)}}) and includes a total of three items ({{term(count model)}}).
 
 ![Identifying the range of data with from and count](figures/identifying-the-range-of-data-with-from-and-count.png "identifying-the-range-of-data-with-from-and-count")
 
@@ -95,7 +71,7 @@ In {{figure(identifying-the-range-of-data-with-from-and-count)}}, the request sp
 
 Once a {{term(response)}} to a {{term(request)}} has been completed, the value of {{term(nextsequence)}} will be established.  {{term(nextsequence)}} is the {{term(sequence number)}} of the next piece of data available in the {{term(buffer)}}.  In the example in {{figure(identifying-the-range-of-data-with-from-and-count)}}, the next {{term(sequence number)}} ({{term(nextsequence)}}) will be 18.
 
-As shown in {{figure(identifying-the-range-of-data-with-nextsequence-and-lastsequence)}}, the combination of {{term(from query)}} and {{term(count model)}} defined by the {{term(request)}} indicates a {{term(sequence number)}} for data that is beyond that which is currently in the {{term(buffer)}}.  In this case, {{term(nextsequence)}} is set to a value of {{term(lastsequence)}} + 1.  
+As shown in {{figure(identifying-the-range-of-data-with-nextsequence-and-lastsequence)}}, the combination of {{term(from query)}} and {{term(count model)}} defined by the {{term(request)}} indicates a {{term(sequence number)}} for data that is beyond that which is currently in the {{term(buffer)}}.  In this case, {{term(nextsequence)}} is set to a value of {{term(lastsequence)}} + 1.
 
 ![Indentifying the range of data with nextSequence and lastSequence](figures/identifying-the-range-of-data-with-nextsequence-and-lastsequence.png "identifying-the-range-of-data-with-nextsequence-and-lastsequence")
 
