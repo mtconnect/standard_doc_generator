@@ -83,11 +83,11 @@ The information in the {{term(buffer)}} of an {{term(agent)}} can be thought of 
 
 * The first column is the {{term(sequence number)}} associated with each {{term(data entity)}} - {{term(sequence)}}.
 
-* The second column is the time that the data was published by a piece of equipment.  This time is defined as the {{term(timestamp)}} associated with that {{term(data entity)}}.  See {{latex(\sect{Time Stamp})}} for details on {{term(timestamp)}}.
+* The second column is the time that the data was published by a piece of equipment.  This time is defined as the {{term(timestamp)}} associated with that {{term(data entity)}}.  See {{sect(Time Stamp))}} for details on {{term(timestamp)}}.
 
-* The third column, {{term(dataitemid)}}, refers to the identity of {{termplural(data entity)}} as they will appear in the {{term(mtconnectstreams response document)}}.  See *Section 5* of {{latex(\citetitle{MTCPart3})}} for details on {{term(dataitemid)}} for a {{term(data entity)}} and how that identify relates to the {{term(id)}} attribute of the corresponding {{term(data entity)}} in the {{termplural(device information model)}}.
+* The third column, {{term(dataitemid)}}, refers to the identity of {{termplural(observation)}} as they will appear in the {{term(mtconnectstreams response document)}}.  See *Section 5* of {{cite(MTCPart3))}} for details on {{term(dataitemid)}} for a {{term(observation)}} and how that identify relates to the {{term(id)}} attribute of the corresponding {{term(data entity)}} in the {{termplural(device information model)}}.
 
-* The fourth column is the value associated with each {{term(data entity)}}.
+* The fourth column is the value associated with each {{term(observation)}}.
 
 {{figure(data-storage-concept)}} is an example demonstrating the concept of how data may be stored in an {{term(agent)}}:
 
@@ -100,17 +100,15 @@ The storage mechanism for the data, the internal representation of the data, and
 
 #### Time Stamp
 
-Each piece of equipment that publishes information to an {{term(agent)}} {{latex(\SHOULD)}} provide a time stamp indicating when each piece of information was measured or determined.  If no time stamp is provided, the {{term(agent)}} **MUST** provide a time stamp for the information based upon when that information was received at the {{term(agent)}}.
+Each {{term(observation)}} **SHOULD** have a {{term(timestamp)}} from the data source when it was measured or determined.  If no {{term(timestamp)}} is given, the {{term(agent)}} **MUST** provide a {{term(timestamp) for the {{term(observation)}}.
 
-The {{term(timestamp)}} associated with each piece of information is reported by an {{term(agent)}} as {{term(timestamp)}}.  {{term(timestamp)}} **MUST** be reported in UTC (Coordinated Universal Time) format; e.g., "2010-04-01T21:22:43Z".
+{{term(timestamp)}} **MUST** be reported in UTC (Coordinated Universal Time) timezone in ISO 8601 format: e.g., "2010-04-01T21:22:43Z".
 
-> Note: Z refers to UTC/GMT time, not local time.
+Applications should use the {{term(observation)}}'s {{term(timestamp)}} for ordering as opposed to {{term(sequence number)}}.
 
-Client software applications should use the value of {{term(timestamp)}} reported for each piece of information as the means for ordering when pieces of information were generated as opposed to using {{term(sequence)}} for this purpose.
+> Note: The {{term(timestamp)}} provides the best estimate of the time that the data was observed.
 
-> Note: It is assumed that {{term(timestamp)}} provides the best available estimate of the time that the value(s) for the published information was measured or determined.
-
-If two pieces of information are measured or determined at the exact same time, they **MUST** be reported with the same value for {{term(timestamp)}}.  Likewise, all information that is recorded in the {{term(buffer)}} with the same value for {{term(timestamp)}} should be interpreted as having been recorded at the same point in time; even if that data was published by more than one piece of equipment. 
+If two pieces of information are observed at the exact same time, they **MUST** be reported with the same value for {{term(timestamp)}}.  Likewise, all information that is recorded in the {{term(buffer)}} with the same value for {{term(timestamp)}} should be interpreted as having been recorded at the time.
 
 #### Recording Occurrences of Streaming Data
 
