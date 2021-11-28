@@ -7,3 +7,6 @@ gem 'nokogiri'
 gem 'rspec-xml'
 gem 'memoist'
 gem 'uuid'
+
+gem 'redcarpet'
+gem 'kramdown'
