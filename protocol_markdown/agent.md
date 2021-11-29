@@ -3,7 +3,7 @@
 The MTConnect Standard specifies the minimum functionality of the {{term(agent)}}. The functionality is as follows:
 
 * Provides store and forward messaging middleware service.
-* Provides a key-value information storage and retrivial service.
+* Provides key-value information storage and retrieval service.
 * Implements the ReST API for the MTConnect Standard.
   * {{term(device)}} metadata.
   * {{termplural(observation)}} collected by the agent.
@@ -59,15 +59,13 @@ The {{term(sequence number)}} for each {{term(observation)}} **MUST** be unique 
 
 ![Indentifying the range of data with firstSequence and lastSequence](figures/identifying-the-range-of-data-with-firstsequence-and-lastsequence.png "identifying-the-range-of-data-with-firstsequence-and-lastsequence")
 
-The {{term(sample request)}} uses the ({{term(from query)}}) that **MUST** be included in the {{term(response document)}} and the total number ({{term(count model)}}) of pieces of data that {{latex(\SHOULD)}} be included in that document.
+The {{term(from query)}}) parameter of the {{term(sample request)}} **MUST** be included in the {{term(response document)}} and the total number ({{term(count model)}}) of pieces of data that **SHOULD** be included in that document.
 
 In {{figure(identifying-the-range-of-data-with-from-and-count)}}, the request specifies the {{termplural(observation)}} start at {{term(sequence number)}} `15` ({{term(from query)}}) and includes a total of three items ({{term(count model)}}).
 
 ![Identifying the range of data with from and count](figures/identifying-the-range-of-data-with-from-and-count.png "identifying-the-range-of-data-with-from-and-count")
 
-
 {{FloatBarrier}}
-
 
 Once a {{term(response)}} to a {{term(request)}} has been completed, the value of {{term(nextsequence)}} will be established.  {{term(nextsequence)}} is the {{term(sequence number)}} of the next piece of data available in the {{term(buffer)}}.  In the example in {{figure(identifying-the-range-of-data-with-from-and-count)}}, the next {{term(sequence number)}} ({{term(nextsequence)}}) will be 18.
 
@@ -81,11 +79,11 @@ As shown in {{figure(identifying-the-range-of-data-with-nextsequence-and-lastseq
 
 The information in the {{term(buffer)}} of an {{term(agent)}} can be thought of as a four-column table of data.  Each column in the table represents:
 
-* The first column is the {{term(sequence number)}} associated with each {{term(data entity)}} - {{term(sequence)}}.
+* The first column is the {{term(sequence number)}} associated with each {{term(observation)}} - {{term(sequence)}}.
 
-* The second column is the time that the data was published by a piece of equipment.  This time is defined as the {{term(timestamp)}} associated with that {{term(data entity)}}.  See {{sect(Time Stamp))}} for details on {{term(timestamp)}}.
+* The second column is the time that the data was published by a piece of equipment.  This time is defined as the {{term(timestamp)}} associated with that {{term(observation)}}.  See {{sect(Time Stamp))}} for details on {{term(timestamp)}}.
 
-* The third column, {{term(dataitemid)}}, refers to the identity of {{termplural(observation)}} as they will appear in the {{term(mtconnectstreams response document)}}.  See *Section 5* of {{cite(MTCPart3))}} for details on {{term(dataitemid)}} for a {{term(observation)}} and how that identify relates to the {{term(id)}} attribute of the corresponding {{term(data entity)}} in the {{termplural(device information model)}}.
+* The third column, {{term(dataitemid)}}, refers to the identity of {{termplural(observation)}} as they will appear in the {{term(mtconnectstreams response document)}}.  See *Section 5* of {{cite(MTCPart3))}} for details on {{term(dataitemid)}} for a {{term(observation)}} and how that identify relates to the {{term(id)}} attribute of the corresponding {{term(observation)}} in the {{termplural(device information model)}}.
 
 * The fourth column is the value associated with each {{term(observation)}}.
 
@@ -98,7 +96,7 @@ The information in the {{term(buffer)}} of an {{term(agent)}} can be thought of 
 
 The storage mechanism for the data, the internal representation of the data, and the implementation of the {{term(agent)}} itself is not part of the MTConnect Standard.  The implementer can choose both the amount of data to be stored in the {{term(agent)}} and the mechanism for how the data is stored.  The only requirement is that an {{term(agent)}} publish the {{termplural(response document)}} in the required format.  
 
-#### Time Stamp
+#### Timestamp
 
 Each {{term(observation)}} **SHOULD** have a {{term(timestamp)}} from the data source when it was measured or determined.  If no {{term(timestamp)}} is given, the {{term(agent)}} **MUST** provide a {{term(timestamp) for the {{term(observation)}}.
 
@@ -112,33 +110,33 @@ If two pieces of information are observed at the exact same time, they **MUST** 
 
 #### Recording Occurrences of Streaming Data
 
-An {{term(agent)}} **MUST** record data in the {{term(buffer)}} each time the value for that specific piece of data changes.  If a piece of equipment publishes multiple occurrences of a piece of data with the same value, the {{term(agent)}} {{latex(\MUSTNOT)}} record multiple occurrence for that {{term(data entity)}}.
+An {{term(agent)}} **MUST** record data in the {{term(buffer)}} each time the value for that specific piece of data changes.  If a piece of equipment publishes multiple occurrences of a piece of data with the same value, the {{term(agent)}} {{latex(\MUSTNOT)}} record multiple occurrence for that {{term(observation)}}.
 
-> Note:	There is one exception to this rule.  Some {{termplural(data entity)}} may be defined with a {{term(representation)}} attribute value of {{term(discrete representation)}} (See *Section 7.2.2.12* of {{latex(\citetitle{MTCPart2})}} for details on {{term(representation)}}.)  In this case, each occurrence of the data represents a new and unique piece of information.  The {{term(agent)}} **MUST** then record each occurrence of the {{term(data entity)}} that is published by a piece of equipment.
+> Note: There is one exception to this rule.  Some {{termplural(observation)}} may be defined with a {{term(representation)}} attribute value of {{term(discrete representation)}} (See *Section 7.2.2.12* of {{cite(MTCPart2)}} for details on {{term(representation)}}.)  In this case, each occurrence of the data represents a new and unique piece of information.  The {{term(agent)}} **MUST** then record each occurrence of the {{term(observation)}} that is published by a piece of equipment.
 
 The value for each piece of information reported by an {{term(agent)}} must be considered by a client software application to be valid until such a time that another occurrence of that piece of information is published by the {{term(agent)}}.
 
 #### Maintaining Last Value for Data Entities
 
-An {{term(agent)}} **MUST** retain a copy of the last available value associated with each {{term(data entity)}} known to the {{term(agent)}}; even if an occurrence of that {{term(data entity)}} is no longer in the {{term(buffer)}}.  This function allows an {{term(agent)}} to provide a software application a view of the last known value for each {{term(data entity)}} associated with a piece of equipment.
+An {{term(agent)}} **MUST** retain a copy of the last available value associated with each {{term(observation)}} known to the {{term(agent)}}; even if an occurrence of that {{term(observation)}} is no longer in the {{term(buffer)}}.  This function allows an {{term(agent)}} to provide a software application a view of the last known value for each {{term(observation)}} associated with a piece of equipment.
 
-The {{term(agent)}} **MUST** also retain a copy of the last value associated with each {{term(data entity)}} that has flowed out of the {{term(buffer)}}.  This function allows an {{term(agent)}} to provide a software application a view of the last known value for each {{term(data entity)}} associated with a {{term(current request)}} with an {{term(at query)}} parameter in the {{term(query http request)}} portion of its {{term(http request line)}} (See {{latex(\sect{Current Request Implemented Using HTTP})}} for details on {{term(current request)}}).
+The {{term(agent)}} **MUST** also retain a copy of the last value associated with each {{term(observation)}} that has flowed out of the {{term(buffer)}}.  This function allows an {{term(agent)}} to provide a software application a view of the last known value for each {{term(observation)}} associated with a {{term(current request)}} with an {{term(at query)}} parameter in the {{term(query http request)}} portion of its {{term(http request line)}} (See {{latex(\sect{Current Request Implemented Using HTTP})}} for details on {{term(current request)}}).
 
 {{newpage}}
 
 #### Unavailability of Data
 
-An {{term(agent)}} **MUST** maintain a list of {{termplural(data entity)}} that **MAY** be published by each piece of equipment providing information to the {{term(agent)}}.   This list of {{termplural(data entity)}} is derived from the {{term(equipment metadata)}} stored in the {{term(agent)}} for each piece of equipment.
+An {{term(agent)}} **MUST** maintain a list of {{termplural(observation)}} that **MAY** be published by each piece of equipment providing information to the {{term(agent)}}.   This list of {{termplural(observation)}} is derived from the {{term(equipment metadata)}} stored in the {{term(agent)}} for each piece of equipment.
 
-Each time an {{term(agent)}} is restarted, the {{term(agent)}} **MUST** place an occurrence of every {{term(data entity)}} in the {{term(buffer)}}.  The value reported for each of these {{termplural(data entity)}} **MUST** be set to {{term(unavailable value)}} and the {{term(timestamp)}} for each **MUST** be set to the time that the last piece of data was collected by the {{term(agent)}} prior to the restart.
+Each time an {{term(agent)}} is restarted, the {{term(agent)}} **MUST** place an occurrence of every {{term(observation)}} in the {{term(buffer)}}.  The value reported for each of these {{termplural(observation)}} **MUST** be set to {{term(unavailable value)}} and the {{term(timestamp)}} for each **MUST** be set to the time that the last piece of data was collected by the {{term(agent)}} prior to the restart.
 
-If at any time an {{term(agent)}} loses communications with a piece of equipment, or the {{term(agent)}} is unable to determine a valid value for all, or any portion, of the {{termplural(data entity)}} published by a piece of equipment, the {{term(agent)}} **MUST** place an occurrence of each of these {{termplural(data entity)}} in the {{term(buffer)}} with its value set to {{term(unavailable value)}}.  This signifies that the value is currently indeterminate and no assumptions of a valid value for the data is possible.
+If at any time an {{term(agent)}} loses communications with a piece of equipment, or the {{term(agent)}} is unable to determine a valid value for all, or any portion, of the {{termplural(observation)}} published by a piece of equipment, the {{term(agent)}} **MUST** place an occurrence of each of these {{termplural(observation)}} in the {{term(buffer)}} with its value set to {{term(unavailable value)}}.  This signifies that the value is currently indeterminate and no assumptions of a valid value for the data is possible.
 
 Since an {{term(agent)}} may receive information from multiple pieces of equipment, it **MUST** consider the validity of the data from each of these pieces of equipment independently.
 
-There is one exception to the rules above.  Any {{term(data entity)}} that is constrained to a constant data value **MUST** be reported with the constant value and the {{term(agent)}} {{latex(\MUSTNOT)}} set the value of that {{term(data entity)}} to {{term(unavailable value)}}.
+There is one exception to the rules above.  Any {{term(observation)}} that is constrained to a constant data value **MUST** be reported with the constant value and the {{term(agent)}} {{latex(\MUSTNOT)}} set the value of that {{term(observation)}} to {{term(unavailable value)}}.
 
-> Note:	The schema for the {{termplural(device information model)}} (defined in {{latex(\citetitle{MTCPart2})}}) defines how the value reported for an individual piece of data may be constrained to one or more specific values.
+> Note: The schema for the {{termplural(device information model)}} (defined in {{latex(\citetitle{MTCPart2})}}) defines how the value reported for an individual piece of data may be constrained to one or more specific values.
 
 #### Persistence and Recovery
 

@@ -1,33 +1,35 @@
 # MTConnect ReST Protocol
 
-MTConnect requires one normative protocol requesting data from an {{term(agent)}}. Other protocols and access methods are informative and supported by companion specifications.
+MTConnect requires one normative method for requesting data from an {{term(agent)}}. Other protocols and access methods are informative and supported by companion specifications.
 
 ## REST Interface
 
 An {{term(agent)}} **MUST** provide a ReST API {{term(application programming interface)}} supporting HTTP version 1.0 or greater.  This interface **MUST** support HTTP (RFC7230) and use URIs (RFC3986) to identify specific information requested from an {{term(agent)}}.
 
-The REST API adheres to the architectural principles of a stateless, uniform interface to retrieve data and other information associated with pieces of equipment. The API is read only and not produce any side effects on the information stored in an {{term(agent)}} or change the function of the {{term(agent)}} itself.
+The REST API adheres to the architectural principles of a stateless service to retrieve information associated with pieces of equipment. Additionally, the API is read-only and does not produce any side effects on the data stored in an {{term(agent)}} or change the function of the {{term(agent)}} itself.
 
 ## HTTP Request
 
-The MTConnect Standard defines that an {{term(agent)}} **MUST** support the `HTTP` `GET` verb -- no other HTTP verbs are required to be supported. See RFC7230 for a complete description of the HTTP requst structure.
+The MTConnect standard defines that an {{term(agent)}} **MUST** support the `HTTP` `GET` verb -- no other HTTP verbs are required to be supported. See IETF RFC 7230 for a complete description of the HTTP request structure. The 
 
-The documentation will refer to the three portions of an HTTP Request:
+The HTTP uses Uniform Resource Identifiers (URI) as outlined in IETF RFC 3986 as the *request-target*. IETF RFC 7230 specifies the http URI scheme for the *request-target* as follows:
 
-1. `authority`: The network domain or address of the agent with an optional port
-2. `path`: The portion of the HTTP request following the double-slash (`//`) and before the optional question-mark (`?`). The path may be subdivided into segments separated by single slashes (`/`)
-3. `query`: The portion of the HTTP request following the question-mark (`?`). The query portion of the HTTP request is composed of key-value pairs, `<key>=<value>` separated by ampersand (`&`).
+1. `protocol`: The protocol used for the request. Must be `http` or `https`.
+2. `authority`: The network domain or address of the agent with an optional port.
+2. `path`: A Hierarchical Identifier following a slash (`/`) and before the optional question-mark (`?`) where slashes (`/`) separate segments.
+3. `query`: The portion of the HTTP request following the question-mark (`?`). The query portion of the HTTP request is composed of key-value pairs, `<key>=<value>` separated by an ampersand (`&`).
 
 ### `path` Portion of an HTTP Request
 
-The `<Path>` portion of the {{term(http request line)}} has the follow segments separated by slash `/`:
+The `<Path>` portion of the *request-target* has the following segments:
 
-* `<device name or uuid>`: The {{term(name)}} or {{term(uuid)}} of the {{term(device)}}
-* `<request>`: The request, must be one of the following: 
+* `<device name or uuid>`: optional {{term(name)}} or {{term(uuid)}} of the {{term(device)}}
+* `<request>`: request, must be one of the following: 
   - `probe`
   - `current`
   - `sample`
   - `asset` or `assets`
+    * additional optional segment `<asset ids>`
   
 If {{term(name)}} or {{term(uuid)}} segement are not specified in the {{term(http request)}}, an {{term(agent)}} **MUST** return information for all pieces of equipment. The following sections will 
 
@@ -35,11 +37,11 @@ Examples:
   
 * `http://localhost:5000/my_device/probe`
   
-    This requests the device infomraiton model for `my_device`.
-	
+    The request only provides information about `my_device`.
+  
 * `http://localhost:5000/probe`
 
-  The above requests device infomration for all devices.
+  The request provides information for all devices. The following section specifies the details of each request.
 
 ## MTConnect ReST API
 
@@ -75,7 +77,7 @@ The following {{termplural(http status code)}} **MUST** be supported as possible
   
 * Status Code: `405`, Code Name: `Method Not Allowed`:
 
-  A method other than `GET` was specified in the {{term(request)}}.
+  The {{term(request)}} specified a method other than `GET`
   
 * Status Code: `406`, Code Name: `Not Acceptable`:
 
@@ -144,7 +146,7 @@ The following {{termplural(http status code)}} **MUST** be supported as possible
   
 * Status Code: `405`, Code Name: `Method Not Allowed`:
 
-  A method other than `GET` was specified in the {{term(request)}}.
+  The {{term(request)}} specified a method other than `GET`
   
 * Status Code: `406`, Code Name: `Not Acceptable`:
 
@@ -260,14 +262,14 @@ The following {{termplural(http status code)}} **MUST** be supported as possible
 
   One of the following conditions apply:
   
-  * The device name or uuid could not be located. 
+  * The device name or UUID could not be located. 
   * One of the {{termplural(assetid path)}} could not be found.
   
   The {{term(response)}} **MUST** have an {{term(mtconnecterrors response document)}}.
   
 * Status Code: `405`, Code Name: `Method Not Allowed`:
 
-  A method other than `GET` was specified in the {{term(request)}}.
+  The {{term(request)}} specified a method other than `GET`
   
 * Status Code: `406`, Code Name: `Not Acceptable`:
 
@@ -352,7 +354,7 @@ The following {{termplural(http status code)}} **MUST** be supported as possible
   
 * Status Code: `405`, Code Name: `Method Not Allowed`:
 
-  A method other than `GET` was specified in the {{term(request)}}.
+  The {{term(request)}} specified a method other than `GET`
   
 * Status Code: `406`, Code Name: `Not Acceptable`:
 
@@ -384,7 +386,7 @@ The format of the response **MUST** use an `x-multipart-replace` encoded message
 
 If there are no available {{termplural(observation)}} after the {{term(interval query)}} time elapsed, the {{term(agent)}} **MUST** wait for either the {{term(heartbeat query)}} time to elapse or an {{term(observation)}} arrives. If the {{term(heartbeat query)}} time elapses and no {{termplural(observation)}} arrive, then an empty {{term(mtconnectstreams)}} document **MUST** be sent.
 
-> Note: For more information on MIME see IETF RFC 1521 and RFC 822.
+> Note: For more information on MIME, see IETF RFC 1521 and RFC 822.
 
 An example of the format for a {{term(http request)}} that  includes an {{term(interval query)}} parameter is:
 
