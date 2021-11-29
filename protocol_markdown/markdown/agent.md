@@ -27,11 +27,11 @@ An {{term(agent)}} **MUST** be capable of publishing {{term(equipment metadata)}
 
 The {{term(agent)}} **MAY** implement a {{term(buffer)}} with a fixed number of {{termplural(observation)}}. If the {{term(buffersize)}} is a fixed, the {{term(agent)}} **MUST** store {{termplural(observation)}} using a first-in-first-out pattern. The {{term(agent)}} will remove the oldest {{term(observation)}} when the {{term(buffer)}} is full and a new {{term(observation)}} arrives.
 
-![Data Storage in Buffer](figures/data-storage-in-buffer.png "data-storage-in-buffer")
+![Data Storage in Buffer](figures/data-storage-in-buffer.png "data-storage-in-buffer"){: width="0.8"}
 
 In {{figure(first-in-first-out-buffer-management)}}, the maximum number of {{termplural(observation)}} that can be stored in the {{term(buffer)}} of the {{term(agent)}} is 8.  The {{term(buffersize)}} in the header reports the maximum number of {{termplural(observation)}}.  This example illustrates that when the {{term(buffer)}} fills up, the oldest piece of data falls out the other end.
 
-![First In First Out Buffer Management](figures/first-in-first-out-buffer-management.png "first-in-first-out-buffer-management")
+![First In First Out Buffer Management](figures/first-in-first-out-buffer-management.png "first-in-first-out-buffer-management"){: width="0.8"}
 
 > Note: As an implementation suggestion, the {{term(buffer)}} should be sized large enough to provide a continuous stream of {{termplural(observation)}}.  The implementer should also consider the impact of a temporary loss of communications when determining the size for the {{term(buffer)}}.  A larger {{term(buffer)}} will allow more time to reconnect to an {{term(agent)}} without losing data.
 
@@ -41,9 +41,22 @@ In an {{term(agent)}}, each occurrence of an {{term(observation)}} in the {{term
 
 The {{term(sequence number)}} for each {{term(observation)}} **MUST** be unique for an instance of an {{term(agent)}} identified by an {{term(instanceid)}}.
 
-{{figure(instanceid-and-sequence)}} illustrates the changing of the {{term(instanceid)}} when an {{term(agent)}} resets the {{term(sequence number)}} to `1`.
+Table {{table(instanceid-and-sequence)}} illustrates the changing of the {{term(instanceid)}} when an {{term(agent)}} resets the {{term(sequence number)}} to `1`.
 
-![instanceId and sequence](figures/instanceid-and-sequence.png "instanceid-and-sequence")
+| `instanceId` | `sequence` | 
+|-------------:|-----------:|
+|{{rowspan(5)}} 234556|234|
+||235|
+||236|
+||237|
+||238|
+|{{span(2)}} Agent Stops and Restarts|
+|{{rowspan(5)}} 234556|1|
+||2|
+||3|
+||4|
+||5|
+{: caption="instanceId and sequence" label="instanceid-and-sequence" }
 
 {{figure(identifying-the-range-of-data-with-firstsequence-and-lastsequence)}} shows two additional pieces of information defined for an {{term(agent)}}:
 
@@ -53,13 +66,13 @@ The {{term(sequence number)}} for each {{term(observation)}} **MUST** be unique 
 
 {{term(firstsequence)}} and {{term(lastsequence)}} provide the range of values for the ReST API requests.
 
-![Indentifying the range of data with firstSequence and lastSequence](figures/identifying-the-range-of-data-with-firstsequence-and-lastsequence.png "identifying-the-range-of-data-with-firstsequence-and-lastsequence")
+![Indentifying the range of data with firstSequence and lastSequence](figures/identifying-the-range-of-data-with-firstsequence-and-lastsequence.png "identifying-the-range-of-data-with-firstsequence-and-lastsequence"){: width="0.75"}
 
 The {{term(observation)}} with the {{term(sequence number)}} of the {{term(from query)}}) parameter of the {{term(sample request)}} **MUST** be included in the {{term(response document)}} and the total number ({{term(count model)}}) of {{termplural(observation)}} that **SHOULD** be included in that document.
 
 In {{figure(identifying-the-range-of-data-with-from-and-count)}}, the request specifies the {{termplural(observation)}} start at {{term(sequence number)}} `15` ({{term(from query)}}) and includes a total of three items ({{term(count model)}}).
 
-![Identifying the range of data with from and count](figures/identifying-the-range-of-data-with-from-and-count.png "identifying-the-range-of-data-with-from-and-count")
+![Identifying the range of data with from and count](figures/identifying-the-range-of-data-with-from-and-count.png "identifying-the-range-of-data-with-from-and-count"){: width="0.75"}
 
 {{FloatBarrier}}
 
@@ -67,7 +80,7 @@ In {{figure(identifying-the-range-of-data-with-from-and-count)}}, the request sp
 
 As shown in {{figure(identifying-the-range-of-data-with-nextsequence-and-lastsequence)}}, the combination of {{term(from query)}} and {{term(count model)}} defined by the {{term(request)}} indicates a {{term(sequence number)}} for data that is beyond that which is currently in the {{term(buffer)}}.  In this case, {{term(nextsequence)}} is set to a value of {{term(lastsequence)}} + 1.
 
-![Indentifying the range of data with nextSequence and lastSequence](figures/identifying-the-range-of-data-with-nextsequence-and-lastsequence.png "identifying-the-range-of-data-with-nextsequence-and-lastsequence")
+![Indentifying the range of data with nextSequence and lastSequence](figures/identifying-the-range-of-data-with-nextsequence-and-lastsequence.png "identifying-the-range-of-data-with-nextsequence-and-lastsequence"){: width="0.75"}
 
 {{FloatBarrier}}
 
@@ -85,7 +98,7 @@ An {{term(observation)}} has four pieces of information as follows:
 
 {{figure(data-storage-concept)}} is an example demonstrating the concept of how data may be stored in an {{term(agent)}}:
 
-[Data Storage Concept](figures/data-storage-concept.png "data-storage-concept")
+[Data Storage Concept](figures/data-storage-concept.png "data-storage-concept"){: width="0.8"}
 
 {{FloatBarrier}}
 
@@ -133,13 +146,13 @@ An {{term(agent)}} **MAY** only retain a limited number of {{termplural(asset do
 
 {{figure(first-in-first-out-asset-buffer-management)}} illustrates the oldest {{term(asset document)}} being removed from the {{termplural(asset buffer)}} when a new {{term(asset document)}} is added and the {{termplural(asset buffer)}} is full:
 
-![First In First Out Asset Buffer Management](figures/first-in-first-out-asset-buffer-management.png "first-in-first-out-asset-buffer-management")
+![First In First Out Asset Buffer Management](figures/first-in-first-out-asset-buffer-management.png "first-in-first-out-asset-buffer-management"){: width="0.6"}
 
 {{FloatBarrier}}
 
 {{termplural(asset document)}} are indexed by {{term(assetid)}}.  In the case of {{termplural(mtconnect asset)}}. {{figure(relationship-between-assetid-and-stored-asset-documents)}} demonstrates the relationship between the key ({{term(assetid)}}) and the stored {{termplural(asset document)}}:
 
-![Relationship between assetId and stored Asset documents](figures/relationship-between-assetid-and-stored-asset-documents.png "relationship-between-assetid-and-stored-asset-documents")
+![Relationship between assetId and stored Asset documents](figures/relationship-between-assetid-and-stored-asset-documents.png "relationship-between-assetid-and-stored-asset-documents"){: width="0.25"}
 
 {{FloatBarrier}}
 

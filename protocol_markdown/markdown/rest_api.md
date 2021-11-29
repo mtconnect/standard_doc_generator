@@ -29,7 +29,7 @@ The `<Path>` portion of the *request-target* has the following segments:
   - `current`
   - `sample`
   - `asset` or `assets`
-    * additional optional segment `<asset ids>`
+    - additional optional segment `<asset ids>`
   
 If {{term(name)}} or {{term(uuid)}} segement are not specified in the {{term(http request)}}, an {{term(agent)}} **MUST** return information for all pieces of equipment. The following sections will 
 
@@ -180,11 +180,11 @@ The following {{term(query http request)}} parameters **MUST** be supported in a
 
   {{term(count model)}} **MUST NOT** be less than zero (0) when an {{term(interval query)}} parameter is given. 
 
-  If {{term(count model)}} is not provided, it **MUST** default to \cfont{100}. 
+  If {{term(count model)}} is not provided, it **MUST** default to `100`. 
 
-  If the absolute value of {{term(count model)}} is greater than the size of the {{term(buffer)}} or equal to zero (0), the {{term(agent)}} **MUST** return a \cfont{404} {{term(http status code)}} and **MUST** publish an {{term(mtconnecterrors response document)}} with an {{term(outofrange value)}}  {{term(errorcode)}}. 
+  If the absolute value of {{term(count model)}} is greater than the size of the {{term(buffer)}} or equal to zero (0), the {{term(agent)}} **MUST** return a `404` {{term(http status code)}} and **MUST** publish an {{term(mtconnecterrors response document)}} with an {{term(outofrange value)}}  {{term(errorcode)}}. 
 
-  If the {{term(count model)}} parameter is not a numeric value, the {{term(agent)}} **MUST** return a \cfont{400} {{term(http status code)}} and **MUST** publish an {{term(mtconnecterrors response document)}} with an {{term(invalidrequest value)}}  {{term(errorcode)}}.
+  If the {{term(count model)}} parameter is not a numeric value, the {{term(agent)}} **MUST** return a `400` {{term(http status code)}} and **MUST** publish an {{term(mtconnecterrors response document)}} with an {{term(invalidrequest value)}}  {{term(errorcode)}}.
 
 * {{term(from query)}}: unsigned 64-bit integer
  
@@ -194,7 +194,7 @@ The following {{term(query http request)}} parameters **MUST** be supported in a
 
   If {{term(from query)}} and {{term(count model)}} parameters are not given, {{term(from query)}} **MUST** default to the {{term(firstsequence)}}. 
 
-  If the {{term(from query)}} parameter is less than the {{term(firstsequence)}} or greater than {{term(lastsequence)}}, the {{term(agent)}} **MUST** return a \cfont{404} {{term(http status code)}} and **MUST** publish an {{term(mtconnecterrors response document)}} with an {{term(outofrange value)}} {{term(errorcode)}}. 
+  If the {{term(from query)}} parameter is less than the {{term(firstsequence)}} or greater than {{term(lastsequence)}}, the {{term(agent)}} **MUST** return a `404` {{term(http status code)}} and **MUST** publish an {{term(mtconnecterrors response document)}} with an {{term(outofrange value)}} {{term(errorcode)}}. 
 
 * {{term(heartbeat query)}}: unsigned integer milliseconds
   

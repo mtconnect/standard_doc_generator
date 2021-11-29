@@ -7,6 +7,6 @@ $: << File.expand_path('../../src', __FILE__)
 
 require 'latexify'
 
-Dir['*.md'].each do |file|
+Dir['markdown/*.md'].each do |file|
   MarkdownConverter.generate_latex(file, 'latexed')
 end

@@ -26,9 +26,8 @@ module Kramdown
   module Converter
     class MtcLatex < Latex
       def initialize(root, options)
-        @multi_table = false
-        @span = nil
-        @skip = 0
+        @colspan = nil
+        @rowspan = nil
         super
       end
 
@@ -47,13 +46,17 @@ module Kramdown
             args
 
           when 'table'
-            "\\ref{table:#{args}}"
+            "Table~\\ref{table:#{args}}"
 
           when 'figure'
-            "\\ref{fig:#{args}}"
+            "Figure~\\ref{fig:#{args}}"
 
-          when "span"
-            @span = args.to_i
+          when "span", "colspan"
+            @colspan = args.to_i
+            ''
+
+          when "rowspan"
+            @rowspan = args.to_i
             ''
 
           when 'markdown'
@@ -63,6 +66,18 @@ module Kramdown
           else
             "\\#{command}{#{args}}"
           end
+        end
+      end
+
+      def convert_header(el, opts)
+        level = output_header_level(el.options[:level]) - 1
+        type = @options[:latex_headers][level]
+        mbox = "\\mbox{}" if level >= 3
+        if ((id = el.attr['id']) ||
+            (@options[:auto_ids] && (id = generate_id(el.options[:raw_text])))) && in_toc?(el)
+          "\\#{type}{#{inner(el, opts)}}\\hypertarget{#{id}}{}\\label{#{id}}#{mbox}\n\n"
+        else
+          "\\#{type}*{#{inner(el, opts)}}#{mbox}\n\n"
         end
       end
 
@@ -82,11 +97,17 @@ module Kramdown
 
       def convert_table(el, opts)
         cap, lbl = caption_and_label(el, 'table')
-        
-        # Check for multi-tables
+        long = el.attr['long'] && el.attr['long'] == 'true'
+        puts "Table: #{cap} – long=#{long}"
+
         if cap
-          caption = "\n  \\caption{#{cap}}"
-          label = "\n  \\label{#{lbl}}"
+          if long
+            caption = " caption = {#{cap}},"
+            label = "  label = {#{lbl}},"
+          else
+            caption = "\n  \\caption{#{cap}}"
+            label = "\n  \\label{#{lbl}}"
+          end
         end
 
         align = el.options[:alignment].map {|a| TABLE_ALIGNMENT[a] }
@@ -107,42 +128,32 @@ module Kramdown
           a << "{#{w}}" if w
           a
         end.join(' | ') + ' |'
-
-        continued = @multi_table
-        if opts[:parent].children.length > opts[:index] + 2 and
-          opts[:parent].children[opts[:index] + 1].type == :blank and
-          opts[:parent].children[opts[:index] + 2].type == :table and
-          opts[:parent].children[opts[:index] + 2].attr['caption'].nil?
-          @multi_table = true
-        else
-          @multi_table = false          
-        end
-
-        text = ''
-        if not continued
+        
+        if long
           text = <<EOT
-
+\\begin{longtblr}[
+  #{caption}
+  #{label}  
+]
+EOT
+        else
+          text = <<EOT
 \\begin{table}[ht]
   \\centering#{caption}#{label}
   \\fontsize{9pt}{11pt}\\selectfont
+  \\begin{tblr}
 EOT
         end
 
-        text<< <<EOT
-
-  \\begin{tblr}{colspec={#{columns}}, hlines, vlines}
-#{inner(el, opts)}
-  \\end{tblr}
-
-EOT
-        
-      unless @multi_table
-        text<< <<EOT
-\\end{table}    
-
-  \\FloatBarrier
-EOT
-      end
+        text<< "{colspec={#{columns}}, hlines, vlines}\n"
+        text<< inner(el, opts)
+        if long
+          text<< "\\end{longtblr}\n"
+        else        
+          text<< "  \\end{tblr}\n"
+          text<< "\\end{table}\n"
+        end
+        text<< "\\FloatBarrier\n"
         text
       end
 
@@ -165,16 +176,26 @@ EOT
         text = inner(el, opts)
         text.gsub!("\\newline\n", '\break \break')
         
-        if text.empty? and @skip and @skip > 0
+        if text.empty?
           ""
         else
-          if @span
-            text = "\\SetCell[c=#{@span}]{m}{#{text}}"
+          span = nil
+          spans = []          
+          if @colspan
+            spans << "c=#{@colspan}"
+            @colspan = nil
+          end
+          if @rowspan
+            spans << "r=#{@rowspan}"
+            @rowspan = nil
+          end
+          unless spans.empty?
+            span = "\\SetCell[#{spans.join(',')}]{c}"
           end
           if opts[:style]
-            "\\#{opts[:style]}{#{text}}"
+            "#{span}\\#{opts[:style]}{#{text}}"
           else
-            "{#{text}}"
+            "#{span}{#{text}}"
           end
         end
       end
@@ -239,6 +260,7 @@ EOT
         src = el.attr['src']
         alt = el.attr['alt']
         title = el.attr['title']
+        width = el.attr['width']
 
         puts "Image: #{src}, #{alt}, #{title}"
         figure = "\\begin{figure}[ht]\n"
@@ -246,7 +268,7 @@ EOT
         if src =~ /\.tex$/
           figure << "\\input{#{src}}\n"
         else
-          figure << "\\centering{\\includegraphics[width=\\textwidth]{#{src}}}"
+          figure << "\\centering{\\includegraphics[width=#{width}\\textwidth]{#{src}}}"
         end
 
         caption = alt
@@ -261,7 +283,7 @@ EOT
       end
 
       def latex_caption(text)
-        ::Kramdown::Document.new(text, input: 'MTCKramdown').to_mtc_latex.sub(/\n$/, '')
+        ::Kramdown::Document.new(text, input: 'MTCKramdown').to_mtc_latex.strip
       end
 
       def convert_labels(text)
