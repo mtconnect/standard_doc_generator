@@ -17,7 +17,7 @@ There are three types of information stored by an {{term(agent)}} that **MAY** b
 
 ### Agent Instance ID
 
-The {{term(agent)}} **MUST** initialize the {{term(sequence number)}} to `1`. When the {{term(agent)}} sets the {{term(observation)}} {{term(sequence number )}} to `1`, the MTConnect Agent **MUST** set the {{term(agent)}} {{term(instanceid)}} to a unique value. 
+The {{term(agent)}} **MUST** initialize the {{term(sequence number)}} to `1`. When the {{term(agent)}} sets the {{term(observation)}} {{term(sequence number)}} to `1`, the MTConnect Agent **MUST** set the {{term(agent)}} {{term(instanceid)}} to a unique value. 
 
 ### Storage of Equipment Metadata
 
@@ -25,23 +25,23 @@ An {{term(agent)}} **MUST** be capable of publishing {{term(equipment metadata)}
 
 ### Storage of Streaming Data
 
-The {{term(agent)}} **MAY** implement a {{term(buffer)}} with a fixed number of {{termplural(observation)}}. If the {{term(bufffersize)}} is a fixed, the {{term(agent)}} **MUST** store {{termplural(observation)}} using a first-in-first-out pattern. The {{term(agent)}} will remove the oldest {{term(observation)}} when the {{term(buffer)}} is full and a new {{term(observation)}} arrives.
+The {{term(agent)}} **MAY** implement a {{term(buffer)}} with a fixed number of {{termplural(observation)}}. If the {{term(buffersize)}} is a fixed, the {{term(agent)}} **MUST** store {{termplural(observation)}} using a first-in-first-out pattern. The {{term(agent)}} will remove the oldest {{term(observation)}} when the {{term(buffer)}} is full and a new {{term(observation)}} arrives.
 
 ![Data Storage in Buffer](figures/data-storage-in-buffer.png "data-storage-in-buffer")
 
-In {{figure(first-in-first-out-buffer-management)}}, the maximum number of {{termplural(observation)}} that can be stored in the {{term(buffer)}} of the {{term(agent)}} is 8.  The {{term(bufffersize)}} in the header reports the maximum number of {{termplural(observation)}}.  This example illustrates that when the {{term(buffer)}} fills up, the oldest piece of data falls out the other end.
+In {{figure(first-in-first-out-buffer-management)}}, the maximum number of {{termplural(observation)}} that can be stored in the {{term(buffer)}} of the {{term(agent)}} is 8.  The {{term(buffersize)}} in the header reports the maximum number of {{termplural(observation)}}.  This example illustrates that when the {{term(buffer)}} fills up, the oldest piece of data falls out the other end.
 
 ![First In First Out Buffer Management](figures/first-in-first-out-buffer-management.png "first-in-first-out-buffer-management")
 
-> Note: As an implementation suggestion, the {{term(buffer)}} should be sized large enough to provide a continuous stream of {{termplural(observations)}}.  The implementer should also consider the impact of a temporary loss of communications when determining the size for the {{term(buffer)}}.  A larger {{term(buffer)}} will allow more time to reconnect to an {{term(agent)}} without losing data.
+> Note: As an implementation suggestion, the {{term(buffer)}} should be sized large enough to provide a continuous stream of {{termplural(observation)}}.  The implementer should also consider the impact of a temporary loss of communications when determining the size for the {{term(buffer)}}.  A larger {{term(buffer)}} will allow more time to reconnect to an {{term(agent)}} without losing data.
 
 #### Sequence Numbers
 
-In an {{term(agent)}}, each occurrence of an {{term(observation)}} in the {{term(buffer)}} will be assigned a monotonically increasing unsigned 64-bit integer ({{term(sequence number)}}) when it arrives. The first sequence number **MUST** be `1`.
+In an {{term(agent)}}, each occurrence of an {{term(observation)}} in the {{term(buffer)}} will be assigned a monotonically increasing unsigned 64-bit integer ({{term(sequence number)}}) when it arrives. The first {{term(sequence number)}} **MUST** be `1`.
 
-The {{term(sequence number)}} for each {{term(observation)}} **MUST** be unique for an instance of an {{term(agent)}} identified by an {{term(iinstanceid)}}.
+The {{term(sequence number)}} for each {{term(observation)}} **MUST** be unique for an instance of an {{term(agent)}} identified by an {{term(instanceid)}}.
 
-{{figure(instanceid-and-sequence)}} illustrates the changing of the {{term(instanceid)}} when an {{term(agent)}} resets the sequence number to `1`.
+{{figure(instanceid-and-sequence)}} illustrates the changing of the {{term(instanceid)}} when an {{term(agent)}} resets the {{term(sequence number)}} to `1`.
 
 ![instanceId and sequence](figures/instanceid-and-sequence.png "instanceid-and-sequence")
 
@@ -104,8 +104,8 @@ If {{termplural(observation)}} are known to have occured at the same time, they 
 The {{term(agent)}} **MUST** only place {{termplural(observation)}} in the {{term(buffer)}} if the data has changed from the previous {{term(observation)}} for the same {{term(dataitem)}}. The exceptions to this rule are the following conditions:
 
 * The {{term(discrete)}} attribute is `true` for the {{term(dataitem)}}. 
-* The {{term(representtion)}} is {{term(discrete representation)}}.
-* The {{term(representtion)}} is {{term(timeseries representation)}}.
+* The {{term(representation)}} is {{term(discrete representation)}}.
+* The {{term(representation)}} is {{term(timeseries representation)}}.
 
 In the case of an exception, the {{term(agent)}} **MUST** place every  {{term(observation)}} in the {{term(buffer)}}.
 
@@ -125,7 +125,7 @@ Any {{term(observation)}} that is constrained to a constant value, as defined in
 
 The {{term(agent)}} **MAY** have a fixed size {{term(buffer)}} and the {{term(buffer)}} **MAY** be ephemeral.
 
-If the {{term(buffer)}} is recoverable, the {{term(agent)}} **MUST NOT**  change the {{term(insanceid)}} and **MUST NOT** set the {{term(sequence number)}} to `1`.
+If the {{term(buffer)}} is recoverable, the {{term(agent)}} **MUST NOT**  change the {{term(instanceid)}} and **MUST NOT** set the {{term(sequence number)}} to `1`.
 
 ### Storage of MTConnect Assets
 

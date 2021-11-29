@@ -1,5 +1,5 @@
 require 'kramdown'
-
+require 'fileutils'
 
 module Kramdown
   module Parser
@@ -23,7 +23,6 @@ module Kramdown
     end
   end
 
-  
   module Converter
     class MtcLatex < Latex
       def initialize(root, options)
@@ -305,19 +304,27 @@ EOT
   end
 end
 
-Dir.mkdir('converted') unless File.exists?('converted')
-Dir.mkdir('converted/model-sections') unless File.exists?('converted/model-sections')
+module MarkdownConverter
+  def self.generate_latex(file, directory)
+    FileUtils.mkdir_p(directory)
 
-if ARGV.length > 0
-  files = ARGV
-else
-  files = Dir['*.md', 'model-sections/*.md'].sort
+    dest = "#{directory}/#{File.basename(file)}.tex"
+    
+    puts "\n#{'-' * 32}\nRendering #{file} -> #{dest}"
+    kd = Kramdown::Document.new(File.read(file), input: 'MTCKramdown', html_to_native: true)
+    File.write(dest, kd.to_mtc_latex)
+    puts kd.warnings
+  end
 end
 
-files.each do |f|
-  dest = "converted/#{File.basename(f)}.tex"
-  puts "\nRendering #{f} -> #{dest}"
-  kd = Kramdown::Document.new(File.read(f), input: 'MTCKramdown', html_to_native: true)
-  File.write(dest, kd.to_mtc_latex)
-  puts kd.warnings
+if __FILE__ == $PROGRAM_NAME
+  if ARGV.length > 0
+    files = ARGV
+  else
+    files = Dir['*.md'].sort
+  end
+
+  files.each do |f|
+    MarkdownConverter.generate_latex(f, 'converted')
+  end
 end

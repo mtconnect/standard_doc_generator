@@ -147,7 +147,6 @@ The accuracy and number of decimals representing fractions of a second for a {{t
 * {{term(xml)}} attribute names {{latex(\SHOULD)}} be spelled out and abbreviations {{latex(\SHOULD)}} be avoided.  The exception to this rule is the use of {{term(id)}} when associated with an identifier.  See the exclusion below regarding the use of the suffix `Ref`.
 
 * The abbreviation `Ref` for {{term(reference)}} is permitted as a suffix to element names of either a {{term(structural element)}} or a {{term(data entity)}} to provide an efficient method to associate information defined in another location in a {{term(data model)}} without duplicating that original data or structure.  See *Section 4.8* in {{latex(\citetitle{MTCPart2})}} for more information on {{term(reference)}}.
-{{latex(\end{itemize})}}
 
 ## XML Declaration
 
