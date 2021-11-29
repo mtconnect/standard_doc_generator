@@ -386,7 +386,9 @@ When an {{term(http request)}} includes an {{term(interval query)}} parameter, a
 
 The format of the response **MUST** use an `x-multipart-replace` encoded message with each section separated by MIME boundaries.  Each section **MUST** contain an entire {{term(mtconnectstreams response document)}}. 
 
-If there are no available {{termplural(observation)}} after the {{term(interval query)}} time elapsed, the {{term(agent)}} **MUST** wait for either the {{term(heartbeat query)}} time to elapse or an {{term(observation)}} arrives. If the {{term(heartbeat query)}} time elapses and no {{termplural(observation)}} arrive, then an empty {{term(mtconnectstreams)}} document **MUST** be sent.
+When streaming for a {{term(current request)}}, the {{term(agent)}} produces a {{term(mtconnectstreams response document)}} with the most current {{termplural(observation)}} every {{term(interval query)}} milliseconds.
+
+When streaming for a {{term(sample request)}}, if there are no available {{termplural(observation)}} after the {{term(interval query)}} time elapsed, the {{term(agent)}} **MUST** wait for either the {{term(heartbeat query)}} time to elapse or an {{term(observation)}} arrives. If the {{term(heartbeat query)}} time elapses and no {{termplural(observation)}} arrive, then an empty {{term(mtconnectstreams)}} document **MUST** be sent.
 
 > Note: For more information on MIME, see IETF RFC 1521 and RFC 822.
 
