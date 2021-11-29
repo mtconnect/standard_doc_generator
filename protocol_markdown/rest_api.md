@@ -41,7 +41,9 @@ Examples:
   
 * `http://localhost:5000/probe`
 
-  The request provides information for all devices. The following section specifies the details of each request.
+  The request provides information for all devices. 
+
+The following section specifies the details for each request.
 
 ## MTConnect ReST API
 
