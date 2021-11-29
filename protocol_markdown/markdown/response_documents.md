@@ -66,41 +66,4 @@ Also, the specific format for the {{termplural(response document)}} may also be 
 
 ## Accessing Information from an Agent
 
-Each of the {{termplural(request)}} defined for the {{term(requestresponse)}} information exchange requires an {{term(agent)}} to respond with a specific view of the information stored by the {{term(agent)}}.  The following describes the relationships between the information stored by an {{term(agent)}} and the contents of the {{termplural(response document)}}.
-
-### Accessing Equipment Metadata from an Agent
-
-The {{term(equipment metadata)}} associated with each piece of equipment that publishes information to an {{term(agent)}} is typically static information that is maintained by the {{term(agent)}}.  The MTConnect Standard does not define how the {{term(agent)}} captures or maintains that information.  The only requirement that the MTConnect Standard places on an {{term(agent)}} regarding this {{term(equipment metadata)}} is that the {{term(agent)}} properly store this information and then configure and publish a {{term(mtconnectdevices response document)}} in response to a {{term(probe request)}}.
-
-All issues associated with the capture and maintenance of the {{term(equipment metadata)}} is the responsibility of the implementer of a specific {{term(agent)}}.
-
-### Accessing Streaming Data from the Buffer of an Agent
-
-There are two {{termplural(request)}} defined for the {{term(requestresponse)}} information exchange that require an {{term(agent)}} to provide different views of the information stored in the {{term(buffer)}} of the {{term(agent)}}.  These {{termplural(request)}} are {{term(current httprequest)}} and {{term(sample httprequest)}}.
-
-The example in {{figure(example-buffer)}} demonstrates how an {{term(agent)}} interprets the information stored in the {{term(buffer)}} to provide the content that is published in different versions of the {{term(mtconnectstreams response document)}} based on the specific {{term(request)}} that is issued by a client software application.
-
-In this example, an {{term(agent)}} with a {{term(buffer)}} that can hold up to eight (8) {{termplural(data entity)}}; i.e., the value for {{term(buffersize)}} is 8.  This {{term(agent)}} is collecting information for two pieces of data -- `Pos` representing a position and `Line` representing a line of logic or commands in a control program.  
-
-In this {{term(buffer)}}, the value for {{term(firstsequence)}} is 12 and the value for {{term(lastsequence)}} is 19.  There are five (5) different values for `Pos` and three (3) different values for `Line`.  
-
-![Example Buffer](figures/example-buffer.png "example-buffer")
-
-{{FloatBarrier}}
-
-If an {{term(agent)}} receives a {{term(sample request)}} from a client software application, the {{term(agent)}} **MUST** publish an {{term(mtconnectstreams response document)}} that contains a range of data values.  The range of values are defined by the {{term(from query)}} and {{term(count model)}} parameters that must be included as part of the {{term(sample request)}}.  If the value of {{term(from query)}} is 14 and the value of {{term(count model)}} is 5, the {{term(agent)}} **MUST** publish an {{term(mtconnectstreams response document)}} that includes five (5) pieces of data represented by {{termplural(sequence number)}} 14, 15, 16, 17, and 18 -- three (3) occurrences of `Line` and two (2) occurrences of `Pos`.  In this case, {{term(nextsequence)}} will also be returned with a value of 19.
-
-Likewise, if the same {{term(agent)}} receives a {{term(current request)}} from a client software application, the {{term(agent)}} **MUST** publish an {{term(mtconnectstreams response document)}} that contains the most current information available for each of the types of data that is being published to the {{term(agent)}}.  In this case, the specific data that **MUST** be represented in the {{term(mtconnectstreams response document)}} is `Pos` with a value of 22 and a {{term(sequence number)}} of 19 and `Line` with a value of 227 and a {{term(sequence number)}} of 18.
-
-There is also a derivation of the {{term(current request)}} that will cause an {{term(agent)}} to publish an {{term(mtconnectstreams response document)}} that contains a set of data relative to a specific sequence number.  The {{term(current request)}} **MAY** include an additional parameter called {{term(at query)}}.  When the {{term(at query)}} parameter, along with an {{term(instanceid)}}, is included as part of a {{term(current request)}}, an {{term(agent)}} **MUST** publish an {{term(mtconnectstreams response document)}} that contains the most current information available for each of the types of {{termplural(data entity)}} that are being published to the {{term(agent)}} that occur immediately at or before the {{term(sequence number)}} specified with the {{term(at query)}} parameter.
-
-For example, if the {{term(request)}} is `current?at=15`, an {{term(agent)}} **MUST** publish a {{term(mtconnectstreams response document)}} that contains the most current information available for each of the {{termplural(data entity)}} that are stored in the {{term(buffer)}} of the {{term(agent)}} with a {{term(sequence number)}} of 15 or lower.  In this case, the specific data that **MUST** be represented in the {{term(mtconnectstreams response document)}} is `Pos` with a value of 10 and a {{term(sequence number)}} of 13 and `Line` with a value of 220 and a {{term(sequence number)}} of 15.
-
-If a {{term(current httprequest)}} {{term(request)}} is received for a {{term(sequence number)}} of 11 or lower, an {{term(agent)}} **MUST** return an {{term(outofrange value)}} {{term(mtconnecterrors response document)}}.  The same {{term(http error message)}} **MUST** be given if a {{term(sequence number)}} is requested that is greater than the end of the {{term(buffer)}}.  See {{latex(\sect{Error Information Model})}} for more information on {{term(mtconnecterrors response document)}}.
-
-### Accessing MTConnect Assets Information from an Agent
-
-When an {{term(agent)}} receives an {{term(asset request)}}, the {{term(agent)}} **MUST** publish an {{term(mtconnectassets)}} document that contains information regarding the {{termplural(asset document)}} that are stored in the {{term(agent)}}.
-
-See {{latex(\citetitle{MTCPart40})}} for details on {{termplural(mtconnect asset)}}, {{termplural(asset request)}}, and the {{term(mtconnectassets response document)}}.
-
+See {{sect(MTConnect ReST Protocol)}}

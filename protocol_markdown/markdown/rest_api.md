@@ -2,7 +2,7 @@
 
 MTConnect requires one normative method for requesting data from an {{term(agent)}}. Other protocols and access methods are informative and supported by companion specifications.
 
-## REST Interface
+## ReST Interface
 
 An {{term(agent)}} **MUST** provide a ReST API {{term(application programming interface)}} supporting HTTP version 1.0 or greater.  This interface **MUST** support HTTP (RFC7230) and use URIs (RFC3986) to identify specific information requested from an {{term(agent)}}.
 
