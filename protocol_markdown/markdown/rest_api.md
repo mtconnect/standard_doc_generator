@@ -1,12 +1,18 @@
 # MTConnect ReST Protocol
 
-MTConnect requires one normative method for requesting data from an {{term(agent)}}. Other protocols and access methods are informative and supported by companion specifications.
+An {{term(agent)}} **MUST** perform the following tasks:
+
+* Collect data from manufacturing equipment.
+* Generate {{termplural(response document)}}.
+* Provide a ReST interface using HTTP.
+
+An {{term(agent)}} **MAY** provide additional protocols and represntations. Some representations **MAY** have companion specifications.
 
 ## ReST Interface
 
-An {{term(agent)}} **MUST** provide a ReST API {{term(application programming interface)}} supporting HTTP version 1.0 or greater.  This interface **MUST** support HTTP (RFC7230) and use URIs (RFC3986) to identify specific information requested from an {{term(agent)}}.
+An {{term(agent)}} **MUST** provide a ReST API {{term(application programming interface)}} supporting HTTP version 1.0 or greater.  This interface **MUST** support HTTP (RFC7230) and use URIs (RFC3986) to identify specific information requested from an {{term(agent)}}. 
 
-The REST API adheres to the architectural principles of a stateless service to retrieve information associated with pieces of equipment. Additionally, the API is read-only and does not produce any side effects on the data stored in an {{term(agent)}} or change the function of the {{term(agent)}} itself.
+The REST API adheres to the architectural principles of a stateless service to retrieve information associated with pieces of equipment. Additionally, the API is read-only and does not produce any side effects on the data stored in an {{term(agent)}} or change the function of the {{term(agent)}} itself. ReST state management requires client has responsibility for recovery in case of error or loss of connection.
 
 ## HTTP Request
 
@@ -16,7 +22,7 @@ The HTTP uses Uniform Resource Identifiers (URI) as outlined in IETF RFC 3986 as
 
 1. `protocol`: The protocol used for the request. Must be `http` or `https`.
 2. `authority`: The network domain or address of the agent with an optional port.
-2. `path`: A Hierarchical Identifier following a slash (`/`) and before the optional question-mark (`?`) where slashes (`/`) separate segments.
+2. `path`: A Hierarchical Identifier following a slash (`/`) and before the optional question-mark (`?`). The `path` separates segments by a slash (`/`).
 3. `query`: The portion of the HTTP request following the question-mark (`?`). The query portion of the HTTP request is composed of key-value pairs, `<key>=<value>` separated by an ampersand (`&`).
 
 ### `path` Portion of an HTTP Request
@@ -29,7 +35,7 @@ The `<Path>` portion of the *request-target* has the following segments:
   - `current`
   - `sample`
   - `asset` or `assets`
-    - additional optional segment `<asset ids>`
+    - `asset` request has additional optional segment `<asset ids>`
   
 If {{term(name)}} or {{term(uuid)}} segement are not specified in the {{term(http request)}}, an {{term(agent)}} **MUST** return information for all pieces of equipment. The following sections will 
 
