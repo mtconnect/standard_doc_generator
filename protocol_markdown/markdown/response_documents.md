@@ -58,12 +58,12 @@ In normal operation, there are four types of {{termplural(mtconnect request)}} t
 
 * {{term(asset request)}} -- A client software application requests information related to {{termplural(mtconnect asset)}} that has been published to an {{term(agent)}}.  The {{term(agent)}} publishes an {{term(mtconnectassets response document)}} that contains the requested information.  An {{term(asset request)}} is represented by the term {{term(asset httprequest)}} in a {{term(request)}} from a client software application.
 
-> Note: If an {{term(agent)}} is unable to respond to the request for information or the request includes invalid information, the {{term(agent)}} will publish an {{term(mtconnecterrors response document)}}. See {{latex(\sect{Error Information Model})}} for information regarding {{term(error information model)}}
+> Note: If an {{term(agent)}} is unable to respond to the request for information or the request includes invalid information, the {{term(agent)}} will publish an {{term(mtconnecterrors response document)}}. See {{sect(error-information-model)}} for information regarding {{term(error information model)}}
 
 The specific format for the {{term(request)}} for information from an {{term(agent)}} will depend on the {{term(protocol)}} implemented as part of the {{term(requestresponse)}} information exchange mechanism deployed in a specific implementation.  See {{latex(\sect{Protocol and Messaging})}}, {{term(protocol)}} for details on implementing the {{term(requestresponse)}} information exchange.
 
-Also, the specific format for the {{termplural(response document)}} may also be implementation dependent.   See {{latex(\sect{XML Representation of Response Documents})}} for details on the format for the {{termplural(response document)}} encoded with {{term(xml)}}.
+Also, the specific format for the {{termplural(response document)}} may also be implementation dependent.   See {{sect(xml-response-documents)}} for details on the format for the {{termplural(response document)}} encoded with {{term(xml)}}.
 
 ## Accessing Information from an Agent
 
-See {{sect(MTConnect ReST Protocol)}}
+See {{sect(mtconnect-rest-protocol)}}

@@ -59,6 +59,10 @@ module Kramdown
             @rowspan = args.to_i
             ''
 
+          when "sect"
+            id = args.downcase.gsub('/', '').split.join('-')
+            "\\sect{#{id}}"
+
           when 'markdown'
             kd = ::Kramdown::Document.new(args.gsub(/<br\/?>/, "\n"), input: 'MTCKramdown')
             kd.to_mtc_latex
@@ -75,7 +79,7 @@ module Kramdown
         mbox = "\\mbox{}" if level >= 3
         if ((id = el.attr['id']) ||
             (@options[:auto_ids] && (id = generate_id(el.options[:raw_text])))) && in_toc?(el)
-          "\\#{type}{#{inner(el, opts)}}\\hypertarget{#{id}}{}\\label{#{id}}#{mbox}\n\n"
+          "\\#{type}{#{inner(el, opts)}}\\hypertarget{sec:#{id}}{}\\label{sec:#{id}}#{mbox}\n\n"
         else
           "\\#{type}*{#{inner(el, opts)}}#{mbox}\n\n"
         end
