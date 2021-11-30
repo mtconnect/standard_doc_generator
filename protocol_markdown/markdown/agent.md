@@ -1,3 +1,7 @@
+# MTConnect Fundamentals
+
+The MTConnect Standard defines the normative informaton model and protocol for retrieving information from manufacturing equipment. The {{term(agent)}} behavior and protcol is in this document and the information models are sepecified in the other parts of the standard.
+
 ## Agent
 
 The MTConnect Standard specifies the minimum functionality of the {{term(agent)}}. The functionality is as follows:
