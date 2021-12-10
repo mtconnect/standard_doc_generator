@@ -1,17 +1,13 @@
-# Document Generation from XMI
+# Document Generation from normative MTConnect XMI
 
-## Generating LaTeX Documents
-
-Go to `src/`.
+## Generating Markdown and LaTeX Documents
 
 Run the following command:
 
-	ruby generate.rb --version=1.7 docs
+	ruby src/generate.rb --version=2.0.0 docs
 
-## Generating Schema
-
-Go to `src/`.
+## Generating XML Schema
 
 Run the following command:
 
-	ruby generate.rb schema
+	ruby src/generate.rb schema
