@@ -2,7 +2,7 @@
 self.namespace = 'mt'
 self.top = :MTConnectStreams
 self.license = File.read(File.join(File.dirname(__FILE__), 'schemas', 'license.txt'))
-self.version = '1.7'
+self.version = '2.0'
 self.urn = "urn:mtconnect.org:MTConnectStreams:#{self.version}"
 
 load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'common')

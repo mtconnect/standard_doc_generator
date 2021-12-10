@@ -2,7 +2,7 @@
 self.namespace = 'mt'
 self.top = :MTConnectDevices
 self.license = File.read(File.join(File.dirname(__FILE__), 'schemas', 'license.txt'))
-self.version = '1.7'
+self.version = '2.0'
 self.urn = "urn:mtconnect.org:MTConnectDevices:#{self.version}"
 
 xsimport "xlink", 'http://www.w3.org/1999/xlink', 'xlink.xsd'
