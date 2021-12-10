@@ -1,13 +1,13 @@
-[submodule "devices"]
+[submodule "latex_documentation/devices"]
 	path = latex_documentation/devices
 	url = https://git.overleaf.com/5f293c83adf9e80001c5795a
-[submodule "observations"]
+[submodule "latex_documentation/observations"]
 	path = latex_documentation/observations
 	url = https://git.overleaf.com/6007efaf5b6d7bf8a9c6933d
-[submodule "assets"]
+[submodule "latex_documentation/assets"]
 	path = latex_documentation/assets
 	url = https://git.overleaf.com/6007efc55b6d7b9b20c6934b
-[submodule "interfaces"]
+[submodule "latex_documentation/interfaces"]
 	path = latex_documentation/interfaces
 	url = https://git.overleaf.com/611e5197509bbdc7173f2742
 [submodule "latex_documentation/protocols"]
