@@ -49,7 +49,7 @@ operations.each do |op|
     load 'generate_documentation.rb'
     
   when 'schema'
-	  load 'generate_schema.rb'
+    load 'generate_schema.rb'
   
   else
     $logger.error "Invalid option #{op}"
