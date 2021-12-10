@@ -1,11 +1,9 @@
 $: << File.dirname(__FILE__)
 
 require 'extensions'
-require 'markdown_parser'
   
 module Relation
   @@connections = {}
-  include MarkDownParser
   
   def self.clear
   end

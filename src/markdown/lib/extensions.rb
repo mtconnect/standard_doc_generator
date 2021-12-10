@@ -1,11 +1,7 @@
 $: << File.dirname(__FILE__)
 
-require 'markdown_parser'
-
 module Extensions
 
-  include MarkDownParser
-  
   def xmi_stereotype(e)
     id = e['xmi:id']
     type = e['xmi:type']
