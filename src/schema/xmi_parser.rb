@@ -73,7 +73,7 @@ class XMIParser
 	  next if element["xmi:type"] == "uml:Class" and types_package == "Devices"
 	  name = element['name']
 	  description = element.at("./ownedComment") ? element.at("./ownedComment")['body'] : ""
-	  parent_id = element.at("./generalization")['general']
+	  parent_id = element.at("./generalization") ? element.at("./generalization")['general'] : ""
 	  units = get_units(element)
 	  facet, enums = get_facet(element)
 	  
