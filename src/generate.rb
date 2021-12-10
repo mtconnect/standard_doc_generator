@@ -5,8 +5,8 @@ require 'logger'
 require 'optparse'
 require 'json'
 require 'set'
-require 'latex/lib/type'
-require 'latex/lib/model'
+require 'markdown/lib/type'
+require 'markdown/lib/model'
 require 'rexml/document'
 require 'rexml/xpath'
 require 'nokogiri'
@@ -49,7 +49,7 @@ operations.each do |op|
     load 'generate_documentation.rb'
     
   when 'schema'
-	load 'generate_schema.rb'
+	  load 'generate_schema.rb'
   
   else
     $logger.error "Invalid option #{op}"
