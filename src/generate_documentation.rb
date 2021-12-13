@@ -16,7 +16,15 @@ end
 
 $namespaces = Hash[xmiDoc.namespaces.map { |k, v| [k.split(':').last, v] }]
 
-#Defining the MarkdownModel
+=begin
+Defining the MarkdownModel
+SkipModels: Packages in XMI to be ignored during parsing
+$enums: Enumerations to be ignored during recursive gen of docs
+        These enums have specific formats defined in markdown_type.rb
+$dataitemtypes: DataItem types to be accessed globally for use in multiple Parts
+document_structure: Predefined config for the Standard Documents.
+=end
+
 SkipModels = Set.new
 SkipModels.add('CSV Imports')
 SkipModels.add('Simulation')
@@ -33,7 +41,6 @@ $enums = ['DataItemTypeEnum','DataItemSubTypeEnum','CompositionTypeEnum','CodeEn
 $dataitemtypes = Hash.new
 MarkdownModel.generate_subtypes
 
-#Generating Documentation
 document_structure = File.read(File.join(File.dirname(__FILE__),'..','config','document_structure.json'))
 document_structure_json = JSON.parse(document_structure)
 
@@ -43,7 +50,6 @@ document_structure_json['documents'].each do |partno, partinfo|
   MarkdownModel.directory = directory_path
   MarkdownModel.generate_glossary(document_structure_json['glossary'])
 
-  #Markdown variables
   doc_num = partno
   doc_title = partinfo['doc_title']
   version_num = Options[:version] ? Options[:version] : "X.X"
@@ -73,14 +79,16 @@ document_structure_json['documents'].each do |partno, partinfo|
     end
   end
   
-  #MTConnect Profile
-  $logger.info "\nGenerating MTConnect Profile"
+  $logger.info "Generating MTConnect Profile"
   File.open(File.join(MarkdownModel.directory, "profile.md"), "w") do |f|
 	  generate_section_intro(f,RootModel, 'Supporting Documents', 'MTConnect Profile')
 	  MarkdownModel.generate_profile(f, document_structure_json['profile'])
   end
-  
+
+  $logger.info "Generating Flattened MD for #{directory_name}"
   load 'markdown/markdown_merger.rb'
+  
+  $logger.info "Generating LaTeX for #{directory_name}"
   load 'latex/generate_latex.rb'
 end
 

@@ -1,5 +1,11 @@
 $: << File.dirname(__FILE__)
 
+=begin
+Recursively expand the input file commands in the main.md,
+sub it with corresponding md file text,
+and write it to main_flattened.md
+=end
+
 def recurse_input_files(md)
   md.scan(/\{\{input\(([^\)]+)\)\}\}/) do |s|
     input_cmd = "{{input(#{$1})}}"
@@ -8,6 +14,7 @@ def recurse_input_files(md)
   end
   return md.match(/\{\{input\(([^\)]+)\)\}\}/) ? recurse_input_files(md) : md
 end
+
 
 main_md_file = File.join(MarkdownModel.directory,'main.md')
 main_md = File.read(main_md_file)

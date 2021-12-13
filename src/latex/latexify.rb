@@ -366,11 +366,11 @@ module MarkdownConverter
     puts kd.warnings
 
     self.convert_glossary(dest) if File.basename(file) == "glossary.md"
-    self.format_remaining_cmd(dest)
+    self.convert_remaining_cmd(dest)
   end
   
   def self.convert_glossary(file)
-    gls_entries = self.format_whitespaces(File.read(file).gsub("\\{","{")).gsub("\\}","}").split(/{{newglossaryentry\(([a-zA-Z0-9 \-_]+)\)/)
+    gls_entries = self.remove_whitespaces(File.read(file).gsub("\\{","{")).gsub("\\}","}").split(/{{newglossaryentry\(([a-zA-Z0-9 \-_]+)\)/)
     
     glossary_latex = ""
     for i in 1..(gls_entries.length-1)/2
@@ -382,7 +382,7 @@ module MarkdownConverter
     File.write(file, glossary_latex)
   end
 
-  def self.format_whitespaces(description)
+  def self.remove_whitespaces(description)
 		whitespaces = description.scan(/\n(^\s*$)\n/m)
 		whitespaces.each do |whitespace|
 			whitespace_command = "\n"+whitespace[0]+"\n"
@@ -392,7 +392,7 @@ module MarkdownConverter
 		return description
 	end
   
-  def self.format_remaining_cmd(file)
+  def self.convert_remaining_cmd(file)
     latex_file = File.read(file).gsub("\\{","{").gsub("\\}","}")
 
     latex_file.scan(/\{\{((.*))\(((.+?)?)\)\}\}/) do |cmd|
