@@ -16,7 +16,7 @@ type of event that may cause a reset to occur.
 {{tbl(value-properties-of-resettrigger)}} lists the Value Properties of {{block(ResetTrigger)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `ResetTriggerEnum` | 1 |
 {: caption="Value Properties of ResetTrigger"}
 
@@ -75,7 +75,7 @@ identifies the {{block(Component)}}, {{block(DataItem)}}, or {{block(Composition
 One of {{property(componentId)}}, {{property(compositionId)}}, or {{property(dataItemId)}} **MUST** be defined for {{block(Source)}}.
 
 
-    The value of {{property(Source)}} **MUST** be `string`.
+The value of {{property(Source)}} **MUST** be `string`.
 
 
 #### Value Properties of Source
@@ -83,7 +83,7 @@ One of {{property(componentId)}}, {{property(compositionId)}}, or {{property(dat
 {{tbl(value-properties-of-source)}} lists the Value Properties of {{block(Source)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(componentId)}} | `ID` | 0..1 |
 | {{property(compositionId)}} | `ID` | 0..1 |
 | {{property(dataItemId)}} | `ID` | 0..1 |
@@ -109,7 +109,7 @@ Descriptions for Value Properties of {{block(Source)}}:
 starting value for a {{block(DataItem)}} as well as the value to be set for the {{block(DataItem)}} after a reset event.
 
 
-    The value of {{property(InitialValue)}} **MUST** be `string`.
+The value of {{property(InitialValue)}} **MUST** be `string`.
 
 
 ### Filter
@@ -123,7 +123,7 @@ provides a means to control when an {{term(agent)}} records updated information 
 {{tbl(value-properties-of-filter)}} lists the Value Properties of {{block(Filter)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `FilterEnum` | 1 |
 {: caption="Value Properties of Filter"}
 
@@ -161,7 +161,7 @@ Descriptions for Value Properties of {{block(Filter)}}:
 {{tbl(value-properties-of-constraints)}} lists the Value Properties of {{block(Constraints)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | `<<deprecated>>`{{property(Filter)}} | `FilterEnum` | 0..1 |
 | {{property(Maximum)}} | `float` | 0..1 |
 | {{property(Minimum)}} | `float` | 0..1 |
@@ -208,7 +208,7 @@ defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated 
 {{tbl(part-properties-of-definition)}} lists the Part Properties of {{block(Definition)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(CellDefinition)}} (organized by {{block(CellDefinitions)}}) | 0..* |
 | {{block(Description)}} | 0..1 |
 | {{block(EntryDefinition)}} (organized by {{block(EntryDefinitions)}}) | 0..* |

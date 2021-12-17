@@ -16,7 +16,7 @@ root entity of an {{term(MTConnectErrors Response Document)}} that contains the 
 {{tbl(reference-properties-of-mtconnecterror)}} lists the Reference Properties of {{block(MTConnectError)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Header)}} | 1 |
 | {{block(Error)}} (organized by {{block(Errors)}}) | 1..* |
 {: caption="Reference Properties of MTConnectError"}
@@ -46,7 +46,7 @@ provides information from an {{term(agent)}} defining version information, stora
 {{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(bufferSize)}} | `uInt32` | 1 |
 | {{property(creationTime)}} | `dateTime` | 1 |
 | {{property(sender)}} | `string` | 1 |
@@ -107,7 +107,7 @@ Descriptions for Value Properties of {{block(Header)}}:
 error encountered by an {{term(agent)}} when responding to a {{term(request)}}.
 
 
-    The value of {{property(Error)}} **MUST** be `string`.
+The value of {{property(Error)}} **MUST** be `string`.
 
 
 #### Value Properties of Error
@@ -115,7 +115,7 @@ error encountered by an {{term(agent)}} when responding to a {{term(request)}}.
 {{tbl(value-properties-of-error)}} lists the Value Properties of {{block(Error)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(errorCode)}} | `ErrorCodeTypes` | 1 |
 {: caption="Value Properties of Error"}
 

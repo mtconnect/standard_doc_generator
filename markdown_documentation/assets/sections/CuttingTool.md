@@ -19,7 +19,7 @@ This section provides semantic information for the {{block(CuttingTool)}} and {{
 {{tbl(value-properties-of-cuttingtool)}} lists the Value Properties of {{block(CuttingTool)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(manufacturers)}} | `string` | 0..* |
 | {{property(serialNumber)}} | `string` | 1 |
 | {{property(toolId)}} | `string` | 1 |
@@ -49,7 +49,7 @@ Descriptions for Value Properties of {{block(CuttingTool)}}:
 {{tbl(reference-properties-of-cuttingtool)}} lists the Reference Properties of {{block(CuttingTool)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(CuttingToolLifeCycle)}} | 0..1 |
 | {{block(CuttingToolArchetypeReference)}} | 0..1 |
 | `<<deprecated>>`{{block(CuttingToolDefinition)}} | 0..1 |
@@ -85,7 +85,7 @@ Descriptions for Reference Properties of {{block(CuttingTool)}}:
 {{tbl(value-properties-of-cuttingtoolarchetype)}} lists the Value Properties of {{block(CuttingToolArchetype)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(manufacturers)}} | `string` | 0..* |
 | {{property(serialNumber)}} | `string` | 1 |
 | {{property(toolId)}} | `string` | 1 |
@@ -115,7 +115,7 @@ Descriptions for Value Properties of {{block(CuttingToolArchetype)}}:
 {{tbl(reference-properties-of-cuttingtoolarchetype)}} lists the Reference Properties of {{block(CuttingToolArchetype)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(CuttingToolDefinition)}} | 0..1 |
 | {{block(CuttingToolLifeCycle)}} | 0..1 |
 {: caption="Reference Properties of CuttingToolArchetype"}
@@ -140,7 +140,7 @@ Descriptions for Reference Properties of {{block(CuttingToolArchetype)}}:
 reference information about the {{property(assetId)}} and/or the URL of the data source of {{block(CuttingToolArchetype)}}.
 
 
-    The value of {{property(CuttingToolArchetypeReference)}} **MUST** be `IDREF`.
+The value of {{property(CuttingToolArchetypeReference)}} **MUST** be `IDREF`.
 
 
 #### Value Properties of CuttingToolArchetypeReference
@@ -148,7 +148,7 @@ reference information about the {{property(assetId)}} and/or the URL of the data
 {{tbl(value-properties-of-cuttingtoolarchetypereference)}} lists the Value Properties of {{block(CuttingToolArchetypeReference)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(source)}} | `string` | 0..1 |
 {: caption="Value Properties of CuttingToolArchetypeReference"}
 
@@ -164,7 +164,7 @@ Descriptions for Value Properties of {{block(CuttingToolArchetypeReference)}}:
 detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
 
 
-    The value of {{property(CuttingToolDefinition)}} **MUST** be `string`.
+The value of {{property(CuttingToolDefinition)}} **MUST** be `string`.
 
 
 #### Value Properties of CuttingToolDefinition
@@ -172,7 +172,7 @@ detailed structure of the cutting tool which is static during its lifecycle. {{c
 {{tbl(value-properties-of-cuttingtooldefinition)}} lists the Value Properties of {{block(CuttingToolDefinition)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(format)}} | `FormatTypeEnum` | 0..1 |
 {: caption="Value Properties of CuttingToolDefinition"}
 

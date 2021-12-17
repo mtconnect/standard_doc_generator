@@ -16,7 +16,7 @@ See {{sect(Relationships)}} for details on the {{block(Relationship)}} model.
 {{tbl(value-properties-of-specificationrelationship)}} lists the Value Properties of {{block(SpecificationRelationship)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `SpecificationRelationshipTypeEnum` | 1 |
 | {{property(idRef)}} | `ID` | 1 |
 {: caption="Value Properties of SpecificationRelationship"}
@@ -51,7 +51,7 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 {{tbl(value-properties-of-dataitemrelationship)}} lists the Value Properties of {{block(DataItemRelationship)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `DataItemRelationshipTypeEnum` | 1 |
 | {{property(idRef)}} | `ID` | 1 |
 {: caption="Value Properties of DataItemRelationship"}

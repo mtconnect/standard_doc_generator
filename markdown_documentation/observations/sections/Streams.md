@@ -21,7 +21,7 @@ If the response to the request for data from an {{term(agent)}} does not contain
 {{tbl(value-properties-of-devicestream)}} lists the Value Properties of {{block(DeviceStream)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(name)}} | `ID` | 1 |
 | {{property(uuid)}} | `ID` | 1 |
 {: caption="Value Properties of DeviceStream"}
@@ -45,7 +45,7 @@ Descriptions for Value Properties of {{block(DeviceStream)}}:
 {{tbl(reference-properties-of-devicestream)}} lists the Reference Properties of {{block(DeviceStream)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(ComponentStream)}} | 1..* |
 {: caption="Reference Properties of DeviceStream"}
 
@@ -68,7 +68,7 @@ At least one of {{block(Sample)}}, {{block(Event)}}, or {{block(Condition)}} **M
 {{tbl(value-properties-of-componentstream)}} lists the Value Properties of {{block(ComponentStream)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(component)}} | `string` | 1 |
 | {{property(componentId)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
@@ -106,7 +106,7 @@ Descriptions for Value Properties of {{block(ComponentStream)}}:
 {{tbl(reference-properties-of-componentstream)}} lists the Reference Properties of {{block(ComponentStream)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Event)}} (organized by {{block(Events)}}) | 0..* |
 | {{block(Sample)}} (organized by {{block(Samples)}}) | 0..* |
 | {{block(Condition)}} (organized by {{block(Conditions)}}) | 0..* |

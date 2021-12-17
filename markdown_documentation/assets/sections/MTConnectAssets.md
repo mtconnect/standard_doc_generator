@@ -14,7 +14,7 @@ provides information from an {{term(agent)}} defining version information, stora
 {{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(assetBufferSize)}} | `uInt32` | 1 |
 | {{property(assetCount)}} | `uInt32` | 1 |
 | {{property(deviceModelChangeTime)}} | `dateTime` | 1 |
@@ -88,7 +88,7 @@ root entity of an {{term(MTConnectAssets Response Document)}} that contains the 
 {{tbl(reference-properties-of-mtconnectassets)}} lists the Reference Properties of {{block(MTConnectAssets)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Header)}} | 1 |
 | {{block(Asset)}} (organized by {{block(Assets)}}) | 0..* |
 {: caption="Reference Properties of MTConnectAssets"}

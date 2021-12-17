@@ -18,7 +18,7 @@ This section provides semantic information for the {{block(RawMaterial)}} model.
 {{tbl(value-properties-of-rawmaterial)}} lists the Value Properties of {{block(RawMaterial)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(name)}} | `string` | 0..1 |
 | {{property(containerType)}} | `string` | 0..1 |
 | {{property(processKind)}} | `string` | 0..1 |
@@ -150,7 +150,7 @@ Descriptions for Value Properties of {{block(RawMaterial)}}:
 {{tbl(part-properties-of-rawmaterial)}} lists the Part Properties of {{block(RawMaterial)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Material)}} | 0..1 |
 {: caption="Part Properties of RawMaterial"}
 
@@ -172,7 +172,7 @@ material used as the {{block(RawMaterial)}}.
 {{tbl(value-properties-of-material)}} lists the Value Properties of {{block(Material)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(id)}} | `ID` | 0..1 |
 | {{property(name)}} | `string` | 0..1 |
 | {{property(type)}} | `string` | 1 |

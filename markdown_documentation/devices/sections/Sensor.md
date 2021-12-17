@@ -44,7 +44,7 @@ configuration for a {{block(Sensor)}}.
 {{tbl(value-properties-of-sensorconfiguration)}} lists the Value Properties of {{block(SensorConfiguration)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(CalibrationDate)}} | `dateTime` | 0..1 |
 | {{property(CalibrationInitials)}} | `string` | 0..1 |
 | {{property(FirmwareVersion)}} | `string` | 1 |
@@ -74,7 +74,7 @@ Descriptions for Value Properties of {{block(SensorConfiguration)}}:
 {{tbl(part-properties-of-sensorconfiguration)}} lists the Part Properties of {{block(SensorConfiguration)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Channel)}} (organized by {{block(Channels)}}) | 0..* |
 {: caption="Part Properties of SensorConfiguration"}
 
@@ -97,7 +97,7 @@ When {{block(Sensor)}} has multiple {{termplural(sensing element)}}, each {{term
 {{tbl(value-properties-of-channel)}} lists the Value Properties of {{block(Channel)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(CalibrationDate)}} | `dateTime` | 0..1 |
 | {{property(CalibrationInitials)}} | `string` | 0..1 |
 | {{property(name)}} | `string` | 0..1 |
@@ -132,7 +132,7 @@ Descriptions for Value Properties of {{block(Channel)}}:
 {{tbl(reference-properties-of-channel)}} lists the Reference Properties of {{block(Channel)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(SensorConfiguration)}} (organized by {{block(Channels)}}) | 1 |
 {: caption="Reference Properties of Channel"}
 
@@ -148,7 +148,7 @@ Descriptions for Reference Properties of {{block(Channel)}}:
 {{tbl(part-properties-of-channel)}} lists the Part Properties of {{block(Channel)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 {: caption="Part Properties of Channel"}
 

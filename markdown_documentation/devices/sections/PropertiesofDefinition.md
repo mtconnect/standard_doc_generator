@@ -14,7 +14,7 @@ semantic definition of a {{block(Cell)}}.
 {{tbl(value-properties-of-celldefinition)}} lists the Value Properties of {{block(CellDefinition)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(units)}} | `UnitEnum` | 0..1 |
 | {{property(key)}} | `string` | 0..1 |
 | {{property(type)}} | `DataItemTypeEnum` | 0..1 |
@@ -57,7 +57,7 @@ Descriptions for Value Properties of {{block(CellDefinition)}}:
 {{tbl(part-properties-of-celldefinition)}} lists the Part Properties of {{block(CellDefinition)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 {: caption="Part Properties of CellDefinition"}
 
@@ -79,7 +79,7 @@ semantic definition of an {{block(Entry)}}.
 {{tbl(value-properties-of-entrydefinition)}} lists the Value Properties of {{block(EntryDefinition)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(key)}} | `string` | 0..1 |
 | {{property(units)}} | `UnitEnum` | 0..1 |
 | {{property(type)}} | `DataItemTypeEnum` | 0..1 |
@@ -122,7 +122,7 @@ Descriptions for Value Properties of {{block(EntryDefinition)}}:
 {{tbl(part-properties-of-entrydefinition)}} lists the Part Properties of {{block(EntryDefinition)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 | {{block(CellDefinition)}} (organized by {{block(CellDefinitions)}}) | 0..* |
 {: caption="Part Properties of EntryDefinition"}

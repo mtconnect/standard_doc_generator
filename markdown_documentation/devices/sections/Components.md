@@ -28,7 +28,7 @@ At least one of {{block(Component)}}, {{block(DataItem)}}, or {{block(Reference)
 {{tbl(value-properties-of-component)}} lists the Value Properties of {{block(Component)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(id)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
 | {{property(nativeName)}} | `string` | 0..1 |
@@ -81,7 +81,7 @@ Descriptions for Value Properties of {{block(Component)}}:
 {{tbl(reference-properties-of-component)}} lists the Reference Properties of {{block(Component)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(ComponentStream)}} | 0..1 |
 {: caption="Reference Properties of Component"}
 
@@ -103,7 +103,7 @@ Descriptions for Reference Properties of {{block(Component)}}:
 {{tbl(part-properties-of-component)}} lists the Part Properties of {{block(Component)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 | {{block(Composition)}} (organized by {{block(Compositions)}}) | 0..* |
 | {{block(Component)}} (organized by {{block(Components)}}) | 0..* |
@@ -174,7 +174,7 @@ descriptive content.
 
 > Note 2 to entry: See {{lst(component-example)}} for the {{term(XML)}} representation of the same example.
 
-    The value of {{property(Description)}} **MUST** be `string`.
+The value of {{property(Description)}} **MUST** be `string`.
 
 
 #### Value Properties of Description
@@ -182,7 +182,7 @@ descriptive content.
 {{tbl(value-properties-of-description)}} lists the Value Properties of {{block(Description)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(manufacturer)}} | `string` | 0..1 |
 | {{property(model)}} | `string` | 0..1 |
 | {{property(serialNumber)}} | `string` | 0..1 |

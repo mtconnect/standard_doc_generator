@@ -36,7 +36,7 @@ abstract entity that provides telemetry data for a {{block(DataItem)}} at a poin
 {{tbl(value-properties-of-observation)}} lists the Value Properties of {{block(Observation)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(compositionId)}} | `ID` | 0..1 |
 | {{property(dataItemId)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
@@ -133,7 +133,7 @@ The following {{sect(Value Properties of Condition)}} lists the additional and/o
 {{tbl(value-properties-of-condition)}} lists the Value Properties of {{block(Condition)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(nativeCode)}} | `string` | 0..1 |
 | {{property(nativeSeverity)}} | `string` | 0..1 |
 | {{property(qualifier)}} | `QualifierEnum` | 0..1 |
@@ -209,7 +209,7 @@ The following {{sect(Value Properties of Event)}} lists the additional and/or up
 {{tbl(value-properties-of-event)}} lists the Value Properties of {{block(Event)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(resetTriggered)}} | `ResetTriggeredEnum` | 0..1 |
 | {{property(type)}} | `EventEnum` | 1 |
 {: caption="Value Properties of Event"}
@@ -287,7 +287,7 @@ The following {{sect(Value Properties of Sample)}} lists the additional and/or u
 {{tbl(value-properties-of-sample)}} lists the Value Properties of {{block(Sample)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(duration)}} | `SECOND` | 0..1 |
 | {{property(resetTriggered)}} | `ResetTriggeredEnum` | 0..1 |
 | {{property(sampleRate)}} | `float` | 0..1 |

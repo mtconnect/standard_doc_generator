@@ -14,7 +14,7 @@ provides information from an {{term(agent)}} defining version information, stora
 {{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(firstSequence)}} | `uInt64` | 1 |
 | {{property(lastSequence)}} | `uInt64` | 1 |
 | {{property(nextSequence)}} | `uInt64` | 1 |
@@ -101,7 +101,7 @@ root entity of an {{term(MTConnectStreams Response Document)}} that contains the
 {{tbl(reference-properties-of-mtconnectstreams)}} lists the Reference Properties of {{block(MTConnectStreams)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Header)}} | 1 |
 | {{block(DeviceStream)}} (organized by {{block(Streams)}}) | 1..* |
 {: caption="Reference Properties of MTConnectStreams"}

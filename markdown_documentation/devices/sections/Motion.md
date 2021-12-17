@@ -25,7 +25,7 @@ At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be d
 {{tbl(value-properties-of-motion)}} lists the Value Properties of {{block(Motion)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(actuation)}} | `MotionActuationTypeEnum` | 1 |
 | {{property(coordinateSystemIdRef)}} | `ID` | 1 |
 | {{property(id)}} | `ID` | 1 |
@@ -100,7 +100,7 @@ Descriptions for Value Properties of {{block(Motion)}}:
 {{tbl(part-properties-of-motion)}} lists the Part Properties of {{block(Motion)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Axis)}} | 0..1 |
 | {{block(Origin)}} | 0..1 |
 | {{block(Transformation)}} | 0..1 |
@@ -135,5 +135,5 @@ Descriptions for Part Properties of {{block(Motion)}}:
 axis along or around which the {{block(Component)}} moves relative to a coordinate system.
 
 
-    The value of {{property(Axis)}} **MUST** be `float`.
+The value of {{property(Axis)}} **MUST** be `float`.
 

@@ -29,7 +29,7 @@ association between two pieces of equipment that function independently but toge
 {{tbl(value-properties-of-componentrelationship)}} lists the Value Properties of {{block(ComponentRelationship)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(idRef)}} | `ID` | 1 |
 | {{property(criticality)}} | `CriticalityTypeEnum` | 0..1 |
 | {{property(id)}} | `ID` | 1 |
@@ -100,7 +100,7 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 {{tbl(value-properties-of-devicerelationship)}} lists the Value Properties of {{block(DeviceRelationship)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(deviceUuidRef)}} | `ID` | 1 |
 | {{property(href)}} | `xlinkhref` | 0..1 |
 | {{property(role)}} | `RoleTypeEnum` | 0..1 |

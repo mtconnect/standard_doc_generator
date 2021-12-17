@@ -57,7 +57,7 @@ provides information from an {{term(agent)}} defining version information, stora
 {{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(assetBufferSize)}} | `uInt32` | 1 |
 | {{property(assetCount)}} | `uInt32` | 1 |
 | {{property(deviceModelChangeTime)}} | `dateTime` | 1 |
@@ -131,7 +131,7 @@ root entity of an {{term(MTConnectAssets Response Document)}} that contains the 
 {{tbl(reference-properties-of-mtconnectassets)}} lists the Reference Properties of {{block(MTConnectAssets)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Header)}} | 1 |
 | {{block(Asset)}} (organized by {{block(Assets)}}) | 0..* |
 {: caption="Reference Properties of MTConnectAssets"}
@@ -175,7 +175,7 @@ It is used in the manufacturing process, but is not permanently associated with 
 {{tbl(value-properties-of-asset)}} lists the Value Properties of {{block(Asset)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(assetId)}} | `ID` | 1 |
 | {{property(deviceUuid)}} | `ID` | 0..1 |
 | {{property(removed)}} | `boolean` | 0..1 |
@@ -207,7 +207,7 @@ Descriptions for Value Properties of {{block(Asset)}}:
 {{tbl(reference-properties-of-asset)}} lists the Reference Properties of {{block(Asset)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 {: caption="Reference Properties of Asset"}
 
@@ -269,7 +269,7 @@ This section provides semantic information for the {{block(CuttingTool)}} and {{
 {{tbl(value-properties-of-cuttingtool)}} lists the Value Properties of {{block(CuttingTool)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(manufacturers)}} | `string` | 0..* |
 | {{property(serialNumber)}} | `string` | 1 |
 | {{property(toolId)}} | `string` | 1 |
@@ -299,7 +299,7 @@ Descriptions for Value Properties of {{block(CuttingTool)}}:
 {{tbl(reference-properties-of-cuttingtool)}} lists the Reference Properties of {{block(CuttingTool)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(CuttingToolLifeCycle)}} | 0..1 |
 | {{block(CuttingToolArchetypeReference)}} | 0..1 |
 | `<<deprecated>>`{{block(CuttingToolDefinition)}} | 0..1 |
@@ -335,7 +335,7 @@ Descriptions for Reference Properties of {{block(CuttingTool)}}:
 {{tbl(value-properties-of-cuttingtoolarchetype)}} lists the Value Properties of {{block(CuttingToolArchetype)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(manufacturers)}} | `string` | 0..* |
 | {{property(serialNumber)}} | `string` | 1 |
 | {{property(toolId)}} | `string` | 1 |
@@ -365,7 +365,7 @@ Descriptions for Value Properties of {{block(CuttingToolArchetype)}}:
 {{tbl(reference-properties-of-cuttingtoolarchetype)}} lists the Reference Properties of {{block(CuttingToolArchetype)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(CuttingToolDefinition)}} | 0..1 |
 | {{block(CuttingToolLifeCycle)}} | 0..1 |
 {: caption="Reference Properties of CuttingToolArchetype"}
@@ -390,7 +390,7 @@ Descriptions for Reference Properties of {{block(CuttingToolArchetype)}}:
 reference information about the {{property(assetId)}} and/or the URL of the data source of {{block(CuttingToolArchetype)}}.
 
 
-    The value of {{property(CuttingToolArchetypeReference)}} **MUST** be `IDREF`.
+The value of {{property(CuttingToolArchetypeReference)}} **MUST** be `IDREF`.
 
 
 #### Value Properties of CuttingToolArchetypeReference
@@ -398,7 +398,7 @@ reference information about the {{property(assetId)}} and/or the URL of the data
 {{tbl(value-properties-of-cuttingtoolarchetypereference)}} lists the Value Properties of {{block(CuttingToolArchetypeReference)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(source)}} | `string` | 0..1 |
 {: caption="Value Properties of CuttingToolArchetypeReference"}
 
@@ -414,7 +414,7 @@ Descriptions for Value Properties of {{block(CuttingToolArchetypeReference)}}:
 detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
 
 
-    The value of {{property(CuttingToolDefinition)}} **MUST** be `string`.
+The value of {{property(CuttingToolDefinition)}} **MUST** be `string`.
 
 
 #### Value Properties of CuttingToolDefinition
@@ -422,7 +422,7 @@ detailed structure of the cutting tool which is static during its lifecycle. {{c
 {{tbl(value-properties-of-cuttingtooldefinition)}} lists the Value Properties of {{block(CuttingToolDefinition)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(format)}} | `FormatTypeEnum` | 0..1 |
 {: caption="Value Properties of CuttingToolDefinition"}
 
@@ -477,7 +477,7 @@ This data is provided by various pieces of equipment (i.e. machine tool, presett
 {{tbl(value-properties-of-cuttingtoollifecycle)}} lists the Value Properties of {{block(CuttingToolLifeCycle)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(ConnectionCodeMachineSide)}} | `string` | 0..1 |
 | {{property(ProgramToolGroup)}} | `string` | 0..1 |
 | {{property(ProgramToolNumber)}} | `string` | 0..1 |
@@ -502,7 +502,7 @@ Descriptions for Value Properties of {{block(CuttingToolLifeCycle)}}:
 {{tbl(reference-properties-of-cuttingtoollifecycle)}} lists the Reference Properties of {{block(CuttingToolLifeCycle)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(ProcessFeedRate)}} | 0..1 |
 | {{block(ToolLife)}} | 0..3 |
 | {{block(ProcessSpindleSpeed)}} | 0..1 |
@@ -576,7 +576,7 @@ cutting tool life as related to the assembly.
 
 {{block(ToolLife)}} **MUST** be defined only for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingTool)}} and **MUST NOT** be defined for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingToolArchetype)}}.
 
-    The value of {{property(ToolLife)}} **MUST** be `float`.
+The value of {{property(ToolLife)}} **MUST** be `float`.
 
 
 #### Value Properties of ToolLife
@@ -584,7 +584,7 @@ cutting tool life as related to the assembly.
 {{tbl(value-properties-of-toollife)}} lists the Value Properties of {{block(ToolLife)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(countDirection)}} | `CountDirectionTypeEnum` | 1 |
 | {{property(initial)}} | `float` | 0..1 |
 | {{property(limit)}} | `float` | 0..1 |
@@ -662,7 +662,7 @@ If the pot occupies the first or last location, a rollover to the beginning or t
 
 {{block(Location)}} **MUST** be defined only for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingTool)}} and **MUST NOT** be defined for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingToolArchetype)}}.
 
-    The value of {{property(Location)}} **MUST** be `string`.
+The value of {{property(Location)}} **MUST** be `string`.
 
 
 #### Value Properties of Location
@@ -670,7 +670,7 @@ If the pot occupies the first or last location, a rollover to the beginning or t
 {{tbl(value-properties-of-location)}} lists the Value Properties of {{block(Location)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(negativeOverlap)}} | `integer` | 0..1 |
 | {{property(positiveOverlap)}} | `integer` | 0..1 |
 | {{property(type)}} | `LocationTypeEnum` | 1 |
@@ -769,7 +769,7 @@ number of times the cutter has been reconditioned.
 
 {{block(ReconditionCount)}} **MUST** be defined only for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingTool)}} and **MUST NOT** be defined for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingToolArchetype)}}.
 
-    The value of {{property(ReconditionCount)}} **MUST** be `integer`.
+The value of {{property(ReconditionCount)}} **MUST** be `integer`.
 
 
 #### Value Properties of ReconditionCount
@@ -777,7 +777,7 @@ number of times the cutter has been reconditioned.
 {{tbl(value-properties-of-reconditioncount)}} lists the Value Properties of {{block(ReconditionCount)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(maximumCount)}} | `integer` | 0..1 |
 {: caption="Value Properties of ReconditionCount"}
 
@@ -795,7 +795,7 @@ constrained process spindle speed for the tool in revolutions/minute.
 The {{property(value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
 
 
-    The value of {{property(ProcessSpindleSpeed)}} **MUST** be `float`.
+The value of {{property(ProcessSpindleSpeed)}} **MUST** be `float`.
 
 
 #### Value Properties of ProcessSpindleSpeed
@@ -803,7 +803,7 @@ The {{property(value)}} **MAY** contain the nominal process target spindle speed
 {{tbl(value-properties-of-processspindlespeed)}} lists the Value Properties of {{block(ProcessSpindleSpeed)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(maximum)}} | `float` | 0..1 |
 | {{property(minimum)}} | `float` | 0..1 |
 | {{property(nominal)}} | `float` | 0..1 |
@@ -831,7 +831,7 @@ constrained process feed rate for the tool in mm/s.
 The {{property(value)}} **MAY** contain the nominal process target feed rate if available. If {{block(ProcessFeedRate)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
 
 
-    The value of {{property(ProcessFeedRate)}} **MUST** be `string`.
+The value of {{property(ProcessFeedRate)}} **MUST** be `string`.
 
 
 #### Value Properties of ProcessFeedRate
@@ -839,7 +839,7 @@ The {{property(value)}} **MAY** contain the nominal process target feed rate if 
 {{tbl(value-properties-of-processfeedrate)}} lists the Value Properties of {{block(ProcessFeedRate)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(maximum)}} | `float` | 0..1 |
 | {{property(minimum)}} | `float` | 0..1 |
 | {{property(nominal)}} | `float` | 0..1 |
@@ -865,7 +865,7 @@ Descriptions for Value Properties of {{block(ProcessFeedRate)}}:
 status of the cutting tool.
 
 
-    The value of {{property(Status)}} **MUST** be one of the `CutterStatusTypeEnum` enumeration. 
+The value of {{property(Status)}} **MUST** be one of the `CutterStatusTypeEnum` enumeration. 
 
 
     `CutterStatusTypeEnum` Enumeration:
@@ -930,7 +930,7 @@ constrained scalar value associated with a cutting tool.
 
 A {{block(Measurement)}} is specific to the tool management policy at a particular shop. The tool zero reference point or gauge line will be different depending on the particular implementation and will be assumed to be consistent within the shop. MTConnect Standard does not standardize the manufacturing process or the definition of the zero point.
 
-    The value of {{property(Measurement)}} **MUST** be `float`.
+The value of {{property(Measurement)}} **MUST** be `float`.
 
 
 #### Value Properties of Measurement
@@ -938,7 +938,7 @@ A {{block(Measurement)}} is specific to the tool management policy at a particul
 {{tbl(value-properties-of-measurement)}} lists the Value Properties of {{block(Measurement)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(code)}} | `CodeEnum` | 0..1 |
 | {{property(maximum)}} | `float` | 0..1 |
 | {{property(minimum)}} | `float` | 0..1 |
@@ -1011,7 +1011,7 @@ part of of the tool that physically removes the material from the workpiece by s
 {{tbl(value-properties-of-cuttingitem)}} lists the Value Properties of {{block(CuttingItem)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(Description)}} | `string` | 0..1 |
 | {{property(grade)}} | `string` | 0..1 |
 | {{property(indices)}} | `string` | 1..* |
@@ -1073,7 +1073,7 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
 {{tbl(reference-properties-of-cuttingitem)}} lists the Reference Properties of {{block(CuttingItem)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Status)}} (organized by {{block(CutterStatus)}}) | 1..* |
 | {{block(ItemLife)}} | 0..3 |
 | {{block(Measurement)}} (organized by {{block(Measurements)}}) | 0..* |
@@ -1121,7 +1121,7 @@ Descriptions for Reference Properties of {{block(CuttingItem)}}:
 {{tbl(value-properties-of-cuttingitems)}} lists the Value Properties of {{block(CuttingItems)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(count)}} | `integer` | 1 |
 {: caption="Value Properties of CuttingItems"}
 
@@ -1137,7 +1137,7 @@ Descriptions for Value Properties of {{block(CuttingItems)}}:
 life of a {{block(CuttingItem)}}.
 
 
-    The value of {{property(ItemLife)}} **MUST** be `float`.
+The value of {{property(ItemLife)}} **MUST** be `float`.
 
 
 #### Value Properties of ItemLife
@@ -1145,7 +1145,7 @@ life of a {{block(CuttingItem)}}.
 {{tbl(value-properties-of-itemlife)}} lists the Value Properties of {{block(ItemLife)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(countDirection)}} | `CountDirectionTypeEnum` | 1 |
 | {{property(initial)}} | `float` | 0..1 |
 | {{property(limit)}} | `float` | 0..1 |
@@ -1658,7 +1658,7 @@ abstract {{block(Asset)}} that contains the common properties of the {{block(Fil
 {{tbl(value-properties-of-abstractfile)}} lists the Value Properties of {{block(AbstractFile)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(name)}} | `string` | 1 |
 | {{property(mediaType)}} | `string` | 1 |
 | {{property(applicationCategory)}} | `ApplicationCategoryEnum` | 1 |
@@ -1754,7 +1754,7 @@ Descriptions for Value Properties of {{block(AbstractFile)}}:
 {{tbl(part-properties-of-abstractfile)}} lists the Part Properties of {{block(AbstractFile)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(FileProperty)}} (organized by {{block(FileProperties)}}) | 0..* |
 | {{block(FileComment)}} (organized by {{block(FileComments)}}) | 0..* |
 {: caption="Part Properties of AbstractFile"}
@@ -1782,7 +1782,7 @@ Descriptions for Part Properties of {{block(AbstractFile)}}:
 {{tbl(value-properties-of-file)}} lists the Value Properties of {{block(File)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(size)}} | `integer` | 1 |
 | {{property(versionId)}} | `string` | 1 |
 | {{property(state)}} | `FileStateEnum` | 1 |
@@ -1844,7 +1844,7 @@ Descriptions for Value Properties of {{block(File)}}:
 {{tbl(part-properties-of-file)}} lists the Part Properties of {{block(File)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(FileLocation)}} | 1 |
 | {{block(Destination)}} (organized by {{block(Destinations)}}) | 0..* |
 {: caption="Part Properties of File"}
@@ -1873,7 +1873,7 @@ Descriptions for Part Properties of {{block(File)}}:
 key-value pair providing additional metadata about a {{block(File)}}.
 
 
-    The value of {{property(FileProperty)}} **MUST** be `string`.
+The value of {{property(FileProperty)}} **MUST** be `string`.
 
 
 #### Value Properties of FileProperty
@@ -1881,7 +1881,7 @@ key-value pair providing additional metadata about a {{block(File)}}.
 {{tbl(value-properties-of-fileproperty)}} lists the Value Properties of {{block(FileProperty)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(name)}} | `string` | 1 |
 {: caption="Value Properties of FileProperty"}
 
@@ -1897,7 +1897,7 @@ Descriptions for Value Properties of {{block(FileProperty)}}:
 remark or interpretation for human interpretation associated with a {{block(File)}} or {{block(FileArchetype)}}.
 
 
-    The value of {{property(FileComment)}} **MUST** be `string`.
+The value of {{property(FileComment)}} **MUST** be `string`.
 
 
 #### Value Properties of FileComment
@@ -1905,7 +1905,7 @@ remark or interpretation for human interpretation associated with a {{block(File
 {{tbl(value-properties-of-filecomment)}} lists the Value Properties of {{block(FileComment)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(timestamp)}} | `dateTime` | 1 |
 {: caption="Value Properties of FileComment"}
 
@@ -1926,7 +1926,7 @@ Descriptions for Value Properties of {{block(FileComment)}}:
 {{tbl(value-properties-of-filelocation)}} lists the Value Properties of {{block(FileLocation)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(href)}} | `xlinkhref` | 1 |
 | {{property(xlink:type)}} | `xlinktype` | 0..1 |
 {: caption="Value Properties of FileLocation"}
@@ -1956,7 +1956,7 @@ reference to the target {{block(Device)}} for this {{block(File)}}.
 {{tbl(value-properties-of-destination)}} lists the Value Properties of {{block(Destination)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(deviceUuid)}} | `ID` | 1 |
 {: caption="Value Properties of Destination"}
 
@@ -1993,7 +1993,7 @@ This section provides semantic information for the {{block(RawMaterial)}} model.
 {{tbl(value-properties-of-rawmaterial)}} lists the Value Properties of {{block(RawMaterial)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(name)}} | `string` | 0..1 |
 | {{property(containerType)}} | `string` | 0..1 |
 | {{property(processKind)}} | `string` | 0..1 |
@@ -2125,7 +2125,7 @@ Descriptions for Value Properties of {{block(RawMaterial)}}:
 {{tbl(part-properties-of-rawmaterial)}} lists the Part Properties of {{block(RawMaterial)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Material)}} | 0..1 |
 {: caption="Part Properties of RawMaterial"}
 
@@ -2147,7 +2147,7 @@ material used as the {{block(RawMaterial)}}.
 {{tbl(value-properties-of-material)}} lists the Value Properties of {{block(Material)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(id)}} | `ID` | 0..1 |
 | {{property(name)}} | `string` | 0..1 |
 | {{property(type)}} | `string` | 1 |
@@ -2232,7 +2232,7 @@ QIF Document as given by the {{term(QIF)}} standard.
 {{tbl(value-properties-of-qifdocumentwrapper)}} lists the Value Properties of {{block(QIFDocumentWrapper)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(qifDocumentType)}} | `QIFDocumentTypeEnum` | 0..1 |
 {: caption="Value Properties of QIFDocumentWrapper"}
 
@@ -2276,7 +2276,7 @@ Descriptions for Value Properties of {{block(QIFDocumentWrapper)}}:
 {{tbl(part-properties-of-qifdocumentwrapper)}} lists the Part Properties of {{block(QIFDocumentWrapper)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(QIFDocument)}} | 1 |
 {: caption="Part Properties of QIFDocumentWrapper"}
 

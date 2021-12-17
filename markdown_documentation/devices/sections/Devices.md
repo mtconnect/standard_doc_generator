@@ -21,7 +21,7 @@ See {{sect(Component)}} for details on the {{block(Device)}} model.
 {{tbl(value-properties-of-device)}} lists the Value Properties of {{block(Device)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | `<<deprecated>>`{{property(iso841Class)}} | `string` | 0..1 |
 | {{property(uuid)}} | `ID` | 1 |
 | {{property(mtconnectVersion)}} | `string` | 0..1 |

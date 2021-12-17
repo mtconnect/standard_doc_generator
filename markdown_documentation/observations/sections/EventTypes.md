@@ -202,7 +202,7 @@ The value of {{property(AssetChanged)}} **MUST** be a `string`.
 {{tbl(value-properties-of-assetchanged)}} lists the Value Properties of {{block(AssetChanged)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(assetType)}} | `AssetTypeEnum` | 1 |
 {: caption="Value Properties of AssetChanged"}
 
@@ -248,7 +248,7 @@ The value of {{property(AssetRemoved)}} **MUST** be a `string`.
 {{tbl(value-properties-of-assetremoved)}} lists the Value Properties of {{block(AssetRemoved)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(assetType)}} | `AssetTypeEnum` | 1 |
 {: caption="Value Properties of AssetRemoved"}
 

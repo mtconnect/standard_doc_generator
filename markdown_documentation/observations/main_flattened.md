@@ -80,7 +80,7 @@ provides information from an {{term(agent)}} defining version information, stora
 {{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(firstSequence)}} | `uInt64` | 1 |
 | {{property(lastSequence)}} | `uInt64` | 1 |
 | {{property(nextSequence)}} | `uInt64` | 1 |
@@ -167,7 +167,7 @@ root entity of an {{term(MTConnectStreams Response Document)}} that contains the
 {{tbl(reference-properties-of-mtconnectstreams)}} lists the Reference Properties of {{block(MTConnectStreams)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Header)}} | 1 |
 | {{block(DeviceStream)}} (organized by {{block(Streams)}}) | 1..* |
 {: caption="Reference Properties of MTConnectStreams"}
@@ -222,7 +222,7 @@ If the response to the request for data from an {{term(agent)}} does not contain
 {{tbl(value-properties-of-devicestream)}} lists the Value Properties of {{block(DeviceStream)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(name)}} | `ID` | 1 |
 | {{property(uuid)}} | `ID` | 1 |
 {: caption="Value Properties of DeviceStream"}
@@ -246,7 +246,7 @@ Descriptions for Value Properties of {{block(DeviceStream)}}:
 {{tbl(reference-properties-of-devicestream)}} lists the Reference Properties of {{block(DeviceStream)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(ComponentStream)}} | 1..* |
 {: caption="Reference Properties of DeviceStream"}
 
@@ -269,7 +269,7 @@ At least one of {{block(Sample)}}, {{block(Event)}}, or {{block(Condition)}} **M
 {{tbl(value-properties-of-componentstream)}} lists the Value Properties of {{block(ComponentStream)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(component)}} | `string` | 1 |
 | {{property(componentId)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
@@ -307,7 +307,7 @@ Descriptions for Value Properties of {{block(ComponentStream)}}:
 {{tbl(reference-properties-of-componentstream)}} lists the Reference Properties of {{block(ComponentStream)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Event)}} (organized by {{block(Events)}}) | 0..* |
 | {{block(Sample)}} (organized by {{block(Samples)}}) | 0..* |
 | {{block(Condition)}} (organized by {{block(Conditions)}}) | 0..* |
@@ -375,7 +375,7 @@ abstract entity that provides telemetry data for a {{block(DataItem)}} at a poin
 {{tbl(value-properties-of-observation)}} lists the Value Properties of {{block(Observation)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(compositionId)}} | `ID` | 0..1 |
 | {{property(dataItemId)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
@@ -472,7 +472,7 @@ The following {{sect(Value Properties of Condition)}} lists the additional and/o
 {{tbl(value-properties-of-condition)}} lists the Value Properties of {{block(Condition)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(nativeCode)}} | `string` | 0..1 |
 | {{property(nativeSeverity)}} | `string` | 0..1 |
 | {{property(qualifier)}} | `QualifierEnum` | 0..1 |
@@ -548,7 +548,7 @@ The following {{sect(Value Properties of Event)}} lists the additional and/or up
 {{tbl(value-properties-of-event)}} lists the Value Properties of {{block(Event)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(resetTriggered)}} | `ResetTriggeredEnum` | 0..1 |
 | {{property(type)}} | `EventEnum` | 1 |
 {: caption="Value Properties of Event"}
@@ -626,7 +626,7 @@ The following {{sect(Value Properties of Sample)}} lists the additional and/or u
 {{tbl(value-properties-of-sample)}} lists the Value Properties of {{block(Sample)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(duration)}} | `SECOND` | 0..1 |
 | {{property(resetTriggered)}} | `ResetTriggeredEnum` | 0..1 |
 | {{property(sampleRate)}} | `float` | 0..1 |
@@ -720,7 +720,7 @@ The {{block(Observation)}} **MUST** set the {{property(timestamp)}} to the time 
 {{tbl(value-properties-of-timeseries)}} lists the Value Properties of {{block(TimeSeries)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(sampleCount)}} | `integer` | 1 |
 | {{property(result)}} | `float` | 1..* |
 {: caption="Value Properties of TimeSeries"}
@@ -753,7 +753,7 @@ Examples of {{block(Discrete)}}: A `PartCount` reporting the completion of each 
 {{tbl(value-properties-of-discrete)}} lists the Value Properties of {{block(Discrete)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(result)}} | `string` | 0..1 |
 {: caption="Value Properties of Discrete"}
 
@@ -805,7 +805,7 @@ When the {{block(Observation)}}  is `UNAVAILABLE` the {{block(DataSet)}} **MUST*
 {{tbl(value-properties-of-dataset)}} lists the Value Properties of {{block(DataSet)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(count)}} | `integer` | 1 |
 {: caption="Value Properties of DataSet"}
 
@@ -820,7 +820,7 @@ Descriptions for Value Properties of {{block(DataSet)}}:
 {{tbl(part-properties-of-dataset)}} lists the Part Properties of {{block(DataSet)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Entry)}} | 0..* |
 {: caption="Part Properties of DataSet"}
 
@@ -866,7 +866,7 @@ The {{block(Entry)}} {{property(key)}} attribute **MUST** be the unique identity
 {{tbl(value-properties-of-table)}} lists the Value Properties of {{block(Table)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(count)}} | `integer` | 1 |
 {: caption="Value Properties of Table"}
 
@@ -881,7 +881,7 @@ Descriptions for Value Properties of {{block(Table)}}:
 {{tbl(part-properties-of-table)}} lists the Part Properties of {{block(Table)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(TableEntry)}} | 0..* |
 {: caption="Part Properties of Table"}
 
@@ -915,7 +915,7 @@ The {{citetitle(MTCPart2)}} {{block(DataItem)}} {{block(Definition)}} **MAY** pr
 {{tbl(value-properties-of-entry)}} lists the Value Properties of {{block(Entry)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(key)}} | `ID` | 1 |
 | {{property(removed)}} | `boolean` | 0..1 |
 | {{property(result)}} | `string` | 0..1 |
@@ -950,7 +950,7 @@ Descriptions for Value Properties of {{block(Entry)}}:
 {{tbl(value-properties-of-tableentry)}} lists the Value Properties of {{block(TableEntry)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(key)}} | `ID` | 1 |
 | {{property(removed)}} | `boolean` | 0..1 |
 {: caption="Value Properties of TableEntry"}
@@ -970,7 +970,7 @@ Descriptions for Value Properties of {{block(TableEntry)}}:
 {{tbl(reference-properties-of-tableentry)}} lists the Reference Properties of {{block(TableEntry)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Table)}} (organized by {{block(TableEntry)}}) | 1 |
 {: caption="Reference Properties of TableEntry"}
 
@@ -987,7 +987,7 @@ Descriptions for Reference Properties of {{block(TableEntry)}}:
 {{tbl(part-properties-of-tableentry)}} lists the Part Properties of {{block(TableEntry)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Cell)}} | 0..* |
 {: caption="Part Properties of TableEntry"}
 
@@ -1016,7 +1016,7 @@ The {{citetitle(MTCPart2)}} {{block(DataItem)}} {{block(Definition)}} **MAY** pr
 {{tbl(value-properties-of-cell)}} lists the Value Properties of {{block(Cell)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(key)}} | `ID` | 1 |
 | {{property(result)}} | `string` | 0..1 |
 {: caption="Value Properties of Cell"}
@@ -1353,7 +1353,7 @@ The value of {{property(AssetChanged)}} **MUST** be a `string`.
 {{tbl(value-properties-of-assetchanged)}} lists the Value Properties of {{block(AssetChanged)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(assetType)}} | `AssetTypeEnum` | 1 |
 {: caption="Value Properties of AssetChanged"}
 
@@ -1399,7 +1399,7 @@ The value of {{property(AssetRemoved)}} **MUST** be a `string`.
 {{tbl(value-properties-of-assetremoved)}} lists the Value Properties of {{block(AssetRemoved)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(assetType)}} | `AssetTypeEnum` | 1 |
 {: caption="Value Properties of AssetRemoved"}
 

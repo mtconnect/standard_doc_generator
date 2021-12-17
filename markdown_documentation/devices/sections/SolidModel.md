@@ -27,7 +27,7 @@ Either an {{property(href,SolidModel)}} or a {{property(modelIdRef,SolidModel)}}
 {{tbl(value-properties-of-solidmodel)}} lists the Value Properties of {{block(SolidModel)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(id)}} | `ID` | 1 |
 | {{property(solidModelIdRef)}} | `ID` | 0..1 |
 | {{property(mediaType)}} | `MediaTypeEnum` | 1 |
@@ -98,7 +98,7 @@ Descriptions for Value Properties of {{block(SolidModel)}}:
 {{tbl(part-properties-of-solidmodel)}} lists the Part Properties of {{block(SolidModel)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Transformation)}} | 1 |
 | {{block(Scale)}} | 0..1 |
 {: caption="Part Properties of SolidModel"}
@@ -121,5 +121,5 @@ Descriptions for Part Properties of {{block(SolidModel)}}:
 either a single multiplier applied to all three dimensions or a three space multiplier given in the X, Y, and Z dimensions in the coordinate system used for the {{block(SolidModel)}}.
 
 
-    The value of {{property(Scale)}} **MUST** be `float`.
+The value of {{property(Scale)}} **MUST** be `float`.
 

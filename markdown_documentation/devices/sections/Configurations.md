@@ -18,7 +18,7 @@ technical information about a piece of equipment describing its physical layout,
 {{tbl(part-properties-of-configuration)}} lists the Part Properties of {{block(Configuration)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(SolidModel)}} | 0..1 |
 | {{block(SensorConfiguration)}} | 0..1 |
 | {{block(Motion)}} | 0..1 |

@@ -73,7 +73,7 @@ provides information from an {{term(agent)}} defining version information, stora
 {{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(assetBufferSize)}} | `uInt32` | 1 |
 | {{property(assetCount)}} | `uInt32` | 1 |
 | {{property(deviceModelChangeTime)}} | `dateTime` | 1 |
@@ -157,7 +157,7 @@ root entity of an {{term(MTConnectDevices Response Document)}} that contains the
 {{tbl(part-properties-of-mtconnectdevices)}} lists the Part Properties of {{block(MTConnectDevices)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Header)}} | 1 |
 | {{block(Device)}} (organized by {{block(Devices)}}) | 1..* |
 {: caption="Part Properties of MTConnectDevices"}
@@ -237,7 +237,7 @@ At least one of {{block(Component)}}, {{block(DataItem)}}, or {{block(Reference)
 {{tbl(value-properties-of-component)}} lists the Value Properties of {{block(Component)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(id)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
 | {{property(nativeName)}} | `string` | 0..1 |
@@ -290,7 +290,7 @@ Descriptions for Value Properties of {{block(Component)}}:
 {{tbl(reference-properties-of-component)}} lists the Reference Properties of {{block(Component)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(ComponentStream)}} | 0..1 |
 {: caption="Reference Properties of Component"}
 
@@ -312,7 +312,7 @@ Descriptions for Reference Properties of {{block(Component)}}:
 {{tbl(part-properties-of-component)}} lists the Part Properties of {{block(Component)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 | {{block(Composition)}} (organized by {{block(Compositions)}}) | 0..* |
 | {{block(Component)}} (organized by {{block(Components)}}) | 0..* |
@@ -383,7 +383,7 @@ descriptive content.
 
 > Note 2 to entry: See {{lst(component-example)}} for the {{term(XML)}} representation of the same example.
 
-    The value of {{property(Description)}} **MUST** be `string`.
+The value of {{property(Description)}} **MUST** be `string`.
 
 
 #### Value Properties of Description
@@ -391,7 +391,7 @@ descriptive content.
 {{tbl(value-properties-of-description)}} lists the Value Properties of {{block(Description)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(manufacturer)}} | `string` | 0..1 |
 | {{property(model)}} | `string` | 0..1 |
 | {{property(serialNumber)}} | `string` | 0..1 |
@@ -440,7 +440,7 @@ See {{sect(Component)}} for details on the {{block(Device)}} model.
 {{tbl(value-properties-of-device)}} lists the Value Properties of {{block(Device)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | `<<deprecated>>`{{property(iso841Class)}} | `string` | 0..1 |
 | {{property(uuid)}} | `ID` | 1 |
 | {{property(mtconnectVersion)}} | `string` | 0..1 |
@@ -967,7 +967,7 @@ functional part of a piece of equipment contained within a {{block(Component)}}.
 {{tbl(value-properties-of-composition)}} lists the Value Properties of {{block(Composition)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `CompositionTypeEnum` | 1 |
 | {{property(id)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
@@ -999,7 +999,7 @@ Descriptions for Value Properties of {{block(Composition)}}:
 {{tbl(part-properties-of-composition)}} lists the Part Properties of {{block(Composition)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 | {{block(Configuration)}} | 0..1 |
 {: caption="Part Properties of Composition"}
@@ -1360,7 +1360,7 @@ information reported about a piece of equipment.
 {{tbl(value-properties-of-dataitem)}} lists the Value Properties of {{block(DataItem)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(category)}} | `CategoryEnum` | 1 |
 | {{property(compositionId)}} | `ID` | 0..1 |
 | {{property(coordinateSystem)}} | `CoordinateSystemEnum` | 0..1 |
@@ -1912,7 +1912,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 {{tbl(reference-properties-of-dataitem)}} lists the Reference Properties of {{block(DataItem)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Observation)}} (organized by {{block(Observations)}}) | 0..* |
 {: caption="Reference Properties of DataItem"}
 
@@ -1936,7 +1936,7 @@ Descriptions for Reference Properties of {{block(DataItem)}}:
 {{tbl(part-properties-of-dataitem)}} lists the Part Properties of {{block(DataItem)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Source)}} | 0..1 |
 | {{block(Constraints)}} | 0..1 |
 | {{block(Filter)}} (organized by {{block(Filters)}}) | 0..* |
@@ -2004,7 +2004,7 @@ type of event that may cause a reset to occur.
 {{tbl(value-properties-of-resettrigger)}} lists the Value Properties of {{block(ResetTrigger)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `ResetTriggerEnum` | 1 |
 {: caption="Value Properties of ResetTrigger"}
 
@@ -2063,7 +2063,7 @@ identifies the {{block(Component)}}, {{block(DataItem)}}, or {{block(Composition
 One of {{property(componentId)}}, {{property(compositionId)}}, or {{property(dataItemId)}} **MUST** be defined for {{block(Source)}}.
 
 
-    The value of {{property(Source)}} **MUST** be `string`.
+The value of {{property(Source)}} **MUST** be `string`.
 
 
 #### Value Properties of Source
@@ -2071,7 +2071,7 @@ One of {{property(componentId)}}, {{property(compositionId)}}, or {{property(dat
 {{tbl(value-properties-of-source)}} lists the Value Properties of {{block(Source)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(componentId)}} | `ID` | 0..1 |
 | {{property(compositionId)}} | `ID` | 0..1 |
 | {{property(dataItemId)}} | `ID` | 0..1 |
@@ -2097,7 +2097,7 @@ Descriptions for Value Properties of {{block(Source)}}:
 starting value for a {{block(DataItem)}} as well as the value to be set for the {{block(DataItem)}} after a reset event.
 
 
-    The value of {{property(InitialValue)}} **MUST** be `string`.
+The value of {{property(InitialValue)}} **MUST** be `string`.
 
 
 ### Filter
@@ -2111,7 +2111,7 @@ provides a means to control when an {{term(agent)}} records updated information 
 {{tbl(value-properties-of-filter)}} lists the Value Properties of {{block(Filter)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `FilterEnum` | 1 |
 {: caption="Value Properties of Filter"}
 
@@ -2149,7 +2149,7 @@ Descriptions for Value Properties of {{block(Filter)}}:
 {{tbl(value-properties-of-constraints)}} lists the Value Properties of {{block(Constraints)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | `<<deprecated>>`{{property(Filter)}} | `FilterEnum` | 0..1 |
 | {{property(Maximum)}} | `float` | 0..1 |
 | {{property(Minimum)}} | `float` | 0..1 |
@@ -2196,7 +2196,7 @@ defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated 
 {{tbl(part-properties-of-definition)}} lists the Part Properties of {{block(Definition)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(CellDefinition)}} (organized by {{block(CellDefinitions)}}) | 0..* |
 | {{block(Description)}} | 0..1 |
 | {{block(EntryDefinition)}} (organized by {{block(EntryDefinitions)}}) | 0..* |
@@ -2236,7 +2236,7 @@ semantic definition of a {{block(Cell)}}.
 {{tbl(value-properties-of-celldefinition)}} lists the Value Properties of {{block(CellDefinition)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(units)}} | `UnitEnum` | 0..1 |
 | {{property(key)}} | `string` | 0..1 |
 | {{property(type)}} | `DataItemTypeEnum` | 0..1 |
@@ -2279,7 +2279,7 @@ Descriptions for Value Properties of {{block(CellDefinition)}}:
 {{tbl(part-properties-of-celldefinition)}} lists the Part Properties of {{block(CellDefinition)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 {: caption="Part Properties of CellDefinition"}
 
@@ -2301,7 +2301,7 @@ semantic definition of an {{block(Entry)}}.
 {{tbl(value-properties-of-entrydefinition)}} lists the Value Properties of {{block(EntryDefinition)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(key)}} | `string` | 0..1 |
 | {{property(units)}} | `UnitEnum` | 0..1 |
 | {{property(type)}} | `DataItemTypeEnum` | 0..1 |
@@ -2344,7 +2344,7 @@ Descriptions for Value Properties of {{block(EntryDefinition)}}:
 {{tbl(part-properties-of-entrydefinition)}} lists the Part Properties of {{block(EntryDefinition)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 | {{block(CellDefinition)}} (organized by {{block(CellDefinitions)}}) | 0..* |
 {: caption="Part Properties of EntryDefinition"}
@@ -2380,7 +2380,7 @@ See {{sect(Relationships)}} for details on the {{block(Relationship)}} model.
 {{tbl(value-properties-of-specificationrelationship)}} lists the Value Properties of {{block(SpecificationRelationship)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `SpecificationRelationshipTypeEnum` | 1 |
 | {{property(idRef)}} | `ID` | 1 |
 {: caption="Value Properties of SpecificationRelationship"}
@@ -2415,7 +2415,7 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 {{tbl(value-properties-of-dataitemrelationship)}} lists the Value Properties of {{block(DataItemRelationship)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `DataItemRelationshipTypeEnum` | 1 |
 | {{property(idRef)}} | `ID` | 1 |
 {: caption="Value Properties of DataItemRelationship"}
@@ -4277,7 +4277,7 @@ pointer to information that is associated with another entity defined elsewhere 
 {{tbl(value-properties-of-reference)}} lists the Value Properties of {{block(Reference)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(idRef)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
 {: caption="Value Properties of Reference"}
@@ -4332,7 +4332,7 @@ technical information about a piece of equipment describing its physical layout,
 {{tbl(part-properties-of-configuration)}} lists the Part Properties of {{block(Configuration)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(SolidModel)}} | 0..1 |
 | {{block(SensorConfiguration)}} | 0..1 |
 | {{block(Motion)}} | 0..1 |
@@ -4399,7 +4399,7 @@ At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be d
 {{tbl(value-properties-of-coordinatesystem)}} lists the Value Properties of {{block(CoordinateSystem)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(id)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
 | {{property(nativeName)}} | `string` | 0..1 |
@@ -4486,7 +4486,7 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
 {{tbl(part-properties-of-coordinatesystem)}} lists the Part Properties of {{block(CoordinateSystem)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Origin)}} | 0..1 |
 | {{block(Transformation)}} | 0..1 |
 {: caption="Part Properties of CoordinateSystem"}
@@ -4509,7 +4509,7 @@ Descriptions for Part Properties of {{block(CoordinateSystem)}}:
 coordinates of the origin position of a coordinate system.
 
 
-    The value of {{property(Origin)}} **MUST** be `MILLIMETER`.
+The value of {{property(Origin)}} **MUST** be `MILLIMETER`.
 
 
 ### Transformation
@@ -4524,7 +4524,7 @@ At a minimum, a {{block(Translation)}} or a {{block(Rotation)}} **MUST** be defi
 {{tbl(part-properties-of-transformation)}} lists the Part Properties of {{block(Transformation)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Translation)}} | 0..1 |
 | {{block(Rotation)}} | 0..1 |
 {: caption="Part Properties of Transformation"}
@@ -4549,7 +4549,7 @@ rotations about X, Y, and Z axes are expressed in A, B, and C respectively withi
 
 
 
-    The value of {{property(Rotation)}} **MUST** be `DEGREE`.
+The value of {{property(Rotation)}} **MUST** be `DEGREE`.
 
 
 ### Translation
@@ -4558,7 +4558,7 @@ rotations about X, Y, and Z axes are expressed in A, B, and C respectively withi
 translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
 
 
-    The value of {{property(Translation)}} **MUST** be `MILLIMETER`.
+The value of {{property(Translation)}} **MUST** be `MILLIMETER`.
 
 
 
@@ -4589,7 +4589,7 @@ At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be d
 {{tbl(value-properties-of-motion)}} lists the Value Properties of {{block(Motion)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(actuation)}} | `MotionActuationTypeEnum` | 1 |
 | {{property(coordinateSystemIdRef)}} | `ID` | 1 |
 | {{property(id)}} | `ID` | 1 |
@@ -4664,7 +4664,7 @@ Descriptions for Value Properties of {{block(Motion)}}:
 {{tbl(part-properties-of-motion)}} lists the Part Properties of {{block(Motion)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Axis)}} | 0..1 |
 | {{block(Origin)}} | 0..1 |
 | {{block(Transformation)}} | 0..1 |
@@ -4699,7 +4699,7 @@ Descriptions for Part Properties of {{block(Motion)}}:
 axis along or around which the {{block(Component)}} moves relative to a coordinate system.
 
 
-    The value of {{property(Axis)}} **MUST** be `float`.
+The value of {{property(Axis)}} **MUST** be `float`.
 
 
 
@@ -4734,7 +4734,7 @@ association between two pieces of equipment that function independently but toge
 {{tbl(value-properties-of-componentrelationship)}} lists the Value Properties of {{block(ComponentRelationship)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(idRef)}} | `ID` | 1 |
 | {{property(criticality)}} | `CriticalityTypeEnum` | 0..1 |
 | {{property(id)}} | `ID` | 1 |
@@ -4805,7 +4805,7 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 {{tbl(value-properties-of-devicerelationship)}} lists the Value Properties of {{block(DeviceRelationship)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(deviceUuidRef)}} | `ID` | 1 |
 | {{property(href)}} | `xlinkhref` | 0..1 |
 | {{property(role)}} | `RoleTypeEnum` | 0..1 |
@@ -4914,7 +4914,7 @@ configuration for a {{block(Sensor)}}.
 {{tbl(value-properties-of-sensorconfiguration)}} lists the Value Properties of {{block(SensorConfiguration)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(CalibrationDate)}} | `dateTime` | 0..1 |
 | {{property(CalibrationInitials)}} | `string` | 0..1 |
 | {{property(FirmwareVersion)}} | `string` | 1 |
@@ -4944,7 +4944,7 @@ Descriptions for Value Properties of {{block(SensorConfiguration)}}:
 {{tbl(part-properties-of-sensorconfiguration)}} lists the Part Properties of {{block(SensorConfiguration)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Channel)}} (organized by {{block(Channels)}}) | 0..* |
 {: caption="Part Properties of SensorConfiguration"}
 
@@ -4967,7 +4967,7 @@ When {{block(Sensor)}} has multiple {{termplural(sensing element)}}, each {{term
 {{tbl(value-properties-of-channel)}} lists the Value Properties of {{block(Channel)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(CalibrationDate)}} | `dateTime` | 0..1 |
 | {{property(CalibrationInitials)}} | `string` | 0..1 |
 | {{property(name)}} | `string` | 0..1 |
@@ -5002,7 +5002,7 @@ Descriptions for Value Properties of {{block(Channel)}}:
 {{tbl(reference-properties-of-channel)}} lists the Reference Properties of {{block(Channel)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(SensorConfiguration)}} (organized by {{block(Channels)}}) | 1 |
 {: caption="Reference Properties of Channel"}
 
@@ -5018,7 +5018,7 @@ Descriptions for Reference Properties of {{block(Channel)}}:
 {{tbl(part-properties-of-channel)}} lists the Part Properties of {{block(Channel)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 {: caption="Part Properties of Channel"}
 
@@ -5059,7 +5059,7 @@ Either an {{property(href,SolidModel)}} or a {{property(modelIdRef,SolidModel)}}
 {{tbl(value-properties-of-solidmodel)}} lists the Value Properties of {{block(SolidModel)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(id)}} | `ID` | 1 |
 | {{property(solidModelIdRef)}} | `ID` | 0..1 |
 | {{property(mediaType)}} | `MediaTypeEnum` | 1 |
@@ -5130,7 +5130,7 @@ Descriptions for Value Properties of {{block(SolidModel)}}:
 {{tbl(part-properties-of-solidmodel)}} lists the Part Properties of {{block(SolidModel)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Transformation)}} | 1 |
 | {{block(Scale)}} | 0..1 |
 {: caption="Part Properties of SolidModel"}
@@ -5153,7 +5153,7 @@ Descriptions for Part Properties of {{block(SolidModel)}}:
 either a single multiplier applied to all three dimensions or a three space multiplier given in the X, Y, and Z dimensions in the coordinate system used for the {{block(SolidModel)}}.
 
 
-    The value of {{property(Scale)}} **MUST** be `float`.
+The value of {{property(Scale)}} **MUST** be `float`.
 
 
 
@@ -5181,7 +5181,7 @@ design characteristics for a piece of equipment.
 {{tbl(value-properties-of-specification)}} lists the Value Properties of {{block(Specification)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `DataItemTypeEnum` | 1 |
 | {{property(subType)}} | `DataItemSubTypeEnum` | 0..1 |
 | {{property(dataItemIdRef)}} | `ID` | 0..1 |
@@ -5255,7 +5255,7 @@ Descriptions for Value Properties of {{block(Specification)}}:
 {{tbl(part-properties-of-specification)}} lists the Part Properties of {{block(Specification)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Maximum)}} | 0..1 |
 | {{block(UpperLimit)}} | 0..1 |
 | {{block(LowerWarning)}} | 0..1 |
@@ -5321,7 +5321,7 @@ Descriptions for Part Properties of {{block(Specification)}}:
 {{tbl(part-properties-of-processspecification)}} lists the Part Properties of {{block(ProcessSpecification)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(SpecificationLimits)}} | 0..1 |
 | {{block(ControlLimits)}} | 0..1 |
 | {{block(AlarmLimits)}} | 0..1 |
@@ -5355,7 +5355,7 @@ set of limits that is used to indicate whether a process variable is stable and 
 {{tbl(part-properties-of-controllimits)}} lists the Part Properties of {{block(ControlLimits)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(UpperLimit)}} | 0..1 |
 | {{block(UpperWarning)}} | 0..1 |
 | {{block(LowerWarning)}} | 0..1 |
@@ -5409,7 +5409,7 @@ set of limits that is used to trigger warning or alarm indicators.
 {{tbl(part-properties-of-alarmlimits)}} lists the Part Properties of {{block(AlarmLimits)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(UpperLimit)}} | 0..1 |
 | {{block(UpperWarning)}} | 0..1 |
 | {{block(LowerLimit)}} | 0..1 |
@@ -5457,7 +5457,7 @@ set of limits that define a range of values designating acceptable performance f
 {{tbl(part-properties-of-specificationlimits)}} lists the Part Properties of {{block(SpecificationLimits)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(UpperLimit)}} | 0..1 |
 | {{block(Nominal)}} | 0..1 |
 | {{block(LowerLimit)}} | 0..1 |
@@ -5494,7 +5494,7 @@ Descriptions for Part Properties of {{block(SpecificationLimits)}}:
 upper boundary indicating increased concern and supervision may be required.
 
 
-    The value of {{property(UpperWarning)}} **MUST** be `float`.
+The value of {{property(UpperWarning)}} **MUST** be `float`.
 
 
 ### UpperLimit
@@ -5505,7 +5505,7 @@ upper conformance boundary for a variable.
 > Note: immediate concern or action may be required.
 
 
-    The value of {{property(UpperLimit)}} **MUST** be `float`.
+The value of {{property(UpperLimit)}} **MUST** be `float`.
 
 
 ### Maximum
@@ -5514,7 +5514,7 @@ upper conformance boundary for a variable.
 numeric upper constraint.
 
 
-    The value of {{property(Maximum)}} **MUST** be `float`.
+The value of {{property(Maximum)}} **MUST** be `float`.
 
 
 ### LowerLimit
@@ -5525,7 +5525,7 @@ lower conformance boundary for a variable.
 > Note: immediate concern or action may be required.
 
 
-    The value of {{property(LowerLimit)}} **MUST** be `float`.
+The value of {{property(LowerLimit)}} **MUST** be `float`.
 
 
 ### LowerWarning
@@ -5534,7 +5534,7 @@ lower conformance boundary for a variable.
 lower boundary indicating increased concern and supervision may be required.
 
 
-    The value of {{property(LowerWarning)}} **MUST** be `float`.
+The value of {{property(LowerWarning)}} **MUST** be `float`.
 
 
 ### Minimum
@@ -5543,7 +5543,7 @@ lower boundary indicating increased concern and supervision may be required.
 numeric lower constraint.
 
 
-    The value of {{property(Minimum)}} **MUST** be `float`.
+The value of {{property(Minimum)}} **MUST** be `float`.
 
 
 ### Nominal
@@ -5552,7 +5552,7 @@ numeric lower constraint.
 numeric target or expected value.
 
 
-    The value of {{property(Nominal)}} **MUST** be `float`.
+The value of {{property(Nominal)}} **MUST** be `float`.
 
 
 

@@ -22,7 +22,7 @@ It is used in the manufacturing process, but is not permanently associated with 
 {{tbl(value-properties-of-asset)}} lists the Value Properties of {{block(Asset)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(assetId)}} | `ID` | 1 |
 | {{property(deviceUuid)}} | `ID` | 0..1 |
 | {{property(removed)}} | `boolean` | 0..1 |
@@ -54,7 +54,7 @@ Descriptions for Value Properties of {{block(Asset)}}:
 {{tbl(reference-properties-of-asset)}} lists the Reference Properties of {{block(Asset)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 {: caption="Reference Properties of Asset"}
 

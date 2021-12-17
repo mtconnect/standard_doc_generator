@@ -59,12 +59,12 @@ class MarkdownType < Type
           next
 		elsif name == 'value'
 		  if r.final_target.type.type == 'uml:Enumeration'
-			f.puts "\n    The value of {{property(#{@name})}} **MUST** be one of the `#{r.final_target.type.name}` enumeration. \n\n"
+			f.puts "\nThe value of {{property(#{@name})}} **MUST** be one of the `#{r.final_target.type.name}` enumeration. \n\n"
 			r.final_target.type.generate_enumerations(f, true)
 		  elsif r.final_target.type.type == 'uml:DataType' and r.final_target.type.multiplicity.include?('3')
-		    f.puts "\n    The value of {{property(#{@name})}} **MUST** be reported in `#{r.final_target.type.name}_3D`.\n\n"
+		    f.puts "\nThe value of {{property(#{@name})}} **MUST** be reported in `#{r.final_target.type.name}_3D`.\n\n"
 		  else
-		    f.puts "\n    The value of {{property(#{@name})}} **MUST** be `#{r.final_target.type.name}`.\n\n"
+		    f.puts "\nThe value of {{property(#{@name})}} **MUST** be `#{r.final_target.type.name}`.\n\n"
 		  end
 		  next
 		elsif name == 'code' and r.redefinesProperty
@@ -93,9 +93,8 @@ class MarkdownType < Type
 {{tbl(value-properties-of-#{@name.downcase})}} lists the Value Properties of {{block(#{@name})}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|-------------:|
-#{string_out}
-{: caption="Value Properties of #{@name}"}
+|---------------------|---------------------|:------------:|
+#{string_out}{: caption="Value Properties of #{@name}"}
 EOT
       
  	    if not (redefinesResult and value_properties.length <= 1)
@@ -134,7 +133,7 @@ EOT
 {{tbl(#{property_stereotype.downcase}-properties-of-#{@name.downcase})}} lists the #{property_stereotype} Properties of {{block(#{@name})}}.
 
 | #{property_stereotype} Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 EOT
       
       properties.each do |r|

@@ -23,7 +23,7 @@ At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be d
 {{tbl(value-properties-of-coordinatesystem)}} lists the Value Properties of {{block(CoordinateSystem)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(id)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
 | {{property(nativeName)}} | `string` | 0..1 |
@@ -110,7 +110,7 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
 {{tbl(part-properties-of-coordinatesystem)}} lists the Part Properties of {{block(CoordinateSystem)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Origin)}} | 0..1 |
 | {{block(Transformation)}} | 0..1 |
 {: caption="Part Properties of CoordinateSystem"}
@@ -133,7 +133,7 @@ Descriptions for Part Properties of {{block(CoordinateSystem)}}:
 coordinates of the origin position of a coordinate system.
 
 
-    The value of {{property(Origin)}} **MUST** be `MILLIMETER`.
+The value of {{property(Origin)}} **MUST** be `MILLIMETER`.
 
 
 ### Transformation
@@ -148,7 +148,7 @@ At a minimum, a {{block(Translation)}} or a {{block(Rotation)}} **MUST** be defi
 {{tbl(part-properties-of-transformation)}} lists the Part Properties of {{block(Transformation)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Translation)}} | 0..1 |
 | {{block(Rotation)}} | 0..1 |
 {: caption="Part Properties of Transformation"}
@@ -173,7 +173,7 @@ rotations about X, Y, and Z axes are expressed in A, B, and C respectively withi
 
 
 
-    The value of {{property(Rotation)}} **MUST** be `DEGREE`.
+The value of {{property(Rotation)}} **MUST** be `DEGREE`.
 
 
 ### Translation
@@ -182,5 +182,5 @@ rotations about X, Y, and Z axes are expressed in A, B, and C respectively withi
 translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
 
 
-    The value of {{property(Translation)}} **MUST** be `MILLIMETER`.
+The value of {{property(Translation)}} **MUST** be `MILLIMETER`.
 

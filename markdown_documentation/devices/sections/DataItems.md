@@ -18,7 +18,7 @@ information reported about a piece of equipment.
 {{tbl(value-properties-of-dataitem)}} lists the Value Properties of {{block(DataItem)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(category)}} | `CategoryEnum` | 1 |
 | {{property(compositionId)}} | `ID` | 0..1 |
 | {{property(coordinateSystem)}} | `CoordinateSystemEnum` | 0..1 |
@@ -570,7 +570,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 {{tbl(reference-properties-of-dataitem)}} lists the Reference Properties of {{block(DataItem)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Observation)}} (organized by {{block(Observations)}}) | 0..* |
 {: caption="Reference Properties of DataItem"}
 
@@ -594,7 +594,7 @@ Descriptions for Reference Properties of {{block(DataItem)}}:
 {{tbl(part-properties-of-dataitem)}} lists the Part Properties of {{block(DataItem)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Source)}} | 0..1 |
 | {{block(Constraints)}} | 0..1 |
 | {{block(Filter)}} (organized by {{block(Filters)}}) | 0..* |

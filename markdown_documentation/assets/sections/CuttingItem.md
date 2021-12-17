@@ -20,7 +20,7 @@ part of of the tool that physically removes the material from the workpiece by s
 {{tbl(value-properties-of-cuttingitem)}} lists the Value Properties of {{block(CuttingItem)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(Description)}} | `string` | 0..1 |
 | {{property(grade)}} | `string` | 0..1 |
 | {{property(indices)}} | `string` | 1..* |
@@ -82,7 +82,7 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
 {{tbl(reference-properties-of-cuttingitem)}} lists the Reference Properties of {{block(CuttingItem)}}.
 
 | Reference Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Status)}} (organized by {{block(CutterStatus)}}) | 1..* |
 | {{block(ItemLife)}} | 0..3 |
 | {{block(Measurement)}} (organized by {{block(Measurements)}}) | 0..* |
@@ -130,7 +130,7 @@ Descriptions for Reference Properties of {{block(CuttingItem)}}:
 {{tbl(value-properties-of-cuttingitems)}} lists the Value Properties of {{block(CuttingItems)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(count)}} | `integer` | 1 |
 {: caption="Value Properties of CuttingItems"}
 
@@ -146,7 +146,7 @@ Descriptions for Value Properties of {{block(CuttingItems)}}:
 life of a {{block(CuttingItem)}}.
 
 
-    The value of {{property(ItemLife)}} **MUST** be `float`.
+The value of {{property(ItemLife)}} **MUST** be `float`.
 
 
 #### Value Properties of ItemLife
@@ -154,7 +154,7 @@ life of a {{block(CuttingItem)}}.
 {{tbl(value-properties-of-itemlife)}} lists the Value Properties of {{block(ItemLife)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(countDirection)}} | `CountDirectionTypeEnum` | 1 |
 | {{property(initial)}} | `float` | 0..1 |
 | {{property(limit)}} | `float` | 0..1 |

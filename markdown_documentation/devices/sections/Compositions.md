@@ -22,7 +22,7 @@ functional part of a piece of equipment contained within a {{block(Component)}}.
 {{tbl(value-properties-of-composition)}} lists the Value Properties of {{block(Composition)}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|:------------:|
 | {{property(type)}} | `CompositionTypeEnum` | 1 |
 | {{property(id)}} | `ID` | 1 |
 | {{property(name)}} | `string` | 0..1 |
@@ -54,7 +54,7 @@ Descriptions for Value Properties of {{block(Composition)}}:
 {{tbl(part-properties-of-composition)}} lists the Part Properties of {{block(Composition)}}.
 
 | Part Property name | Multiplicity |
-|-------------------------------------:|-------------:|
+|:-------------------------------------|:-------------:|
 | {{block(Description)}} | 0..1 |
 | {{block(Configuration)}} | 0..1 |
 {: caption="Part Properties of Composition"}
