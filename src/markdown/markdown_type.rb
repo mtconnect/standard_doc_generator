@@ -93,9 +93,10 @@ class MarkdownType < Type
 {{tbl(value-properties-of-#{@name.downcase})}} lists the Value Properties of {{block(#{@name})}}.
 
 | Value Property name | Value Property type | Multiplicity |
-|--------------------:|--------------------:|-------------:|
+|---------------------|---------------------|-------------:|
+#{string_out}
+{: caption="Value Properties of #{@name}"}
 EOT
-	    f.puts "#{string_out}{: caption=\"Value Properties of #{@name}\"}"
       
  	    if not (redefinesResult and value_properties.length <= 1)
 		  f.puts "\nDescriptions for Value Properties of {{block(#{@name})}}:\n"
