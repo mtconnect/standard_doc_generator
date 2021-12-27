@@ -1,22 +1,18 @@
-$: << File.dirname(__FILE__)
+module MarkdownMerger
 
-=begin
-Recursively expand the input file commands in the main.md,
-sub it with corresponding md file text,
-and write it to main_flattened.md
-=end
-
-def recurse_input_files(md)
-  md.scan(/\{\{input\(([^\)]+)\)\}\}/) do |s|
-    input_cmd = "{{input(#{$1})}}"
-    input_md = File.read(File.join(MarkdownModel.directory, $1))
-    md = md.gsub(input_cmd,input_md)
+  #Flattens the input file command recursively
+  def self.recurse_input_files(md)
+    md.scan(/\{\{input\(([^\)]+)\)\}\}/) do |s|
+      input_cmd = "{{input(#{$1})}}"
+      input_md = File.read(File.join(MarkdownModel.directory, $1))
+      md = md.gsub(input_cmd,input_md)
+    end
+    return md.match(/\{\{input\(([^\)]+)\)\}\}/) ? self.recurse_input_files(md) : md
   end
-  return md.match(/\{\{input\(([^\)]+)\)\}\}/) ? recurse_input_files(md) : md
+
+  def self.flatten(markdown_model)
+    main_file = File.join(markdown_model.directory,'main.md')
+    main_md = File.read(main_file)
+    File.write(File.join(markdown_model.directory,'main_flattened.md'), self.recurse_input_files(main_md))
+  end
 end
-
-
-main_md_file = File.join(MarkdownModel.directory,'main.md')
-main_md = File.read(main_md_file)
-
-File.write(File.join(MarkdownModel.directory,'main_flattened.md'), recurse_input_files(main_md))
