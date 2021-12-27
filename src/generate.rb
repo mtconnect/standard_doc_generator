@@ -1,5 +1,5 @@
 # Add directory to path
-ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', File.dirname(__FILE__))
+ENV['BUNDLE_GEMFILE'] ||= File.expand_path('../Gemfile', __FILE__)
 require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 
 $: << File.dirname(__FILE__)
@@ -8,12 +8,14 @@ require 'logger'
 require 'optparse'
 require 'json'
 require 'set'
-require 'markdown/lib/type'
-require 'markdown/lib/model'
 require 'rexml/document'
 require 'rexml/xpath'
 require 'nokogiri'
 require 'treetop'
+require 'generate_documentation'
+require 'generate_schema'
+require 'markdown/lib/type'
+require 'markdown/lib/model'
 
 Options = {}
 parser = OptionParser.new do |opts|
@@ -23,7 +25,7 @@ parser = OptionParser.new do |opts|
     Options[:debug] = v
   end
   opts.on('-v', '--version VERSION_NUM', 'MTConnect Version') do |ver|
-	Options[:version] = ver
+    Options[:version] = ver
   end
 end
 parser.parse!
@@ -40,6 +42,16 @@ unless ARGV.first
   exit
 end
 
+xmi_file = File.join(File.dirname(__FILE__), '..', 'MTConnect SysML Model.xml')
+unless File.exist?(xmi_file)
+  $logger.error "Model XMI \"MTConnect SysML Model.xml\" not found."
+  exit
+end
+
+xmi_node = Nokogiri::XML(File.open(xmi_file)).slop!
+$namespaces = Hash[xmi_node.namespaces.map { |k, v| [k.split(':').last, v] }]
+
+$mtconnect_version = Options[:version] ? Options[:version] : "X.X"
 operations = Set.new(ARGV)
 
 operations.each do |op|
@@ -49,10 +61,11 @@ operations.each do |op|
   
   case op
   when 'docs'
-    load 'generate_documentation.rb'
+    document_generator = DocumentGenerator.new xmi_node.at('//uml:Model')
     
   when 'schema'
-    load 'generate_schema.rb'
+    Glossary = XMIParser.new
+    schema_generator = SchemaGenerator.new
   
   else
     $logger.error "Invalid option #{op}"

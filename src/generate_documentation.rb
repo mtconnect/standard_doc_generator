@@ -1,94 +1,152 @@
 $: << File.dirname(__FILE__)
 
-require 'json'
-require 'markdown/markdown_model'
-require 'markdown/documents'
+require "json"
+require "markdown/markdown_model"
+require "markdown/markdown_merger"
+require "markdown/documents"
+require "latex/latexify"
 
-include Document
-include CommonDocument
+class DocumentGenerator
+  include Document
+  include CommonDocument
+  include Kramdown::Converter
 
-#Parsing the xmi
-xmiDoc = nil
-File.open(File.join(File.dirname(__FILE__), '..', 'MTConnect SysML Model.xml')) do |xmi|
-  xmiDoc = Nokogiri::XML(xmi).slop!
-  RootModel = xmiDoc.at('//uml:Model')
-end
+  attr_reader :skip_models, :part_num, :part_config, :profile, :xmi
+  attr_accessor :enums, :dataitemtypes 
 
-$namespaces = Hash[xmiDoc.namespaces.map { |k, v| [k.split(':').last, v] }]
+  def initialize(xmi)
+    @xmi = xmi
+    @skip_models = Set["CSV Imports",    #Packages/Models to be skipped while generating definitions
+      "Simulation",                       #from the XMI
+      "MTConnect",
+      "Agent Architecture",
+      "Development Process",
+      "Examples"
+    ]
+    @enums = ["DataItemTypeEnum",        #Enumerations to be ignored during recursive gen of docs
+      "SampleEnum",
+      "EventEnum",
+      "ConditionEnum",
+      "DataItemSubTypeEnum",              #These enums have specific formats defined in markdown_type.rb
+      "CompositionTypeEnum",
+      "CodeEnum"
+    ] 
+    @dataitemtypes = Hash.new            #DataItem types for use in multiple Parts docs
 
-=begin
-Defining the MarkdownModel
-SkipModels: Packages in XMI to be ignored during parsing
-$enums: Enumerations to be ignored during recursive gen of docs
-        These enums have specific formats defined in markdown_type.rb
-$dataitemtypes: DataItem types to be accessed globally for use in multiple Parts
-document_structure: Predefined config for the Standard Documents.
-=end
+    generate_all()
+  end
 
-SkipModels = Set.new
-SkipModels.add('CSV Imports')
-SkipModels.add('Simulation')
-SkipModels.add('MTConnect')
-SkipModels.add('Agent Architecture')
-SkipModels.add('Development Process')
-SkipModels.add('Examples')
+  def generate_all
+    find_model_definitions()
+    generate_documentation()
+  end
 
-MarkdownModel.skip_models = SkipModels
-MarkdownModel.new(RootModel).find_definitions
+  def find_model_definitions
+    self.class.model_class.generator_class = self
+    self.class.model_class.skip_models = @skip_models
+    self.class.model_class.new(@xmi).find_definitions
+    self.class.model_class.generate_dataitem_subtypes
+  end
 
-$enums = ['DataItemTypeEnum','DataItemSubTypeEnum','CompositionTypeEnum','CodeEnum']
+  def self.model_class
+    MarkdownModel
+  end
 
-$dataitemtypes = Hash.new
-MarkdownModel.generate_subtypes
+  def parse_config
+    config_file = File.join(File.dirname(__FILE__),"..","config","document_structure.json")
+    unless File.exist?(config_file)
+      $logger.error "Documentation Config file not found."
+      exit
+    end
+    doc_outlines = File.read(config_file)
+    return JSON.parse(doc_outlines)
+  end
 
-document_structure = File.read(File.join(File.dirname(__FILE__),'..','config','document_structure.json'))
-document_structure_json = JSON.parse(document_structure)
-
-document_structure_json['documents'].each do |partno, partinfo|
-  directory_name = partinfo['directory']
-  directory_path = File.join(File.dirname(__FILE__),'..','markdown_documentation',directory_name)
-  MarkdownModel.directory = directory_path
-  MarkdownModel.generate_glossary(document_structure_json['glossary'])
-
-  doc_num = partno
-  doc_title = partinfo['doc_title']
-  version_num = Options[:version] ? Options[:version] : "X.X"
-  
-  generate_common_docs(RootModel, doc_num, doc_title, version_num, directory_name)
-  
-  models = partinfo['models']
-  models_main_file = File.join(directory_path, directory_name+'.md')
-
-  File.open(models_main_file,'w') do |f|
-    models.each do |model|
-      if model.is_a? String
-        generate_section_intro(f,RootModel, 'Supporting Documents', model)
+  def generate_documentation
+    doc_outlines = parse_config()
+    doc_outlines["documents"].each do |part_num, part_config|
+      @part_num = part_num
+      @part_config = part_config
+      @profile = doc_outlines["profile"]
+      directory_name = @part_config["directory"]
+      directory_path = File.join(File.dirname(__FILE__),"..","markdown_documentation",directory_name)
       
-      elsif model.is_a? Hash
-        section_heading = model.keys[0]
-        package_name = model[section_heading][0]
-        generate_section_intro(f,RootModel, package_name, section_heading)
-        
-        $logger.info "\nGenerating Documents for #{section_heading}"
-        model[section_heading].each do |m|
-          MarkdownModel.generate_md(f, m)
+      self.class.model_class.directory = directory_path
+      self.class.model_class.generate_glossary(doc_outlines["glossary"])
+
+      generate_common_docs(
+        root_model = @xmi,
+        doc_num = @part_num,
+        doc_title = @part_config["doc_title"],
+        version_num = $mtconnect_version,
+        part_dir = directory_name
+      )
+      generate_sections()
+      generate_profile()  
+      flatten_md()
+      convert_to_latex()
+    end
+  end
+
+  def generate_profile
+    $logger.info "Generating MTConnect Profile"
+    profile_file = File.join(self.class.model_class.directory, "profile.md")
+    File.open(profile_file, "w") do |f|
+      generate_section_intro(
+        f = f,
+        root_model = @xmi,
+        section_package_name = "Supporting Documents",
+        section_name = "MTConnect Profile"
+        )
+      self.class.model_class.generate_profile(f, @profile)
+    end
+  end
+
+  def generate_sections
+    directory_name = @part_config["directory"]
+    main_file = File.join(self.class.model_class.directory,directory_name+".md")
+    File.open(main_file,"w") do |f|
+      @part_config["models"].each do |model|
+        case model.class.to_s
+        when "String"
+          generate_section_intro(
+            f = f,
+            root_model = @xmi,
+            section_package_name = "Supporting Documents",
+            section_name = model
+          )
+        when "Hash"
+          section_name = model.keys[0]
+          generate_section_intro(
+            f = f,
+            root_model = @xmi,
+            section_package_name = model[section_name][0],
+            section_name = section_name
+          )
+          $logger.info "\nGenerating Documents for #{section_name}"
+          model[section_name].each do |mod|
+            self.class.model_class.generate_md(f, mod)
+          end
+        else
+          $logger.error "Invalid model data type #{model.class}"
         end
-      else
-        $logger.error "Invalid model data type #{model.class}"
       end
     end
   end
-  
-  $logger.info "Generating MTConnect Profile"
-  File.open(File.join(MarkdownModel.directory, "profile.md"), "w") do |f|
-	  generate_section_intro(f,RootModel, 'Supporting Documents', 'MTConnect Profile')
-	  MarkdownModel.generate_profile(f, document_structure_json['profile'])
+
+  def flatten_md
+    $logger.info "Generating flattened MD for #{@part_config["directory"]}"
+    MarkdownMerger.flatten(self.class.model_class)
   end
 
-  $logger.info "Generating Flattened MD for #{directory_name}"
-  load 'markdown/markdown_merger.rb'
-  
-  $logger.info "Generating LaTeX for #{directory_name}"
-  load 'latex/generate_latex.rb'
+  def convert_to_latex
+    $logger.info "Generating LaTeX documentation for #{@part_config["directory"]}"
+    #Generate LaTeX file for each MD file excluding main.md and main_flattened.md
+    #LaTeX main file and document class are defined in the model itself. 
+    (Dir[File.join(self.class.model_class.directory,"*.md")]|
+        Dir[File.join(self.class.model_class.directory, "sections","*.md")]).each do |file|
+      MarkdownConverter.generate_latex(file) if !["main.md", "main_flattened.md"].include?(File.basename(file))
+    end
+    MtcLatex.reset_labels()
+  end
 end
-
