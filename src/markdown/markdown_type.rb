@@ -198,12 +198,14 @@ class MarkdownType < Type
   
   def generate_entrykeys(f)
     $logger.debug "***** =====> Generating Keys for #{@name}"
-
     f.puts "\n`#{escape_name}` keys:\n"
+
     @relations.each do |r|
       next if r.name == 'Supertype'
       f.puts "\n* `#{r.name}` \n\n    #{r.documentation.gsub("\n","\n    ")}\n"
-      f.puts "\n    The value of `#{r.name}` **MUST** be a `#{r.final_target.type.name}`.\n\n"
+      f.puts get_valuetype_documentation(r,1,r.name)
+      target = r.final_target.type
+      target.generate_enumerations(f,1) if target.type == "uml:Enumeration" && !r.redefinesProperty
     end
   end
 
