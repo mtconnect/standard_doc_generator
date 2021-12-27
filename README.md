@@ -10,4 +10,4 @@ Run the following command:
 
 Run the following command:
 
-	ruby src/generate.rb schema
+	ruby src/generate.rb --version=2.0.0 schema
