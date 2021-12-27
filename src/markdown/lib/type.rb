@@ -208,18 +208,18 @@ class Type
     @id = e['xmi:id']
 
     @name = e['name']
-	
-	@subtypes = []
-	
-	@visibility = e.key?('visibility') ? e['visibility'] : 'public'
+    
+    @subtypes = []
+    
+    @visibility = e.key?('visibility') ? e['visibility'] : 'public'
 
-	@multiplicity, @optional = get_multiplicity(e)
+    @multiplicity, @optional = get_multiplicity(e)
 
     @is_subtype = false
-	
+    
     @documentation = xmi_documentation(e) || ''
-	
-	@additional_documentation = xmi_additional_documentation(e) || ''
+    
+    @additional_documentation = xmi_additional_documentation(e) || ''
 
     
     sn = @name.sub(/^MT/, '').sub(/Type$/, '').sub(/Class$/, '').sub(/Sub$/, '')
@@ -227,7 +227,7 @@ class Type
     @stereotype, @property_stereotype = xmi_stereotype(e)
     
     @type = e['xmi:type']
-	   
+       
     $logger.debug "  -- Creating class <<#{@stereotype}>> #{@name} : #{@type}"
     
     @operations = @xmi.xpath('./ownedOperation').map do |op|
@@ -248,15 +248,15 @@ class Type
     if @type == 'uml:Enumeration' and defined? e.ownedLiteral
       suffix = ' ' + @name.sub(/^MT/, '').sub(/Type$/, '').downcase
       e.ownedLiteral.each do |lit|
-		if lit.class == [].class
-		  literal = e.xpath("./ownedLiteral")
-		  name, value = literal[0]['name'].sub(/\^/,'\^').split('=')
-		  description = xmi_documentation(literal)
-		  @literals << Literal.new(name, value, description, suffix)
-		  break
-		end
+        if lit.class == [].class
+          literal = e.xpath("./ownedLiteral")
+          name, value = literal[0]['name'].sub(/\^/,'\^').split('=')
+          description = xmi_documentation(literal)
+          @literals << Literal.new(name, value, description, suffix)
+          break
+        end
         name, value = lit['name'].sub(/\^/,'\^').split('=')
-		description = xmi_documentation(lit)
+        description = xmi_documentation(lit)
         @literals << Literal.new(name, value, description, suffix)
       end
     else

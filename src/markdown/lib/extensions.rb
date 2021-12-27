@@ -9,8 +9,8 @@ module Extensions
              'base_Class'
            elsif type == 'uml:Realization'
              'base_Realization'
-		   elsif type == 'uml:Enumeration'
-		     'base_Enumeration'
+           elsif type == 'uml:Enumeration'
+             'base_Enumeration'
            else
              if e['association']
                id = e['association']
@@ -22,33 +22,33 @@ module Extensions
     if attr
       element_stereo = e.document.root.at("/xmi:XMI/*[@base_Element='#{id}']")
       element_stereo = e.document.root.at("/xmi:XMI/*[@#{attr}='#{id}']") unless element_stereo
-	  element_stereo_name = element_stereo ? element_stereo.name : ''
-	  
-	  property_stereo = e.document.root.at("/xmi:XMI/*[@base_Property='#{e['xmi:id']}']")
-	  property_stereo_name = (property_stereo and property_stereo.name!='Restriction') ? property_stereo.name : ''
+      element_stereo_name = element_stereo ? element_stereo.name : ''
       
-	  return [element_stereo_name, property_stereo_name]
+      property_stereo = e.document.root.at("/xmi:XMI/*[@base_Property='#{e['xmi:id']}']")
+      property_stereo_name = (property_stereo and property_stereo.name!='Restriction') ? property_stereo.name : ''
+      
+      return [element_stereo_name, property_stereo_name]
     end
   end
 
   def xmi_documentation(e)
-	comment = e.at('ownedComment')
+    comment = e.at('ownedComment')
     return (comment and comment['body']) ? comment['body'] : ''
   end
 
   def xmi_additional_documentation(e)
     documentation = ''
-	e.xpath('./ownedComment').map do |comment|
+    e.xpath('./ownedComment').map do |comment|
       documentation += comment['body'] ? comment.at('ownedComment') ? "\n#{comment.at('ownedComment')['body']}" : '' : ''
-	end
-	return documentation
+    end
+    return documentation
   end
 
   def get_multiplicity(r)
     lower = upper = '1'
     if r.at('upperValue')
-      upper = r.at('upperValue')['value']	
-	  upper = '0' unless upper
+      upper = r.at('upperValue')['value']    
+      upper = '0' unless upper
     end
     
     if r.at('lowerValue')
