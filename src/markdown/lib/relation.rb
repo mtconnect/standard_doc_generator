@@ -54,7 +54,7 @@ module Relation
     def initialize(owner, r)
       @name = r['name']
       @specification = r['specification']
-	  @type = r['xmi:type']
+      @type = r['xmi:type']
     end
   end
 
@@ -96,7 +96,7 @@ module Relation
        
       @multiplicity, @optional = get_multiplicity(r)
       @assoc = r['association']
-	  @visibility = r['visibility'] ? r['visibility'] : 'public'
+      @visibility = r['visibility'] ? r['visibility'] : 'public'
 
       @stereotype, @property_stereotype = xmi_stereotype(r)
       @documentation = xmi_documentation(r)
@@ -164,16 +164,16 @@ module Relation
         if v['xmi:type'] == 'uml:LiteralBoolean'
           return v['value'] || 'false'
         else
-		  b = v.at(".//body")
+          b = v.at(".//body")
           if b
-			return b.text
-		  elsif v['value']
-		    return v['value']
-		  end
+            return b.text
+          elsif v['value']
+            return v['value']
+          end
         end
-		if v['instance']
-		  return a.document.root.at("//*[@xmi:id='#{v['instance']}']")['name']
-		end
+        if v['instance']
+          return a.document.root.at("//*[@xmi:id='#{v['instance']}']")['name']
+        end
       end
     end
   end
@@ -211,25 +211,13 @@ module Relation
       
       aid = r['association']
       assoc = r.document.at("//packagedElement[@xmi:id='#{aid}']")
-	  
-	  @association_name = assoc['name']
-	  @redefinesProperty = r.at('./redefinedProperty') ? true : false
-	  
-	  member_end = assoc.at('./memberEnd')  
-	  if member_end
-		target_end = r.document.at("//ownedAttribute[@xmi:id='#{member_end["xmi:idref"]}']")
-		if target_end
-			target_element = r.document.at("//packagedElement[@xmi:id='#{target_end["type"]}']")
-			if target_element['name'] == @association_name and target_element.at('./ownedComment')
-				@association_doc = target_element.at('./ownedComment')['body']
-			end
-		end
-	  end
-	  
-	  @association_doc = xmi_documentation(assoc) if xmi_documentation(assoc).size>1
-	  
+      
+      @association_name = assoc['name']
+      @redefinesProperty = r.at('./redefinedProperty') ? true : false    
+      @association_doc = xmi_documentation(assoc)
+      
       src = assoc.at('./ownedEnd')
-	  return if not src
+      return if not src
       @assoc_type = assoc['type']
       @source = End.new(src, owner)
       @is_derived = assoc['isDerived']
@@ -289,12 +277,12 @@ module Relation
     def initialize(owner, a)
       super(owner, a)
       return if not a['name']
-	  
-	  @name = a['name']
+      
+      @name = a['name']
       @default = get_value(a, 'defaultValue')
 
-	  @redefinesProperty = a.at('./redefinedProperty') ? true : false
-	  
+      @redefinesProperty = a.at('./redefinedProperty') ? true : false
+      
       @stereotype, @property_stereotype = xmi_stereotype(a)
       @documentation = xmi_documentation(a)
 
