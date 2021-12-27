@@ -808,10 +808,10 @@ root entity of an {{term(MTConnectErrors Response Document)}} that contains the 
 
 {{tbl(reference-properties-of-mtconnecterror)}} lists the Reference Properties of {{block(MTConnectError)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Header)}} | 1 |
-| {{block(Error)}} (organized by {{block(Errors)}}) | 1..* |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(Header)}}|1|
+|{{block(Error)}} (organized by {{block(Errors)}})|1..*|
 {: caption="Reference Properties of MTConnectError"}
 
 Descriptions for Reference Properties of {{block(MTConnectError)}}:
@@ -819,11 +819,11 @@ Descriptions for Reference Properties of {{block(MTConnectError)}}:
 * {{block(Header)}} 
 
     provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
-    provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
 
 * {{block(Error)}} 
 
     error encountered by an {{term(agent)}} when responding to a {{term(request)}}.
+
     {{block(Errors)}} groups one or more {{block(Error)}} entities. See {{sect(Error)}}.
     
     > Note: When compatibility with Version 1.0.1 and earlier of the MTConnect Standard is required for an implementation, the {{term(MTConnectErrors Response Document)}} contains only a single {{block(Error)}} entity and the {{block(Errors)}} entity **MUST NOT** appear in the document.
@@ -838,15 +838,15 @@ provides information from an {{term(agent)}} defining version information, stora
 
 {{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(bufferSize)}} | `uInt32` | 1 |
-| {{property(creationTime)}} | `dateTime` | 1 |
-| {{property(sender)}} | `string` | 1 |
-| {{property(testIndicator)}} | `boolean` | 0..1 |
-| {{property(version)}} | `version` | 1 |
-| {{property(deviceModelChangeTime)}} | `dateTime` | 1 |
-| {{property(instanceId)}} | `uInt64` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(bufferSize)}}|`uInt32`|1|
+|{{property(creationTime)}}|`dateTime`|1|
+|{{property(sender)}}|`string`|1|
+|{{property(testIndicator)}}|`boolean`|0..1|
+|{{property(version)}}|`version`|1|
+|{{property(deviceModelChangeTime)}}|`dateTime`|1|
+|{{property(instanceId)}}|`uInt64`|1|
 {: caption="Value Properties of Header"}
 
 Descriptions for Value Properties of {{block(Header)}}:
@@ -902,14 +902,13 @@ error encountered by an {{term(agent)}} when responding to a {{term(request)}}.
 
 The value of {{property(Error)}} **MUST** be `string`.
 
-
 #### Value Properties of Error
 
 {{tbl(value-properties-of-error)}} lists the Value Properties of {{block(Error)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(errorCode)}} | `ErrorCodeTypes` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(errorCode)}}|`ErrorCodeTypes`|1|
 {: caption="Value Properties of Error"}
 
 Descriptions for Value Properties of {{block(Error)}}:
@@ -918,7 +917,7 @@ Descriptions for Value Properties of {{block(Error)}}:
 
     descriptive code that indicates the type of error that was encountered by an {{term(agent)}}.
 
-    The value of {{property(errorCode)}} **MUST** be one of the `ErrorCodeTypes` enumeration.
+    The value of {{property(errorCode)}} **MUST** be one of the `ErrorCodeTypes` enumeration. 
 
     `ErrorCodeTypes` Enumeration:
 

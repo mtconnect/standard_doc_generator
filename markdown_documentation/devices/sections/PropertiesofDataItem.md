@@ -15,9 +15,9 @@ type of event that may cause a reset to occur.
 
 {{tbl(value-properties-of-resettrigger)}} lists the Value Properties of {{block(ResetTrigger)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `ResetTriggerEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`ResetTriggerEnum`|1|
 {: caption="Value Properties of ResetTrigger"}
 
 Descriptions for Value Properties of {{block(ResetTrigger)}}:
@@ -26,7 +26,7 @@ Descriptions for Value Properties of {{block(ResetTrigger)}}:
 
     type of {{block(ResetTrigger)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `ResetTriggerEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `ResetTriggerEnum` enumeration. 
 
     `ResetTriggerEnum` Enumeration:
 
@@ -77,16 +77,15 @@ One of {{property(componentId)}}, {{property(compositionId)}}, or {{property(dat
 
 The value of {{property(Source)}} **MUST** be `string`.
 
-
 #### Value Properties of Source
 
 {{tbl(value-properties-of-source)}} lists the Value Properties of {{block(Source)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(componentId)}} | `ID` | 0..1 |
-| {{property(compositionId)}} | `ID` | 0..1 |
-| {{property(dataItemId)}} | `ID` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(componentId)}}|`ID`|0..1|
+|{{property(compositionId)}}|`ID`|0..1|
+|{{property(dataItemId)}}|`ID`|0..1|
 {: caption="Value Properties of Source"}
 
 Descriptions for Value Properties of {{block(Source)}}:
@@ -111,7 +110,6 @@ starting value for a {{block(DataItem)}} as well as the value to be set for the 
 
 The value of {{property(InitialValue)}} **MUST** be `string`.
 
-
 ### Filter
 
 
@@ -122,9 +120,9 @@ provides a means to control when an {{term(agent)}} records updated information 
 
 {{tbl(value-properties-of-filter)}} lists the Value Properties of {{block(Filter)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `FilterEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`FilterEnum`|1|
 {: caption="Value Properties of Filter"}
 
 Descriptions for Value Properties of {{block(Filter)}}:
@@ -133,7 +131,7 @@ Descriptions for Value Properties of {{block(Filter)}}:
 
     type of {{block(Filter)}}
 
-    The value of {{property(type)}} **MUST** be one of the `FilterEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `FilterEnum` enumeration. 
 
     `FilterEnum` Enumeration:
 
@@ -160,13 +158,13 @@ Descriptions for Value Properties of {{block(Filter)}}:
 
 {{tbl(value-properties-of-constraints)}} lists the Value Properties of {{block(Constraints)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| `<<deprecated>>`{{property(Filter)}} | `FilterEnum` | 0..1 |
-| {{property(Maximum)}} | `float` | 0..1 |
-| {{property(Minimum)}} | `float` | 0..1 |
-| {{property(Nominal)}} | `float` | 0..1 |
-| {{property(Value)}} | `string` | 0..* |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|`<<deprecated>>`{{property(Filter)}}|`FilterEnum`|0..1|
+|{{property(Maximum)}}|`float`|0..1|
+|{{property(Minimum)}}|`float`|0..1|
+|{{property(Nominal)}}|`float`|0..1|
+|{{property(Value)}}|`string`|0..*|
 {: caption="Value Properties of Constraints"}
 
 Descriptions for Value Properties of {{block(Constraints)}}:
@@ -207,11 +205,11 @@ defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated 
 
 {{tbl(part-properties-of-definition)}} lists the Part Properties of {{block(Definition)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(CellDefinition)}} (organized by {{block(CellDefinitions)}}) | 0..* |
-| {{block(Description)}} | 0..1 |
-| {{block(EntryDefinition)}} (organized by {{block(EntryDefinitions)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(CellDefinition)}} (organized by {{block(CellDefinitions)}})|0..*|
+|{{block(Description)}}|0..1|
+|{{block(EntryDefinition)}} (organized by {{block(EntryDefinitions)}})|0..*|
 {: caption="Part Properties of Definition"}
 
 Descriptions for Part Properties of {{block(Definition)}}:
@@ -219,14 +217,17 @@ Descriptions for Part Properties of {{block(Definition)}}:
 * {{block(CellDefinition)}} 
 
     semantic definition of a {{block(Cell)}}.
+
     {{block(CellDefinitions)}} groups one or more {{block(CellDefinition)}} entities. See {{sect(CellDefinition)}}.
 
 * {{block(Description)}} 
 
     descriptive content.
+
     See {{sect(Description)}}.
 
 * {{block(EntryDefinition)}} 
 
     semantic definition of an {{block(Entry)}}.
+
     {{block(EntryDefinitions)}} groups one or more {{block(EntryDefinition)}} entities. See {{sect(EntryDefinition)}}.

@@ -18,12 +18,12 @@ abstract {{block(Asset)}} that contains the common properties of the {{block(Fil
 
 {{tbl(value-properties-of-abstractfile)}} lists the Value Properties of {{block(AbstractFile)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(name)}} | `string` | 1 |
-| {{property(mediaType)}} | `string` | 1 |
-| {{property(applicationCategory)}} | `ApplicationCategoryEnum` | 1 |
-| {{property(applicationType)}} | `ApplicationTypeEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(name)}}|`string`|1|
+|{{property(mediaType)}}|`string`|1|
+|{{property(applicationCategory)}}|`ApplicationCategoryEnum`|1|
+|{{property(applicationType)}}|`ApplicationTypeEnum`|1|
 {: caption="Value Properties of AbstractFile"}
 
 Descriptions for Value Properties of {{block(AbstractFile)}}:
@@ -40,7 +40,7 @@ Descriptions for Value Properties of {{block(AbstractFile)}}:
 
     category of application that will use this file.
 
-    The value of {{property(applicationCategory)}} **MUST** be one of the `ApplicationCategoryEnum` enumeration.
+    The value of {{property(applicationCategory)}} **MUST** be one of the `ApplicationCategoryEnum` enumeration. 
 
     `ApplicationCategoryEnum` Enumeration:
 
@@ -81,7 +81,7 @@ Descriptions for Value Properties of {{block(AbstractFile)}}:
 
     type of application that will use this file.
 
-    The value of {{property(applicationType)}} **MUST** be one of the `ApplicationTypeEnum` enumeration.
+    The value of {{property(applicationType)}} **MUST** be one of the `ApplicationTypeEnum` enumeration. 
 
     `ApplicationTypeEnum` Enumeration:
 
@@ -114,10 +114,10 @@ Descriptions for Value Properties of {{block(AbstractFile)}}:
 
 {{tbl(part-properties-of-abstractfile)}} lists the Part Properties of {{block(AbstractFile)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(FileProperty)}} (organized by {{block(FileProperties)}}) | 0..* |
-| {{block(FileComment)}} (organized by {{block(FileComments)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(FileProperty)}} (organized by {{block(FileProperties)}})|0..*|
+|{{block(FileComment)}} (organized by {{block(FileComments)}})|0..*|
 {: caption="Part Properties of AbstractFile"}
 
 Descriptions for Part Properties of {{block(AbstractFile)}}:
@@ -125,11 +125,13 @@ Descriptions for Part Properties of {{block(AbstractFile)}}:
 * {{block(FileProperty)}} 
 
     key-value pair providing additional metadata about a {{block(File)}}.
+
     {{block(FileProperties)}} groups one or more {{block(FileProperty)}} entities for a {{block(File)}}. See {{sect(FileProperty)}}.
 
 * {{block(FileComment)}} 
 
     remark or interpretation for human interpretation associated with a {{block(File)}} or {{block(FileArchetype)}}.
+
     {{block(FileComments)}} groups one or more {{block(FileComment)}} entities for a {{block(File)}}. See {{sect(FileComment)}}.
 
 ### File
@@ -142,15 +144,15 @@ Descriptions for Part Properties of {{block(AbstractFile)}}:
 
 {{tbl(value-properties-of-file)}} lists the Value Properties of {{block(File)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(size)}} | `integer` | 1 |
-| {{property(versionId)}} | `string` | 1 |
-| {{property(state)}} | `FileStateEnum` | 1 |
-| {{property(Signature)}} | `x509` | 0..1 |
-| {{property(PublicKey)}} | `x509` | 0..1 |
-| {{property(CreationTime)}} | `dateTime` | 1 |
-| {{property(ModificationTime)}} | `dateTime` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(size)}}|`integer`|1|
+|{{property(versionId)}}|`string`|1|
+|{{property(state)}}|`FileStateEnum`|1|
+|{{property(Signature)}}|`x509`|0..1|
+|{{property(PublicKey)}}|`x509`|0..1|
+|{{property(CreationTime)}}|`dateTime`|1|
+|{{property(ModificationTime)}}|`dateTime`|0..1|
 {: caption="Value Properties of File"}
 
 Descriptions for Value Properties of {{block(File)}}:
@@ -167,7 +169,7 @@ Descriptions for Value Properties of {{block(File)}}:
 
     state of the file. 
 
-    The value of {{property(state)}} **MUST** be one of the `FileStateEnum` enumeration.
+    The value of {{property(state)}} **MUST** be one of the `FileStateEnum` enumeration. 
 
     `FileStateEnum` Enumeration:
 
@@ -204,10 +206,10 @@ Descriptions for Value Properties of {{block(File)}}:
 
 {{tbl(part-properties-of-file)}} lists the Part Properties of {{block(File)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(FileLocation)}} | 1 |
-| {{block(Destination)}} (organized by {{block(Destinations)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(FileLocation)}}|1|
+|{{block(Destination)}} (organized by {{block(Destinations)}})|0..*|
 {: caption="Part Properties of File"}
 
 Descriptions for Part Properties of {{block(File)}}:
@@ -215,11 +217,13 @@ Descriptions for Part Properties of {{block(File)}}:
 * {{block(FileLocation)}} 
 
     {{term(URL)}} reference to the file location. 
+
     See {{sect(FileLocation)}}.
 
 * {{block(Destination)}} 
 
     reference to the target {{block(Device)}} for this {{block(File)}}.
+
     {{block(Destinations)}} groups one or more {{block(Destination)}} entities. See {{sect(Destination)}}.
 
 ### FileArchetype
@@ -236,14 +240,13 @@ key-value pair providing additional metadata about a {{block(File)}}.
 
 The value of {{property(FileProperty)}} **MUST** be `string`.
 
-
 #### Value Properties of FileProperty
 
 {{tbl(value-properties-of-fileproperty)}} lists the Value Properties of {{block(FileProperty)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(name)}} | `string` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(name)}}|`string`|1|
 {: caption="Value Properties of FileProperty"}
 
 Descriptions for Value Properties of {{block(FileProperty)}}:
@@ -260,14 +263,13 @@ remark or interpretation for human interpretation associated with a {{block(File
 
 The value of {{property(FileComment)}} **MUST** be `string`.
 
-
 #### Value Properties of FileComment
 
 {{tbl(value-properties-of-filecomment)}} lists the Value Properties of {{block(FileComment)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(timestamp)}} | `dateTime` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(timestamp)}}|`dateTime`|1|
 {: caption="Value Properties of FileComment"}
 
 Descriptions for Value Properties of {{block(FileComment)}}:
@@ -286,10 +288,10 @@ Descriptions for Value Properties of {{block(FileComment)}}:
 
 {{tbl(value-properties-of-filelocation)}} lists the Value Properties of {{block(FileLocation)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(href)}} | `xlinkhref` | 1 |
-| {{property(xlink:type)}} | `xlinktype` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(href)}}|`xlinkhref`|1|
+|{{property(xlink:type)}}|`xlinktype`|0..1|
 {: caption="Value Properties of FileLocation"}
 
 Descriptions for Value Properties of {{block(FileLocation)}}:
@@ -316,9 +318,9 @@ reference to the target {{block(Device)}} for this {{block(File)}}.
 
 {{tbl(value-properties-of-destination)}} lists the Value Properties of {{block(Destination)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(deviceUuid)}} | `ID` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(deviceUuid)}}|`ID`|1|
 {: caption="Value Properties of Destination"}
 
 Descriptions for Value Properties of {{block(Destination)}}:

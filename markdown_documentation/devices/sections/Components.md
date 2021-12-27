@@ -27,15 +27,15 @@ At least one of {{block(Component)}}, {{block(DataItem)}}, or {{block(Reference)
 
 {{tbl(value-properties-of-component)}} lists the Value Properties of {{block(Component)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(id)}} | `ID` | 1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(nativeName)}} | `string` | 0..1 |
-| {{property(sampleInterval)}} | `float` | 0..1 |
-| `<<deprecated>>`{{property(sampleRate)}} | `float` | 0..1 |
-| {{property(uuid)}} | `ID` | 0..1 |
-| {{property(coordinateSystemIdRef)}} | `ID` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(id)}}|`ID`|1|
+|{{property(name)}}|`string`|0..1|
+|{{property(nativeName)}}|`string`|0..1|
+|{{property(sampleInterval)}}|`float`|0..1|
+|`<<deprecated>>`{{property(sampleRate)}}|`float`|0..1|
+|{{property(uuid)}}|`ID`|0..1|
+|{{property(coordinateSystemIdRef)}}|`ID`|0..1|
 {: caption="Value Properties of Component"}
 
 Descriptions for Value Properties of {{block(Component)}}:
@@ -80,9 +80,9 @@ Descriptions for Value Properties of {{block(Component)}}:
 
 {{tbl(reference-properties-of-component)}} lists the Reference Properties of {{block(Component)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(ComponentStream)}} | 0..1 |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(ComponentStream)}}|0..1|
 {: caption="Reference Properties of Component"}
 
 Descriptions for Reference Properties of {{block(Component)}}:
@@ -90,6 +90,7 @@ Descriptions for Reference Properties of {{block(Component)}}:
 * {{block(ComponentStream)}} 
 
     organizes the data associated with each {{block(Component)}} entity defined for a {{block(Device)}} in the associated {{term(MTConnectDevices Response Document)}}.
+
     {{block(ComponentStream)}} {{termplural(organize)}} the {{block(Observation)}} entities associated with the {{block(Component)}}.
     
     See {{citetitle(MTCPart3)}} for the {{block(ComponentStream)}} model.
@@ -102,15 +103,15 @@ Descriptions for Reference Properties of {{block(Component)}}:
 
 {{tbl(part-properties-of-component)}} lists the Part Properties of {{block(Component)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Description)}} | 0..1 |
-| {{block(Composition)}} (organized by {{block(Compositions)}}) | 0..* |
-| {{block(Component)}} (organized by {{block(Components)}}) | 0..* |
-| {{block(Configuration)}} | 0..1 |
-| {{block(DataItem)}} (organized by {{block(DataItems)}}) | 0..* |
-| {{block(Observation)}} (organized by {{block(Observations)}}) | 0..* |
-| {{block(Reference)}} (organized by {{block(References)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Description)}}|0..1|
+|{{block(Composition)}} (organized by {{block(Compositions)}})|0..*|
+|{{block(Component)}} (organized by {{block(Components)}})|0..*|
+|{{block(Configuration)}}|0..1|
+|{{block(DataItem)}} (organized by {{block(DataItems)}})|0..*|
+|{{block(Observation)}} (organized by {{block(Observations)}})|0..*|
+|{{block(Reference)}} (organized by {{block(References)}})|0..*|
 {: caption="Part Properties of Component"}
 
 Descriptions for Part Properties of {{block(Component)}}:
@@ -118,32 +119,38 @@ Descriptions for Part Properties of {{block(Component)}}:
 * {{block(Description)}} 
 
     descriptive content.
+
     See {{sect(Description)}}.
 
 * {{block(Composition)}} 
 
     functional part of a piece of equipment contained within a {{block(Component)}}.
     
+
     {{block(Compositions)}} groups one or more {{block(Composition)}} entities. See {{sect(Compositions Model)}}.
 
 * {{block(Component)}} 
 
     logical or physical entity that provides a capability.
+
     {{block(Components)}} groups one or more {{block(Component)}} entities.
 
 * {{block(Configuration)}} 
 
     technical information about a piece of equipment describing its physical layout, functional characteristics, and relationships with other pieces of equipment.
+
     See {{sect(Configurations Model)}}.
 
 * {{block(DataItem)}} 
 
     information reported about a piece of equipment.
+
     {{block(DataItems)}} groups one or more {{block(DataItem)}} entities. See {{sect(DataItems)}}.
 
 * {{block(Observation)}} 
 
     abstract entity that provides telemetry data for a {{block(DataItem)}} at a point in time.
+
     {{block(Observations)}} groups one or more {{block(Observation)}} entities made by the {{block(Component)}} entity. 
     
     {{block(Component)}} {{termplural(observe)}} {{block(DataItem)}} entities to create {{block(Observation)}} entities for the {{block(DataItem)}} entities.
@@ -157,6 +164,7 @@ Descriptions for Part Properties of {{block(Component)}}:
 * {{block(Reference)}} 
 
     pointer to information that is associated with another entity defined elsewhere in the {{block(MTConnectDevices)}} entity for a piece of equipment.
+
     {{block(References)}} groups one or more {{block(Reference)}} entities associated with the {{block(Component)}}. See {{sect(References Model)}}.
 
 ### ComponentOrganizer
@@ -176,17 +184,16 @@ descriptive content.
 
 The value of {{property(Description)}} **MUST** be `string`.
 
-
 #### Value Properties of Description
 
 {{tbl(value-properties-of-description)}} lists the Value Properties of {{block(Description)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(manufacturer)}} | `string` | 0..1 |
-| {{property(model)}} | `string` | 0..1 |
-| {{property(serialNumber)}} | `string` | 0..1 |
-| {{property(station)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(manufacturer)}}|`string`|0..1|
+|{{property(model)}}|`string`|0..1|
+|{{property(serialNumber)}}|`string`|0..1|
+|{{property(station)}}|`string`|0..1|
 {: caption="Value Properties of Description"}
 
 Descriptions for Value Properties of {{block(Description)}}:

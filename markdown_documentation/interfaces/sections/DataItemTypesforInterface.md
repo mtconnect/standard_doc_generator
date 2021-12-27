@@ -33,12 +33,13 @@ operating state of the service to close a chuck.
 
 #### Subtypes of CloseChuck
 
+
 * `REQUEST`
 
     operating state of the {{term(request)}} to close a chuck.
     
 
-    The value for {{block(CloseChuck)}} when {{property(subType)}} is `REQUEST` **MUST** be one of the `RequestStateEnum` enumeration.
+    The value of {{property(CloseChuck)}} **MUST** be one of the `RequestStateEnum` enumeration. 
 
     `RequestStateEnum` Enumeration:
 
@@ -58,12 +59,13 @@ operating state of the service to close a chuck.
     * `FAIL` 
 
         {{term(requester)}} has detected a failure condition.
+
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to close a chuck.
     
 
-    The value for {{block(CloseChuck)}} when {{property(subType)}} is `RESPONSE` **MUST** be one of the `ResponseStateEnum` enumeration.
+    The value of {{property(CloseChuck)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
     `ResponseStateEnum` Enumeration:
 
@@ -98,18 +100,20 @@ operating state of the service to close a door.
 
 #### Subtypes of CloseDoor
 
+
 * `REQUEST`
 
     operating state of the {{term(request)}} to close a door.
     
 
-    The value for {{block(CloseDoor)}} when {{property(subType)}} is `REQUEST` **MUST** be one of the `RequestStateEnum` enumeration.
+    The value of {{property(CloseDoor)}} **MUST** be one of the `RequestStateEnum` enumeration. 
+
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to close a door.
     
 
-    The value for {{block(CloseDoor)}} when {{property(subType)}} is `RESPONSE` **MUST** be one of the `ResponseStateEnum` enumeration.
+    The value of {{property(CloseDoor)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### InterfaceState
 
@@ -140,18 +144,20 @@ operating state of the service to change the type of material or product being l
 
 #### Subtypes of MaterialChange
 
+
 * `REQUEST`
 
     operating state of the {{term(request)}} to change the type of material or product being loaded or fed to a piece of equipment.
     
 
-    The value for {{block(MaterialChange)}} when {{property(subType)}} is `REQUEST` **MUST** be one of the `RequestStateEnum` enumeration.
+    The value of {{property(MaterialChange)}} **MUST** be one of the `RequestStateEnum` enumeration. 
+
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to change the type of material or product being loaded or fed to a piece of equipment.
     
 
-    The value for {{block(MaterialChange)}} when {{property(subType)}} is `RESPONSE` **MUST** be one of the `ResponseStateEnum` enumeration.
+    The value of {{property(MaterialChange)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### MaterialFeed
 
@@ -162,18 +168,20 @@ operating state of the service to advance material or feed product to a piece of
 
 #### Subtypes of MaterialFeed
 
+
 * `REQUEST`
 
     operating state of the {{term(request)}} to advance material or feed product to a piece of equipment from a continuous or bulk source.
     
 
-    The value for {{block(MaterialFeed)}} when {{property(subType)}} is `REQUEST` **MUST** be one of the `RequestStateEnum` enumeration.
+    The value of {{property(MaterialFeed)}} **MUST** be one of the `RequestStateEnum` enumeration. 
+
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to advance material or feed product to a piece of equipment from a continuous or bulk source.
     
 
-    The value for {{block(MaterialFeed)}} when {{property(subType)}} is `RESPONSE` **MUST** be one of the `ResponseStateEnum` enumeration.
+    The value of {{property(MaterialFeed)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### MaterialLoad
 
@@ -184,18 +192,20 @@ operating state of the service to load a piece of material or product.
 
 #### Subtypes of MaterialLoad
 
+
 * `REQUEST`
 
     operating state of the {{term(request)}} to load a piece of material or product.
     
 
-    The value for {{block(MaterialLoad)}} when {{property(subType)}} is `REQUEST` **MUST** be one of the `RequestStateEnum` enumeration.
+    The value of {{property(MaterialLoad)}} **MUST** be one of the `RequestStateEnum` enumeration. 
+
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to load a piece of material or product.
     
 
-    The value for {{block(MaterialLoad)}} when {{property(subType)}} is `RESPONSE` **MUST** be one of the `ResponseStateEnum` enumeration.
+    The value of {{property(MaterialLoad)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### MaterialRetract
 
@@ -206,18 +216,20 @@ operating state of the service to remove or retract material or product.
 
 #### Subtypes of MaterialRetract
 
+
 * `REQUEST`
 
     operating state of the {{term(request)}} to remove or retract material or product.
     
 
-    The value for {{block(MaterialRetract)}} when {{property(subType)}} is `REQUEST` **MUST** be one of the `RequestStateEnum` enumeration.
+    The value of {{property(MaterialRetract)}} **MUST** be one of the `RequestStateEnum` enumeration. 
+
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to remove or retract material or product.
     
 
-    The value for {{block(MaterialRetract)}} when {{property(subType)}} is `RESPONSE` **MUST** be one of the `ResponseStateEnum` enumeration.
+    The value of {{property(MaterialRetract)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### MaterialUnload
 
@@ -228,18 +240,20 @@ operating state of the service to unload a piece of material or product.
 
 #### Subtypes of MaterialUnload
 
+
 * `REQUEST`
 
     operating state of the {{term(request)}} to unload a piece of material or product.
     
 
-    The value for {{block(MaterialUnload)}} when {{property(subType)}} is `REQUEST` **MUST** be one of the `RequestStateEnum` enumeration.
+    The value of {{property(MaterialUnload)}} **MUST** be one of the `RequestStateEnum` enumeration. 
+
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to unload a piece of material or product.
     
 
-    The value for {{block(MaterialUnload)}} when {{property(subType)}} is `RESPONSE` **MUST** be one of the `ResponseStateEnum` enumeration.
+    The value of {{property(MaterialUnload)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### OpenChuck
 
@@ -250,18 +264,20 @@ operating state of the service to open a chuck.
 
 #### Subtypes of OpenChuck
 
+
 * `REQUEST`
 
     operating state of the {{term(request)}} to open a chuck.
     
 
-    The value for {{block(OpenChuck)}} when {{property(subType)}} is `REQUEST` **MUST** be one of the `RequestStateEnum` enumeration.
+    The value of {{property(OpenChuck)}} **MUST** be one of the `RequestStateEnum` enumeration. 
+
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to open a chuck.
     
 
-    The value for {{block(OpenChuck)}} when {{property(subType)}} is `RESPONSE` **MUST** be one of the `ResponseStateEnum` enumeration.
+    The value of {{property(OpenChuck)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### OpenDoor
 
@@ -272,18 +288,20 @@ operating state of the service to open a door.
 
 #### Subtypes of OpenDoor
 
+
 * `REQUEST`
 
     operating state of the {{term(request)}} to open a door.
     
 
-    The value for {{block(OpenDoor)}} when {{property(subType)}} is `REQUEST` **MUST** be one of the `RequestStateEnum` enumeration.
+    The value of {{property(OpenDoor)}} **MUST** be one of the `RequestStateEnum` enumeration. 
+
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to open a door.
     
 
-    The value for {{block(OpenDoor)}} when {{property(subType)}} is `RESPONSE` **MUST** be one of the `ResponseStateEnum` enumeration.
+    The value of {{property(OpenDoor)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### PartChange
 
@@ -294,15 +312,17 @@ operating state of the service to change the part or product associated with a p
 
 #### Subtypes of PartChange
 
+
 * `REQUEST`
 
     operating state of the {{term(request)}} to change the part or product associated with a piece of equipment to a different part or product.
     
 
-    The value for {{block(PartChange)}} when {{property(subType)}} is `REQUEST` **MUST** be one of the `RequestStateEnum` enumeration.
+    The value of {{property(PartChange)}} **MUST** be one of the `RequestStateEnum` enumeration. 
+
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to change the part or product associated with a piece of equipment to a different part or product.
     
 
-    The value for {{block(PartChange)}} when {{property(subType)}} is `RESPONSE` **MUST** be one of the `ResponseStateEnum` enumeration.
+    The value of {{property(PartChange)}} **MUST** be one of the `ResponseStateEnum` enumeration. 

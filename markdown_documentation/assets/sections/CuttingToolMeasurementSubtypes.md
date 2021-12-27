@@ -16,11 +16,9 @@ These {{block(Measurement)}} subtypes for {{block(CuttingTool)}} are specific to
 largest diameter of the body of a tool item.
 
 
-    {{property(code)}}: `BDX`.
+The {{property(code)}} of {{property(BodyDiameterMax)}} **MUST** be `BDX`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(BodyDiameterMax)}} **MUST** be `MILLIMETER`.
 
 ### BodyLengthMax
 
@@ -28,11 +26,9 @@ largest diameter of the body of a tool item.
 distance measured along the X axis from that point of the item closest to the workpiece, including the cutting item for a tool item but excluding a protruding locking mechanism for an adaptive item, to either the front of the flange on a flanged body or the beginning of the connection interface feature on the machine side for cylindrical or prismatic shanks.
 
 
-    {{property(code)}}: `LBX`.
+The {{property(code)}} of {{property(BodyLengthMax)}} **MUST** be `LBX`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(BodyLengthMax)}} **MUST** be `MILLIMETER`.
 
 ### DepthOfCutMax
 
@@ -40,11 +36,9 @@ distance measured along the X axis from that point of the item closest to the wo
 maximum engagement of the cutting edge or edges with the workpiece measured perpendicular to the feed motion.
 
 
-    {{property(code)}}: `APMX`.
+The {{property(code)}} of {{property(DepthOfCutMax)}} **MUST** be `APMX`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(DepthOfCutMax)}} **MUST** be `MILLIMETER`.
 
 ### CuttingDiameterMax
 
@@ -54,11 +48,9 @@ maximum diameter of a circle on which the defined point Pk of each of the master
 The normal of the machined peripheral surface points towards the axis of the cutting tool.
 
 
-    {{property(code)}}: `DC`.
+The {{property(code)}} of {{property(CuttingDiameterMax)}} **MUST** be `DC`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(CuttingDiameterMax)}} **MUST** be `MILLIMETER`.
 
 ### FlangeDiameterMax
 
@@ -66,11 +58,9 @@ The normal of the machined peripheral surface points towards the axis of the cut
 dimension between two parallel tangents on the outside edge of a flange.
 
 
-    {{property(code)}}: `DF`.
+The {{property(code)}} of {{property(FlangeDiameterMax)}} **MUST** be `DF`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(FlangeDiameterMax)}} **MUST** be `MILLIMETER`.
 
 ### OverallToolLength
 
@@ -78,11 +68,9 @@ dimension between two parallel tangents on the outside edge of a flange.
 largest length dimension of the cutting tool including the master insert where applicable.
 
 
-    {{property(code)}}: `OAL`.
+The {{property(code)}} of {{property(OverallToolLength)}} **MUST** be `OAL`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(OverallToolLength)}} **MUST** be `MILLIMETER`.
 
 ### ShankDiameter
 
@@ -90,11 +78,9 @@ largest length dimension of the cutting tool including the master insert where a
 dimension of the diameter of a cylindrical portion of a tool item or an adaptive item that can participate in a connection.
 
 
-    {{property(code)}}: `DMM`.
+The {{property(code)}} of {{property(ShankDiameter)}} **MUST** be `DMM`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(ShankDiameter)}} **MUST** be `MILLIMETER`.
 
 ### ShankHeight
 
@@ -102,11 +88,9 @@ dimension of the diameter of a cylindrical portion of a tool item or an adaptive
 dimension of the height of the shank.
 
 
-    {{property(code)}}: `H`.
+The {{property(code)}} of {{property(ShankHeight)}} **MUST** be `H`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(ShankHeight)}} **MUST** be `MILLIMETER`.
 
 ### ShankLength
 
@@ -114,11 +98,9 @@ dimension of the height of the shank.
 dimension of the length of the shank.
 
 
-    {{property(code)}}: `LS`.
+The {{property(code)}} of {{property(ShankLength)}} **MUST** be `LS`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(ShankLength)}} **MUST** be `MILLIMETER`.
 
 ### UsableLengthMax
 
@@ -126,11 +108,9 @@ dimension of the length of the shank.
 maximum length of a cutting tool that can be used in a particular cutting operation including the non-cutting portions of the tool.
 
 
-    {{property(code)}}: `LUX`.
+The {{property(code)}} of {{property(UsableLengthMax)}} **MUST** be `LUX`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(UsableLengthMax)}} **MUST** be `MILLIMETER`.
 
 ### ProtrudingLength
 
@@ -138,11 +118,9 @@ maximum length of a cutting tool that can be used in a particular cutting operat
 dimension from the yz-plane to the furthest point of the tool item or adaptive item measured in the -X direction.
 
 
-    {{property(code)}}: `LPR`.
+The {{property(code)}} of {{property(ProtrudingLength)}} **MUST** be `LPR`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(ProtrudingLength)}} **MUST** be `MILLIMETER`.
 
 ### FunctionalLength
 
@@ -152,11 +130,9 @@ distance from the gauge plane or from the end of the shank to the furthest point
 The {{block(CuttingTool)}} functional length will be the length of the entire tool, not a single cutting item. Each {{block(CuttingItem)}} can have an independent {{block(FunctionalLength)}} represented in its measurements. 
 
 
-    {{property(code)}}: `LF`.
+The {{property(code)}} of {{property(FunctionalLength)}} **MUST** be `LF`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(FunctionalLength)}} **MUST** be `MILLIMETER`.
 
 ### Weight
 
@@ -166,8 +142,6 @@ total weight of the cutting tool in grams.
 The force exerted by the mass of the cutting tool.
 
 
-    {{property(code)}}: `WT`.
+The {{property(code)}} of {{property(Weight)}} **MUST** be `WT`.
 
-
-    {{property(units)}}: `GRAM`.
-
+The {{property(units)}} of {{property(Weight)}} **MUST** be `GRAM`.

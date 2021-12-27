@@ -72,17 +72,17 @@ provides information from an {{term(agent)}} defining version information, stora
 
 {{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(assetBufferSize)}} | `uInt32` | 1 |
-| {{property(assetCount)}} | `uInt32` | 1 |
-| {{property(deviceModelChangeTime)}} | `dateTime` | 1 |
-| {{property(version)}} | `version` | 1 |
-| {{property(testIndicator)}} | `boolean` | 0..1 |
-| {{property(sender)}} | `string` | 1 |
-| {{property(instanceId)}} | `uInt64` | 1 |
-| {{property(creationTime)}} | `dateTime` | 1 |
-| {{property(bufferSize)}} | `uInt32` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(assetBufferSize)}}|`uInt32`|1|
+|{{property(assetCount)}}|`uInt32`|1|
+|{{property(deviceModelChangeTime)}}|`dateTime`|1|
+|{{property(version)}}|`version`|1|
+|{{property(testIndicator)}}|`boolean`|0..1|
+|{{property(sender)}}|`string`|1|
+|{{property(instanceId)}}|`uInt64`|1|
+|{{property(creationTime)}}|`dateTime`|1|
+|{{property(bufferSize)}}|`uInt32`|1|
 {: caption="Value Properties of Header"}
 
 Descriptions for Value Properties of {{block(Header)}}:
@@ -156,10 +156,10 @@ root entity of an {{term(MTConnectDevices Response Document)}} that contains the
 
 {{tbl(part-properties-of-mtconnectdevices)}} lists the Part Properties of {{block(MTConnectDevices)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Header)}} | 1 |
-| {{block(Device)}} (organized by {{block(Devices)}}) | 1..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Header)}}|1|
+|{{block(Device)}} (organized by {{block(Devices)}})|1..*|
 {: caption="Part Properties of MTConnectDevices"}
 
 Descriptions for Part Properties of {{block(MTConnectDevices)}}:
@@ -167,11 +167,11 @@ Descriptions for Part Properties of {{block(MTConnectDevices)}}:
 * {{block(Header)}} 
 
     provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
-    provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
 
 * {{block(Device)}} 
 
     {{block(Component)}} composed of a piece of equipment that produces {{termplural(observation)}} about itself.
+
     {{block(Devices)}} groups one or more {{block(Device)}} entities. See {{sect(Devices)}} and {{sect(Components Model)}} for more detail.
 
 
@@ -236,15 +236,15 @@ At least one of {{block(Component)}}, {{block(DataItem)}}, or {{block(Reference)
 
 {{tbl(value-properties-of-component)}} lists the Value Properties of {{block(Component)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(id)}} | `ID` | 1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(nativeName)}} | `string` | 0..1 |
-| {{property(sampleInterval)}} | `float` | 0..1 |
-| `<<deprecated>>`{{property(sampleRate)}} | `float` | 0..1 |
-| {{property(uuid)}} | `ID` | 0..1 |
-| {{property(coordinateSystemIdRef)}} | `ID` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(id)}}|`ID`|1|
+|{{property(name)}}|`string`|0..1|
+|{{property(nativeName)}}|`string`|0..1|
+|{{property(sampleInterval)}}|`float`|0..1|
+|`<<deprecated>>`{{property(sampleRate)}}|`float`|0..1|
+|{{property(uuid)}}|`ID`|0..1|
+|{{property(coordinateSystemIdRef)}}|`ID`|0..1|
 {: caption="Value Properties of Component"}
 
 Descriptions for Value Properties of {{block(Component)}}:
@@ -289,9 +289,9 @@ Descriptions for Value Properties of {{block(Component)}}:
 
 {{tbl(reference-properties-of-component)}} lists the Reference Properties of {{block(Component)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(ComponentStream)}} | 0..1 |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(ComponentStream)}}|0..1|
 {: caption="Reference Properties of Component"}
 
 Descriptions for Reference Properties of {{block(Component)}}:
@@ -299,6 +299,7 @@ Descriptions for Reference Properties of {{block(Component)}}:
 * {{block(ComponentStream)}} 
 
     organizes the data associated with each {{block(Component)}} entity defined for a {{block(Device)}} in the associated {{term(MTConnectDevices Response Document)}}.
+
     {{block(ComponentStream)}} {{termplural(organize)}} the {{block(Observation)}} entities associated with the {{block(Component)}}.
     
     See {{citetitle(MTCPart3)}} for the {{block(ComponentStream)}} model.
@@ -311,15 +312,15 @@ Descriptions for Reference Properties of {{block(Component)}}:
 
 {{tbl(part-properties-of-component)}} lists the Part Properties of {{block(Component)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Description)}} | 0..1 |
-| {{block(Composition)}} (organized by {{block(Compositions)}}) | 0..* |
-| {{block(Component)}} (organized by {{block(Components)}}) | 0..* |
-| {{block(Configuration)}} | 0..1 |
-| {{block(DataItem)}} (organized by {{block(DataItems)}}) | 0..* |
-| {{block(Observation)}} (organized by {{block(Observations)}}) | 0..* |
-| {{block(Reference)}} (organized by {{block(References)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Description)}}|0..1|
+|{{block(Composition)}} (organized by {{block(Compositions)}})|0..*|
+|{{block(Component)}} (organized by {{block(Components)}})|0..*|
+|{{block(Configuration)}}|0..1|
+|{{block(DataItem)}} (organized by {{block(DataItems)}})|0..*|
+|{{block(Observation)}} (organized by {{block(Observations)}})|0..*|
+|{{block(Reference)}} (organized by {{block(References)}})|0..*|
 {: caption="Part Properties of Component"}
 
 Descriptions for Part Properties of {{block(Component)}}:
@@ -327,32 +328,38 @@ Descriptions for Part Properties of {{block(Component)}}:
 * {{block(Description)}} 
 
     descriptive content.
+
     See {{sect(Description)}}.
 
 * {{block(Composition)}} 
 
     functional part of a piece of equipment contained within a {{block(Component)}}.
     
+
     {{block(Compositions)}} groups one or more {{block(Composition)}} entities. See {{sect(Compositions Model)}}.
 
 * {{block(Component)}} 
 
     logical or physical entity that provides a capability.
+
     {{block(Components)}} groups one or more {{block(Component)}} entities.
 
 * {{block(Configuration)}} 
 
     technical information about a piece of equipment describing its physical layout, functional characteristics, and relationships with other pieces of equipment.
+
     See {{sect(Configurations Model)}}.
 
 * {{block(DataItem)}} 
 
     information reported about a piece of equipment.
+
     {{block(DataItems)}} groups one or more {{block(DataItem)}} entities. See {{sect(DataItems)}}.
 
 * {{block(Observation)}} 
 
     abstract entity that provides telemetry data for a {{block(DataItem)}} at a point in time.
+
     {{block(Observations)}} groups one or more {{block(Observation)}} entities made by the {{block(Component)}} entity. 
     
     {{block(Component)}} {{termplural(observe)}} {{block(DataItem)}} entities to create {{block(Observation)}} entities for the {{block(DataItem)}} entities.
@@ -366,6 +373,7 @@ Descriptions for Part Properties of {{block(Component)}}:
 * {{block(Reference)}} 
 
     pointer to information that is associated with another entity defined elsewhere in the {{block(MTConnectDevices)}} entity for a piece of equipment.
+
     {{block(References)}} groups one or more {{block(Reference)}} entities associated with the {{block(Component)}}. See {{sect(References Model)}}.
 
 ### ComponentOrganizer
@@ -385,17 +393,16 @@ descriptive content.
 
 The value of {{property(Description)}} **MUST** be `string`.
 
-
 #### Value Properties of Description
 
 {{tbl(value-properties-of-description)}} lists the Value Properties of {{block(Description)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(manufacturer)}} | `string` | 0..1 |
-| {{property(model)}} | `string` | 0..1 |
-| {{property(serialNumber)}} | `string` | 0..1 |
-| {{property(station)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(manufacturer)}}|`string`|0..1|
+|{{property(model)}}|`string`|0..1|
+|{{property(serialNumber)}}|`string`|0..1|
+|{{property(station)}}|`string`|0..1|
 {: caption="Value Properties of Description"}
 
 Descriptions for Value Properties of {{block(Description)}}:
@@ -439,12 +446,12 @@ See {{sect(Component)}} for details on the {{block(Device)}} model.
 
 {{tbl(value-properties-of-device)}} lists the Value Properties of {{block(Device)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| `<<deprecated>>`{{property(iso841Class)}} | `string` | 0..1 |
-| {{property(uuid)}} | `ID` | 1 |
-| {{property(mtconnectVersion)}} | `string` | 0..1 |
-| {{property(name)}} | `string` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|`<<deprecated>>`{{property(iso841Class)}}|`string`|0..1|
+|{{property(uuid)}}|`ID`|1|
+|{{property(mtconnectVersion)}}|`string`|0..1|
+|{{property(name)}}|`string`|1|
 {: caption="Value Properties of Device"}
 
 Descriptions for Value Properties of {{block(Device)}}:
@@ -966,12 +973,12 @@ functional part of a piece of equipment contained within a {{block(Component)}}.
 
 {{tbl(value-properties-of-composition)}} lists the Value Properties of {{block(Composition)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `CompositionTypeEnum` | 1 |
-| {{property(id)}} | `ID` | 1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(uuid)}} | `ID` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`CompositionTypeEnum`|1|
+|{{property(id)}}|`ID`|1|
+|{{property(name)}}|`string`|0..1|
+|{{property(uuid)}}|`ID`|0..1|
 {: caption="Value Properties of Composition"}
 
 Descriptions for Value Properties of {{block(Composition)}}:
@@ -980,7 +987,7 @@ Descriptions for Value Properties of {{block(Composition)}}:
 
     type of {{block(Composition)}} element. See {{sect(Composition Types)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `CompositionTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `CompositionTypeEnum` enumeration. 
 
 * {{property(id)}} 
 
@@ -998,10 +1005,10 @@ Descriptions for Value Properties of {{block(Composition)}}:
 
 {{tbl(part-properties-of-composition)}} lists the Part Properties of {{block(Composition)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Description)}} | 0..1 |
-| {{block(Configuration)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Description)}}|0..1|
+|{{block(Configuration)}}|0..1|
 {: caption="Part Properties of Composition"}
 
 Descriptions for Part Properties of {{block(Composition)}}:
@@ -1009,11 +1016,13 @@ Descriptions for Part Properties of {{block(Composition)}}:
 * {{block(Description)}} 
 
     descriptive content.
+
     See {{sect(Description)}}.
 
 * {{block(Configuration)}} 
 
     technical information about a piece of equipment describing its physical layout, functional characteristics, and relationships with other pieces of equipment.
+
     See {{sect(Configurations Model)}}.
 
 
@@ -1359,24 +1368,24 @@ information reported about a piece of equipment.
 
 {{tbl(value-properties-of-dataitem)}} lists the Value Properties of {{block(DataItem)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(category)}} | `CategoryEnum` | 1 |
-| {{property(compositionId)}} | `ID` | 0..1 |
-| {{property(coordinateSystem)}} | `CoordinateSystemEnum` | 0..1 |
-| {{property(discrete)}} | `boolean` | 0..1 |
-| {{property(id)}} | `ID` | 1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(nativeScale)}} | `integer` | 0..1 |
-| {{property(nativeUnits)}} | `NativeUnitEnum` | 0..1 |
-| {{property(sampleRate)}} | `float` | 0..1 |
-| {{property(significantDigits)}} | `integer` | 0..1 |
-| {{property(statistic)}} | `StatisticEnum` | 0..1 |
-| {{property(subType)}} | `DataItemSubTypeEnum` | 0..1 |
-| {{property(type)}} | `DataItemTypeEnum` | 1 |
-| {{property(units)}} | `UnitEnum` | 0..1 |
-| {{property(representation)}} | `RepresentationEnum` | 0..1 |
-| {{property(coordinateSystemIdRef)}} | `ID` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(category)}}|`CategoryEnum`|1|
+|{{property(compositionId)}}|`ID`|0..1|
+|{{property(coordinateSystem)}}|`CoordinateSystemEnum`|0..1|
+|{{property(discrete)}}|`boolean`|0..1|
+|{{property(id)}}|`ID`|1|
+|{{property(name)}}|`string`|0..1|
+|{{property(nativeScale)}}|`integer`|0..1|
+|{{property(nativeUnits)}}|`NativeUnitEnum`|0..1|
+|{{property(sampleRate)}}|`float`|0..1|
+|{{property(significantDigits)}}|`integer`|0..1|
+|{{property(statistic)}}|`StatisticEnum`|0..1|
+|{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
+|{{property(type)}}|`DataItemTypeEnum`|1|
+|{{property(units)}}|`UnitEnum`|0..1|
+|{{property(representation)}}|`RepresentationEnum`|0..1|
+|{{property(coordinateSystemIdRef)}}|`ID`|0..1|
 {: caption="Value Properties of DataItem"}
 
 Descriptions for Value Properties of {{block(DataItem)}}:
@@ -1385,7 +1394,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     specifies the kind of information provided by a data item.
 
-    The value of {{property(category)}} **MUST** be one of the `CategoryEnum` enumeration.
+    The value of {{property(category)}} **MUST** be one of the `CategoryEnum` enumeration. 
 
     `CategoryEnum` Enumeration:
 
@@ -1412,7 +1421,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     for measured values relative to a coordinate system like {{block(POSITION)}}, the coordinate system used may be reported.
 
-    The value of {{property(coordinateSystem)}} **MUST** be one of the `CoordinateSystemEnum` enumeration.
+    The value of {{property(coordinateSystem)}} **MUST** be one of the `CoordinateSystemEnum` enumeration. 
 
     `CoordinateSystemEnum` Enumeration:
 
@@ -1449,7 +1458,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     native units of measurement for the reported value of the data item.
 
-    The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration.
+    The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
 
     `<<extensible>>``NativeUnitEnum` Enumeration:
 
@@ -1606,7 +1615,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     type of statistical calculation performed on a series of data samples to provide the reported data value.
 
-    The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration.
+    The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration. 
 
     `StatisticEnum` Enumeration:
 
@@ -1651,19 +1660,19 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     sub-categorization of the data item {{property(type)}}. See {{DataItem SubTypes}}.
 
-    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration.
+    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(type)}} 
 
     type of data being measured. See {{sect(DataItem Types)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(units)}} 
 
     unit of measurement for the reported value of the data item.
 
-    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration.
+    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
     `<<extensible>>``UnitEnum` Enumeration:
 
@@ -1863,7 +1872,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     If {{property(representation)}} is not specified, it **MUST** be determined to be `VALUE`.
     
 
-    The value of {{property(representation)}} **MUST** be one of the `RepresentationEnum` enumeration.
+    The value of {{property(representation)}} **MUST** be one of the `RepresentationEnum` enumeration. 
 
     `RepresentationEnum` Enumeration:
 
@@ -1911,9 +1920,9 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
 {{tbl(reference-properties-of-dataitem)}} lists the Reference Properties of {{block(DataItem)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Observation)}} (organized by {{block(Observations)}}) | 0..* |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(Observation)}} (organized by {{block(Observations)}})|0..*|
 {: caption="Reference Properties of DataItem"}
 
 Descriptions for Reference Properties of {{block(DataItem)}}:
@@ -1921,6 +1930,7 @@ Descriptions for Reference Properties of {{block(DataItem)}}:
 * {{block(Observation)}} 
 
     abstract entity that provides telemetry data for a {{block(DataItem)}} at a point in time.
+
     {{block(Observations)}} groups one or more {{block(Observation)}} entities made for the {{block(DataItem)}} entity. 
     
     {{block(Component)}} {{termplural(observe)}} {{block(DataItem)}} entities to create {{block(Observation)}} entities for the {{block(DataItem)}} entities.
@@ -1935,15 +1945,15 @@ Descriptions for Reference Properties of {{block(DataItem)}}:
 
 {{tbl(part-properties-of-dataitem)}} lists the Part Properties of {{block(DataItem)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Source)}} | 0..1 |
-| {{block(Constraints)}} | 0..1 |
-| {{block(Filter)}} (organized by {{block(Filters)}}) | 0..* |
-| {{block(InitialValue)}} | 0..1 |
-| {{block(ResetTrigger)}} | 0..1 |
-| {{block(Definition)}} | 0..1 |
-| {{block(Relationship)}} (organized by {{block(Relationships)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Source)}}|0..1|
+|{{block(Constraints)}}|0..1|
+|{{block(Filter)}} (organized by {{block(Filters)}})|0..*|
+|{{block(InitialValue)}}|0..1|
+|{{block(ResetTrigger)}}|0..1|
+|{{block(Definition)}}|0..1|
+|{{block(Relationship)}} (organized by {{block(Relationships)}})|0..*|
 {: caption="Part Properties of DataItem"}
 
 Descriptions for Part Properties of {{block(DataItem)}}:
@@ -1953,36 +1963,39 @@ Descriptions for Part Properties of {{block(DataItem)}}:
     identifies the {{block(Component)}}, {{block(DataItem)}}, or {{block(Composition)}} from which a measured value originates.
     
     One of {{property(componentId)}}, {{property(compositionId)}}, or {{property(dataItemId)}} **MUST** be defined for {{block(Source)}}.
+
     See {{sect(Source)}}.
 
 * {{block(Constraints)}} 
 
     {{termplural(organize)}} a set of expected values that can be reported for a {{block(DataItem)}}.
+
     {{block(Constraints)}} organizes a set of expected values that can be reported for the {{block(DataItem)}}. See {{sect(Constraints)}}.
 
 * {{block(Filter)}} 
 
     provides a means to control when an {{term(agent)}} records updated information for a {{block(DataItem)}}. 
+
     {{block(Filters)}} groups one or more {{block(Filter)}} entities associated with the {{block(DataItem)}}. 
 
 * {{block(InitialValue)}} 
 
     starting value for a {{block(DataItem)}} as well as the value to be set for the {{block(DataItem)}} after a reset event.
-    starting value for a {{block(DataItem)}} as well as the value to be set for the {{block(DataItem)}} after a reset event.
 
 * {{block(ResetTrigger)}} 
 
-    type of event that may cause a reset to occur.
     type of event that may cause a reset to occur.
 
 * {{block(Definition)}} 
 
     defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated with the {{block(DataItem)}} when the {{property(representation)}} is either `DATA` or `TABLE`.
+
     See {{sect(Definition)}}.
 
 * {{block(Relationship)}} 
 
     association between two pieces of equipment that function independently but together perform a manufacturing operation.
+
     {{block(Relationships)}} groups one or more {{block(DataItemRelationship)}} and {{block(SpecificationRelationship)}}. See {{sect(Relationships)}}.
 
 
@@ -2003,9 +2016,9 @@ type of event that may cause a reset to occur.
 
 {{tbl(value-properties-of-resettrigger)}} lists the Value Properties of {{block(ResetTrigger)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `ResetTriggerEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`ResetTriggerEnum`|1|
 {: caption="Value Properties of ResetTrigger"}
 
 Descriptions for Value Properties of {{block(ResetTrigger)}}:
@@ -2014,7 +2027,7 @@ Descriptions for Value Properties of {{block(ResetTrigger)}}:
 
     type of {{block(ResetTrigger)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `ResetTriggerEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `ResetTriggerEnum` enumeration. 
 
     `ResetTriggerEnum` Enumeration:
 
@@ -2065,16 +2078,15 @@ One of {{property(componentId)}}, {{property(compositionId)}}, or {{property(dat
 
 The value of {{property(Source)}} **MUST** be `string`.
 
-
 #### Value Properties of Source
 
 {{tbl(value-properties-of-source)}} lists the Value Properties of {{block(Source)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(componentId)}} | `ID` | 0..1 |
-| {{property(compositionId)}} | `ID` | 0..1 |
-| {{property(dataItemId)}} | `ID` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(componentId)}}|`ID`|0..1|
+|{{property(compositionId)}}|`ID`|0..1|
+|{{property(dataItemId)}}|`ID`|0..1|
 {: caption="Value Properties of Source"}
 
 Descriptions for Value Properties of {{block(Source)}}:
@@ -2099,7 +2111,6 @@ starting value for a {{block(DataItem)}} as well as the value to be set for the 
 
 The value of {{property(InitialValue)}} **MUST** be `string`.
 
-
 ### Filter
 
 
@@ -2110,9 +2121,9 @@ provides a means to control when an {{term(agent)}} records updated information 
 
 {{tbl(value-properties-of-filter)}} lists the Value Properties of {{block(Filter)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `FilterEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`FilterEnum`|1|
 {: caption="Value Properties of Filter"}
 
 Descriptions for Value Properties of {{block(Filter)}}:
@@ -2121,7 +2132,7 @@ Descriptions for Value Properties of {{block(Filter)}}:
 
     type of {{block(Filter)}}
 
-    The value of {{property(type)}} **MUST** be one of the `FilterEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `FilterEnum` enumeration. 
 
     `FilterEnum` Enumeration:
 
@@ -2148,13 +2159,13 @@ Descriptions for Value Properties of {{block(Filter)}}:
 
 {{tbl(value-properties-of-constraints)}} lists the Value Properties of {{block(Constraints)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| `<<deprecated>>`{{property(Filter)}} | `FilterEnum` | 0..1 |
-| {{property(Maximum)}} | `float` | 0..1 |
-| {{property(Minimum)}} | `float` | 0..1 |
-| {{property(Nominal)}} | `float` | 0..1 |
-| {{property(Value)}} | `string` | 0..* |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|`<<deprecated>>`{{property(Filter)}}|`FilterEnum`|0..1|
+|{{property(Maximum)}}|`float`|0..1|
+|{{property(Minimum)}}|`float`|0..1|
+|{{property(Nominal)}}|`float`|0..1|
+|{{property(Value)}}|`string`|0..*|
 {: caption="Value Properties of Constraints"}
 
 Descriptions for Value Properties of {{block(Constraints)}}:
@@ -2195,11 +2206,11 @@ defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated 
 
 {{tbl(part-properties-of-definition)}} lists the Part Properties of {{block(Definition)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(CellDefinition)}} (organized by {{block(CellDefinitions)}}) | 0..* |
-| {{block(Description)}} | 0..1 |
-| {{block(EntryDefinition)}} (organized by {{block(EntryDefinitions)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(CellDefinition)}} (organized by {{block(CellDefinitions)}})|0..*|
+|{{block(Description)}}|0..1|
+|{{block(EntryDefinition)}} (organized by {{block(EntryDefinitions)}})|0..*|
 {: caption="Part Properties of Definition"}
 
 Descriptions for Part Properties of {{block(Definition)}}:
@@ -2207,16 +2218,19 @@ Descriptions for Part Properties of {{block(Definition)}}:
 * {{block(CellDefinition)}} 
 
     semantic definition of a {{block(Cell)}}.
+
     {{block(CellDefinitions)}} groups one or more {{block(CellDefinition)}} entities. See {{sect(CellDefinition)}}.
 
 * {{block(Description)}} 
 
     descriptive content.
+
     See {{sect(Description)}}.
 
 * {{block(EntryDefinition)}} 
 
     semantic definition of an {{block(Entry)}}.
+
     {{block(EntryDefinitions)}} groups one or more {{block(EntryDefinition)}} entities. See {{sect(EntryDefinition)}}.
 
 
@@ -2235,13 +2249,13 @@ semantic definition of a {{block(Cell)}}.
 
 {{tbl(value-properties-of-celldefinition)}} lists the Value Properties of {{block(CellDefinition)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(units)}} | `UnitEnum` | 0..1 |
-| {{property(key)}} | `string` | 0..1 |
-| {{property(type)}} | `DataItemTypeEnum` | 0..1 |
-| {{property(subType)}} | `DataItemSubTypeEnum` | 0..1 |
-| {{property(keyType)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(units)}}|`UnitEnum`|0..1|
+|{{property(key)}}|`string`|0..1|
+|{{property(type)}}|`DataItemTypeEnum`|0..1|
+|{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
+|{{property(keyType)}}|`string`|0..1|
 {: caption="Value Properties of CellDefinition"}
 
 Descriptions for Value Properties of {{block(CellDefinition)}}:
@@ -2250,7 +2264,7 @@ Descriptions for Value Properties of {{block(CellDefinition)}}:
 
     same as {{block(DataItem)}} {{property(units,DataItem)}}. See {{sect(Value Properties of DataItem)}}.
 
-    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration.
+    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
 * {{property(key)}} 
 
@@ -2262,13 +2276,13 @@ Descriptions for Value Properties of {{block(CellDefinition)}}:
 
     same as {{block(DataItem)}} {{property(type,DataItem)}}.  See {{sect(DataItem Types)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(subType)}} 
 
     same as {{block(DataItem)}} {{property(subType,DataItem)}}.  See {{sect(DataItem SubTypes)}}.
 
-    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration.
+    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(keyType)}} 
 
@@ -2278,9 +2292,9 @@ Descriptions for Value Properties of {{block(CellDefinition)}}:
 
 {{tbl(part-properties-of-celldefinition)}} lists the Part Properties of {{block(CellDefinition)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Description)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Description)}}|0..1|
 {: caption="Part Properties of CellDefinition"}
 
 Descriptions for Part Properties of {{block(CellDefinition)}}:
@@ -2288,6 +2302,7 @@ Descriptions for Part Properties of {{block(CellDefinition)}}:
 * {{block(Description)}} 
 
     descriptive content.
+
     See {{sect(Description)}}.
 
 ### EntryDefinition
@@ -2300,13 +2315,13 @@ semantic definition of an {{block(Entry)}}.
 
 {{tbl(value-properties-of-entrydefinition)}} lists the Value Properties of {{block(EntryDefinition)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(key)}} | `string` | 0..1 |
-| {{property(units)}} | `UnitEnum` | 0..1 |
-| {{property(type)}} | `DataItemTypeEnum` | 0..1 |
-| {{property(subType)}} | `DataItemSubTypeEnum` | 0..1 |
-| {{property(keyType)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(key)}}|`string`|0..1|
+|{{property(units)}}|`UnitEnum`|0..1|
+|{{property(type)}}|`DataItemTypeEnum`|0..1|
+|{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
+|{{property(keyType)}}|`string`|0..1|
 {: caption="Value Properties of EntryDefinition"}
 
 Descriptions for Value Properties of {{block(EntryDefinition)}}:
@@ -2321,19 +2336,19 @@ Descriptions for Value Properties of {{block(EntryDefinition)}}:
 
     same as {{block(DataItem)}} {{property(units,DataItem)}}. See {{sect(Value Properties of DataItem)}}.
 
-    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration.
+    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
 * {{property(type)}} 
 
     same as {{block(DataItem)}} {{property(type,DataItem)}}. See {{sect(DataItem Types)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(subType)}} 
 
     same as {{block(DataItem)}} {{property(subType,DataItem)}}. See {{sect(DataItem SubTypes)}}.
 
-    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration.
+    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(keyType)}} 
 
@@ -2343,10 +2358,10 @@ Descriptions for Value Properties of {{block(EntryDefinition)}}:
 
 {{tbl(part-properties-of-entrydefinition)}} lists the Part Properties of {{block(EntryDefinition)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Description)}} | 0..1 |
-| {{block(CellDefinition)}} (organized by {{block(CellDefinitions)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Description)}}|0..1|
+|{{block(CellDefinition)}} (organized by {{block(CellDefinitions)}})|0..*|
 {: caption="Part Properties of EntryDefinition"}
 
 Descriptions for Part Properties of {{block(EntryDefinition)}}:
@@ -2354,11 +2369,13 @@ Descriptions for Part Properties of {{block(EntryDefinition)}}:
 * {{block(Description)}} 
 
     descriptive content.
+
     See {{sect(Description)}}.
 
 * {{block(CellDefinition)}} 
 
     semantic definition of a {{block(Cell)}}.
+
     {{block(CellDefinitions)}} groups one or more {{block(CellDefinition)}} entities if the {{property(representation,DataItem)}} of {{block(DataItem)}} is `TABLE`. See {{sect(CellDefinition)}}.
 
 
@@ -2379,10 +2396,10 @@ See {{sect(Relationships)}} for details on the {{block(Relationship)}} model.
 
 {{tbl(value-properties-of-specificationrelationship)}} lists the Value Properties of {{block(SpecificationRelationship)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `SpecificationRelationshipTypeEnum` | 1 |
-| {{property(idRef)}} | `ID` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`SpecificationRelationshipTypeEnum`|1|
+|{{property(idRef)}}|`ID`|1|
 {: caption="Value Properties of SpecificationRelationship"}
 
 Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
@@ -2391,7 +2408,7 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 
     specifies how the {{block(Specification)}} is related.
 
-    The value of {{property(type)}} **MUST** be one of the `SpecificationRelationshipTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `SpecificationRelationshipTypeEnum` enumeration. 
 
     `SpecificationRelationshipTypeEnum` Enumeration:
 
@@ -2414,10 +2431,10 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 
 {{tbl(value-properties-of-dataitemrelationship)}} lists the Value Properties of {{block(DataItemRelationship)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `DataItemRelationshipTypeEnum` | 1 |
-| {{property(idRef)}} | `ID` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`DataItemRelationshipTypeEnum`|1|
+|{{property(idRef)}}|`ID`|1|
 {: caption="Value Properties of DataItemRelationship"}
 
 Descriptions for Value Properties of {{block(DataItemRelationship)}}:
@@ -2426,7 +2443,7 @@ Descriptions for Value Properties of {{block(DataItemRelationship)}}:
 
     specifies how the {{block(DataItem)}} is related.
 
-    The value of {{property(type)}} **MUST** be one of the `DataItemRelationshipTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `DataItemRelationshipTypeEnum` enumeration. 
 
     `DataItemRelationshipTypeEnum` Enumeration:
 
@@ -2483,61 +2500,30 @@ All {{block(Sample)}}s **MAY** have associated {{block(Condition)}} states.  {{b
 
 The value of {{property(type)}} with {{property(category)}} `Condition` **MUST** be one of the following:
 
+
 * `ACTUATOR` 
 
-    indication of a fault associated with an actuator. 
-
-
-* `CHUCK_INTERLOCK` 
-
-    indication of the operational condition of the interlock function for an electronically controller chuck. 
-
+    indication of a fault associated with an actuator.
 
 * `COMMUNICATIONS` 
 
-    indication that the piece of equipment has experienced a communications failure. 
-
+    indication that the piece of equipment has experienced a communications failure.
 
 * `DATA_RANGE` 
 
-    indication that the value of the data associated with a measured value or a calculation is outside of an expected range. 
-
-
-* `DIRECTION` 
-
-    indication of a fault associated with the direction of motion of an entity. 
-
-
-* `END_OF_BAR` 
-
-    indication that the end of a piece of bar stock has been reached. 
-
-
-* `HARDWARE` 
-
-    indication of a fault associated with the hardware subsystem of the entity. 
-
-
-* `INTERFACE_STATE` 
-
-    indication of the operation condition of an {{block(Interface)}} entity. 
-
+    indication that the value of the data associated with a measured value or a calculation is outside of an expected range.
 
 * `LOGIC_PROGRAM` 
 
-    indication that an error occurred in the logic program or programmable logic controller (PLC) associated with a piece of equipment. 
-
+    indication that an error occurred in the logic program or programmable logic controller (PLC) associated with a piece of equipment.
 
 * `MOTION_PROGRAM` 
 
-    indication that an error occurred in the motion program associated with a piece of equipment. 
-
+    indication that an error occurred in the motion program associated with a piece of equipment.
 
 * `SYSTEM` 
 
-    general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware. 
-
-
+    general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware.
 
 ### Event
 
@@ -2549,706 +2535,637 @@ An {{block(Event)}} is information that, when provided at any specific point in 
 
 The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be one of the following:
 
+
 * `ACTIVATION_COUNT` 
 
-    accumulation of the number of times a function has attempted to, or is planned to attempt to, activate or be performed. 
-
+    accumulation of the number of times a function has attempted to, or is planned to attempt to, activate or be performed.
 
     Subtypes of `ACTIVATION_COUNT` : `TARGET`, `GOOD`, `BAD`, `REMAINING`, `ABORTED`, `FAILED`, `COMPLETE`, `ALL`.
 
+
 * `ACTIVE_AXES` 
 
-    set of axes currently associated with a {{block(Path)}} or {{block(Controller)}}. 
-
+    set of axes currently associated with a {{block(Path)}} or {{block(Controller)}}.
 
 * `ACTUATOR_STATE` 
 
-    operational state of an apparatus for moving or controlling a mechanism or system. 
-
+    operational state of an apparatus for moving or controlling a mechanism or system.
 
 * `ADAPTER_SOFTWARE_VERSION` 
 
-    originator’s software version of the {{term(adapter)}}. 
-
+    originator’s software version of the {{term(adapter)}}.
 
 * `ADAPTER_URI` 
 
-    {{term(URI)}} of the {{term(adapter)}}. 
-
+    {{term(URI)}} of the {{term(adapter)}}.
 
 * `ALARM` 
 
-    **DEPRECATED:** Replaced with `CONDITION` category data items in Version 1.1.0. 
-
+    **DEPRECATED:** Replaced with `CONDITION` category data items in Version 1.1.0.
 
 * `ALARM_LIMIT` 
 
-    set of limits used to trigger warning or alarm indicators. 
-
+    set of limits used to trigger warning or alarm indicators.
 
 * `APPLICATION` 
 
-    application on a {{block(Component)}}. 
-
+    application on a {{block(Component)}}.
 
     Subtypes of `APPLICATION` : `VERSION`, `RELEASE_DATE`, `MANUFACTURER`, `LICENSE`, `INSTALL_DATE`.
 
+
 * `ASSET_CHANGED` 
 
-    {{block(assetId)}} of the {{term(Asset)}} that has been added or changed. 
-
+    {{block(assetId)}} of the {{term(Asset)}} that has been added or changed.
 
 * `ASSET_REMOVED` 
 
-    {{block(assetId)}} of the {{term(Asset)}} that has been removed. 
-
+    {{block(assetId)}} of the {{term(Asset)}} that has been removed.
 
 * `AVAILABILITY` 
 
-    {{term(agent)}}'s ability to communicate with the data source. 
-
+    {{term(agent)}}'s ability to communicate with the data source.
 
 * `AXIS_COUPLING` 
 
     describes the way the axes will be associated to each other. 
       
-    This is used in conjunction with `COUPLED_AXES` to indicate the way they are interacting. 
-
+    This is used in conjunction with `COUPLED_AXES` to indicate the way they are interacting.
 
 * `AXIS_FEEDRATE_OVERRIDE` 
 
-    value of a signal or calculation issued to adjust the feedrate of an individual linear type axis. 
-
+    value of a signal or calculation issued to adjust the feedrate of an individual linear type axis.
 
     Subtypes of `AXIS_FEEDRATE_OVERRIDE` : `JOG`, `PROGRAMMED`, `RAPID`.
 
+
 * `AXIS_INTERLOCK` 
 
-    state of the axis lockout function when power has been removed and the axis is allowed to move freely. 
-
+    state of the axis lockout function when power has been removed and the axis is allowed to move freely.
 
 * `AXIS_STATE` 
 
-    state of a {{block(Linear)}} or {{block(Rotary)}} component representing an axis. 
-
+    state of a {{block(Linear)}} or {{block(Rotary)}} component representing an axis.
 
 * `BLOCK` 
 
-    line of code or command being executed by a {{block(Controller)}} entity. 
-
+    line of code or command being executed by a {{block(Controller)}} entity.
 
 * `BLOCK_COUNT` 
 
-    total count of the number of blocks of program code that have been executed since execution started. 
-
+    total count of the number of blocks of program code that have been executed since execution started.
 
 * `CHUCK_INTERLOCK` 
 
-    state of an interlock function or control logic state intended to prevent the associated {{block(Chuck)}} component from being operated. 
-
+    state of an interlock function or control logic state intended to prevent the associated {{block(Chuck)}} component from being operated.
 
     Subtypes of `CHUCK_INTERLOCK` : `MANUAL_UNCLAMP`.
+
 
 * `CHUCK_STATE` 
 
     operating state of a mechanism that holds a part or stock material during a manufacturing process. 
     
-    It may also represent a mechanism that holds any other mechanism in place within a piece of equipment. 
-
+    It may also represent a mechanism that holds any other mechanism in place within a piece of equipment.
 
 * `CLOSE_CHUCK` 
 
-    operating state of the service to close a chuck. 
-
+    operating state of the service to close a chuck.
 
     Subtypes of `CLOSE_CHUCK` : `REQUEST`, `RESPONSE`.
 
+
 * `CLOSE_DOOR` 
 
-    operating state of the service to close a door. 
-
+    operating state of the service to close a door.
 
     Subtypes of `CLOSE_DOOR` : `REQUEST`, `RESPONSE`.
+
 
 * `CODE` 
 
     programmatic code being executed.
     
-    **DEPRECATED** in *Version 1.1*. 
-
+    **DEPRECATED** in *Version 1.1*.
 
 * `COMPOSITION_STATE` 
 
-    operating state of a mechanism represented by a {{block(Composition)}} entity. 
-
+    operating state of a mechanism represented by a {{block(Composition)}} entity.
 
     Subtypes of `COMPOSITION_STATE` : `ACTION`, `LATERAL`, `MOTION`, `SWITCHED`, `VERTICAL`.
 
+
 * `CONNECTION_STATUS` 
 
-    status of the connection between an {{term(adapter)}} and an {{term(agent)}}. 
-
+    status of the connection between an {{term(adapter)}} and an {{term(agent)}}.
 
 * `CONTROLLER_MODE` 
 
-    current mode of the {{block(Controller)}} component. 
-
+    current mode of the {{block(Controller)}} component.
 
 * `CONTROLLER_MODE_OVERRIDE` 
 
-    setting or operator selection that changes the behavior of a piece of equipment. 
-
+    setting or operator selection that changes the behavior of a piece of equipment.
 
     Subtypes of `CONTROLLER_MODE_OVERRIDE` : `DRY_RUN`, `SINGLE_BLOCK`, `MACHINE_AXIS_LOCK`, `OPTIONAL_STOP`, `TOOL_CHANGE_STOP`.
 
+
 * `CONTROL_LIMIT` 
 
-    set of limits used to indicate whether a process variable is stable and in control. 
-
+    set of limits used to indicate whether a process variable is stable and in control.
 
 * `COUPLED_AXES` 
 
-    set of associated axes. 
-
+    set of associated axes.
 
 * `CYCLE_COUNT` 
 
-    accumulation of the number of times a cyclic function has attempted to, or is planned to attempt to execute. 
-
+    accumulation of the number of times a cyclic function has attempted to, or is planned to attempt to execute.
 
     Subtypes of `CYCLE_COUNT` : `GOOD`, `REMAINING`, `COMPLETE`, `ABORTED`, `BAD`, `FAILED`, `TARGET`, `ALL`.
 
+
 * `DATE_CODE` 
 
-    time and date code associated with a material or other physical item. 
-
+    time and date code associated with a material or other physical item.
 
     Subtypes of `DATE_CODE` : `MANUFACTURE`, `EXPIRATION`, `FIRST_USE`.
 
+
 * `DEACTIVATION_COUNT` 
 
-    accumulation of the number of times a function has attempted to, or is planned to attempt to, deactivate or cease. 
-
+    accumulation of the number of times a function has attempted to, or is planned to attempt to, deactivate or cease.
 
     Subtypes of `DEACTIVATION_COUNT` : `BAD`, `FAILED`, `TARGET`, `COMPLETE`, `REMAINING`, `ALL`, `GOOD`, `ABORTED`.
 
+
 * `DEVICE_ADDED` 
 
-    {{term(UUID)}} of new device added to an {{term(MTConnect Agent)}}. 
-
+    {{term(UUID)}} of new device added to an {{term(MTConnect Agent)}}.
 
 * `DEVICE_CHANGED` 
 
-    {{term(UUID)}} of the device whose {{term(metadata)}} has changed. 
-
+    {{term(UUID)}} of the device whose {{term(metadata)}} has changed.
 
 * `DEVICE_REMOVED` 
 
-    {{term(UUID)}} of a device removed from an {{term(MTConnect Agent)}}. 
-
+    {{term(UUID)}} of a device removed from an {{term(MTConnect Agent)}}.
 
 * `DEVICE_UUID` 
 
-    identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function. 
-
+    identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function.
 
 * `DIRECTION` 
 
-    direction of motion. 
-
+    direction of motion.
 
     Subtypes of `DIRECTION` : `ROTARY`, `LINEAR`.
 
+
 * `DOOR_STATE` 
 
-    operational state of a {{block(Door)}} component or composition element. 
-
+    operational state of a {{block(Door)}} component or composition element.
 
 * `EMERGENCY_STOP` 
 
-    state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment. 
-
+    state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment.
 
 * `END_OF_BAR` 
 
-    indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached. 
-
+    indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached.
 
     Subtypes of `END_OF_BAR` : `PRIMARY`, `AUXILIARY`.
 
+
 * `EQUIPMENT_MODE` 
 
-    indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities. 
-
+    indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities.
 
     Subtypes of `EQUIPMENT_MODE` : `LOADED`, `WORKING`, `OPERATING`, `POWERED`, `DELAY`.
 
+
 * `EXECUTION` 
 
-    execution status of the {{block(Component)}}. 
-
+    execution status of the {{block(Component)}}.
 
 * `FIRMWARE` 
 
-    embedded software of a {{block(Component)}}. 
-
+    embedded software of a {{block(Component)}}.
 
     Subtypes of `FIRMWARE` : `VERSION`, `RELEASE_DATE`, `MANUFACTURER`, `LICENSE`, `INSTALL_DATE`.
 
+
 * `FUNCTIONAL_MODE` 
 
-    current intended production status of the {{block(Component)}}. 
-
+    current intended production status of the {{block(Component)}}.
 
 * `HARDNESS` 
 
-    hardness of a material. 
-
+    hardness of a material.
 
     Subtypes of `HARDNESS` : `ROCKWELL`, `VICKERS`, `SHORE`, `BRINELL`, `LEEB`, `MOHS`, `VERSION`, `RELEASE_DATE`, `MANUFACTURER`, `LICENSE`, `INSTALL_DATE`.
 
+
 * `HARDWARE` 
 
-    hardware of a {{block(Component)}}. 
-
+    hardware of a {{block(Component)}}.
 
 * `INTERFACE_STATE` 
 
-    operational state of an {{block(Interface)}}. 
-
+    operational state of an {{block(Interface)}}.
 
 * `LIBRARY` 
 
-    software library on a {{block(Component)}} 
-
+    software library on a {{block(Component)}}
 
     Subtypes of `LIBRARY` : `VERSION`, `RELEASE_DATE`, `MANUFACTURER`, `LICENSE`, `INSTALL_DATE`.
+
 
 * `LINE` 
 
     current line of code being executed.
     
-    **DEPRECATED** in *Version 1.4.0*. 
-
+    **DEPRECATED** in *Version 1.4.0*.
 
     Subtypes of `LINE` : `MAXIMUM`, `MINIMUM`.
 
+
 * `LINE_LABEL` 
 
-    identifier for a {{block(Block)}} of code in a {{block(Program)}}. 
-
+    identifier for a {{block(Block)}} of code in a {{block(Program)}}.
 
 * `LINE_NUMBER` 
 
-    position of a block of program code within a control program. 
-
+    position of a block of program code within a control program.
 
     Subtypes of `LINE_NUMBER` : `ABSOLUTE`, `INCREMENTAL`.
 
+
 * `LOAD_COUNT` 
 
-    accumulation of the number of times an operation has attempted to, or is planned to attempt to, load materials, parts, or other items. 
-
+    accumulation of the number of times an operation has attempted to, or is planned to attempt to, load materials, parts, or other items.
 
     Subtypes of `LOAD_COUNT` : `REMAINING`, `BAD`, `FAILED`, `ABORTED`, `ALL`, `GOOD`, `COMPLETE`, `TARGET`.
 
+
 * `LOCK_STATE` 
 
-    state or operating mode of a {{block(Lock)}}. 
-
+    state or operating mode of a {{block(Lock)}}.
 
 * `MATERIAL` 
 
-    identifier of a material used or consumed in the manufacturing process. 
-
+    identifier of a material used or consumed in the manufacturing process.
 
 * `MATERIAL_CHANGE` 
 
-    operating state of the service to change the type of material or product being loaded or fed to a piece of equipment. 
-
+    operating state of the service to change the type of material or product being loaded or fed to a piece of equipment.
 
     Subtypes of `MATERIAL_CHANGE` : `REQUEST`, `RESPONSE`.
 
+
 * `MATERIAL_FEED` 
 
-    operating state of the service to advance material or feed product to a piece of equipment from a continuous or bulk source. 
-
+    operating state of the service to advance material or feed product to a piece of equipment from a continuous or bulk source.
 
     Subtypes of `MATERIAL_FEED` : `REQUEST`, `RESPONSE`.
 
+
 * `MATERIAL_LAYER` 
 
-    identifies the layers of material applied to a part or product as part of an additive manufacturing process. 
-
+    identifies the layers of material applied to a part or product as part of an additive manufacturing process.
 
     Subtypes of `MATERIAL_LAYER` : `ACTUAL`, `TARGET`.
 
+
 * `MATERIAL_LOAD` 
 
-    operating state of the service to load a piece of material or product. 
-
+    operating state of the service to load a piece of material or product.
 
     Subtypes of `MATERIAL_LOAD` : `REQUEST`, `RESPONSE`.
 
+
 * `MATERIAL_RETRACT` 
 
-    operating state of the service to remove or retract material or product. 
-
+    operating state of the service to remove or retract material or product.
 
     Subtypes of `MATERIAL_RETRACT` : `REQUEST`, `RESPONSE`.
 
+
 * `MATERIAL_UNLOAD` 
 
-    operating state of the service to unload a piece of material or product. 
-
+    operating state of the service to unload a piece of material or product.
 
     Subtypes of `MATERIAL_UNLOAD` : `REQUEST`, `RESPONSE`.
 
+
 * `MESSAGE` 
 
-    information to be transferred from a piece of equipment to a client software application. 
-
+    information to be transferred from a piece of equipment to a client software application.
 
 * `MTCONNECT_VERSION` 
 
-    reference version of the MTConnect Standard supported by the {{term(adapter)}}. 
-
+    reference version of the MTConnect Standard supported by the {{term(adapter)}}.
 
 * `NETWORK` 
 
-    network details of a {{block(Component)}}. 
-
+    network details of a {{block(Component)}}.
 
     Subtypes of `NETWORK` : `IPV4_ADDRESS`, `IPV6_ADDRESS`, `GATEWAY`, `SUBNET_MASK`, `VLAN_ID`, `MAC_ADDRESS`, `WIRELESS`.
 
+
 * `OPEN_CHUCK` 
 
-    operating state of the service to open a chuck. 
-
+    operating state of the service to open a chuck.
 
     Subtypes of `OPEN_CHUCK` : `REQUEST`, `RESPONSE`.
 
+
 * `OPEN_DOOR` 
 
-    operating state of the service to open a door. 
-
+    operating state of the service to open a door.
 
     Subtypes of `OPEN_DOOR` : `REQUEST`, `RESPONSE`.
 
+
 * `OPERATING_MODE` 
 
-    state of {{block(Component)}} or {{block(Composition)}} that describes the automatic or manual operation of the entity. 
-
+    state of {{block(Component)}} or {{block(Composition)}} that describes the automatic or manual operation of the entity.
 
 * `OPERATING_SYSTEM` 
 
-    Operating System (OS) of a {{block(Component)}}. 
-
+    Operating System (OS) of a {{block(Component)}}.
 
     Subtypes of `OPERATING_SYSTEM` : `LICENSE`, `VERSION`, `RELEASE_DATE`, `INSTALL_DATE`, `MANUFACTURER`.
 
+
 * `OPERATOR_ID` 
 
-    identifier of the person currently responsible for operating the piece of equipment. 
-
+    identifier of the person currently responsible for operating the piece of equipment.
 
 * `PALLET_ID` 
 
-    identifier for a pallet. 
-
+    identifier for a pallet.
 
 * `PART_CHANGE` 
 
-    operating state of the service to change the part or product associated with a piece of equipment to a different part or product. 
-
+    operating state of the service to change the part or product associated with a piece of equipment to a different part or product.
 
     Subtypes of `PART_CHANGE` : `REQUEST`, `RESPONSE`.
 
+
 * `PART_COUNT` 
 
-    aggregate count of parts. 
-
+    aggregate count of parts.
 
     Subtypes of `PART_COUNT` : `ALL`, `GOOD`, `BAD`, `TARGET`, `REMAINING`, `COMPLETE`, `ABORTED`, `FAILED`.
 
+
 * `PART_DETECT` 
 
-    indication designating whether a part or work piece has been detected or is present. 
-
+    indication designating whether a part or work piece has been detected or is present.
 
 * `PART_GROUP_ID` 
 
-    identifier given to a collection of individual parts.  
-
+    identifier given to a collection of individual parts. 
 
     Subtypes of `PART_GROUP_ID` : `LOT`, `RAW_MATERIAL`, `BATCH`, `UUID`, `HEAT_TREAT`.
 
+
 * `PART_ID` 
 
-    identifier of a part in a manufacturing operation. 
-
+    identifier of a part in a manufacturing operation.
 
 * `PART_KIND_ID` 
 
-    identifier given to link the individual occurrence to a class of parts, typically distinguished by a particular part design. 
-
+    identifier given to link the individual occurrence to a class of parts, typically distinguished by a particular part design.
 
     Subtypes of `PART_KIND_ID` : `UUID`, `PART_FAMILY`, `PART_NAME`, `PART_NUMBER`.
+
 
 * `PART_NUMBER` 
 
     identifier of a part or product moving through the manufacturing process.
     
     **DEPRECATED** in *Version 1.7*. `PART_NUMBER` is now a `subType` of
-    `PART_KIND_ID`. 
-
+    `PART_KIND_ID`.
 
 * `PART_PROCESSING_STATE` 
 
-    particular condition of the part occurrence at a specific time. 
-
+    particular condition of the part occurrence at a specific time.
 
 * `PART_STATUS` 
 
-    state or condition of a part. 
-
+    state or condition of a part.
 
 * `PART_UNIQUE_ID` 
 
-    identifier given to a distinguishable, individual part.  
-
+    identifier given to a distinguishable, individual part. 
 
     Subtypes of `PART_UNIQUE_ID` : `SERIAL_NUMBER`, `RAW_MATERIAL`, `UUID`.
 
+
 * `PATH_FEEDRATE_OVERRIDE` 
 
-    value of a signal or calculation issued to adjust the feedrate for the axes associated with a {{block(Path)}} component that may represent a single axis or the coordinated movement of multiple axes. 
-
+    value of a signal or calculation issued to adjust the feedrate for the axes associated with a {{block(Path)}} component that may represent a single axis or the coordinated movement of multiple axes.
 
     Subtypes of `PATH_FEEDRATE_OVERRIDE` : `JOG`, `PROGRAMMED`, `RAPID`.
 
+
 * `PATH_MODE` 
 
-    describes the operational relationship between a {{block(Path)}} entity and another {{block(Path)}} entity for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations. 
-
+    describes the operational relationship between a {{block(Path)}} entity and another {{block(Path)}} entity for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
 
 * `POWER_STATE` 
 
-    indication of the status of the source of energy for an entity to allow it to perform its intended function or the state of an enabling signal providing permission for the entity to perform its functions. 
-
+    indication of the status of the source of energy for an entity to allow it to perform its intended function or the state of an enabling signal providing permission for the entity to perform its functions.
 
     Subtypes of `POWER_STATE` : `LINE`, `CONTROL`.
+
 
 * `POWER_STATUS` 
 
     status of the {{block(Component)}}.
     
-    **DEPRECATED** in *Version 1.1.0*. 
-
+    **DEPRECATED** in *Version 1.1.0*.
 
 * `PROCESS_AGGREGATE_ID` 
 
-    identifier given to link the individual occurrence to a group of related occurrences, such as a process step in a process plan. 
-
+    identifier given to link the individual occurrence to a group of related occurrences, such as a process step in a process plan.
 
     Subtypes of `PROCESS_AGGREGATE_ID` : `ORDER_NUMBER`, `PROCESS_STEP`, `PROCESS_PLAN`.
 
+
 * `PROCESS_KIND_ID` 
 
-    identifier given to link the individual occurrence to a class of processes or process definition. 
-
+    identifier given to link the individual occurrence to a class of processes or process definition.
 
     Subtypes of `PROCESS_KIND_ID` : `UUID`, `ISO_STEP_EXECUTABLE`, `PROCESS_NAME`.
 
+
 * `PROCESS_OCCURRENCE_ID` 
 
-    identifier of a process being executed by the device. 
-
+    identifier of a process being executed by the device.
 
 * `PROCESS_STATE` 
 
-    particular condition of the process occurrence at a specific time. 
-
+    particular condition of the process occurrence at a specific time.
 
 * `PROCESS_TIME` 
 
-    time and date associated with an activity or event. 
-
+    time and date associated with an activity or event.
 
     Subtypes of `PROCESS_TIME` : `START`, `COMPLETE`, `TARGET_COMPLETION`.
 
+
 * `PROGRAM` 
 
-    name of the logic or motion program being executed by the {{block(Controller)}} component. 
-
+    name of the logic or motion program being executed by the {{block(Controller)}} component.
 
 * `PROGRAM_COMMENT` 
 
-    comment or non-executable statement in the control program. 
-
+    comment or non-executable statement in the control program.
 
 * `PROGRAM_EDIT` 
 
     indication of the status of the {{block(Controller)}} components program editing mode.
     
-    A program may be edited while another is executed. 
-
+    A program may be edited while another is executed.
 
 * `PROGRAM_EDIT_NAME` 
 
     name of the program being edited. 
     
-    This is used in conjunction with {{block(ProgramEdit)}} when in `ACTIVE` state.  
-
+    This is used in conjunction with {{block(ProgramEdit)}} when in `ACTIVE` state. 
 
 * `PROGRAM_HEADER` 
 
-    non-executable header section of the control program. 
-
+    non-executable header section of the control program.
 
     Subtypes of `PROGRAM_HEADER` : `MAIN`, `SCHEDULE`, `ACTIVE`.
 
+
 * `PROGRAM_LOCATION` 
 
-    {{term(URI)}} for the source file associated with {{block(Program)}}. 
-
+    {{term(URI)}} for the source file associated with {{block(Program)}}.
 
     Subtypes of `PROGRAM_LOCATION` : `SCHEDULE`, `MAIN`, `ACTIVE`.
 
+
 * `PROGRAM_LOCATION_TYPE` 
 
-    defines whether the logic or motion program defined by {{block(Program)}} is being executed from the local memory of the controller or from an outside source. 
-
+    defines whether the logic or motion program defined by {{block(Program)}} is being executed from the local memory of the controller or from an outside source.
 
     Subtypes of `PROGRAM_LOCATION_TYPE` : `SCHEDULE`, `MAIN`, `ACTIVE`.
 
+
 * `PROGRAM_NEST_LEVEL` 
 
-    indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed. 
-
+    indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed.
 
 * `ROTARY_MODE` 
 
-    current operating mode for a {{block(Rotary)}} type axis. 
-
+    current operating mode for a {{block(Rotary)}} type axis.
 
 * `ROTARY_VELOCITY_OVERRIDE` 
 
-    percentage change to the velocity of the programmed velocity for a {{block(Rotary)}} axis. 
-
+    percentage change to the velocity of the programmed velocity for a {{block(Rotary)}} axis.
 
 * `ROTATION` 
 
-    three space angular rotation relative to a coordinate system. 
-
+    three space angular rotation relative to a coordinate system.
 
 * `SENSOR_ATTACHMENT` 
 
-    {{term(attachment)}} between a sensor and an entity. 
-
+    {{term(attachment)}} between a sensor and an entity.
 
 * `SERIAL_NUMBER` 
 
-    serial number associated with a {{block(Component)}}, {{block(Asset)}}, or {{block(Device)}}. 
-
+    serial number associated with a {{block(Component)}}, {{block(Asset)}}, or {{block(Device)}}.
 
 * `SPECIFICATION_LIMIT` 
 
-    set of limits defining a range of values designating acceptable performance for a variable. 
-
+    set of limits defining a range of values designating acceptable performance for a variable.
 
 * `SPINDLE_INTERLOCK` 
 
-    indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate. 
-
+    indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate.
 
 * `TOOL_ASSET_ID` 
 
-    identifier of an individual tool asset. 
-
+    identifier of an individual tool asset.
 
 * `TOOL_GROUP` 
 
-    identifier for the tool group associated with a specific tool. Commonly used to designate spare tools. 
-
+    identifier for the tool group associated with a specific tool. Commonly used to designate spare tools.
 
 * `TOOL_ID` 
 
     identifier of the tool currently in use for a given `Path`.
     
-    **DEPRECATED** in *Version 1.2.0*.   See `TOOL_ASSET_ID`. 
-
+    **DEPRECATED** in *Version 1.2.0*.   See `TOOL_ASSET_ID`.
 
 * `TOOL_NUMBER` 
 
-    identifier assigned by the {{block(Controller)}} component to a cutting tool when in use by a piece of equipment. 
-
+    identifier assigned by the {{block(Controller)}} component to a cutting tool when in use by a piece of equipment.
 
 * `TOOL_OFFSET` 
 
-    reference to the tool offset variables applied to the active cutting tool associated with a {{block(Path)}} in a {{block(Controller)}} type component. 
-
+    reference to the tool offset variables applied to the active cutting tool associated with a {{block(Path)}} in a {{block(Controller)}} type component.
 
     Subtypes of `TOOL_OFFSET` : `RADIAL`, `LENGTH`.
 
+
 * `TRANSFER_COUNT` 
 
-    accumulation of the number of times an operation has attempted to, or is planned to attempt to, transfer materials, parts, or other items from one location to another. 
-
+    accumulation of the number of times an operation has attempted to, or is planned to attempt to, transfer materials, parts, or other items from one location to another.
 
     Subtypes of `TRANSFER_COUNT` : `GOOD`, `ABORTED`, `FAILED`, `ALL`, `BAD`, `REMAINING`, `COMPLETE`, `TARGET`.
 
+
 * `TRANSLATION` 
 
-    three space linear translation relative to a coordinate system. 
-
+    three space linear translation relative to a coordinate system.
 
 * `UNLOAD_COUNT` 
 
-    accumulation of the number of times an operation has attempted to, or is planned to attempt to, unload materials, parts, or other items. 
-
+    accumulation of the number of times an operation has attempted to, or is planned to attempt to, unload materials, parts, or other items.
 
     Subtypes of `UNLOAD_COUNT` : `ABORTED`, `BAD`, `FAILED`, `GOOD`, `COMPLETE`, `ALL`, `TARGET`, `REMAINING`.
 
+
 * `USER` 
 
-    identifier of the person currently responsible for operating the piece of equipment. 
-
+    identifier of the person currently responsible for operating the piece of equipment.
 
     Subtypes of `USER` : `OPERATOR`, `MAINTENANCE`, `SET_UP`.
 
+
 * `VALVE_STATE` 
 
-    state of a valve is one of open, closed, or transitioning between the states. 
-
+    state of a valve is one of open, closed, or transitioning between the states.
 
     Subtypes of `VALVE_STATE` : `ACTUAL`, `PROGRAMMED`.
 
+
 * `VARIABLE` 
 
-    data whose meaning may change over time due to changes in the operation of a piece of equipment or the process being executed on that piece of equipment. 
-
+    data whose meaning may change over time due to changes in the operation of a piece of equipment or the process being executed on that piece of equipment.
 
 * `WAIT_STATE` 
 
-    indication of the reason that {{block(Execution)}} is reporting a value of `WAIT`. 
-
+    indication of the reason that {{block(Execution)}} is reporting a value of `WAIT`.
 
 * `WIRE` 
 
-    identifier for the type of wire used as the cutting mechanism in Electrical Discharge Machining or similar processes. 
-
+    identifier for the type of wire used as the cutting mechanism in Electrical Discharge Machining or similar processes.
 
 * `WORKHOLDING_ID` 
 
-    identifier for the current workholding or part clamp in use by a piece of equipment. 
-
+    identifier for the current workholding or part clamp in use by a piece of equipment.
 
 * `WORK_OFFSET` 
 
-    offset variables for a work piece or part associated with a {{block(Path)}} in a {{block(Controller)}} type component. 
-
-
+    offset variables for a work piece or part associated with a {{block(Path)}} in a {{block(Controller)}} type component.
 
 ### Sample
 
@@ -3260,465 +3177,426 @@ This data can be measured at any point-in-time and will always produce a result.
 
 The value of {{property(type)}} with {{property(category)}} `Sample` **MUST** be one of the following:
 
+
 * `ACCELERATION` 
 
-    positive rate of change of velocity. 
-
+    positive rate of change of velocity.
 
     Subtypes of `ACCELERATION` : `ACTUAL`, `PROGRAMMED`, `COMMANDED`.
 
+
 * `ACCUMULATED_TIME` 
 
-    accumulated time for an activity or event. 
-
+    accumulated time for an activity or event.
 
 * `AMPERAGE` 
 
     strength of electrical current.
     
-    **DEPRECATED** in *Version 1.6*. Replaced by `AMPERAGE_AC` and `AMPERAGE_DC`. 
-
+    **DEPRECATED** in *Version 1.6*. Replaced by `AMPERAGE_AC` and `AMPERAGE_DC`.
 
     Subtypes of `AMPERAGE` : `ALTERNATING`, `DIRECT`, `ACTUAL`, `TARGET`.
 
+
 * `AMPERAGE_AC` 
 
-    electrical current that reverses direction at regular short intervals. 
-
+    electrical current that reverses direction at regular short intervals.
 
     Subtypes of `AMPERAGE_AC` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
 
+
 * `AMPERAGE_DC` 
 
-    electric current flowing in one direction only. 
-
+    electric current flowing in one direction only.
 
     Subtypes of `AMPERAGE_DC` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
 
+
 * `ANGLE` 
 
-    angular position. 
-
+    angular position.
 
     Subtypes of `ANGLE` : `COMMANDED`, `ACTUAL`.
 
+
 * `ANGULAR_ACCELERATION` 
 
-    positive rate of change of angular velocity. 
-
+    positive rate of change of angular velocity.
 
     Subtypes of `ANGULAR_ACCELERATION` : `PROGRAMMED`, `ACTUAL`, `COMMANDED`.
 
+
 * `ANGULAR_DECELERATION` 
 
-    negative rate of change of angular velocity. 
-
+    negative rate of change of angular velocity.
 
     Subtypes of `ANGULAR_DECELERATION` : `ACTUAL`, `PROGRAMMED`, `COMMANDED`.
 
+
 * `ANGULAR_VELOCITY` 
 
-    rate of change of angular position. 
-
+    rate of change of angular position.
 
 * `ASSET_UPDATE_RATE` 
 
     average rate of change of values for assets in the MTConnect streams. 
     
-    The average is computed over a rolling window defined by the implementation. 
-
+    The average is computed over a rolling window defined by the implementation.
 
 * `AXIS_FEEDRATE` 
 
-    feedrate of a linear axis. 
-
+    feedrate of a linear axis.
 
     Subtypes of `AXIS_FEEDRATE` : `ACTUAL`, `COMMANDED`, `JOG`, `PROGRAMMED`, `RAPID`, `OVERRIDE`.
 
+
 * `CAPACITY_FLUID` 
 
-    fluid capacity of an object or container. 
-
+    fluid capacity of an object or container.
 
 * `CAPACITY_SPATIAL` 
 
-    geometric capacity of an object or container. 
-
+    geometric capacity of an object or container.
 
 * `CLOCK_TIME` 
 
-    time provided by a timing device at a specific point in time. 
-
+    time provided by a timing device at a specific point in time.
 
 * `CONCENTRATION` 
 
-    percentage of one component within a mixture of components. 
-
+    percentage of one component within a mixture of components.
 
 * `CONDUCTIVITY` 
 
-    ability of a material to conduct electricity. 
-
+    ability of a material to conduct electricity.
 
 * `CUTTING_SPEED` 
 
-    speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on. 
-
+    speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on.
 
     Subtypes of `CUTTING_SPEED` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
 
+
 * `DECELERATION` 
 
-    negative rate of change of velocity. 
-
+    negative rate of change of velocity.
 
     Subtypes of `DECELERATION` : `PROGRAMMED`, `COMMANDED`, `ACTUAL`.
 
+
 * `DENSITY` 
 
-    volumetric mass of a material per unit volume of that material. 
-
+    volumetric mass of a material per unit volume of that material.
 
 * `DEPOSITION_ACCELERATION_VOLUMETRIC` 
 
-    rate of change in spatial volume of material deposited in an additive manufacturing process. 
-
+    rate of change in spatial volume of material deposited in an additive manufacturing process.
 
     Subtypes of `DEPOSITION_ACCELERATION_VOLUMETRIC` : `ACTUAL`, `COMMANDED`.
 
+
 * `DEPOSITION_DENSITY` 
 
-    density of the material deposited in an additive manufacturing process per unit of volume. 
-
+    density of the material deposited in an additive manufacturing process per unit of volume.
 
     Subtypes of `DEPOSITION_DENSITY` : `ACTUAL`, `COMMANDED`.
 
+
 * `DEPOSITION_MASS` 
 
-    mass of the material deposited in an additive manufacturing process. 
-
+    mass of the material deposited in an additive manufacturing process.
 
     Subtypes of `DEPOSITION_MASS` : `ACTUAL`, `COMMANDED`.
 
+
 * `DEPOSITION_RATE_VOLUMETRIC` 
 
-    rate at which a spatial volume of material is deposited in an additive manufacturing process. 
-
+    rate at which a spatial volume of material is deposited in an additive manufacturing process.
 
     Subtypes of `DEPOSITION_RATE_VOLUMETRIC` : `ACTUAL`, `COMMANDED`.
 
+
 * `DEPOSITION_VOLUME` 
 
-    spatial volume of material to be deposited in an additive manufacturing process. 
-
+    spatial volume of material to be deposited in an additive manufacturing process.
 
     Subtypes of `DEPOSITION_VOLUME` : `ACTUAL`, `COMMANDED`.
 
+
 * `DIAMETER` 
 
-    dimension of a diameter. 
-
+    dimension of a diameter.
 
 * `DISPLACEMENT` 
 
-    change in position of an object. 
-
+    change in position of an object.
 
 * `ELECTRICAL_ENERGY` 
 
-    {{block(Wattage)}} used or generated by a component over an interval of time. 
-
+    {{block(Wattage)}} used or generated by a component over an interval of time.
 
 * `EQUIPMENT_TIMER` 
 
-    amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities. 
-
+    amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities.
 
     Subtypes of `EQUIPMENT_TIMER` : `LOADED`, `WORKING`, `OPERATING`, `POWERED`, `DELAY`.
 
+
 * `FILL_LEVEL` 
 
-    amount of a substance remaining compared to the planned maximum amount of that substance. 
-
+    amount of a substance remaining compared to the planned maximum amount of that substance.
 
 * `FLOW` 
 
-    rate of flow of a fluid. 
-
+    rate of flow of a fluid.
 
 * `FREQUENCY` 
 
-    number of occurrences of a repeating event per unit time. 
-
+    number of occurrences of a repeating event per unit time.
 
 * `GLOBAL_POSITION` 
 
-    **DEPRECATED** in Version 1.1. 
-
+    **DEPRECATED** in Version 1.1.
 
 * `HUMIDITY_ABSOLUTE` 
 
-    amount of water vapor expressed in grams per cubic meter. 
-
+    amount of water vapor expressed in grams per cubic meter.
 
     Subtypes of `HUMIDITY_ABSOLUTE` : `ACTUAL`, `COMMANDED`.
 
+
 * `HUMIDITY_RELATIVE` 
 
-    amount of water vapor present expressed as a percent to reach saturation at the same temperature. 
-
+    amount of water vapor present expressed as a percent to reach saturation at the same temperature.
 
     Subtypes of `HUMIDITY_RELATIVE` : `COMMANDED`, `ACTUAL`.
 
+
 * `HUMIDITY_SPECIFIC` 
 
-    ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent. 
-
+    ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
 
     Subtypes of `HUMIDITY_SPECIFIC` : `ACTUAL`, `COMMANDED`.
 
+
 * `LENGTH` 
 
-    length of an object. 
-
+    length of an object.
 
     Subtypes of `LENGTH` : `STANDARD`, `REMAINING`, `USEABLE`.
+
 
 * `LEVEL` 
 
     level of a resource.
     
-    **DEPRECATED** in *Version 1.2*.  See `FILL_LEVEL`. 
-
+    **DEPRECATED** in *Version 1.2*.  See `FILL_LEVEL`.
 
 * `LINEAR_FORCE` 
 
-    {{term(force)}} applied to a mass in one direction only. 
-
+    {{term(force)}} applied to a mass in one direction only.
 
 * `LOAD` 
 
-    actual versus the standard rating of a piece of equipment. 
-
+    actual versus the standard rating of a piece of equipment.
 
 * `MASS` 
 
-    mass of an object(s) or an amount of material. 
-
+    mass of an object(s) or an amount of material.
 
 * `OBSERVATION_UPDATE_RATE` 
 
-    average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation. 
-
+    average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
 
 * `ORIENTATION` 
 
-    measured or calculated orientation of a plane or vector relative to a cartesian coordinate system. 
-
+    measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
 
     Subtypes of `ORIENTATION` : `ACTUAL`, `COMMANDED`.
 
+
 * `PATH_FEEDRATE` 
 
-    feedrate for the axes, or a single axis, associated with a {{block(Path)}} component. 
-
+    feedrate for the axes, or a single axis, associated with a {{block(Path)}} component.
 
     Subtypes of `PATH_FEEDRATE` : `ACTUAL`, `COMMANDED`, `JOG`, `PROGRAMMED`, `RAPID`, `OVERRIDE`.
 
+
 * `PATH_FEEDRATE_PER_REVOLUTION` 
 
-    feedrate for the axes, or a single axis. 
-
+    feedrate for the axes, or a single axis.
 
     Subtypes of `PATH_FEEDRATE_PER_REVOLUTION` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
 
+
 * `PATH_POSITION` 
 
-    measured or calculated position of a control point associated with a {{block(Controller)}} entity, or {{block(Path)}} entity if provided, of a piece of equipment. 
-
+    measured or calculated position of a control point associated with a {{block(Controller)}} entity, or {{block(Path)}} entity if provided, of a piece of equipment.
 
     Subtypes of `PATH_POSITION` : `ACTUAL`, `COMMANDED`, `TARGET`, `PROBE`.
 
+
 * `PH` 
 
-    acidity or alkalinity of a solution. 
-
+    acidity or alkalinity of a solution.
 
 * `POSITION` 
 
-    measured or calculated position of a {{block(Component)}} element as reported by a piece of equipment. 
-
+    measured or calculated position of a {{block(Component)}} element as reported by a piece of equipment.
 
     Subtypes of `POSITION` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`, `TARGET`.
 
+
 * `POWER_FACTOR` 
 
-    ratio of real power flowing to a load to the apparent power in that AC circuit. 
-
+    ratio of real power flowing to a load to the apparent power in that AC circuit.
 
 * `PRESSURE` 
 
     force per unit area measured relative to atmospheric pressure. 
     
-    Commonly referred to as gauge pressure. 
-
+    Commonly referred to as gauge pressure.
 
 * `PRESSURE_ABSOLUTE` 
 
-    force per unit area measured relative to a vacuum. 
-
+    force per unit area measured relative to a vacuum.
 
 * `PRESSURIZATION_RATE` 
 
-    change of pressure per unit time. 
-
+    change of pressure per unit time.
 
     Subtypes of `PRESSURIZATION_RATE` : `COMMANDED`, `ACTUAL`, `PROGRAMMED`.
 
+
 * `PROCESS_TIMER` 
 
-    amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment. 
-
+    amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment.
 
     Subtypes of `PROCESS_TIMER` : `PROCESS`, `DELAY`.
 
+
 * `RESISTANCE` 
 
-    degree to which a substance opposes the passage of an electric current. 
-
+    degree to which a substance opposes the passage of an electric current.
 
 * `ROTARY_VELOCITY` 
 
-    rotational speed of a rotary axis. 
-
+    rotational speed of a rotary axis.
 
     Subtypes of `ROTARY_VELOCITY` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`, `OVERRIDE`.
 
+
 * `SOUND_LEVEL` 
 
-    sound level or sound pressure level relative to atmospheric pressure. 
-
+    sound level or sound pressure level relative to atmospheric pressure.
 
     Subtypes of `SOUND_LEVEL` : `NO_SCALE`, `A_SCALE`, `B_SCALE`, `C_SCALE`, `D_SCALE`.
+
 
 * `SPINDLE_SPEED` 
 
     rotational speed of the rotary axis.
     
-    **DEPRECATED** in *Version 1.2*.  Replaced by `ROTARY_VELOCITY`. 
-
+    **DEPRECATED** in *Version 1.2*.  Replaced by `ROTARY_VELOCITY`.
 
     Subtypes of `SPINDLE_SPEED` : `ACTUAL`, `COMMANDED`, `OVERRIDE`.
 
+
 * `STRAIN` 
 
-    amount of deformation per unit length of an object when a load is applied. 
-
+    amount of deformation per unit length of an object when a load is applied.
 
 * `TEMPERATURE` 
 
-    degree of hotness or coldness measured on a definite scale. 
-
+    degree of hotness or coldness measured on a definite scale.
 
 * `TENSION` 
 
-    force that stretches or elongates an object. 
-
+    force that stretches or elongates an object.
 
 * `TILT` 
 
-    angular displacement. 
-
+    angular displacement.
 
 * `TORQUE` 
 
-    turning force exerted on an object or by an object. 
-
+    turning force exerted on an object or by an object.
 
 * `VALVE_POSITION` 
 
-    percentage open of a value where 100% is fully open and 0% is fully closed. 
-
+    percentage open of a value where 100% is fully open and 0% is fully closed.
 
 * `VELOCITY` 
 
-    rate of change of position of a {{block(Component)}}. 
-
+    rate of change of position of a {{block(Component)}}.
 
 * `VISCOSITY` 
 
-    fluid's resistance to flow. 
-
+    fluid's resistance to flow.
 
 * `VOLTAGE` 
 
     electrical potential between two points.
     
-    **DEPRECATED** in *Version 1.6*. Replaced by `VOLTAGE_AC` and `VOLTAGE_DC`. 
-
+    **DEPRECATED** in *Version 1.6*. Replaced by `VOLTAGE_AC` and `VOLTAGE_DC`.
 
     Subtypes of `VOLTAGE` : `ALTERNATING`, `DIRECT`, `ACTUAL`, `TARGET`.
 
+
 * `VOLTAGE_AC` 
 
-    electrical potential between two points in an electrical circuit in which the current periodically reverses direction. 
-
+    electrical potential between two points in an electrical circuit in which the current periodically reverses direction.
 
     Subtypes of `VOLTAGE_AC` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
 
+
 * `VOLTAGE_DC` 
 
-    electrical potential between two points in an electrical circuit in which the current is unidirectional. 
-
+    electrical potential between two points in an electrical circuit in which the current is unidirectional.
 
     Subtypes of `VOLTAGE_DC` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
 
+
 * `VOLT_AMPERE` 
 
-    apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA). 
-
+    apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA).
 
 * `VOLT_AMPERE_REACTIVE` 
 
-    reactive power in an AC electrical circuit (commonly referred to as VAR). 
-
+    reactive power in an AC electrical circuit (commonly referred to as VAR).
 
 * `VOLUME_FLUID` 
 
-    fluid volume of an object or container. 
-
+    fluid volume of an object or container.
 
     Subtypes of `VOLUME_FLUID` : `ACTUAL`, `CONSUMED`, `PART`, `WASTE`, `START`, `ENDED`.
 
+
 * `VOLUME_SPATIAL` 
 
-    geometric volume of an object or container. 
-
+    geometric volume of an object or container.
 
     Subtypes of `VOLUME_SPATIAL` : `ACTUAL`, `CONSUMED`, `PART`, `WASTE`, `ENDED`, `START`.
 
+
 * `WATTAGE` 
 
-    power flowing through or dissipated by an electrical circuit or piece of equipment. 
-
+    power flowing through or dissipated by an electrical circuit or piece of equipment.
 
     Subtypes of `WATTAGE` : `ACTUAL`, `TARGET`.
 
+
 * `X_DIMENSION` 
 
-    dimension of an entity relative to the X direction of the referenced coordinate system. 
-
+    dimension of an entity relative to the X direction of the referenced coordinate system.
 
 * `Y_DIMENSION` 
 
-    dimension of an entity relative to the Y direction of the referenced coordinate system. 
-
+    dimension of an entity relative to the Y direction of the referenced coordinate system.
 
 * `Z_DIMENSION` 
 
-    dimension of an entity relative to the Z direction of the referenced coordinate system. 
-
-
+    dimension of an entity relative to the Z direction of the referenced coordinate system.
 
 
 
@@ -3734,520 +3612,424 @@ This section provides semantic information for the {{property(subType)}} propert
 
 The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of the following:
 
+
 * `ABORTED` 
 
     actions or activities that were attempted, but terminated before they could be completed.
     
-     
-
+    
 
 * `ABSOLUTE` 
 
-    relating to or derived in the simplest manner from the fundamental units or measurements. 
-
+    relating to or derived in the simplest manner from the fundamental units or measurements.
 
 * `ACTION` 
 
-    indication of the operating state of a mechanism. 
-
+    indication of the operating state of a mechanism.
 
 * `ACTIVE` 
 
-    relating to logic or motion program currently executing. 
-
+    relating to logic or motion program currently executing.
 
 * `ACTUAL` 
 
-    measured or reported value of an {{term(observation)}}. 
-
+    measured or reported value of an {{term(observation)}}.
 
 * `ALL` 
 
-    all actions, items, or activities being counted independent of the outcome. 
-
+    all actions, items, or activities being counted independent of the outcome.
 
 * `ALTERNATING` 
 
-    measurement of alternating voltage or current. If not specified further in statistic, defaults to RMS voltage.  
-
+    measurement of alternating voltage or current. If not specified further in statistic, defaults to RMS voltage. 
 
 * `AUXILIARY` 
 
-    when multiple locations on a piece of bar stock being feed by a bar feeder are referenced as the indication of whether the end of that piece of bar stock has been reached. 
-
+    when multiple locations on a piece of bar stock being feed by a bar feeder are referenced as the indication of whether the end of that piece of bar stock has been reached.
 
 * `A_SCALE` 
 
-    A-Scale weighting factor on the frequency scale. 
-
+    A-Scale weighting factor on the frequency scale.
 
 * `BAD` 
 
-    actions, items, or activities being counted that do not conform to specification or expectation. 
-
+    actions, items, or activities being counted that do not conform to specification or expectation.
 
 * `BATCH` 
 
-    group of parts produced in a batch. 
-
+    group of parts produced in a batch.
 
 * `BRINELL` 
 
-    scale to measure the resistance to deformation of a surface. 
-
+    scale to measure the resistance to deformation of a surface.
 
 * `B_SCALE` 
 
-    B-Scale weighting factor on the frequency scale. 
-
+    B-Scale weighting factor on the frequency scale.
 
 * `COMMANDED` 
 
-    directive value including adjustments such as an offset or overrides. 
-
+    directive value including adjustments such as an offset or overrides.
 
 * `COMPLETE` 
 
-    associated with the completion of an activity or event. 
-
+    associated with the completion of an activity or event.
 
 * `CONSUMED` 
 
-    amount of material consumed from an object or container during a manufacturing process. 
-
+    amount of material consumed from an object or container during a manufacturing process.
 
 * `CONTROL` 
 
-    state of the enabling signal or control logic that enables or disables the function or operation of the entity. 
-
+    state of the enabling signal or control logic that enables or disables the function or operation of the entity.
 
 * `C_SCALE` 
 
-    C-Scale weighting factor on the frequency scale. 
-
+    C-Scale weighting factor on the frequency scale.
 
 * `DELAY` 
 
-    elapsed time of a temporary halt of action. 
-
+    elapsed time of a temporary halt of action.
 
 * `DIRECT` 
 
-    DC current or voltage. 
-
+    DC current or voltage.
 
 * `DRY_RUN` 
 
-    setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
-
+    setting or operator selection used to execute a test mode to confirm the execution of machine functions.
 
 * `D_SCALE` 
 
-    D-Scale weighting factor on the frequency scale. 
-
+    D-Scale weighting factor on the frequency scale.
 
 * `ENDED` 
 
-    boundary when an activity or an event terminates. 
-
+    boundary when an activity or an event terminates.
 
 * `EXPIRATION` 
 
-    relating to the expiration or end of useful life for a material or other physical item. 
-
+    relating to the expiration or end of useful life for a material or other physical item.
 
 * `FAILED` 
 
-    actions or activities that were attempted , but failed to complete or resulted in an unexpected or unacceptable outcome. 
-
+    actions or activities that were attempted , but failed to complete or resulted in an unexpected or unacceptable outcome.
 
 * `FIRST_USE` 
 
-    relating to the first use of a material or other physical item. 
-
+    relating to the first use of a material or other physical item.
 
 * `GATEWAY` 
 
-    Gateway for the {{block(Component)}} network. 
-
+    Gateway for the {{block(Component)}} network.
 
 * `GOOD` 
 
-    actions, items, or activities being counted that conform to specification or expectation. 
-
+    actions, items, or activities being counted that conform to specification or expectation.
 
 * `HEAT_TREAT` 
 
-    material heat number. 
-
+    material heat number.
 
 * `INCREMENTAL` 
 
-    relating to or derived from the last {{term(observation)}}. 
-
+    relating to or derived from the last {{term(observation)}}.
 
 * `INSTALL_DATE` 
 
-    date the hardware or software was installed. 
-
+    date the hardware or software was installed.
 
 * `IPV4_ADDRESS` 
 
-    IPV4 network address of the {{block(Component)}}. 
-
+    IPV4 network address of the {{block(Component)}}.
 
 * `IPV6_ADDRESS` 
 
-    The IPV6 network address of the {{block(Component)}}. 
-
+    The IPV6 network address of the {{block(Component)}}.
 
 * `ISO_STEP_EXECUTABLE` 
 
-    reference to a ISO 10303 Executable. 
-
+    reference to a ISO 10303 Executable.
 
 * `JOG` 
 
-    feedrate specified by a logic or motion program when operating in a manual state or method (jogging). 
-
+    feedrate specified by a logic or motion program when operating in a manual state or method (jogging).
 
 * `LATERAL` 
 
-    indication of the position of a mechanism that may move in a lateral direction. 
-
+    indication of the position of a mechanism that may move in a lateral direction.
 
 * `LEEB` 
 
-    scale to measure the elasticity of a surface. 
-
+    scale to measure the elasticity of a surface.
 
 * `LENGTH` 
 
-    reference to a length type tool offset variable. 
+    reference to a length type tool offset variable.
+
+    Subtypes of `LENGTH` : `STANDARD`, `REMAINING`, `USEABLE`.
 
 
 * `LICENSE` 
 
-    license code to validate or activate the hardware or software. 
-
+    license code to validate or activate the hardware or software.
 
 * `LINE` 
 
-    state of the power source. 
+    state of the power source.
+
+    Subtypes of `LINE` : `MAXIMUM`, `MINIMUM`.
 
 
 * `LINEAR` 
 
-    direction of motion of a linear motion. 
-
+    direction of motion of a linear motion.
 
 * `LOADED` 
 
-    indication that the subparts of a piece of equipment are under load. 
-
+    indication that the subparts of a piece of equipment are under load.
 
 * `LOT` 
 
-    group of parts tracked as a lot. 
-
+    group of parts tracked as a lot.
 
 * `MACHINE_AXIS_LOCK` 
 
-    setting or operator selection that changes the behavior of the controller on a piece of equipment. 
-
+    setting or operator selection that changes the behavior of the controller on a piece of equipment.
 
 * `MAC_ADDRESS` 
 
-    Media Access Control Address. The unique physical address of the network hardware. 
-
+    Media Access Control Address. The unique physical address of the network hardware.
 
 * `MAIN` 
 
-    relating to the primary logic or motion program currently being executed. 
-
+    relating to the primary logic or motion program currently being executed.
 
 * `MAINTENANCE` 
 
-    relating to maintenance on the piece of equipment. 
-
+    relating to maintenance on the piece of equipment.
 
 * `MANUAL_UNCLAMP` 
 
-    indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck. 
-
+    indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
 
 * `MANUFACTURE` 
 
-    related to the production of a material or other physical item. 
-
+    related to the production of a material or other physical item.
 
 * `MANUFACTURER` 
 
-    corporate identity for the maker of the hardware or software. 
-
+    corporate identity for the maker of the hardware or software.
 
 * `MAXIMUM` 
 
-    maximum value. 
-
+    maximum value.
 
 * `MINIMUM` 
 
-    minimum value. 
-
+    minimum value.
 
 * `MOHS` 
 
-    scale to measure the resistance to scratching of a surface. 
-
+    scale to measure the resistance to scratching of a surface.
 
 * `MOTION` 
 
-    indication of the open or closed state of a mechanism. 
-
+    indication of the open or closed state of a mechanism.
 
 * `NO_SCALE` 
 
-    no weighting factor on the frequency scale. 
-
+    no weighting factor on the frequency scale.
 
 * `OPERATING` 
 
-    piece of equipment that is powered or performing any activity. 
-
+    piece of equipment that is powered or performing any activity.
 
 * `OPERATOR` 
 
-    relating to the person currently responsible for operating the piece of equipment. 
-
+    relating to the person currently responsible for operating the piece of equipment.
 
 * `OPTIONAL_STOP` 
 
-    setting or operator selection that changes the behavior of the controller on a piece of equipment.  
-
+    setting or operator selection that changes the behavior of the controller on a piece of equipment. 
 
 * `ORDER_NUMBER` 
 
-    authorization of a process occurrence. 
-
+    authorization of a process occurrence.
 
 * `OVERRIDE` 
 
-    overridden value. 
-
+    overridden value.
 
 * `PART` 
 
-    amount included in the {{term(part)}}. 
-
+    amount included in the {{term(part)}}.
 
 * `PART_FAMILY` 
 
-    group of parts having similarities in geometry, manufacturing process, and/or functions. 
-
+    group of parts having similarities in geometry, manufacturing process, and/or functions.
 
 * `PART_NAME` 
 
-    word or set of words by which a part is known, addressed, or referred to. 
-
+    word or set of words by which a part is known, addressed, or referred to.
 
 * `PART_NUMBER` 
 
-    particular part design or model. 
-
+    particular part design or model.
 
 * `POWERED` 
 
-    piece of equipment is powered and functioning or {{block(Component)}} that are required to remain on are powered. 
-
+    piece of equipment is powered and functioning or {{block(Component)}} that are required to remain on are powered.
 
 * `PRIMARY` 
 
-    main or most important location of a piece of bar stock. 
-
+    main or most important location of a piece of bar stock.
 
 * `PROBE` 
 
     position provided by a measurement probe.
     
-    **DEPRECATION WARNING**: May be deprecated in the future. 
-
+    **DEPRECATION WARNING**: May be deprecated in the future.
 
 * `PROCESS` 
 
-    relating to production of a part or product on a piece of equipment. 
-
+    relating to production of a part or product on a piece of equipment.
 
 * `PROCESS_NAME` 
 
-    word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to. 
-
+    word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to.
 
 * `PROCESS_PLAN` 
 
-    process plan that a process occurrence belongs to. 
-
+    process plan that a process occurrence belongs to.
 
 * `PROCESS_STEP` 
 
-    step in the process plan that this occurrence corresponds to.  
-
+    step in the process plan that this occurrence corresponds to. 
 
 * `PROGRAMMED` 
 
-    directive value without offsets and adjustments. 
-
+    directive value without offsets and adjustments.
 
 * `RADIAL` 
 
-    reference to a radial type tool offset variable. 
-
+    reference to a radial type tool offset variable.
 
 * `RAPID` 
 
-    performing an operation faster or in less time than nominal rate. 
-
+    performing an operation faster or in less time than nominal rate.
 
 * `RAW_MATERIAL` 
 
-    material that is used to produce parts. 
-
+    material that is used to produce parts.
 
 * `RELEASE_DATE` 
 
-    date the hardware or software was released for general use. 
-
+    date the hardware or software was released for general use.
 
 * `REMAINING` 
 
-    remaining measure or count of an action, object or activity. 
-
+    remaining measure or count of an action, object or activity.
 
 * `REQUEST` 
 
-    {{term(request)}} by an {{block(Interface)}} for a task. 
-
+    {{term(request)}} by an {{block(Interface)}} for a task.
 
 * `RESPONSE` 
 
-    {{term(response)}} by an {{block(Interface)}} to a {{term(request)}} for a task. 
-
+    {{term(response)}} by an {{block(Interface)}} to a {{term(request)}} for a task.
 
 * `ROCKWELL` 
 
-    scale to measure the resistance to deformation of a surface. 
-
+    scale to measure the resistance to deformation of a surface.
 
 * `ROTARY` 
 
-    direction of a rotary motion using the right hand rule convention. 
-
+    direction of a rotary motion using the right hand rule convention.
 
 * `SCHEDULE` 
 
-    identity of a control program that is used to specify the order of execution of other programs. 
-
+    identity of a control program that is used to specify the order of execution of other programs.
 
 * `SERIAL_NUMBER` 
 
-    serial number that uniquely identifies a specific part. 
-
+    serial number that uniquely identifies a specific part.
 
 * `SET_UP` 
 
-    relating to the preparation of a piece of equipment for production or restoring the piece of equipment to a neutral state after production. 
-
+    relating to the preparation of a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
 
 * `SHORE` 
 
-    scale to measure the resistance to deformation of a surface. 
-
+    scale to measure the resistance to deformation of a surface.
 
 * `SINGLE_BLOCK` 
 
-    setting or operator selection that changes the behavior of the controller on a piece of equipment.  
-
+    setting or operator selection that changes the behavior of the controller on a piece of equipment. 
 
 * `STANDARD` 
 
-    standard measure of an object or an action. 
-
+    standard measure of an object or an action.
 
 * `START` 
 
-    boundary when an activity or an event commences. 
-
+    boundary when an activity or an event commences.
 
 * `SUBNET_MASK` 
 
-    SubNet mask for the {{block(Component)}} network. 
-
+    SubNet mask for the {{block(Component)}} network.
 
 * `SWITCHED` 
 
-    indication of the activation state of a mechanism represented by a {{block(Composition)}}. 
-
+    indication of the activation state of a mechanism represented by a {{block(Composition)}}.
 
 * `TARGET` 
 
-    goal of the operation or process. 
-
+    goal of the operation or process.
 
 * `TARGET_COMPLETION` 
 
-    relating to the end or completion of an activity or event. 
-
+    relating to the end or completion of an activity or event.
 
 * `TOOL_CHANGE_STOP` 
 
-    setting or operator selection that changes the behavior of the controller on a piece of equipment. 
-
+    setting or operator selection that changes the behavior of the controller on a piece of equipment.
 
 * `USEABLE` 
 
-    remaining usable measure of an object or action. 
-
+    remaining usable measure of an object or action.
 
 * `UUID` 
 
-    universally unique identifier as specified in ISO 11578 or RFC 4122. 
-
+    universally unique identifier as specified in ISO 11578 or RFC 4122.
 
 * `VERSION` 
 
-    version of the hardware or software. 
-
+    version of the hardware or software.
 
 * `VERTICAL` 
 
-    indication of the position of a mechanism that may move in a vertical direction. 
-
+    indication of the position of a mechanism that may move in a vertical direction.
 
 * `VICKERS` 
 
-    scale to measure the resistance to deformation of a surface. 
-
+    scale to measure the resistance to deformation of a surface.
 
 * `VLAN_ID` 
 
-    layer2 Virtual Local Network (VLAN) ID for the {{block(Component)}} network. 
-
+    layer2 Virtual Local Network (VLAN) ID for the {{block(Component)}} network.
 
 * `WASTE` 
 
-    amount discarded. 
-
+    amount discarded.
 
 * `WIRELESS` 
 
-    identifies whether the connection type is wireless. 
-
+    identifies whether the connection type is wireless.
 
 * `WORKING` 
 
-    piece of equipment performing any activity, the equipment is active and performing a function under load or not. 
-
-
+    piece of equipment performing any activity, the equipment is active and performing a function under load or not.
 
 
 # References Model
@@ -4276,10 +4058,10 @@ pointer to information that is associated with another entity defined elsewhere 
 
 {{tbl(value-properties-of-reference)}} lists the Value Properties of {{block(Reference)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(idRef)}} | `ID` | 1 |
-| {{property(name)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(idRef)}}|`ID`|1|
+|{{property(name)}}|`string`|0..1|
 {: caption="Value Properties of Reference"}
 
 Descriptions for Value Properties of {{block(Reference)}}:
@@ -4331,14 +4113,14 @@ technical information about a piece of equipment describing its physical layout,
 
 {{tbl(part-properties-of-configuration)}} lists the Part Properties of {{block(Configuration)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(SolidModel)}} | 0..1 |
-| {{block(SensorConfiguration)}} | 0..1 |
-| {{block(Motion)}} | 0..1 |
-| {{block(Relationship)}} (organized by {{block(Relationships)}}) | 0..* |
-| {{block(CoordinateSystem)}} (organized by {{block(CoordinateSystems)}}) | 0..* |
-| {{block(Specification)}} (organized by {{block(Specifications)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(SolidModel)}}|0..1|
+|{{block(SensorConfiguration)}}|0..1|
+|{{block(Motion)}}|0..1|
+|{{block(Relationship)}} (organized by {{block(Relationships)}})|0..*|
+|{{block(CoordinateSystem)}} (organized by {{block(CoordinateSystems)}})|0..*|
+|{{block(Specification)}} (organized by {{block(Specifications)}})|0..*|
 {: caption="Part Properties of Configuration"}
 
 Descriptions for Part Properties of {{block(Configuration)}}:
@@ -4346,31 +4128,37 @@ Descriptions for Part Properties of {{block(Configuration)}}:
 * {{block(SolidModel)}} 
 
     references to a file with the three-dimensional geometry of the {{block(Component)}} or {{block(Composition)}}.
+
     See {{sect(SolidModel)}}.
 
 * {{block(SensorConfiguration)}} 
 
     configuration for a {{block(Sensor)}}.
+
     See {{block(SensorConfiguration)}}.
 
 * {{block(Motion)}} 
 
     movement of the component relative to a coordinate system. 
+
     See {{sect(Motion)}}.
 
 * {{block(Relationship)}} 
 
     association between two pieces of equipment that function independently but together perform a manufacturing operation.
+
     {{block(Relationships)}} groups one or more {{block(Relationship)}} types. See {{sect(Relationships)}}.
 
 * {{block(CoordinateSystem)}} 
 
     reference system that associates a unique set of n parameters with each point in an n-dimensional space. {{cite(ISO 10303-218:2004)}}
+
     {{block(CoordinateSystems)}} groups one or more {{block(CoordinateSystem)}} entities. See {{sect(CoordinateSystems)}}.
 
 * {{block(Specification)}} 
 
     design characteristics for a piece of equipment.
+
     {{block(Specifications)}} groups one or more {{block(Specification)}} entities. See {{sect(Specifications)}}.
 
 
@@ -4398,14 +4186,14 @@ At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be d
 
 {{tbl(value-properties-of-coordinatesystem)}} lists the Value Properties of {{block(CoordinateSystem)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(id)}} | `ID` | 1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(nativeName)}} | `string` | 0..1 |
-| {{property(parentIdRef)}} | `ID` | 0..1 |
-| {{property(type)}} | `CoordinateSystemTypeEnum` | 1 |
-| {{property(Description)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(id)}}|`ID`|1|
+|{{property(name)}}|`string`|0..1|
+|{{property(nativeName)}}|`string`|0..1|
+|{{property(parentIdRef)}}|`ID`|0..1|
+|{{property(type)}}|`CoordinateSystemTypeEnum`|1|
+|{{property(Description)}}|`string`|0..1|
 {: caption="Value Properties of CoordinateSystem"}
 
 Descriptions for Value Properties of {{block(CoordinateSystem)}}:
@@ -4430,7 +4218,7 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
 
     type of coordinate system.
 
-    The value of {{property(type)}} **MUST** be one of the `CoordinateSystemTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `CoordinateSystemTypeEnum` enumeration. 
 
     `CoordinateSystemTypeEnum` Enumeration:
 
@@ -4485,10 +4273,10 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
 
 {{tbl(part-properties-of-coordinatesystem)}} lists the Part Properties of {{block(CoordinateSystem)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Origin)}} | 0..1 |
-| {{block(Transformation)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Origin)}}|0..1|
+|{{block(Transformation)}}|0..1|
 {: caption="Part Properties of CoordinateSystem"}
 
 Descriptions for Part Properties of {{block(CoordinateSystem)}}:
@@ -4496,11 +4284,13 @@ Descriptions for Part Properties of {{block(CoordinateSystem)}}:
 * {{block(Origin)}} 
 
     coordinates of the origin position of a coordinate system.
+
     See {{sect(Origin)}}.
 
 * {{block(Transformation)}} 
 
     process of transforming to the origin position of the coordinate system from a parent coordinate system using {{block(Translation)}} and {{block(Rotation)}}.
+
     See {{sect(Transformation)}}.
 
 ### Origin
@@ -4509,8 +4299,7 @@ Descriptions for Part Properties of {{block(CoordinateSystem)}}:
 coordinates of the origin position of a coordinate system.
 
 
-The value of {{property(Origin)}} **MUST** be `MILLIMETER`.
-
+The value of {{property(Origin)}} **MUST** be reported in `MILLIMETER_3D`.
 
 ### Transformation
 
@@ -4523,10 +4312,10 @@ At a minimum, a {{block(Translation)}} or a {{block(Rotation)}} **MUST** be defi
 
 {{tbl(part-properties-of-transformation)}} lists the Part Properties of {{block(Transformation)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Translation)}} | 0..1 |
-| {{block(Rotation)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Translation)}}|0..1|
+|{{block(Rotation)}}|0..1|
 {: caption="Part Properties of Transformation"}
 
 Descriptions for Part Properties of {{block(Transformation)}}:
@@ -4534,12 +4323,14 @@ Descriptions for Part Properties of {{block(Transformation)}}:
 * {{block(Translation)}} 
 
     translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
+
     See {{sect(Translation)}}.
 
 * {{block(Rotation)}} 
 
     rotations about X, Y, and Z axes are expressed in A, B, and C respectively within a 3-dimensional vector. 
     
+
     See {{sect(Rotation)}}.
 
 ### Rotation
@@ -4549,8 +4340,7 @@ rotations about X, Y, and Z axes are expressed in A, B, and C respectively withi
 
 
 
-The value of {{property(Rotation)}} **MUST** be `DEGREE`.
-
+The value of {{property(Rotation)}} **MUST** be reported in `DEGREE_3D`.
 
 ### Translation
 
@@ -4558,8 +4348,7 @@ The value of {{property(Rotation)}} **MUST** be `DEGREE`.
 translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
 
 
-The value of {{property(Translation)}} **MUST** be `MILLIMETER`.
-
+The value of {{property(Translation)}} **MUST** be reported in `MILLIMETER_3D`.
 
 
 
@@ -4588,13 +4377,13 @@ At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be d
 
 {{tbl(value-properties-of-motion)}} lists the Value Properties of {{block(Motion)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(actuation)}} | `MotionActuationTypeEnum` | 1 |
-| {{property(coordinateSystemIdRef)}} | `ID` | 1 |
-| {{property(id)}} | `ID` | 1 |
-| {{property(parentIdRef)}} | `ID` | 0..1 |
-| {{property(type)}} | `MotionTypeEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(actuation)}}|`MotionActuationTypeEnum`|1|
+|{{property(coordinateSystemIdRef)}}|`ID`|1|
+|{{property(id)}}|`ID`|1|
+|{{property(parentIdRef)}}|`ID`|0..1|
+|{{property(type)}}|`MotionTypeEnum`|1|
 {: caption="Value Properties of Motion"}
 
 Descriptions for Value Properties of {{block(Motion)}}:
@@ -4603,7 +4392,7 @@ Descriptions for Value Properties of {{block(Motion)}}:
 
     describes if this component is actuated directly or indirectly as a result of other motion.
 
-    The value of {{property(actuation)}} **MUST** be one of the `MotionActuationTypeEnum` enumeration.
+    The value of {{property(actuation)}} **MUST** be one of the `MotionActuationTypeEnum` enumeration. 
 
     `MotionActuationTypeEnum` Enumeration:
 
@@ -4638,7 +4427,7 @@ Descriptions for Value Properties of {{block(Motion)}}:
 
     type of motion.
 
-    The value of {{property(type)}} **MUST** be one of the `MotionTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `MotionTypeEnum` enumeration. 
 
     `MotionTypeEnum` Enumeration:
 
@@ -4663,12 +4452,12 @@ Descriptions for Value Properties of {{block(Motion)}}:
 
 {{tbl(part-properties-of-motion)}} lists the Part Properties of {{block(Motion)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Axis)}} | 0..1 |
-| {{block(Origin)}} | 0..1 |
-| {{block(Transformation)}} | 0..1 |
-| {{block(Description)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Axis)}}|0..1|
+|{{block(Origin)}}|0..1|
+|{{block(Transformation)}}|0..1|
+|{{block(Description)}}|0..1|
 {: caption="Part Properties of Motion"}
 
 Descriptions for Part Properties of {{block(Motion)}}:
@@ -4676,21 +4465,25 @@ Descriptions for Part Properties of {{block(Motion)}}:
 * {{block(Axis)}} 
 
     axis along or around which the {{block(Component)}} moves relative to a coordinate system.
+
     See {{sect(Axis)}}.
 
 * {{block(Origin)}} 
 
     coordinates of the origin position of a coordinate system.
+
     See {{sect(Origin)}}.
 
 * {{block(Transformation)}} 
 
     process of transforming to the origin position of the coordinate system from a parent coordinate system using {{block(Translation)}} and {{block(Rotation)}}.
+
     See {{sect(Transformation)}}.
 
 * {{block(Description)}} 
 
     descriptive content.
+
     See {{sect(Description)}}.
 
 ### Axis
@@ -4699,8 +4492,7 @@ Descriptions for Part Properties of {{block(Motion)}}:
 axis along or around which the {{block(Component)}} moves relative to a coordinate system.
 
 
-The value of {{property(Axis)}} **MUST** be `float`.
-
+The value of {{property(Axis)}} **MUST** be a list of `float` of size `3`.
 
 
 
@@ -4733,13 +4525,13 @@ association between two pieces of equipment that function independently but toge
 
 {{tbl(value-properties-of-componentrelationship)}} lists the Value Properties of {{block(ComponentRelationship)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(idRef)}} | `ID` | 1 |
-| {{property(criticality)}} | `CriticalityTypeEnum` | 0..1 |
-| {{property(id)}} | `ID` | 1 |
-| {{property(type)}} | `RelationshipTypeEnum` | 1 |
-| {{property(name)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(idRef)}}|`ID`|1|
+|{{property(criticality)}}|`CriticalityTypeEnum`|0..1|
+|{{property(id)}}|`ID`|1|
+|{{property(type)}}|`RelationshipTypeEnum`|1|
+|{{property(name)}}|`string`|0..1|
 {: caption="Value Properties of ComponentRelationship"}
 
 Descriptions for Value Properties of {{block(ComponentRelationship)}}:
@@ -4752,7 +4544,7 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 
     defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
 
-    The value of {{property(criticality)}} **MUST** be one of the `CriticalityTypeEnum` enumeration.
+    The value of {{property(criticality)}} **MUST** be one of the `CriticalityTypeEnum` enumeration. 
 
     `CriticalityTypeEnum` Enumeration:
 
@@ -4773,7 +4565,7 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 
     defines the authority that this piece of equipment has relative to the associated piece of equipment.
 
-    The value of {{property(type)}} **MUST** be one of the `RelationshipTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `RelationshipTypeEnum` enumeration. 
 
     `RelationshipTypeEnum` Enumeration:
 
@@ -4804,16 +4596,16 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 
 {{tbl(value-properties-of-devicerelationship)}} lists the Value Properties of {{block(DeviceRelationship)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(deviceUuidRef)}} | `ID` | 1 |
-| {{property(href)}} | `xlinkhref` | 0..1 |
-| {{property(role)}} | `RoleTypeEnum` | 0..1 |
-| {{property(xlink:type)}} | `xlinktype` | 0..1 |
-| {{property(criticality)}} | `CriticalityTypeEnum` | 0..1 |
-| {{property(id)}} | `ID` | 1 |
-| {{property(type)}} | `RelationshipTypeEnum` | 1 |
-| {{property(name)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(deviceUuidRef)}}|`ID`|1|
+|{{property(href)}}|`xlinkhref`|0..1|
+|{{property(role)}}|`RoleTypeEnum`|0..1|
+|{{property(xlink:type)}}|`xlinktype`|0..1|
+|{{property(criticality)}}|`CriticalityTypeEnum`|0..1|
+|{{property(id)}}|`ID`|1|
+|{{property(type)}}|`RelationshipTypeEnum`|1|
+|{{property(name)}}|`string`|0..1|
 {: caption="Value Properties of DeviceRelationship"}
 
 Descriptions for Value Properties of {{block(DeviceRelationship)}}:
@@ -4830,7 +4622,7 @@ Descriptions for Value Properties of {{block(DeviceRelationship)}}:
 
     defines the services or capabilities that the referenced piece of equipment provides relative to this piece of equipment.
 
-    The value of {{property(role)}} **MUST** be one of the `RoleTypeEnum` enumeration.
+    The value of {{property(role)}} **MUST** be one of the `RoleTypeEnum` enumeration. 
 
     `RoleTypeEnum` Enumeration:
 
@@ -4851,7 +4643,7 @@ Descriptions for Value Properties of {{block(DeviceRelationship)}}:
 
     defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
 
-    The value of {{property(criticality)}} **MUST** be one of the `CriticalityTypeEnum` enumeration.
+    The value of {{property(criticality)}} **MUST** be one of the `CriticalityTypeEnum` enumeration. 
 
 * {{property(id)}} 
 
@@ -4861,7 +4653,7 @@ Descriptions for Value Properties of {{block(DeviceRelationship)}}:
 
     defines the authority that this piece of equipment has relative to the associated piece of equipment.
 
-    The value of {{property(type)}} **MUST** be one of the `RelationshipTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `RelationshipTypeEnum` enumeration. 
 
 * {{property(name)}} 
 
@@ -4913,12 +4705,12 @@ configuration for a {{block(Sensor)}}.
 
 {{tbl(value-properties-of-sensorconfiguration)}} lists the Value Properties of {{block(SensorConfiguration)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(CalibrationDate)}} | `dateTime` | 0..1 |
-| {{property(CalibrationInitials)}} | `string` | 0..1 |
-| {{property(FirmwareVersion)}} | `string` | 1 |
-| {{property(NextCalibrationDate)}} | `dateTime` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(CalibrationDate)}}|`dateTime`|0..1|
+|{{property(CalibrationInitials)}}|`string`|0..1|
+|{{property(FirmwareVersion)}}|`string`|1|
+|{{property(NextCalibrationDate)}}|`dateTime`|0..1|
 {: caption="Value Properties of SensorConfiguration"}
 
 Descriptions for Value Properties of {{block(SensorConfiguration)}}:
@@ -4943,9 +4735,9 @@ Descriptions for Value Properties of {{block(SensorConfiguration)}}:
 
 {{tbl(part-properties-of-sensorconfiguration)}} lists the Part Properties of {{block(SensorConfiguration)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Channel)}} (organized by {{block(Channels)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Channel)}} (organized by {{block(Channels)}})|0..*|
 {: caption="Part Properties of SensorConfiguration"}
 
 Descriptions for Part Properties of {{block(SensorConfiguration)}}:
@@ -4953,6 +4745,7 @@ Descriptions for Part Properties of {{block(SensorConfiguration)}}:
 * {{block(Channel)}} 
 
     {{term(sensing element)}} of a {{block(Sensor)}}.
+
     {{block(Channels)}} groups one or more {{block(Channel)}} entities. See {{block(Channel)}}.
 
 ### Channel
@@ -4966,13 +4759,13 @@ When {{block(Sensor)}} has multiple {{termplural(sensing element)}}, each {{term
 
 {{tbl(value-properties-of-channel)}} lists the Value Properties of {{block(Channel)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(CalibrationDate)}} | `dateTime` | 0..1 |
-| {{property(CalibrationInitials)}} | `string` | 0..1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(NextCalibrationDate)}} | `dateTime` | 0..1 |
-| {{property(number)}} | `string` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(CalibrationDate)}}|`dateTime`|0..1|
+|{{property(CalibrationInitials)}}|`string`|0..1|
+|{{property(name)}}|`string`|0..1|
+|{{property(NextCalibrationDate)}}|`dateTime`|0..1|
+|{{property(number)}}|`string`|1|
 {: caption="Value Properties of Channel"}
 
 Descriptions for Value Properties of {{block(Channel)}}:
@@ -5001,9 +4794,9 @@ Descriptions for Value Properties of {{block(Channel)}}:
 
 {{tbl(reference-properties-of-channel)}} lists the Reference Properties of {{block(Channel)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(SensorConfiguration)}} (organized by {{block(Channels)}}) | 1 |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(SensorConfiguration)}} (organized by {{block(Channels)}})|1|
 {: caption="Reference Properties of Channel"}
 
 Descriptions for Reference Properties of {{block(Channel)}}:
@@ -5011,15 +4804,16 @@ Descriptions for Reference Properties of {{block(Channel)}}:
 * {{block(SensorConfiguration)}} 
 
     configuration for a {{block(Sensor)}}.
+
     {{block(Channels)}} groups one or more {{block(Channel)}} entities. See {{block(Channel)}}.
 
 #### Part Properties of Channel
 
 {{tbl(part-properties-of-channel)}} lists the Part Properties of {{block(Channel)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Description)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Description)}}|0..1|
 {: caption="Part Properties of Channel"}
 
 Descriptions for Part Properties of {{block(Channel)}}:
@@ -5027,6 +4821,7 @@ Descriptions for Part Properties of {{block(Channel)}}:
 * {{block(Description)}} 
 
     descriptive content.
+
     See {{sect(Description)}}.
 
 
@@ -5058,12 +4853,12 @@ Either an {{property(href,SolidModel)}} or a {{property(modelIdRef,SolidModel)}}
 
 {{tbl(value-properties-of-solidmodel)}} lists the Value Properties of {{block(SolidModel)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(id)}} | `ID` | 1 |
-| {{property(solidModelIdRef)}} | `ID` | 0..1 |
-| {{property(mediaType)}} | `MediaTypeEnum` | 1 |
-| {{property(coordinateSystemIdRef)}} | `ID` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(id)}}|`ID`|1|
+|{{property(solidModelIdRef)}}|`ID`|0..1|
+|{{property(mediaType)}}|`MediaTypeEnum`|1|
+|{{property(coordinateSystemIdRef)}}|`ID`|0..1|
 {: caption="Value Properties of SolidModel"}
 
 Descriptions for Value Properties of {{block(SolidModel)}}:
@@ -5080,7 +4875,7 @@ Descriptions for Value Properties of {{block(SolidModel)}}:
 
     format of the referenced document.
 
-    The value of {{property(mediaType)}} **MUST** be one of the `MediaTypeEnum` enumeration.
+    The value of {{property(mediaType)}} **MUST** be one of the `MediaTypeEnum` enumeration. 
 
     `MediaTypeEnum` Enumeration:
 
@@ -5129,10 +4924,10 @@ Descriptions for Value Properties of {{block(SolidModel)}}:
 
 {{tbl(part-properties-of-solidmodel)}} lists the Part Properties of {{block(SolidModel)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Transformation)}} | 1 |
-| {{block(Scale)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Transformation)}}|1|
+|{{block(Scale)}}|0..1|
 {: caption="Part Properties of SolidModel"}
 
 Descriptions for Part Properties of {{block(SolidModel)}}:
@@ -5140,11 +4935,13 @@ Descriptions for Part Properties of {{block(SolidModel)}}:
 * {{block(Transformation)}} 
 
     process of transforming to the origin position of the coordinate system from a parent coordinate system using {{block(Translation)}} and {{block(Rotation)}}.
+
     See {{sect(Transformation)}}.
 
 * {{block(Scale)}} 
 
     either a single multiplier applied to all three dimensions or a three space multiplier given in the X, Y, and Z dimensions in the coordinate system used for the {{block(SolidModel)}}.
+
     See {{sect(Scale)}}.
 
 ### Scale
@@ -5153,8 +4950,7 @@ Descriptions for Part Properties of {{block(SolidModel)}}:
 either a single multiplier applied to all three dimensions or a three space multiplier given in the X, Y, and Z dimensions in the coordinate system used for the {{block(SolidModel)}}.
 
 
-The value of {{property(Scale)}} **MUST** be `float`.
-
+The value of {{property(Scale)}} **MUST** be a list of `float` of size `3`.
 
 
 
@@ -5180,17 +4976,17 @@ design characteristics for a piece of equipment.
 
 {{tbl(value-properties-of-specification)}} lists the Value Properties of {{block(Specification)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `DataItemTypeEnum` | 1 |
-| {{property(subType)}} | `DataItemSubTypeEnum` | 0..1 |
-| {{property(dataItemIdRef)}} | `ID` | 0..1 |
-| {{property(units)}} | `UnitEnum` | 0..1 |
-| {{property(compositionIdRef)}} | `ID` | 0..1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(coordinateSystemIdRef)}} | `ID` | 0..1 |
-| {{property(id)}} | `ID` | 0..1 |
-| {{property(originator)}} | `OriginatorEnum` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`DataItemTypeEnum`|1|
+|{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
+|{{property(dataItemIdRef)}}|`ID`|0..1|
+|{{property(units)}}|`UnitEnum`|0..1|
+|{{property(compositionIdRef)}}|`ID`|0..1|
+|{{property(name)}}|`string`|0..1|
+|{{property(coordinateSystemIdRef)}}|`ID`|0..1|
+|{{property(id)}}|`ID`|0..1|
+|{{property(originator)}}|`OriginatorEnum`|0..1|
 {: caption="Value Properties of Specification"}
 
 Descriptions for Value Properties of {{block(Specification)}}:
@@ -5199,13 +4995,13 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
     same as {{block(DataItem)}} {{property(type)}}. See {{sect(DataItem Types)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(subType)}} 
 
     same as {{block(DataItem)}} {{property(subType)}}. See {{sect(DataItem SubTypes)}}.
 
-    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration.
+    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(dataItemIdRef)}} 
 
@@ -5215,7 +5011,7 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
     same as {{block(DataItem)}} {{property(units)}}. See {{sect(DataItem)}}.
 
-    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration.
+    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
 * {{property(compositionIdRef)}} 
 
@@ -5237,7 +5033,7 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
     reference to the creator of the {{block(Specification)}}.
 
-    The value of {{property(originator)}} **MUST** be one of the `OriginatorEnum` enumeration.
+    The value of {{property(originator)}} **MUST** be one of the `OriginatorEnum` enumeration. 
 
     `OriginatorEnum` Enumeration:
 
@@ -5254,15 +5050,15 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
 {{tbl(part-properties-of-specification)}} lists the Part Properties of {{block(Specification)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Maximum)}} | 0..1 |
-| {{block(UpperLimit)}} | 0..1 |
-| {{block(LowerWarning)}} | 0..1 |
-| {{block(LowerLimit)}} | 0..1 |
-| {{block(UpperWarning)}} | 0..1 |
-| {{block(Nominal)}} | 0..1 |
-| {{block(Minimum)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Maximum)}}|0..1|
+|{{block(UpperLimit)}}|0..1|
+|{{block(LowerWarning)}}|0..1|
+|{{block(LowerLimit)}}|0..1|
+|{{block(UpperWarning)}}|0..1|
+|{{block(Nominal)}}|0..1|
+|{{block(Minimum)}}|0..1|
 {: caption="Part Properties of Specification"}
 
 Descriptions for Part Properties of {{block(Specification)}}:
@@ -5270,13 +5066,9 @@ Descriptions for Part Properties of {{block(Specification)}}:
 * {{block(Maximum)}} 
 
     numeric upper constraint.
-    numeric upper constraint.
 
 * {{block(UpperLimit)}} 
 
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
     upper conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
@@ -5284,13 +5076,9 @@ Descriptions for Part Properties of {{block(Specification)}}:
 * {{block(LowerWarning)}} 
 
     lower boundary indicating increased concern and supervision may be required.
-    lower boundary indicating increased concern and supervision may be required.
 
 * {{block(LowerLimit)}} 
 
-    lower conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
     lower conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
@@ -5298,16 +5086,13 @@ Descriptions for Part Properties of {{block(Specification)}}:
 * {{block(UpperWarning)}} 
 
     upper boundary indicating increased concern and supervision may be required.
-    upper boundary indicating increased concern and supervision may be required.
 
 * {{block(Nominal)}} 
 
     numeric target or expected value.
-    numeric target or expected value.
 
 * {{block(Minimum)}} 
 
-    numeric lower constraint.
     numeric lower constraint.
 
 ### ProcessSpecification
@@ -5320,11 +5105,11 @@ Descriptions for Part Properties of {{block(Specification)}}:
 
 {{tbl(part-properties-of-processspecification)}} lists the Part Properties of {{block(ProcessSpecification)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(SpecificationLimits)}} | 0..1 |
-| {{block(ControlLimits)}} | 0..1 |
-| {{block(AlarmLimits)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(SpecificationLimits)}}|0..1|
+|{{block(ControlLimits)}}|0..1|
+|{{block(AlarmLimits)}}|0..1|
 {: caption="Part Properties of ProcessSpecification"}
 
 Descriptions for Part Properties of {{block(ProcessSpecification)}}:
@@ -5332,16 +5117,19 @@ Descriptions for Part Properties of {{block(ProcessSpecification)}}:
 * {{block(SpecificationLimits)}} 
 
     set of limits that define a range of values designating acceptable performance for a variable.
+
     See {{sect(SpecificationLimits)}}.
 
 * {{block(ControlLimits)}} 
 
     set of limits that is used to indicate whether a process variable is stable and in control.
+
     See {{sect(ControlLimits)}}.
 
 * {{block(AlarmLimits)}} 
 
     set of limits that is used to trigger warning or alarm indicators.
+
     See {{sect(AlarmLimits)}}.
 
 ### ControlLimits
@@ -5354,13 +5142,13 @@ set of limits that is used to indicate whether a process variable is stable and 
 
 {{tbl(part-properties-of-controllimits)}} lists the Part Properties of {{block(ControlLimits)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(UpperLimit)}} | 0..1 |
-| {{block(UpperWarning)}} | 0..1 |
-| {{block(LowerWarning)}} | 0..1 |
-| {{block(Nominal)}} | 0..1 |
-| {{block(LowerLimit)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(UpperLimit)}}|0..1|
+|{{block(UpperWarning)}}|0..1|
+|{{block(LowerWarning)}}|0..1|
+|{{block(Nominal)}}|0..1|
+|{{block(LowerLimit)}}|0..1|
 {: caption="Part Properties of ControlLimits"}
 
 Descriptions for Part Properties of {{block(ControlLimits)}}:
@@ -5370,30 +5158,21 @@ Descriptions for Part Properties of {{block(ControlLimits)}}:
     upper conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
 
 * {{block(UpperWarning)}} 
 
-    upper boundary indicating increased concern and supervision may be required.
     upper boundary indicating increased concern and supervision may be required.
 
 * {{block(LowerWarning)}} 
 
     lower boundary indicating increased concern and supervision may be required.
-    lower boundary indicating increased concern and supervision may be required.
 
 * {{block(Nominal)}} 
 
     numeric target or expected value.
-    numeric target or expected value.
 
 * {{block(LowerLimit)}} 
 
-    lower conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
     lower conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
@@ -5408,12 +5187,12 @@ set of limits that is used to trigger warning or alarm indicators.
 
 {{tbl(part-properties-of-alarmlimits)}} lists the Part Properties of {{block(AlarmLimits)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(UpperLimit)}} | 0..1 |
-| {{block(UpperWarning)}} | 0..1 |
-| {{block(LowerLimit)}} | 0..1 |
-| {{block(LowerWarning)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(UpperLimit)}}|0..1|
+|{{block(UpperWarning)}}|0..1|
+|{{block(LowerLimit)}}|0..1|
+|{{block(LowerWarning)}}|0..1|
 {: caption="Part Properties of AlarmLimits"}
 
 Descriptions for Part Properties of {{block(AlarmLimits)}}:
@@ -5423,13 +5202,9 @@ Descriptions for Part Properties of {{block(AlarmLimits)}}:
     upper conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
 
 * {{block(UpperWarning)}} 
 
-    upper boundary indicating increased concern and supervision may be required.
     upper boundary indicating increased concern and supervision may be required.
 
 * {{block(LowerLimit)}} 
@@ -5437,13 +5212,9 @@ Descriptions for Part Properties of {{block(AlarmLimits)}}:
     lower conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
-    lower conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
 
 * {{block(LowerWarning)}} 
 
-    lower boundary indicating increased concern and supervision may be required.
     lower boundary indicating increased concern and supervision may be required.
 
 ### SpecificationLimits
@@ -5456,11 +5227,11 @@ set of limits that define a range of values designating acceptable performance f
 
 {{tbl(part-properties-of-specificationlimits)}} lists the Part Properties of {{block(SpecificationLimits)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(UpperLimit)}} | 0..1 |
-| {{block(Nominal)}} | 0..1 |
-| {{block(LowerLimit)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(UpperLimit)}}|0..1|
+|{{block(Nominal)}}|0..1|
+|{{block(LowerLimit)}}|0..1|
 {: caption="Part Properties of SpecificationLimits"}
 
 Descriptions for Part Properties of {{block(SpecificationLimits)}}:
@@ -5470,20 +5241,13 @@ Descriptions for Part Properties of {{block(SpecificationLimits)}}:
     upper conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
 
 * {{block(Nominal)}} 
 
     numeric target or expected value.
-    numeric target or expected value.
 
 * {{block(LowerLimit)}} 
 
-    lower conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
     lower conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
@@ -5496,7 +5260,6 @@ upper boundary indicating increased concern and supervision may be required.
 
 The value of {{property(UpperWarning)}} **MUST** be `float`.
 
-
 ### UpperLimit
 
 
@@ -5507,7 +5270,6 @@ upper conformance boundary for a variable.
 
 The value of {{property(UpperLimit)}} **MUST** be `float`.
 
-
 ### Maximum
 
 
@@ -5515,7 +5277,6 @@ numeric upper constraint.
 
 
 The value of {{property(Maximum)}} **MUST** be `float`.
-
 
 ### LowerLimit
 
@@ -5527,7 +5288,6 @@ lower conformance boundary for a variable.
 
 The value of {{property(LowerLimit)}} **MUST** be `float`.
 
-
 ### LowerWarning
 
 
@@ -5535,7 +5295,6 @@ lower boundary indicating increased concern and supervision may be required.
 
 
 The value of {{property(LowerWarning)}} **MUST** be `float`.
-
 
 ### Minimum
 
@@ -5545,7 +5304,6 @@ numeric lower constraint.
 
 The value of {{property(Minimum)}} **MUST** be `float`.
 
-
 ### Nominal
 
 
@@ -5553,7 +5311,6 @@ numeric target or expected value.
 
 
 The value of {{property(Nominal)}} **MUST** be `float`.
-
 
 
 

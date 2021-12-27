@@ -17,24 +17,24 @@ information reported about a piece of equipment.
 
 {{tbl(value-properties-of-dataitem)}} lists the Value Properties of {{block(DataItem)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(category)}} | `CategoryEnum` | 1 |
-| {{property(compositionId)}} | `ID` | 0..1 |
-| {{property(coordinateSystem)}} | `CoordinateSystemEnum` | 0..1 |
-| {{property(discrete)}} | `boolean` | 0..1 |
-| {{property(id)}} | `ID` | 1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(nativeScale)}} | `integer` | 0..1 |
-| {{property(nativeUnits)}} | `NativeUnitEnum` | 0..1 |
-| {{property(sampleRate)}} | `float` | 0..1 |
-| {{property(significantDigits)}} | `integer` | 0..1 |
-| {{property(statistic)}} | `StatisticEnum` | 0..1 |
-| {{property(subType)}} | `DataItemSubTypeEnum` | 0..1 |
-| {{property(type)}} | `DataItemTypeEnum` | 1 |
-| {{property(units)}} | `UnitEnum` | 0..1 |
-| {{property(representation)}} | `RepresentationEnum` | 0..1 |
-| {{property(coordinateSystemIdRef)}} | `ID` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(category)}}|`CategoryEnum`|1|
+|{{property(compositionId)}}|`ID`|0..1|
+|{{property(coordinateSystem)}}|`CoordinateSystemEnum`|0..1|
+|{{property(discrete)}}|`boolean`|0..1|
+|{{property(id)}}|`ID`|1|
+|{{property(name)}}|`string`|0..1|
+|{{property(nativeScale)}}|`integer`|0..1|
+|{{property(nativeUnits)}}|`NativeUnitEnum`|0..1|
+|{{property(sampleRate)}}|`float`|0..1|
+|{{property(significantDigits)}}|`integer`|0..1|
+|{{property(statistic)}}|`StatisticEnum`|0..1|
+|{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
+|{{property(type)}}|`DataItemTypeEnum`|1|
+|{{property(units)}}|`UnitEnum`|0..1|
+|{{property(representation)}}|`RepresentationEnum`|0..1|
+|{{property(coordinateSystemIdRef)}}|`ID`|0..1|
 {: caption="Value Properties of DataItem"}
 
 Descriptions for Value Properties of {{block(DataItem)}}:
@@ -43,7 +43,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     specifies the kind of information provided by a data item.
 
-    The value of {{property(category)}} **MUST** be one of the `CategoryEnum` enumeration.
+    The value of {{property(category)}} **MUST** be one of the `CategoryEnum` enumeration. 
 
     `CategoryEnum` Enumeration:
 
@@ -70,7 +70,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     for measured values relative to a coordinate system like {{block(POSITION)}}, the coordinate system used may be reported.
 
-    The value of {{property(coordinateSystem)}} **MUST** be one of the `CoordinateSystemEnum` enumeration.
+    The value of {{property(coordinateSystem)}} **MUST** be one of the `CoordinateSystemEnum` enumeration. 
 
     `CoordinateSystemEnum` Enumeration:
 
@@ -107,7 +107,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     native units of measurement for the reported value of the data item.
 
-    The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration.
+    The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
 
     `<<extensible>>``NativeUnitEnum` Enumeration:
 
@@ -264,7 +264,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     type of statistical calculation performed on a series of data samples to provide the reported data value.
 
-    The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration.
+    The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration. 
 
     `StatisticEnum` Enumeration:
 
@@ -309,19 +309,19 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     sub-categorization of the data item {{property(type)}}. See {{DataItem SubTypes}}.
 
-    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration.
+    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(type)}} 
 
     type of data being measured. See {{sect(DataItem Types)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(units)}} 
 
     unit of measurement for the reported value of the data item.
 
-    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration.
+    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
     `<<extensible>>``UnitEnum` Enumeration:
 
@@ -521,7 +521,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     If {{property(representation)}} is not specified, it **MUST** be determined to be `VALUE`.
     
 
-    The value of {{property(representation)}} **MUST** be one of the `RepresentationEnum` enumeration.
+    The value of {{property(representation)}} **MUST** be one of the `RepresentationEnum` enumeration. 
 
     `RepresentationEnum` Enumeration:
 
@@ -569,9 +569,9 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
 {{tbl(reference-properties-of-dataitem)}} lists the Reference Properties of {{block(DataItem)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Observation)}} (organized by {{block(Observations)}}) | 0..* |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(Observation)}} (organized by {{block(Observations)}})|0..*|
 {: caption="Reference Properties of DataItem"}
 
 Descriptions for Reference Properties of {{block(DataItem)}}:
@@ -579,6 +579,7 @@ Descriptions for Reference Properties of {{block(DataItem)}}:
 * {{block(Observation)}} 
 
     abstract entity that provides telemetry data for a {{block(DataItem)}} at a point in time.
+
     {{block(Observations)}} groups one or more {{block(Observation)}} entities made for the {{block(DataItem)}} entity. 
     
     {{block(Component)}} {{termplural(observe)}} {{block(DataItem)}} entities to create {{block(Observation)}} entities for the {{block(DataItem)}} entities.
@@ -593,15 +594,15 @@ Descriptions for Reference Properties of {{block(DataItem)}}:
 
 {{tbl(part-properties-of-dataitem)}} lists the Part Properties of {{block(DataItem)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Source)}} | 0..1 |
-| {{block(Constraints)}} | 0..1 |
-| {{block(Filter)}} (organized by {{block(Filters)}}) | 0..* |
-| {{block(InitialValue)}} | 0..1 |
-| {{block(ResetTrigger)}} | 0..1 |
-| {{block(Definition)}} | 0..1 |
-| {{block(Relationship)}} (organized by {{block(Relationships)}}) | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Source)}}|0..1|
+|{{block(Constraints)}}|0..1|
+|{{block(Filter)}} (organized by {{block(Filters)}})|0..*|
+|{{block(InitialValue)}}|0..1|
+|{{block(ResetTrigger)}}|0..1|
+|{{block(Definition)}}|0..1|
+|{{block(Relationship)}} (organized by {{block(Relationships)}})|0..*|
 {: caption="Part Properties of DataItem"}
 
 Descriptions for Part Properties of {{block(DataItem)}}:
@@ -611,34 +612,37 @@ Descriptions for Part Properties of {{block(DataItem)}}:
     identifies the {{block(Component)}}, {{block(DataItem)}}, or {{block(Composition)}} from which a measured value originates.
     
     One of {{property(componentId)}}, {{property(compositionId)}}, or {{property(dataItemId)}} **MUST** be defined for {{block(Source)}}.
+
     See {{sect(Source)}}.
 
 * {{block(Constraints)}} 
 
     {{termplural(organize)}} a set of expected values that can be reported for a {{block(DataItem)}}.
+
     {{block(Constraints)}} organizes a set of expected values that can be reported for the {{block(DataItem)}}. See {{sect(Constraints)}}.
 
 * {{block(Filter)}} 
 
     provides a means to control when an {{term(agent)}} records updated information for a {{block(DataItem)}}. 
+
     {{block(Filters)}} groups one or more {{block(Filter)}} entities associated with the {{block(DataItem)}}. 
 
 * {{block(InitialValue)}} 
 
     starting value for a {{block(DataItem)}} as well as the value to be set for the {{block(DataItem)}} after a reset event.
-    starting value for a {{block(DataItem)}} as well as the value to be set for the {{block(DataItem)}} after a reset event.
 
 * {{block(ResetTrigger)}} 
 
-    type of event that may cause a reset to occur.
     type of event that may cause a reset to occur.
 
 * {{block(Definition)}} 
 
     defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated with the {{block(DataItem)}} when the {{property(representation)}} is either `DATA` or `TABLE`.
+
     See {{sect(Definition)}}.
 
 * {{block(Relationship)}} 
 
     association between two pieces of equipment that function independently but together perform a manufacturing operation.
+
     {{block(Relationships)}} groups one or more {{block(DataItemRelationship)}} and {{block(SpecificationRelationship)}}. See {{sect(Relationships)}}.

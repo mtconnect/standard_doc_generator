@@ -24,13 +24,13 @@ At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be d
 
 {{tbl(value-properties-of-motion)}} lists the Value Properties of {{block(Motion)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(actuation)}} | `MotionActuationTypeEnum` | 1 |
-| {{property(coordinateSystemIdRef)}} | `ID` | 1 |
-| {{property(id)}} | `ID` | 1 |
-| {{property(parentIdRef)}} | `ID` | 0..1 |
-| {{property(type)}} | `MotionTypeEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(actuation)}}|`MotionActuationTypeEnum`|1|
+|{{property(coordinateSystemIdRef)}}|`ID`|1|
+|{{property(id)}}|`ID`|1|
+|{{property(parentIdRef)}}|`ID`|0..1|
+|{{property(type)}}|`MotionTypeEnum`|1|
 {: caption="Value Properties of Motion"}
 
 Descriptions for Value Properties of {{block(Motion)}}:
@@ -39,7 +39,7 @@ Descriptions for Value Properties of {{block(Motion)}}:
 
     describes if this component is actuated directly or indirectly as a result of other motion.
 
-    The value of {{property(actuation)}} **MUST** be one of the `MotionActuationTypeEnum` enumeration.
+    The value of {{property(actuation)}} **MUST** be one of the `MotionActuationTypeEnum` enumeration. 
 
     `MotionActuationTypeEnum` Enumeration:
 
@@ -74,7 +74,7 @@ Descriptions for Value Properties of {{block(Motion)}}:
 
     type of motion.
 
-    The value of {{property(type)}} **MUST** be one of the `MotionTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `MotionTypeEnum` enumeration. 
 
     `MotionTypeEnum` Enumeration:
 
@@ -99,12 +99,12 @@ Descriptions for Value Properties of {{block(Motion)}}:
 
 {{tbl(part-properties-of-motion)}} lists the Part Properties of {{block(Motion)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Axis)}} | 0..1 |
-| {{block(Origin)}} | 0..1 |
-| {{block(Transformation)}} | 0..1 |
-| {{block(Description)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Axis)}}|0..1|
+|{{block(Origin)}}|0..1|
+|{{block(Transformation)}}|0..1|
+|{{block(Description)}}|0..1|
 {: caption="Part Properties of Motion"}
 
 Descriptions for Part Properties of {{block(Motion)}}:
@@ -112,21 +112,25 @@ Descriptions for Part Properties of {{block(Motion)}}:
 * {{block(Axis)}} 
 
     axis along or around which the {{block(Component)}} moves relative to a coordinate system.
+
     See {{sect(Axis)}}.
 
 * {{block(Origin)}} 
 
     coordinates of the origin position of a coordinate system.
+
     See {{sect(Origin)}}.
 
 * {{block(Transformation)}} 
 
     process of transforming to the origin position of the coordinate system from a parent coordinate system using {{block(Translation)}} and {{block(Rotation)}}.
+
     See {{sect(Transformation)}}.
 
 * {{block(Description)}} 
 
     descriptive content.
+
     See {{sect(Description)}}.
 
 ### Axis
@@ -135,5 +139,4 @@ Descriptions for Part Properties of {{block(Motion)}}:
 axis along or around which the {{block(Component)}} moves relative to a coordinate system.
 
 
-The value of {{property(Axis)}} **MUST** be `float`.
-
+The value of {{property(Axis)}} **MUST** be a list of `float` of size `3`.

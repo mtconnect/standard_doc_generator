@@ -13,16 +13,16 @@ provides information from an {{term(agent)}} defining version information, stora
 
 {{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(assetBufferSize)}} | `uInt32` | 1 |
-| {{property(assetCount)}} | `uInt32` | 1 |
-| {{property(deviceModelChangeTime)}} | `dateTime` | 1 |
-| {{property(version)}} | `version` | 1 |
-| {{property(testIndicator)}} | `boolean` | 0..1 |
-| {{property(sender)}} | `string` | 1 |
-| {{property(instanceId)}} | `uInt64` | 1 |
-| {{property(creationTime)}} | `dateTime` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(assetBufferSize)}}|`uInt32`|1|
+|{{property(assetCount)}}|`uInt32`|1|
+|{{property(deviceModelChangeTime)}}|`dateTime`|1|
+|{{property(version)}}|`version`|1|
+|{{property(testIndicator)}}|`boolean`|0..1|
+|{{property(sender)}}|`string`|1|
+|{{property(instanceId)}}|`uInt64`|1|
+|{{property(creationTime)}}|`dateTime`|1|
 {: caption="Value Properties of Header"}
 
 Descriptions for Value Properties of {{block(Header)}}:
@@ -87,10 +87,10 @@ root entity of an {{term(MTConnectAssets Response Document)}} that contains the 
 
 {{tbl(reference-properties-of-mtconnectassets)}} lists the Reference Properties of {{block(MTConnectAssets)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Header)}} | 1 |
-| {{block(Asset)}} (organized by {{block(Assets)}}) | 0..* |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(Header)}}|1|
+|{{block(Asset)}} (organized by {{block(Assets)}})|0..*|
 {: caption="Reference Properties of MTConnectAssets"}
 
 Descriptions for Reference Properties of {{block(MTConnectAssets)}}:
@@ -98,11 +98,11 @@ Descriptions for Reference Properties of {{block(MTConnectAssets)}}:
 * {{block(Header)}} 
 
     provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
-    provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
 
 * {{block(Asset)}} 
 
     abstract {{term(Asset)}}. 
     
     It is used in the manufacturing process, but is not permanently associated with a single piece of equipment. It can be removed from the piece of equipment without compromising its function, and can be associated with other pieces of equipment during its lifecycle.
+
     {{block(Assets)}} groups one or more {{block(Asset)}} types. See {{sect(Assets)}} for more details.

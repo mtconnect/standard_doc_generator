@@ -19,15 +19,15 @@ part of of the tool that physically removes the material from the workpiece by s
 
 {{tbl(value-properties-of-cuttingitem)}} lists the Value Properties of {{block(CuttingItem)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(Description)}} | `string` | 0..1 |
-| {{property(grade)}} | `string` | 0..1 |
-| {{property(indices)}} | `string` | 1..* |
-| {{property(itemId)}} | `ID` | 0..1 |
-| {{property(Locus)}} | `string` | 0..1 |
-| {{property(manufacturers)}} | `string` | 0..* |
-| {{property(ProgramToolGroup)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(Description)}}|`string`|0..1|
+|{{property(grade)}}|`string`|0..1|
+|{{property(indices)}}|`string`|1..*|
+|{{property(itemId)}}|`ID`|0..1|
+|{{property(Locus)}}|`string`|0..1|
+|{{property(manufacturers)}}|`string`|0..*|
+|{{property(ProgramToolGroup)}}|`string`|0..1|
 {: caption="Value Properties of CuttingItem"}
 
 Descriptions for Value Properties of {{block(CuttingItem)}}:
@@ -71,7 +71,7 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
     This will reference the tool item and adaptive items specifically. The cutting items
     manufacturers’ will be a property of {{block(CuttingItem)}}.
     
-    *Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{fig(CuttingItem Schema)}}.
+    > Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{fig(CuttingItem Schema)}}.
 
 * {{property(ProgramToolGroup)}} 
 
@@ -81,11 +81,11 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
 
 {{tbl(reference-properties-of-cuttingitem)}} lists the Reference Properties of {{block(CuttingItem)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Status)}} (organized by {{block(CutterStatus)}}) | 1..* |
-| {{block(ItemLife)}} | 0..3 |
-| {{block(Measurement)}} (organized by {{block(Measurements)}}) | 0..* |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(Status)}} (organized by {{block(CutterStatus)}})|1..*|
+|{{block(ItemLife)}}|0..3|
+|{{block(Measurement)}} (organized by {{block(Measurements)}})|0..*|
 {: caption="Reference Properties of CuttingItem"}
 
 Descriptions for Reference Properties of {{block(CuttingItem)}}:
@@ -93,6 +93,7 @@ Descriptions for Reference Properties of {{block(CuttingItem)}}:
 * {{block(Status)}} 
 
     status of the cutting tool.
+
     {{block(CutterStatus)}} provides the status of the assembly and {{term(organize)}} one or more {{block(Status)}} entities. See {{sect(Status)}}.
     
     The following combinations of {{block(Status)}} entities **MUST NOT** occur for a {{block(CutterStatus)}}:
@@ -112,11 +113,13 @@ Descriptions for Reference Properties of {{block(CuttingItem)}}:
 * {{block(ItemLife)}} 
 
     life of a {{block(CuttingItem)}}.
+
     See {{sect(ItemLife)}}.
 
 * {{block(Measurement)}} 
 
     constrained scalar value associated with a cutting tool.
+
     {{block(Measurements)}} groups one or more {{block(Measurement)}} subtypes. See {{sect(Measurement)}}.
 
 ### CuttingItems
@@ -129,9 +132,9 @@ Descriptions for Reference Properties of {{block(CuttingItem)}}:
 
 {{tbl(value-properties-of-cuttingitems)}} lists the Value Properties of {{block(CuttingItems)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(count)}} | `integer` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(count)}}|`integer`|1|
 {: caption="Value Properties of CuttingItems"}
 
 Descriptions for Value Properties of {{block(CuttingItems)}}:
@@ -148,18 +151,17 @@ life of a {{block(CuttingItem)}}.
 
 The value of {{property(ItemLife)}} **MUST** be `float`.
 
-
 #### Value Properties of ItemLife
 
 {{tbl(value-properties-of-itemlife)}} lists the Value Properties of {{block(ItemLife)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(countDirection)}} | `CountDirectionTypeEnum` | 1 |
-| {{property(initial)}} | `float` | 0..1 |
-| {{property(limit)}} | `float` | 0..1 |
-| {{property(type)}} | `ToolLifeEnum` | 1 |
-| {{property(warning)}} | `float` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(countDirection)}}|`CountDirectionTypeEnum`|1|
+|{{property(initial)}}|`float`|0..1|
+|{{property(limit)}}|`float`|0..1|
+|{{property(type)}}|`ToolLifeEnum`|1|
+|{{property(warning)}}|`float`|0..1|
 {: caption="Value Properties of ItemLife"}
 
 Descriptions for Value Properties of {{block(ItemLife)}}:
@@ -168,7 +170,7 @@ Descriptions for Value Properties of {{block(ItemLife)}}:
 
     indicates if the item life counts from zero to maximum or maximum to zero.
 
-    The value of {{property(countDirection)}} **MUST** be one of the `CountDirectionTypeEnum` enumeration.
+    The value of {{property(countDirection)}} **MUST** be one of the `CountDirectionTypeEnum` enumeration. 
 
 * {{property(initial)}} 
 
@@ -182,7 +184,7 @@ Descriptions for Value Properties of {{block(ItemLife)}}:
 
     type of item life being accumulated.
 
-    The value of {{property(type)}} **MUST** be one of the `ToolLifeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `ToolLifeEnum` enumeration. 
 
 * {{property(warning)}} 
 

@@ -10,39 +10,46 @@ accumulation of the number of times a function has attempted to, or is planned t
 
 
 
-The value of {{property(ActivationCount)}} **MUST** be a `string`.
-
+The value of {{property(ActivationCount)}} **MUST** be `float`.
 
 #### Subtypes of ActivationCount
+
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
     
+
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
     
+
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
     
+
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
     
+
 * `FAILED`
 
     accumulation of actions or activities that were attempted, but failed to complete or resulted in an unexpected or unacceptable outcome.
     
+
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
     
+
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -55,7 +62,7 @@ set of axes currently associated with a {{block(Path)}} or {{block(Controller)}}
 
 
 
-The value of {{property(ActiveAxes)}} **MUST** be a `string`.
+The value of {{property(ActiveAxes)}} **MUST** be a list of `string` of size `0..*`.
 
 ### ActuatorState
 
@@ -84,9 +91,6 @@ originator’s software version of the {{term(adapter)}}.
 
 
 
-The value of {{property(AdapterSoftwareVersion)}} **MUST** be a `string`.
-
-
 ### AdapterURI
 
 {{term(URI)}} of the {{term(adapter)}}.
@@ -94,17 +98,11 @@ The value of {{property(AdapterSoftwareVersion)}} **MUST** be a `string`.
 
 
 
-The value of {{property(AdapterURI)}} **MUST** be a `string`.
-
-
 ### Alarm
 
 **DEPRECATED:** Replaced with `CONDITION` category data items in Version 1.1.0.
 
 
-
-
-The value of {{property(Alarm)}} **MUST** be a `string`.
 
 
 ### AlarmLimit
@@ -125,18 +123,21 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
     > Note: immediate concern or action may be required.
     
     
+
     The value of `UPPER_LIMIT` **MUST** be a `float`.
 
 
 * `UPPER_WARNING` 
 
     upper boundary indicating increased concern and supervision may be required.
+
     The value of `UPPER_WARNING` **MUST** be a `float`.
 
 
 * `LOWER_WARNING` 
 
     lower boundary indicating increased concern and supervision may be required.
+
     The value of `LOWER_WARNING` **MUST** be a `float`.
 
 
@@ -147,8 +148,28 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
     > Note: immediate concern or action may be required.
     
     
+
     The value of `LOWER_LIMIT` **MUST** be a `float`.
 
+
+#### Part Properties of AlarmLimit
+
+{{tbl(part-properties-of-alarmlimit)}} lists the Part Properties of {{block(AlarmLimit)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(result)}}|0..1|
+{: caption="Part Properties of AlarmLimit"}
+
+Descriptions for Part Properties of {{block(AlarmLimit)}}:
+
+* {{block(AlarmLimitResult)}} 
+
+    upper conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
 
 ### Application
 
@@ -157,31 +178,33 @@ application on a {{block(Component)}}.
 
 
 
-The value of {{property(Application)}} **MUST** be a `string`.
-
-
 #### Subtypes of Application
+
 
 * `INSTALL_DATE`
 
     date the hardware or software was installed.
     
 
-    The value of {{block(Application)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+    The value of {{property(Application)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
 * `LICENSE`
 
     license code to validate or activate the hardware or software.
     
+
 * `MANUFACTURER`
 
     corporate identity for the maker of the hardware or software. 
     
+
 * `RELEASE_DATE`
 
     date the hardware or software was released for general use. 
     
 
-    The value of {{block(Application)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+    The value of {{property(Application)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
 * `VERSION`
 
     version of the hardware or software.
@@ -194,16 +217,13 @@ The value of {{property(Application)}} **MUST** be a `string`.
 
 
 
-The value of {{property(AssetChanged)}} **MUST** be a `string`.
-
-
 #### Value Properties of AssetChanged
 
 {{tbl(value-properties-of-assetchanged)}} lists the Value Properties of {{block(AssetChanged)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(assetType)}} | `AssetTypeEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(assetType)}}|`AssetTypeEnum`|1|
 {: caption="Value Properties of AssetChanged"}
 
 Descriptions for Value Properties of {{block(AssetChanged)}}:
@@ -212,7 +232,7 @@ Descriptions for Value Properties of {{block(AssetChanged)}}:
 
     type of {{block(Asset)}} changed. See {{citetitle(MTCPart4)}} for details on the {{block(Asset)}} model.
 
-    The value of {{property(assetType)}} **MUST** be one of the `AssetTypeEnum` enumeration.
+    The value of {{property(assetType)}} **MUST** be one of the `AssetTypeEnum` enumeration. 
 
     `AssetTypeEnum` Enumeration:
 
@@ -240,16 +260,13 @@ Descriptions for Value Properties of {{block(AssetChanged)}}:
 
 
 
-The value of {{property(AssetRemoved)}} **MUST** be a `string`.
-
-
 #### Value Properties of AssetRemoved
 
 {{tbl(value-properties-of-assetremoved)}} lists the Value Properties of {{block(AssetRemoved)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(assetType)}} | `AssetTypeEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(assetType)}}|`AssetTypeEnum`|1|
 {: caption="Value Properties of AssetRemoved"}
 
 Descriptions for Value Properties of {{block(AssetRemoved)}}:
@@ -258,7 +275,7 @@ Descriptions for Value Properties of {{block(AssetRemoved)}}:
 
     type of {{block(Asset)}} removed. See {{citetitle(MTCPart4)}} for details on the {{block(Asset)}} model.
 
-    The value of {{property(assetType)}} **MUST** be one of the `AssetTypeEnum` enumeration.
+    The value of {{property(assetType)}} **MUST** be one of the `AssetTypeEnum` enumeration. 
 
 ### Availability
 
@@ -317,9 +334,10 @@ value of a signal or calculation issued to adjust the feedrate of an individual 
 
 
 
-The value of {{property(AxisFeedrateOverride)}} **MUST** be a `float`.
+The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
 #### Subtypes of AxisFeedrateOverride
+
 
 * `JOG`
 
@@ -329,10 +347,12 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be a `float`.
     When the `JOG` subtype of `AxisFeedrateOverride` is applied, the resulting commanded feedrate for the axis is limited to the value of the original `JOG` subtype of the `AxisFeedrate` multiplied by the value of the `JOG` subtype of
     `AxisFeedrateOverride`.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
     
+
 * `RAPID`
 
     performing an operation faster or in less time than nominal rate.
@@ -395,9 +415,6 @@ line of code or command being executed by a {{block(Controller)}} entity.
 
 
 
-The value of {{property(Block)}} **MUST** be a `string`.
-
-
 ### BlockCount
 
 total count of the number of blocks of program code that have been executed since execution started.
@@ -405,7 +422,7 @@ total count of the number of blocks of program code that have been executed sinc
 
 
 
-The value of {{property(BlockCount)}} **MUST** be a `integer`.
+The value of {{property(BlockCount)}} **MUST** be `integer`.
 
 ### ChuckInterlock
 
@@ -428,6 +445,7 @@ The value of {{property(ChuckInterlock)}} **MUST** be one of the `ChuckInterlock
     chuck can be unclamped.
 
 #### Subtypes of ChuckInterlock
+
 
 * `MANUAL_UNCLAMP`
 
@@ -473,9 +491,6 @@ programmatic code being executed.
 
 
 
-The value of {{property(Code)}} **MUST** be a `string`.
-
-
 ### CompositionState
 
 operating state of a mechanism represented by a {{block(Composition)}} entity.
@@ -483,17 +498,15 @@ operating state of a mechanism represented by a {{block(Composition)}} entity.
 
 
 
-The value of {{property(CompositionState)}} **MUST** be a `string`.
-
-
 #### Subtypes of CompositionState
+
 
 * `ACTION`
 
     indication of the operating state of a mechanism.
     
 
-    The value for {{block(CompositionState)}} when {{property(subType)}} is `ACTION` **MUST** be one of the `ActionCompositionStateEnum` enumeration.
+    The value of {{property(CompositionState)}} **MUST** be one of the `ActionCompositionStateEnum` enumeration. 
 
     `ActionCompositionStateEnum` Enumeration:
 
@@ -505,12 +518,13 @@ The value of {{property(CompositionState)}} **MUST** be a `string`.
     * `INACTIVE` 
 
         {{block(Composition)}} is not operating.
+
 * `LATERAL`
 
     indication of the position of a mechanism that may move in a lateral direction.   
     
 
-    The value for {{block(CompositionState)}} when {{property(subType)}} is `LATERAL` **MUST** be one of the `LateralCompositionStateEnum` enumeration.
+    The value of {{property(CompositionState)}} **MUST** be one of the `LateralCompositionStateEnum` enumeration. 
 
     `LateralCompositionStateEnum` Enumeration:
 
@@ -528,13 +542,14 @@ The value of {{property(CompositionState)}} **MUST** be a `string`.
         position of the {{block(Composition)}} is not oriented to the right to the point of a positive confirmation and is not oriented to the left to the point of a positive confirmation. 
         
         It is in an intermediate position.
+
 * `MOTION`
 
     indication of the open or closed state of a mechanism.
     
     
 
-    The value for {{block(CompositionState)}} when {{property(subType)}} is `MOTION` **MUST** be one of the `MotionCompositionStateEnum` enumeration.
+    The value of {{property(CompositionState)}} **MUST** be one of the `MotionCompositionStateEnum` enumeration. 
 
     `MotionCompositionStateEnum` Enumeration:
 
@@ -553,12 +568,13 @@ The value of {{property(CompositionState)}} **MUST** be a `string`.
     * `CLOSED` 
 
         position of the {{block(Composition)}} is closed to the point of a positive confirmation.
+
 * `SWITCHED`
 
     indication of the activation state of a mechanism.
     
 
-    The value for {{block(CompositionState)}} when {{property(subType)}} is `SWITCHED` **MUST** be one of the `SwitchedCompositionStateEnum` enumeration.
+    The value of {{property(CompositionState)}} **MUST** be one of the `SwitchedCompositionStateEnum` enumeration. 
 
     `SwitchedCompositionStateEnum` Enumeration:
 
@@ -570,12 +586,13 @@ The value of {{property(CompositionState)}} **MUST** be a `string`.
     * `OFF` 
 
         activation state of the {{block(Composition)}} is in an `OFF` condition, it is not operating, or it is not powered.
+
 * `VERTICAL`
 
     indication of the position of a mechanism that may move in a vertical direction.
     
 
-    The value for {{block(CompositionState)}} when {{property(subType)}} is `VERTICAL` **MUST** be one of the `VerticalCompositionStateEnum` enumeration.
+    The value of {{property(CompositionState)}} **MUST** be one of the `VerticalCompositionStateEnum` enumeration. 
 
     `VerticalCompositionStateEnum` Enumeration:
 
@@ -638,24 +655,28 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
     > Note: immediate concern or action may be required.
     
     
+
     The value of `UPPER_LIMIT` **MUST** be a `float`.
 
 
 * `UPPER_WARNING` 
 
     upper boundary indicating increased concern and supervision may be required.
+
     The value of `UPPER_WARNING` **MUST** be a `float`.
 
 
 * `NOMINAL` 
 
     ideal or desired value for a variable.
+
     The value of `NOMINAL` **MUST** be a `float`.
 
 
 * `LOWER_WARNING` 
 
     lower boundary indicating increased concern and supervision may be required.
+
     The value of `LOWER_WARNING` **MUST** be a `float`.
 
 
@@ -666,8 +687,28 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
     > Note: immediate concern or action may be required.
     
     
+
     The value of `LOWER_LIMIT` **MUST** be a `float`.
 
+
+#### Part Properties of ControlLimit
+
+{{tbl(part-properties-of-controllimit)}} lists the Part Properties of {{block(ControlLimit)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(result)}}|0..1|
+{: caption="Part Properties of ControlLimit"}
+
+Descriptions for Part Properties of {{block(ControlLimit)}}:
+
+* {{block(ControlLimitResult)}} 
+
+    upper conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
 
 ### ControllerMode
 
@@ -727,18 +768,21 @@ The value of {{property(ControllerModeOverride)}} **MUST** be one of the `Contro
 
 #### Subtypes of ControllerModeOverride
 
+
 * `DRY_RUN`
 
     setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
     
     When `DRY_RUN` is `ON`, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
     
+
 * `MACHINE_AXIS_LOCK`
 
     setting or operator selection that changes the behavior of the controller on a piece of equipment. 
      
     When `MACHINE_AXIS_LOCK` is `ON`, program execution continues normally, but no equipment motion occurs.
     
+
 * `OPTIONAL_STOP`
 
     setting or operator selection that changes the behavior of the controller on a piece of equipment. 
@@ -749,6 +793,7 @@ The value of {{property(ControllerModeOverride)}} **MUST** be one of the `Contro
     
     {{block(Execution)}} **MUST** change to `OPTIONAL_STOP` after a program block specifying an optional stop is executed and the {{block(ControllerModeOverride)}} `OPTIONAL_STOP` selection is `ON`.
     
+
 * `SINGLE_BLOCK`
 
     setting or operator selection that changes the behavior of the controller on a piece of equipment. 
@@ -757,6 +802,7 @@ The value of {{property(ControllerModeOverride)}} **MUST** be one of the `Contro
     
     When `SINGLE_BLOCK` is `ON`, {{block(Execution)}} **MUST** change to `INTERRUPTED` after completion of each block of code. 
     
+
 * `TOOL_CHANGE_STOP`
 
     setting or operator selection that changes the behavior of the controller on a piece of equipment.  
@@ -773,7 +819,7 @@ set of associated axes.
 
 
 
-The value of {{property(CoupledAxes)}} **MUST** be a `string`.
+The value of {{property(CoupledAxes)}} **MUST** be a list of `string` of size `0..*`.
 
 ### CycleCount
 
@@ -782,39 +828,46 @@ accumulation of the number of times a cyclic function has attempted to, or is pl
 
 
 
-The value of {{property(CycleCount)}} **MUST** be a `string`.
-
+The value of {{property(CycleCount)}} **MUST** be `float`.
 
 #### Subtypes of CycleCount
+
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
     
+
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
     
+
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
     
+
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
     
+
 * `FAILED`
 
     accumulation of actions or activities that were attempted, but failed to complete or resulted in an unexpected or unacceptable outcome.
     
+
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
     
+
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -827,18 +880,21 @@ time and date code associated with a material or other physical item.
 
 
 
-The value of {{property(DateCode)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+The value of {{property(DateCode)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
 
 #### Subtypes of DateCode
+
 
 * `EXPIRATION`
 
     time and date code relating to the expiration or end of useful life for a material or other physical item.
     
+
 * `FIRST_USE`
 
     time and date code relating the first use of a material or other physical item.
     
+
 * `MANUFACTURE`
 
     time and date code relating to the production of a material or other physical item.
@@ -851,39 +907,46 @@ accumulation of the number of times a function has attempted to, or is planned t
 
 
 
-The value of {{property(DeactivationCount)}} **MUST** be a `string`.
-
+The value of {{property(DeactivationCount)}} **MUST** be `float`.
 
 #### Subtypes of DeactivationCount
+
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
     
+
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
     
+
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
     
+
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
     
+
 * `FAILED`
 
     accumulation of actions or activities that were attempted, but failed to complete or resulted in an unexpected or unacceptable outcome.
     
+
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
     
+
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -896,17 +959,11 @@ The value of {{property(DeactivationCount)}} **MUST** be a `string`.
 
 
 
-The value of {{property(DeviceAdded)}} **MUST** be a `string`.
-
-
 ### DeviceChanged
 
 {{term(UUID)}} of the device whose {{term(metadata)}} has changed.
 
 
-
-
-The value of {{property(DeviceChanged)}} **MUST** be a `string`.
 
 
 ### DeviceRemoved
@@ -916,17 +973,11 @@ The value of {{property(DeviceChanged)}} **MUST** be a `string`.
 
 
 
-The value of {{property(DeviceRemoved)}} **MUST** be a `string`.
-
-
 ### DeviceUuid
 
 identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function.
 
 
-
-
-The value of {{property(DeviceUuid)}} **MUST** be a `string`.
 
 
 ### Direction
@@ -936,17 +987,15 @@ direction of motion.
 
 
 
-The value of {{property(Direction)}} **MUST** be a `string`.
-
-
 #### Subtypes of Direction
+
 
 * `LINEAR`
 
     direction of motion of a linear motion.
     
 
-    The value for {{block(Direction)}} when {{property(subType)}} is `LINEAR` **MUST** be one of the `LinearDirectionEnum` enumeration.
+    The value of {{property(Direction)}} **MUST** be one of the `LinearDirectionEnum` enumeration. 
 
     `LinearDirectionEnum` Enumeration:
 
@@ -962,12 +1011,13 @@ The value of {{property(Direction)}} **MUST** be a `string`.
     * `NONE` 
 
         no direction.
+
 * `ROTARY`
 
     rotational direction of a rotary motion using the right hand rule convention.
     
 
-    The value for {{block(Direction)}} when {{property(subType)}} is `ROTARY` **MUST** be one of the `RotaryDirectionEnum` enumeration.
+    The value of {{property(Direction)}} **MUST** be one of the `RotaryDirectionEnum` enumeration. 
 
     `RotaryDirectionEnum` Enumeration:
 
@@ -1052,10 +1102,12 @@ The value of {{property(EndOfBar)}} **MUST** be one of the `YesNoEnum` enumerati
 
 #### Subtypes of EndOfBar
 
+
 * `AUXILIARY`
 
     when multiple locations on a piece of bar stock are referenced as the indication for the {{block(EndOfBar)}}, the additional location(s) **MUST** be designated as `AUXILIARY` indication(s) for the {{block(EndOfBar)}}.  
     
+
 * `PRIMARY`
 
     specific applications **MAY** reference one or more locations on a piece of bar stock as the indication for the {{block(EndOfBar)}}. 
@@ -1087,22 +1139,26 @@ The value of {{property(EquipmentMode)}} **MUST** be one of the `EquipmentModeEn
 
 #### Subtypes of EquipmentMode
 
+
 * `DELAY`
 
     elapsed time of a temporary halt of action.
     
+
 * `LOADED`
 
     indication that the sub-parts of a piece of equipment are under load.
     
     Example: For traditional machine tools, this is an indication that the cutting tool is assumed to be engaged with the part.
     
+
 * `OPERATING`
 
     indication that the major sub-parts of a piece of equipment are powered or performing any activity whether producing a part or product or not.
     
     Example: For traditional machine tools, this includes when the piece of equipment is `WORKING` or it is idle.
     
+
 * `POWERED`
 
     indication that primary power is applied to the piece of equipment and, as a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are
@@ -1110,6 +1166,7 @@ The value of {{property(EquipmentMode)}} **MUST** be one of the `EquipmentModeEn
     
     Example: Heaters for an extrusion machine that required to be powered even when the equipment is turned off.
     
+
 * `WORKING`
 
     indication that a piece of equipment is performing any activity the equipment is active and performing a function under load or not.
@@ -1182,31 +1239,33 @@ embedded software of a {{block(Component)}}.
 
 
 
-The value of {{property(Firmware)}} **MUST** be a `string`.
-
-
 #### Subtypes of Firmware
+
 
 * `INSTALL_DATE`
 
     date the hardware or software was installed.
     
 
-    The value of {{block(Firmware)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+    The value of {{property(Firmware)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
 * `LICENSE`
 
     license code to validate or activate the hardware or software.
     
+
 * `MANUFACTURER`
 
     corporate identity for the maker of the hardware or software. 
     
+
 * `RELEASE_DATE`
 
     date the hardware or software was released for general use. 
     
 
-    The value of {{block(Firmware)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+    The value of {{property(Firmware)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
 * `VERSION`
 
     
@@ -1257,30 +1316,36 @@ hardness of a material.
 
 
 
-The value of {{property(Hardness)}} **MUST** be a `float`.
+The value of {{property(Hardness)}} **MUST** be `float`.
 
 #### Subtypes of Hardness
+
 
 * `BRINELL`
 
     scale to measure the resistance to deformation of a surface.
     
+
 * `LEEB`
 
     scale to measure the elasticity of a surface.
     
+
 * `MOHS`
 
     scale to measure the resistance to scratching of a surface.
     
+
 * `ROCKWELL`
 
     scale to measure the resistance to deformation of a surface.
     
+
 * `SHORE`
 
     scale to measure the resistance to deformation of a surface.
     
+
 * `VICKERS`
 
     scale to measure the resistance to deformation of a surface.
@@ -1293,31 +1358,33 @@ hardness of a material.
 
 
 
-The value of {{property(Hardware)}} **MUST** be a `string`.
-
-
 #### Subtypes of Hardware
+
 
 * `INSTALL_DATE`
 
     date the hardware or software was installed.
     
 
-    The value of {{block(Hardware)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+    The value of {{property(Hardware)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
 * `LICENSE`
 
     license code to validate or activate the hardware or software.
     
+
 * `MANUFACTURER`
 
     corporate identity for the maker of the hardware or software. 
     
+
 * `RELEASE_DATE`
 
     date the hardware or software was released for general use. 
     
 
-    The value of {{block(Hardware)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+    The value of {{property(Hardware)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
 * `VERSION`
 
     version of the hardware or software.
@@ -1330,31 +1397,33 @@ software library on a {{block(Component)}}
 
 
 
-The value of {{property(Library)}} **MUST** be a `string`.
-
-
 #### Subtypes of Library
+
 
 * `INSTALL_DATE`
 
     date the hardware or software was installed.
     
 
-    The value of {{block(Library)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+    The value of {{property(Library)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
 * `LICENSE`
 
     license code to validate or activate the hardware or software.
     
+
 * `MANUFACTURER`
 
     corporate identity for the maker of the hardware or software. 
     
+
 * `RELEASE_DATE`
 
     date the hardware or software was released for general use. 
     
 
-    The value of {{block(Library)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+    The value of {{property(Library)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
 * `VERSION`
 
     version of the hardware or software.
@@ -1367,15 +1436,14 @@ state of the power source.
 
 
 
-The value of {{property(Line)}} **MUST** be a `string`.
-
-
 #### Subtypes of Line
+
 
 * `MAXIMUM`
 
     maximum line number of the code being executed.
     
+
 * `MINIMUM`
 
     minimum line number of the code being executed.
@@ -1388,9 +1456,6 @@ identifier for a {{block(Block)}} of code in a {{block(Program)}}.
 
 
 
-The value of {{property(LineLabel)}} **MUST** be a `string`.
-
-
 ### LineNumber
 
 position of a block of program code within a control program.
@@ -1398,14 +1463,16 @@ position of a block of program code within a control program.
 
 
 
-The value of {{property(LineNumber)}} **MUST** be a `integer`.
+The value of {{property(LineNumber)}} **MUST** be `integer`.
 
 #### Subtypes of LineNumber
+
 
 * `ABSOLUTE`
 
     position of a block of program code relative to the beginning of the control program.
     
+
 * `INCREMENTAL`
 
     position of a block of program code relative to the occurrence of the last {{block(LineLabel)}} encountered in the control program.
@@ -1418,39 +1485,46 @@ accumulation of the number of times an operation has attempted to, or is planned
 
 
 
-The value of {{property(LoadCount)}} **MUST** be a `string`.
-
+The value of {{property(LoadCount)}} **MUST** be `float`.
 
 #### Subtypes of LoadCount
+
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
     
+
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
     
+
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
     
+
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
     
+
 * `FAILED`
 
     accumulation of actions or activities that were attempted, but failed to complete or resulted in an unexpected or unacceptable outcome.
     
+
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
     
+
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -1483,17 +1557,11 @@ reference version of the MTConnect Standard supported by the {{term(adapter)}}.
 
 
 
-The value of {{property(MTConnectVersion)}} **MUST** be a `string`.
-
-
 ### Material
 
 identifier of a material used or consumed in the manufacturing process.
 
 
-
-
-The value of {{property(Material)}} **MUST** be a `string`.
 
 
 ### MaterialLayer
@@ -1503,14 +1571,16 @@ identifies the layers of material applied to a part or product as part of an add
 
 
 
-The value of {{property(MaterialLayer)}} **MUST** be a `integer`.
+The value of {{property(MaterialLayer)}} **MUST** be `integer`.
 
 #### Subtypes of MaterialLayer
+
 
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -1523,9 +1593,6 @@ information to be transferred from a piece of equipment to a client software app
 
 
 
-The value of {{property(Message)}} **MUST** be a `string`.
-
-
 ### Network
 
 network details of a {{block(Component)}}.
@@ -1533,54 +1600,47 @@ network details of a {{block(Component)}}.
 
 
 
-The value of {{property(Network)}} **MUST** be a `string`.
-
-
 #### Subtypes of Network
+
 
 * `GATEWAY`
 
     Gateway for the component network.
     
+
 * `IPV4_ADDRESS`
 
     IPV4 network address of the component.
     
+
 * `IPV6_ADDRESS`
 
     IPV6 network address of the component.
     
+
 * `MAC_ADDRESS`
 
     Media Access Control Address. 
     
     The unique physical address of the network hardware.
     
+
 * `SUBNET_MASK`
 
     SubNet mask for the component network.
     
+
 * `VLAN_ID`
 
     layer2 Virtual Local Network (VLAN) ID for the component network.
     
+
 * `WIRELESS`
 
     identifies whether the connection type is wireless.
     
 
-    The value for {{block(Network)}} when {{property(subType)}} is `WIRELESS` **MUST** be one of the `YesNoEnum` enumeration.
-
-    `YesNoEnum` Enumeration:
-
-
-    * `YES` 
-
-        {{block(EndOfBar)}} has been reached.
-
-    * `NO` 
-
-        {{block(EndOfBar)}} has not been reached.
+    The value of {{property(Network)}} **MUST** be one of the `YesNoEnum` enumeration. 
 
 ### OperatingMode
 
@@ -1625,31 +1685,33 @@ Operating System (OS) of a {{block(Component)}}.
 
 
 
-The value of {{property(OperatingSystem)}} **MUST** be a `string`.
-
-
 #### Subtypes of OperatingSystem
+
 
 * `INSTALL_DATE`
 
     date the hardware or software was installed.
     
 
-    The value of {{block(OperatingSystem)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+    The value of {{property(OperatingSystem)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
 * `LICENSE`
 
     license code to validate or activate the hardware or software.
     
+
 * `MANUFACTURER`
 
     corporate identity for the maker of the hardware or software. 
     
+
 * `RELEASE_DATE`
 
     date the hardware or software was released for general use. 
     
 
-    The value of {{block(OperatingSystem)}} **MUST** be a string that represents timestamp in ISO 8601 format.
+    The value of {{property(OperatingSystem)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
 * `VERSION`
 
     version of the hardware or software.
@@ -1662,17 +1724,11 @@ identifier of the person currently responsible for operating the piece of equipm
 
 
 
-The value of {{property(OperatorId)}} **MUST** be a `string`.
-
-
 ### PalletId
 
 identifier for a pallet.
 
 
-
-
-The value of {{property(PalletId)}} **MUST** be a `string`.
 
 
 ### PartCount
@@ -1682,38 +1738,46 @@ aggregate count of parts.
 
 
 
-The value of {{property(PartCount)}} **MUST** be a `float`.
+The value of {{property(PartCount)}} **MUST** be `float`.
 
 #### Subtypes of PartCount
+
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
     
+
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
     
+
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
     
+
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
     
+
 * `FAILED`
 
     accumulation of actions or activities that were attempted, but failed to complete or resulted in an unexpected or unacceptable outcome.
     
+
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
     
+
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -1746,27 +1810,29 @@ identifier given to a collection of individual parts.
 If no {{property(subType)}} is specified, `UUID` is default.
 
 
-The value of {{property(PartGroupId)}} **MUST** be a `string`.
-
-
 #### Subtypes of PartGroupId
+
 
 * `BATCH`
 
     identifier that references a group of parts produced in a batch.
     
+
 * `HEAT_TREAT`
 
     identifier used to reference a material heat number.
     
+
 * `LOT`
 
     identifier that references a group of parts tracked as a lot.
     
+
 * `RAW_MATERIAL`
 
     material that is used to produce parts.
     
+
 * `UUID`
 
     universally unique identifier as specified in ISO 11578 or RFC 4122.
@@ -1779,9 +1845,6 @@ identifier of a part in a manufacturing operation.
 
 
 
-The value of {{property(PartId)}} **MUST** be a `string`.
-
-
 ### PartKindId
 
 identifier given to link the individual occurrence to a class of parts, typically distinguished by a particular part design.
@@ -1789,23 +1852,24 @@ identifier given to link the individual occurrence to a class of parts, typicall
 If no {{property(subType)}} is specified, `UUID` is default.
 
 
-The value of {{property(PartKindId)}} **MUST** be a `string`.
-
-
 #### Subtypes of PartKindId
+
 
 * `PART_FAMILY`
 
     identifier given to a group of parts having similarities in geometry, manufacturing process, and/or functions.
     
+
 * `PART_NAME`
 
     word or set of words by which a part is known, addressed, or referred to.
     
+
 * `PART_NUMBER`
 
     identifier of a particular part design or model.
     
+
 * `UUID`
 
     universally unique identifier as specified in ISO 11578 or RFC 4122.
@@ -1816,9 +1880,6 @@ The value of {{property(PartKindId)}} **MUST** be a `string`.
 particular part design or model.
 
 
-
-
-The value of {{property(PartNumber)}} **MUST** be a `string`.
 
 
 ### PartProcessingState
@@ -1914,19 +1975,19 @@ identifier given to a distinguishable, individual part.
 If no {{property(subType)}} is specified, `UUID` is default.
 
 
-The value of {{property(PartUniqueId)}} **MUST** be a `string`.
-
-
 #### Subtypes of PartUniqueId
+
 
 * `RAW_MATERIAL`
 
     material that is used to produce parts.
     
+
 * `SERIAL_NUMBER`
 
     serial number that uniquely identifies a specific part.
     
+
 * `UUID`
 
     universally unique identifier as specified in ISO 11578 or RFC 4122.
@@ -1939,18 +2000,21 @@ value of a signal or calculation issued to adjust the feedrate for the axes asso
 
 
 
-The value of {{property(PathFeedrateOverride)}} **MUST** be a `float`.
+The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 #### Subtypes of PathFeedrateOverride
+
 
 * `JOG`
 
     feedrate of the axes associated with a `Path` component when the axes, or a single axis, are being operated in a manual mode or method (jogging).
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
     
+
 * `RAPID`
 
     performing an operation faster or in less time than nominal rate.
@@ -2006,10 +2070,12 @@ The value of {{property(PowerState)}} **MUST** be one of the `PowerStateEnum` en
 
 #### Subtypes of PowerState
 
+
 * `CONTROL`
 
     state of the enabling signal or control logic that enables or disables the function or operation of the entity.
     
+
 * `LINE`
 
     state of the power source for the entity.
@@ -2024,9 +2090,6 @@ status of the {{block(Component)}}.
 
 
 
-The value of {{property(PowerStatus)}} **MUST** be a `string`.
-
-
 ### ProcessAggregateId
 
 identifier given to link the individual occurrence to a group of related occurrences, such as a process step in a process plan.
@@ -2034,19 +2097,19 @@ identifier given to link the individual occurrence to a group of related occurre
 
 
 
-The value of {{property(ProcessAggregateId)}} **MUST** be a `string`.
-
-
 #### Subtypes of ProcessAggregateId
+
 
 * `ORDER_NUMBER`
 
     identifier of the authorization of the process occurrence. Synonyms include "job id", "work order".
     
+
 * `PROCESS_PLAN`
 
     identifier of the process plan that this occurrence belongs to. Synonyms include "routing id", "job id".
     
+
 * `PROCESS_STEP`
 
     identifier of the step in the process plan that this occurrence corresponds to. Synonyms include "operation id".
@@ -2059,19 +2122,19 @@ identifier given to link the individual occurrence to a class of processes or pr
 
 
 
-The value of {{property(ProcessKindId)}} **MUST** be a `string`.
-
-
 #### Subtypes of ProcessKindId
+
 
 * `ISO_STEP_EXECUTABLE`
 
     reference to a ISO 10303 Executable.
     
+
 * `PROCESS_NAME`
 
     word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to.
     
+
 * `UUID`
 
     universally unique identifier as specified in ISO 11578 or RFC 4122.
@@ -2082,9 +2145,6 @@ The value of {{property(ProcessKindId)}} **MUST** be a `string`.
 identifier of a process being executed by the device.
 
 
-
-
-The value of {{property(ProcessOccurrenceId)}} **MUST** be a `string`.
 
 
 ### ProcessState
@@ -2130,19 +2190,19 @@ time and date associated with an activity or event.
 
 
 
-The value of {{property(ProcessTime)}} **MUST** be a `string`.
-
-
 #### Subtypes of ProcessTime
+
 
 * `COMPLETE`
 
     time and date associated with the completion of an activity or event.
     
+
 * `START`
 
     boundary when an activity or an event commences.
     
+
 * `TARGET_COMPLETION`
 
     projected time and date associated with the end or completion of an activity or event.
@@ -2155,17 +2215,11 @@ name of the logic or motion program being executed by the {{block(Controller)}} 
 
 
 
-The value of {{property(Program)}} **MUST** be a `string`.
-
-
 ### ProgramComment
 
 comment or non-executable statement in the control program.
 
 
-
-
-The value of {{property(ProgramComment)}} **MUST** be a `string`.
 
 
 ### ProgramEdit
@@ -2203,9 +2257,6 @@ This is used in conjunction with {{block(ProgramEdit)}} when in `ACTIVE` state.
 
 
 
-The value of {{property(ProgramEditName)}} **MUST** be a `string`.
-
-
 ### ProgramHeader
 
 non-executable header section of the control program.
@@ -2213,21 +2264,21 @@ non-executable header section of the control program.
 
 
 
-The value of {{property(ProgramHeader)}} **MUST** be a `string`.
-
-
 #### Subtypes of ProgramHeader
+
 
 * `ACTIVE`
 
     identity of the logic or motion program currently executing.
     
+
 * `MAIN`
 
     identity of the primary logic or motion program currently being executed. 
     
     It is the starting nest level in a call structure and may contain calls to sub programs.
     
+
 * `SCHEDULE`
 
     identity of a control program that is used to specify the order of execution of other programs.
@@ -2240,21 +2291,21 @@ The value of {{property(ProgramHeader)}} **MUST** be a `string`.
 
 
 
-The value of {{property(ProgramLocation)}} **MUST** be a `string`.
-
-
 #### Subtypes of ProgramLocation
+
 
 * `ACTIVE`
 
     identity of the logic or motion program currently executing.
     
+
 * `MAIN`
 
     identity of the primary logic or motion program currently being executed. 
     
     It is the starting nest level in a call structure and may contain calls to sub programs.
     
+
 * `SCHEDULE`
 
     identity of a control program that is used to specify the order of execution of other programs.
@@ -2267,21 +2318,21 @@ defines whether the logic or motion program defined by {{block(Program)}} is bei
 
 
 
-The value of {{property(ProgramLocationType)}} **MUST** be a `string`.
-
-
 #### Subtypes of ProgramLocationType
+
 
 * `ACTIVE`
 
     identity of the logic or motion program currently executing.
     
+
 * `MAIN`
 
     identity of the primary logic or motion program currently being executed. 
     
     It is the starting nest level in a call structure and may contain calls to sub programs.
     
+
 * `SCHEDULE`
 
     identity of a control program that is used to specify the order of execution of other programs.
@@ -2295,7 +2346,7 @@ If an initial value is not defined, the nesting level associated with the highes
 
 
 
-The value of {{property(ProgramNestLevel)}} **MUST** be a `integer`.
+The value of {{property(ProgramNestLevel)}} **MUST** be `integer`.
 
 ### RotaryMode
 
@@ -2328,7 +2379,7 @@ percentage change to the velocity of the programmed velocity for a {{block(Rotar
 This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a {{block(Rotary)}} type axis.
 
 
-The value of {{property(RotaryVelocityOverride)}} **MUST** be a `float`.
+The value of {{property(RotaryVelocityOverride)}} **MUST** be `float`.
 
 ### Rotation
 
@@ -2353,23 +2404,37 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `SensorA
 * `SENSOR_ID` 
 
     The identity of a sensor used to observe some measurement of an item.
+
     The value of `SENSOR_ID` **MUST** be a `string`.
 
 
 * `result` 
 
     
+
     The value of `result` **MUST** be a `string`.
 
+
+#### Part Properties of SensorAttachment
+
+{{tbl(part-properties-of-sensorattachment)}} lists the Part Properties of {{block(SensorAttachment)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(result)}}|0..1|
+{: caption="Part Properties of SensorAttachment"}
+
+Descriptions for Part Properties of {{block(SensorAttachment)}}:
+
+* {{block(SensorAttachmentResult)}} 
+
+    The identity of a sensor used to observe some measurement of an item.
 
 ### SerialNumber
 
 serial number that uniquely identifies a specific part.
 
 
-
-
-The value of {{property(SerialNumber)}} **MUST** be a `string`.
 
 
 ### SpecificationLimit
@@ -2390,12 +2455,14 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
     > Note: immediate concern or action may be required.
     
     
+
     The value of `UPPER_LIMIT` **MUST** be a `float`.
 
 
 * `NOMINAL` 
 
     ideal or desired value for a variable.
+
     The value of `NOMINAL` **MUST** be a `float`.
 
 
@@ -2406,8 +2473,28 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
     > Note: immediate concern or action may be required.
     
     
+
     The value of `LOWER_LIMIT` **MUST** be a `float`.
 
+
+#### Part Properties of SpecificationLimit
+
+{{tbl(part-properties-of-specificationlimit)}} lists the Part Properties of {{block(SpecificationLimit)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(result)}}|0..1|
+{: caption="Part Properties of SpecificationLimit"}
+
+Descriptions for Part Properties of {{block(SpecificationLimit)}}:
+
+* {{block(SpecificationLimitResult)}} 
+
+    upper conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
 
 ### SpindleInterlock
 
@@ -2436,17 +2523,11 @@ identifier of an individual tool asset.
 
 
 
-The value of {{property(ToolAssetId)}} **MUST** be a `string`.
-
-
 ### ToolGroup
 
 identifier for the tool group associated with a specific tool. Commonly used to designate spare tools.
 
 
-
-
-The value of {{property(ToolGroup)}} **MUST** be a `string`.
 
 
 ### ToolId
@@ -2458,17 +2539,11 @@ identifier of the tool currently in use for a given `Path`.
 
 
 
-The value of {{property(ToolId)}} **MUST** be a `string`.
-
-
 ### ToolNumber
 
 identifier assigned by the {{block(Controller)}} component to a cutting tool when in use by a piece of equipment.
 
 
-
-
-The value of {{property(ToolNumber)}} **MUST** be a `string`.
 
 
 ### ToolOffset
@@ -2478,14 +2553,16 @@ reference to the tool offset variables applied to the active cutting tool associ
 
 
 
-The value of {{property(ToolOffset)}} **MUST** be a `float`.
+The value of {{property(ToolOffset)}} **MUST** be `float`.
 
 #### Subtypes of ToolOffset
+
 
 * `LENGTH`
 
     reference to a length type tool offset variable.
     
+
 * `RADIAL`
 
     reference to a radial type tool offset variable.
@@ -2498,39 +2575,46 @@ accumulation of the number of times an operation has attempted to, or is planned
 
 
 
-The value of {{property(TransferCount)}} **MUST** be a `string`.
-
+The value of {{property(TransferCount)}} **MUST** be `float`.
 
 #### Subtypes of TransferCount
+
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
     
+
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
     
+
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
     
+
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
     
+
 * `FAILED`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
     
+
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
     
+
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -2552,39 +2636,46 @@ accumulation of the number of times an operation has attempted to, or is planned
 
 
 
-The value of {{property(UnloadCount)}} **MUST** be a `string`.
-
+The value of {{property(UnloadCount)}} **MUST** be `float`.
 
 #### Subtypes of UnloadCount
+
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
     
+
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
     
+
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
     
+
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
     
+
 * `FAILED`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
     
+
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
     
+
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -2597,19 +2688,19 @@ identifier of the person currently responsible for operating the piece of equipm
 
 
 
-The value of {{property(User)}} **MUST** be a `string`.
-
-
 #### Subtypes of User
+
 
 * `MAINTENANCE`
 
     identifier of the person currently responsible for performing maintenance on the piece of equipment.
     
+
 * `OPERATOR`
 
     identifier of the person currently responsible for operating the piece of equipment.
     
+
 * `SET_UP`
 
     identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
@@ -2647,10 +2738,12 @@ The value of {{property(ValveState)}} **MUST** be one of the `ValveStateEnum` en
 
 #### Subtypes of ValveState
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -2663,9 +2756,6 @@ The value of {{property(ValveState)}} **MUST** be one of the `ValveStateEnum` en
 data whose meaning may change over time due to changes in the operation of a piece of equipment or the process being executed on that piece of equipment.
 
 
-
-
-The value of {{property(Variable)}} **MUST** be a `string`.
 
 
 ### WaitState
@@ -2731,9 +2821,6 @@ identifier for the type of wire used as the cutting mechanism in Electrical Disc
 
 
 
-The value of {{property(Wire)}} **MUST** be a `string`.
-
-
 ### WorkOffset
 
 offset variables for a work piece or part associated with a {{block(Path)}} in a {{block(Controller)}} type component.
@@ -2741,14 +2828,11 @@ offset variables for a work piece or part associated with a {{block(Path)}} in a
 
 
 
-The value of {{property(WorkOffset)}} **MUST** be a `float`.
+The value of {{property(WorkOffset)}} **MUST** be `float`.
 
 ### WorkholdingId
 
 identifier for the current workholding or part clamp in use by a piece of equipment.
 
 
-
-
-The value of {{property(WorkholdingId)}} **MUST** be a `string`.
 

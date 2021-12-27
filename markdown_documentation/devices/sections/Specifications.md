@@ -21,17 +21,17 @@ design characteristics for a piece of equipment.
 
 {{tbl(value-properties-of-specification)}} lists the Value Properties of {{block(Specification)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `DataItemTypeEnum` | 1 |
-| {{property(subType)}} | `DataItemSubTypeEnum` | 0..1 |
-| {{property(dataItemIdRef)}} | `ID` | 0..1 |
-| {{property(units)}} | `UnitEnum` | 0..1 |
-| {{property(compositionIdRef)}} | `ID` | 0..1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(coordinateSystemIdRef)}} | `ID` | 0..1 |
-| {{property(id)}} | `ID` | 0..1 |
-| {{property(originator)}} | `OriginatorEnum` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`DataItemTypeEnum`|1|
+|{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
+|{{property(dataItemIdRef)}}|`ID`|0..1|
+|{{property(units)}}|`UnitEnum`|0..1|
+|{{property(compositionIdRef)}}|`ID`|0..1|
+|{{property(name)}}|`string`|0..1|
+|{{property(coordinateSystemIdRef)}}|`ID`|0..1|
+|{{property(id)}}|`ID`|0..1|
+|{{property(originator)}}|`OriginatorEnum`|0..1|
 {: caption="Value Properties of Specification"}
 
 Descriptions for Value Properties of {{block(Specification)}}:
@@ -40,13 +40,13 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
     same as {{block(DataItem)}} {{property(type)}}. See {{sect(DataItem Types)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(subType)}} 
 
     same as {{block(DataItem)}} {{property(subType)}}. See {{sect(DataItem SubTypes)}}.
 
-    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration.
+    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(dataItemIdRef)}} 
 
@@ -56,7 +56,7 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
     same as {{block(DataItem)}} {{property(units)}}. See {{sect(DataItem)}}.
 
-    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration.
+    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
 * {{property(compositionIdRef)}} 
 
@@ -78,7 +78,7 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
     reference to the creator of the {{block(Specification)}}.
 
-    The value of {{property(originator)}} **MUST** be one of the `OriginatorEnum` enumeration.
+    The value of {{property(originator)}} **MUST** be one of the `OriginatorEnum` enumeration. 
 
     `OriginatorEnum` Enumeration:
 
@@ -95,15 +95,15 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
 {{tbl(part-properties-of-specification)}} lists the Part Properties of {{block(Specification)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Maximum)}} | 0..1 |
-| {{block(UpperLimit)}} | 0..1 |
-| {{block(LowerWarning)}} | 0..1 |
-| {{block(LowerLimit)}} | 0..1 |
-| {{block(UpperWarning)}} | 0..1 |
-| {{block(Nominal)}} | 0..1 |
-| {{block(Minimum)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Maximum)}}|0..1|
+|{{block(UpperLimit)}}|0..1|
+|{{block(LowerWarning)}}|0..1|
+|{{block(LowerLimit)}}|0..1|
+|{{block(UpperWarning)}}|0..1|
+|{{block(Nominal)}}|0..1|
+|{{block(Minimum)}}|0..1|
 {: caption="Part Properties of Specification"}
 
 Descriptions for Part Properties of {{block(Specification)}}:
@@ -111,13 +111,9 @@ Descriptions for Part Properties of {{block(Specification)}}:
 * {{block(Maximum)}} 
 
     numeric upper constraint.
-    numeric upper constraint.
 
 * {{block(UpperLimit)}} 
 
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
     upper conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
@@ -125,13 +121,9 @@ Descriptions for Part Properties of {{block(Specification)}}:
 * {{block(LowerWarning)}} 
 
     lower boundary indicating increased concern and supervision may be required.
-    lower boundary indicating increased concern and supervision may be required.
 
 * {{block(LowerLimit)}} 
 
-    lower conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
     lower conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
@@ -139,16 +131,13 @@ Descriptions for Part Properties of {{block(Specification)}}:
 * {{block(UpperWarning)}} 
 
     upper boundary indicating increased concern and supervision may be required.
-    upper boundary indicating increased concern and supervision may be required.
 
 * {{block(Nominal)}} 
 
     numeric target or expected value.
-    numeric target or expected value.
 
 * {{block(Minimum)}} 
 
-    numeric lower constraint.
     numeric lower constraint.
 
 ### ProcessSpecification
@@ -161,11 +150,11 @@ Descriptions for Part Properties of {{block(Specification)}}:
 
 {{tbl(part-properties-of-processspecification)}} lists the Part Properties of {{block(ProcessSpecification)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(SpecificationLimits)}} | 0..1 |
-| {{block(ControlLimits)}} | 0..1 |
-| {{block(AlarmLimits)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(SpecificationLimits)}}|0..1|
+|{{block(ControlLimits)}}|0..1|
+|{{block(AlarmLimits)}}|0..1|
 {: caption="Part Properties of ProcessSpecification"}
 
 Descriptions for Part Properties of {{block(ProcessSpecification)}}:
@@ -173,16 +162,19 @@ Descriptions for Part Properties of {{block(ProcessSpecification)}}:
 * {{block(SpecificationLimits)}} 
 
     set of limits that define a range of values designating acceptable performance for a variable.
+
     See {{sect(SpecificationLimits)}}.
 
 * {{block(ControlLimits)}} 
 
     set of limits that is used to indicate whether a process variable is stable and in control.
+
     See {{sect(ControlLimits)}}.
 
 * {{block(AlarmLimits)}} 
 
     set of limits that is used to trigger warning or alarm indicators.
+
     See {{sect(AlarmLimits)}}.
 
 ### ControlLimits
@@ -195,13 +187,13 @@ set of limits that is used to indicate whether a process variable is stable and 
 
 {{tbl(part-properties-of-controllimits)}} lists the Part Properties of {{block(ControlLimits)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(UpperLimit)}} | 0..1 |
-| {{block(UpperWarning)}} | 0..1 |
-| {{block(LowerWarning)}} | 0..1 |
-| {{block(Nominal)}} | 0..1 |
-| {{block(LowerLimit)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(UpperLimit)}}|0..1|
+|{{block(UpperWarning)}}|0..1|
+|{{block(LowerWarning)}}|0..1|
+|{{block(Nominal)}}|0..1|
+|{{block(LowerLimit)}}|0..1|
 {: caption="Part Properties of ControlLimits"}
 
 Descriptions for Part Properties of {{block(ControlLimits)}}:
@@ -211,30 +203,21 @@ Descriptions for Part Properties of {{block(ControlLimits)}}:
     upper conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
 
 * {{block(UpperWarning)}} 
 
-    upper boundary indicating increased concern and supervision may be required.
     upper boundary indicating increased concern and supervision may be required.
 
 * {{block(LowerWarning)}} 
 
     lower boundary indicating increased concern and supervision may be required.
-    lower boundary indicating increased concern and supervision may be required.
 
 * {{block(Nominal)}} 
 
     numeric target or expected value.
-    numeric target or expected value.
 
 * {{block(LowerLimit)}} 
 
-    lower conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
     lower conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
@@ -249,12 +232,12 @@ set of limits that is used to trigger warning or alarm indicators.
 
 {{tbl(part-properties-of-alarmlimits)}} lists the Part Properties of {{block(AlarmLimits)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(UpperLimit)}} | 0..1 |
-| {{block(UpperWarning)}} | 0..1 |
-| {{block(LowerLimit)}} | 0..1 |
-| {{block(LowerWarning)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(UpperLimit)}}|0..1|
+|{{block(UpperWarning)}}|0..1|
+|{{block(LowerLimit)}}|0..1|
+|{{block(LowerWarning)}}|0..1|
 {: caption="Part Properties of AlarmLimits"}
 
 Descriptions for Part Properties of {{block(AlarmLimits)}}:
@@ -264,13 +247,9 @@ Descriptions for Part Properties of {{block(AlarmLimits)}}:
     upper conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
 
 * {{block(UpperWarning)}} 
 
-    upper boundary indicating increased concern and supervision may be required.
     upper boundary indicating increased concern and supervision may be required.
 
 * {{block(LowerLimit)}} 
@@ -278,13 +257,9 @@ Descriptions for Part Properties of {{block(AlarmLimits)}}:
     lower conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
-    lower conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
 
 * {{block(LowerWarning)}} 
 
-    lower boundary indicating increased concern and supervision may be required.
     lower boundary indicating increased concern and supervision may be required.
 
 ### SpecificationLimits
@@ -297,11 +272,11 @@ set of limits that define a range of values designating acceptable performance f
 
 {{tbl(part-properties-of-specificationlimits)}} lists the Part Properties of {{block(SpecificationLimits)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(UpperLimit)}} | 0..1 |
-| {{block(Nominal)}} | 0..1 |
-| {{block(LowerLimit)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(UpperLimit)}}|0..1|
+|{{block(Nominal)}}|0..1|
+|{{block(LowerLimit)}}|0..1|
 {: caption="Part Properties of SpecificationLimits"}
 
 Descriptions for Part Properties of {{block(SpecificationLimits)}}:
@@ -311,20 +286,13 @@ Descriptions for Part Properties of {{block(SpecificationLimits)}}:
     upper conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
 
 * {{block(Nominal)}} 
 
     numeric target or expected value.
-    numeric target or expected value.
 
 * {{block(LowerLimit)}} 
 
-    lower conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
     lower conformance boundary for a variable.
     
     > Note: immediate concern or action may be required.
@@ -337,7 +305,6 @@ upper boundary indicating increased concern and supervision may be required.
 
 The value of {{property(UpperWarning)}} **MUST** be `float`.
 
-
 ### UpperLimit
 
 
@@ -348,7 +315,6 @@ upper conformance boundary for a variable.
 
 The value of {{property(UpperLimit)}} **MUST** be `float`.
 
-
 ### Maximum
 
 
@@ -356,7 +322,6 @@ numeric upper constraint.
 
 
 The value of {{property(Maximum)}} **MUST** be `float`.
-
 
 ### LowerLimit
 
@@ -368,7 +333,6 @@ lower conformance boundary for a variable.
 
 The value of {{property(LowerLimit)}} **MUST** be `float`.
 
-
 ### LowerWarning
 
 
@@ -376,7 +340,6 @@ lower boundary indicating increased concern and supervision may be required.
 
 
 The value of {{property(LowerWarning)}} **MUST** be `float`.
-
 
 ### Minimum
 
@@ -386,7 +349,6 @@ numeric lower constraint.
 
 The value of {{property(Minimum)}} **MUST** be `float`.
 
-
 ### Nominal
 
 
@@ -394,4 +356,3 @@ numeric target or expected value.
 
 
 The value of {{property(Nominal)}} **MUST** be `float`.
-

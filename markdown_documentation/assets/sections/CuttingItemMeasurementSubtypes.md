@@ -21,11 +21,9 @@ distance from the gauge plane or from the end of the shank of the cutting tool, 
 This measurement will be with reference to the cutting tool and **MUST NOT** exist without a cutting tool.
 
 
-    {{property(code)}}: `LFx`.
+The {{property(code)}} of {{property(FunctionalLength)}} **MUST** be `LFx`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(FunctionalLength)}} **MUST** be `MILLIMETER`.
 
 ### CuttingReferencePoint
 
@@ -33,11 +31,9 @@ This measurement will be with reference to the cutting tool and **MUST NOT** exi
 theoretical sharp point of the cutting tool from which the major functional dimensions are taken.
 
 
-    {{property(code)}}: `CRP`.
+The {{property(code)}} of {{property(CuttingReferencePoint)}} **MUST** be `CRP`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(CuttingReferencePoint)}} **MUST** be `MILLIMETER`.
 
 ### CuttingEdgeLength
 
@@ -45,11 +41,9 @@ theoretical sharp point of the cutting tool from which the major functional dime
 theoretical length of the cutting edge of a cutting item over sharp corners.
 
 
-    {{property(code)}}: `L`.
+The {{property(code)}} of {{property(CuttingEdgeLength)}} **MUST** be `L`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(CuttingEdgeLength)}} **MUST** be `MILLIMETER`.
 
 ### DriveAngle
 
@@ -57,11 +51,9 @@ theoretical length of the cutting edge of a cutting item over sharp corners.
 angle between the driving mechanism locator on a tool item and the main cutting edge.
 
 
-    {{property(code)}}: `DRVA`.
+The {{property(code)}} of {{property(DriveAngle)}} **MUST** be `DRVA`.
 
-
-    {{property(units)}}: `DEGREE`.
-
+The {{property(units)}} of {{property(DriveAngle)}} **MUST** be `DEGREE`.
 
 ### FlangeDiameter
 
@@ -69,11 +61,9 @@ angle between the driving mechanism locator on a tool item and the main cutting 
 dimension between two parallel tangents on the outside edge of a flange.
 
 
-    {{property(code)}}: `DF`.
+The {{property(code)}} of {{property(FlangeDiameter)}} **MUST** be `DF`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(FlangeDiameter)}} **MUST** be `MILLIMETER`.
 
 ### FunctionalWidth
 
@@ -81,11 +71,9 @@ dimension between two parallel tangents on the outside edge of a flange.
 distance between the cutting reference point and the rear backing surface of a turning tool or the axis of a boring bar.
 
 
-    {{property(code)}}: `WF`.
+The {{property(code)}} of {{property(FunctionalWidth)}} **MUST** be `WF`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(FunctionalWidth)}} **MUST** be `MILLIMETER`.
 
 ### IncribedCircleDiameter
 
@@ -93,11 +81,9 @@ distance between the cutting reference point and the rear backing surface of a t
 diameter of a circle to which all edges of a equilateral and round regular insert are tangential.
 
 
-    {{property(code)}}: `IC`.
+The {{property(code)}} of {{property(IncribedCircleDiameter)}} **MUST** be `IC`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(IncribedCircleDiameter)}} **MUST** be `MILLIMETER`.
 
 ### PointAngle
 
@@ -105,11 +91,9 @@ diameter of a circle to which all edges of a equilateral and round regular inser
 angle between the major cutting edge and the same cutting edge rotated by 180 degrees about the tool axis.
 
 
-    {{property(code)}}: `SIG`.
+The {{property(code)}} of {{property(PointAngle)}} **MUST** be `SIG`.
 
-
-    {{property(units)}}: `DEGREE`.
-
+The {{property(units)}} of {{property(PointAngle)}} **MUST** be `DEGREE`.
 
 ### ToolCuttingEdgeAngle
 
@@ -117,11 +101,9 @@ angle between the major cutting edge and the same cutting edge rotated by 180 de
 angle between the tool cutting edge plane and the tool feed plane measured in a plane parallel the xy-plane.
 
 
-    {{property(code)}}: `KAPR`.
+The {{property(code)}} of {{property(ToolCuttingEdgeAngle)}} **MUST** be `KAPR`.
 
-
-    {{property(units)}}: `DEGREE`.
-
+The {{property(units)}} of {{property(ToolCuttingEdgeAngle)}} **MUST** be `DEGREE`.
 
 ### ToolLeadAngle
 
@@ -129,11 +111,9 @@ angle between the tool cutting edge plane and the tool feed plane measured in a 
 angle between the tool cutting edge plane and a plane perpendicular to the tool feed plane measured in a plane parallel the xy-plane.
 
 
-    {{property(code)}}: `PSIR`.
+The {{property(code)}} of {{property(ToolLeadAngle)}} **MUST** be `PSIR`.
 
-
-    {{property(units)}}: `DEGREE`.
-
+The {{property(units)}} of {{property(ToolLeadAngle)}} **MUST** be `DEGREE`.
 
 ### ToolOrientation
 
@@ -143,11 +123,9 @@ angle of the tool with respect to the workpiece for a given process.
 The value is application specific.
 
 
-    {{property(code)}}: `N/A`.
+The {{property(code)}} is `N/A` for {{property(ToolOrientation)}}.
 
-
-    {{property(units)}}: `DEGREE`.
-
+The {{property(units)}} of {{property(ToolOrientation)}} **MUST** be `DEGREE`.
 
 ### StepDiameterLength
 
@@ -155,11 +133,9 @@ The value is application specific.
 length of a portion of a stepped tool that is related to a corresponding cutting diameter measured from the cutting reference point of that cutting diameter to the point on the next cutting edge at which the diameter starts to change.
 
 
-    {{property(code)}}: `SDLx`.
+The {{property(code)}} of {{property(StepDiameterLength)}} **MUST** be `SDLx`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(StepDiameterLength)}} **MUST** be `MILLIMETER`.
 
 ### StepIncludedAngle
 
@@ -167,11 +143,9 @@ length of a portion of a stepped tool that is related to a corresponding cutting
 angle between a major edge on a step of a stepped tool and the same cutting edge rotated 180 degrees about its tool axis.
 
 
-    {{property(code)}}: `STAx`.
+The {{property(code)}} of {{property(StepIncludedAngle)}} **MUST** be `STAx`.
 
-
-    {{property(units)}}: `DEGREE`.
-
+The {{property(units)}} of {{property(StepIncludedAngle)}} **MUST** be `DEGREE`.
 
 ### WiperEdgeLength
 
@@ -179,11 +153,9 @@ angle between a major edge on a step of a stepped tool and the same cutting edge
 measure of the length of a wiper edge of a cutting item.
 
 
-    {{property(code)}}: `BS`.
+The {{property(code)}} of {{property(WiperEdgeLength)}} **MUST** be `BS`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(WiperEdgeLength)}} **MUST** be `MILLIMETER`.
 
 ### CuttingDiameter
 
@@ -193,11 +165,9 @@ diameter of a circle on which the defined point Pk located on this cutting tool.
 The normal of the machined peripheral surface points towards the axis of the cutting tool.
 
 
-    {{property(code)}}: `DCx`.
+The {{property(code)}} of {{property(CuttingDiameter)}} **MUST** be `DCx`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(CuttingDiameter)}} **MUST** be `MILLIMETER`.
 
 ### CuttingHeight
 
@@ -205,11 +175,9 @@ The normal of the machined peripheral surface points towards the axis of the cut
 distance from the basal plane of the tool item to the cutting point.
 
 
-    {{property(code)}}: `HF`.
+The {{property(code)}} of {{property(CuttingHeight)}} **MUST** be `HF`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(CuttingHeight)}} **MUST** be `MILLIMETER`.
 
 ### CornerRadius
 
@@ -217,11 +185,9 @@ distance from the basal plane of the tool item to the cutting point.
 nominal radius of a rounded corner measured in the X Y-plane.
 
 
-    {{property(code)}}: `RE`.
+The {{property(code)}} of {{property(CornerRadius)}} **MUST** be `RE`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(CornerRadius)}} **MUST** be `MILLIMETER`.
 
 ### Weight
 
@@ -231,11 +197,9 @@ total weight of the cutting tool in grams.
 The force exerted by the mass of the cutting tool.
 
 
-    {{property(code)}}: `WT`.
+The {{property(code)}} of {{property(Weight)}} **MUST** be `WT`.
 
-
-    {{property(units)}}: `GRAM`.
-
+The {{property(units)}} of {{property(Weight)}} **MUST** be `GRAM`.
 
 ### ChamferFlatLength
 
@@ -243,11 +207,9 @@ The force exerted by the mass of the cutting tool.
 flat length of a chamfer.
 
 
-    {{property(code)}}: `BCH`.
+The {{property(code)}} of {{property(ChamferFlatLength)}} **MUST** be `BCH`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(ChamferFlatLength)}} **MUST** be `MILLIMETER`.
 
 ### ChamferWidth
 
@@ -255,11 +217,9 @@ flat length of a chamfer.
 width of the chamfer.
 
 
-    {{property(code)}}: `CHW`.
+The {{property(code)}} of {{property(ChamferWidth)}} **MUST** be `CHW`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(ChamferWidth)}} **MUST** be `MILLIMETER`.
 
 ### InsertWidth
 
@@ -267,8 +227,6 @@ width of the chamfer.
 W1 is used for the insert width when an inscribed circle diameter is not practical.
 
 
-    {{property(code)}}: `W1`.
+The {{property(code)}} of {{property(InsertWidth)}} **MUST** be `W1`.
 
-
-    {{property(units)}}: `MILLIMETER`.
-
+The {{property(units)}} of {{property(InsertWidth)}} **MUST** be `MILLIMETER`.

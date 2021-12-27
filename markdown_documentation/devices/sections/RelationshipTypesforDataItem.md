@@ -15,10 +15,10 @@ See {{sect(Relationships)}} for details on the {{block(Relationship)}} model.
 
 {{tbl(value-properties-of-specificationrelationship)}} lists the Value Properties of {{block(SpecificationRelationship)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `SpecificationRelationshipTypeEnum` | 1 |
-| {{property(idRef)}} | `ID` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`SpecificationRelationshipTypeEnum`|1|
+|{{property(idRef)}}|`ID`|1|
 {: caption="Value Properties of SpecificationRelationship"}
 
 Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
@@ -27,7 +27,7 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 
     specifies how the {{block(Specification)}} is related.
 
-    The value of {{property(type)}} **MUST** be one of the `SpecificationRelationshipTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `SpecificationRelationshipTypeEnum` enumeration. 
 
     `SpecificationRelationshipTypeEnum` Enumeration:
 
@@ -50,10 +50,10 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 
 {{tbl(value-properties-of-dataitemrelationship)}} lists the Value Properties of {{block(DataItemRelationship)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(type)}} | `DataItemRelationshipTypeEnum` | 1 |
-| {{property(idRef)}} | `ID` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(type)}}|`DataItemRelationshipTypeEnum`|1|
+|{{property(idRef)}}|`ID`|1|
 {: caption="Value Properties of DataItemRelationship"}
 
 Descriptions for Value Properties of {{block(DataItemRelationship)}}:
@@ -62,7 +62,7 @@ Descriptions for Value Properties of {{block(DataItemRelationship)}}:
 
     specifies how the {{block(DataItem)}} is related.
 
-    The value of {{property(type)}} **MUST** be one of the `DataItemRelationshipTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `DataItemRelationshipTypeEnum` enumeration. 
 
     `DataItemRelationshipTypeEnum` Enumeration:
 

@@ -53,10 +53,10 @@ The {{block(Observation)}} **MUST** set the {{property(timestamp)}} to the time 
 
 {{tbl(value-properties-of-timeseries)}} lists the Value Properties of {{block(TimeSeries)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(sampleCount)}} | `integer` | 1 |
-| {{property(result)}} | `float` | 1..* |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(sampleCount)}}|`integer`|1|
+|{{property(result)}}|`float`|1..*|
 {: caption="Value Properties of TimeSeries"}
 
 Descriptions for Value Properties of {{block(TimeSeries)}}:
@@ -86,9 +86,9 @@ Examples of {{block(Discrete)}}: A `PartCount` reporting the completion of each 
 
 {{tbl(value-properties-of-discrete)}} lists the Value Properties of {{block(Discrete)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(result)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(result)}}|`string`|0..1|
 {: caption="Value Properties of Discrete"}
 
 ### DataSet
@@ -138,9 +138,9 @@ When the {{block(Observation)}}  is `UNAVAILABLE` the {{block(DataSet)}} **MUST*
 
 {{tbl(value-properties-of-dataset)}} lists the Value Properties of {{block(DataSet)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(count)}} | `integer` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(count)}}|`integer`|1|
 {: caption="Value Properties of DataSet"}
 
 Descriptions for Value Properties of {{block(DataSet)}}:
@@ -153,9 +153,9 @@ Descriptions for Value Properties of {{block(DataSet)}}:
 
 {{tbl(part-properties-of-dataset)}} lists the Part Properties of {{block(DataSet)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Entry)}} | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Entry)}}|0..*|
 {: caption="Part Properties of DataSet"}
 
 Descriptions for Part Properties of {{block(DataSet)}}:
@@ -163,6 +163,7 @@ Descriptions for Part Properties of {{block(DataSet)}}:
 * {{block(Entry)}} 
 
     {{term(key-value pair)}} published as part of a {{block(DataSet)}}.
+
     See {{sect(Entry)}}.
 
 ### Table
@@ -199,9 +200,9 @@ The {{block(Entry)}} {{property(key)}} attribute **MUST** be the unique identity
 
 {{tbl(value-properties-of-table)}} lists the Value Properties of {{block(Table)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(count)}} | `integer` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(count)}}|`integer`|1|
 {: caption="Value Properties of Table"}
 
 Descriptions for Value Properties of {{block(Table)}}:
@@ -214,9 +215,9 @@ Descriptions for Value Properties of {{block(Table)}}:
 
 {{tbl(part-properties-of-table)}} lists the Part Properties of {{block(Table)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(TableEntry)}} | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(TableEntry)}}|0..*|
 {: caption="Part Properties of Table"}
 
 Descriptions for Part Properties of {{block(Table)}}:
@@ -228,6 +229,7 @@ Descriptions for Part Properties of {{block(Table)}}:
     > Note: In the {{term(XML)}} representation, {{block(TableEntry)}} **MUST** appear as {{block(Entry)}}.
     
     
+
     See {{sect(TableEntry)}}.
 
 ### Entry
@@ -248,11 +250,11 @@ The {{citetitle(MTCPart2)}} {{block(DataItem)}} {{block(Definition)}} **MAY** pr
 
 {{tbl(value-properties-of-entry)}} lists the Value Properties of {{block(Entry)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(key)}} | `ID` | 1 |
-| {{property(removed)}} | `boolean` | 0..1 |
-| {{property(result)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(key)}}|`ID`|1|
+|{{property(removed)}}|`boolean`|0..1|
+|{{property(result)}}|`string`|0..1|
 {: caption="Value Properties of Entry"}
 
 Descriptions for Value Properties of {{block(Entry)}}:
@@ -283,10 +285,10 @@ Descriptions for Value Properties of {{block(Entry)}}:
 
 {{tbl(value-properties-of-tableentry)}} lists the Value Properties of {{block(TableEntry)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(key)}} | `ID` | 1 |
-| {{property(removed)}} | `boolean` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(key)}}|`ID`|1|
+|{{property(removed)}}|`boolean`|0..1|
 {: caption="Value Properties of TableEntry"}
 
 Descriptions for Value Properties of {{block(TableEntry)}}:
@@ -303,9 +305,9 @@ Descriptions for Value Properties of {{block(TableEntry)}}:
 
 {{tbl(reference-properties-of-tableentry)}} lists the Reference Properties of {{block(TableEntry)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Table)}} (organized by {{block(TableEntry)}}) | 1 |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(Table)}} (organized by {{block(TableEntry)}})|1|
 {: caption="Reference Properties of TableEntry"}
 
 Descriptions for Reference Properties of {{block(TableEntry)}}:
@@ -314,15 +316,16 @@ Descriptions for Reference Properties of {{block(TableEntry)}}:
 
     {{block(Representation)}} for an {{block(Observation)}} composed of two-dimensional sets of {{termplural(key-value pair)}} where the {{block(Entry)}} represents rows containing sets of {{termplural(key-value pair)}} given by {{block(Cell)}} entities. 
     
+
     See {{sect(TableEntry)}}.
 
 #### Part Properties of TableEntry
 
 {{tbl(part-properties-of-tableentry)}} lists the Part Properties of {{block(TableEntry)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Cell)}} | 0..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Cell)}}|0..*|
 {: caption="Part Properties of TableEntry"}
 
 Descriptions for Part Properties of {{block(TableEntry)}}:
@@ -330,6 +333,7 @@ Descriptions for Part Properties of {{block(TableEntry)}}:
 * {{block(Cell)}} 
 
     {{term(key-value pair)}} published as part of a {{block(TableEntry)}}.
+
     See {{sect(Cell)}}.
 
 ### Cell
@@ -349,10 +353,10 @@ The {{citetitle(MTCPart2)}} {{block(DataItem)}} {{block(Definition)}} **MAY** pr
 
 {{tbl(value-properties-of-cell)}} lists the Value Properties of {{block(Cell)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(key)}} | `ID` | 1 |
-| {{property(result)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(key)}}|`ID`|1|
+|{{property(result)}}|`string`|0..1|
 {: caption="Value Properties of Cell"}
 
 Descriptions for Value Properties of {{block(Cell)}}:

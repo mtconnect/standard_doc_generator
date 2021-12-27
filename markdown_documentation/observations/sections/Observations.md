@@ -35,17 +35,17 @@ abstract entity that provides telemetry data for a {{block(DataItem)}} at a poin
 
 {{tbl(value-properties-of-observation)}} lists the Value Properties of {{block(Observation)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(compositionId)}} | `ID` | 0..1 |
-| {{property(dataItemId)}} | `ID` | 1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(sequence)}} | `integer` | 1 |
-| {{property(subType)}} | `DataItemSubTypeEnum` | 0..1 |
-| {{property(timestamp)}} | `dateTime` | 1 |
-| {{property(type)}} | `DataItemTypeEnum` | 1 |
-| {{property(units)}} | `UnitEnum` | 0..1 |
-| {{property(result)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(compositionId)}}|`ID`|0..1|
+|{{property(dataItemId)}}|`ID`|1|
+|{{property(name)}}|`string`|0..1|
+|{{property(sequence)}}|`integer`|1|
+|{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
+|{{property(timestamp)}}|`dateTime`|1|
+|{{property(type)}}|`DataItemTypeEnum`|1|
+|{{property(units)}}|`UnitEnum`|0..1|
+|{{property(result)}}|`string`|0..1|
 {: caption="Value Properties of Observation"}
 
 Descriptions for Value Properties of {{block(Observation)}}:
@@ -81,7 +81,7 @@ Descriptions for Value Properties of {{block(Observation)}}:
     {{property(subType)}} **MUST** match the {{property(subType)}} attribute of
     the {{block(DataItem)}} defined in the {{block(MTConnectDevices)}} {{term(response document)}}.
 
-    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration.
+    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(timestamp)}} 
 
@@ -94,7 +94,7 @@ Descriptions for Value Properties of {{block(Observation)}}:
     {{property(type)}} **MUST** match the {{property(type)}} attribute of
     the {{block(DataItem)}} defined in the {{block(MTConnectDevices)}} {{term(response document)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(units)}} 
 
@@ -103,7 +103,7 @@ Descriptions for Value Properties of {{block(Observation)}}:
     {{property(units)}} **MUST** match the {{property(units)}} attribute of
     the {{block(DataItem)}} defined in the {{block(MTConnectDevices)}} {{term(response document)}}.
 
-    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration.
+    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
 * {{property(result)}} 
 
@@ -132,14 +132,14 @@ The following {{sect(Value Properties of Condition)}} lists the additional and/o
 
 {{tbl(value-properties-of-condition)}} lists the Value Properties of {{block(Condition)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(nativeCode)}} | `string` | 0..1 |
-| {{property(nativeSeverity)}} | `string` | 0..1 |
-| {{property(qualifier)}} | `QualifierEnum` | 0..1 |
-| {{property(statistic)}} | `StatisticEnum` | 0..1 |
-| {{property(xs:lang)}} | `xslang` | 0..1 |
-| {{property(type)}} | `ConditionEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(nativeCode)}}|`string`|0..1|
+|{{property(nativeSeverity)}}|`string`|0..1|
+|{{property(qualifier)}}|`QualifierEnum`|0..1|
+|{{property(statistic)}}|`StatisticEnum`|0..1|
+|{{property(xs:lang)}}|`xslang`|0..1|
+|{{property(type)}}|`ConditionEnum`|1|
 {: caption="Value Properties of Condition"}
 
 Descriptions for Value Properties of {{block(Condition)}}:
@@ -160,7 +160,7 @@ Descriptions for Value Properties of {{block(Condition)}}:
     
     {{property(qualifier)}} defines whether the {{term(condition state)}} represented indicates a measured value that is above or below an expected value of a process variable.
 
-    The value of {{property(qualifier)}} **MUST** be one of the `QualifierEnum` enumeration.
+    The value of {{property(qualifier)}} **MUST** be one of the `QualifierEnum` enumeration. 
 
     `QualifierEnum` Enumeration:
 
@@ -179,7 +179,7 @@ Descriptions for Value Properties of {{block(Condition)}}:
     
     {{property(statistic)}} **MUST** match the {{property(statistic)}} attribute of the {{block(DataItem)}} entity defined in the {{block(MTConnectDevices)}} {{term(response document)}}.
 
-    The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration.
+    The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration. 
 
 * {{property(xs:lang)}} 
 
@@ -208,10 +208,10 @@ The following {{sect(Value Properties of Event)}} lists the additional and/or up
 
 {{tbl(value-properties-of-event)}} lists the Value Properties of {{block(Event)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(resetTriggered)}} | `ResetTriggeredEnum` | 0..1 |
-| {{property(type)}} | `EventEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(resetTriggered)}}|`ResetTriggeredEnum`|0..1|
+|{{property(type)}}|`EventEnum`|1|
 {: caption="Value Properties of Event"}
 
 Descriptions for Value Properties of {{block(Event)}}:
@@ -222,7 +222,7 @@ Descriptions for Value Properties of {{block(Event)}}:
     
     {{property(resetTriggered)}} **MUST** only be provided for the specific occurrence of a {{block(DataItem)}} reported in the {{block(MTConnectStreams)}} {{term(response document)}} when the reset occurred.
 
-    The value of {{property(resetTriggered)}} **MUST** be one of the `ResetTriggeredEnum` enumeration.
+    The value of {{property(resetTriggered)}} **MUST** be one of the `ResetTriggeredEnum` enumeration. 
 
     `ResetTriggeredEnum` Enumeration:
 
@@ -286,15 +286,15 @@ The following {{sect(Value Properties of Sample)}} lists the additional and/or u
 
 {{tbl(value-properties-of-sample)}} lists the Value Properties of {{block(Sample)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(duration)}} | `SECOND` | 0..1 |
-| {{property(resetTriggered)}} | `ResetTriggeredEnum` | 0..1 |
-| {{property(sampleRate)}} | `float` | 0..1 |
-| {{property(statistic)}} | `StatisticEnum` | 0..1 |
-| {{property(result)}} | `float` | 0..1 |
-| {{property(units)}} | `UnitEnum` | 1 |
-| {{property(type)}} | `SampleEnum` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(duration)}}|`SECOND`|0..1|
+|{{property(resetTriggered)}}|`ResetTriggeredEnum`|0..1|
+|{{property(sampleRate)}}|`float`|0..1|
+|{{property(statistic)}}|`StatisticEnum`|0..1|
+|{{property(result)}}|`float`|0..1|
+|{{property(units)}}|`UnitEnum`|1|
+|{{property(type)}}|`SampleEnum`|1|
 {: caption="Value Properties of Sample"}
 
 Descriptions for Value Properties of {{block(Sample)}}:
@@ -311,7 +311,7 @@ Descriptions for Value Properties of {{block(Sample)}}:
     
     {{property(resetTriggered)}} **MUST** only be provided for the specific occurrence of a {{block(DataItem)}} reported in the {{block(MTConnectStreams)}} {{term(response document)}} when the reset occurred.
 
-    The value of {{property(resetTriggered)}} **MUST** be one of the `ResetTriggeredEnum` enumeration.
+    The value of {{property(resetTriggered)}} **MUST** be one of the `ResetTriggeredEnum` enumeration. 
 
 * {{property(sampleRate)}} 
 
@@ -322,4 +322,4 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
     type of statistical calculation defined by the {{property(statistic)}} attribute of the {{block(DataItem)}} defined in the {{block(MTConnectDevices)}} {{term(response document)}}.
 
-    The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration.
+    The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration. 

@@ -24,9 +24,9 @@ QIF Document as given by the {{term(QIF)}} standard.
 
 {{tbl(value-properties-of-qifdocumentwrapper)}} lists the Value Properties of {{block(QIFDocumentWrapper)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(qifDocumentType)}} | `QIFDocumentTypeEnum` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(qifDocumentType)}}|`QIFDocumentTypeEnum`|0..1|
 {: caption="Value Properties of QIFDocumentWrapper"}
 
 Descriptions for Value Properties of {{block(QIFDocumentWrapper)}}:
@@ -35,7 +35,7 @@ Descriptions for Value Properties of {{block(QIFDocumentWrapper)}}:
 
     contained QIF Document type as defined in the {{term(QIF)}} Standard.
 
-    The value of {{property(qifDocumentType)}} **MUST** be one of the `QIFDocumentTypeEnum` enumeration.
+    The value of {{property(qifDocumentType)}} **MUST** be one of the `QIFDocumentTypeEnum` enumeration. 
 
     `QIFDocumentTypeEnum` Enumeration:
 
@@ -68,14 +68,13 @@ Descriptions for Value Properties of {{block(QIFDocumentWrapper)}}:
 
 {{tbl(part-properties-of-qifdocumentwrapper)}} lists the Part Properties of {{block(QIFDocumentWrapper)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(QIFDocument)}} | 1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(QIFDocument)}}|1|
 {: caption="Part Properties of QIFDocumentWrapper"}
 
 Descriptions for Part Properties of {{block(QIFDocumentWrapper)}}:
 
 * {{block(QIFDocument)}} 
 
-    QIF Document as given by the {{term(QIF)}} standard.
     QIF Document as given by the {{term(QIF)}} standard.

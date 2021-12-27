@@ -16,13 +16,6 @@ indication of a fault associated with an actuator.
 
 
 
-### ChuckInterlock
-
-state of an interlock function or control logic state intended to prevent the associated {{block(Chuck)}} component from being operated.
-
-
-
-
 ### Communications
 
 indication that the piece of equipment has experienced a communications failure.
@@ -33,34 +26,6 @@ indication that the piece of equipment has experienced a communications failure.
 ### DataRange
 
 indication that the value of the data associated with a measured value or a calculation is outside of an expected range.
-
-
-
-
-### Direction
-
-direction of motion.
-
-
-
-
-### EndOfBar
-
-indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached.
-
-
-
-
-### Hardware
-
-hardware of a {{block(Component)}}.
-
-
-
-
-### InterfaceState
-
-operational state of an {{block(Interface)}}.
 
 
 

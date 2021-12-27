@@ -14,14 +14,17 @@ The {{property(units)}} of {{property(Acceleration)}} **MUST** be `MILLIMETER/SE
 
 #### Subtypes of Acceleration
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -49,20 +52,24 @@ The {{property(units)}} of {{property(Amperage)}} **MUST** be `AMPERE`.
 
 #### Subtypes of Amperage
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `ALTERNATING`
 
     measurement of alternating voltage or current. 
     
     If not specified further in statistic, defaults to RMS voltage. 
     
+
 * `DIRECT`
 
     measurement of DC current or voltage.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -79,14 +86,17 @@ The {{property(units)}} of {{property(AmperageAC)}} **MUST** be `AMPERE`.
 
 #### Subtypes of AmperageAC
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -103,14 +113,17 @@ The {{property(units)}} of {{property(AmperageDC)}} **MUST** be `AMPERE`.
 
 #### Subtypes of AmperageDC
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -127,10 +140,12 @@ The {{property(units)}} of {{property(Angle)}} **MUST** be `DEGREE`.
 
 #### Subtypes of Angle
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
@@ -147,14 +162,17 @@ The {{property(units)}} of {{property(AngularAcceleration)}} **MUST** be `DEGREE
 
 #### Subtypes of AngularAcceleration
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -171,14 +189,17 @@ The {{property(units)}} of {{property(AngularDeceleration)}} **MUST** be `DEGREE
 
 #### Subtypes of AngularDeceleration
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -215,26 +236,32 @@ The {{property(units)}} of {{property(AxisFeedrate)}} **MUST** be `MILLIMETER/SE
 
 #### Subtypes of AxisFeedrate
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `JOG`
 
     feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {{block(Axis)}}. 
     
+
 * `OVERRIDE`
 
     operator's overridden value.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
     
+
 * `RAPID`
 
     performing an operation faster or in less time than nominal rate.
@@ -296,14 +323,17 @@ The {{property(units)}} of {{property(CuttingSpeed)}} **MUST** be `MILLIMETER/SE
 
 #### Subtypes of CuttingSpeed
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -320,14 +350,17 @@ The {{property(units)}} of {{property(Deceleration)}} **MUST** be `MILLIMETER/SE
 
 #### Subtypes of Deceleration
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -353,10 +386,12 @@ The {{property(units)}} of {{property(DepositionAccelerationVolumetric)}} **MUST
 
 #### Subtypes of DepositionAccelerationVolumetric
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
@@ -373,10 +408,12 @@ The {{property(units)}} of {{property(DepositionDensity)}} **MUST** be `MILLIGRA
 
 #### Subtypes of DepositionDensity
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
@@ -393,10 +430,12 @@ The {{property(units)}} of {{property(DepositionMass)}} **MUST** be `MILLIGRAM`.
 
 #### Subtypes of DepositionMass
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
@@ -413,10 +452,12 @@ The {{property(units)}} of {{property(DepositionRateVolumetric)}} **MUST** be `C
 
 #### Subtypes of DepositionRateVolumetric
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
@@ -433,10 +474,12 @@ The {{property(units)}} of {{property(DepositionVolume)}} **MUST** be `CUBIC_MIL
 
 #### Subtypes of DepositionVolume
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
@@ -480,28 +523,33 @@ The {{property(units)}} of {{property(EquipmentTimer)}} **MUST** be `SECOND`.
 
 #### Subtypes of EquipmentTimer
 
+
 * `DELAY`
 
     elapsed time of a temporary halt of action.
     
+
 * `LOADED`
 
     time that the sub-parts of a piece of equipment are under load.
     
     Example: For traditional machine tools, this is a measurement of the time that the cutting tool is assumed to be engaged with the part.
     
+
 * `OPERATING`
 
     time that the major sub-parts of a piece of equipment are powered or performing any activity whether producing a part or product or not.
     
     Example: For traditional machine tools, this includes `WORKING`, plus idle time.
     
+
 * `POWERED`
 
     time that primary power is applied to the piece of equipment and, as a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
     
     Example: Heaters for an extrusion machine that are required to be powered even when the equipment is turned off.
     
+
 * `WORKING`
 
     time that a piece of equipment is performing any activity the equipment is active and performing a function under load or not.
@@ -556,10 +604,12 @@ The {{property(units)}} of {{property(HumidityAbsolute)}} **MUST** be `GRAM/CUBI
 
 #### Subtypes of HumidityAbsolute
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
@@ -576,10 +626,12 @@ The {{property(units)}} of {{property(HumidityRelative)}} **MUST** be `PERCENT`.
 
 #### Subtypes of HumidityRelative
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
@@ -596,10 +648,12 @@ The {{property(units)}} of {{property(HumiditySpecific)}} **MUST** be `PERCENT`.
 
 #### Subtypes of HumiditySpecific
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
@@ -616,14 +670,17 @@ The {{property(units)}} of {{property(Length)}} **MUST** be `MILLIMETER`.
 
 #### Subtypes of Length
 
+
 * `REMAINING`
 
     remaining total length of an object.
     
+
 * `STANDARD`
 
     standard or original length of an object.
     
+
 * `USEABLE`
 
     remaining usable length of an object.
@@ -687,10 +744,12 @@ The {{property(units)}} of {{property(Orientation)}} **MUST** be `DEGREE_3D`.
 
 #### Subtypes of Orientation
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
@@ -716,30 +775,36 @@ The {{property(units)}} of {{property(PathFeedrate)}} **MUST** be `MILLIMETER/SE
 
 #### Subtypes of PathFeedrate
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `JOG`
 
     feedrate specified by a logic or motion program, by a pre-set value, or set by
     a switch as the feedrate for the axes, or a single axis, associated with a `Path`
     when operating in a manual state or method (jogging).
     
+
 * `OVERRIDE`
 
     operator's overridden value.
     
     **DEPRECATED** in *Version 1.3*.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
     
+
 * `RAPID`
 
     performing an operation faster or in less time than nominal rate.
@@ -756,14 +821,17 @@ The {{property(units)}} of {{property(PathFeedratePerRevolution)}} **MUST** be `
 
 #### Subtypes of PathFeedratePerRevolution
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -780,20 +848,24 @@ The {{property(units)}} of {{property(PathPosition)}} **MUST** be `MILLIMETER_3D
 
 #### Subtypes of PathPosition
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROBE`
 
     position provided by a measurement probe.
     
     **DEPRECATION WARNING**: May be deprecated in the future.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -810,18 +882,22 @@ The {{property(units)}} of {{property(Position)}} **MUST** be `MILLIMETER`.
 
 #### Subtypes of Position
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -867,14 +943,17 @@ The {{property(units)}} of {{property(PressurizationRate)}} **MUST** be `PASCAL/
 
 #### Subtypes of PressurizationRate
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -891,10 +970,12 @@ The {{property(units)}} of {{property(ProcessTimer)}} **MUST** be `SECOND`.
 
 #### Subtypes of ProcessTimer
 
+
 * `DELAY`
 
     elapsed time of a temporary halt of action.
     
+
 * `PROCESS`
 
     time from the beginning of production of a part or product on a piece of equipment until the time that production is complete for that part or product on
@@ -923,20 +1004,24 @@ The {{property(units)}} of {{property(RotaryVelocity)}} **MUST** be `REVOLUTION/
 
 #### Subtypes of RotaryVelocity
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `OVERRIDE`
 
     The operators overridden value.
     
     
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -953,22 +1038,27 @@ The {{property(units)}} of {{property(SoundLevel)}} **MUST** be `DECIBEL`.
 
 #### Subtypes of SoundLevel
 
+
 * `A_SCALE`
 
     A Scale weighting factor.   This is the default weighting factor if no factor is specified
     
+
 * `B_SCALE`
 
     B Scale weighting factor
     
+
 * `C_SCALE`
 
     C Scale weighting factor
     
+
 * `D_SCALE`
 
     D Scale weighting factor
     
+
 * `NO_SCALE`
 
     No weighting factor on the frequency scale
@@ -987,14 +1077,17 @@ The {{property(units)}} of {{property(SpindleSpeed)}} **MUST** be `REVOLUTION/MI
 
 #### Subtypes of SpindleSpeed
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `OVERRIDE`
 
     operator's overridden value.
@@ -1110,20 +1203,24 @@ The {{property(units)}} of {{property(Voltage)}} **MUST** be `VOLT`.
 
 #### Subtypes of Voltage
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `ALTERNATING`
 
     alternating voltage or current. 
     
     If not specified further in statistic, defaults to RMS voltage. 
     
+
 * `DIRECT`
 
     DC current or voltage.
     
+
 * `TARGET`
 
     goal of the operation or process.
@@ -1140,14 +1237,17 @@ The {{property(units)}} of {{property(VoltageAC)}} **MUST** be `VOLT`.
 
 #### Subtypes of VoltageAC
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -1164,14 +1264,17 @@ The {{property(units)}} of {{property(VoltageDC)}} **MUST** be `VOLT`.
 
 #### Subtypes of VoltageDC
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
     
+
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
@@ -1188,26 +1291,32 @@ The {{property(units)}} of {{property(VolumeFluid)}} **MUST** be `MILLILITER`.
 
 #### Subtypes of VolumeFluid
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `CONSUMED`
 
     reported or measured value of the amount used in the manufacturing process.
     
+
 * `ENDED`
 
     boundary when an activity or an event terminates.
     
+
 * `PART`
 
     reported or measured value of amount included in the {{term(part)}}.
     
+
 * `START`
 
     boundary when an activity or an event commences.
     
+
 * `WASTE`
 
     reported or measured value of the amount discarded.
@@ -1224,26 +1333,32 @@ The {{property(units)}} of {{property(VolumeSpatial)}} **MUST** be `CUBIC_MILLIM
 
 #### Subtypes of VolumeSpatial
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `CONSUMED`
 
     reported or measured value of the amount used in the manufacturing process.
     
+
 * `ENDED`
 
     boundary when an activity or an event terminates.
     
+
 * `PART`
 
     reported or measured value of amount included in the {{term(part)}}.
     
+
 * `START`
 
     boundary when an activity or an event commences.
     
+
 * `WASTE`
 
     reported or measured value of the amount discarded
@@ -1260,10 +1375,12 @@ The {{property(units)}} of {{property(Wattage)}} **MUST** be `WATT`.
 
 #### Subtypes of Wattage
 
+
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
     
+
 * `TARGET`
 
     goal of the operation or process.

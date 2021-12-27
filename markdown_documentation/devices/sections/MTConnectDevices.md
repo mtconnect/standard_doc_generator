@@ -13,17 +13,17 @@ provides information from an {{term(agent)}} defining version information, stora
 
 {{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(assetBufferSize)}} | `uInt32` | 1 |
-| {{property(assetCount)}} | `uInt32` | 1 |
-| {{property(deviceModelChangeTime)}} | `dateTime` | 1 |
-| {{property(version)}} | `version` | 1 |
-| {{property(testIndicator)}} | `boolean` | 0..1 |
-| {{property(sender)}} | `string` | 1 |
-| {{property(instanceId)}} | `uInt64` | 1 |
-| {{property(creationTime)}} | `dateTime` | 1 |
-| {{property(bufferSize)}} | `uInt32` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(assetBufferSize)}}|`uInt32`|1|
+|{{property(assetCount)}}|`uInt32`|1|
+|{{property(deviceModelChangeTime)}}|`dateTime`|1|
+|{{property(version)}}|`version`|1|
+|{{property(testIndicator)}}|`boolean`|0..1|
+|{{property(sender)}}|`string`|1|
+|{{property(instanceId)}}|`uInt64`|1|
+|{{property(creationTime)}}|`dateTime`|1|
+|{{property(bufferSize)}}|`uInt32`|1|
 {: caption="Value Properties of Header"}
 
 Descriptions for Value Properties of {{block(Header)}}:
@@ -97,10 +97,10 @@ root entity of an {{term(MTConnectDevices Response Document)}} that contains the
 
 {{tbl(part-properties-of-mtconnectdevices)}} lists the Part Properties of {{block(MTConnectDevices)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Header)}} | 1 |
-| {{block(Device)}} (organized by {{block(Devices)}}) | 1..* |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Header)}}|1|
+|{{block(Device)}} (organized by {{block(Devices)}})|1..*|
 {: caption="Part Properties of MTConnectDevices"}
 
 Descriptions for Part Properties of {{block(MTConnectDevices)}}:
@@ -108,9 +108,9 @@ Descriptions for Part Properties of {{block(MTConnectDevices)}}:
 * {{block(Header)}} 
 
     provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
-    provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
 
 * {{block(Device)}} 
 
     {{block(Component)}} composed of a piece of equipment that produces {{termplural(observation)}} about itself.
+
     {{block(Devices)}} groups one or more {{block(Device)}} entities. See {{sect(Devices)}} and {{sect(Components Model)}} for more detail.

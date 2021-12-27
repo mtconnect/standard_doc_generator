@@ -28,13 +28,13 @@ association between two pieces of equipment that function independently but toge
 
 {{tbl(value-properties-of-componentrelationship)}} lists the Value Properties of {{block(ComponentRelationship)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(idRef)}} | `ID` | 1 |
-| {{property(criticality)}} | `CriticalityTypeEnum` | 0..1 |
-| {{property(id)}} | `ID` | 1 |
-| {{property(type)}} | `RelationshipTypeEnum` | 1 |
-| {{property(name)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(idRef)}}|`ID`|1|
+|{{property(criticality)}}|`CriticalityTypeEnum`|0..1|
+|{{property(id)}}|`ID`|1|
+|{{property(type)}}|`RelationshipTypeEnum`|1|
+|{{property(name)}}|`string`|0..1|
 {: caption="Value Properties of ComponentRelationship"}
 
 Descriptions for Value Properties of {{block(ComponentRelationship)}}:
@@ -47,7 +47,7 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 
     defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
 
-    The value of {{property(criticality)}} **MUST** be one of the `CriticalityTypeEnum` enumeration.
+    The value of {{property(criticality)}} **MUST** be one of the `CriticalityTypeEnum` enumeration. 
 
     `CriticalityTypeEnum` Enumeration:
 
@@ -68,7 +68,7 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 
     defines the authority that this piece of equipment has relative to the associated piece of equipment.
 
-    The value of {{property(type)}} **MUST** be one of the `RelationshipTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `RelationshipTypeEnum` enumeration. 
 
     `RelationshipTypeEnum` Enumeration:
 
@@ -99,16 +99,16 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 
 {{tbl(value-properties-of-devicerelationship)}} lists the Value Properties of {{block(DeviceRelationship)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(deviceUuidRef)}} | `ID` | 1 |
-| {{property(href)}} | `xlinkhref` | 0..1 |
-| {{property(role)}} | `RoleTypeEnum` | 0..1 |
-| {{property(xlink:type)}} | `xlinktype` | 0..1 |
-| {{property(criticality)}} | `CriticalityTypeEnum` | 0..1 |
-| {{property(id)}} | `ID` | 1 |
-| {{property(type)}} | `RelationshipTypeEnum` | 1 |
-| {{property(name)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(deviceUuidRef)}}|`ID`|1|
+|{{property(href)}}|`xlinkhref`|0..1|
+|{{property(role)}}|`RoleTypeEnum`|0..1|
+|{{property(xlink:type)}}|`xlinktype`|0..1|
+|{{property(criticality)}}|`CriticalityTypeEnum`|0..1|
+|{{property(id)}}|`ID`|1|
+|{{property(type)}}|`RelationshipTypeEnum`|1|
+|{{property(name)}}|`string`|0..1|
 {: caption="Value Properties of DeviceRelationship"}
 
 Descriptions for Value Properties of {{block(DeviceRelationship)}}:
@@ -125,7 +125,7 @@ Descriptions for Value Properties of {{block(DeviceRelationship)}}:
 
     defines the services or capabilities that the referenced piece of equipment provides relative to this piece of equipment.
 
-    The value of {{property(role)}} **MUST** be one of the `RoleTypeEnum` enumeration.
+    The value of {{property(role)}} **MUST** be one of the `RoleTypeEnum` enumeration. 
 
     `RoleTypeEnum` Enumeration:
 
@@ -146,7 +146,7 @@ Descriptions for Value Properties of {{block(DeviceRelationship)}}:
 
     defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
 
-    The value of {{property(criticality)}} **MUST** be one of the `CriticalityTypeEnum` enumeration.
+    The value of {{property(criticality)}} **MUST** be one of the `CriticalityTypeEnum` enumeration. 
 
 * {{property(id)}} 
 
@@ -156,7 +156,7 @@ Descriptions for Value Properties of {{block(DeviceRelationship)}}:
 
     defines the authority that this piece of equipment has relative to the associated piece of equipment.
 
-    The value of {{property(type)}} **MUST** be one of the `RelationshipTypeEnum` enumeration.
+    The value of {{property(type)}} **MUST** be one of the `RelationshipTypeEnum` enumeration. 
 
 * {{property(name)}} 
 

@@ -17,23 +17,23 @@ This section provides semantic information for the {{block(RawMaterial)}} model.
 
 {{tbl(value-properties-of-rawmaterial)}} lists the Value Properties of {{block(RawMaterial)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(name)}} | `string` | 0..1 |
-| {{property(containerType)}} | `string` | 0..1 |
-| {{property(processKind)}} | `string` | 0..1 |
-| {{property(serialNumber)}} | `string` | 0..1 |
-| {{property(HasMaterial)}} | `boolean` | 0..1 |
-| {{property(Form)}} | `FormEnum` | 1 |
-| {{property(ManufacturingDate)}} | `dateTime` | 0..1 |
-| {{property(FirstUseDate)}} | `dateTime` | 0..1 |
-| {{property(LastUseDate)}} | `dateTime` | 0..1 |
-| {{property(InitialVolume)}} | `CUBIC_MILLIMETER` | 0..1 |
-| {{property(InitialDimension)}} | `MILLIMETER` | 0..3 |
-| {{property(InitialQuantity)}} | `integer` | 0..1 |
-| {{property(CurrentVolume)}} | `CUBIC_MILLIMETER` | 0..1 |
-| {{property(CurrentDimension)}} | `MILLIMETER` | 0..3 |
-| {{property(CurrentQuantity)}} | `integer` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(name)}}|`string`|0..1|
+|{{property(containerType)}}|`string`|0..1|
+|{{property(processKind)}}|`string`|0..1|
+|{{property(serialNumber)}}|`string`|0..1|
+|{{property(HasMaterial)}}|`boolean`|0..1|
+|{{property(Form)}}|`FormEnum`|1|
+|{{property(ManufacturingDate)}}|`dateTime`|0..1|
+|{{property(FirstUseDate)}}|`dateTime`|0..1|
+|{{property(LastUseDate)}}|`dateTime`|0..1|
+|{{property(InitialVolume)}}|`CUBIC_MILLIMETER`|0..1|
+|{{property(InitialDimension)}}|`MILLIMETER`|0..3|
+|{{property(InitialQuantity)}}|`integer`|0..1|
+|{{property(CurrentVolume)}}|`CUBIC_MILLIMETER`|0..1|
+|{{property(CurrentDimension)}}|`MILLIMETER`|0..3|
+|{{property(CurrentQuantity)}}|`integer`|0..1|
 {: caption="Value Properties of RawMaterial"}
 
 Descriptions for Value Properties of {{block(RawMaterial)}}:
@@ -68,7 +68,7 @@ Descriptions for Value Properties of {{block(RawMaterial)}}:
 
     form of the {{term(raw material)}}.
 
-    The value of {{property(Form)}} **MUST** be one of the `FormEnum` enumeration.
+    The value of {{property(Form)}} **MUST** be one of the `FormEnum` enumeration. 
 
     `FormEnum` Enumeration:
 
@@ -149,9 +149,9 @@ Descriptions for Value Properties of {{block(RawMaterial)}}:
 
 {{tbl(part-properties-of-rawmaterial)}} lists the Part Properties of {{block(RawMaterial)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Material)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Material)}}|0..1|
 {: caption="Part Properties of RawMaterial"}
 
 Descriptions for Part Properties of {{block(RawMaterial)}}:
@@ -159,6 +159,7 @@ Descriptions for Part Properties of {{block(RawMaterial)}}:
 * {{block(Material)}} 
 
     material used as the {{block(RawMaterial)}}.
+
     See {{sect(Material)}}.
 
 ### Material
@@ -171,16 +172,16 @@ material used as the {{block(RawMaterial)}}.
 
 {{tbl(value-properties-of-material)}} lists the Value Properties of {{block(Material)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(id)}} | `ID` | 0..1 |
-| {{property(name)}} | `string` | 0..1 |
-| {{property(type)}} | `string` | 1 |
-| {{property(Lot)}} | `string` | 0..1 |
-| {{property(Manufacturer)}} | `string` | 0..1 |
-| {{property(ManufacturingDate)}} | `dateTime` | 0..1 |
-| {{property(ManufacturingCode)}} | `string` | 0..1 |
-| {{property(MaterialCode)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(id)}}|`ID`|0..1|
+|{{property(name)}}|`string`|0..1|
+|{{property(type)}}|`string`|1|
+|{{property(Lot)}}|`string`|0..1|
+|{{property(Manufacturer)}}|`string`|0..1|
+|{{property(ManufacturingDate)}}|`dateTime`|0..1|
+|{{property(ManufacturingCode)}}|`string`|0..1|
+|{{property(MaterialCode)}}|`string`|0..1|
 {: caption="Value Properties of Material"}
 
 Descriptions for Value Properties of {{block(Material)}}:

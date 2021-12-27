@@ -20,10 +20,10 @@ pointer to information that is associated with another entity defined elsewhere 
 
 {{tbl(value-properties-of-reference)}} lists the Value Properties of {{block(Reference)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(idRef)}} | `ID` | 1 |
-| {{property(name)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(idRef)}}|`ID`|1|
+|{{property(name)}}|`string`|0..1|
 {: caption="Value Properties of Reference"}
 
 Descriptions for Value Properties of {{block(Reference)}}:

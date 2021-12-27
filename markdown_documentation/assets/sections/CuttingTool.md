@@ -18,11 +18,11 @@ This section provides semantic information for the {{block(CuttingTool)}} and {{
 
 {{tbl(value-properties-of-cuttingtool)}} lists the Value Properties of {{block(CuttingTool)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(manufacturers)}} | `string` | 0..* |
-| {{property(serialNumber)}} | `string` | 1 |
-| {{property(toolId)}} | `string` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(manufacturers)}}|`string`|0..*|
+|{{property(serialNumber)}}|`string`|1|
+|{{property(toolId)}}|`string`|1|
 {: caption="Value Properties of CuttingTool"}
 
 Descriptions for Value Properties of {{block(CuttingTool)}}:
@@ -48,11 +48,11 @@ Descriptions for Value Properties of {{block(CuttingTool)}}:
 
 {{tbl(reference-properties-of-cuttingtool)}} lists the Reference Properties of {{block(CuttingTool)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(CuttingToolLifeCycle)}} | 0..1 |
-| {{block(CuttingToolArchetypeReference)}} | 0..1 |
-| `<<deprecated>>`{{block(CuttingToolDefinition)}} | 0..1 |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(CuttingToolLifeCycle)}}|0..1|
+|{{block(CuttingToolArchetypeReference)}}|0..1|
+|`<<deprecated>>`{{block(CuttingToolDefinition)}}|0..1|
 {: caption="Reference Properties of CuttingTool"}
 
 Descriptions for Reference Properties of {{block(CuttingTool)}}:
@@ -62,16 +62,17 @@ Descriptions for Reference Properties of {{block(CuttingTool)}}:
     data regarding the application or use of the tool.
     
     This data is provided by various pieces of equipment (i.e. machine tool, presetter) and statistical process control applications. Life cycle data will not remain static, but will change periodically when a tool is used or measured.
+
     See {{sect(CuttingToolLifeCycle)}}.
 
 * {{block(CuttingToolArchetypeReference)}} 
 
     reference information about the {{property(assetId)}} and/or the URL of the data source of {{block(CuttingToolArchetype)}}.
-    reference information about the {{property(assetId)}} and/or the URL of the data source of {{block(CuttingToolArchetype)}}.
 
 * `<<deprecated>>`{{block(CuttingToolDefinition)}} 
 
     detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
+
     **DEPRECATED** in *Version 1.3.0* for {{block(CuttingTool)}}.
 
 ### CuttingToolArchetype
@@ -84,11 +85,11 @@ Descriptions for Reference Properties of {{block(CuttingTool)}}:
 
 {{tbl(value-properties-of-cuttingtoolarchetype)}} lists the Value Properties of {{block(CuttingToolArchetype)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(manufacturers)}} | `string` | 0..* |
-| {{property(serialNumber)}} | `string` | 1 |
-| {{property(toolId)}} | `string` | 1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(manufacturers)}}|`string`|0..*|
+|{{property(serialNumber)}}|`string`|1|
+|{{property(toolId)}}|`string`|1|
 {: caption="Value Properties of CuttingToolArchetype"}
 
 Descriptions for Value Properties of {{block(CuttingToolArchetype)}}:
@@ -100,7 +101,7 @@ Descriptions for Value Properties of {{block(CuttingToolArchetype)}}:
     This will reference the tool item and adaptive items specifically. The cutting items
     manufacturers’ will be a property of {{block(CuttingItem)}}.
     
-    *Note: In {{term(XML)}}, the representation will be a comma(,) delimited list of manufacturer names. See {{fig(CuttingTool Schema)}}.
+    > Note: In {{term(XML)}}, the representation will be a comma(,) delimited list of manufacturer names. See {{fig(CuttingTool Schema)}}.
 
 * {{property(serialNumber)}} 
 
@@ -114,10 +115,10 @@ Descriptions for Value Properties of {{block(CuttingToolArchetype)}}:
 
 {{tbl(reference-properties-of-cuttingtoolarchetype)}} lists the Reference Properties of {{block(CuttingToolArchetype)}}.
 
-| Reference Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(CuttingToolDefinition)}} | 0..1 |
-| {{block(CuttingToolLifeCycle)}} | 0..1 |
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(CuttingToolDefinition)}}|0..1|
+|{{block(CuttingToolLifeCycle)}}|0..1|
 {: caption="Reference Properties of CuttingToolArchetype"}
 
 Descriptions for Reference Properties of {{block(CuttingToolArchetype)}}:
@@ -125,6 +126,7 @@ Descriptions for Reference Properties of {{block(CuttingToolArchetype)}}:
 * {{block(CuttingToolDefinition)}} 
 
     detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
+
     See {{sect(CuttingToolDefinition)}}.
 
 * {{block(CuttingToolLifeCycle)}} 
@@ -132,6 +134,7 @@ Descriptions for Reference Properties of {{block(CuttingToolArchetype)}}:
     data regarding the application or use of the tool.
     
     This data is provided by various pieces of equipment (i.e. machine tool, presetter) and statistical process control applications. Life cycle data will not remain static, but will change periodically when a tool is used or measured.
+
     See {{sect(CuttingToolLifeCycle)}}.
 
 ### CuttingToolArchetypeReference
@@ -140,16 +143,15 @@ Descriptions for Reference Properties of {{block(CuttingToolArchetype)}}:
 reference information about the {{property(assetId)}} and/or the URL of the data source of {{block(CuttingToolArchetype)}}.
 
 
-The value of {{property(CuttingToolArchetypeReference)}} **MUST** be `IDREF`.
-
+The value of {{property(CuttingToolArchetypeReference)}} **MUST** be `IDREF`. See {{sect(IDREF)}}.
 
 #### Value Properties of CuttingToolArchetypeReference
 
 {{tbl(value-properties-of-cuttingtoolarchetypereference)}} lists the Value Properties of {{block(CuttingToolArchetypeReference)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(source)}} | `string` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(source)}}|`string`|0..1|
 {: caption="Value Properties of CuttingToolArchetypeReference"}
 
 Descriptions for Value Properties of {{block(CuttingToolArchetypeReference)}}:
@@ -164,16 +166,15 @@ Descriptions for Value Properties of {{block(CuttingToolArchetypeReference)}}:
 detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
 
 
-The value of {{property(CuttingToolDefinition)}} **MUST** be `string`.
-
+The value of {{property(CuttingToolDefinition)}} **MUST** be a list of `string` of size `0..*`.
 
 #### Value Properties of CuttingToolDefinition
 
 {{tbl(value-properties-of-cuttingtooldefinition)}} lists the Value Properties of {{block(CuttingToolDefinition)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(format)}} | `FormatTypeEnum` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(format)}}|`FormatTypeEnum`|0..1|
 {: caption="Value Properties of CuttingToolDefinition"}
 
 Descriptions for Value Properties of {{block(CuttingToolDefinition)}}:
@@ -182,7 +183,7 @@ Descriptions for Value Properties of {{block(CuttingToolDefinition)}}:
 
     identifies the expected representation of the enclosed data.
 
-    The value of {{property(format)}} **MUST** be one of the `FormatTypeEnum` enumeration.
+    The value of {{property(format)}} **MUST** be one of the `FormatTypeEnum` enumeration. 
 
     `FormatTypeEnum` Enumeration:
 

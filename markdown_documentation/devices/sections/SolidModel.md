@@ -26,12 +26,12 @@ Either an {{property(href,SolidModel)}} or a {{property(modelIdRef,SolidModel)}}
 
 {{tbl(value-properties-of-solidmodel)}} lists the Value Properties of {{block(SolidModel)}}.
 
-| Value Property name | Value Property type | Multiplicity |
-|---------------------|---------------------|:------------:|
-| {{property(id)}} | `ID` | 1 |
-| {{property(solidModelIdRef)}} | `ID` | 0..1 |
-| {{property(mediaType)}} | `MediaTypeEnum` | 1 |
-| {{property(coordinateSystemIdRef)}} | `ID` | 0..1 |
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(id)}}|`ID`|1|
+|{{property(solidModelIdRef)}}|`ID`|0..1|
+|{{property(mediaType)}}|`MediaTypeEnum`|1|
+|{{property(coordinateSystemIdRef)}}|`ID`|0..1|
 {: caption="Value Properties of SolidModel"}
 
 Descriptions for Value Properties of {{block(SolidModel)}}:
@@ -48,7 +48,7 @@ Descriptions for Value Properties of {{block(SolidModel)}}:
 
     format of the referenced document.
 
-    The value of {{property(mediaType)}} **MUST** be one of the `MediaTypeEnum` enumeration.
+    The value of {{property(mediaType)}} **MUST** be one of the `MediaTypeEnum` enumeration. 
 
     `MediaTypeEnum` Enumeration:
 
@@ -97,10 +97,10 @@ Descriptions for Value Properties of {{block(SolidModel)}}:
 
 {{tbl(part-properties-of-solidmodel)}} lists the Part Properties of {{block(SolidModel)}}.
 
-| Part Property name | Multiplicity |
-|:-------------------------------------|:-------------:|
-| {{block(Transformation)}} | 1 |
-| {{block(Scale)}} | 0..1 |
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Transformation)}}|1|
+|{{block(Scale)}}|0..1|
 {: caption="Part Properties of SolidModel"}
 
 Descriptions for Part Properties of {{block(SolidModel)}}:
@@ -108,11 +108,13 @@ Descriptions for Part Properties of {{block(SolidModel)}}:
 * {{block(Transformation)}} 
 
     process of transforming to the origin position of the coordinate system from a parent coordinate system using {{block(Translation)}} and {{block(Rotation)}}.
+
     See {{sect(Transformation)}}.
 
 * {{block(Scale)}} 
 
     either a single multiplier applied to all three dimensions or a three space multiplier given in the X, Y, and Z dimensions in the coordinate system used for the {{block(SolidModel)}}.
+
     See {{sect(Scale)}}.
 
 ### Scale
@@ -121,5 +123,4 @@ Descriptions for Part Properties of {{block(SolidModel)}}:
 either a single multiplier applied to all three dimensions or a three space multiplier given in the X, Y, and Z dimensions in the coordinate system used for the {{block(SolidModel)}}.
 
 
-The value of {{property(Scale)}} **MUST** be `float`.
-
+The value of {{property(Scale)}} **MUST** be a list of `float` of size `3`.
