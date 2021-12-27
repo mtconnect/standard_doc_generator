@@ -1,6 +1,9 @@
 $: << File.dirname(__FILE__)
 
 module Document
+
+  ROW_FORMAT = %s{format-1="p 0.85in" format-2="p 0.8in" format-3="p 1.3in" format-4="p 1.3in" format-5="p 0.85in" format-6="p 0.5in"}
+
   def documentation_name
     "./type-sections/#{short_name}.md"
   end
@@ -14,8 +17,8 @@ module Document
     File.exists?(documentation_file_name)
   end
 
-  def generate_documentation(f, is_tabulated=false)
-    tab = is_tabulated ? "    " : ""
+  def generate_documentation(f, num_of_tabs=0)
+    tab = "    " * num_of_tabs
     if documentation_exists?
       f.puts "\n{{input(#{documentation_name})}}\n"
     elsif @documentation
@@ -23,10 +26,67 @@ module Document
       f.puts "#{tab}#{@additional_documentation.gsub("\n","\n#{tab}")}\n" if @additional_documentation
     end
   end
+
+  def generate_table(columns, justification, rows, caption)
+    return <<-EOT
+|#{columns.join("|")}|
+|#{justification.join("|")}|
+|#{rows.map{|r| [r.join("|")]}.join("|\n|")}|
+{: caption=\"#{caption}\"}
+EOT
+  end
+
+  def get_valuetype_documentation(relation, num_of_tabs = 0, property_name = @name)
+    tab = "    " * num_of_tabs
+    target = relation.final_target.type
+    is_primitive_type = target.documentation == "primitive type."
+    
+    if relation.name == 'units' && relation.default
+      return "\n#{tab}The {{property(units)}} of {{property(#{property_name})}} **MUST** be `#{relation.default}`.\n"
+    
+    elsif relation.name == 'code'
+      if relation.default == "N/A"
+        return "\n#{tab}The {{property(code)}} is `N/A` for {{property(#{property_name})}}.\n"
+      end
+      return "\n#{tab}The {{property(code)}} of {{property(#{property_name})}} **MUST** be `#{relation.default}`.\n"
+    
+    elsif target.type == 'uml:Enumeration'
+      return "\n#{tab}The value of {{property(#{property_name})}} **MUST** be one of the `#{target.name}` enumeration. \n"
+    
+    elsif target.type == 'uml:Class'
+      return "\n#{tab}The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `#{target.name}` keys.\n"
+    
+    elsif target.type == 'uml:DataType' && !is_primitive_type && relation.multiplicity == '3'
+      return "\n#{tab}The value of {{property(#{property_name})}} **MUST** be reported in `#{target.name}_3D`.\n"
+    
+    elsif is_primitive_type && !relation.multiplicity.end_with?('0') && !relation.multiplicity.end_with?('1')
+      return "\n#{tab}The value of {{property(#{property_name})}} **MUST** be a list of `#{target.name}` of size `#{relation.multiplicity}`.\n"
+        
+    elsif is_primitive_type
+      return "\n#{tab}The value of {{property(#{property_name})}} **MUST** be `#{target.name}`.\n"
+    
+    else
+      return "\n#{tab}The value of {{property(#{property_name})}} **MUST** be `#{target.name}`. See {{sect(#{target.name})}}.\n"
+    end
+  end
+
+  def generate_glossary_entry(glossary_type)
+    plural = @name.end_with?('y') ? @name[0...-1]+"ies" : (@name.end_with?('s') ? @name : @name+"s" )
+    return <<-EOT
+{{newglossaryentry(#{@name})
+{
+    type={#{glossary_type}},
+    name={#{@name}},
+    description={#{@documentation}},
+    plural={#{plural}}
+}}}
+
+EOT
+  end
   
   def get_section_documentation(root_model,section_package_name, section_name)
 	section_model = root_model.at("//packagedElement[@name='#{section_package_name}']")
-	if section_model and section_model.at("//*[@body='#{section_name}']")
+	if section_model && section_model.at("//*[@body='#{section_name}']")
 		return section_model.at("//*[@body='#{section_name}']").ownedComment['body']
 	else
 		return ""
