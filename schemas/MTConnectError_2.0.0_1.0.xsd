@@ -31,7 +31,7 @@ WHETHER UNDER CONTRACT, TORT, WARRANTY OR OTHERWISE, ARISING IN ANY WAY OUT OF
 THIS AGREEMENT, USE OR INABILITY TO USE MTCONNECT MATERIALS, WHETHER OR NOT
 SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
 -->
-<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns='urn:mtconnect.org:MTConnectError:2.0' xmlns:mt='urn:mtconnect.org:MTConnectError:2.0' targetNamespace='urn:mtconnect.org:MTConnectError:2.0' elementFormDefault='qualified' attributeFormDefault='unqualified'>
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns='urn:mtconnect.org:MTConnectError:2.0.0' xmlns:mt='urn:mtconnect.org:MTConnectError:2.0.0' targetNamespace='urn:mtconnect.org:MTConnectError:2.0.0' elementFormDefault='qualified' attributeFormDefault='unqualified'>
   <xs:element name='MTConnectError' type='MTConnectErrorType'>
     <xs:annotation>
       <xs:documentation>
@@ -980,8 +980,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='CHUCK_INTERLOCK'>
         <xs:annotation>
           <xs:documentation>
-            indication of the operational condition of the interlock function
-            for an electronically controller chuck.
+            state of an interlock function or control logic state intended to
+            prevent the associated {{block(Chuck)}} component from being
+            operated.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1065,8 +1066,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='DIRECTION'>
         <xs:annotation>
           <xs:documentation>
-            indication of a fault associated with the direction of motion of an
-            entity.
+            direction of motion.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1090,7 +1090,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='END_OF_BAR'>
         <xs:annotation>
           <xs:documentation>
-            indication that the end of a piece of bar stock has been reached.
+            indication of whether the end of a piece of bar stock being feed by
+            a bar feeder has been reached.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1126,8 +1127,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='INTERFACE_STATE'>
         <xs:annotation>
           <xs:documentation>
-            indication of the operation condition of an {{block(Interface)}}
-            entity.
+            operational state of an {{block(Interface)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1546,8 +1546,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='HARDWARE'>
         <xs:annotation>
           <xs:documentation>
-            indication of a fault associated with the hardware subsystem of the
-            entity.
+            hardware of a {{block(Component)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
