@@ -362,11 +362,15 @@ module MarkdownConverter
     
     puts "\n#{'-' * 32}\nRendering #{file} -> #{dest}"
     kd = Kramdown::Document.new(File.read(file), input: 'MTCKramdown', html_to_native: true)
-    File.write(dest, kd.to_mtc_latex.gsub("\\item{}","\\item").gsub("\\_","\\textunderscore "))
+    File.write(dest, self.post_conversion_formatting(kd.to_mtc_latex))
     puts kd.warnings
 
     self.convert_glossary(dest) if File.basename(file) == "glossary.md"
     self.convert_remaining_cmd(dest)
+  end
+
+  def self.post_conversion_formatting(latex)
+    return latex.gsub("\\item{}","\\item").gsub("\\_","\\textunderscore ").gsub("\\$","$").gsub("\\^{}","^")
   end
   
   def self.convert_glossary(file)
@@ -393,15 +397,15 @@ module MarkdownConverter
 	end
   
   def self.convert_remaining_cmd(file)
-    latex_file = File.read(file).gsub("\\{","{").gsub("\\}","}")
+    latex = File.read(file).gsub("\\{","{").gsub("\\}","}")
 
-    latex_file.scan(/\{\{((.*))\(((.+?)?)\)\}\}/) do |cmd|
+    latex.scan(/\{\{((.*))\(((.+?)?)\)\}\}/) do |cmd|
       cmd_md = "{{#{$1}\(#{$3}\)}}"
       cmd_latex = $3!="" ? "\\#{$2}{#{$3}}" : "\\#{$2}"
-      latex_file = latex_file.gsub(cmd_md){cmd_latex}
+      latex = latex.gsub(cmd_md){cmd_latex}
 		end
     
-    File.write(file, latex_file)
+    File.write(file, latex)
   end
 end
 
@@ -413,6 +417,6 @@ if __FILE__ == $PROGRAM_NAME
   end
 
   files.each do |f|
-    MarkdownConverter.generate_latex(f, 'converted')
+    MarkdownConverter.generate_latex(f)
   end
 end
