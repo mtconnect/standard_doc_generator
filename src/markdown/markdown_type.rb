@@ -44,8 +44,9 @@ class MarkdownType < Type
             f.puts get_valuetype_documentation(r)
           elsif (name == "type" || name == "subType") && !r.default
             update_dataitemtypes_doc(target)
-            f.puts "\nThe value of {{property(#{name})}} with {{property(category)}} `#{@name}` **MUST** be one of the following:\n\n" if name == "type"
-            f.puts "\nThe value of {{property(#{name})}} for {{block(DataItem)}} **MUST** be one of the following:\n\n" if name == "subType"
+            stereo = target.stereotype!="" ? "`\<\<#{target.stereotype}\>\>`" : ""
+            f.puts "\nThe value of #{stereo}{{property(#{name})}} with {{property(category)}} `#{@name.upcase}` **MUST** be one of the following:\n\n" if name == "type"
+            f.puts "\nThe value of #{stereo}{{property(#{name})}} for {{block(DataItem)}} **MUST** be one of the following:\n\n" if name == "subType"
             target.literals.sort_by! { |t| t.name }
             target.literals.each do |lit|
               if type_has_subtypes?(lit)
@@ -188,10 +189,11 @@ class MarkdownType < Type
   def generate_enumerations(f, num_of_tabs = 0)
     $logger.debug "***** =====> Generating Enumerations for #{@name}"
     tab = "    " * num_of_tabs
-    stereo = @stereotype != '' ? "`\<\<#{@stereotype}\>\>`" : ''
+    stereo = @stereotype != '' ? "`\<\<#{@stereotype}\>\>` " : ""
     f.puts "\n#{tab}#{stereo}`#{escape_name}` Enumeration:\n\n"
     @literals.each do |lit|
-      f.puts "\n#{tab}* `#{lit.name}` \n\n    #{tab}#{lit.description.gsub("\n","\n    #{tab}")}\n"
+      lit_stereo = lit.stereotype != "" ? "`\<\<#{lit.stereotype}\>\>` " : ""
+      f.puts "\n#{tab}* #{lit_stereo}`#{lit.name}` \n\n    #{tab}#{lit.description.gsub("\n","\n    #{tab}")}\n"
     end
     @model.generator.enums << @name
   end
@@ -212,7 +214,8 @@ class MarkdownType < Type
   def generate_md(f = STDOUT, parent ='')
     # puts "--- Generating #{@name} #{@stereotype}"
     return if @name =~ /Factory/ || @stereotype =~ /metaclass/ || @visibility != 'public'
-    section_name = escape_name
+    stereotype = has_mtconnect_stereotype? ? "`\<\<#{@stereotype}\>\>`" : ""
+    section_name = stereotype+escape_name
     if @is_subtype
       section_type = (@model.name == "Component Types" &&
       parent.name != @relations[0].final_target.type.name) ? "#####" : "####"
@@ -278,5 +281,10 @@ class MarkdownType < Type
         @model.generator.dataitemtypes[lit.name]['documentation'] = lit.description
       end
     end
+  end
+
+  def has_mtconnect_stereotype?
+    #to be updated
+    return /[[:lower:]]/.match(@stereotype[0])
   end
 end
