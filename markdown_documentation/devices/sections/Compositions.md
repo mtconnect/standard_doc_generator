@@ -69,6 +69,6 @@ Descriptions for Part Properties of {{block(Composition)}}:
 
 * {{block(Configuration)}} 
 
-    technical information about a piece of equipment describing its physical layout, functional characteristics, and relationships with other pieces of equipment.
+    technical information about an entity describing its physical layout, functional characteristics, and relationships with other entities.
 
     See {{sect(Configurations Model)}}.

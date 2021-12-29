@@ -6,17 +6,17 @@ This section provides semantic information on the {{termplural(condition state)}
 ### Fault
 
 
-indicates an unexpected situation because the value is unexpected or out of tolerance for the data.
+{{block(Condition)}} that requires intervention to continue operation to function properly.
 
 
 ### Normal
 
 
-indicates whether the value of the data is within an expected range.
+{{block(Condition)}} that indicates operation within specified limits.
 
 
 ### Warning
 
 
-indicates a possible unexpected situation because the value is unexpected or out of tolerance for the data.
+{{block(Condition)}} that requires concern and supervision and may become hazardous if no action is taken.
 

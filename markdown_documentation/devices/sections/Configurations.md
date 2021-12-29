@@ -10,8 +10,26 @@
 ### Configuration
 
 
-technical information about a piece of equipment describing its physical layout, functional characteristics, and relationships with other pieces of equipment.
+technical information about an entity describing its physical layout, functional characteristics, and relationships with other entities.
 
+
+#### Reference Properties of Configuration
+
+{{tbl(reference-properties-of-configuration)}} lists the Reference Properties of {{block(Configuration)}}.
+
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(Composition)}} (organized by {{block(Configuration)}})|1|
+{: caption="Reference Properties of Configuration"}
+
+Descriptions for Reference Properties of {{block(Configuration)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+    
+
+    See {{sect(Configurations Model)}}.
 
 #### Part Properties of Configuration
 

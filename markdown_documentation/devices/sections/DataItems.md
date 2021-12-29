@@ -21,7 +21,7 @@ information reported about a piece of equipment.
 |-|-|:-:|
 |{{property(category)}}|`CategoryEnum`|1|
 |{{property(compositionId)}}|`ID`|0..1|
-|{{property(coordinateSystem)}}|`CoordinateSystemEnum`|0..1|
+|`<<deprecated>>`{{property(coordinateSystem)}}|`CoordinateSystemEnum`|0..1|
 |{{property(discrete)}}|`boolean`|0..1|
 |{{property(id)}}|`ID`|1|
 |{{property(name)}}|`string`|0..1|
@@ -66,24 +66,11 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     identifier attribute of the {{block(Composition)}} element that the reported data is most closely associated.
 
-* {{property(coordinateSystem)}} 
+* `<<deprecated>>`{{property(coordinateSystem)}} 
 
+    **DEPRECATED** in *Version 2.0*. Replaced by {{property(coordinateSystemIdRef)}}. 
+    
     for measured values relative to a coordinate system like {{block(POSITION)}}, the coordinate system used may be reported.
-
-    The value of {{property(coordinateSystem)}} **MUST** be one of the `CoordinateSystemEnum` enumeration. 
-
-    `CoordinateSystemEnum` Enumeration:
-
-
-    * `MACHINE` 
-
-        unchangeable coordinate system that has machine zero as its origin.
-
-    * `WORK` 
-
-        coordinate system that represents the working area for a particular workpiece whose origin is shifted within the `MACHINE` coordinate system.
-        
-        If the `WORK` coordinates are not currently defined in the piece of equipment, the `MACHINE` coordinates will be used.
 
 * {{property(discrete)}} 
 
@@ -109,7 +96,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
 
-    `<<extensible>>``NativeUnitEnum` Enumeration:
+    `<<extensible>>` `NativeUnitEnum` Enumeration:
 
 
     * `CENTIPOISE` 
@@ -273,7 +260,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         mathematical average value calculated for the data item during the calculation period.
 
-    * `KURTOSIS` 
+    * `<<deprecated>>` `KURTOSIS` 
 
         **DEPRECATED** in *Version 1.6*. ~~A measure of the "peakedness" of a probability distribution; i.e., the shape of the distribution curve.~~
 
@@ -323,7 +310,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
-    `<<extensible>>``UnitEnum` Enumeration:
+    `<<extensible>>` `UnitEnum` Enumeration:
 
 
     * `AMPERE` 
@@ -544,7 +531,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
         
         Each reported value in the {{term(data set)}} **MUST** have a unique key.
 
-    * `DISCRETE` 
+    * `<<deprecated>>` `DISCRETE` 
 
         **DEPRECATED** as a {{property(representation)}} in *MTConnect Version 1.5*. Replaced by the {{property(discrete,DataItem)}} attribute of a {{block(DataItem)}}.
 

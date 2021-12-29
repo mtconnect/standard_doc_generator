@@ -137,7 +137,7 @@ Descriptions for Part Properties of {{block(Component)}}:
 
 * {{block(Configuration)}} 
 
-    technical information about a piece of equipment describing its physical layout, functional characteristics, and relationships with other pieces of equipment.
+    technical information about an entity describing its physical layout, functional characteristics, and relationships with other entities.
 
     See {{sect(Configurations Model)}}.
 
@@ -166,12 +166,6 @@ Descriptions for Part Properties of {{block(Component)}}:
     pointer to information that is associated with another entity defined elsewhere in the {{block(MTConnectDevices)}} entity for a piece of equipment.
 
     {{block(References)}} groups one or more {{block(Reference)}} entities associated with the {{block(Component)}}. See {{sect(References Model)}}.
-
-### ComponentOrganizer
-
-
-{{block(Component)}} that {{termplural(organize)}} one or more {{block(Component)}} of the same type.
-
 
 ### Description
 

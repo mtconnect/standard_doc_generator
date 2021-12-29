@@ -27,7 +27,7 @@ abstract {{block(DataItem)}} that is about an entity's status regarding its abil
 
 All {{block(Sample)}}s **MAY** have associated {{block(Condition)}} states.  {{block(Condition)}} states indicate whether the value for the data is within an expected range and **MUST** be reported as {{block(Normal)}}, or the value is unexpected or out of tolerance for the data and a {{block(Warning)}} or {{block(Fault)}} **MUST** be provided.
 
-The value of {{property(type)}} with {{property(category)}} `Condition` **MUST** be one of the following:
+The value of `<<extensible>>`{{property(type)}} with {{property(category)}} `CONDITION` **MUST** be one of the following:
 
 
 * `ACTUATOR` 
@@ -62,7 +62,7 @@ abstract {{block(DataItem)}} that is a discrete piece of information from a piec
 
 An {{block(Event)}} is information that, when provided at any specific point in time, represents the current state of the piece of equipment.
 
-The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be one of the following:
+The value of `<<extensible>>`{{property(type)}} with {{property(category)}} `EVENT` **MUST** be one of the following:
 
 
 * `ACTIVATION_COUNT` 
@@ -106,6 +106,10 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
 * `ASSET_CHANGED` 
 
     {{block(assetId)}} of the {{term(Asset)}} that has been added or changed.
+
+* `ASSET_COUNT` 
+
+    list of {{block(Asset)}} types in the {{term(asset buffer)}} and their corresponding instance count.
 
 * `ASSET_REMOVED` 
 
@@ -284,6 +288,10 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
     Subtypes of `FIRMWARE` : `VERSION`, `RELEASE_DATE`, `MANUFACTURER`, `LICENSE`, `INSTALL_DATE`.
 
 
+* `FIXTURE_ID` 
+
+    identifier for a fixture.
+
 * `FUNCTIONAL_MODE` 
 
     current intended production status of the {{block(Component)}}.
@@ -340,6 +348,10 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
 * `LOCK_STATE` 
 
     state or operating mode of a {{block(Lock)}}.
+
+* `MAINTENANCE_LIST` 
+
+    actions or activities to be performed in support of a piece of equipment.
 
 * `MATERIAL` 
 
@@ -449,6 +461,10 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
     Subtypes of `PART_COUNT` : `ALL`, `GOOD`, `BAD`, `TARGET`, `REMAINING`, `COMPLETE`, `ABORTED`, `FAILED`.
 
 
+* `PART_COUNT_TYPE` 
+
+    interpretation of `PART_COUNT`.
+
 * `PART_DETECT` 
 
     indication designating whether a part or work piece has been detected or is present.
@@ -535,6 +551,9 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
 
     identifier of a process being executed by the device.
 
+    Subtypes of `PROCESS_OCCURRENCE_ID` : `ACTIVITY`, `SEGMENT`, `RECIPE`, `OPERATION`.
+
+
 * `PROCESS_STATE` 
 
     particular condition of the process occurrence at a specific time.
@@ -549,6 +568,9 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
 * `PROGRAM` 
 
     name of the logic or motion program being executed by the {{block(Controller)}} component.
+
+    Subtypes of `PROGRAM` : `ACTIVITY`, `SEGMENT`, `RECIPE`, `OPERATION`.
+
 
 * `PROGRAM_COMMENT` 
 
@@ -704,7 +726,7 @@ abstract {{block(DataItem)}} that is continuously changing or analog data value.
 
 This data can be measured at any point-in-time and will always produce a result.
 
-The value of {{property(type)}} with {{property(category)}} `Sample` **MUST** be one of the following:
+The value of `<<extensible>>`{{property(type)}} with {{property(category)}} `SAMPLE` **MUST** be one of the following:
 
 
 * `ACCELERATION` 
@@ -936,6 +958,10 @@ The value of {{property(type)}} with {{property(category)}} `Sample` **MUST** be
 * `OBSERVATION_UPDATE_RATE` 
 
     average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
+
+* `OPENNESS` 
+
+    percentage open where 100% is fully open and 0% is fully closed.
 
 * `ORIENTATION` 
 

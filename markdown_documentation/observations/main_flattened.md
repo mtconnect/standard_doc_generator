@@ -332,7 +332,7 @@ Descriptions for Reference Properties of {{block(ComponentStream)}}:
 
 * {{block(Condition)}} 
 
-    {{block(Observation)}} that provides information about an entity's status regarding its ability to operate or it provides an indication whether the data reported for the entity is within an expected range.
+    {{block(Observation)}} that provides the {{term(condition state)}} of a piece of equipment or a {{term(Component)}}.
     
     
 
@@ -457,7 +457,7 @@ Descriptions for Value Properties of {{block(Observation)}}:
 ### Condition
 
 
-{{block(Observation)}} that provides information about an entity's status regarding its ability to operate or it provides an indication whether the data reported for the entity is within an expected range.
+{{block(Observation)}} that provides the {{term(condition state)}} of a piece of equipment or a {{term(Component)}}.
 
 
 
@@ -735,7 +735,7 @@ Descriptions for Value Properties of {{block(TimeSeries)}}:
 
     number of values given for the {{block(Observation)}}.
 
-### Discrete
+### `<<deprecated>>`Discrete
 
 
 **DEPRECATED** {{block(Representation)}} for an {{block(Observation)}} where each discrete occurrence of the data may have the same value as the previous occurrence of the data.
@@ -1052,19 +1052,19 @@ This section provides semantic information on the {{termplural(condition state)}
 ### Fault
 
 
-indicates an unexpected situation because the value is unexpected or out of tolerance for the data.
+{{block(Condition)}} that requires intervention to continue operation to function properly.
 
 
 ### Normal
 
 
-indicates whether the value of the data is within an expected range.
+{{block(Condition)}} that indicates operation within specified limits.
 
 
 ### Warning
 
 
-indicates a possible unexpected situation because the value is unexpected or out of tolerance for the data.
+{{block(Condition)}} that requires concern and supervision and may become hazardous if no action is taken.
 
 
 
@@ -1248,22 +1248,19 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
     
     
 
-    The value of `UPPER_LIMIT` **MUST** be a `float`.
-
+    The value of {{property(UPPER_LIMIT)}} **MUST** be `float`.
 
 * `UPPER_WARNING` 
 
     upper boundary indicating increased concern and supervision may be required.
 
-    The value of `UPPER_WARNING` **MUST** be a `float`.
-
+    The value of {{property(UPPER_WARNING)}} **MUST** be `float`.
 
 * `LOWER_WARNING` 
 
     lower boundary indicating increased concern and supervision may be required.
 
-    The value of `LOWER_WARNING` **MUST** be a `float`.
-
+    The value of {{property(LOWER_WARNING)}} **MUST** be `float`.
 
 * `LOWER_LIMIT` 
 
@@ -1273,8 +1270,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
     
     
 
-    The value of `LOWER_LIMIT` **MUST** be a `float`.
-
+    The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
 
 #### Part Properties of AlarmLimit
 
@@ -1358,7 +1354,7 @@ Descriptions for Value Properties of {{block(AssetChanged)}}:
 
     The value of {{property(assetType)}} **MUST** be one of the `AssetTypeEnum` enumeration. 
 
-    `AssetTypeEnum` Enumeration:
+    `<<extensible>>` `AssetTypeEnum` Enumeration:
 
 
     * `CuttingTool` 
@@ -1376,6 +1372,15 @@ Descriptions for Value Properties of {{block(AssetChanged)}}:
     * `RawMaterial` 
 
         {{block(RawMaterial)}} {{block(Asset)}} type. 
+
+### AssetCount
+
+list of {{block(Asset)}} types in the {{term(asset buffer)}} and their corresponding instance count.
+
+
+
+
+The value of {{property(AssetCount)}} **MUST** be `integer`.
 
 ### AssetRemoved
 
@@ -1780,29 +1785,25 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
     
     
 
-    The value of `UPPER_LIMIT` **MUST** be a `float`.
-
+    The value of {{property(UPPER_LIMIT)}} **MUST** be `float`.
 
 * `UPPER_WARNING` 
 
     upper boundary indicating increased concern and supervision may be required.
 
-    The value of `UPPER_WARNING` **MUST** be a `float`.
-
+    The value of {{property(UPPER_WARNING)}} **MUST** be `float`.
 
 * `NOMINAL` 
 
     ideal or desired value for a variable.
 
-    The value of `NOMINAL` **MUST** be a `float`.
-
+    The value of {{property(NOMINAL)}} **MUST** be `float`.
 
 * `LOWER_WARNING` 
 
     lower boundary indicating increased concern and supervision may be required.
 
-    The value of `LOWER_WARNING` **MUST** be a `float`.
-
+    The value of {{property(LOWER_WARNING)}} **MUST** be `float`.
 
 * `LOWER_LIMIT` 
 
@@ -1812,8 +1813,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
     
     
 
-    The value of `LOWER_LIMIT` **MUST** be a `float`.
-
+    The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
 
 #### Part Properties of ControlLimit
 
@@ -2395,6 +2395,13 @@ embedded software of a {{block(Component)}}.
     
     
 
+### FixtureId
+
+identifier for a fixture.
+
+
+
+
 ### FunctionalMode
 
 current intended production status of the {{block(Component)}}.
@@ -2681,6 +2688,118 @@ reference version of the MTConnect Standard supported by the {{term(adapter)}}.
 
 
 
+### MaintenanceList
+
+actions or activities to be performed in support of a piece of equipment.
+
+If the {{property(INTERVAL)}} {{property(key)}} is not provided, it is assumed `ABSOLUTE`.
+
+If the {{property(DIRECTION)}} {{property(key)}} is not provided, it is assumed `UP`.
+
+If the {{property(UNITS)}} {{property(key)}} is not provided, it is assumed to be `COUNT`.
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `MaintenanceListResult` keys.
+
+`MaintenanceListResult` keys:
+
+* `NAME` 
+
+    identifier of the maintenance activity.
+
+    The value of {{property(NAME)}} **MUST** be `string`.
+
+* `VALUE` 
+
+    current interval value of the activity.
+
+    The value of {{property(VALUE)}} **MUST** be `float`.
+
+* `TARGET` 
+
+    target value of the next maintenance.
+
+    The value of {{property(TARGET)}} **MUST** be `float`.
+
+* `UNITS` 
+
+    same as {{block(DataItem)}} {{property(units)}}. See {{citetitle(MTCPart2)}}.
+
+    The value of {{property(UNITS)}} **MUST** be one of the `UnitEnum` enumeration. 
+
+* `DIRECTION` 
+
+    direction of the value observed.
+
+    The value of {{property(DIRECTION)}} **MUST** be one of the `MaintenanceListDirectionEnum` enumeration. 
+
+    `MaintenanceListDirectionEnum` Enumeration:
+
+
+    * `UP` 
+
+        
+
+    * `DOWN` 
+
+        
+
+* `INTERVAL` 
+
+    interval of the value observed.
+
+    The value of {{property(INTERVAL)}} **MUST** be one of the `MaintenanceListIntervalEnum` enumeration. 
+
+    `MaintenanceListIntervalEnum` Enumeration:
+
+
+    * `ABSOLUTE` 
+
+        
+
+    * `INCREMENTAL` 
+
+        
+
+* `LAST_SERVICE_DATE` 
+
+    last date/time stamp that maintenance was performed.
+
+    The value of {{property(LAST_SERVICE_DATE)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
+* `NEXT_SERVICE_DATE` 
+
+    next date/time stamp that maintenance should be performed.
+
+    The value of {{property(NEXT_SERVICE_DATE)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
+* `SEVERITY` 
+
+    level of severity on a scale of 1-10.
+
+    The value of {{property(SEVERITY)}} **MUST** be `integer`.
+
+* `RESET` 
+
+    last date/time stamp of the {{term(observation)}} was reset.
+
+    The value of {{property(RESET)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+
+#### Part Properties of MaintenanceList
+
+{{tbl(part-properties-of-maintenancelist)}} lists the Part Properties of {{block(MaintenanceList)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(result)}}|0..1|
+{: caption="Part Properties of MaintenanceList"}
+
+Descriptions for Part Properties of {{block(MaintenanceList)}}:
+
+* {{block(MaintenanceListResult)}} 
+
+    identifier of the maintenance activity.
+
 ### Material
 
 identifier of a material used or consumed in the manufacturing process.
@@ -2906,6 +3025,26 @@ The value of {{property(PartCount)}} **MUST** be `float`.
 
     goal of the operation or process.
     
+
+### PartCountType
+
+interpretation of `PART_COUNT`.
+
+
+
+
+The value of {{property(PartCountType)}} **MUST** be one of the `PartCountTypeEnum` enumeration. 
+
+`PartCountTypeEnum` Enumeration:
+
+
+* `EACH` 
+
+    count is of individual items.
+
+* `BATCH` 
+
+    pre-specified group of items.
 
 ### PartDetect
 
@@ -3271,6 +3410,31 @@ identifier of a process being executed by the device.
 
 
 
+#### Subtypes of ProcessOccurrenceId
+
+
+* `ACTIVITY`
+
+    phase of a process step.
+    
+
+* `OPERATION`
+
+    phase of a discrete manufacturing process.
+    
+
+* `RECIPE`
+
+    process as part of product production.
+    
+    It can be a subprocess of a bigger process.
+    
+
+* `SEGMENT`
+
+    phase of a recipe process that some product goes through.
+    
+
 ### ProcessState
 
 particular condition of the process occurrence at a specific time.
@@ -3338,6 +3502,31 @@ name of the logic or motion program being executed by the {{block(Controller)}} 
 
 
 
+
+#### Subtypes of Program
+
+
+* `ACTIVITY`
+
+    phase of a process step.
+    
+
+* `OPERATION`
+
+    phase of a discrete manufacturing process.
+    
+
+* `RECIPE`
+
+    process as part of product production. 
+    
+    It can be a subprocess of a bigger process.
+    
+
+* `SEGMENT`
+
+    phase of a recipe process that some product goes through.
+    
 
 ### ProgramComment
 
@@ -3529,15 +3718,13 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `SensorA
 
     The identity of a sensor used to observe some measurement of an item.
 
-    The value of `SENSOR_ID` **MUST** be a `string`.
-
+    The value of {{property(SENSOR_ID)}} **MUST** be `string`.
 
 * `result` 
 
     
 
-    The value of `result` **MUST** be a `string`.
-
+    The value of {{property(result)}} **MUST** be `string`.
 
 #### Part Properties of SensorAttachment
 
@@ -3580,15 +3767,13 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
     
     
 
-    The value of `UPPER_LIMIT` **MUST** be a `float`.
-
+    The value of {{property(UPPER_LIMIT)}} **MUST** be `float`.
 
 * `NOMINAL` 
 
     ideal or desired value for a variable.
 
-    The value of `NOMINAL` **MUST** be a `float`.
-
+    The value of {{property(NOMINAL)}} **MUST** be `float`.
 
 * `LOWER_LIMIT` 
 
@@ -3598,8 +3783,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
     
     
 
-    The value of `LOWER_LIMIT` **MUST** be a `float`.
-
+    The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
 
 #### Part Properties of SpecificationLimit
 
@@ -4003,7 +4187,7 @@ accumulated time for an activity or event.
 
 The {{property(units)}} of {{property(AccumulatedTime)}} **MUST** be `SECOND`.
 
-### Amperage
+### `<<deprecated>>`Amperage
 
 strength of electrical current.
 
@@ -4697,6 +4881,15 @@ average rate of change of values for data items in the MTConnect streams. The av
 
 The {{property(units)}} of {{property(ObservationUpdateRate)}} **MUST** be `COUNT/SECOND`.
 
+### Openness
+
+percentage open where 100% is fully open and 0% is fully closed.
+
+
+
+
+The {{property(units)}} of {{property(Openness)}} **MUST** be `PERCENT`.
+
 ### Orientation
 
 measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
@@ -5028,7 +5221,7 @@ The {{property(units)}} of {{property(SoundLevel)}} **MUST** be `DECIBEL`.
     No weighting factor on the frequency scale
     
 
-### SpindleSpeed
+### `<<deprecated>>`SpindleSpeed
 
 rotational speed of the rotary axis.
 
@@ -5154,7 +5347,7 @@ reactive power in an AC electrical circuit (commonly referred to as VAR).
 
 The {{property(units)}} of {{property(VoltAmpereReactive)}} **MUST** be `VOLT_AMPERE_REACTIVE`.
 
-### Voltage
+### `<<deprecated>>`Voltage
 
 electrical potential between two points.
 

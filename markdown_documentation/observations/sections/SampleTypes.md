@@ -39,7 +39,7 @@ accumulated time for an activity or event.
 
 The {{property(units)}} of {{property(AccumulatedTime)}} **MUST** be `SECOND`.
 
-### Amperage
+### `<<deprecated>>`Amperage
 
 strength of electrical current.
 
@@ -733,6 +733,15 @@ average rate of change of values for data items in the MTConnect streams. The av
 
 The {{property(units)}} of {{property(ObservationUpdateRate)}} **MUST** be `COUNT/SECOND`.
 
+### Openness
+
+percentage open where 100% is fully open and 0% is fully closed.
+
+
+
+
+The {{property(units)}} of {{property(Openness)}} **MUST** be `PERCENT`.
+
 ### Orientation
 
 measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
@@ -1064,7 +1073,7 @@ The {{property(units)}} of {{property(SoundLevel)}} **MUST** be `DECIBEL`.
     No weighting factor on the frequency scale
     
 
-### SpindleSpeed
+### `<<deprecated>>`SpindleSpeed
 
 rotational speed of the rotary axis.
 
@@ -1190,7 +1199,7 @@ reactive power in an AC electrical circuit (commonly referred to as VAR).
 
 The {{property(units)}} of {{property(VoltAmpereReactive)}} **MUST** be `VOLT_AMPERE_REACTIVE`.
 
-### Voltage
+### `<<deprecated>>`Voltage
 
 electrical potential between two points.
 

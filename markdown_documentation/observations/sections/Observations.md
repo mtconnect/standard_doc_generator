@@ -114,7 +114,7 @@ Descriptions for Value Properties of {{block(Observation)}}:
 ### Condition
 
 
-{{block(Observation)}} that provides information about an entity's status regarding its ability to operate or it provides an indication whether the data reported for the entity is within an expected range.
+{{block(Observation)}} that provides the {{term(condition state)}} of a piece of equipment or a {{term(Component)}}.
 
 
 

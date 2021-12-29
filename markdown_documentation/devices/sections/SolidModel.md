@@ -32,6 +32,8 @@ Either an {{property(href,SolidModel)}} or a {{property(modelIdRef,SolidModel)}}
 |{{property(solidModelIdRef)}}|`ID`|0..1|
 |{{property(mediaType)}}|`MediaTypeEnum`|1|
 |{{property(coordinateSystemIdRef)}}|`ID`|0..1|
+|{{property(nativeUnits)}}|`NativeUnitEnum`|0..1|
+|{{property(units)}}|`UnitEnum`|0..1|
 {: caption="Value Properties of SolidModel"}
 
 Descriptions for Value Properties of {{block(SolidModel)}}:
@@ -92,6 +94,18 @@ Descriptions for Value Properties of {{block(SolidModel)}}:
 * {{property(coordinateSystemIdRef)}} 
 
     reference to the coordinate system for this {{block(SolidModel)}}.
+
+* {{property(nativeUnits)}} 
+
+    same as {{block(DataItem)}} {{property(nativeUnits)}}. See {{sect(DataItem)}}.
+
+    The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
+
+* {{property(units)}} 
+
+    same as {{block(DataItem)}} {{property(units)}}. See {{sect(DataItem)}}.
+
+    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
 #### Part Properties of SolidModel
 

@@ -65,3 +65,20 @@ Descriptions for Reference Properties of {{block(Asset)}}:
     descriptive content.
 
     This can contain configuration information and manufacturer specific details.
+
+#### Part Properties of Asset
+
+{{tbl(part-properties-of-asset)}} lists the Part Properties of {{block(Asset)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Configuration)}}|0..1|
+{: caption="Part Properties of Asset"}
+
+Descriptions for Part Properties of {{block(Asset)}}:
+
+* {{block(Configuration)}} 
+
+    technical information about an entity describing its physical layout, functional characteristics, and relationships with other entities.
+
+    See *Section 7 - Configurations Model* of {{citetitle(MTCPart2)}}.

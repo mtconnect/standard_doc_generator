@@ -1,64 +1,64 @@
 
-## ComponentOrganizer Types
+## Component Organizer Types
 
 This section provides semantic information for the types of {{block(Component)}} that are used to {{term(organize)}} other {{block(Component)}} types. 
 
-### Adapters
+### `<<organizer>>`Adapters
 
 
-{{block(Adapters)}} {{termplural(organize)}} {{block(Adapter)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Adapter)}} types. 
 
 
-### Auxiliaries
+### `<<organizer>>`Auxiliaries
 
 
-{{block(Auxiliaries)}} {{termplural(organize)}} {{block(Auxiliary)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Auxiliary)}} types. 
 
 
-### Axes
+### `<<organizer>>`Axes
 
 
-{{block(Axes)}} {{termplural(organize)}} {{block(Axis)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Axis)}} types. 
 
 
-### Interfaces
+### `<<organizer>>`Interfaces
 
 
-{{block(Interfaces)}} {{termplural(organize)}} {{block(Interface)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Interface)}} types. 
 
 
-### Parts
+### `<<organizer>>`Parts
 
 
-{{block(Parts)}} {{termplural(organize)}} {{block(Part)}} types.
+{{block(Component)}} that {{termplural(organize)}} {{block(Part)}} types.
 
 
-### Processes
+### `<<organizer>>`Processes
 
 
-{{block(Processes)}} {{termplural(organize)}} {{block(Process)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Process)}} types. 
 
 
-### Resources
+### `<<organizer>>`Resources
 
 
-{{block(Resources)}} {{termplural(organize)}} {{block(Resource)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Resource)}} types. 
 
 
-#### Materials
+#### `<<organizer>>`Materials
 
 
-{{block(Materials)}} {{termplural(organize)}} {{block(Material)}} types.
+{{block(Resources)}} that {{termplural(organize)}} {{block(Material)}} types.
 
 
-### Structures
+### `<<organizer>>`Structures
 
 
-{{block(Structures)}} {{termplural(organize)}} {{block(Structure)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Structure)}} types. 
 
 
-### Systems
+### `<<organizer>>`Systems
 
 
-{{block(Systems)}} {{termplural(organize)}} {{block(System)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(System)}} types. 
 

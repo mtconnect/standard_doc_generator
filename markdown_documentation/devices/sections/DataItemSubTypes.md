@@ -9,7 +9,7 @@ This section provides semantic information for the {{property(subType)}} propert
 {{block(DataItem)}} that provides a sub-categorization for the {{property(type)}} property modeled as {{property(subType)}} for a {{block(DataItem)}}.
 
 
-The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of the following:
+The value of `<<extensible>>`{{property(subType)}} for {{block(DataItem)}} **MUST** be one of the following:
 
 
 * `ABORTED` 
@@ -29,6 +29,10 @@ The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of th
 * `ACTIVE` 
 
     relating to logic or motion program currently executing.
+
+* `ACTIVITY` 
+
+    phase of a process step.
 
 * `ACTUAL` 
 
@@ -244,6 +248,10 @@ The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of th
 
     piece of equipment that is powered or performing any activity.
 
+* `OPERATION` 
+
+    phase of a discrete manufacturing process.
+
 * `OPERATOR` 
 
     relating to the person currently responsible for operating the piece of equipment.
@@ -322,6 +330,10 @@ The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of th
 
     material that is used to produce parts.
 
+* `RECIPE` 
+
+    process as part of product production. 
+
 * `RELEASE_DATE` 
 
     date the hardware or software was released for general use.
@@ -349,6 +361,11 @@ The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of th
 * `SCHEDULE` 
 
     identity of a control program that is used to specify the order of execution of other programs.
+
+* `SEGMENT` 
+
+    phase of a recipe process that some product goes through.
+    
 
 * `SERIAL_NUMBER` 
 

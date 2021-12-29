@@ -65,7 +65,7 @@ Descriptions for Value Properties of {{block(TimeSeries)}}:
 
     number of values given for the {{block(Observation)}}.
 
-### Discrete
+### `<<deprecated>>`Discrete
 
 
 **DEPRECATED** {{block(Representation)}} for an {{block(Observation)}} where each discrete occurrence of the data may have the same value as the previous occurrence of the data.

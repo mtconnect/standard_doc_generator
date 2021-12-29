@@ -226,7 +226,7 @@ For many types of equipment, {{block(Path)}} organizes a set of {{block(Axes)}},
 
 If the {{block(Controller)}} is capable of performing more than one independent operation or function simultaneously, a separate {{block(Path)}} **MUST** be used to organize the data associated with each independent operation or function.
 
-### Power
+### `<<deprecated>>`Power
 
 
 {{block(Power)}} was **DEPRECATED** in *MTConnect Version 1.1* and was replaced by {{block(Availability)}} data item type.

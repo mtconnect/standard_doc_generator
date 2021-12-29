@@ -346,7 +346,7 @@ Descriptions for Part Properties of {{block(Component)}}:
 
 * {{block(Configuration)}} 
 
-    technical information about a piece of equipment describing its physical layout, functional characteristics, and relationships with other pieces of equipment.
+    technical information about an entity describing its physical layout, functional characteristics, and relationships with other entities.
 
     See {{sect(Configurations Model)}}.
 
@@ -375,12 +375,6 @@ Descriptions for Part Properties of {{block(Component)}}:
     pointer to information that is associated with another entity defined elsewhere in the {{block(MTConnectDevices)}} entity for a piece of equipment.
 
     {{block(References)}} groups one or more {{block(Reference)}} entities associated with the {{block(Component)}}. See {{sect(References Model)}}.
-
-### ComponentOrganizer
-
-
-{{block(Component)}} that {{termplural(organize)}} one or more {{block(Component)}} of the same type.
-
 
 ### Description
 
@@ -709,7 +703,7 @@ For many types of equipment, {{block(Path)}} organizes a set of {{block(Axes)}},
 
 If the {{block(Controller)}} is capable of performing more than one independent operation or function simultaneously, a separate {{block(Path)}} **MUST** be used to organize the data associated with each independent operation or function.
 
-### Power
+### `<<deprecated>>`Power
 
 
 {{block(Power)}} was **DEPRECATED** in *MTConnect Version 1.1* and was replaced by {{block(Availability)}} data item type.
@@ -875,68 +869,68 @@ For example, this could be the power source for an EDM machining process, an ele
 
 
 
-## ComponentOrganizer Types
+## Component Organizer Types
 
 This section provides semantic information for the types of {{block(Component)}} that are used to {{term(organize)}} other {{block(Component)}} types. 
 
-### Adapters
+### `<<organizer>>`Adapters
 
 
-{{block(Adapters)}} {{termplural(organize)}} {{block(Adapter)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Adapter)}} types. 
 
 
-### Auxiliaries
+### `<<organizer>>`Auxiliaries
 
 
-{{block(Auxiliaries)}} {{termplural(organize)}} {{block(Auxiliary)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Auxiliary)}} types. 
 
 
-### Axes
+### `<<organizer>>`Axes
 
 
-{{block(Axes)}} {{termplural(organize)}} {{block(Axis)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Axis)}} types. 
 
 
-### Interfaces
+### `<<organizer>>`Interfaces
 
 
-{{block(Interfaces)}} {{termplural(organize)}} {{block(Interface)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Interface)}} types. 
 
 
-### Parts
+### `<<organizer>>`Parts
 
 
-{{block(Parts)}} {{termplural(organize)}} {{block(Part)}} types.
+{{block(Component)}} that {{termplural(organize)}} {{block(Part)}} types.
 
 
-### Processes
+### `<<organizer>>`Processes
 
 
-{{block(Processes)}} {{termplural(organize)}} {{block(Process)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Process)}} types. 
 
 
-### Resources
+### `<<organizer>>`Resources
 
 
-{{block(Resources)}} {{termplural(organize)}} {{block(Resource)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Resource)}} types. 
 
 
-#### Materials
+#### `<<organizer>>`Materials
 
 
-{{block(Materials)}} {{termplural(organize)}} {{block(Material)}} types.
+{{block(Resources)}} that {{termplural(organize)}} {{block(Material)}} types.
 
 
-### Structures
+### `<<organizer>>`Structures
 
 
-{{block(Structures)}} {{termplural(organize)}} {{block(Structure)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(Structure)}} types. 
 
 
-### Systems
+### `<<organizer>>`Systems
 
 
-{{block(Systems)}} {{termplural(organize)}} {{block(System)}} types. 
+{{block(Component)}} that {{termplural(organize)}} {{block(System)}} types. 
 
 
 
@@ -1021,7 +1015,7 @@ Descriptions for Part Properties of {{block(Composition)}}:
 
 * {{block(Configuration)}} 
 
-    technical information about a piece of equipment describing its physical layout, functional characteristics, and relationships with other pieces of equipment.
+    technical information about an entity describing its physical layout, functional characteristics, and relationships with other entities.
 
     See {{sect(Configurations Model)}}.
 
@@ -1372,7 +1366,7 @@ information reported about a piece of equipment.
 |-|-|:-:|
 |{{property(category)}}|`CategoryEnum`|1|
 |{{property(compositionId)}}|`ID`|0..1|
-|{{property(coordinateSystem)}}|`CoordinateSystemEnum`|0..1|
+|`<<deprecated>>`{{property(coordinateSystem)}}|`CoordinateSystemEnum`|0..1|
 |{{property(discrete)}}|`boolean`|0..1|
 |{{property(id)}}|`ID`|1|
 |{{property(name)}}|`string`|0..1|
@@ -1417,24 +1411,11 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     identifier attribute of the {{block(Composition)}} element that the reported data is most closely associated.
 
-* {{property(coordinateSystem)}} 
+* `<<deprecated>>`{{property(coordinateSystem)}} 
 
+    **DEPRECATED** in *Version 2.0*. Replaced by {{property(coordinateSystemIdRef)}}. 
+    
     for measured values relative to a coordinate system like {{block(POSITION)}}, the coordinate system used may be reported.
-
-    The value of {{property(coordinateSystem)}} **MUST** be one of the `CoordinateSystemEnum` enumeration. 
-
-    `CoordinateSystemEnum` Enumeration:
-
-
-    * `MACHINE` 
-
-        unchangeable coordinate system that has machine zero as its origin.
-
-    * `WORK` 
-
-        coordinate system that represents the working area for a particular workpiece whose origin is shifted within the `MACHINE` coordinate system.
-        
-        If the `WORK` coordinates are not currently defined in the piece of equipment, the `MACHINE` coordinates will be used.
 
 * {{property(discrete)}} 
 
@@ -1460,7 +1441,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
 
-    `<<extensible>>``NativeUnitEnum` Enumeration:
+    `<<extensible>>` `NativeUnitEnum` Enumeration:
 
 
     * `CENTIPOISE` 
@@ -1624,7 +1605,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         mathematical average value calculated for the data item during the calculation period.
 
-    * `KURTOSIS` 
+    * `<<deprecated>>` `KURTOSIS` 
 
         **DEPRECATED** in *Version 1.6*. ~~A measure of the "peakedness" of a probability distribution; i.e., the shape of the distribution curve.~~
 
@@ -1674,7 +1655,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
-    `<<extensible>>``UnitEnum` Enumeration:
+    `<<extensible>>` `UnitEnum` Enumeration:
 
 
     * `AMPERE` 
@@ -1895,7 +1876,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
         
         Each reported value in the {{term(data set)}} **MUST** have a unique key.
 
-    * `DISCRETE` 
+    * `<<deprecated>>` `DISCRETE` 
 
         **DEPRECATED** as a {{property(representation)}} in *MTConnect Version 1.5*. Replaced by the {{property(discrete,DataItem)}} attribute of a {{block(DataItem)}}.
 
@@ -2498,7 +2479,7 @@ abstract {{block(DataItem)}} that is about an entity's status regarding its abil
 
 All {{block(Sample)}}s **MAY** have associated {{block(Condition)}} states.  {{block(Condition)}} states indicate whether the value for the data is within an expected range and **MUST** be reported as {{block(Normal)}}, or the value is unexpected or out of tolerance for the data and a {{block(Warning)}} or {{block(Fault)}} **MUST** be provided.
 
-The value of {{property(type)}} with {{property(category)}} `Condition` **MUST** be one of the following:
+The value of `<<extensible>>`{{property(type)}} with {{property(category)}} `CONDITION` **MUST** be one of the following:
 
 
 * `ACTUATOR` 
@@ -2533,7 +2514,7 @@ abstract {{block(DataItem)}} that is a discrete piece of information from a piec
 
 An {{block(Event)}} is information that, when provided at any specific point in time, represents the current state of the piece of equipment.
 
-The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be one of the following:
+The value of `<<extensible>>`{{property(type)}} with {{property(category)}} `EVENT` **MUST** be one of the following:
 
 
 * `ACTIVATION_COUNT` 
@@ -2577,6 +2558,10 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
 * `ASSET_CHANGED` 
 
     {{block(assetId)}} of the {{term(Asset)}} that has been added or changed.
+
+* `ASSET_COUNT` 
+
+    list of {{block(Asset)}} types in the {{term(asset buffer)}} and their corresponding instance count.
 
 * `ASSET_REMOVED` 
 
@@ -2755,6 +2740,10 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
     Subtypes of `FIRMWARE` : `VERSION`, `RELEASE_DATE`, `MANUFACTURER`, `LICENSE`, `INSTALL_DATE`.
 
 
+* `FIXTURE_ID` 
+
+    identifier for a fixture.
+
 * `FUNCTIONAL_MODE` 
 
     current intended production status of the {{block(Component)}}.
@@ -2811,6 +2800,10 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
 * `LOCK_STATE` 
 
     state or operating mode of a {{block(Lock)}}.
+
+* `MAINTENANCE_LIST` 
+
+    actions or activities to be performed in support of a piece of equipment.
 
 * `MATERIAL` 
 
@@ -2920,6 +2913,10 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
     Subtypes of `PART_COUNT` : `ALL`, `GOOD`, `BAD`, `TARGET`, `REMAINING`, `COMPLETE`, `ABORTED`, `FAILED`.
 
 
+* `PART_COUNT_TYPE` 
+
+    interpretation of `PART_COUNT`.
+
 * `PART_DETECT` 
 
     indication designating whether a part or work piece has been detected or is present.
@@ -3006,6 +3003,9 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
 
     identifier of a process being executed by the device.
 
+    Subtypes of `PROCESS_OCCURRENCE_ID` : `ACTIVITY`, `SEGMENT`, `RECIPE`, `OPERATION`.
+
+
 * `PROCESS_STATE` 
 
     particular condition of the process occurrence at a specific time.
@@ -3020,6 +3020,9 @@ The value of {{property(type)}} with {{property(category)}} `Event` **MUST** be 
 * `PROGRAM` 
 
     name of the logic or motion program being executed by the {{block(Controller)}} component.
+
+    Subtypes of `PROGRAM` : `ACTIVITY`, `SEGMENT`, `RECIPE`, `OPERATION`.
+
 
 * `PROGRAM_COMMENT` 
 
@@ -3175,7 +3178,7 @@ abstract {{block(DataItem)}} that is continuously changing or analog data value.
 
 This data can be measured at any point-in-time and will always produce a result.
 
-The value of {{property(type)}} with {{property(category)}} `Sample` **MUST** be one of the following:
+The value of `<<extensible>>`{{property(type)}} with {{property(category)}} `SAMPLE` **MUST** be one of the following:
 
 
 * `ACCELERATION` 
@@ -3408,6 +3411,10 @@ The value of {{property(type)}} with {{property(category)}} `Sample` **MUST** be
 
     average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
 
+* `OPENNESS` 
+
+    percentage open where 100% is fully open and 0% is fully closed.
+
 * `ORIENTATION` 
 
     measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
@@ -3610,7 +3617,7 @@ This section provides semantic information for the {{property(subType)}} propert
 {{block(DataItem)}} that provides a sub-categorization for the {{property(type)}} property modeled as {{property(subType)}} for a {{block(DataItem)}}.
 
 
-The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of the following:
+The value of `<<extensible>>`{{property(subType)}} for {{block(DataItem)}} **MUST** be one of the following:
 
 
 * `ABORTED` 
@@ -3630,6 +3637,10 @@ The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of th
 * `ACTIVE` 
 
     relating to logic or motion program currently executing.
+
+* `ACTIVITY` 
+
+    phase of a process step.
 
 * `ACTUAL` 
 
@@ -3845,6 +3856,10 @@ The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of th
 
     piece of equipment that is powered or performing any activity.
 
+* `OPERATION` 
+
+    phase of a discrete manufacturing process.
+
 * `OPERATOR` 
 
     relating to the person currently responsible for operating the piece of equipment.
@@ -3923,6 +3938,10 @@ The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of th
 
     material that is used to produce parts.
 
+* `RECIPE` 
+
+    process as part of product production. 
+
 * `RELEASE_DATE` 
 
     date the hardware or software was released for general use.
@@ -3950,6 +3969,11 @@ The value of {{property(subType)}} for {{block(DataItem)}} **MUST** be one of th
 * `SCHEDULE` 
 
     identity of a control program that is used to specify the order of execution of other programs.
+
+* `SEGMENT` 
+
+    phase of a recipe process that some product goes through.
+    
 
 * `SERIAL_NUMBER` 
 
@@ -4106,8 +4130,26 @@ This section provides semantic information for the {{block(Configuration)}} enti
 ### Configuration
 
 
-technical information about a piece of equipment describing its physical layout, functional characteristics, and relationships with other pieces of equipment.
+technical information about an entity describing its physical layout, functional characteristics, and relationships with other entities.
 
+
+#### Reference Properties of Configuration
+
+{{tbl(reference-properties-of-configuration)}} lists the Reference Properties of {{block(Configuration)}}.
+
+|Reference Property name|Multiplicity|
+|:-|:-:|
+|{{block(Composition)}} (organized by {{block(Configuration)}})|1|
+{: caption="Reference Properties of Configuration"}
+
+Descriptions for Reference Properties of {{block(Configuration)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+    
+
+    See {{sect(Configurations Model)}}.
 
 #### Part Properties of Configuration
 
@@ -4859,6 +4901,8 @@ Either an {{property(href,SolidModel)}} or a {{property(modelIdRef,SolidModel)}}
 |{{property(solidModelIdRef)}}|`ID`|0..1|
 |{{property(mediaType)}}|`MediaTypeEnum`|1|
 |{{property(coordinateSystemIdRef)}}|`ID`|0..1|
+|{{property(nativeUnits)}}|`NativeUnitEnum`|0..1|
+|{{property(units)}}|`UnitEnum`|0..1|
 {: caption="Value Properties of SolidModel"}
 
 Descriptions for Value Properties of {{block(SolidModel)}}:
@@ -4919,6 +4963,18 @@ Descriptions for Value Properties of {{block(SolidModel)}}:
 * {{property(coordinateSystemIdRef)}} 
 
     reference to the coordinate system for this {{block(SolidModel)}}.
+
+* {{property(nativeUnits)}} 
+
+    same as {{block(DataItem)}} {{property(nativeUnits)}}. See {{sect(DataItem)}}.
+
+    The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
+
+* {{property(units)}} 
+
+    same as {{block(DataItem)}} {{property(units)}}. See {{sect(DataItem)}}.
+
+    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
 #### Part Properties of SolidModel
 
