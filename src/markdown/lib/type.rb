@@ -15,10 +15,10 @@ class Type
   attr_writer :is_subtype
   
   class Literal
-    attr_reader :name, :value, :description
+    attr_reader :name, :value, :description, :stereotype
     
-    def initialize(name, value, description, suffix = '')
-      @name, @value, @description = name, value, description
+    def initialize(name, value, description, suffix = '', stereotype = '')
+      @name, @value, @description, @stereotype = name, value, description, stereotype
       base = name.gsub('_', '').downcase
 
     end
@@ -252,12 +252,14 @@ class Type
           literal = e.xpath("./ownedLiteral")
           name, value = literal[0]['name'].sub(/\^/,'\^').split('=')
           description = xmi_documentation(literal)
-          @literals << Literal.new(name, value, description, suffix)
+          stereotype = xmi_stereotype(literal[0])[0]
+          @literals << Literal.new(name, value, description, suffix, stereotype)
           break
         end
         name, value = lit['name'].sub(/\^/,'\^').split('=')
         description = xmi_documentation(lit)
-        @literals << Literal.new(name, value, description, suffix)
+        stereotype = xmi_stereotype(lit)[0]
+        @literals << Literal.new(name, value, description, suffix, stereotype)
       end
     else
       e.element_children.each do |r|
