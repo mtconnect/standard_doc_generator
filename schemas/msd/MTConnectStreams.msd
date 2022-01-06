@@ -1,11 +1,11 @@
 
 self.namespace = 'mt'
 self.top = :MTConnectStreams
-self.license = File.read(File.join(File.dirname(__FILE__), '..', 'schemas', 'license.txt'))
-self.version = '1.7'
+self.license = File.read(File.join(File.dirname(__FILE__), 'schemas', 'license.txt'))
+self.version = $mtconnect_version
 self.urn = "urn:mtconnect.org:MTConnectStreams:#{self.version}"
 
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'common')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'common')
 
 package :MTC, 'MTC Top Level Package' do
   attr :Station, 'The station id for this device'
@@ -25,13 +25,13 @@ package :MTC, 'MTC Top Level Package' do
   end
 end
 
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'streams')
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'samples')
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'events')
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'data_set')
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'table')
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'condition')
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'alarm')
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'interface_stream')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'streams')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'samples')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'events')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'data_set')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'table')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'condition')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'alarm')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'interface_stream')
 
 

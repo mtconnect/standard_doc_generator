@@ -1,11 +1,11 @@
 
 self.namespace = 'mt'
 self.top = :MTConnectError
-self.license = File.read(File.join(File.dirname(__FILE__), '..', 'schemas', 'license.txt'))
-self.version = '1.7'
+self.license = File.read(File.join(File.dirname(__FILE__), 'schemas', 'license.txt'))
+self.version = $mtconnect_version
 self.urn = "urn:mtconnect.org:MTConnectError:#{self.version}"
 
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'common')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'common')
 
 package :MTConnectError, 'MTConnect Top Level Error Package' do
   type :Header, 'Message header for protocol information' do
@@ -30,6 +30,6 @@ package :MTConnectError, 'MTConnect Top Level Error Package' do
   end
 end
 
-load File.join(File.dirname(__FILE__), '..', 'schemas', 'msd', 'error')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'error')
 
 

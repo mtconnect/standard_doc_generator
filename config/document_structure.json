@@ -4,26 +4,37 @@
 			"directory": "protocols",
 			"doc_title": "Overview and Fundamentals",
 			"models": [
-				"Protocols Introduction"
+				"MTConnect Fundamentals",
+				"MTConnect ReST Protocol",
+				{
+					"Error Information Model": ["MTConnectErrors"]
+				}
 			]
 		},
 		"Part 2.0": {
 			"directory": "devices",
 			"doc_title": "Devices Information Model",
 			"models": [
-				"Devices Information Model",
 				{
-					"Entities for MTConnectDevices": ["Components",
+					"Devices Information Model": ["MTConnectDevices"]
+				},
+				{
+					"Components Model": [
+						"Components",
 						"Devices",
 						"Component Types",
-						"ComponentOrganizer Types"
+						"Component Organizer Types"
 					]
 				},
 				{
-					"Compositions Model": ["Compositions", "Composition Types"]
+					"Compositions Model": [
+						"Compositions",
+						 "Composition Types"
+						]
 				},
 				{
-					"DataItems Model": ["DataItems",
+					"DataItems Model": [
+						"DataItems",
 						"Properties of DataItem",
 						"Properties of Definition",
 						"Relationship Types for DataItem",
@@ -35,7 +46,8 @@
 					"References Model": ["References"]
 				},
 				{
-					"Configurations Model": ["Configurations",
+					"Configurations Model": [
+						"Configurations",
 						"CoordinateSystems",
 						"Motion",
 						"Relationships",
@@ -49,15 +61,20 @@
 		"Part 3.0": {
 			"directory": "observations",
 			"doc_title": "Observations Information Model",
-			"models": ["Observations Information Model",
+			"models": [
 				{
-					"Entities for MTConnectStreams": ["Streams",
+					"Observations Information Model": ["MTConnectStreams"]
+				},
+				{
+					"Streams Model": [
+						"Streams",
 						"Observations",
 						"Representations"
 					]
 				},
 				{
-					"Observation Types": ["Condition States",
+					"Observation Types": [
+						"Condition States",
 						"Condition Types",
 						"Event Types",
 						"Sample Types"
@@ -70,10 +87,14 @@
 			"doc_title": "Assets Information Model",
 			"models": [
 				{
-					"Assets Information Model": ["Assets"]
+					"Assets Information Model": [
+						"MTConnectAssets",
+						"Assets"
+					]
 				},
 				{
-					"Cutting Tool Asset Information Model":["Cutting Tool",
+					"Cutting Tool Asset Information Model":[
+						"Cutting Tool",
 						"Cutting Tool Life Cycle",
 						"Cutting Item",
 						"Cutting Tool Measurement Subtypes",
@@ -97,7 +118,8 @@
 			"models": [
 				"Interfaces Overview",
 				{
-					"Interfaces for Device and Observation Information Models":["Interfaces",
+					"Interfaces for Device and Observation Information Models":[
+						"Interfaces",
 						"Interface Types",
 						"Data for Interface",
 						"DataItem Types for Interface"
@@ -131,6 +153,10 @@
 		"HTTP Terms": {
 			"model": "HTTP Terms",
 			"type": "http"
+		},
+		"Industrial Terms": {
+			"model": "Industrial Terms",
+			"type": "industrial"
 		},
 		"MTConnect Terms": {
 			"model": "MTConnect Terms",
