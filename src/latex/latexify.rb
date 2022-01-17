@@ -83,6 +83,15 @@ module Kramdown
             latex_args = args.gsub("markdown", "latex").gsub(".md", ".tex")
             "\\input{#{latex_args}}"
 
+          when "def"
+            property_name = args.split(":")[-1]
+            if $dataitemtypes.has_key?(property_name)
+              kd = ::Kramdown::Document.new($dataitemtypes[property_name]['documentation'], input: 'MTCKramdown', html_to_native: true)
+              kd.to_mtc_latex
+            else
+              ""
+            end
+
           when 'markdown'
             kd = ::Kramdown::Document.new(args.gsub(/<br\/?>/, "\n"), input: 'MTCKramdown')
             kd.to_mtc_latex

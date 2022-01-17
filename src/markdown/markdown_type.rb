@@ -229,11 +229,6 @@ class MarkdownType < Type
       generate_types(f)
     elsif !(@model.name.end_with?('Types') && section_name.end_with?('Result'))
       f.puts "\n### #{section_name}\n\n"
-      dataitem_type = self.relation("type")
-      if (defined?(dataitem_type.default) &&
-          @model.generator.dataitemtypes.has_key?(dataitem_type.default))
-        f.puts "#{@model.generator.dataitemtypes[dataitem_type.default]['documentation']}\n"
-      end
       generate_documentation(f)
       generate_types(f)
     end
