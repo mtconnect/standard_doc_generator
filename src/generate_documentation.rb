@@ -31,7 +31,7 @@ class DocumentGenerator
       "CompositionTypeEnum",
       "CodeEnum"
     ] 
-    @dataitemtypes = Hash.new            #DataItem types for use in multiple Parts docs
+    @dataitemtypes = $dataitemtypes            #DataItem types for use in multiple Parts docs
 
     generate_all()
   end

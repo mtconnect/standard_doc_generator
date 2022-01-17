@@ -52,6 +52,8 @@ xmi_node = Nokogiri::XML(File.open(xmi_file)).slop!
 $namespaces = Hash[xmi_node.namespaces.map { |k, v| [k.split(':').last, v] }]
 
 $mtconnect_version = Options[:version] ? Options[:version] : "X.X"
+$dataitemtypes = Hash.new
+
 operations = Set.new(ARGV)
 
 operations.each do |op|
