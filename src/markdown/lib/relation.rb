@@ -27,6 +27,9 @@ module Relation
       else
         Attribute.new(owner, r)
       end
+
+    when 'uml:Operation'
+      Operation.new(owner, r)
       
     when 'uml:Association', 'uml:Link'
       Association.new(owner, r)
@@ -389,5 +392,32 @@ module Relation
       $logger.error $!
       raise
     end
+  end
+
+  class Operation < Relation
+    include Extensions
+
+    attr_reader :is_query, :parameters
+
+    def initialize(owner, a)
+      super(owner, a)
+      
+      @is_query = a['isQuery']
+      @parameters = a.xpath('./ownedParameter').map do |p|
+        name = p['name'] ? p['name'] : 'return'
+        doc = xmi_documentation(p)
+        
+        $logger.warn "Could not find docs for for #{@name}::#{name}" unless doc
+        [name, doc]
+      end
+
+    rescue
+      $logger.error "Error creating operation: #{a.to_s}"
+      raise
+    end
+
+    def is_query?
+      (@is_query && @is_query == "true") ? true : false
+    end 
   end
 end
