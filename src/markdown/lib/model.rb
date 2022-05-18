@@ -5,7 +5,7 @@ require 'type'
 class Model
   include Extensions
   
-  attr_reader :name, :documentation, :types, :xmi
+  attr_reader :name, :documentation, :types, :xmi, :type
 
   @@skip_models = {}
   @@models = {}
