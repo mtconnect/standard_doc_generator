@@ -250,13 +250,13 @@ class Type
       e.ownedLiteral.each do |lit|
         if lit.class == [].class
           literal = e.xpath("./ownedLiteral")
-          name, value = literal[0]['name'].sub(/\^/,'\^').split('=')
+          name, value = literal[0]['name'].split('=')
           description = xmi_documentation(literal)
           stereotype = xmi_stereotype(literal[0])[0]
           @literals << Literal.new(name, value, description, suffix, stereotype)
           break
         end
-        name, value = lit['name'].sub(/\^/,'\^').split('=')
+        name, value = lit['name'].split('=')
         description = xmi_documentation(lit)
         stereotype = xmi_stereotype(lit)[0]
         @literals << Literal.new(name, value, description, suffix, stereotype)
