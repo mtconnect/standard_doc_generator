@@ -15,7 +15,7 @@ class XMIParser
   
     @terms = generate_definitions()
   
-    @types = generate_enum('SampleEnum','EventEnum','ConditionEnum')
+    @types = generate_enum('SampleEnum','EventEnum','ConditionEnum','InterfaceEventEnum')
     @subtypes = generate_enum('DataItemSubTypeEnum')
     @statistics = generate_enum('StatisticEnum')
     @units = generate_enum('UnitEnum')
@@ -27,9 +27,12 @@ class XMIParser
     @compositions = generate_enum('CompositionTypeEnum')
     
     @components = generate_element_types('Components', 'Component', 'Component Types')
+    @components = @components.merge(generate_element_types('Components', 'Component', 'Component Organizer Types'))
     @components = @components.merge(generate_element_types('Components', 'Component', 'Devices'))
-    @samples = generate_element_types('Observations', 'Sample', 'Sample Types')
-    @events = generate_element_types('Observations', 'Event', 'Event Types')
+    @components = @components.merge(generate_element_types('Components', 'Component', 'Device Information Model'))
+    @samples = generate_element_types('Observation Information Model', 'Sample', 'Sample Types')
+    @events = generate_element_types('Observation Information Model', 'Event', 'Event Types')
+    @events = @events.merge(generate_element_types('Observation Information Model', 'Event', 'DataItem Types for Interface'))
   end
   
   def generate_definitions
@@ -52,7 +55,7 @@ class XMIParser
         name = literal['name']
         enumeration_attr[name] = Hash.new
         enumeration_attr[name]['name'] = name
-        enumeration_attr[name]['description'] = literal.at("./ownedComment")['body']
+        enumeration_attr[name]['description'] = literal.at("./ownedComment") ? literal.at("./ownedComment")['body'] : ""
       end
     end
     return enumeration_attr
@@ -67,6 +70,7 @@ class XMIParser
     element_type_ids[element_xmi["xmi:id"]] = element_name
     
     element_types_package = package.at("[@name='"+types_package+"']")
+    element_types_package = @model.at("[@name='"+types_package+"']") unless element_types_package
     
     element_types_package.children.each do |element|
       next unless element["xmi:type"] == "uml:Class" or element["xmi:type"] == "uml:AssociationClass"
@@ -89,6 +93,9 @@ class XMIParser
     
     element_attr.each do |name, element|
       if types_package == "Devices"
+        element_attr[name]['parent'] = "Device"
+        next
+      elsif  types_package == "Device Information Model" || types_package == "Component Organizer Types"
         element_attr[name]['parent'] = "Component"
         next
       end
