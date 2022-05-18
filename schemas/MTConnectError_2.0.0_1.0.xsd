@@ -36,10 +36,12 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         root entity of an {{term(MTConnectErrors Response Document)}} that
-        contains the {{term(Error Information Model)}}. &gt; Note: Additional
-        properties of {{block(MTConnectError)}} **MAY** be defined for schema
-        and namespace declaration. See {{sect(Schema and Namespace Declaration
-        Information)}} for an {{term(XML)}} example.
+        contains the {{term(Error Information Model)}}.
+        ![MTConnectError](figures/MTConnectError.png
+        &quot;MTConnectError&quot;){: width=&quot;0.8&quot;} &gt; Note:
+        Additional properties of {{block(MTConnectError)}} **MAY** be defined
+        for schema and namespace declaration. See {{sect(Schema and Namespace
+        Declaration Information)}} for an {{term(XML)}} example.
       </xs:documentation>
     </xs:annotation>
   </xs:element>
@@ -380,13 +382,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='CLOCK_TIME'>
-        <xs:annotation>
-          <xs:documentation>
-            time provided by a timing device at a specific point in time.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value='CONCENTRATION'>
         <xs:annotation>
           <xs:documentation>
@@ -503,7 +498,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='GLOBAL_POSITION'>
         <xs:annotation>
           <xs:documentation>
-            **DEPRECATED** in Version 1.1.
+            position in three-dimensional space. **DEPRECATED** in Version 1.1.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -874,11 +869,10 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='VALVE_POSITION'>
+      <xs:enumeration value='OPENNESS'>
         <xs:annotation>
           <xs:documentation>
-            percentage open of a value where 100% is fully open and 0% is fully
-            closed.
+            percentage open where 100% is fully open and 0% is fully closed.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -992,20 +986,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
             operating state of a mechanism that holds a part or stock material
             during a manufacturing process. It may also represent a mechanism
             that holds any other mechanism in place within a piece of equipment.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='CLOSE_CHUCK'>
-        <xs:annotation>
-          <xs:documentation>
-            operating state of the service to close a chuck.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='CLOSE_DOOR'>
-        <xs:annotation>
-          <xs:documentation>
-            operating state of the service to close a door.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1124,13 +1104,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='INTERFACE_STATE'>
-        <xs:annotation>
-          <xs:documentation>
-            operational state of an {{block(Interface)}}.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value='LINE'>
         <xs:annotation>
           <xs:documentation>
@@ -1161,22 +1134,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='MATERIAL_CHANGE'>
-        <xs:annotation>
-          <xs:documentation>
-            operating state of the service to change the type of material or
-            product being loaded or fed to a piece of equipment.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='MATERIAL_FEED'>
-        <xs:annotation>
-          <xs:documentation>
-            operating state of the service to advance material or feed product
-            to a piece of equipment from a continuous or bulk source.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value='MATERIAL_LAYER'>
         <xs:annotation>
           <xs:documentation>
@@ -1185,49 +1142,11 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='MATERIAL_LOAD'>
-        <xs:annotation>
-          <xs:documentation>
-            operating state of the service to load a piece of material or
-            product.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='MATERIAL_RETRACT'>
-        <xs:annotation>
-          <xs:documentation>
-            operating state of the service to remove or retract material or
-            product.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='MATERIAL_UNLOAD'>
-        <xs:annotation>
-          <xs:documentation>
-            operating state of the service to unload a piece of material or
-            product.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value='MESSAGE'>
         <xs:annotation>
           <xs:documentation>
             information to be transferred from a piece of equipment to a client
             software application.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='OPEN_CHUCK'>
-        <xs:annotation>
-          <xs:documentation>
-            operating state of the service to open a chuck.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='OPEN_DOOR'>
-        <xs:annotation>
-          <xs:documentation>
-            operating state of the service to open a door.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1243,14 +1162,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             identifier for a pallet.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='PART_CHANGE'>
-        <xs:annotation>
-          <xs:documentation>
-            operating state of the service to change the part or product
-            associated with a piece of equipment to a different part or product.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1792,6 +1703,43 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value='ASSET_COUNT'>
+        <xs:annotation>
+          <xs:documentation>
+            {{term(data set)}} of the number of {{termplural(Asset)}} of a given
+            type for a {{term(Device)}}.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='MAINTENANCE_LIST'>
+        <xs:annotation>
+          <xs:documentation>
+            actions or activities to be performed in support of a piece of
+            equipment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='FIXTURE_ID'>
+        <xs:annotation>
+          <xs:documentation>
+            identifier for a fixture.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='PART_COUNT_TYPE'>
+        <xs:annotation>
+          <xs:documentation>
+            interpretation of `PART_COUNT`.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='CLOCK_TIME'>
+        <xs:annotation>
+          <xs:documentation>
+            time provided by a timing device at a specific point in time.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value='COMMUNICATIONS'>
         <xs:annotation>
           <xs:documentation>
@@ -1838,6 +1786,89 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             indication of a fault associated with an actuator.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='INTERFACE_STATE'>
+        <xs:annotation>
+          <xs:documentation>
+            operational state of an {{block(Interface)}}.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='MATERIAL_FEED'>
+        <xs:annotation>
+          <xs:documentation>
+            operating state of the service to advance material or feed product
+            to a piece of equipment from a continuous or bulk source.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='MATERIAL_CHANGE'>
+        <xs:annotation>
+          <xs:documentation>
+            operating state of the service to change the type of material or
+            product being loaded or fed to a piece of equipment.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='MATERIAL_RETRACT'>
+        <xs:annotation>
+          <xs:documentation>
+            operating state of the service to remove or retract material or
+            product.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='PART_CHANGE'>
+        <xs:annotation>
+          <xs:documentation>
+            operating state of the service to change the part or product
+            associated with a piece of equipment to a different part or product.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='MATERIAL_LOAD'>
+        <xs:annotation>
+          <xs:documentation>
+            operating state of the service to load a piece of material or
+            product.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='MATERIAL_UNLOAD'>
+        <xs:annotation>
+          <xs:documentation>
+            operating state of the service to unload a piece of material or
+            product.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='OPEN_CHUCK'>
+        <xs:annotation>
+          <xs:documentation>
+            operating state of the service to open a chuck.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='OPEN_DOOR'>
+        <xs:annotation>
+          <xs:documentation>
+            operating state of the service to open a door.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='CLOSE_CHUCK'>
+        <xs:annotation>
+          <xs:documentation>
+            operating state of the service to close a chuck.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='CLOSE_DOOR'>
+        <xs:annotation>
+          <xs:documentation>
+            operating state of the service to close a door.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1909,7 +1940,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             measurement of alternating voltage or current. If not specified
-            further in statistic, defaults to RMS voltage. 
+            further in statistic, defaults to RMS voltage. **DEPRECATED** in
+            *Version 1.6*.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -1992,7 +2024,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='DIRECT'>
         <xs:annotation>
           <xs:documentation>
-            DC current or voltage.
+            DC current or voltage. **DEPRECATED** in *Version 1.6*.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2044,8 +2076,8 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='JOG'>
         <xs:annotation>
           <xs:documentation>
-            feedrate specified by a logic or motion program when operating in a
-            manual state or method (jogging).
+            relating to momentary activation of a function or a movement.
+            **DEPRECATION WARNING**: May be deprecated in the future.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2384,7 +2416,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
       <xs:enumeration value='IPV6_ADDRESS'>
         <xs:annotation>
           <xs:documentation>
-            The IPV6 network address of the {{block(Component)}}.
+            IPV6 network address of the {{block(Component)}}.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2587,7 +2619,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             actions or activities that were attempted, but terminated before
-            they could be completed. 
+            they could be completed.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2624,6 +2656,35 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           <xs:documentation>
             {{term(response)}} by an {{block(Interface)}} to a {{term(request)}}
             for a task.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='ACTIVITY'>
+        <xs:annotation>
+          <xs:documentation>
+            phase or segment of a recipe or program.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='SEGMENT'>
+        <xs:annotation>
+          <xs:documentation>
+            phase of a recipe process.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='RECIPE'>
+        <xs:annotation>
+          <xs:documentation>
+            process as part of product production; can be a subprocess of a
+            larger process.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='OPERATION'>
+        <xs:annotation>
+          <xs:documentation>
+            step of a discrete manufacturing process.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2998,20 +3059,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='REVOLUTION/SECOND'>
-        <xs:annotation>
-          <xs:documentation>
-            revolutions per second.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='REVOLUTION/SECOND^2'>
-        <xs:annotation>
-          <xs:documentation>
-            revolutions per second squared.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value='GRAM/CUBIC_METER'>
         <xs:annotation>
           <xs:documentation>
@@ -3080,6 +3127,27 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           <xs:documentation>
             3D Unit Vector. Space delimited list of three floating point
             numbers.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='REVOLUTION/SECOND^2'>
+        <xs:annotation>
+          <xs:documentation>
+            revolutions per second squared.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='REVOLUTION/SECOND'>
+        <xs:annotation>
+          <xs:documentation>
+            rotational velocity in revolution per second.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='GRAM'>
+        <xs:annotation>
+          <xs:documentation>
+            gram.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -3357,20 +3425,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='REVOLUTION/SECOND'>
-        <xs:annotation>
-          <xs:documentation>
-            revolutions per second.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='REVOLUTION/SECOND^2'>
-        <xs:annotation>
-          <xs:documentation>
-            revolutions per second squared.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value='GRAM/CUBIC_METER'>
         <xs:annotation>
           <xs:documentation>
@@ -3439,6 +3493,27 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           <xs:documentation>
             3D Unit Vector. Space delimited list of three floating point
             numbers.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='REVOLUTION/SECOND^2'>
+        <xs:annotation>
+          <xs:documentation>
+            revolutions per second squared.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='REVOLUTION/SECOND'>
+        <xs:annotation>
+          <xs:documentation>
+            rotational velocity in revolution per second.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value='GRAM'>
+        <xs:annotation>
+          <xs:documentation>
+            gram.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -3577,13 +3652,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value='LITER'>
-        <xs:annotation>
-          <xs:documentation>
-            measurement of volume of a fluid.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value='LITER/MINUTE'>
         <xs:annotation>
           <xs:documentation>
@@ -3651,13 +3719,6 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         <xs:annotation>
           <xs:documentation>
             rotational acceleration in radian per second squared.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value='REVOLUTION/SECOND'>
-        <xs:annotation>
-          <xs:documentation>
-            rotational velocity in revolution per second.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -3931,10 +3992,12 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
     <xs:annotation>
       <xs:documentation>
         root entity of an {{term(MTConnectErrors Response Document)}} that
-        contains the {{term(Error Information Model)}}. &gt; Note: Additional
-        properties of {{block(MTConnectError)}} **MAY** be defined for schema
-        and namespace declaration. See {{sect(Schema and Namespace Declaration
-        Information)}} for an {{term(XML)}} example.
+        contains the {{term(Error Information Model)}}.
+        ![MTConnectError](figures/MTConnectError.png
+        &quot;MTConnectError&quot;){: width=&quot;0.8&quot;} &gt; Note:
+        Additional properties of {{block(MTConnectError)}} **MAY** be defined
+        for schema and namespace declaration. See {{sect(Schema and Namespace
+        Declaration Information)}} for an {{term(XML)}} example.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
