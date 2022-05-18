@@ -12,7 +12,7 @@ class DocumentGenerator
   include Kramdown::Converter
 
   attr_reader :skip_models, :part_num, :part_config, :profile, :xmi
-  attr_accessor :enums, :dataitemtypes 
+  attr_accessor :enums, :dataitemtypes, :enum, :labels
 
   def initialize(xmi)
     @xmi = xmi
@@ -26,12 +26,15 @@ class DocumentGenerator
     @enums = ["DataItemTypeEnum",        #Enumerations to be ignored during recursive gen of docs
       "SampleEnum",
       "EventEnum",
-      "ConditionEnum",
-      "DataItemSubTypeEnum",              #These enums have specific formats defined in markdown_type.rb
+      "ConditionEnum",             #These enums have specific formats defined in markdown_type.rb
       "CompositionTypeEnum",
       "CodeEnum"
     ] 
     @dataitemtypes = $dataitemtypes            #DataItem types for use in multiple Parts docs
+
+    @enum = $enum            #Enums for use in multiple Parts docs
+
+    @labels = Set.new
 
     generate_all()
   end
@@ -85,6 +88,7 @@ class DocumentGenerator
       generate_profile()  
       flatten_md()
       convert_to_latex()
+      reset_labels()
     end
   end
 
@@ -95,8 +99,8 @@ class DocumentGenerator
       generate_section_intro(
         f = f,
         root_model = @xmi,
-        section_package_name = "Supporting Documents",
-        section_name = "MTConnect Profile"
+        section_package_name = "Profile",
+        section_name = "Profile"
         )
       self.class.model_class.generate_profile(f, @profile)
     end
@@ -112,9 +116,10 @@ class DocumentGenerator
           generate_section_intro(
             f = f,
             root_model = @xmi,
-            section_package_name = "Supporting Documents",
+            section_package_name = model,
             section_name = model
           )
+          self.class.model_class.generate_md(f, model, 1)
         when "Hash"
           section_name = model.keys[0]
           generate_section_intro(
@@ -124,14 +129,19 @@ class DocumentGenerator
             section_name = section_name
           )
           $logger.info "\nGenerating Documents for #{section_name}"
+          self.class.model_class.generate_md(f, section_name, 1)
           model[section_name].each do |mod|
-            self.class.model_class.generate_md(f, mod)
+            self.class.model_class.generate_md(f, mod, 2)
           end
         else
           $logger.error "Invalid model data type #{model.class}"
         end
       end
     end
+  end
+
+  def reset_labels
+    @labels = Set.new
   end
 
   def flatten_md
