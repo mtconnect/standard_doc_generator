@@ -20,8 +20,8 @@ module Extensions
              end
            end
     if attr
-      element_stereo = e.document.root.at("/xmi:XMI/*[@base_Element='#{id}']")
-      element_stereo = e.document.root.at("/xmi:XMI/*[@#{attr}='#{id}']") unless element_stereo
+      element_stereo = e.document.root.at("/xmi:XMI/*[not(contains(local-name(), 'normative')) and @base_Element='#{id}']")
+      element_stereo = e.document.root.at("/xmi:XMI/*[not(contains(local-name(), 'normative')) and @#{attr}='#{id}']") unless element_stereo
       element_stereo_name = element_stereo ? element_stereo.name : ''
       
       property_stereo = e.document.root.at("/xmi:XMI/*[@base_Property='#{e['xmi:id']}']")
@@ -39,7 +39,7 @@ module Extensions
   def xmi_additional_documentation(e)
     documentation = ''
     e.xpath('./ownedComment').map do |comment|
-      documentation += comment['body'] ? comment.at('ownedComment') ? "\n#{comment.at('ownedComment')['body']}" : '' : ''
+      documentation += comment['body'] ? comment.at('ownedComment') ? "\n#{comment.at('ownedComment')['body']}\n" : '' : ''
     end
     return documentation
   end
