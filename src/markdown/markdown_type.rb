@@ -4,69 +4,68 @@ require 'lib/type'
 require 'lib/diagrams'
 
 class MarkdownType < Type
+
+  attr_accessor :type_relations
+
   include Diagram
   include Document
 
-  def generate_types(f)
-    $logger.info "Generating docs for #{@name}"
-    relations = @relations.select do |r|
-      $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target && r.target.type.nil?
-      r.type != "uml:Constraint" &&
-      (r.documentation ||
-        r.target.type.type == "uml:Enumeration" ||
-        !r.documentation
-      ) &&
-      defined?(r.final_target.type) &&
-      @model.name.split("Type")[0] != r.final_target.type.name &&
-      r.visibility == "public" &&
-      r.name != "Supertype"
-    end
-
-    unless relations.empty?
-
-      value_properties = relations.select {|a| a.property_stereotype == "" || a.property_stereotype == "ValueProperty"}
-      reference_properties = relations.select {|a| a.property_stereotype == "ReferenceProperty"}
-      part_properties = relations.select {|a| a.property_stereotype == "PartProperty"}
-      
-      if model_has_mtconnect_supertype?
-        relations.each do |r|
-          next unless r.redefinesProperty
-          name = r.association_name ? r.association_name : r.name
-          target = r.final_target.type
-          if name == "result" 
-            f.puts get_valuetype_documentation(r)
-            if target.type == "uml:Enumeration"
-              target.generate_enumerations(f)
-            elsif target.type == "uml:Class"
-              target.generate_entrykeys(f)
-            end
-          elsif name == "units" && r.default
-            f.puts get_valuetype_documentation(r)
-          elsif (name == "type" || name == "subType") && !r.default
-            update_dataitemtypes_doc(target)
-            stereo = target.stereotype!="" ? "`\<\<#{target.stereotype}\>\>`" : ""
-            f.puts "\nThe value of #{stereo}{{property(#{name})}} with {{property(category)}} `#{@name.upcase}` **MUST** be one of the following:\n\n" if name == "type"
-            f.puts "\nThe value of #{stereo}{{property(#{name})}} for {{block(DataItem)}} **MUST** be one of the following:\n\n" if name == "subType"
-            target.literals.sort_by! { |t| t.name }
-            target.literals.each do |lit|
-              if type_has_subtypes?(lit)
-                subtypes_list_str = @model.generator.dataitemtypes[lit.name]["subTypes"].join(", ")
-                lit_subtypes = "\n\n    Subtypes of `#{lit.name}` : #{subtypes_list_str}.\n\n"
-              end
-              f.puts "\n* `#{lit.name}` \n\n    #{lit.description.gsub("\n", "\n    ")}#{lit_subtypes}"
-            end
-          end
+  def generate_md(f = STDOUT, parent='')
+    $logger.info "--- Generating #{section_heading}"
+    return if @name =~ /Factory/ || @stereotype =~ /metaclass/ || @visibility != 'public'
+    if @is_subtype
+      # documentation structure for subtypes are different.
+      if !model_has_observation_types?
+        if (@model.name == "Component Types" &&
+          parent.name != @relations[0].final_target.type.name)
+          generate_section_name_with_heading_level(f,3)
+        else
+          generate_section_name_with_heading_level(f,2)
         end
-      end      
-      generate_value_property_doc(f, value_properties) unless value_properties.empty?
-      generate_associated_property_doc(f, reference_properties, "Reference") unless reference_properties.empty?
-      generate_associated_property_doc(f, part_properties, "Part") unless part_properties.empty?
-      generate_observation_type_subtypes(f) if observation_type_has_subtypes?
-    end    
+        generate_documentation(f)
+        generate_types(f)
+      end
+    else
+      generate_section_name_with_heading_level(f,1)
+      generate_documentation(f)
+      generate_types(f)
+    end
   end
-  
-  def generate_observation_type_subtypes(f)
-    f.puts "\n#### Subtypes of #{@name}\n\n"
+
+  def generate_types(f)
+    $logger.debug "Generating docs for #{@name}"
+    @type_relations = get_type_relations()
+    return if @type_relations.empty?
+
+    observes_relations = @type_relations.select {|a| a.stereotype == "observes"}
+    value_property_relations = @type_relations.select {|a| a.property_stereotype == "ValueProperty" || (a.name == "result" && a.final_target.type.name.end_with?("Result"))}
+    reference_property_relations = @type_relations.select {|a| a.property_stereotype == "ReferenceProperty"}
+    part_property_relations = (@type_relations-value_property_relations-observes_relations).select {|a| a.property_stereotype == "PartProperty"}
+    operation_relations = @type_relations.select {|a| a.type == "uml:Operation"}
+
+    generate_value_property_doc(f, value_property_relations) unless value_property_relations.empty?
+    generate_associated_elements_doc(f, reference_property_relations, "Reference") unless reference_property_relations.empty?
+    generate_associated_elements_doc(f, part_property_relations, "Part") unless part_property_relations.empty?
+    generate_observed_dataitems_doc(f, observes_relations) unless observes_relations.empty?
+    generate_operations_doc(f, operation_relations) unless operation_relations.empty?
+    generate_subtype_docs_for_observation_type(f) if observation_type_has_subtypes?
+  end
+
+  def generate_operations_doc(f, operations)
+    f.puts "\n#{section_heading_level_to_s(2)} Operations for #{@name}\n"
+    operations.each do |op|
+      f.puts "\n* `#{op.name}`\n\n    #{op.documentation.gsub("\n","\n    ")}\n"
+      if op.parameters
+        f.puts "\n    The parameters for {{property(#{@name})}} are:\n"
+        op.parameters.each do |p|
+          f.puts "\n    * `#{p[0]}`\n\n        #{p[1].gsub("\n","\n        ")}\n"
+        end
+      end
+    end
+  end
+
+  def generate_subtype_docs_for_observation_type(f)
+    f.puts "\n#{section_heading_level_to_s(2)} Subtypes of #{@name}\n"
     @subtypes.each do |subtype|
       if defined?(subtype.relation("subType").default)
         f.puts "\n* `#{subtype.relation("subType").default}`\n"
@@ -74,114 +73,141 @@ class MarkdownType < Type
         subtype.relations.each do |r|
           name = r.association_name ? r.association_name : r.name
           if r.redefinesProperty && name == "result"
-            f.puts get_valuetype_documentation(r, 1)
+            generate_valuetype_documentation(f, r, 1)
             target = r.final_target.type
-            if (target.type == "uml:Enumeration" &&
-                !@model.generator.enums.include?(target.name))
-              target.generate_enumerations(f, 1)
-            end
+            target.generate_enumerations(f, 1) unless target.enum_already_documented?
           end
         end
       end
     end
   end
 
-  def generate_value_property_doc(f, value_properties)
+  def generate_observed_dataitems_doc(f, relations)
+    tbl_rows = []   
+    relations.each do |r|
+      target = r.final_target.type
+      tbl_rows.append(["#{stereotype_to_s(target)}{{block(#{target.name})}}", "#{r.multiplicity}"])
+    end
+    
+    element_heading = get_element_heading("", "Observes")
+    element_heading_wo_cmd = get_element_heading("", "Observes", true)
+    f.puts "\n#{section_heading_level_to_s(2)} #{element_heading_wo_cmd}\n"
+    f.puts "\n{{tbl(#{get_label_from_caption(element_heading_wo_cmd)})}} lists the #{element_heading}.\n\n"
+
+    generate_table(fs = f,
+      columns = ["Commonly Observed DataItem Types", "Multiplicity"],
+      justification = [":-",":-:"],
+      rows = tbl_rows,
+      caption = element_heading_wo_cmd
+    )
+  end
+
+  def generate_value_property_doc(f, relations)
     tbl_rows = []
-    value_properties.each do |r|
-      next if r.redefinesProperty && model_has_mtconnect_supertype?
+    relations.each do |r|
       name = r.association_name ? r.association_name : r.name
       target = r.final_target.type
-      if name == "value"
-        f.puts get_valuetype_documentation(r)
-        if target.type == "uml:Enumeration"
-          target.generate_enumerations(f)
+      case name
+      when "result"
+        if r.redefinesProperty && model_has_mtconnect_supertype?
+          generate_valuetype_documentation(f,r)
+          target.generate_enumerations(f) if target.type == "uml:Enumeration"
+          target.generate_entrykeys(f) if target.type == "uml:Class"
         end
         next
-      elsif (name == "code" && r.redefinesProperty) || (name == "units" && r.default)
-        f.puts get_valuetype_documentation(r)
+      when "units", "subType", "code"
+        generate_valuetype_documentation(f,r)
+        next if r.redefinesProperty || r.default
+      when "value"
+        generate_valuetype_documentation(f,r)
+        target.generate_enumerations(f) if target.type == "uml:Enumeration"
         next
       end
-      stereo = r.stereotype!="" ? "`\<\<#{r.stereotype}\>\>`" : ""
-      if r.redefinesProperty && r.default
-        tbl_rows.append(["#{stereo}{{property(#{name})}}", "`#{r.default}`", "#{r.multiplicity}"])
+      if r.name == "type" && r.redefinesProperty
+        if @model.name == "DataItem Types" # Condition to generate dataitem types for Device Information Model
+          tbl_rows.append(["#{stereotype_to_s(r)}{{property(#{name})}}", "`#{target.name}`", "#{r.multiplicity}"])
+        end
+      elsif r.redefinesProperty && r.default
+        tbl_rows.append(["#{stereotype_to_s(r)}{{property(#{name})}}", "`#{r.default}`", "#{r.multiplicity}"])
       else
-        tbl_rows.append(["#{stereo}{{property(#{name})}}", "`#{target.name}`", "#{r.multiplicity}"])
+        tbl_rows.append(["#{stereotype_to_s(r)}{{property(#{name})}}", "`#{target.name}`", "#{r.multiplicity}"])
       end
     end
- 
+
     unless tbl_rows.empty?
-      f.puts "\n#### Value Properties of #{@name}\n\n"   
-      f.puts "{{tbl(value-properties-of-#{@name.downcase})}} lists the Value Properties of {{block(#{@name})}}.\n\n"
-      f.puts generate_table(
+      f.puts "\n#{section_heading_level_to_s(2)} Value Properties of #{@name}\n"   
+      f.puts "\n{{tbl(#{get_label_from_caption("Value Properties of #{@name}")})}} lists the Value Properties of {{block(#{@name})}}.\n\n"
+
+      generate_table(fs = f,
           columns = ["Value Property name", "Value Property type", "Multiplicity"],
           justification = ["-","-",":-:"],
           rows = tbl_rows,
           caption = "Value Properties of #{@name}"
         )
-
-      if !(value_properties.select{|a| !(a.name=="result" && a.redefinesProperty)}.empty?)
-        f.puts "\nDescriptions for Value Properties of {{block(#{@name})}}:\n"
-      end
-      value_properties.each do |r|
-        name = r.association_name ? r.association_name : r.name
-        target = r.final_target.type    
-        if name == "value"
-          next
-        elsif (r.association_doc || r.documentation || r.target.type.type == "uml:Enumeration") && !r.redefinesProperty
-          stereo = r.stereotype!="" ? "`\<\<#{r.stereotype}\>\>`" : ""
-          documentation = r.association_doc ? r.association_doc : r.documentation
-          f.puts "\n* #{stereo}{{property(#{name})}} \n\n    #{documentation.gsub("\n","\n    ")}\n"
-          if r.target.type.type == "uml:Enumeration" && !stereo.include?("deprecated")
-            f.puts get_valuetype_documentation(r, 1, name)
-            if !@model.generator.enums.include?(target.name)
-              r.target.type.generate_enumerations(f, 1)
-            end
-          end
-        end
-      end
+      generate_descriptions_for_properties(f, relations, "Value")
     end
   end
-  
-  def generate_associated_property_doc(f, properties, property_stereotype)
+
+  def generate_associated_elements_doc(f, relations, property_stereotype)
     tbl_rows = []   
-    properties.each do |r|
-      stereo = r.stereotype!="" ? "`\<\<#{r.stereotype}\>\>`" : ""
+    relations.each do |r|
       name = r.association_name ? r.association_name : r.name
       target = r.final_target.type
-      if r.redefinesProperty && r.default
-        tbl_rows.append(["#{stereo}{{block(#{r.default})}}","#{r.multiplicity}"])
-      elsif r.association_name && (target.name != name || name == "Condition")
-        tbl_rows.append(["#{stereo}{{block(#{target.name})}} (organized by {{block(#{name})}})", "#{r.multiplicity}"])
+      if r.association_name && target.name != name
+        tbl_rows.append(["#{stereotype_to_s(target)}{{block(#{target.name})}} (organized by #{stereotype_to_s(r)}`#{name}`)", "#{r.multiplicity}"])
       elsif !r.association_name && target.name != name
-        tbl_rows.append(["#{stereo}{{block(#{name})}}", "#{r.multiplicity}"])
+        tbl_rows.append(["#{stereotype_to_s(r)}{{block(#{name})}}", "#{r.multiplicity}"])
       else
-        tbl_rows.append(["#{stereo}{{block(#{target.name})}}", "#{r.multiplicity}"])
+        tbl_rows.append(["#{stereotype_to_s(r)}{{block(#{target.name})}}", "#{r.multiplicity}"])
       end
     end
-    f.puts "\n#### #{property_stereotype} Properties of #{@name}\n\n"
-    f.puts "{{tbl(#{property_stereotype.downcase}-properties-of-#{@name.downcase})}} lists the #{property_stereotype} Properties of {{block(#{@name})}}.\n\n"
-    f.puts generate_table(
+    
+    element_heading = get_element_heading(property_stereotype, "Property")
+    element_heading_wo_cmd = get_element_heading(property_stereotype, "Property", true)
+    f.puts "\n#{section_heading_level_to_s(2)} #{element_heading_wo_cmd}\n"
+    f.puts "\n{{tbl(#{get_label_from_caption(element_heading_wo_cmd)})}} lists the #{element_heading}.\n\n"
+
+    generate_table(fs = f,
       columns = ["#{property_stereotype} Property name", "Multiplicity"],
       justification = [":-",":-:"],
       rows = tbl_rows,
-      caption = "#{property_stereotype} Properties of #{@name}"
-    )   
+      caption = element_heading_wo_cmd
+    )
+    generate_descriptions_for_properties(f, relations, property_stereotype)
+  end
+
+  def generate_descriptions_for_properties(f, relations, property_stereotype)
+    return unless !(relations.select{|a| !(a.name=="result" && a.redefinesProperty && a.final_target.type.type!='uml:Class')}.empty?)
     f.puts "\nDescriptions for #{property_stereotype} Properties of {{block(#{@name})}}:\n"
-    properties.each do |r|
-      name = r.final_target.type.name
-      stereo = r.stereotype!='' ? "`\<\<#{r.stereotype}\>\>`" : ''
+    relations.each do |r|
+      name_command = property_stereotype == "Value" ? "property" : "block"
       target = r.final_target.type
-      if ((r.association_doc || target.documentation || r.target.type.type == "uml:Enumeration") && 
+      name = target.type == "uml:Class" ? target.name : (r.association_name ? r.association_name : r.name)
+      if name == "value"
+        next
+      elsif ((r.association_doc || r.documentation || r.target.type.type == "uml:Enumeration") &&
           (!r.redefinesProperty || target.type == 'uml:Class'))
-        f.puts "\n* #{stereo}{{block(#{name})}} \n\n    #{target.documentation.gsub("\n","\n    ")}\n"
-        f.puts "\n    #{r.association_doc.gsub("\n","\n    ")}\n" if r.association_doc!=""
-        if !r.association_name && target.name != name && !r.target.type.type == 'uml:Enumeration'
-          f.puts "\n    The value of {{block(#{name})}} **MUST** be a `#{target.name}`.\n"
+        documentation = r.association_doc ? r.association_doc : r.documentation
+        if name_command == "property"
+          f.puts "\n* #{stereotype_to_s(r)}{{#{name_command}(#{name})}} \n"
+          f.puts "\n    #{documentation.gsub("\n","\n    ")}\n"
+        elsif name_command == "block"
+          f.puts "\n* #{stereotype_to_s(target)}{{#{name_command}(#{name})}} \n"
+          f.puts "\n    #{target.documentation.gsub("\n","\n    ")}\n"
+          f.puts "\n    #{r.association_doc.gsub("\n","\n    ")}\n" if r.association_doc && !r.association_doc.empty? && r.stereotype != "organizer"
         end
-        if r.target.type.type == 'uml:Enumeration' && !r.redefinesProperty && !(r.stereotype && r.stereotype.include?('deprecated'))
-          r.target.type.generate_enumerations(f, 1)
+        if !r.association_name && target.name != name && r.target.type.type != 'uml:Enumeration' && name_command == "block"
+          f.puts "\n    The value of {{#{name_command}(#{name})}} **MUST** be a `#{target.name}`.\n"
         end
+        if (r.target.type.type == "uml:Enumeration" && !r.redefinesProperty && !stereotype_name.include?("deprecated") &&
+           !(r.stereotype && r.stereotype.include?('deprecated')))
+          generate_valuetype_documentation(f, r, 1, name) if name_command == "property"
+          r.target.type.generate_enumerations(f, 1) unless target.enum_already_documented?
+        end
+      elsif name == "type" && @model.name == "DataItem Types"
+          f.puts "\n* {{property(type)}} \n"
+          target.update_dataitemtypes_doc()
+          target.generate_enumerations(f, 1)
       end
     end
   end
@@ -189,13 +215,32 @@ class MarkdownType < Type
   def generate_enumerations(f, num_of_tabs = 0)
     $logger.debug "***** =====> Generating Enumerations for #{@name}"
     tab = "    " * num_of_tabs
-    stereo = @stereotype != '' ? "`\<\<#{@stereotype}\>\>` " : ""
-    f.puts "\n#{tab}#{stereo}`#{escape_name}` Enumeration:\n\n"
+    stereotype = @stereotype.empty? ? "" : "`<<#{@stereotype}>>` "
+    f.puts "\n#{tab}#{stereotype}`#{escape_name}` Enumeration:\n"
+    @literals.sort_by! { |t| t.name }
     @literals.each do |lit|
-      lit_stereo = lit.stereotype != "" ? "`\<\<#{lit.stereotype}\>\>` " : ""
-      f.puts "\n#{tab}* #{lit_stereo}`#{lit.name}` \n\n    #{tab}#{lit.description.gsub("\n","\n    #{tab}")}\n"
+      if type_has_subtypes?(lit)
+        subtypes_to_str = @model.generator.dataitemtypes[lit.name]["subTypes"].join(", ")
+        subtypes_to_str = "\n\n#{tab}    Subtypes of `#{lit.name}` : #{subtypes_to_str}."
+      end
+      f.puts "\n#{tab}* #{stereotype_to_s(lit)}`#{lit.name}` \n\n    #{tab}#{lit.description.gsub("\n","\n    #{tab}")}#{subtypes_to_str}\n"
     end
+    add_enumeration_to_enum()
     @model.generator.enums << @name
+  end
+
+  def add_enumeration_to_enum
+    @model.generator.enum[@name] = Hash.new
+    @literals.each do |lit|
+      @model.generator.enum[@name][lit.name] = Hash.new
+      @model.generator.enum[@name][lit.name]["name"] = lit.name
+      @model.generator.enum[@name][lit.name]["documentation"] = lit.description
+    end
+  end
+
+  def enum_already_documented?
+    return (@type == "uml:Enumeration" &&
+    @model.generator.enums.include?(@name))
   end
   
   def generate_entrykeys(f)
@@ -205,47 +250,34 @@ class MarkdownType < Type
     @relations.each do |r|
       next if r.name == 'Supertype'
       f.puts "\n* `#{r.name}` \n\n    #{r.documentation.gsub("\n","\n    ")}\n"
-      f.puts get_valuetype_documentation(r,1,r.name)
+      generate_valuetype_documentation(f,r,1,r.name)
       target = r.final_target.type
       target.generate_enumerations(f,1) if target.type == "uml:Enumeration" && !r.redefinesProperty
     end
   end
 
-  def generate_md(f = STDOUT, parent ='')
-    # puts "--- Generating #{@name} #{@stereotype}"
-    return if @name =~ /Factory/ || @stereotype =~ /metaclass/ || @visibility != 'public'
-    stereotype = has_mtconnect_stereotype? ? "`\<\<#{@stereotype}\>\>`" : ""
-    section_name = stereotype+escape_name
-    if @is_subtype
-      section_type = (@model.name == "Component Types" &&
-      parent.name != @relations[0].final_target.type.name) ? "#####" : "####"
-      if !model_has_observation_types?
-        f.puts "\n#{section_type} #{section_name}\n\n"
-        generate_documentation(f)
-      end
-    elsif @model.name == "Composition Types"
-      f.puts "\n### #{section_name}\n\n"
-      generate_documentation(f)
-      generate_types(f)
-    elsif !(@model.name.end_with?('Types') && section_name.end_with?('Result'))
-      f.puts "\n### #{section_name}\n\n"
-      generate_documentation(f)
-      generate_types(f)
-    end
-  end
+  def generate_glossary_docs(f, glossary_type) 
+    plural = @name.end_with?('y') ? @name[0...-1]+"ies" : (@name.end_with?('s') ? @name : @name+"s" )
+    f.puts <<-EOT
+{{newglossaryentry(#{@name})
+{
+    type={#{glossary_type}},
+    name={#{@name}},
+    description={#{@documentation}},
+    plural={#{plural}}
+}}}
 
-  def generate_glossary_docs(f, glossary_type)    
-    f.puts generate_glossary_entry(glossary_type)
+EOT
   end
   
   def generate_profile_docs(f)
     return if @visibility != 'public'
-    f.puts "\n### #{@name}\n"
+    generate_section_name_with_heading_level(f,1)
     generate_documentation(f)
   end
   
   def model_has_mtconnect_supertype?
-    return (!relations.empty? && 
+    return (!@relations.empty? && 
         @relations[0].name == "Supertype" &&
         @relations[0].final_target.type.name &&
         (@model.name.split(" ")[0] == @relations[0].final_target.type.name ||
@@ -260,26 +292,53 @@ class MarkdownType < Type
   end
 
   def observation_type_has_subtypes?
-    return (!@is_subtype &&
-        @subtypes.length > 0)
+    return (model_has_observation_types? &&
+      @subtypes.length > 0)
   end
 
   def type_has_subtypes?(type)
     return (@model.generator.dataitemtypes.has_key?(type.name) &&
       @model.generator.dataitemtypes[type.name].has_key?('subTypes') &&
-      !@model.generator.dataitemtypes[type.name]['subTypes'].empty?)
+      !@model.generator.dataitemtypes[type.name]['subTypes'].empty? &&
+      @model.name == 'DataItem Types')
   end
 
-  def update_dataitemtypes_doc(enum)
-    enum.literals.each do |lit|
+  def update_dataitemtypes_doc
+    @literals.each do |lit|
       if @model.generator.dataitemtypes.has_key?(lit.name) && lit.description
         @model.generator.dataitemtypes[lit.name]['documentation'] = lit.description
       end
     end
   end
 
-  def has_mtconnect_stereotype?
-    #to be updated
-    return /[[:lower:]]/.match(@stereotype[0])
+  def get_element_heading(element_stereotype, element_type, remove_cmd = false)
+    name = remove_cmd ? @name : "{{block(#{@name})}}"
+    case element_type
+    when 'Property'
+      "#{element_stereotype} Properties of #{name}"
+    when 'Operation'
+      "Operations for #{name}"
+    when 'Observes'
+      "Commonly Observed DataItem Types for #{name}"
+    else
+      #to be updated
+      element_type_plural = /[[y]]/.match(element_type[-1]) ? " #{element_type[0..-2]}ies" : " #{element_type}s"
+      "#{element_stereotype}#{element_type} of #{name}"
+    end
+  end
+
+  def get_type_relations
+    return @relations.select do |r|
+      $logger.debug "  Looking for docs for #{r.target.inspect}" if r.target && r.target.type.nil?
+      (r.type != "uml:Constraint" &&
+      (r.documentation ||
+        r.target.type.type == "uml:Enumeration" ||
+        !r.documentation
+      ) &&
+      defined?(r.final_target.type) &&
+      @model.name.split("Type")[0] != r.final_target.type.name &&
+      r.visibility == "public" &&
+      r.name != "Supertype") || r.type == 'uml:Operation'
+    end
   end
 end
