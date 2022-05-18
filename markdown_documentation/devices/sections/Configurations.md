@@ -1,35 +1,17 @@
 
 ## Configurations
 
-{{fig(Configuration)}} shows the abstract {{block(Configuration)}} and its types.
+{{figure(Configuration)}} shows the abstract {{block(Configuration)}} and its types.
 
 ![Configuration](figures/Configuration.png "Configuration"){: width="0.8"}
 
-> Note: See {{fig(Configuration Schema)}} for XML schema.
+> Note: See {{figure(Configuration Schema)}} for XML schema.
 
 ### Configuration
-
 
 technical information about an entity describing its physical layout, functional characteristics, and relationships with other entities.
 
 
-#### Reference Properties of Configuration
-
-{{tbl(reference-properties-of-configuration)}} lists the Reference Properties of {{block(Configuration)}}.
-
-|Reference Property name|Multiplicity|
-|:-|:-:|
-|{{block(Composition)}} (organized by {{block(Configuration)}})|1|
-{: caption="Reference Properties of Configuration"}
-
-Descriptions for Reference Properties of {{block(Configuration)}}:
-
-* {{block(Composition)}} 
-
-    functional part of a piece of equipment contained within a {{block(Component)}}.
-    
-
-    See {{sect(Configurations Model)}}.
 
 #### Part Properties of Configuration
 
@@ -40,10 +22,10 @@ Descriptions for Reference Properties of {{block(Configuration)}}:
 |{{block(SolidModel)}}|0..1|
 |{{block(SensorConfiguration)}}|0..1|
 |{{block(Motion)}}|0..1|
-|{{block(Relationship)}} (organized by {{block(Relationships)}})|0..*|
-|{{block(CoordinateSystem)}} (organized by {{block(CoordinateSystems)}})|0..*|
-|{{block(Specification)}} (organized by {{block(Specifications)}})|0..*|
-{: caption="Part Properties of Configuration"}
+|{{block(Relationship)}} (organized by `Relationships`)|0..*|
+|{{block(CoordinateSystem)}} (organized by `CoordinateSystems`)|0..*|
+|{{block(Specification)}} (organized by `Specifications`)|0..*|
+{: caption="Part Properties of Configuration" label="table:part-properties-of-configuration"}
 
 Descriptions for Part Properties of {{block(Configuration)}}:
 
@@ -69,16 +51,16 @@ Descriptions for Part Properties of {{block(Configuration)}}:
 
     association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
-    {{block(Relationships)}} groups one or more {{block(Relationship)}} types. See {{sect(Relationships)}}.
+    {{block(Relationships)}} groups one or more {{block(Relationship)}} types. See {{package(Relationships)}}.
 
 * {{block(CoordinateSystem)}} 
 
     reference system that associates a unique set of n parameters with each point in an n-dimensional space. {{cite(ISO 10303-218:2004)}}
 
-    {{block(CoordinateSystems)}} groups one or more {{block(CoordinateSystem)}} entities. See {{sect(CoordinateSystems)}}.
+    {{block(CoordinateSystems)}} groups one or more {{block(CoordinateSystem)}} entities. See {{package(CoordinateSystems)}}.
 
 * {{block(Specification)}} 
 
-    design characteristics for a piece of equipment.
+    design characteristics for a piece of equipment.
 
-    {{block(Specifications)}} groups one or more {{block(Specification)}} entities. See {{sect(Specifications)}}.
+    {{block(Specifications)}} groups one or more {{block(Specification)}} entities. See {{package(Specifications)}}.

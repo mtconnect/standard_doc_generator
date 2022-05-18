@@ -4,7 +4,7 @@
 
 {{input(introduction.md)}}
 
-{{input(protocols.md)}}
+{{input(fundamentals.md)}}
 
 {{input(profile.md)}}
 

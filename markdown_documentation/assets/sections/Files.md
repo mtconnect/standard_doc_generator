@@ -10,8 +10,8 @@ This section provides semantic information for the {{block(File)}} model.
 
 ### AbstractFile
 
-
 abstract {{block(Asset)}} that contains the common properties of the {{block(File)}} and {{block(FileArchetype)}} types.
+
 
 
 #### Value Properties of AbstractFile
@@ -24,7 +24,7 @@ abstract {{block(Asset)}} that contains the common properties of the {{block(Fil
 |{{property(mediaType)}}|`string`|1|
 |{{property(applicationCategory)}}|`ApplicationCategoryEnum`|1|
 |{{property(applicationType)}}|`ApplicationTypeEnum`|1|
-{: caption="Value Properties of AbstractFile"}
+{: caption="Value Properties of AbstractFile" label="table:value-properties-of-abstractfile"}
 
 Descriptions for Value Properties of {{block(AbstractFile)}}:
 
@@ -34,16 +34,13 @@ Descriptions for Value Properties of {{block(AbstractFile)}}:
 
 * {{property(mediaType)}} 
 
-    mime type of the file.
+    mime type of the file.
 
 * {{property(applicationCategory)}} 
 
     category of application that will use this file.
 
-    The value of {{property(applicationCategory)}} **MUST** be one of the `ApplicationCategoryEnum` enumeration. 
-
     `ApplicationCategoryEnum` Enumeration:
-
 
     * `ASSEMBLY` 
 
@@ -57,21 +54,21 @@ Descriptions for Value Properties of {{block(AbstractFile)}}:
 
         files relating to the handling of material.
 
+    * `INSPECTION` 
+
+        files related to the quality inspection.
+
     * `MAINTENANCE` 
 
         files relating to equipment maintenance.
 
     * `PART` 
 
-        files relating to a part.
+        files relating to a part.
 
     * `PROCESS` 
 
         files related to the manufacturing process.
-
-    * `INSPECTION` 
-
-        files related to the quality inspection.
 
     * `SETUP` 
 
@@ -81,18 +78,15 @@ Descriptions for Value Properties of {{block(AbstractFile)}}:
 
     type of application that will use this file.
 
-    The value of {{property(applicationType)}} **MUST** be one of the `ApplicationTypeEnum` enumeration. 
-
     `ApplicationTypeEnum` Enumeration:
-
-
-    * `DESIGN` 
-
-        computer aided design files or drawings.
 
     * `DATA` 
 
         generic data.
+
+    * `DESIGN` 
+
+        computer aided design files or drawings.
 
     * `DOCUMENTATION` 
 
@@ -100,7 +94,7 @@ Descriptions for Value Properties of {{block(AbstractFile)}}:
 
     * `INSTRUCTIONS` 
 
-        user instructions regarding the execution of a task.
+        user instructions regarding the execution of a task.
 
     * `LOG` 
 
@@ -108,7 +102,7 @@ Descriptions for Value Properties of {{block(AbstractFile)}}:
 
     * `PRODUCTION_PROGRAM` 
 
-        machine instructions to perform a process.
+        machine instructions to perform a process.
 
 #### Part Properties of AbstractFile
 
@@ -116,9 +110,9 @@ Descriptions for Value Properties of {{block(AbstractFile)}}:
 
 |Part Property name|Multiplicity|
 |:-|:-:|
-|{{block(FileProperty)}} (organized by {{block(FileProperties)}})|0..*|
-|{{block(FileComment)}} (organized by {{block(FileComments)}})|0..*|
-{: caption="Part Properties of AbstractFile"}
+|{{block(FileProperty)}} (organized by `FileProperties`)|0..*|
+|{{block(FileComment)}} (organized by `FileComments`)|0..*|
+{: caption="Part Properties of AbstractFile" label="table:part-properties-of-abstractfile"}
 
 Descriptions for Part Properties of {{block(AbstractFile)}}:
 
@@ -136,8 +130,8 @@ Descriptions for Part Properties of {{block(AbstractFile)}}:
 
 ### File
 
-
 {{block(AbstractFile)}} type that provides information about the {{block(File)}} instance and its {{term(URL)}}.
+
 
 
 #### Value Properties of File
@@ -153,7 +147,7 @@ Descriptions for Part Properties of {{block(AbstractFile)}}:
 |{{property(PublicKey)}}|`x509`|0..1|
 |{{property(CreationTime)}}|`dateTime`|1|
 |{{property(ModificationTime)}}|`dateTime`|0..1|
-{: caption="Value Properties of File"}
+{: caption="Value Properties of File" label="table:value-properties-of-file"}
 
 Descriptions for Value Properties of {{block(File)}}:
 
@@ -163,16 +157,13 @@ Descriptions for Value Properties of {{block(File)}}:
 
 * {{property(versionId)}} 
 
-    version identifier of the file.
+    version identifier of the file.
 
 * {{property(state)}} 
 
     state of the file. 
 
-    The value of {{property(state)}} **MUST** be one of the `FileStateEnum` enumeration. 
-
     `FileStateEnum` Enumeration:
-
 
     * `EXPERIMENTAL` 
 
@@ -180,11 +171,11 @@ Descriptions for Value Properties of {{block(File)}}:
 
     * `PRODUCTION` 
 
-        used for production processes.
+        used for production processes.
 
     * `REVISION` 
 
-        content is modified from `PRODUCTION` or `EXPERIMENTAL`.
+        content is modified from `PRODUCTION` or `EXPERIMENTAL`.
 
 * {{property(Signature)}} 
 
@@ -209,8 +200,8 @@ Descriptions for Value Properties of {{block(File)}}:
 |Part Property name|Multiplicity|
 |:-|:-:|
 |{{block(FileLocation)}}|1|
-|{{block(Destination)}} (organized by {{block(Destinations)}})|0..*|
-{: caption="Part Properties of File"}
+|{{block(Destination)}} (organized by `Destinations`)|0..*|
+{: caption="Part Properties of File" label="table:part-properties-of-file"}
 
 Descriptions for Part Properties of {{block(File)}}:
 
@@ -222,20 +213,20 @@ Descriptions for Part Properties of {{block(File)}}:
 
 * {{block(Destination)}} 
 
-    reference to the target {{block(Device)}} for this {{block(File)}}.
+    reference to the target {{block(Device)}} for this {{block(File)}}.
 
     {{block(Destinations)}} groups one or more {{block(Destination)}} entities. See {{sect(Destination)}}.
 
 ### FileArchetype
 
+{{block(AbstractFile)}} type that provides information common to all versions of a file.
 
-{{block(AbstractFile)}} type that provides information common to all versions of a file.
 
 
 ### FileProperty
 
-
 key-value pair providing additional metadata about a {{block(File)}}.
+
 
 
 The value of {{property(FileProperty)}} **MUST** be `string`.
@@ -247,7 +238,7 @@ The value of {{property(FileProperty)}} **MUST** be `string`.
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(name)}}|`string`|1|
-{: caption="Value Properties of FileProperty"}
+{: caption="Value Properties of FileProperty" label="table:value-properties-of-fileproperty"}
 
 Descriptions for Value Properties of {{block(FileProperty)}}:
 
@@ -257,8 +248,8 @@ Descriptions for Value Properties of {{block(FileProperty)}}:
 
 ### FileComment
 
-
 remark or interpretation for human interpretation associated with a {{block(File)}} or {{block(FileArchetype)}}.
+
 
 
 The value of {{property(FileComment)}} **MUST** be `string`.
@@ -270,7 +261,7 @@ The value of {{property(FileComment)}} **MUST** be `string`.
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(timestamp)}}|`dateTime`|1|
-{: caption="Value Properties of FileComment"}
+{: caption="Value Properties of FileComment" label="table:value-properties-of-filecomment"}
 
 Descriptions for Value Properties of {{block(FileComment)}}:
 
@@ -280,8 +271,8 @@ Descriptions for Value Properties of {{block(FileComment)}}:
 
 ### FileLocation
 
-
 {{term(URL)}} reference to the file location. 
+
 
 
 #### Value Properties of FileLocation
@@ -292,7 +283,7 @@ Descriptions for Value Properties of {{block(FileComment)}}:
 |-|-|:-:|
 |{{property(href)}}|`xlinkhref`|1|
 |{{property(xlink:type)}}|`xlinktype`|0..1|
-{: caption="Value Properties of FileLocation"}
+{: caption="Value Properties of FileLocation" label="table:value-properties-of-filelocation"}
 
 Descriptions for Value Properties of {{block(FileLocation)}}:
 
@@ -300,7 +291,7 @@ Descriptions for Value Properties of {{block(FileLocation)}}:
 
     {{term(URL)}} reference to the file.
     
-    `href` is of type `xlink:href` from the W3C XLink specification.
+    `href` is of type `xlink:href` from the W3C XLink specification.
 
 * {{property(xlink:type)}} 
 
@@ -310,8 +301,8 @@ Descriptions for Value Properties of {{block(FileLocation)}}:
 
 ### Destination
 
+reference to the target {{block(Device)}} for this {{block(File)}}.
 
-reference to the target {{block(Device)}} for this {{block(File)}}.
 
 
 #### Value Properties of Destination
@@ -321,7 +312,7 @@ reference to the target {{block(Device)}} for this {{block(File)}}.
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(deviceUuid)}}|`ID`|1|
-{: caption="Value Properties of Destination"}
+{: caption="Value Properties of Destination" label="table:value-properties-of-destination"}
 
 Descriptions for Value Properties of {{block(Destination)}}:
 

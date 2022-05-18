@@ -1,15 +1,16 @@
 
-# MTConnect Profile
+# Profile
 
 MTConnect Profile is a {{term(profile)}} that extends the {{term(SysML)}} metamodel for the MTConnect domain using additional data types and {{termplural(stereotype)}}.
 
-## Data Types
+## DataTypes
 
-![Data Types](figures/Data%20Types.png "Data Types")
+![DataTypes](figures/DataTypes.png "DataTypes")
 
 ### boolean
 
 primitive type.
+
 
 
 ### ID
@@ -17,9 +18,11 @@ primitive type.
 string that represents an {{term(ID)}}.
 
 
+
 ### string
 
 primitive type.
+
 
 
 ### float
@@ -27,9 +30,11 @@ primitive type.
 primitive type.
 
 
+
 ### dateTime
 
 string that represents timestamp in ISO 8601 format.
+
 
 
 ### integer
@@ -37,9 +42,11 @@ string that represents timestamp in ISO 8601 format.
 primitive type.
 
 
+
 ### xlinktype
 
 string that represents the type of an XLink element. See {{url(https://www.w3.org/TR/xlink11/)}}.
+
 
 
 ### xslang
@@ -47,9 +54,17 @@ string that represents the type of an XLink element. See {{url(https://www.w3.or
 string that represents a language tag. See {{url(http://www.ietf.org/rfc/rfc4646.txt)}}.
 
 
+
+### SECOND
+
+float that represents time in seconds.
+
+
+
 ### IDREF
 
 string that represents a reference to an `ID`.
+
 
 
 ### xlinkhref
@@ -57,9 +72,11 @@ string that represents a reference to an `ID`.
 string that represents the locator attribute of an XLink element. See {{url(https://www.w3.org/TR/xlink11/)}}.
 
 
+
 ### x509
 
 string that represents an `x509` data block. {{cite(ISO/IEC 9594-8:2020)}}.
+
 
 
 ### int32
@@ -67,9 +84,11 @@ string that represents an `x509` data block. {{cite(ISO/IEC 9594-8:2020)}}.
 32-bit integer.
 
 
+
 ### int64
 
 64-bit integer.
+
 
 
 ### version
@@ -77,9 +96,11 @@ string that represents an `x509` data block. {{cite(ISO/IEC 9594-8:2020)}}.
 series of four numeric values, separated by a decimal point, representing a {{term(major)}}, {{term(minor)}}, and {{term(revision)}} number of the MTConnect Standard and the revision number of a specific {{term(schema)}}.
 
 
+
 ### uInt32
 
 32-bit unsigned integer.
+
 
 
 ### uInt64
@@ -87,13 +108,21 @@ series of four numeric values, separated by a decimal point, representing a {{te
 64-bit unsigned integer.
 
 
+
 ## Stereotypes
 
 ![Stereotypes](figures/Stereotypes.png "Stereotypes")
 
+### organizer
+
+element that {{termplural(organize)}} other elements of a type.
+
+
+
 ### deprecated
 
 element that has been deprecated.
+
 
 
 ### extensible
@@ -101,7 +130,27 @@ element that has been deprecated.
 enumeration that can be extended.
 
 
-### organizer
 
-element that {{termplural(organize)}} other elements of a type.
+### informative
+
+element that is descriptive and non-normative.
+
+
+
+### valueType
+
+extends SysML `<<ValueType>>` to include `Class` as a value type.
+
+
+
+### normative
+
+element that has been added to the standard.
+
+
+
+### observes
+
+association in which a {{term(Component)}} makes {{termplural(Observation)}} about an observable {{term(DataItem)}}.
+
 

@@ -36,7 +36,7 @@ The following will be used throughout the MTConnect Standard to distinguish betw
 
 When used with no additional descriptor, the form "document" shall be used to refer to any printed or electronic document.
 
-Manufacturing software systems implemented utilizing MTConnect can be represented by a very simple structure as shown in {{fig(Basic MTConnect Implementation Structure)}}.
+Manufacturing software systems implemented utilizing MTConnect can be represented by a very simple structure as shown in {{figure(Basic MTConnect Implementation Structure)}}.
 
 ![Basic MTConnect Implementation Structure](figures/basic-mtconnect-implementation-structure.png "Basic MTConnect Implementation Structure"){: width="0.8"}
 
@@ -46,11 +46,11 @@ The three basic modules that comprise a software system implemented using MTConn
 
 * Agent:  Software that collects data published from one or more piece(s) of equipment, organizes that data in a structured manner, and responds to requests for data from client software systems by providing a structured response in the form of a {{term(response document)}} that is constructed using the {{termplural(semantic data model)}} defined in the Standard. 
 
-> Note: The {{term(agent)}} may be fully integrated into the piece of equipment or the {{term(agent)}} may be independent of the piece of equipment.  Implementation of an {{term(agent)}} is the responsibility of the supplier of the piece of equipment and/or the implementer of the {{term(agent)}}.
+    > Note: The {{term(agent)}} may be fully integrated into the piece of equipment or the {{term(agent)}} may be independent of the piece of equipment.  Implementation of an {{term(agent)}} is the responsibility of the supplier of the piece of equipment and/or the implementer of the {{term(agent)}}.
     
 * Client Software Application:  Software that requests data from {{termplural(agent)}} and processes that data in support of manufacturing operations. 
 
-Based on {{fig(Basic MTConnect Implementation Structure)}}, it is important to understand that the MTConnect Standard only addresses the following functionality and behavior of an {{term(agent)}}:
+Based on {{figure(Basic MTConnect Implementation Structure)}}, it is important to understand that the MTConnect Standard only addresses the following functionality and behavior of an {{term(agent)}}:
 
 * the method used by a client software application to request information from an {{term(agent)}}.
 
@@ -64,15 +64,15 @@ These functions are the primary building blocks that define the base functional 
 
 There are a wide variety of data sources (equipment) and data consumption systems (client software systems) used in manufacturing operations.  There are also many different uses for the data associated with a manufacturing operation.  No single approach to implementing a data communication system can address all data exchange and data management functions typically required in the data driven manufacturing environment.  MTConnect has been uniquely designed to address this diversity of data types and data usages by providing different {{termplural(semantic data model)}} for different data application requirements:
 
-* Data Collection: The most common use of data in manufacturing is the collection of data associated with the production of products and the operation of equipment that produces those products.  The MTConnect Standard provides comprehensive {{termplural(semantic data model)}} that represent data collected from manufacturing operations.  These {{termplural(semantic data model)}} are detailed in {{citetitle(MTCPart2)}} and {{citetitle(MTCPart3)}} of the MTConnect Standard.
+* Data Collection: The most common use of data in manufacturing is the collection of data associated with the production of products and the operation of equipment that produces those products.  The MTConnect Standard provides comprehensive {{termplural(semantic data model)}} that represent data collected from manufacturing operations.  These {{termplural(semantic data model)}} are detailed in {{package(Device Information Model)}} and {{package(Observation Information Model)}} of the MTConnect Standard.
 
-* Inter-operations Between Pieces of Equipment:  The MTConnect Standard provides an {{term(interaction model)}} that structures the information required to allow multiple pieces of equipment to coordinate actions required to implement manufacturing activities.  This {{term(interaction model)}} is an implementation of a {{term(request and response)}}  messaging structure.  This {{term(interaction model)}} is called {{block(Interfaces)}} which is detailed in {{citetitle(MTCPart5)}} of the MTConnect Standard.
+* Inter-operations Between Pieces of Equipment:  The MTConnect Standard provides an {{term(interaction model)}} that structures the information required to allow multiple pieces of equipment to coordinate actions required to implement manufacturing activities.  This {{term(interaction model)}} is an implementation of a {{term(request and response)}}  messaging structure.  This {{term(interaction model)}} is called {{block(Interfaces)}} which is detailed in {{package(Interface Interaction Model)}} of the MTConnect Standard.
 
-* Shared Data:  Certain information used in a manufacturing operation is commonly shared amongst multiple pieces of equipment and/or software applications.  This information is not typically "owned" by any one manufacturing resource.  The MTConnect Standard represents this information through a series of {{termplural(semantic data model)}} – each describing different types of information used in the manufacturing environment.  Each type of information is called an {{term(Asset)}}. {{termplural(Asset)}} are detailed in {{citetitle(MTCPart4)}}, and its sub-Parts, of the MTConnect Standard.
+* Shared Data:  Certain information used in a manufacturing operation is commonly shared amongst multiple pieces of equipment and/or software applications.  This information is not typically "owned" by any one manufacturing resource.  The MTConnect Standard represents this information through a series of {{termplural(semantic data model)}} – each describing different types of information used in the manufacturing environment.  Each type of information is called an {{term(Asset)}}. {{termplural(Asset)}} are detailed in {{package(Asset Information Model)}}, and its sub-Parts, of the MTConnect Standard.
 
 # Purpose of This Document
 
-This document, {{citetitle(MTCPart1)}} of the MTConnect  Standard, addresses two major topics relating to the MTConnect Standard.  The first sections of the document define the organization of the documents used to describe the MTConnect Standard; including the terms and terminology used throughout the Standard.  The balance of the document defines the following:
+This document, {{package(Fundamentals)}} of the MTConnect  Standard, addresses two major topics relating to the MTConnect Standard.  The first sections of the document define the organization of the documents used to describe the MTConnect Standard; including the terms and terminology used throughout the Standard.  The balance of the document defines the following:
 
 * Operational concepts describing how an {{term(agent)}} should organize and structure data that has been collected from a data source.
 
@@ -83,7 +83,7 @@ This document, {{citetitle(MTCPart1)}} of the MTConnect  Standard, addresses two
 
 # Terminology and Conventions
 
-Refer to Section 3 of {{citetitle(MTCPart1)}} for a dictionary of terms, reserved language, and document conventions used in the MTConnect Standard.
+This section provides a dictionary of terms, reserved language, and document conventions used in the MTConnect Standard.
 
 {{printglossary[title=General Terms, type=general]()}}
 {{printglossary[title=Information Model Terms, type=informationmodel]()}}

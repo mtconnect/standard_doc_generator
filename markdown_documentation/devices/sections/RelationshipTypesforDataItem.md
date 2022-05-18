@@ -3,12 +3,12 @@
 
 This section provides semantic information for the types of {{block(Relationship)}} that can be defined for a {{block(DataItem)}}.
 
-See {{sect(Relationships)}} for details on the {{block(Relationship)}} model.
+See {{package(Relationships)}} for details on the {{block(Relationship)}} model.
 
 ### SpecificationRelationship
 
-
 {{block(Relationship)}} that provides a semantic reference to another {{block(Specification)}} described by the {{property(type)}} and {{property(idRef)}} property.
+
 
 
 #### Value Properties of SpecificationRelationship
@@ -19,7 +19,7 @@ See {{sect(Relationships)}} for details on the {{block(Relationship)}} model.
 |-|-|:-:|
 |{{property(type)}}|`SpecificationRelationshipTypeEnum`|1|
 |{{property(idRef)}}|`ID`|1|
-{: caption="Value Properties of SpecificationRelationship"}
+{: caption="Value Properties of SpecificationRelationship" label="table:value-properties-of-specificationrelationship"}
 
 Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 
@@ -27,23 +27,20 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 
     specifies how the {{block(Specification)}} is related.
 
-    The value of {{property(type)}} **MUST** be one of the `SpecificationRelationshipTypeEnum` enumeration. 
-
     `SpecificationRelationshipTypeEnum` Enumeration:
-
 
     * `LIMIT` 
 
-        referenced {{block(Specification)}} provides process limits.
+        referenced {{block(Specification)}} provides process limits.
 
 * {{property(idRef)}} 
 
-    reference to the related {{block(Specification)}} {{property(id)}}.
+    reference to the related {{block(Specification)}} {{property(id)}}.
 
 ### DataItemRelationship
 
-
 {{block(Relationship)}} that provides a semantic reference to another {{block(DataItem)}} described by the {{property(type)}} property.
+
 
 
 #### Value Properties of DataItemRelationship
@@ -54,7 +51,7 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 |-|-|:-:|
 |{{property(type)}}|`DataItemRelationshipTypeEnum`|1|
 |{{property(idRef)}}|`ID`|1|
-{: caption="Value Properties of DataItemRelationship"}
+{: caption="Value Properties of DataItemRelationship" label="table:value-properties-of-dataitemrelationship"}
 
 Descriptions for Value Properties of {{block(DataItemRelationship)}}:
 
@@ -62,27 +59,24 @@ Descriptions for Value Properties of {{block(DataItemRelationship)}}:
 
     specifies how the {{block(DataItem)}} is related.
 
-    The value of {{property(type)}} **MUST** be one of the `DataItemRelationshipTypeEnum` enumeration. 
-
     `DataItemRelationshipTypeEnum` Enumeration:
-
 
     * `ATTACHMENT` 
 
-        reference to a {{block(DataItem)}} that associates the values with an external entity.
+        reference to a {{block(DataItem)}} that associates the values with an external entity.
 
     * `COORDINATE_SYSTEM` 
 
-        referenced {{block(DataItem)}} provides the {{property(id)}} of the effective Coordinate System.
+        referenced {{block(DataItem)}} provides the {{property(id)}} of the effective Coordinate System.
 
     * `LIMIT` 
 
-        referenced {{block(DataItem)}} provides process limits.
+        referenced {{block(DataItem)}} provides process limits.
 
     * `OBSERVATION` 
 
-        referenced {{block(DataItem)}} provides the observed values.
+        referenced {{block(DataItem)}} provides the observed values.
 
 * {{property(idRef)}} 
 
-    reference to the related {{block(DataItem)}} {{property(id)}}.
+    reference to the related {{block(DataItem)}} {{property(id)}}.

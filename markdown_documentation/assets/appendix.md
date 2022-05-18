@@ -47,7 +47,7 @@ IEEE STD 1451.4-1994, Standard for a Smart Transducer Interface for Sensors and 
 
 ### CuttingTool Schema Diagrams
 
-![CuttingTool Schema](figures/CuttingTool%20Schema.png "CuttingTool Schema"){: width="0.8"}
+![CuttingTool Schema](figures/CuttingTool%20Schema.png "CuttingTool Schema"){: width="0.6"}
 
 ![CuttingToolDefinition Schema](figures/CuttingToolDefinition%20Schema.png "CuttingToolDefinition Schema"){: width="0.8"}
 
@@ -55,7 +55,7 @@ IEEE STD 1451.4-1994, Standard for a Smart Transducer Interface for Sensors and 
 
 ### CuttingToolLifeCycle Schema Diagrams
 
-![CuttingToolLifeCycle Schema](figures/CuttingToolLifeCycle%20Schema.png "CuttingToolLifeCycle Schema"){: width="0.8"}
+![CuttingToolLifeCycle Schema](figures/CuttingToolLifeCycle%20Schema.png "CuttingToolLifeCycle Schema"){: width="0.4"}
 
 ![CutterStatus Schema](figures/CutterStatus%20Schema.png "CutterStatus Schema"){: width="0.8"}
 
@@ -75,9 +75,9 @@ IEEE STD 1451.4-1994, Standard for a Smart Transducer Interface for Sensors and 
 
 ![CuttingItems Schema](figures/CuttingItems%20Schema.png "CuttingItems Schema"){: width="0.8"}
 
-![CuttingItem Schema](figures/CuttingItem%20Schema.png "CuttingItem Schema"){: width="0.8"}
+![CuttingItem Schema](figures/CuttingItem%20Schema.png "CuttingItem Schema"){: width="0.6"}
 
-![ItemLife Schema](figures/ItemLife%20Schema.png "ItemLife Schema"){: width="0.8"}
+![ItemLife Schema](figures/ItemLife%20Schema.png "ItemLife Schema"){: width="0.7"}
 
 ### ISO 13399 Diagrams
 
@@ -401,11 +401,11 @@ http://mtconnect.org/schemas/MTConnectAssets\_1.2.xsd">
 
 ![AbstractFile Schema](figures/AbstractFile%20Schema.png "AbstractFile Schema"){: width="0.8"}
 
-![File Schema](figures/File%20Schema.png "File Schema"){: width="0.8"}
+![File Schema](figures/File%20Schema.png "File Schema"){: width="0.7"}
 
 ### RawMaterial Schema Diagrams
 
-![RawMaterial Schema](figures/RawMaterial%20Schema.png "RawMaterial Schema"){: width="0.8"}
+![RawMaterial Schema](figures/RawMaterial%20Schema.png "RawMaterial Schema"){: width="0.6"}
 
 ### QIFDocumentWrapper Schema Diagrams
 

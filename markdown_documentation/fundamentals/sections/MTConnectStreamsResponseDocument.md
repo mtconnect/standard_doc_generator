@@ -1,31 +1,63 @@
 
-## MTConnectStreams
+## MTConnectStreams Response Document
 
 This section provides semantic information for the {{block(MTConnectStreams)}} entity.
 
-### Header
+### MTConnectStreams
 
+root entity of an {{term(MTConnectStreams Response Document)}} that contains the {{term(Observation Information Model)}} of one or more {{block(Device)}} entities.
+
+![MTConnectStreams](figures/MTConnectStreams.png "MTConnectStreams"){: width="0.8"}
+
+> Note: Additional properties of {{block(MTConnectStreams)}} **MAY** be defined for schema and namespace declaration. See {{sect(Schema and Namespace Declaration Information)}} for an {{term(XML)}} example.
+
+
+
+#### Part Properties of MTConnectStreams
+
+{{tbl(part-properties-of-mtconnectstreams)}} lists the Part Properties of {{block(MTConnectStreams)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Header)}}|1|
+|{{block(DeviceStream)}} (organized by `Streams`)|0..*|
+{: caption="Part Properties of MTConnectStreams" label="table:part-properties-of-mtconnectstreams"}
+
+Descriptions for Part Properties of {{block(MTConnectStreams)}}:
+
+* {{block(Header)}} 
+
+    provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
+
+* {{block(DeviceStream)}} 
+
+    {{termplural(organize)}} data reported from a {{block(Device)}}.
+
+    {{block(Streams)}} groups one or more {{block(DeviceStream)}} entities. See {{package(Observation Information Model)}} for more detail.
+
+### Header
 
 provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
 
 
+
 #### Value Properties of Header
 
-{{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
+{{tbl(value-properties-of-header2)}} lists the Value Properties of {{block(Header)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(firstSequence)}}|`uInt64`|1|
 |{{property(lastSequence)}}|`uInt64`|1|
 |{{property(nextSequence)}}|`uInt64`|1|
-|{{property(deviceModelChangeTime)}}|`dateTime`|1|
 |{{property(version)}}|`version`|1|
 |{{property(testIndicator)}}|`boolean`|0..1|
 |{{property(sender)}}|`string`|1|
 |{{property(instanceId)}}|`uInt64`|1|
 |{{property(creationTime)}}|`dateTime`|1|
 |{{property(bufferSize)}}|`uInt32`|1|
-{: caption="Value Properties of Header"}
+|{{property(deviceModelChangeTime)}}|`dateTime`|1|
+{: caption="Value Properties of Header" label="table:value-properties-of-header2"}
 
 Descriptions for Value Properties of {{block(Header)}}:
 
@@ -44,10 +76,6 @@ Descriptions for Value Properties of {{block(Header)}}:
     {{term(sequence number)}} of the piece of {{term(streaming data)}} that is the next piece of data to be retrieved from the {{term(buffer)}} of the {{term(agent)}} that was not included in the {{term(response document)}} published by the {{term(agent)}}.
     
     If the {{term(streaming data)}} included in the {{term(response document)}} includes the last piece of data stored in the {{term(buffer)}} of the {{term(agent)}} at the time that the document was published, then the value reported for {{property(nextSequence)}} **MUST** be equal to {{property(lastSequence)}} + 1.
-
-* {{property(deviceModelChangeTime)}} 
-
-    timestamp of the last update of the {{block(Device)}} information for any device.
 
 * {{property(version)}} 
 
@@ -88,32 +116,6 @@ Descriptions for Value Properties of {{block(Header)}}:
     > Note 2 to entry: The implementer is responsible for allocating the appropriate amount of storage capacity required to accommodate the {{property(bufferSize)}}.
     
 
-### MTConnectStreams
+* {{property(deviceModelChangeTime)}} 
 
-
-root entity of an {{term(MTConnectStreams Response Document)}} that contains the {{term(Observation Information Model)}} of one or more {{block(Device)}} entities.
-
-> Note: Additional properties of {{block(MTConnectStreams)}} **MAY** be defined for schema and namespace declaration. See {{citetitle(MTCPart1)}}.
-
-
-#### Reference Properties of MTConnectStreams
-
-{{tbl(reference-properties-of-mtconnectstreams)}} lists the Reference Properties of {{block(MTConnectStreams)}}.
-
-|Reference Property name|Multiplicity|
-|:-|:-:|
-|{{block(Header)}}|1|
-|{{block(DeviceStream)}} (organized by {{block(Streams)}})|1..*|
-{: caption="Reference Properties of MTConnectStreams"}
-
-Descriptions for Reference Properties of {{block(MTConnectStreams)}}:
-
-* {{block(Header)}} 
-
-    provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
-
-* {{block(DeviceStream)}} 
-
-    {{termplural(organize)}} data reported from a {{block(Device)}}.
-
-    {{block(Streams)}} groups one or more {{block(DeviceStream)}} entities. See {{sect(Streams)}} for more detail.
+    timestamp of the last update of the {{block(Device)}} information for any device.

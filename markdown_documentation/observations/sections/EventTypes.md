@@ -5,60 +5,67 @@ This section provides semantic information for {{block(Event)}} types.
 
 ### ActivationCount
 
-accumulation of the number of times a function has attempted to, or is planned to attempt to, activate or be performed.
+{{def(EventEnum:ACTIVATION_COUNT)}}
 
 
 
+The default {{property(subType)}} of {{property(ActivationCount)}} is `ALL`.
 
-The value of {{property(ActivationCount)}} **MUST** be `float`.
+The value of {{property(ActivationCount)}} **MUST** be `integer`.
 
 #### Subtypes of ActivationCount
-
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
+
     
 
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
+
     
 
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
+
     
 
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
+
     
 
 * `FAILED`
 
     accumulation of actions or activities that were attempted, but failed to complete or resulted in an unexpected or unacceptable outcome.
+
     
 
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
+
     
 
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### ActiveAxes
 
-set of axes currently associated with a {{block(Path)}} or {{block(Controller)}}.
-
+{{def(EventEnum:ACTIVE_AXES)}}
 
 
 
@@ -66,15 +73,11 @@ The value of {{property(ActiveAxes)}} **MUST** be a list of `string` of size `0.
 
 ### ActuatorState
 
-operational state of an apparatus for moving or controlling a mechanism or system.
+{{def(EventEnum:ACTUATOR_STATE)}}
 
 
-
-
-The value of {{property(ActuatorState)}} **MUST** be one of the `ActuatorStateEnum` enumeration. 
 
 `ActuatorStateEnum` Enumeration:
-
 
 * `ACTIVE` 
 
@@ -86,29 +89,62 @@ The value of {{property(ActuatorState)}} **MUST** be one of the `ActuatorStateEn
 
 ### AdapterSoftwareVersion
 
-originator’s software version of the {{term(adapter)}}.
-
+{{def(EventEnum:ADAPTER_SOFTWARE_VERSION)}}
 
 
 
 ### AdapterURI
 
-{{term(URI)}} of the {{term(adapter)}}.
+{{def(EventEnum:ADAPTER_URI)}}
 
 
 
+### `<<deprecated>>`Alarm
 
-### Alarm
-
-**DEPRECATED:** Replaced with `CONDITION` category data items in Version 1.1.0.
-
+{{def(EventEnum:ALARM)}}
 
 
+
+#### Value Properties of Alarm
+
+{{tbl(value-properties-of-alarm)}} lists the Value Properties of {{block(Alarm)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|`<<deprecated>>` {{property(code)}}|`AlarmCodeEnum`|1|
+|`<<deprecated>>` {{property(severity)}}|`AlarmSeverityEnum`|1|
+|`<<deprecated>>` {{property(nativeCode)}}|`string`|1|
+|`<<deprecated>>` {{property(state)}}|`AlarmStateEnum`|1|
+|`<<deprecated>>` {{property(lang)}}|`xslang`|0..1|
+{: caption="Value Properties of Alarm" label="table:value-properties-of-alarm"}
+
+Descriptions for Value Properties of {{block(Alarm)}}:
+
+* `<<deprecated>>` {{property(code)}} 
+
+    type of alarm.
+
+* `<<deprecated>>` {{property(severity)}} 
+
+    severity of the alarm.
+
+* `<<deprecated>>` {{property(nativeCode)}} 
+
+    native code for the piece of equipment.
+
+* `<<deprecated>>` {{property(state)}} 
+
+    state of the alarm.
+
+* `<<deprecated>>` {{property(lang)}} 
+
+    specifies the language of the alarm text.
+    
+    See {{cite(IETF RFC 4646)}} (http://www.ietf.org/rfc/rfc4646.txt).
 
 ### AlarmLimit
 
-set of limits used to trigger warning or alarm indicators.
-
+{{def(EventEnum:ALARM_LIMIT)}}
 
 
 
@@ -148,68 +184,57 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
 
     The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
 
-#### Part Properties of AlarmLimit
-
-{{tbl(part-properties-of-alarmlimit)}} lists the Part Properties of {{block(AlarmLimit)}}.
-
-|Part Property name|Multiplicity|
-|:-|:-:|
-|{{block(result)}}|0..1|
-{: caption="Part Properties of AlarmLimit"}
-
-Descriptions for Part Properties of {{block(AlarmLimit)}}:
-
-* {{block(AlarmLimitResult)}} 
-
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
-    
-    
-
 ### Application
 
-application on a {{block(Component)}}.
+{{def(EventEnum:APPLICATION)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of Application
-
 
 * `INSTALL_DATE`
 
     date the hardware or software was installed.
+
     
 
-    The value of {{property(Application)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(Application)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+    `dateTime` Enumeration:
 
 * `LICENSE`
 
     license code to validate or activate the hardware or software.
+
     
 
 * `MANUFACTURER`
 
-    corporate identity for the maker of the hardware or software. 
+    corporate identity for the maker of the hardware or software. 
+
     
 
 * `RELEASE_DATE`
 
-    date the hardware or software was released for general use. 
+    date the hardware or software was released for general use. 
+
     
 
-    The value of {{property(Application)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(Application)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+    `dateTime` Enumeration:
 
 * `VERSION`
 
     version of the hardware or software.
+
     
 
 ### AssetChanged
 
-{{block(assetId)}} of the {{term(Asset)}} that has been added or changed.
-
+{{def(EventEnum:ASSET_CHANGED)}}
 
 
 
@@ -219,40 +244,18 @@ application on a {{block(Component)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(assetType)}}|`AssetTypeEnum`|1|
-{: caption="Value Properties of AssetChanged"}
+|{{property(assetType)}}|`string`|1|
+{: caption="Value Properties of AssetChanged" label="table:value-properties-of-assetchanged"}
 
 Descriptions for Value Properties of {{block(AssetChanged)}}:
 
 * {{property(assetType)}} 
 
-    type of {{block(Asset)}} changed. See {{citetitle(MTCPart4)}} for details on the {{block(Asset)}} model.
-
-    The value of {{property(assetType)}} **MUST** be one of the `AssetTypeEnum` enumeration. 
-
-    `<<extensible>>` `AssetTypeEnum` Enumeration:
-
-
-    * `CuttingTool` 
-
-        {{block(CuttingTool)}} {{block(Asset)}} type.
-
-    * `File` 
-
-        {{block(File)}} {{block(Asset)}} type. 
-
-    * `QIFDocumentWrapper` 
-
-        {{block(QIFDocumentWrapper)}} {{block(Asset)}} type. 
-
-    * `RawMaterial` 
-
-        {{block(RawMaterial)}} {{block(Asset)}} type. 
+    type of {{block(Asset)}} changed. See {{package(Asset Information Model)}} for details on the {{block(Asset)}} model.
 
 ### AssetCount
 
-list of {{block(Asset)}} types in the {{term(asset buffer)}} and their corresponding instance count.
-
+{{def(EventEnum:ASSET_COUNT)}}
 
 
 
@@ -260,8 +263,7 @@ The value of {{property(AssetCount)}} **MUST** be `integer`.
 
 ### AssetRemoved
 
-{{block(assetId)}} of the {{term(Asset)}} that has been removed.
-
+{{def(EventEnum:ASSET_REMOVED)}}
 
 
 
@@ -271,28 +273,22 @@ The value of {{property(AssetCount)}} **MUST** be `integer`.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(assetType)}}|`AssetTypeEnum`|1|
-{: caption="Value Properties of AssetRemoved"}
+|{{property(assetType)}}|`string`|1|
+{: caption="Value Properties of AssetRemoved" label="table:value-properties-of-assetremoved"}
 
 Descriptions for Value Properties of {{block(AssetRemoved)}}:
 
 * {{property(assetType)}} 
 
-    type of {{block(Asset)}} removed. See {{citetitle(MTCPart4)}} for details on the {{block(Asset)}} model.
-
-    The value of {{property(assetType)}} **MUST** be one of the `AssetTypeEnum` enumeration. 
+    type of {{block(Asset)}} removed. See {{package(Asset Information Model)}} for details on the {{block(Asset)}} model.
 
 ### Availability
 
-{{term(agent)}}'s ability to communicate with the data source.
+{{def(EventEnum:AVAILABILITY)}}
 
 
-
-
-The value of {{property(Availability)}} **MUST** be one of the `AvailabilityEnum` enumeration. 
 
 `AvailabilityEnum` Enumeration:
-
 
 * `AVAILABLE` 
 
@@ -304,25 +300,11 @@ The value of {{property(Availability)}} **MUST** be one of the `AvailabilityEnum
 
 ### AxisCoupling
 
-describes the way the axes will be associated to each other. 
-  
-This is used in conjunction with `COUPLED_AXES` to indicate the way they are interacting.
+{{def(EventEnum:AXIS_COUPLING)}}
 
 
-
-
-The value of {{property(AxisCoupling)}} **MUST** be one of the `AxisCouplingEnum` enumeration. 
 
 `AxisCouplingEnum` Enumeration:
-
-
-* `TANDEM` 
-
-    axes are physically connected to each other and operate as a single unit.
-
-* `SYNCHRONOUS` 
-
-    axes are not physically connected to each other but are operating together in lockstep.
 
 * `MASTER` 
 
@@ -332,10 +314,17 @@ The value of {{property(AxisCoupling)}} **MUST** be one of the `AxisCouplingEnum
 
     axis is a slave to the {{block(CoupledAxes)}}.
 
+* `SYNCHRONOUS` 
+
+    axes are not physically connected to each other but are operating together in lockstep.
+
+* `TANDEM` 
+
+    axes are physically connected to each other and operate as a single unit.
+
 ### AxisFeedrateOverride
 
-value of a signal or calculation issued to adjust the feedrate of an individual linear type axis.
-
+{{def(EventEnum:AXIS_FEEDRATE_OVERRIDE)}}
 
 
 
@@ -343,11 +332,12 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
 #### Subtypes of AxisFeedrateOverride
 
-
 * `JOG`
 
-    feedrate of an individual linear type axis when that axis is being operated in a
-    manual state or method (jogging).
+    relating to momentary activation of a function or a movement.
+    
+    **DEPRECATION WARNING**: May be deprecated in the future.
+
     
     When the `JOG` subtype of `AxisFeedrateOverride` is applied, the resulting commanded feedrate for the axis is limited to the value of the original `JOG` subtype of the `AxisFeedrate` multiplied by the value of the `JOG` subtype of
     `AxisFeedrateOverride`.
@@ -356,24 +346,22 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 * `RAPID`
 
     performing an operation faster or in less time than nominal rate.
+
     
 
 ### AxisInterlock
 
-state of the axis lockout function when power has been removed and the axis is allowed to move freely.
+{{def(EventEnum:AXIS_INTERLOCK)}}
 
 
-
-
-The value of {{property(AxisInterlock)}} **MUST** be one of the `AxisInterlockEnum` enumeration. 
 
 `AxisInterlockEnum` Enumeration:
-
 
 * `ACTIVE` 
 
@@ -385,23 +373,15 @@ The value of {{property(AxisInterlock)}} **MUST** be one of the `AxisInterlockEn
 
 ### AxisState
 
-state of a {{block(Linear)}} or {{block(Rotary)}} component representing an axis.
+{{def(EventEnum:AXIS_STATE)}}
 
 
-
-
-The value of {{property(AxisState)}} **MUST** be one of the `AxisStateEnum` enumeration. 
 
 `AxisStateEnum` Enumeration:
-
 
 * `HOME` 
 
     axis is in its home position.
-
-* `TRAVEL` 
-
-    axis is in motion.
 
 * `PARKED` 
 
@@ -413,17 +393,19 @@ The value of {{property(AxisState)}} **MUST** be one of the `AxisStateEnum` enum
 
     axis is stopped.
 
+* `TRAVEL` 
+
+    axis is in motion.
+
 ### Block
 
-line of code or command being executed by a {{block(Controller)}} entity.
-
+{{def(EventEnum:BLOCK)}}
 
 
 
 ### BlockCount
 
-total count of the number of blocks of program code that have been executed since execution started.
-
+{{def(EventEnum:BLOCK_COUNT)}}
 
 
 
@@ -431,15 +413,11 @@ The value of {{property(BlockCount)}} **MUST** be `integer`.
 
 ### ChuckInterlock
 
-state of an interlock function or control logic state intended to prevent the associated {{block(Chuck)}} component from being operated.
+{{def(EventEnum:CHUCK_INTERLOCK)}}
 
 
-
-
-The value of {{property(ChuckInterlock)}} **MUST** be one of the `ChuckInterlockEnum` enumeration. 
 
 `ChuckInterlockEnum` Enumeration:
-
 
 * `ACTIVE` 
 
@@ -451,35 +429,29 @@ The value of {{property(ChuckInterlock)}} **MUST** be one of the `ChuckInterlock
 
 #### Subtypes of ChuckInterlock
 
-
 * `MANUAL_UNCLAMP`
 
     indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
     
     When {{block(ChuckInterlockManualUnclamp)}} is `ACTIVE`, it is expected that a chuck cannot be unclamped until {{block(ChuckInterlockManualUnclamp)}} is set to `INACTIVE`. 
+
     
 
 ### ChuckState
 
-operating state of a mechanism that holds a part or stock material during a manufacturing process. 
-
-It may also represent a mechanism that holds any other mechanism in place within a piece of equipment.
+{{def(EventEnum:CHUCK_STATE)}}
 
 
-
-
-The value of {{property(ChuckState)}} **MUST** be one of the `ChuckStateEnum` enumeration. 
 
 `ChuckStateEnum` Enumeration:
-
-
-* `OPEN` 
-
-    {{block(Chuck)}} is open to the point of a positive confirmation.
 
 * `CLOSED` 
 
     {{block(Chuck)}} is closed to the point of a positive confirmation.
+
+* `OPEN` 
+
+    {{block(Chuck)}} is open to the point of a positive confirmation.
 
 * `UNLATCHED` 
 
@@ -487,34 +459,37 @@ The value of {{property(ChuckState)}} **MUST** be one of the `ChuckStateEnum` en
     
     It is in an intermediate position.
 
-### Code
+### ClockTime
 
-programmatic code being executed.
+{{def(EventEnum:CLOCK_TIME)}}
 
-**DEPRECATED** in *Version 1.1*.
 
+
+The value of {{property(ClockTime)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+### `<<deprecated>>`Code
+
+{{def(EventEnum:CODE)}}
 
 
 
 ### CompositionState
 
-operating state of a mechanism represented by a {{block(Composition)}} entity.
+{{def(EventEnum:COMPOSITION_STATE)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of CompositionState
-
 
 * `ACTION`
 
     indication of the operating state of a mechanism.
+
     
 
-    The value of {{property(CompositionState)}} **MUST** be one of the `ActionCompositionStateEnum` enumeration. 
-
-    `ActionCompositionStateEnum` Enumeration:
-
+    `CompositionStateActionEnum` Enumeration:
 
     * `ACTIVE` 
 
@@ -527,20 +502,18 @@ operating state of a mechanism represented by a {{block(Composition)}} entity.
 * `LATERAL`
 
     indication of the position of a mechanism that may move in a lateral direction.   
+
     
 
-    The value of {{property(CompositionState)}} **MUST** be one of the `LateralCompositionStateEnum` enumeration. 
-
-    `LateralCompositionStateEnum` Enumeration:
-
-
-    * `RIGHT` 
-
-        position of the {{block(Composition)}} is oriented to the right to the point of a positive confirmation.
+    `CompositionStateLateralEnum` Enumeration:
 
     * `LEFT` 
 
         position of the {{block(Composition)}} is oriented to the left to the point of a positive confirmation.
+
+    * `RIGHT` 
+
+        position of the {{block(Composition)}} is oriented to the right to the point of a positive confirmation.
 
     * `TRANSITIONING` 
 
@@ -552,12 +525,14 @@ operating state of a mechanism represented by a {{block(Composition)}} entity.
 
     indication of the open or closed state of a mechanism.
     
+
     
 
-    The value of {{property(CompositionState)}} **MUST** be one of the `MotionCompositionStateEnum` enumeration. 
+    `CompositionStateMotionEnum` Enumeration:
 
-    `MotionCompositionStateEnum` Enumeration:
+    * `CLOSED` 
 
+        position of the {{block(Composition)}} is closed to the point of a positive confirmation.
 
     * `OPEN` 
 
@@ -570,41 +545,29 @@ operating state of a mechanism represented by a {{block(Composition)}} entity.
         
         It is in an intermediate position.
 
-    * `CLOSED` 
-
-        position of the {{block(Composition)}} is closed to the point of a positive confirmation.
-
 * `SWITCHED`
 
     indication of the activation state of a mechanism.
+
     
 
-    The value of {{property(CompositionState)}} **MUST** be one of the `SwitchedCompositionStateEnum` enumeration. 
-
-    `SwitchedCompositionStateEnum` Enumeration:
-
-
-    * `ON` 
-
-        activation state of the {{block(Composition)}} is in an `ON` condition, it is operating, or it is powered.
+    `CompositionStateSwitchedEnum` Enumeration:
 
     * `OFF` 
 
         activation state of the {{block(Composition)}} is in an `OFF` condition, it is not operating, or it is not powered.
 
+    * `ON` 
+
+        activation state of the {{block(Composition)}} is in an `ON` condition, it is operating, or it is powered.
+
 * `VERTICAL`
 
     indication of the position of a mechanism that may move in a vertical direction.
+
     
 
-    The value of {{property(CompositionState)}} **MUST** be one of the `VerticalCompositionStateEnum` enumeration. 
-
-    `VerticalCompositionStateEnum` Enumeration:
-
-
-    * `UP` 
-
-        position of the {{block(Composition)}} element is oriented in an upward direction to the point of a positive confirmation.
+    `CompositionStateVerticalEnum` Enumeration:
 
     * `DOWN` 
 
@@ -616,25 +579,21 @@ operating state of a mechanism represented by a {{block(Composition)}} entity.
         
         It is in an intermediate position.
 
+    * `UP` 
+
+        position of the {{block(Composition)}} element is oriented in an upward direction to the point of a positive confirmation.
+
 ### ConnectionStatus
 
-status of the connection between an {{term(adapter)}} and an {{term(agent)}}.
+{{def(EventEnum:CONNECTION_STATUS)}}
 
 
-
-
-The value of {{property(ConnectionStatus)}} **MUST** be one of the `ConnectionStatusEnum` enumeration. 
 
 `ConnectionStatusEnum` Enumeration:
-
 
 * `CLOSED` 
 
     no connection at all.
-
-* `LISTEN` 
-
-    {{term(agent)}} is waiting for a connection request from an {{term(adapter)}}.
 
 * `ESTABLISHED` 
 
@@ -642,10 +601,13 @@ The value of {{property(ConnectionStatus)}} **MUST** be one of the `ConnectionSt
     
     The normal state for the data transfer phase of the connection.
 
+* `LISTEN` 
+
+    {{term(agent)}} is waiting for a connection request from an {{term(adapter)}}.
+
 ### ControlLimit
 
-set of limits used to indicate whether a process variable is stable and in control.
-
+{{def(EventEnum:CONTROL_LIMIT)}}
 
 
 
@@ -691,40 +653,25 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
 
     The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
 
-#### Part Properties of ControlLimit
-
-{{tbl(part-properties-of-controllimit)}} lists the Part Properties of {{block(ControlLimit)}}.
-
-|Part Property name|Multiplicity|
-|:-|:-:|
-|{{block(result)}}|0..1|
-{: caption="Part Properties of ControlLimit"}
-
-Descriptions for Part Properties of {{block(ControlLimit)}}:
-
-* {{block(ControlLimitResult)}} 
-
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
-    
-    
-
 ### ControllerMode
 
-current mode of the {{block(Controller)}} component.
+{{def(EventEnum:CONTROLLER_MODE)}}
 
 
-
-
-The value of {{property(ControllerMode)}} **MUST** be one of the `ControllerModeEnum` enumeration. 
 
 `ControllerModeEnum` Enumeration:
-
 
 * `AUTOMATIC` 
 
     {{block(Controller)}} is configured to automatically execute a program.
+
+* `EDIT` 
+
+    {{block(Controller)}} is currently functioning as a programming device and is not capable of executing an active program.
+
+* `<<deprecated>>` `FEED_HOLD` 
+
+    axes of the device are commanded to stop, but the spindle continues to function.
 
 * `MANUAL` 
 
@@ -742,38 +689,32 @@ The value of {{property(ControllerMode)}} **MUST** be one of the `ControllerMode
 
     {{block(Controller)}} is operating in a mode that restricts the active program from processing its next process step without operator intervention.
 
-* `EDIT` 
-
-    {{block(Controller)}} is currently functioning as a programming device and is not capable of executing an active program.
-
 ### ControllerModeOverride
 
-setting or operator selection that changes the behavior of a piece of equipment.
+{{def(EventEnum:CONTROLLER_MODE_OVERRIDE)}}
 
 
-
-
-The value of {{property(ControllerModeOverride)}} **MUST** be one of the `ControllerModeOverrideEnum` enumeration. 
 
 `ControllerModeOverrideEnum` Enumeration:
-
-
-* `ON` 
-
-    {{block(ControllerModeOverride)}} is in the `ON` state and the mode override is active.
 
 * `OFF` 
 
     {{block(ControllerModeOverride)}} is in the `OFF` state and the mode override is inactive.
 
-#### Subtypes of ControllerModeOverride
+* `ON` 
 
+    {{block(ControllerModeOverride)}} is in the `ON` state and the mode override is active.
+
+A {{property(subType)}} **MUST** always be specified.
+
+#### Subtypes of ControllerModeOverride
 
 * `DRY_RUN`
 
     setting or operator selection used to execute a test mode to confirm the execution of machine functions. 
     
     When `DRY_RUN` is `ON`, the equipment performs all of its normal functions, except no part or product is produced.  If the equipment has a spindle, spindle operation is suspended.
+
     
 
 * `MACHINE_AXIS_LOCK`
@@ -781,6 +722,7 @@ The value of {{property(ControllerModeOverride)}} **MUST** be one of the `Contro
     setting or operator selection that changes the behavior of the controller on a piece of equipment. 
      
     When `MACHINE_AXIS_LOCK` is `ON`, program execution continues normally, but no equipment motion occurs.
+
     
 
 * `OPTIONAL_STOP`
@@ -792,6 +734,7 @@ The value of {{property(ControllerModeOverride)}} **MUST** be one of the `Contro
     In the case of a G-Code program, a program block containing a M01 code designates the command for an `OPTIONAL_STOP`. 
     
     {{block(Execution)}} **MUST** change to `OPTIONAL_STOP` after a program block specifying an optional stop is executed and the {{block(ControllerModeOverride)}} `OPTIONAL_STOP` selection is `ON`.
+
     
 
 * `SINGLE_BLOCK`
@@ -801,6 +744,7 @@ The value of {{property(ControllerModeOverride)}} **MUST** be one of the `Contro
     Program execution is paused after each block of code is executed when `SINGLE_BLOCK` is `ON`.   
     
     When `SINGLE_BLOCK` is `ON`, {{block(Execution)}} **MUST** change to `INTERRUPTED` after completion of each block of code. 
+
     
 
 * `TOOL_CHANGE_STOP`
@@ -810,12 +754,12 @@ The value of {{property(ControllerModeOverride)}} **MUST** be one of the `Contro
     Program execution is paused when a command is executed requesting a cutting tool to be changed. 
     
     {{block(Execution)}} **MUST** change to `INTERRUPTED` after completion of the command requesting a cutting tool to be changed and `TOOL_CHANGE_STOP` is `ON`.
+
     
 
 ### CoupledAxes
 
-set of associated axes.
-
+{{def(EventEnum:COUPLED_AXES)}}
 
 
 
@@ -823,186 +767,211 @@ The value of {{property(CoupledAxes)}} **MUST** be a list of `string` of size `0
 
 ### CycleCount
 
-accumulation of the number of times a cyclic function has attempted to, or is planned to attempt to execute.
+{{def(EventEnum:CYCLE_COUNT)}}
 
 
 
+The default {{property(subType)}} of {{property(CycleCount)}} is `ALL`.
 
-The value of {{property(CycleCount)}} **MUST** be `float`.
+The value of {{property(CycleCount)}} **MUST** be `integer`.
 
 #### Subtypes of CycleCount
-
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
+
     
 
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
+
     
 
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
+
     
 
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
+
     
 
 * `FAILED`
 
     accumulation of actions or activities that were attempted, but failed to complete or resulted in an unexpected or unacceptable outcome.
+
     
 
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
+
     
 
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### DateCode
 
-time and date code associated with a material or other physical item.
+{{def(EventEnum:DATE_CODE)}}
 
 
 
-
-The value of {{property(DateCode)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+The value of {{property(DateCode)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
 
 #### Subtypes of DateCode
-
 
 * `EXPIRATION`
 
     time and date code relating to the expiration or end of useful life for a material or other physical item.
+
     
 
 * `FIRST_USE`
 
     time and date code relating the first use of a material or other physical item.
+
     
 
 * `MANUFACTURE`
 
     time and date code relating to the production of a material or other physical item.
+
     
 
 ### DeactivationCount
 
-accumulation of the number of times a function has attempted to, or is planned to attempt to, deactivate or cease.
+{{def(EventEnum:DEACTIVATION_COUNT)}}
 
 
 
+The default {{property(subType)}} of {{property(DeactivationCount)}} is `ALL`.
 
-The value of {{property(DeactivationCount)}} **MUST** be `float`.
+The value of {{property(DeactivationCount)}} **MUST** be `integer`.
 
 #### Subtypes of DeactivationCount
-
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
+
     
 
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
+
     
 
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
+
     
 
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
+
     
 
 * `FAILED`
 
     accumulation of actions or activities that were attempted, but failed to complete or resulted in an unexpected or unacceptable outcome.
+
     
 
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
+
     
 
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### DeviceAdded
 
-{{term(UUID)}} of new device added to an {{term(MTConnect Agent)}}.
-
+{{def(EventEnum:DEVICE_ADDED)}}
 
 
 
 ### DeviceChanged
 
-{{term(UUID)}} of the device whose {{term(metadata)}} has changed.
-
+{{def(EventEnum:DEVICE_CHANGED)}}
 
 
 
 ### DeviceRemoved
 
-{{term(UUID)}} of a device removed from an {{term(MTConnect Agent)}}.
-
+{{def(EventEnum:DEVICE_REMOVED)}}
 
 
 
 ### DeviceUuid
 
-identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function.
-
+{{def(EventEnum:DEVICE_UUID)}}
 
 
 
 ### Direction
 
-direction of motion.
+{{def(EventEnum:DIRECTION)}}
 
 
 
+`<<deprecated>>` `DirectionEnum` Enumeration:
+
+* `<<deprecated>>` `CLOCKWISE` 
+
+    clockwise rotation using the right-hand rule.
+
+* `<<deprecated>>` `COUNTER_CLOCKWISE` 
+
+    counter-clockwise rotation using the right-hand rule.
+
+* `<<deprecated>>` `NEGATIVE` 
+
+    
+
+* `<<deprecated>>` `POSITIVE` 
+
+    
+
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of Direction
-
 
 * `LINEAR`
 
     direction of motion of a linear motion.
+
     
 
-    The value of {{property(Direction)}} **MUST** be one of the `LinearDirectionEnum` enumeration. 
-
-    `LinearDirectionEnum` Enumeration:
-
-
-    * `POSITIVE` 
-
-        linear position is increasing.
+    `DirectionLinearEnum` Enumeration:
 
     * `NEGATIVE` 
 
@@ -1012,15 +981,17 @@ direction of motion.
 
         no direction.
 
+    * `POSITIVE` 
+
+        linear position is increasing.
+
 * `ROTARY`
 
     rotational direction of a rotary motion using the right hand rule convention.
+
     
 
-    The value of {{property(Direction)}} **MUST** be one of the `RotaryDirectionEnum` enumeration. 
-
-    `RotaryDirectionEnum` Enumeration:
-
+    `DirectionRotaryEnum` Enumeration:
 
     * `CLOCKWISE` 
 
@@ -1036,23 +1007,19 @@ direction of motion.
 
 ### DoorState
 
-operational state of a {{block(Door)}} component or composition element.
+{{def(EventEnum:DOOR_STATE)}}
 
 
-
-
-The value of {{property(DoorState)}} **MUST** be one of the `DoorStateEnum` enumeration. 
 
 `DoorStateEnum` Enumeration:
-
-
-* `OPEN` 
-
-    {{block(Door)}} is open to the point of a positive confirmation.
 
 * `CLOSED` 
 
     {{block(Door)}} is closed to the point of a positive confirmation.
+
+* `OPEN` 
+
+    {{block(Door)}} is open to the point of a positive confirmation.
 
 * `UNLATCHED` 
 
@@ -1062,15 +1029,11 @@ The value of {{property(DoorState)}} **MUST** be one of the `DoorStateEnum` enum
 
 ### EmergencyStop
 
-state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment.
+{{def(EventEnum:EMERGENCY_STOP)}}
 
 
-
-
-The value of {{property(EmergencyStop)}} **MUST** be one of the `EmergencyStopEnum` enumeration. 
 
 `EmergencyStopEnum` Enumeration:
-
 
 * `ARMED` 
 
@@ -1082,30 +1045,28 @@ The value of {{property(EmergencyStop)}} **MUST** be one of the `EmergencyStopEn
 
 ### EndOfBar
 
-indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached.
+{{def(EventEnum:END_OF_BAR)}}
 
 
 
-
-The value of {{property(EndOfBar)}} **MUST** be one of the `YesNoEnum` enumeration. 
-
-`YesNoEnum` Enumeration:
-
-
-* `YES` 
-
-    {{block(EndOfBar)}} has been reached.
+`EndOfBarEnum` Enumeration:
 
 * `NO` 
 
     {{block(EndOfBar)}} has not been reached.
 
-#### Subtypes of EndOfBar
+* `YES` 
 
+    {{block(EndOfBar)}} has been reached.
+
+The default {{property(subType)}} of {{property(EndOfBar)}} is `PRIMARY`.
+
+#### Subtypes of EndOfBar
 
 * `AUXILIARY`
 
     when multiple locations on a piece of bar stock are referenced as the indication for the {{block(EndOfBar)}}, the additional location(s) **MUST** be designated as `AUXILIARY` indication(s) for the {{block(EndOfBar)}}.  
+
     
 
 * `PRIMARY`
@@ -1115,34 +1076,33 @@ The value of {{property(EndOfBar)}} **MUST** be one of the `YesNoEnum` enumerati
     The main or most important location **MUST** be designated as the {{block(PRIMARY)}} indication for the {{block(EndOfBar)}}.
     
     If no {{block(subType)}} is specified, {{block(PRIMARY)}} **MUST** be the default {{block(EndOfBar)}} indication.
+
     
 
 ### EquipmentMode
 
-indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities.
+{{def(EventEnum:EQUIPMENT_MODE)}}
 
 
-
-
-The value of {{property(EquipmentMode)}} **MUST** be one of the `EquipmentModeEnum` enumeration. 
 
 `EquipmentModeEnum` Enumeration:
-
-
-* `ON` 
-
-    equipment is functioning in the mode designated by the `subType`.
 
 * `OFF` 
 
     equipment is not functioning in the mode designated by the `subType`.
 
-#### Subtypes of EquipmentMode
+* `ON` 
 
+    equipment is functioning in the mode designated by the `subType`.
+
+A {{property(subType)}} **MUST** always be specified.
+
+#### Subtypes of EquipmentMode
 
 * `DELAY`
 
     elapsed time of a temporary halt of action.
+
     
 
 * `LOADED`
@@ -1150,6 +1110,7 @@ The value of {{property(EquipmentMode)}} **MUST** be one of the `EquipmentModeEn
     indication that the sub-parts of a piece of equipment are under load.
     
     Example: For traditional machine tools, this is an indication that the cutting tool is assumed to be engaged with the part.
+
     
 
 * `OPERATING`
@@ -1157,6 +1118,7 @@ The value of {{property(EquipmentMode)}} **MUST** be one of the `EquipmentModeEn
     indication that the major sub-parts of a piece of equipment are powered or performing any activity whether producing a part or product or not.
     
     Example: For traditional machine tools, this includes when the piece of equipment is `WORKING` or it is idle.
+
     
 
 * `POWERED`
@@ -1165,36 +1127,32 @@ The value of {{property(EquipmentMode)}} **MUST** be one of the `EquipmentModeEn
     powered.
     
     Example: Heaters for an extrusion machine that required to be powered even when the equipment is turned off.
+
     
 
 * `WORKING`
 
-    indication that a piece of equipment is performing any activity the equipment is active and performing a function under load or not.
+    indication that a piece of equipment is performing any activity, the equipment is active and performing a function under load or not.
     
     Example: For traditional machine tools, this includes when the piece of equipment is `LOADED`, making rapid moves, executing a tool change, etc.
+
     
 
 ### Execution
 
-execution status of the {{block(Component)}}.
+{{def(EventEnum:EXECUTION)}}
 
 
-
-
-The value of {{property(Execution)}} **MUST** be one of the `ExecutionEnum` enumeration. 
 
 `ExecutionEnum` Enumeration:
-
-
-* `READY` 
-
-    {{block(Component)}} is ready to execute instructions.
-    
-    It is currently idle.
 
 * `ACTIVE` 
 
     {{block(Component)}} is actively executing an instruction.
+
+* `FEED_HOLD` 
+
+    motion of the active axes are commanded to stop at their current position.
 
 * `INTERRUPTED` 
 
@@ -1202,19 +1160,15 @@ The value of {{property(Execution)}} **MUST** be one of the `ExecutionEnum` enum
     
     Action is required to resume execution.
 
-* `FEED_HOLD` 
-
-    motion of the active axes are commanded to stop at their current position.
-
-* `STOPPED` 
-
-    {{block(Component)}} program is not `READY` to execute.
-
 * `OPTIONAL_STOP` 
 
     command from the program has intentionally interrupted execution.
     
     The {{block(Component)}} **MAY** have another state that indicates if the execution is interrupted or the execution ignores the interrupt instruction.
+
+* `PROGRAM_COMPLETED` 
+
+    program completed execution.
 
 * `PROGRAM_STOPPED` 
 
@@ -1222,9 +1176,15 @@ The value of {{property(Execution)}} **MUST** be one of the `ExecutionEnum` enum
     
     Action is required to resume execution.
 
-* `PROGRAM_COMPLETED` 
+* `READY` 
 
-    program completed execution.
+    {{block(Component)}} is ready to execute instructions.
+    
+    It is currently idle.
+
+* `STOPPED` 
+
+    {{block(Component)}} program is not `READY` to execute.
 
 * `WAIT` 
 
@@ -1234,61 +1194,75 @@ The value of {{property(Execution)}} **MUST** be one of the `ExecutionEnum` enum
 
 ### Firmware
 
-embedded software of a {{block(Component)}}.
+{{def(EventEnum:FIRMWARE)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of Firmware
-
 
 * `INSTALL_DATE`
 
     date the hardware or software was installed.
+
     
 
-    The value of {{property(Firmware)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(Firmware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+    `dateTime` Enumeration:
 
 * `LICENSE`
 
     license code to validate or activate the hardware or software.
+
     
 
 * `MANUFACTURER`
 
-    corporate identity for the maker of the hardware or software. 
+    corporate identity for the maker of the hardware or software. 
+
     
 
 * `RELEASE_DATE`
 
-    date the hardware or software was released for general use. 
+    date the hardware or software was released for general use. 
+
     
 
-    The value of {{property(Firmware)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(Firmware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+    `dateTime` Enumeration:
 
 * `VERSION`
 
-    
+    version of the hardware or software.
+
     
 
 ### FixtureId
 
-identifier for a fixture.
-
+{{def(EventEnum:FIXTURE_ID)}}
 
 
 
 ### FunctionalMode
 
-current intended production status of the {{block(Component)}}.
+{{def(EventEnum:FUNCTIONAL_MODE)}}
 
 
-
-
-The value of {{property(FunctionalMode)}} **MUST** be one of the `FunctionalModeEnum` enumeration. 
 
 `FunctionalModeEnum` Enumeration:
 
+* `MAINTENANCE` 
+
+    {{block(Component)}} is not currently producing product.
+    
+    It is currently being repaired, waiting to be repaired, or has not yet been returned to a normal production status after maintenance has been performed.
+
+* `PROCESS_DEVELOPMENT` 
+
+    {{block(Component)}} is being used to prove-out a new process, testing of equipment or processes, or any other active use that does not result in the production of product.
 
 * `PRODUCTION` 
 
@@ -1306,167 +1280,179 @@ The value of {{property(FunctionalMode)}} **MUST** be one of the `FunctionalMode
     
     Typically, it has completed the production of a product and is being modified or returned to a neutral state such that it may then be prepared to begin production of a different product.
 
-* `MAINTENANCE` 
-
-    {{block(Component)}} is not currently producing product.
-    
-    It is currently being repaired, waiting to be repaired, or has not yet been returned to a normal production status after maintenance has been performed.
-
-* `PROCESS_DEVELOPMENT` 
-
-    {{block(Component)}} is being used to prove-out a new process, testing of equipment or processes, or any other active use that does not result in the production of product.
-
 ### Hardness
 
-hardness of a material.
-
+{{def(EventEnum:HARDNESS)}}
 
 
 
 The value of {{property(Hardness)}} **MUST** be `float`.
 
-#### Subtypes of Hardness
+A {{property(subType)}} **MUST** always be specified.
 
+#### Subtypes of Hardness
 
 * `BRINELL`
 
     scale to measure the resistance to deformation of a surface.
+
     
 
 * `LEEB`
 
     scale to measure the elasticity of a surface.
+
     
 
 * `MOHS`
 
     scale to measure the resistance to scratching of a surface.
+
     
 
 * `ROCKWELL`
 
     scale to measure the resistance to deformation of a surface.
+
     
 
 * `SHORE`
 
     scale to measure the resistance to deformation of a surface.
+
     
 
 * `VICKERS`
 
     scale to measure the resistance to deformation of a surface.
+
     
 
 ### Hardware
 
-hardness of a material.
+{{def(EventEnum:HARDWARE)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of Hardware
-
 
 * `INSTALL_DATE`
 
     date the hardware or software was installed.
+
     
 
-    The value of {{property(Hardware)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(Hardware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+    `dateTime` Enumeration:
 
 * `LICENSE`
 
     license code to validate or activate the hardware or software.
+
     
 
 * `MANUFACTURER`
 
-    corporate identity for the maker of the hardware or software. 
+    corporate identity for the maker of the hardware or software. 
+
     
 
 * `RELEASE_DATE`
 
-    date the hardware or software was released for general use. 
+    date the hardware or software was released for general use. 
+
     
 
-    The value of {{property(Hardware)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(Hardware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+    `dateTime` Enumeration:
 
 * `VERSION`
 
     version of the hardware or software.
+
     
 
 ### Library
 
-software library on a {{block(Component)}}
+{{def(EventEnum:LIBRARY)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of Library
-
 
 * `INSTALL_DATE`
 
     date the hardware or software was installed.
+
     
 
-    The value of {{property(Library)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(Library)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+    `dateTime` Enumeration:
 
 * `LICENSE`
 
     license code to validate or activate the hardware or software.
+
     
 
 * `MANUFACTURER`
 
-    corporate identity for the maker of the hardware or software. 
+    corporate identity for the maker of the hardware or software. 
+
     
 
 * `RELEASE_DATE`
 
-    date the hardware or software was released for general use. 
+    date the hardware or software was released for general use. 
+
     
 
-    The value of {{property(Library)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(Library)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+    `dateTime` Enumeration:
 
 * `VERSION`
 
     version of the hardware or software.
+
     
 
-### Line
+### `<<deprecated>>`Line
 
-state of the power source.
-
+{{def(EventEnum:LINE)}}
 
 
 
 #### Subtypes of Line
 
-
 * `MAXIMUM`
 
     maximum line number of the code being executed.
+
     
 
 * `MINIMUM`
 
     minimum line number of the code being executed.
+
     
 
 ### LineLabel
 
-identifier for a {{block(Block)}} of code in a {{block(Program)}}.
-
+{{def(EventEnum:LINE_LABEL)}}
 
 
 
 ### LineNumber
 
-position of a block of program code within a control program.
-
+{{def(EventEnum:LINE_NUMBER)}}
 
 
 
@@ -1474,80 +1460,85 @@ The value of {{property(LineNumber)}} **MUST** be `integer`.
 
 #### Subtypes of LineNumber
 
-
 * `ABSOLUTE`
 
     position of a block of program code relative to the beginning of the control program.
+
     
 
 * `INCREMENTAL`
 
     position of a block of program code relative to the occurrence of the last {{block(LineLabel)}} encountered in the control program.
+
     
 
 ### LoadCount
 
-accumulation of the number of times an operation has attempted to, or is planned to attempt to, load materials, parts, or other items.
+{{def(EventEnum:LOAD_COUNT)}}
 
 
 
+The default {{property(subType)}} of {{property(LoadCount)}} is `ALL`.
 
-The value of {{property(LoadCount)}} **MUST** be `float`.
+The value of {{property(LoadCount)}} **MUST** be `integer`.
 
 #### Subtypes of LoadCount
-
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
+
     
 
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
+
     
 
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
+
     
 
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
+
     
 
 * `FAILED`
 
     accumulation of actions or activities that were attempted, but failed to complete or resulted in an unexpected or unacceptable outcome.
+
     
 
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
+
     
 
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### LockState
 
-state or operating mode of a {{block(Lock)}}.
+{{def(EventEnum:LOCK_STATE)}}
 
 
-
-
-The value of {{property(LockState)}} **MUST** be one of the `LockStateEnum` enumeration. 
 
 `LockStateEnum` Enumeration:
-
 
 * `LOCKED` 
 
@@ -1559,14 +1550,13 @@ The value of {{property(LockState)}} **MUST** be one of the `LockStateEnum` enum
 
 ### MTConnectVersion
 
-reference version of the MTConnect Standard supported by the {{term(adapter)}}.
-
+{{def(EventEnum:MTCONNECT_VERSION)}}
 
 
 
 ### MaintenanceList
 
-actions or activities to be performed in support of a piece of equipment.
+{{def(EventEnum:MAINTENANCE_LIST)}}
 
 If the {{property(INTERVAL)}} {{property(key)}} is not provided, it is assumed `ABSOLUTE`.
 
@@ -1575,15 +1565,10 @@ If the {{property(DIRECTION)}} {{property(key)}} is not provided, it is assumed 
 If the {{property(UNITS)}} {{property(key)}} is not provided, it is assumed to be `COUNT`.
 
 
+
 The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `MaintenanceListResult` keys.
 
 `MaintenanceListResult` keys:
-
-* `NAME` 
-
-    identifier of the maintenance activity.
-
-    The value of {{property(NAME)}} **MUST** be `string`.
 
 * `VALUE` 
 
@@ -1591,43 +1576,11 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
     The value of {{property(VALUE)}} **MUST** be `float`.
 
-* `TARGET` 
-
-    target value of the next maintenance.
-
-    The value of {{property(TARGET)}} **MUST** be `float`.
-
-* `UNITS` 
-
-    same as {{block(DataItem)}} {{property(units)}}. See {{citetitle(MTCPart2)}}.
-
-    The value of {{property(UNITS)}} **MUST** be one of the `UnitEnum` enumeration. 
-
-* `DIRECTION` 
-
-    direction of the value observed.
-
-    The value of {{property(DIRECTION)}} **MUST** be one of the `MaintenanceListDirectionEnum` enumeration. 
-
-    `MaintenanceListDirectionEnum` Enumeration:
-
-
-    * `UP` 
-
-        
-
-    * `DOWN` 
-
-        
-
 * `INTERVAL` 
 
     interval of the value observed.
 
-    The value of {{property(INTERVAL)}} **MUST** be one of the `MaintenanceListIntervalEnum` enumeration. 
-
     `MaintenanceListIntervalEnum` Enumeration:
-
 
     * `ABSOLUTE` 
 
@@ -1637,17 +1590,17 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
         
 
-* `LAST_SERVICE_DATE` 
-
-    last date/time stamp that maintenance was performed.
-
-    The value of {{property(LAST_SERVICE_DATE)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
-
 * `NEXT_SERVICE_DATE` 
 
     next date/time stamp that maintenance should be performed.
 
-    The value of {{property(NEXT_SERVICE_DATE)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(NEXT_SERVICE_DATE)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+* `RESET` 
+
+    last date/time stamp of the {{term(observation)}} was reset.
+
+    The value of {{property(RESET)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
 
 * `SEVERITY` 
 
@@ -1655,38 +1608,53 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
     The value of {{property(SEVERITY)}} **MUST** be `integer`.
 
-* `RESET` 
+* `DIRECTION` 
 
-    last date/time stamp of the {{term(observation)}} was reset.
+    direction of the value observed.
 
-    The value of {{property(RESET)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    `MaintenanceListDirectionEnum` Enumeration:
 
-#### Part Properties of MaintenanceList
+    * `DOWN` 
 
-{{tbl(part-properties-of-maintenancelist)}} lists the Part Properties of {{block(MaintenanceList)}}.
+        
 
-|Part Property name|Multiplicity|
-|:-|:-:|
-|{{block(result)}}|0..1|
-{: caption="Part Properties of MaintenanceList"}
+    * `UP` 
 
-Descriptions for Part Properties of {{block(MaintenanceList)}}:
+        
 
-* {{block(MaintenanceListResult)}} 
+* `NAME` 
 
     identifier of the maintenance activity.
 
+    The value of {{property(NAME)}} **MUST** be `string`.
+
+* `LAST_SERVICE_DATE` 
+
+    last date/time stamp that maintenance was performed.
+
+    The value of {{property(LAST_SERVICE_DATE)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+* `UNITS` 
+
+    same as {{block(DataItem)}} {{property(units)}}. See {{package(Device Information Model)}}.
+
+    The value of {{property(UNITS)}} **MUST** be one of the `UnitEnum` enumeration. 
+
+* `TARGET` 
+
+    target value of the next maintenance.
+
+    The value of {{property(TARGET)}} **MUST** be `float`.
+
 ### Material
 
-identifier of a material used or consumed in the manufacturing process.
-
+{{def(EventEnum:MATERIAL)}}
 
 
 
 ### MaterialLayer
 
-identifies the layers of material applied to a part or product as part of an additive manufacturing process.
-
+{{def(EventEnum:MATERIAL_LAYER)}}
 
 
 
@@ -1694,84 +1662,95 @@ The value of {{property(MaterialLayer)}} **MUST** be `integer`.
 
 #### Subtypes of MaterialLayer
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### Message
 
-information to be transferred from a piece of equipment to a client software application.
-
+{{def(EventEnum:MESSAGE)}}
 
 
 
 ### Network
 
-network details of a {{block(Component)}}.
+{{def(EventEnum:NETWORK)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of Network
-
 
 * `GATEWAY`
 
     Gateway for the component network.
+
     
 
 * `IPV4_ADDRESS`
 
-    IPV4 network address of the component.
+    IPV4 network address of the component.
+
     
 
 * `IPV6_ADDRESS`
 
-    IPV6 network address of the component.
+    IPV6 network address of the component.
+
     
 
 * `MAC_ADDRESS`
 
     Media Access Control Address. 
     
-    The unique physical address of the network hardware.
+    The unique physical address of the network hardware.
+
     
 
 * `SUBNET_MASK`
 
-    SubNet mask for the component network.
+    SubNet mask for the component network.
+
     
 
 * `VLAN_ID`
 
     layer2 Virtual Local Network (VLAN) ID for the component network.
+
     
 
 * `WIRELESS`
 
     identifies whether the connection type is wireless.
+
     
 
-    The value of {{property(Network)}} **MUST** be one of the `YesNoEnum` enumeration. 
+    `NetworkWirelessEnum` Enumeration:
+
+    * `NO` 
+
+        
+
+    * `YES` 
+
+        
 
 ### OperatingMode
 
-state of {{block(Component)}} or {{block(Composition)}} that describes the automatic or manual operation of the entity.
+{{def(EventEnum:OPERATING_MODE)}}
 
 
-
-
-The value of {{property(OperatingMode)}} **MUST** be one of the `OperatingModeEnum` enumeration. 
 
 `OperatingModeEnum` Enumeration:
-
 
 * `AUTOMATIC` 
 
@@ -1799,239 +1778,261 @@ The value of {{property(OperatingMode)}} **MUST** be one of the `OperatingModeEn
 
 ### OperatingSystem
 
-Operating System (OS) of a {{block(Component)}}.
+{{def(EventEnum:OPERATING_SYSTEM)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of OperatingSystem
-
 
 * `INSTALL_DATE`
 
     date the hardware or software was installed.
+
     
 
-    The value of {{property(OperatingSystem)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(OperatingSystem)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+    `dateTime` Enumeration:
 
 * `LICENSE`
 
     license code to validate or activate the hardware or software.
+
     
 
 * `MANUFACTURER`
 
-    corporate identity for the maker of the hardware or software. 
+    corporate identity for the maker of the hardware or software. 
+
     
 
 * `RELEASE_DATE`
 
-    date the hardware or software was released for general use. 
+    date the hardware or software was released for general use. 
+
     
 
-    The value of {{property(OperatingSystem)}} **MUST** be `dateTime`. See {{sect(dateTime)}}.
+    The value of {{property(OperatingSystem)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+
+    `dateTime` Enumeration:
 
 * `VERSION`
 
     version of the hardware or software.
+
     
 
 ### OperatorId
 
-identifier of the person currently responsible for operating the piece of equipment.
-
+{{def(EventEnum:OPERATOR_ID)}}
 
 
 
 ### PalletId
 
-identifier for a pallet.
-
+{{def(EventEnum:PALLET_ID)}}
 
 
 
 ### PartCount
 
-aggregate count of parts.
+{{def(EventEnum:PART_COUNT)}}
 
 
 
+The value of {{property(PartCount)}} **MUST** be `integer`.
 
-The value of {{property(PartCount)}} **MUST** be `float`.
+The default {{property(subType)}} of {{property(PartCount)}} is `ALL`.
 
 #### Subtypes of PartCount
-
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
+
     
 
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
+
     
 
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
+
     
 
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
+
     
 
 * `FAILED`
 
     accumulation of actions or activities that were attempted, but failed to complete or resulted in an unexpected or unacceptable outcome.
+
     
 
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
+
     
 
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### PartCountType
 
-interpretation of `PART_COUNT`.
+{{def(EventEnum:PART_COUNT_TYPE)}}
 
 
-
-
-The value of {{property(PartCountType)}} **MUST** be one of the `PartCountTypeEnum` enumeration. 
 
 `PartCountTypeEnum` Enumeration:
-
-
-* `EACH` 
-
-    count is of individual items.
 
 * `BATCH` 
 
     pre-specified group of items.
 
+* `EACH` 
+
+    count is of individual items.
+
 ### PartDetect
 
-indication designating whether a part or work piece has been detected or is present.
+{{def(EventEnum:PART_DETECT)}}
 
 
-
-
-The value of {{property(PartDetect)}} **MUST** be one of the `PartDetectEnum` enumeration. 
 
 `PartDetectEnum` Enumeration:
-
-
-* `PRESENT` 
-
-    part or work piece is detected or is present.
 
 * `NOT_PRESENT` 
 
     part or work piece is not detected or is not present.
 
+* `PRESENT` 
+
+    part or work piece is detected or is present.
+
 ### PartGroupId
 
-identifier given to a collection of individual parts. 
+{{def(EventEnum:PART_GROUP_ID)}}
 
 If no {{property(subType)}} is specified, `UUID` is default.
 
 
-#### Subtypes of PartGroupId
 
+The default {{property(subType)}} of {{property(PartGroupId)}} is `UUID`.
+
+#### Subtypes of PartGroupId
 
 * `BATCH`
 
     identifier that references a group of parts produced in a batch.
+
     
 
 * `HEAT_TREAT`
 
     identifier used to reference a material heat number.
+
     
 
 * `LOT`
 
-    identifier that references a group of parts tracked as a lot.
+    identifier that references a group of parts tracked as a lot.
+
     
 
 * `RAW_MATERIAL`
 
     material that is used to produce parts.
+
     
 
 * `UUID`
 
     universally unique identifier as specified in ISO 11578 or RFC 4122.
+
     
 
 ### PartId
 
-identifier of a part in a manufacturing operation.
-
+{{def(EventEnum:PART_ID)}}
 
 
 
 ### PartKindId
 
-identifier given to link the individual occurrence to a class of parts, typically distinguished by a particular part design.
+{{def(EventEnum:PART_KIND_ID)}}
 
-If no {{property(subType)}} is specified, `UUID` is default.
+If no {{property(subType)}} is specified, `UUID` is default.
 
+
+
+The default {{property(subType)}} of {{property(PartKindId)}} is `UUID`.
 
 #### Subtypes of PartKindId
-
 
 * `PART_FAMILY`
 
     identifier given to a group of parts having similarities in geometry, manufacturing process, and/or functions.
+
     
 
 * `PART_NAME`
 
     word or set of words by which a part is known, addressed, or referred to.
+
     
 
 * `PART_NUMBER`
 
     identifier of a particular part design or model.
+
     
 
 * `UUID`
 
     universally unique identifier as specified in ISO 11578 or RFC 4122.
+
     
 
-### PartNumber
+### `<<deprecated>>`PartNumber
 
-particular part design or model.
-
+{{def(EventEnum:PART_NUMBER)}}
 
 
 
 ### PartProcessingState
 
-particular condition of the part occurrence at a specific time.
+{{def(EventEnum:PART_PROCESSING_STATE)}}
 
 
-
-
-The value of {{property(PartProcessingState)}} **MUST** be one of the `PartProcessingStateEnum` enumeration. 
 
 `PartProcessingStateEnum` Enumeration:
 
+* `IN_PROCESS` 
+
+    part occurrence is actively being processed.
+
+* `IN_TRANSIT` 
+
+    part occurrence is being transported to its destination.
 
 * `NEEDS_PROCESSING` 
 
@@ -2039,19 +2040,31 @@ The value of {{property(PartProcessingState)}} **MUST** be one of the `PartProce
     
     Processing requirements exist that have not yet been fulfilled. This is the default entry state when the part occurrence is originally received. In some cases, the part occurrence may return to this state while it waits for additional processing to be performed.
 
-* `IN_PROCESS` 
-
-    part occurrence is actively being processed.
-
 * `PROCESSING_ENDED` 
 
     part occurrence is no longer being processed. 
     
     A general state when the reason for termination is unknown.
 
+* `PROCESSING_ENDED_ABORTED` 
+
+    processing of the part occurrence has come to a premature end.
+
 * `PROCESSING_ENDED_COMPLETE` 
 
     part occurrence has completed processing successfully.
+
+* `PROCESSING_ENDED_LOST` 
+
+    terminal state when the part occurrence has been removed from the equipment by an external entity and it no longer exists at the equipment.
+
+* `PROCESSING_ENDED_REJECTED` 
+
+    part occurrence has been processed completely. However, the processing may have a problem.
+
+* `PROCESSING_ENDED_SKIPPED` 
+
+    part occurrence has been skipped for processing on the piece of equipment.
 
 * `PROCESSING_ENDED_STOPPED` 
 
@@ -2059,83 +2072,65 @@ The value of {{property(PartProcessingState)}} **MUST** be one of the `PartProce
     
     The part occurrence will require special treatment.
 
-* `PROCESSING_ENDED_ABORTED` 
+* `TRANSIT_COMPLETE` 
 
-    processing of the part occurrence has come to a premature end.
-
-* `PROCESSING_ENDED_LOST` 
-
-    terminal state when the part occurrence has been removed from the equipment by an external entity and it no longer exists at the equipment.
-
-* `PROCESSING_ENDED_SKIPPED` 
-
-    part occurrence has been skipped for processing on the piece of equipment.
-
-* `PROCESSING_ENDED_REJECTED` 
-
-    part occurrence has been processed completely. However, the processing may have a problem.
+    part occurrence has been placed at its designated destination.
 
 * `WAITING_FOR_TRANSIT` 
 
     part occurrence is waiting for transit.
 
-* `IN_TRANSIT` 
-
-    part occurrence is being transported to its destination.
-
-* `TRANSIT_COMPLETE` 
-
-    part occurrence has been placed at its designated destination.
-
 ### PartStatus
 
-state or condition of a part.
+{{def(EventEnum:PART_STATUS)}}
 
 If unique identifier is given, part status is for that individual. If group identifier is given without a unique identifier, then the status is assumed to be for the whole group.
 
 
-The value of {{property(PartStatus)}} **MUST** be one of the `PartStatusEnum` enumeration. 
 
 `PartStatusEnum` Enumeration:
-
-
-* `PASS` 
-
-    part conforms to given requirements.
 
 * `FAIL` 
 
     part does not conform to some given requirements.
 
+* `PASS` 
+
+    part conforms to given requirements.
+
 ### PartUniqueId
 
-identifier given to a distinguishable, individual part. 
+{{def(EventEnum:PART_UNIQUE_ID)}}
 
-If no {{property(subType)}} is specified, `UUID` is default.
+If no {{property(subType)}} is specified, `UUID` is default.
 
+
+
+The default {{property(subType)}} of {{property(PartUniqueId)}} is `UUID`.
 
 #### Subtypes of PartUniqueId
-
 
 * `RAW_MATERIAL`
 
     material that is used to produce parts.
+
     
 
 * `SERIAL_NUMBER`
 
     serial number that uniquely identifies a specific part.
+
     
 
 * `UUID`
 
     universally unique identifier as specified in ISO 11578 or RFC 4122.
+
     
 
 ### PathFeedrateOverride
 
-value of a signal or calculation issued to adjust the feedrate for the axes associated with a {{block(Path)}} component that may represent a single axis or the coordinated movement of multiple axes.
-
+{{def(EventEnum:PATH_FEEDRATE_OVERRIDE)}}
 
 
 
@@ -2143,33 +2138,33 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 #### Subtypes of PathFeedrateOverride
 
-
 * `JOG`
 
-    feedrate of the axes associated with a `Path` component when the axes, or a single axis, are being operated in a manual mode or method (jogging).
+    relating to momentary activation of a function or a movement.
+    
+    **DEPRECATION WARNING**: May be deprecated in the future.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 * `RAPID`
 
     performing an operation faster or in less time than nominal rate.
+
     
 
 ### PathMode
 
-describes the operational relationship between a {{block(Path)}} entity and another {{block(Path)}} entity for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
+{{def(EventEnum:PATH_MODE)}}
 
 
-
-
-The value of {{property(PathMode)}} **MUST** be one of the `PathModeEnum` enumeration. 
 
 `PathModeEnum` Enumeration:
-
 
 * `INDEPENDENT` 
 
@@ -2179,157 +2174,155 @@ The value of {{property(PathMode)}} **MUST** be one of the `PathModeEnum` enumer
 
     path provides information or state values that influences the operation of other {{block(DataItem)}} of similar type.
 
-* `SYNCHRONOUS` 
-
-    physical or logical parts which are not physically connected to each other but are operating together.
-
 * `MIRROR` 
 
     axes associated with the path are mirroring the motion of the `MASTER` path.
 
+* `SYNCHRONOUS` 
+
+    physical or logical parts which are not physically connected to each other but are operating together.
+
 ### PowerState
 
-indication of the status of the source of energy for an entity to allow it to perform its intended function or the state of an enabling signal providing permission for the entity to perform its functions.
+{{def(EventEnum:POWER_STATE)}}
 
 
-
-
-The value of {{property(PowerState)}} **MUST** be one of the `PowerStateEnum` enumeration. 
 
 `PowerStateEnum` Enumeration:
-
-
-* `ON` 
-
-    source of energy for an entity or the enabling signal providing permission for the entity to perform its function(s) is present and active.
 
 * `OFF` 
 
     source of energy for an entity or the enabling signal providing permission for the entity to perform its function(s) is not present or is disconnected.
 
-#### Subtypes of PowerState
+* `ON` 
 
+    source of energy for an entity or the enabling signal providing permission for the entity to perform its function(s) is present and active.
+
+#### Subtypes of PowerState
 
 * `CONTROL`
 
     state of the enabling signal or control logic that enables or disables the function or operation of the entity.
+
     
 
 * `LINE`
 
     state of the power source for the entity.
+
     
 
-### PowerStatus
+### `<<deprecated>>`PowerStatus
 
-status of the {{block(Component)}}.
-
-**DEPRECATED** in *Version 1.1.0*.
+{{def(EventEnum:POWER_STATUS)}}
 
 
 
+`<<deprecated>>` `PowerStatusEnum` Enumeration:
+
+* `<<deprecated>>` `OFF` 
+
+    
+
+* `<<deprecated>>` `ON` 
+
+    
 
 ### ProcessAggregateId
 
-identifier given to link the individual occurrence to a group of related occurrences, such as a process step in a process plan.
-
+{{def(EventEnum:PROCESS_AGGREGATE_ID)}}
 
 
 
 #### Subtypes of ProcessAggregateId
 
-
 * `ORDER_NUMBER`
 
     identifier of the authorization of the process occurrence. Synonyms include "job id", "work order".
+
     
 
 * `PROCESS_PLAN`
 
-    identifier of the process plan that this occurrence belongs to. Synonyms include "routing id", "job id".
+    identifier of the process plan that this occurrence belongs to. Synonyms include "routing id", "job id".
+
     
 
 * `PROCESS_STEP`
 
     identifier of the step in the process plan that this occurrence corresponds to. Synonyms include "operation id".
+
     
 
 ### ProcessKindId
 
-identifier given to link the individual occurrence to a class of processes or process definition.
-
+{{def(EventEnum:PROCESS_KIND_ID)}}
 
 
 
 #### Subtypes of ProcessKindId
 
-
 * `ISO_STEP_EXECUTABLE`
 
     reference to a ISO 10303 Executable.
+
     
 
 * `PROCESS_NAME`
 
-    word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to.
+    word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to.
+
     
 
 * `UUID`
 
     universally unique identifier as specified in ISO 11578 or RFC 4122.
+
     
 
 ### ProcessOccurrenceId
 
-identifier of a process being executed by the device.
-
+{{def(EventEnum:PROCESS_OCCURRENCE_ID)}}
 
 
 
 #### Subtypes of ProcessOccurrenceId
 
-
 * `ACTIVITY`
 
-    phase of a process step.
+    phase or segment of a recipe or program.
+
     
 
 * `OPERATION`
 
-    phase of a discrete manufacturing process.
+    step of a discrete manufacturing process.
+
     
 
 * `RECIPE`
 
-    process as part of product production.
-    
-    It can be a subprocess of a bigger process.
+    process as part of product production; can be a subprocess of a larger process.
+
     
 
 * `SEGMENT`
 
-    phase of a recipe process that some product goes through.
+    phase of a recipe process.
+
     
 
 ### ProcessState
 
-particular condition of the process occurrence at a specific time.
+{{def(EventEnum:PROCESS_STATE)}}
 
 
-
-
-The value of {{property(ProcessState)}} **MUST** be one of the `ProcessStateEnum` enumeration. 
 
 `ProcessStateEnum` Enumeration:
 
+* `ABORTED` 
 
-* `INITIALIZING` 
-
-    device is preparing to execute the process occurrence.
-
-* `READY` 
-
-    process occurrence is ready to be executed.
+    process occurrence has come to a premature end and cannot be resumed.
 
 * `ACTIVE` 
 
@@ -2339,126 +2332,142 @@ The value of {{property(ProcessState)}} **MUST** be one of the `ProcessStateEnum
 
     process occurrence is now finished.
 
+* `INITIALIZING` 
+
+    device is preparing to execute the process occurrence.
+
 * `INTERRUPTED` 
 
     process occurrence has been stopped and may be resumed.
 
-* `ABORTED` 
+* `READY` 
 
-    process occurrence has come to a premature end and cannot be resumed.
+    process occurrence is ready to be executed.
 
 ### ProcessTime
 
-time and date associated with an activity or event.
-
+{{def(EventEnum:PROCESS_TIME)}}
 
 
 
 #### Subtypes of ProcessTime
 
-
 * `COMPLETE`
 
     time and date associated with the completion of an activity or event.
+
     
 
 * `START`
 
     boundary when an activity or an event commences.
+
     
 
 * `TARGET_COMPLETION`
 
     projected time and date associated with the end or completion of an activity or event.
+
     
 
 ### Program
 
-name of the logic or motion program being executed by the {{block(Controller)}} component.
-
+{{def(EventEnum:PROGRAM)}}
 
 
 
 #### Subtypes of Program
 
+* `ACTIVE`
+
+    identity of the logic or motion program currently executing.
+
+    
 
 * `ACTIVITY`
 
-    phase of a process step.
+    phase or segment of a recipe or program.
+
+    
+
+* `MAIN`
+
+    identity of the primary logic or motion program currently being executed. 
+    
+    It is the starting nest level in a call structure and may contain calls to sub programs.
+
     
 
 * `OPERATION`
 
-    phase of a discrete manufacturing process.
+    step of a discrete manufacturing process.
+
     
 
 * `RECIPE`
 
-    process as part of product production. 
+    process as part of product production; can be a subprocess of a larger process.
+
     
-    It can be a subprocess of a bigger process.
+
+* `SCHEDULE`
+
+    identity of a control program that is used to specify the order of execution of other programs.
+
     
 
 * `SEGMENT`
 
-    phase of a recipe process that some product goes through.
+    phase of a recipe process.
+
     
 
 ### ProgramComment
 
-comment or non-executable statement in the control program.
-
+{{def(EventEnum:PROGRAM_COMMENT)}}
 
 
 
 ### ProgramEdit
 
-indication of the status of the {{block(Controller)}} components program editing mode.
-
-A program may be edited while another is executed.
+{{def(EventEnum:PROGRAM_EDIT)}}
 
 
-
-
-The value of {{property(ProgramEdit)}} **MUST** be one of the `ProgramEditEnum` enumeration. 
 
 `ProgramEditEnum` Enumeration:
-
 
 * `ACTIVE` 
 
     {{block(Controller)}} is in the program edit mode.
 
-* `READY` 
-
-    {{block(Controller)}} is capable of entering the program edit mode and no function is inhibiting a change to that mode.
-
 * `NOT_READY` 
 
     {{block(Controller)}} is being inhibited by a function from entering the program edit mode.
 
+* `READY` 
+
+    {{block(Controller)}} is capable of entering the program edit mode and no function is inhibiting a change to that mode.
+
 ### ProgramEditName
 
-name of the program being edited. 
-
-This is used in conjunction with {{block(ProgramEdit)}} when in `ACTIVE` state. 
-
+{{def(EventEnum:PROGRAM_EDIT_NAME)}}
 
 
 
 ### ProgramHeader
 
-non-executable header section of the control program.
+{{def(EventEnum:PROGRAM_HEADER)}}
 
 
 
+The default {{property(subType)}} of {{property(ProgramHeader)}} is `MAIN`.
 
 #### Subtypes of ProgramHeader
-
 
 * `ACTIVE`
 
     identity of the logic or motion program currently executing.
+
     
 
 * `MAIN`
@@ -2466,26 +2475,27 @@ non-executable header section of the control program.
     identity of the primary logic or motion program currently being executed. 
     
     It is the starting nest level in a call structure and may contain calls to sub programs.
+
     
 
 * `SCHEDULE`
 
     identity of a control program that is used to specify the order of execution of other programs.
+
     
 
 ### ProgramLocation
 
-{{term(URI)}} for the source file associated with {{block(Program)}}.
-
+{{def(EventEnum:PROGRAM_LOCATION)}}
 
 
 
 #### Subtypes of ProgramLocation
 
-
 * `ACTIVE`
 
     identity of the logic or motion program currently executing.
+
     
 
 * `MAIN`
@@ -2493,26 +2503,37 @@ non-executable header section of the control program.
     identity of the primary logic or motion program currently being executed. 
     
     It is the starting nest level in a call structure and may contain calls to sub programs.
+
     
 
 * `SCHEDULE`
 
     identity of a control program that is used to specify the order of execution of other programs.
+
     
 
 ### ProgramLocationType
 
-defines whether the logic or motion program defined by {{block(Program)}} is being executed from the local memory of the controller or from an outside source.
+{{def(EventEnum:PROGRAM_LOCATION_TYPE)}}
 
 
 
+`ProgramLocationTypeEnum` Enumeration:
+
+* `EXTERNAL` 
+
+    not managed by the controller.
+
+* `LOCAL` 
+
+    managed by the controller.
 
 #### Subtypes of ProgramLocationType
-
 
 * `ACTIVE`
 
     identity of the logic or motion program currently executing.
+
     
 
 * `MAIN`
@@ -2520,18 +2541,21 @@ defines whether the logic or motion program defined by {{block(Program)}} is bei
     identity of the primary logic or motion program currently being executed. 
     
     It is the starting nest level in a call structure and may contain calls to sub programs.
+
     
 
 * `SCHEDULE`
 
     identity of a control program that is used to specify the order of execution of other programs.
+
     
 
 ### ProgramNestLevel
 
-indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed.
+{{def(EventEnum:PROGRAM_NEST_LEVEL)}}
 
 If an initial value is not defined, the nesting level associated with the highest or initial nesting level of the program **MUST** default to zero (0).
+
 
 
 
@@ -2539,41 +2563,37 @@ The value of {{property(ProgramNestLevel)}} **MUST** be `integer`.
 
 ### RotaryMode
 
-current operating mode for a {{block(Rotary)}} type axis.
+{{def(EventEnum:ROTARY_MODE)}}
 
 
-
-
-The value of {{property(RotaryMode)}} **MUST** be one of the `RotaryModeEnum` enumeration. 
 
 `RotaryModeEnum` Enumeration:
-
-
-* `SPINDLE` 
-
-    axis is functioning as a spindle.
-
-* `INDEX` 
-
-    axis is configured to index.
 
 * `CONTOUR` 
 
     position of the axis is being interpolated.
 
+* `INDEX` 
+
+    axis is configured to index.
+
+* `SPINDLE` 
+
+    axis is functioning as a spindle.
+
 ### RotaryVelocityOverride
 
-percentage change to the velocity of the programmed velocity for a {{block(Rotary)}} axis.
+{{def(EventEnum:ROTARY_VELOCITY_OVERRIDE)}}
 
 This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a {{block(Rotary)}} type axis.
+
 
 
 The value of {{property(RotaryVelocityOverride)}} **MUST** be `float`.
 
 ### Rotation
 
-three space angular rotation relative to a coordinate system.
-
+{{def(EventEnum:ROTATION)}}
 
 
 
@@ -2581,8 +2601,7 @@ The {{property(units)}} of {{property(Rotation)}} **MUST** be `DEGREE_3D`.
 
 ### SensorAttachment
 
-{{term(attachment)}} between a sensor and an entity.
-
+{{def(EventEnum:SENSOR_ATTACHMENT)}}
 
 
 
@@ -2596,38 +2615,15 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `SensorA
 
     The value of {{property(SENSOR_ID)}} **MUST** be `string`.
 
-* `result` 
-
-    
-
-    The value of {{property(result)}} **MUST** be `string`.
-
-#### Part Properties of SensorAttachment
-
-{{tbl(part-properties-of-sensorattachment)}} lists the Part Properties of {{block(SensorAttachment)}}.
-
-|Part Property name|Multiplicity|
-|:-|:-:|
-|{{block(result)}}|0..1|
-{: caption="Part Properties of SensorAttachment"}
-
-Descriptions for Part Properties of {{block(SensorAttachment)}}:
-
-* {{block(SensorAttachmentResult)}} 
-
-    The identity of a sensor used to observe some measurement of an item.
-
 ### SerialNumber
 
-serial number that uniquely identifies a specific part.
-
+{{def(EventEnum:SERIAL_NUMBER)}}
 
 
 
 ### SpecificationLimit
 
-set of limits defining a range of values designating acceptable performance for a variable.
-
+{{def(EventEnum:SPECIFICATION_LIMIT)}}
 
 
 
@@ -2661,36 +2657,13 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
 
     The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
 
-#### Part Properties of SpecificationLimit
-
-{{tbl(part-properties-of-specificationlimit)}} lists the Part Properties of {{block(SpecificationLimit)}}.
-
-|Part Property name|Multiplicity|
-|:-|:-:|
-|{{block(result)}}|0..1|
-{: caption="Part Properties of SpecificationLimit"}
-
-Descriptions for Part Properties of {{block(SpecificationLimit)}}:
-
-* {{block(SpecificationLimitResult)}} 
-
-    upper conformance boundary for a variable.
-    
-    > Note: immediate concern or action may be required.
-    
-    
-
 ### SpindleInterlock
 
-indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate.
+{{def(EventEnum:SPINDLE_INTERLOCK)}}
 
 
-
-
-The value of {{property(SpindleInterlock)}} **MUST** be one of the `SpindleInterlockEnum` enumeration. 
 
 `SpindleInterlockEnum` Enumeration:
-
 
 * `ACTIVE` 
 
@@ -2702,112 +2675,115 @@ The value of {{property(SpindleInterlock)}} **MUST** be one of the `SpindleInter
 
 ### ToolAssetId
 
-identifier of an individual tool asset.
-
+{{def(EventEnum:TOOL_ASSET_ID)}}
 
 
 
 ### ToolGroup
 
-identifier for the tool group associated with a specific tool. Commonly used to designate spare tools.
+{{def(EventEnum:TOOL_GROUP)}}
 
 
 
+### `<<deprecated>>`ToolId
 
-### ToolId
-
-identifier of the tool currently in use for a given `Path`.
-
-**DEPRECATED** in *Version 1.2.0*.   See `TOOL_ASSET_ID`.
-
+{{def(EventEnum:TOOL_ID)}}
 
 
 
 ### ToolNumber
 
-identifier assigned by the {{block(Controller)}} component to a cutting tool when in use by a piece of equipment.
-
+{{def(EventEnum:TOOL_NUMBER)}}
 
 
 
 ### ToolOffset
 
-reference to the tool offset variables applied to the active cutting tool associated with a {{block(Path)}} in a {{block(Controller)}} type component.
-
+{{def(EventEnum:TOOL_OFFSET)}}
 
 
 
 The value of {{property(ToolOffset)}} **MUST** be `float`.
 
-#### Subtypes of ToolOffset
+A {{property(subType)}} **MUST** always be specified.
 
+#### Subtypes of ToolOffset
 
 * `LENGTH`
 
     reference to a length type tool offset variable.
+
     
 
 * `RADIAL`
 
     reference to a radial type tool offset variable.
+
     
 
 ### TransferCount
 
-accumulation of the number of times an operation has attempted to, or is planned to attempt to, transfer materials, parts, or other items from one location to another.
+{{def(EventEnum:TRANSFER_COUNT)}}
 
 
 
+The default {{property(subType)}} of {{property(TransferCount)}} is `ALL`.
 
-The value of {{property(TransferCount)}} **MUST** be `float`.
+The value of {{property(TransferCount)}} **MUST** be `integer`.
 
 #### Subtypes of TransferCount
-
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
+
     
 
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
+
     
 
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
+
     
 
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
+
     
 
 * `FAILED`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
+
     
 
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
+
     
 
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### Translation
 
-three space linear translation relative to a coordinate system.
-
+{{def(EventEnum:TRANSLATION)}}
 
 
 
@@ -2815,92 +2791,107 @@ The {{property(units)}} of {{property(Translation)}} **MUST** be `MILLIMETER_3D`
 
 ### UnloadCount
 
-accumulation of the number of times an operation has attempted to, or is planned to attempt to, unload materials, parts, or other items.
+{{def(EventEnum:UNLOAD_COUNT)}}
 
 
 
+The default {{property(subType)}} of {{property(UnloadCount)}} is `ALL`.
 
-The value of {{property(UnloadCount)}} **MUST** be `float`.
+The value of {{property(UnloadCount)}} **MUST** be `integer`.
 
 #### Subtypes of UnloadCount
-
 
 * `ABORTED`
 
     accumulation of actions or activities that were attempted, but terminated before they could be completed.
+
     
 
 * `ALL`
 
     accumulation of all actions, items, or activities being counted independent of the outcome.
+
     
 
 * `BAD`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
+
     
 
 * `COMPLETE`
 
     accumulation of actions, items, or activities that have been completed, independent of the outcome.
+
     
 
 * `FAILED`
 
     accumulation of actions, items, or activities being counted that do not conform to specification or expectation.
+
     
 
 * `GOOD`
 
     accumulation of actions, items, or activities being counted that conform to specification or expectation.
+
     
 
 * `REMAINING`
 
     accumulation of actions, items, or activities yet to be counted.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### User
 
-identifier of the person currently responsible for operating the piece of equipment.
+{{def(EventEnum:USER)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of User
-
 
 * `MAINTENANCE`
 
     identifier of the person currently responsible for performing maintenance on the piece of equipment.
+
     
 
 * `OPERATOR`
 
     identifier of the person currently responsible for operating the piece of equipment.
+
     
 
 * `SET_UP`
 
     identifier of the person currently responsible for preparing a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
+
     
 
 ### ValveState
 
-state of a valve is one of open, closed, or transitioning between the states.
+{{def(EventEnum:VALVE_STATE)}}
 
 
-
-
-The value of {{property(ValveState)}} **MUST** be one of the `ValveStateEnum` enumeration. 
 
 `ValveStateEnum` Enumeration:
 
+* `CLOSED` 
+
+    {{block(ValveState)}} where flow is not possible, the aperture is static, and the valve is completely shut.
+
+* `CLOSING` 
+
+    valve is transitioning from an `OPEN` state to a `CLOSED` state.
 
 * `OPEN` 
 
@@ -2912,20 +2903,12 @@ The value of {{property(ValveState)}} **MUST** be one of the `ValveStateEnum` en
 
     valve is transitioning from a `CLOSED` state to an `OPEN` state.
 
-* `CLOSED` 
-
-    {{block(ValveState)}} where flow is not possible, the aperture is static, and the valve is completely shut.
-
-* `CLOSING` 
-
-    valve is transitioning from an `OPEN` state to a `CLOSED` state.
-
 #### Subtypes of ValveState
-
 
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `PROGRAMMED`
@@ -2933,50 +2916,22 @@ The value of {{property(ValveState)}} **MUST** be one of the `ValveStateEnum` en
     directive value without offsets and adjustments.
     
     
+
     
 
 ### Variable
 
-data whose meaning may change over time due to changes in the operation of a piece of equipment or the process being executed on that piece of equipment.
-
+{{def(EventEnum:VARIABLE)}}
 
 
 
 ### WaitState
 
-indication of the reason that {{block(Execution)}} is reporting a value of `WAIT`.
+{{def(EventEnum:WAIT_STATE)}}
 
 
-
-
-The value of {{property(WaitState)}} **MUST** be one of the `WaitStateEnum` enumeration. 
 
 `WaitStateEnum` Enumeration:
-
-
-* `POWERING_UP` 
-
-    execution is waiting while the equipment is powering up and is not currently available to begin producing parts or products.
-
-* `POWERING_DOWN` 
-
-    execution is waiting while the equipment is powering down but has not fully reached a stopped state.
-
-* `PART_LOAD` 
-
-    execution is waiting while one or more discrete workpieces are being loaded.
-
-* `PART_UNLOAD` 
-
-    execution is waiting while one or more discrete workpieces are being unloaded.
-
-* `TOOL_LOAD` 
-
-    execution is waiting while a tool or tooling is being loaded.
-
-* `TOOL_UNLOAD` 
-
-    execution is waiting while a tool or tooling is being unloaded.
 
 * `MATERIAL_LOAD` 
 
@@ -2986,37 +2941,56 @@ The value of {{property(WaitState)}} **MUST** be one of the `WaitStateEnum` enum
 
     execution is waiting while material is being unloaded.
 
-* `SECONDARY_PROCESS` 
+* `PART_LOAD` 
 
-    execution is waiting while another process is completed before the execution can resume.
+    execution is waiting while one or more discrete workpieces are being loaded.
+
+* `PART_UNLOAD` 
+
+    execution is waiting while one or more discrete workpieces are being unloaded.
 
 * `PAUSING` 
 
     execution is waiting while the equipment is pausing but the piece of equipment has not yet reached a fully paused state.
 
+* `POWERING_DOWN` 
+
+    execution is waiting while the equipment is powering down but has not fully reached a stopped state.
+
+* `POWERING_UP` 
+
+    execution is waiting while the equipment is powering up and is not currently available to begin producing parts or products.
+
 * `RESUMING` 
 
     execution is waiting while the equipment is resuming the production cycle but has not yet resumed execution.
 
+* `SECONDARY_PROCESS` 
+
+    execution is waiting while another process is completed before the execution can resume.
+
+* `TOOL_LOAD` 
+
+    execution is waiting while a tool or tooling is being loaded.
+
+* `TOOL_UNLOAD` 
+
+    execution is waiting while a tool or tooling is being unloaded.
+
 ### Wire
 
-identifier for the type of wire used as the cutting mechanism in Electrical Discharge Machining or similar processes.
-
+{{def(EventEnum:WIRE)}}
 
 
 
 ### WorkOffset
 
-offset variables for a work piece or part associated with a {{block(Path)}} in a {{block(Controller)}} type component.
+{{def(EventEnum:WORK_OFFSET)}}
 
 
-
-
-The value of {{property(WorkOffset)}} **MUST** be `float`.
 
 ### WorkholdingId
 
-identifier for the current workholding or part clamp in use by a piece of equipment.
-
+{{def(EventEnum:WORKHOLDING_ID)}}
 
 

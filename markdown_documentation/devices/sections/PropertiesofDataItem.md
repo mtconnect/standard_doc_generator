@@ -1,78 +1,58 @@
 
 ## Properties of DataItem
 
-This section provides semantic information for the elements of a {{block(DataItem)}}.
+This section provides additional semantic information for the Part Properties of {{block(DataItem)}}.
 
 > Note: See {{sect(DataItems Schema Diagrams)}} for XML schema of the elements for {{block(DataItem)}}.
 
 ### ResetTrigger
 
-
 type of event that may cause a reset to occur.
 
 
-#### Value Properties of ResetTrigger
 
-{{tbl(value-properties-of-resettrigger)}} lists the Value Properties of {{block(ResetTrigger)}}.
+`ResetTriggerEnum` Enumeration:
 
-|Value Property name|Value Property type|Multiplicity|
-|-|-|:-:|
-|{{property(type)}}|`ResetTriggerEnum`|1|
-{: caption="Value Properties of ResetTrigger"}
+* `ACTION_COMPLETE` 
 
-Descriptions for Value Properties of {{block(ResetTrigger)}}:
+    {{term(observation)}} of the {{block(DataItem)}} that is measuring an action or operation is to be reset upon completion of that action or operation.
 
-* {{property(type)}} 
+* `ANNUAL` 
 
-    type of {{block(ResetTrigger)}}.
+    {{term(observation)}} of the {{block(DataItem)}} is to be reset at the end of a 12-month period.
 
-    The value of {{property(type)}} **MUST** be one of the `ResetTriggerEnum` enumeration. 
+* `DAY` 
 
-    `ResetTriggerEnum` Enumeration:
+    {{term(observation)}} of the {{block(DataItem)}} is to be reset at the end of a 24-hour period.
 
+* `LIFE` 
 
-    * `ACTION_COMPLETE` 
+    {{term(observation)}} of the {{block(DataItem)}} is not reset and accumulates for the entire life of the piece of equipment.
 
-        {{term(observation)}} of the {{block(DataItem)}} that is measuring an action or operation is to be reset upon completion of that action or operation.
+* `MAINTENANCE` 
 
-    * `ANNUAL` 
+    {{term(observation)}} of the {{block(DataItem)}} is to be reset upon completion of a maintenance event.
 
-        {{term(observation)}} of the {{block(DataItem)}} is to be reset at the end of a 12-month period.
+* `MONTH` 
 
-    * `DAY` 
+    {{term(observation)}} of the {{block(DataItem)}} is to be reset at the end of a monthly period.
 
-        {{term(observation)}} of the {{block(DataItem)}} is to be reset at the end of a 24-hour period.
+* `POWER_ON` 
 
-    * `LIFE` 
+    {{term(observation)}} of the {{block(DataItem)}} is to be reset when power was applied to the piece of equipment after a planned or unplanned interruption of power has occurred.
 
-        {{term(observation)}} of the {{block(DataItem)}} is not reset and accumulates for the entire life of the piece of equipment.
+* `SHIFT` 
 
-    * `MAINTENANCE` 
+    {{term(observation)}} of the {{block(DataItem)}} is to be reset at the end of a work shift.
 
-        {{term(observation)}} of the {{block(DataItem)}} is to be reset upon completion of a maintenance event.
+* `WEEK` 
 
-    * `MONTH` 
-
-        {{term(observation)}} of the {{block(DataItem)}} is to be reset at the end of a monthly period.
-
-    * `POWER_ON` 
-
-        {{term(observation)}} of the {{block(DataItem)}} is to be reset when power was applied to the piece of equipment after a planned or unplanned interruption of power has occurred.
-
-    * `SHIFT` 
-
-        {{term(observation)}} of the {{block(DataItem)}} is to be reset at the end of a work shift.
-
-    * `WEEK` 
-
-        {{term(observation)}} of the {{block(DataItem)}} is to be reset at the end of a 7-day period.
+    {{term(observation)}} of the {{block(DataItem)}} is to be reset at the end of a 7-day period.
 
 ### Source
 
-
 identifies the {{block(Component)}}, {{block(DataItem)}}, or {{block(Composition)}} from which a measured value originates.
 
-One of {{property(componentId)}}, {{property(compositionId)}}, or {{property(dataItemId)}} **MUST** be defined for {{block(Source)}}.
 
 
 The value of {{property(Source)}} **MUST** be `string`.
@@ -86,35 +66,37 @@ The value of {{property(Source)}} **MUST** be `string`.
 |{{property(componentId)}}|`ID`|0..1|
 |{{property(compositionId)}}|`ID`|0..1|
 |{{property(dataItemId)}}|`ID`|0..1|
-{: caption="Value Properties of Source"}
+{: caption="Value Properties of Source" label="table:value-properties-of-source"}
 
 Descriptions for Value Properties of {{block(Source)}}:
 
 * {{property(componentId)}} 
 
-    identifier attribute of the {{block(Component)}} element that represents the physical part of a piece of equipment where the data represented by the {{block(DataItem)}} element originated.
+    identifier of the {{block(Component)}} that represents the physical part of a piece of equipment where the data represented by the {{block(DataItem)}} originated.
 
 * {{property(compositionId)}} 
 
-    identifier attribute of the {{block(Composition)}} element that the reported data is most closely associated.
+    identifier of the {{block(Composition)}} that represents the physical part of a piece of equipment where the data represented by the {{block(DataItem)}} originated.
 
 * {{property(dataItemId)}} 
 
-    identifier attribute of the {{block(DataItem)}} that represents the originally measured value of the data referenced by this data item.
+    identifier of the {{block(DataItem)}} that represents the originally measured value of the data referenced by this {{block(DataItem)}}.
 
 ### InitialValue
 
-
 starting value for a {{block(DataItem)}} as well as the value to be set for the {{block(DataItem)}} after a reset event.
+
 
 
 The value of {{property(InitialValue)}} **MUST** be `string`.
 
 ### Filter
 
-
 provides a means to control when an {{term(agent)}} records updated information for a {{block(DataItem)}}. 
 
+
+
+The value of {{property(Filter)}} **MUST** be `float`.
 
 #### Value Properties of Filter
 
@@ -123,18 +105,15 @@ provides a means to control when an {{term(agent)}} records updated information 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(type)}}|`FilterEnum`|1|
-{: caption="Value Properties of Filter"}
+{: caption="Value Properties of Filter" label="table:value-properties-of-filter"}
 
 Descriptions for Value Properties of {{block(Filter)}}:
 
 * {{property(type)}} 
 
-    type of {{block(Filter)}}
-
-    The value of {{property(type)}} **MUST** be one of the `FilterEnum` enumeration. 
+    type of {{block(Filter)}}.
 
     `FilterEnum` Enumeration:
-
 
     * `MINIMUM_DELTA` 
 
@@ -148,10 +127,24 @@ Descriptions for Value Properties of {{block(Filter)}}:
         
         The value of {{block(Filter)}} **MUST** be an absolute value reported in seconds representing the time between reported samples of the value of the data item.
 
+### MinimumDeltaFilter
+
+{{def(FilterEnum:MINIMUM_DELTA)}}
+
+
+
+### PeriodFilter
+
+{{def(FilterEnum:PERIOD)}}
+
+
+
+The value of {{property(PeriodFilter)}} **MUST** be `SECOND`. See {{sect(second)}}.
+
 ### Constraints
 
-
 {{termplural(organize)}} a set of expected values that can be reported for a {{block(DataItem)}}.
+
 
 
 #### Value Properties of Constraints
@@ -160,22 +153,17 @@ Descriptions for Value Properties of {{block(Filter)}}:
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|`<<deprecated>>`{{property(Filter)}}|`FilterEnum`|0..1|
 |{{property(Maximum)}}|`float`|0..1|
 |{{property(Minimum)}}|`float`|0..1|
 |{{property(Nominal)}}|`float`|0..1|
 |{{property(Value)}}|`string`|0..*|
-{: caption="Value Properties of Constraints"}
+{: caption="Value Properties of Constraints" label="table:value-properties-of-constraints"}
 
 Descriptions for Value Properties of {{block(Constraints)}}:
 
-* `<<deprecated>>`{{property(Filter)}} 
-
-    **DEPRECATED** in *MTConnect Version 1.4* – Moved to the {{block(Filters)}} element of {{block(DataItem)}}.
-
 * {{property(Maximum)}} 
 
-    numeric upper constraint.
+    numeric upper constraint.
     
     If the data reported for a data item is a range of numeric values, the expected value reported **MAY** be described with an upper limit defined by this constraint.
 
@@ -195,10 +183,27 @@ Descriptions for Value Properties of {{block(Constraints)}}:
     
     {{property(Value)}} **MUST NOT** be used in conjunction with any other {{block(Constraint)}} elements.
 
+#### Part Properties of Constraints
+
+{{tbl(part-properties-of-constraints)}} lists the Part Properties of {{block(Constraints)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|`<<deprecated>>` {{block(Filter)}}|0..1|
+{: caption="Part Properties of Constraints" label="table:part-properties-of-constraints"}
+
+Descriptions for Part Properties of {{block(Constraints)}}:
+
+* {{block(Filter)}} 
+
+    provides a means to control when an {{term(agent)}} records updated information for a {{block(DataItem)}}. 
+
+    **DEPRECATED** in *MTConnect Version 1.4*. Moved to the {{block(Filters)}}. See {{package(Properties of DataItem)}}.
+
 ### Definition
 
-
 defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated with the {{block(DataItem)}} when the {{property(representation)}} is either `DATA` or `TABLE`.
+
 
 
 #### Part Properties of Definition
@@ -207,10 +212,10 @@ defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated 
 
 |Part Property name|Multiplicity|
 |:-|:-:|
-|{{block(CellDefinition)}} (organized by {{block(CellDefinitions)}})|0..*|
+|{{block(CellDefinition)}} (organized by `CellDefinitions`)|0..*|
 |{{block(Description)}}|0..1|
-|{{block(EntryDefinition)}} (organized by {{block(EntryDefinitions)}})|0..*|
-{: caption="Part Properties of Definition"}
+|{{block(EntryDefinition)}} (organized by `EntryDefinitions`)|0..*|
+{: caption="Part Properties of Definition" label="table:part-properties-of-definition"}
 
 Descriptions for Part Properties of {{block(Definition)}}:
 

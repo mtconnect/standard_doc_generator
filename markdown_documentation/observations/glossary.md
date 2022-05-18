@@ -576,6 +576,14 @@
     plural={stereotypes}
 }}}
 
+{{newglossaryentry(top level)
+{
+    type={general},
+    name={top level},
+    description={element that represents the most significant physical or logical functions of a piece of equipment.},
+    plural={top levels}
+}}}
+
 {{newglossaryentry(Error Information Model)
 {
     type={informationmodel},
@@ -872,14 +880,6 @@
     name={structural element},
     description={{{term(element)}} that organizes information that represents the physical and logical parts and sub-parts of a piece of equipment.},
     plural={structural elements}
-}}}
-
-{{newglossaryentry(top level)
-{
-    type={xml},
-    name={top level},
-    description={{{termplural(structural element)}} that represent the most significant physical or logical functions of a piece of equipment.},
-    plural={top levels}
 }}}
 
 {{newglossaryentry(element name)

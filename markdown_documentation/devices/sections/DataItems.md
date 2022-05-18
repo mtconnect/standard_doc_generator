@@ -1,16 +1,16 @@
 
 ## DataItems
 
-This section provides semantic information for the {{block(DataItem)}} entity. {{fig(DataItems)}} shows the {{block(DataItem)}} model. 
+This section provides semantic information for the {{block(DataItem)}} entity. {{figure(DataItems)}} shows the {{block(DataItem)}} model. 
 
 ![DataItems](figures/DataItems.png "DataItems"){: width="0.8"}
 
-> Note: See {{fig(DataItems Schema)}} for XML schema.
+> Note: See {{figure(DataItems Schema)}} for XML schema.
 
 ### DataItem
 
-
 information reported about a piece of equipment.
+
 
 
 #### Value Properties of DataItem
@@ -21,8 +21,8 @@ information reported about a piece of equipment.
 |-|-|:-:|
 |{{property(category)}}|`CategoryEnum`|1|
 |{{property(compositionId)}}|`ID`|0..1|
-|`<<deprecated>>`{{property(coordinateSystem)}}|`CoordinateSystemEnum`|0..1|
-|{{property(discrete)}}|`boolean`|0..1|
+|`<<deprecated>>` {{property(coordinateSystem)}}|`CoordinateSystemEnum`|0..1|
+|{{property(discrete)}}|`boolean`|1|
 |{{property(id)}}|`ID`|1|
 |{{property(name)}}|`string`|0..1|
 |{{property(nativeScale)}}|`integer`|0..1|
@@ -35,7 +35,7 @@ information reported about a piece of equipment.
 |{{property(units)}}|`UnitEnum`|0..1|
 |{{property(representation)}}|`RepresentationEnum`|0..1|
 |{{property(coordinateSystemIdRef)}}|`ID`|0..1|
-{: caption="Value Properties of DataItem"}
+{: caption="Value Properties of DataItem" label="table:value-properties-of-dataitem"}
 
 Descriptions for Value Properties of {{block(DataItem)}}:
 
@@ -43,10 +43,15 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     specifies the kind of information provided by a data item.
 
-    The value of {{property(category)}} **MUST** be one of the `CategoryEnum` enumeration. 
-
     `CategoryEnum` Enumeration:
 
+    * `CONDITION` 
+
+        information about the health of a piece of equipment and its ability to function.
+
+    * `EVENT` 
+
+        discrete piece of information from the piece of equipment.
 
     * `SAMPLE` 
 
@@ -54,23 +59,15 @@ Descriptions for Value Properties of {{block(DataItem)}}:
         
         A continuous value can be measured at any point-in-time and will always produce a result.
 
-    * `EVENT` 
-
-        discrete piece of information from the piece of equipment.
-
-    * `CONDITION` 
-
-        information about the health of a piece of equipment and its ability to function.
-
 * {{property(compositionId)}} 
 
-    identifier attribute of the {{block(Composition)}} element that the reported data is most closely associated.
+    identifier attribute of the {{block(Composition)}} that the reported data is most closely associated.
 
-* `<<deprecated>>`{{property(coordinateSystem)}} 
+* `<<deprecated>>` {{property(coordinateSystem)}} 
 
-    **DEPRECATED** in *Version 2.0*. Replaced by {{property(coordinateSystemIdRef)}}. 
+    for measured values relative to a coordinate system like {{block(Position)}}, the coordinate system used may be reported.
     
-    for measured values relative to a coordinate system like {{block(POSITION)}}, the coordinate system used may be reported.
+    **DEPRECATED** in *Version 2.0*. Replaced by {{property(coordinateSystemIdRef)}}. 
 
 * {{property(discrete)}} 
 
@@ -94,10 +91,11 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     native units of measurement for the reported value of the data item.
 
-    The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
-
     `<<extensible>>` `NativeUnitEnum` Enumeration:
 
+    * `BAR` 
+
+        pressure in Bar.
 
     * `CENTIPOISE` 
 
@@ -123,7 +121,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         feet per second.
 
-    * `FOOT/SECOND\^2` 
+    * `FOOT/SECOND^2` 
 
         acceleration in feet per second squared.
 
@@ -151,17 +149,17 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         inches per second.
 
-    * `INCH/SECOND\^2` 
+    * `INCH/SECOND^2` 
 
         acceleration in inches per second squared.
-
-    * `INCH_POUND` 
-
-        measure of torque in inch pounds.
 
     * `INCH_3D` 
 
         point in space identified by X, Y, and Z positions and represented by a space-delimited set of numbers each expressed in inches.
+
+    * `INCH_POUND` 
+
+        measure of torque in inch pounds.
 
     * `KELVIN` 
 
@@ -175,10 +173,6 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         kilowatt hours which is 3.6 mega joules.
 
-    * `LITER` 
-
-        measurement of volume of a fluid.
-
     * `LITER/MINUTE` 
 
         measurement of rate of flow of a fluid.
@@ -186,6 +180,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     * `MILLIMETER/MINUTE` 
 
         velocity in millimeters per minute.
+
+    * `MILLIMETER_MERCURY` 
+
+        pressure in Millimeter of Mercury (mmHg).
 
     * `MINUTE` 
 
@@ -195,11 +193,15 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         unsupported unit.
 
+    * `PASCAL/MINUTE` 
+
+        pascal per minute.
+
     * `POUND` 
 
         US pounds.
 
-    * `POUND/INCH\^2` 
+    * `POUND/INCH^2` 
 
         pressure in pounds per square inch (PSI).
 
@@ -215,29 +217,13 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         rotational acceleration in radian per second squared.
 
-    * `RADIAN/SECOND\^2` 
+    * `RADIAN/SECOND^2` 
 
         rotational acceleration in radian per second squared.
-
-    * `REVOLUTION/SECOND` 
-
-        rotational velocity in revolution per second.
-
-    * `BAR` 
-
-        pressure in Bar.
 
     * `TORR` 
 
         pressure in Torr.
-
-    * `MILLIMETER_MERCURY` 
-
-        pressure in Millimeter of Mercury (mmHg).
-
-    * `PASCAL/MINUTE` 
-
-        pascal per minute.
 
 * {{property(sampleRate)}} 
 
@@ -251,10 +237,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     type of statistical calculation performed on a series of data samples to provide the reported data value.
 
-    The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration. 
-
     `StatisticEnum` Enumeration:
-
 
     * `AVERAGE` 
 
@@ -294,13 +277,445 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
 * {{property(subType)}} 
 
-    sub-categorization of the data item {{property(type)}}. See {{DataItem SubTypes}}.
+    sub-categorization of the data item {{property(type)}}.
 
-    The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
+    `<<extensible>>` `DataItemSubTypeEnum` Enumeration:
+
+    * `ABORTED` 
+
+        actions or activities that were attempted, but terminated before they could be completed.
+
+    * `ABSOLUTE` 
+
+        relating to or derived in the simplest manner from the fundamental units or measurements.
+
+    * `ACTION` 
+
+        indication of the operating state of a mechanism.
+
+    * `ACTIVE` 
+
+        relating to logic or motion program currently executing.
+
+    * `ACTIVITY` 
+
+        phase or segment of a recipe or program.
+
+    * `ACTUAL` 
+
+        measured or reported value of an {{term(observation)}}.
+
+    * `ALL` 
+
+        all actions, items, or activities being counted independent of the outcome.
+
+    * `<<deprecated>>` `ALTERNATING` 
+
+        measurement of alternating voltage or current. If not specified further in statistic, defaults to RMS voltage. 
+        
+        **DEPRECATED** in *Version 1.6*.
+
+    * `AUXILIARY` 
+
+        when multiple locations on a piece of bar stock being feed by a bar feeder are referenced as the indication of whether the end of that piece of bar stock has been reached.
+
+    * `A_SCALE` 
+
+        A-Scale weighting factor on the frequency scale.
+
+    * `BAD` 
+
+        actions, items, or activities being counted that do not conform to specification or expectation.
+
+    * `BATCH` 
+
+        group of parts produced in a batch.
+
+    * `BRINELL` 
+
+        scale to measure the resistance to deformation of a surface.
+
+    * `B_SCALE` 
+
+        B-Scale weighting factor on the frequency scale.
+
+    * `COMMANDED` 
+
+        directive value including adjustments such as an offset or overrides.
+
+    * `COMPLETE` 
+
+        associated with the completion of an activity or event.
+
+    * `CONSUMED` 
+
+        amount of material consumed from an object or container during a manufacturing process.
+
+    * `CONTROL` 
+
+        state of the enabling signal or control logic that enables or disables the function or operation of the entity.
+
+    * `C_SCALE` 
+
+        C-Scale weighting factor on the frequency scale.
+
+    * `DELAY` 
+
+        elapsed time of a temporary halt of action.
+
+    * `<<deprecated>>` `DIRECT` 
+
+        DC current or voltage.
+        
+        **DEPRECATED** in *Version 1.6*.
+
+    * `DRY_RUN` 
+
+        setting or operator selection used to execute a test mode to confirm the execution of machine functions.
+
+    * `D_SCALE` 
+
+        D-Scale weighting factor on the frequency scale.
+
+    * `ENDED` 
+
+        boundary when an activity or an event terminates.
+
+    * `EXPIRATION` 
+
+        relating to the expiration or end of useful life for a material or other physical item.
+
+    * `FAILED` 
+
+        actions or activities that were attempted , but failed to complete or resulted in an unexpected or unacceptable outcome.
+
+    * `FIRST_USE` 
+
+        relating to the first use of a material or other physical item.
+
+    * `GATEWAY` 
+
+        Gateway for the {{block(Component)}} network.
+
+    * `GOOD` 
+
+        actions, items, or activities being counted that conform to specification or expectation.
+
+    * `HEAT_TREAT` 
+
+        material heat number.
+
+    * `INCREMENTAL` 
+
+        relating to or derived from the last {{term(observation)}}.
+
+    * `INSTALL_DATE` 
+
+        date the hardware or software was installed.
+
+    * `IPV4_ADDRESS` 
+
+        IPV4 network address of the {{block(Component)}}.
+
+    * `IPV6_ADDRESS` 
+
+        IPV6 network address of the {{block(Component)}}.
+
+    * `ISO_STEP_EXECUTABLE` 
+
+        reference to a ISO 10303 Executable.
+
+    * `JOG` 
+
+        relating to momentary activation of a function or a movement.
+        
+        **DEPRECATION WARNING**: May be deprecated in the future.
+
+    * `LATERAL` 
+
+        indication of the position of a mechanism that may move in a lateral direction.
+
+    * `LEEB` 
+
+        scale to measure the elasticity of a surface.
+
+    * `LENGTH` 
+
+        reference to a length type tool offset variable.
+
+    * `LICENSE` 
+
+        license code to validate or activate the hardware or software.
+
+    * `LINE` 
+
+        state of the power source.
+
+    * `LINEAR` 
+
+        direction of motion of a linear motion.
+
+    * `LOADED` 
+
+        indication that the subparts of a piece of equipment are under load.
+
+    * `LOT` 
+
+        group of parts tracked as a lot.
+
+    * `MACHINE_AXIS_LOCK` 
+
+        setting or operator selection that changes the behavior of the controller on a piece of equipment.
+
+    * `MAC_ADDRESS` 
+
+        Media Access Control Address. The unique physical address of the network hardware.
+
+    * `MAIN` 
+
+        relating to the primary logic or motion program currently being executed.
+
+    * `MAINTENANCE` 
+
+        relating to maintenance on the piece of equipment.
+
+    * `MANUAL_UNCLAMP` 
+
+        indication of the state of an operator controlled interlock that can inhibit the ability to initiate an unclamp action of an electronically controlled chuck.
+
+    * `MANUFACTURE` 
+
+        related to the production of a material or other physical item.
+
+    * `MANUFACTURER` 
+
+        corporate identity for the maker of the hardware or software.
+
+    * `MAXIMUM` 
+
+        maximum value.
+
+    * `MINIMUM` 
+
+        minimum value.
+
+    * `MOHS` 
+
+        scale to measure the resistance to scratching of a surface.
+
+    * `MOTION` 
+
+        indication of the open or closed state of a mechanism.
+
+    * `NO_SCALE` 
+
+        no weighting factor on the frequency scale.
+
+    * `OPERATING` 
+
+        piece of equipment that is powered or performing any activity.
+
+    * `OPERATION` 
+
+        step of a discrete manufacturing process.
+
+    * `OPERATOR` 
+
+        relating to the person currently responsible for operating the piece of equipment.
+
+    * `OPTIONAL_STOP` 
+
+        setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+
+    * `ORDER_NUMBER` 
+
+        authorization of a process occurrence.
+
+    * `OVERRIDE` 
+
+        overridden value.
+
+    * `PART` 
+
+        amount included in the {{term(part)}}.
+
+    * `PART_FAMILY` 
+
+        group of parts having similarities in geometry, manufacturing process, and/or functions.
+
+    * `PART_NAME` 
+
+        word or set of words by which a part is known, addressed, or referred to.
+
+    * `PART_NUMBER` 
+
+        particular part design or model.
+
+    * `POWERED` 
+
+        piece of equipment is powered and functioning or {{block(Component)}} that are required to remain on are powered.
+
+    * `PRIMARY` 
+
+        main or most important location of a piece of bar stock.
+
+    * `PROBE` 
+
+        position provided by a measurement probe.
+        
+        **DEPRECATION WARNING**: May be deprecated in the future.
+
+    * `PROCESS` 
+
+        relating to production of a part or product on a piece of equipment.
+
+    * `PROCESS_NAME` 
+
+        word or set of words by which a process being executed (process occurrence) by the device is known, addressed, or referred to.
+
+    * `PROCESS_PLAN` 
+
+        process plan that a process occurrence belongs to.
+
+    * `PROCESS_STEP` 
+
+        step in the process plan that this occurrence corresponds to. 
+
+    * `PROGRAMMED` 
+
+        directive value without offsets and adjustments.
+
+    * `RADIAL` 
+
+        reference to a radial type tool offset variable.
+
+    * `RAPID` 
+
+        performing an operation faster or in less time than nominal rate.
+
+    * `RAW_MATERIAL` 
+
+        material that is used to produce parts.
+
+    * `RECIPE` 
+
+        process as part of product production; can be a subprocess of a larger process.
+
+    * `RELEASE_DATE` 
+
+        date the hardware or software was released for general use.
+
+    * `REMAINING` 
+
+        remaining measure or count of an action, object or activity.
+
+    * `REQUEST` 
+
+        {{term(request)}} by an {{block(Interface)}} for a task.
+
+    * `RESPONSE` 
+
+        {{term(response)}} by an {{block(Interface)}} to a {{term(request)}} for a task.
+
+    * `ROCKWELL` 
+
+        scale to measure the resistance to deformation of a surface.
+
+    * `ROTARY` 
+
+        direction of a rotary motion using the right hand rule convention.
+
+    * `SCHEDULE` 
+
+        identity of a control program that is used to specify the order of execution of other programs.
+
+    * `SEGMENT` 
+
+        phase of a recipe process.
+
+    * `SERIAL_NUMBER` 
+
+        serial number that uniquely identifies a specific part.
+
+    * `SET_UP` 
+
+        relating to the preparation of a piece of equipment for production or restoring the piece of equipment to a neutral state after production.
+
+    * `SHORE` 
+
+        scale to measure the resistance to deformation of a surface.
+
+    * `SINGLE_BLOCK` 
+
+        setting or operator selection that changes the behavior of the controller on a piece of equipment. 
+
+    * `STANDARD` 
+
+        standard measure of an object or an action.
+
+    * `START` 
+
+        boundary when an activity or an event commences.
+
+    * `SUBNET_MASK` 
+
+        SubNet mask for the {{block(Component)}} network.
+
+    * `SWITCHED` 
+
+        indication of the activation state of a mechanism represented by a {{block(Composition)}}.
+
+    * `TARGET` 
+
+        goal of the operation or process.
+
+    * `TARGET_COMPLETION` 
+
+        relating to the end or completion of an activity or event.
+
+    * `TOOL_CHANGE_STOP` 
+
+        setting or operator selection that changes the behavior of the controller on a piece of equipment.
+
+    * `USEABLE` 
+
+        remaining usable measure of an object or action.
+
+    * `UUID` 
+
+        universally unique identifier as specified in ISO 11578 or RFC 4122.
+
+    * `VERSION` 
+
+        version of the hardware or software.
+
+    * `VERTICAL` 
+
+        indication of the position of a mechanism that may move in a vertical direction.
+
+    * `VICKERS` 
+
+        scale to measure the resistance to deformation of a surface.
+
+    * `VLAN_ID` 
+
+        layer2 Virtual Local Network (VLAN) ID for the {{block(Component)}} network.
+
+    * `WASTE` 
+
+        amount discarded.
+
+    * `WIRELESS` 
+
+        identifies whether the connection type is wireless.
+
+    * `WORKING` 
+
+        piece of equipment performing any activity, the equipment is active and performing a function under load or not.
 
 * {{property(type)}} 
 
-    type of data being measured. See {{sect(DataItem Types)}}.
+    type of data being measured. See {{package(DataItem Types)}}.
 
     The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
@@ -308,10 +723,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     unit of measurement for the reported value of the data item.
 
-    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
-
     `<<extensible>>` `UnitEnum` Enumeration:
-
 
     * `AMPERE` 
 
@@ -325,6 +737,22 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         count of something.
 
+    * `COUNT/SECOND` 
+
+        counts per second.
+
+    * `CUBIC_MILLIMETER` 
+
+        geometric volume in millimeters.
+
+    * `CUBIC_MILLIMETER/SECOND` 
+
+        change of geometric volume per second.
+
+    * `CUBIC_MILLIMETER/SECOND^2` 
+
+        change in geometric volume per second squared.
+
     * `DECIBEL` 
 
         sound level.
@@ -333,19 +761,27 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         angle in degrees.
 
+    * `DEGREE/SECOND` 
+
+        angular degrees per second.
+
+    * `DEGREE/SECOND^2` 
+
+        angular acceleration in degrees per second squared.
+
     * `DEGREE_3D` 
 
         space-delimited, floating-point representation of the angular rotation in degrees around the X, Y, and Z axes relative to a cartesian coordinate system respectively in order as A, B, and C. 
         
         If any of the rotations is not known, it **MUST** be zero (0).
 
-    * `DEGREE/SECOND` 
+    * `GRAM` 
 
-        angular degrees per second.
+        gram.
 
-    * `DEGREE/SECOND\^2` 
+    * `GRAM/CUBIC_METER` 
 
-        angular acceleration in degrees per second squared.
+        gram per cubic meter.
 
     * `HERTZ` 
 
@@ -371,13 +807,21 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         measurement of tilt.
 
+    * `MILLIGRAM` 
+
+        milligram.
+
+    * `MILLIGRAM/CUBIC_MILLIMETER` 
+
+        milligram per cubic millimeter.
+
+    * `MILLILITER` 
+
+        milliliter.
+
     * `MILLIMETER` 
 
         millimeters.
-
-    * `MILLIMETER_3D` 
-
-        point in space identified by X, Y, and Z positions and represented by a space-delimited set of numbers each expressed in millimeters.
 
     * `MILLIMETER/REVOLUTION` 
 
@@ -387,9 +831,13 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         millimeters per second.
 
-    * `MILLIMETER/SECOND\^2` 
+    * `MILLIMETER/SECOND^2` 
 
         acceleration in millimeters per second squared.
+
+    * `MILLIMETER_3D` 
+
+        point in space identified by X, Y, and Z positions and represented by a space-delimited set of numbers each expressed in millimeters.
 
     * `NEWTON` 
 
@@ -407,6 +855,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         pressure in Newtons per square meter.
 
+    * `PASCAL/SECOND` 
+
+        pascal per second.
+
     * `PASCAL_SECOND` 
 
         measurement of viscosity.
@@ -423,6 +875,14 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         revolutions per minute.
 
+    * `REVOLUTION/SECOND` 
+
+        rotational velocity in revolution per second.
+
+    * `REVOLUTION/SECOND^2` 
+
+        revolutions per second squared.
+
     * `SECOND` 
 
         measurement of time.
@@ -430,6 +890,12 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     * `SIEMENS/METER` 
 
         measurement of electrical conductivity.
+
+    * `UNIT_VECTOR_3D` 
+
+        3D Unit Vector.
+        
+        Space delimited list of three floating point numbers.
 
     * `VOLT` 
 
@@ -451,56 +917,6 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         measurement of electrical energy, equal to one Joule.
 
-    * `REVOLUTION/SECOND` 
-
-        revolutions per second.
-
-    * `REVOLUTION/SECOND\^2` 
-
-        revolutions per second squared.
-
-    * `GRAM/CUBIC_METER` 
-
-        gram per cubic meter.
-
-    * `CUBIC_MILLIMETER` 
-
-        geometric volume in millimeters.
-
-    * `CUBIC_MILLIMETER/SECOND` 
-
-        change of geometric volume per second.
-
-    * `CUBIC_MILLIMETER/SECOND\^2` 
-
-        change in geometric volume per second squared.
-
-    * `MILLIGRAM` 
-
-        milligram.
-
-    * `MILLIGRAM/CUBIC_MILLIMETER` 
-
-        milligram per cubic millimeter.
-
-    * `MILLILITER` 
-
-        milliliter.
-
-    * `COUNT/SECOND` 
-
-        counts per second.
-
-    * `PASCAL/SECOND` 
-
-        pascal per second.
-
-    * `UNIT_VECTOR_3D` 
-
-        3D Unit Vector.
-        
-        Space delimited list of three floating point numbers.
-
 * {{property(representation)}} 
 
     description of a means to interpret data consisting of multiple data points or samples reported as a single value.  
@@ -508,22 +924,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     If {{property(representation)}} is not specified, it **MUST** be determined to be `VALUE`.
     
 
-    The value of {{property(representation)}} **MUST** be one of the `RepresentationEnum` enumeration. 
-
     `RepresentationEnum` Enumeration:
-
-
-    * `TIME_SERIES` 
-
-        series of sampled data.
-        
-        The data is reported for a specified number of samples and each sample is reported with a fixed period.
-
-    * `VALUE` 
-
-        measured value of the sample data.
-        
-        If no {{property(representation,DataItem)}} is specified for a data item, the {{property(representation,DataItem)}} **MUST** be determined to be `VALUE`.
 
     * `DATA_SET` 
 
@@ -545,8 +946,19 @@ Descriptions for Value Properties of {{block(DataItem)}}:
         
         Each {{block(Entry)}} in the {{term(table)}} **MUST** have a unique key. Each {{block(Cell)}} of each {{block(Entry)}} in the {{term(table)}} **MUST** have a unique key.
         
-        See {{cite(Section 5.6.5)}} of {{citetitle(MTCPart3)}}, for a description of
-        {{block(Entry)}} and {{block(Cell)}} elements.
+        See {{block(Representation)}} in {{package(Observation Information Model)}}, for a description of {{block(Entry)}} and {{block(Cell)}} elements.
+
+    * `TIME_SERIES` 
+
+        series of sampled data.
+        
+        The data is reported for a specified number of samples and each sample is reported with a fixed period.
+
+    * `VALUE` 
+
+        measured value of the sample data.
+        
+        If no {{property(representation,DataItem)}} is specified for a data item, the {{property(representation,DataItem)}} **MUST** be determined to be `VALUE`.
 
 * {{property(coordinateSystemIdRef)}} 
 
@@ -558,8 +970,8 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
 |Reference Property name|Multiplicity|
 |:-|:-:|
-|{{block(Observation)}} (organized by {{block(Observations)}})|0..*|
-{: caption="Reference Properties of DataItem"}
+|{{block(Observation)}} (organized by `Observations`)|0..*|
+{: caption="Reference Properties of DataItem" label="table:reference-properties-of-dataitem"}
 
 Descriptions for Reference Properties of {{block(DataItem)}}:
 
@@ -571,7 +983,7 @@ Descriptions for Reference Properties of {{block(DataItem)}}:
     
     {{block(Component)}} {{termplural(observe)}} {{block(DataItem)}} entities to create {{block(Observation)}} entities for the {{block(DataItem)}} entities.
     
-    See {{citetitle(MTCPart3)}} for the {{block(Observation)}} model.
+    See {{package(Observation Information Model)}} for the {{block(Observation)}} model.
     
     > Note 1 to entry: In the {{term(XML)}} representation, {{block(Observation)}} entities **MUST NOT** appear in the {{term(MTConnectDevices Response Document)}}.
     
@@ -585,20 +997,18 @@ Descriptions for Reference Properties of {{block(DataItem)}}:
 |:-|:-:|
 |{{block(Source)}}|0..1|
 |{{block(Constraints)}}|0..1|
-|{{block(Filter)}} (organized by {{block(Filters)}})|0..*|
+|{{block(Filter)}} (organized by `Filters`)|0..*|
 |{{block(InitialValue)}}|0..1|
 |{{block(ResetTrigger)}}|0..1|
 |{{block(Definition)}}|0..1|
-|{{block(Relationship)}} (organized by {{block(Relationships)}})|0..*|
-{: caption="Part Properties of DataItem"}
+|{{block(Relationship)}} (organized by `Relationships`)|0..*|
+{: caption="Part Properties of DataItem" label="table:part-properties-of-dataitem"}
 
 Descriptions for Part Properties of {{block(DataItem)}}:
 
 * {{block(Source)}} 
 
     identifies the {{block(Component)}}, {{block(DataItem)}}, or {{block(Composition)}} from which a measured value originates.
-    
-    One of {{property(componentId)}}, {{property(compositionId)}}, or {{property(dataItemId)}} **MUST** be defined for {{block(Source)}}.
 
     See {{sect(Source)}}.
 
@@ -632,4 +1042,4 @@ Descriptions for Part Properties of {{block(DataItem)}}:
 
     association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
-    {{block(Relationships)}} groups one or more {{block(DataItemRelationship)}} and {{block(SpecificationRelationship)}}. See {{sect(Relationships)}}.
+    {{block(Relationships)}} groups one or more {{block(DataItemRelationship)}} and {{block(SpecificationRelationship)}}. See {{package(Relationships)}}.

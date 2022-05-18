@@ -11,8 +11,8 @@ MTConnect Standard considers {{block(CuttingItems)}} as part of the {{block(Cutt
 
 ### CuttingItem
 
-
 part of of the tool that physically removes the material from the workpiece by shear deformation.
+
 
 
 #### Value Properties of CuttingItem
@@ -28,7 +28,7 @@ part of of the tool that physically removes the material from the workpiece by s
 |{{property(Locus)}}|`string`|0..1|
 |{{property(manufacturers)}}|`string`|0..*|
 |{{property(ProgramToolGroup)}}|`string`|0..1|
-{: caption="Value Properties of CuttingItem"}
+{: caption="Value Properties of CuttingItem" label="table:value-properties-of-cuttingitem"}
 
 Descriptions for Value Properties of {{block(CuttingItem)}}:
 
@@ -38,11 +38,11 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
 
 * {{property(grade)}} 
 
-    material composition for this cutting item.
+    material composition for this cutting item.
 
 * {{property(indices)}} 
 
-    number or numbers representing the individual cutting item or items on the tool.
+    number or numbers representing the individual cutting item or items on the tool.
     
     Indices **SHOULD** start numbering with the inserts or {{block(CuttingItem)}} furthest from the gauge line and increasing in value as the items get closer to the gauge line. Items at the same distance **MAY** be arbitrarily numbered.
     
@@ -71,24 +71,24 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
     This will reference the tool item and adaptive items specifically. The cutting items
     manufacturers’ will be a property of {{block(CuttingItem)}}.
     
-    > Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{fig(CuttingItem Schema)}}.
+    > Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{figure(CuttingItem Schema)}}.
 
 * {{property(ProgramToolGroup)}} 
 
     tool group this item is assigned in the part program.
 
-#### Reference Properties of CuttingItem
+#### Part Properties of CuttingItem
 
-{{tbl(reference-properties-of-cuttingitem)}} lists the Reference Properties of {{block(CuttingItem)}}.
+{{tbl(part-properties-of-cuttingitem)}} lists the Part Properties of {{block(CuttingItem)}}.
 
-|Reference Property name|Multiplicity|
+|Part Property name|Multiplicity|
 |:-|:-:|
-|{{block(Status)}} (organized by {{block(CutterStatus)}})|1..*|
+|{{block(Status)}} (organized by `CutterStatus`)|1..*|
 |{{block(ItemLife)}}|0..3|
-|{{block(Measurement)}} (organized by {{block(Measurements)}})|0..*|
-{: caption="Reference Properties of CuttingItem"}
+|{{block(Measurement)}} (organized by `Measurements`)|0..*|
+{: caption="Part Properties of CuttingItem" label="table:part-properties-of-cuttingitem"}
 
-Descriptions for Reference Properties of {{block(CuttingItem)}}:
+Descriptions for Part Properties of {{block(CuttingItem)}}:
 
 * {{block(Status)}} 
 
@@ -124,8 +124,8 @@ Descriptions for Reference Properties of {{block(CuttingItem)}}:
 
 ### CuttingItems
 
+{{block(CuttingItems)}} groups one or more {{block(CuttingItem)}} entities. See {{sect(CuttingItem)}} and {{package(Cutting Item)}} for more detail.
 
-{{block(CuttingItems)}} groups one or more {{block(CuttingItem)}} entities. See {{sect(CuttingItem)}} and {{sect(CuttingItems)}} for more detail.
 
 
 #### Value Properties of CuttingItems
@@ -135,7 +135,7 @@ Descriptions for Reference Properties of {{block(CuttingItem)}}:
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(count)}}|`integer`|1|
-{: caption="Value Properties of CuttingItems"}
+{: caption="Value Properties of CuttingItems" label="table:value-properties-of-cuttingitems"}
 
 Descriptions for Value Properties of {{block(CuttingItems)}}:
 
@@ -145,8 +145,8 @@ Descriptions for Value Properties of {{block(CuttingItems)}}:
 
 ### ItemLife
 
-
 life of a {{block(CuttingItem)}}.
+
 
 
 The value of {{property(ItemLife)}} **MUST** be `float`.
@@ -162,7 +162,7 @@ The value of {{property(ItemLife)}} **MUST** be `float`.
 |{{property(limit)}}|`float`|0..1|
 |{{property(type)}}|`ToolLifeEnum`|1|
 |{{property(warning)}}|`float`|0..1|
-{: caption="Value Properties of ItemLife"}
+{: caption="Value Properties of ItemLife" label="table:value-properties-of-itemlife"}
 
 Descriptions for Value Properties of {{block(ItemLife)}}:
 
@@ -188,4 +188,4 @@ Descriptions for Value Properties of {{block(ItemLife)}}:
 
 * {{property(warning)}} 
 
-    point at which a item life warning will be raised.
+    point at which a item life warning will be raised.

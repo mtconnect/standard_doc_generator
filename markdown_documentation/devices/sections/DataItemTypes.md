@@ -20,1135 +20,874 @@ Many types of data items provide two forms of data: a value (reported as either 
 
 ### Condition
 
-
 abstract {{block(DataItem)}} that is about an entity's status regarding its ability to operate or it provides an indication whether the data reported for the entity is within an expected range.
+
 
 {{block(Condition)}} is reported differently than {{block(Sample)}} or {{block(Event)}}.  {{block(Condition)}} **MUST** be reported as {{block(Normal)}}, {{block(Warning)}}, or {{block(Fault)}}.
 
 All {{block(Sample)}}s **MAY** have associated {{block(Condition)}} states.  {{block(Condition)}} states indicate whether the value for the data is within an expected range and **MUST** be reported as {{block(Normal)}}, or the value is unexpected or out of tolerance for the data and a {{block(Warning)}} or {{block(Fault)}} **MUST** be provided.
 
-The value of `<<extensible>>`{{property(type)}} with {{property(category)}} `CONDITION` **MUST** be one of the following:
 
+#### Value Properties of Condition
 
-* `ACTUATOR` 
+{{tbl(value-properties-of-condition)}} lists the Value Properties of {{block(Condition)}}.
 
-    indication of a fault associated with an actuator.
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(category)}}|`CONDITION`|1|
+|{{property(type)}}|`ConditionEnum`|1|
+{: caption="Value Properties of Condition" label="table:value-properties-of-condition"}
 
-* `COMMUNICATIONS` 
+Descriptions for Value Properties of {{block(Condition)}}:
 
-    indication that the piece of equipment has experienced a communications failure.
+* {{property(type)}} 
 
-* `DATA_RANGE` 
+    `<<extensible>>` `ConditionEnum` Enumeration:
 
-    indication that the value of the data associated with a measured value or a calculation is outside of an expected range.
+    * `ACTUATOR` 
 
-* `LOGIC_PROGRAM` 
+        indication of a fault associated with an actuator.
 
-    indication that an error occurred in the logic program or programmable logic controller (PLC) associated with a piece of equipment.
+    * `COMMUNICATIONS` 
 
-* `MOTION_PROGRAM` 
+        indication that the piece of equipment has experienced a communications failure.
 
-    indication that an error occurred in the motion program associated with a piece of equipment.
+    * `DATA_RANGE` 
 
-* `SYSTEM` 
+        indication that the value of the data associated with a measured value or a calculation is outside of an expected range.
 
-    general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware.
+    * `LOGIC_PROGRAM` 
+
+        indication that an error occurred in the logic program or programmable logic controller (PLC) associated with a piece of equipment.
+
+    * `MOTION_PROGRAM` 
+
+        indication that an error occurred in the motion program associated with a piece of equipment.
+
+    * `SYSTEM` 
+
+        general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware.
 
 ### Event
-
 
 abstract {{block(DataItem)}} that is a discrete piece of information from a piece of equipment. It does not have intermediate values that vary over time.
 
 
+
 An {{block(Event)}} is information that, when provided at any specific point in time, represents the current state of the piece of equipment.
 
-The value of `<<extensible>>`{{property(type)}} with {{property(category)}} `EVENT` **MUST** be one of the following:
 
+#### Value Properties of Event
 
-* `ACTIVATION_COUNT` 
+{{tbl(value-properties-of-event)}} lists the Value Properties of {{block(Event)}}.
 
-    accumulation of the number of times a function has attempted to, or is planned to attempt to, activate or be performed.
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(category)}}|`EVENT`|1|
+|{{property(type)}}|`EventEnum`|1|
+{: caption="Value Properties of Event" label="table:value-properties-of-event"}
 
-    Subtypes of `ACTIVATION_COUNT` : `TARGET`, `GOOD`, `BAD`, `REMAINING`, `ABORTED`, `FAILED`, `COMPLETE`, `ALL`.
+Descriptions for Value Properties of {{block(Event)}}:
 
+* {{property(type)}} 
 
-* `ACTIVE_AXES` 
+    `<<extensible>>` `EventEnum` Enumeration:
 
-    set of axes currently associated with a {{block(Path)}} or {{block(Controller)}}.
+    * `ACTIVATION_COUNT` 
 
-* `ACTUATOR_STATE` 
+        accumulation of the number of times a function has attempted to, or is planned to attempt to, activate or be performed.
 
-    operational state of an apparatus for moving or controlling a mechanism or system.
+    * `ACTIVE_AXES` 
 
-* `ADAPTER_SOFTWARE_VERSION` 
+        set of axes currently associated with a {{block(Path)}} or {{block(Controller)}}.
 
-    originator’s software version of the {{term(adapter)}}.
+    * `ACTUATOR_STATE` 
 
-* `ADAPTER_URI` 
+        operational state of an apparatus for moving or controlling a mechanism or system.
 
-    {{term(URI)}} of the {{term(adapter)}}.
+    * `ADAPTER_SOFTWARE_VERSION` 
 
-* `ALARM` 
+        originator’s software version of the {{term(adapter)}}.
 
-    **DEPRECATED:** Replaced with `CONDITION` category data items in Version 1.1.0.
+    * `ADAPTER_URI` 
 
-* `ALARM_LIMIT` 
+        {{term(URI)}} of the {{term(adapter)}}.
 
-    set of limits used to trigger warning or alarm indicators.
+    * `<<deprecated>>` `ALARM` 
 
-* `APPLICATION` 
+        **DEPRECATED:** Replaced with `CONDITION` category data items in Version 1.1.0.
 
-    application on a {{block(Component)}}.
+    * `ALARM_LIMIT` 
 
-    Subtypes of `APPLICATION` : `VERSION`, `RELEASE_DATE`, `MANUFACTURER`, `LICENSE`, `INSTALL_DATE`.
+        set of limits used to trigger warning or alarm indicators.
 
+    * `APPLICATION` 
 
-* `ASSET_CHANGED` 
+        application on a {{block(Component)}}.
 
-    {{block(assetId)}} of the {{term(Asset)}} that has been added or changed.
+    * `ASSET_CHANGED` 
 
-* `ASSET_COUNT` 
+        {{block(assetId)}} of the {{term(Asset)}} that has been added or changed.
 
-    list of {{block(Asset)}} types in the {{term(asset buffer)}} and their corresponding instance count.
+    * `ASSET_COUNT` 
 
-* `ASSET_REMOVED` 
+        {{term(data set)}} of the number of {{termplural(Asset)}} of a given type for a {{term(Device)}}.
 
-    {{block(assetId)}} of the {{term(Asset)}} that has been removed.
+    * `ASSET_REMOVED` 
 
-* `AVAILABILITY` 
+        {{block(assetId)}} of the {{term(Asset)}} that has been removed.
 
-    {{term(agent)}}'s ability to communicate with the data source.
+    * `AVAILABILITY` 
 
-* `AXIS_COUPLING` 
+        {{term(agent)}}'s ability to communicate with the data source.
 
-    describes the way the axes will be associated to each other. 
-      
-    This is used in conjunction with `COUPLED_AXES` to indicate the way they are interacting.
+    * `AXIS_COUPLING` 
 
-* `AXIS_FEEDRATE_OVERRIDE` 
+        describes the way the axes will be associated to each other. 
+          
+        This is used in conjunction with `COUPLED_AXES` to indicate the way they are interacting.
 
-    value of a signal or calculation issued to adjust the feedrate of an individual linear type axis.
+    * `AXIS_FEEDRATE_OVERRIDE` 
 
-    Subtypes of `AXIS_FEEDRATE_OVERRIDE` : `JOG`, `PROGRAMMED`, `RAPID`.
+        value of a signal or calculation issued to adjust the feedrate of an individual linear type axis.
 
+    * `AXIS_INTERLOCK` 
 
-* `AXIS_INTERLOCK` 
+        state of the axis lockout function when power has been removed and the axis is allowed to move freely.
 
-    state of the axis lockout function when power has been removed and the axis is allowed to move freely.
+    * `AXIS_STATE` 
 
-* `AXIS_STATE` 
+        state of a {{block(Linear)}} or {{block(Rotary)}} component representing an axis.
 
-    state of a {{block(Linear)}} or {{block(Rotary)}} component representing an axis.
+    * `BLOCK` 
 
-* `BLOCK` 
+        line of code or command being executed by a {{block(Controller)}} entity.
 
-    line of code or command being executed by a {{block(Controller)}} entity.
+    * `BLOCK_COUNT` 
 
-* `BLOCK_COUNT` 
+        total count of the number of blocks of program code that have been executed since execution started.
 
-    total count of the number of blocks of program code that have been executed since execution started.
+    * `CHUCK_INTERLOCK` 
 
-* `CHUCK_INTERLOCK` 
+        state of an interlock function or control logic state intended to prevent the associated {{block(Chuck)}} component from being operated.
 
-    state of an interlock function or control logic state intended to prevent the associated {{block(Chuck)}} component from being operated.
+    * `CHUCK_STATE` 
 
-    Subtypes of `CHUCK_INTERLOCK` : `MANUAL_UNCLAMP`.
+        operating state of a mechanism that holds a part or stock material during a manufacturing process. 
+        
+        It may also represent a mechanism that holds any other mechanism in place within a piece of equipment.
 
+    * `CLOCK_TIME` 
 
-* `CHUCK_STATE` 
+        time provided by a timing device at a specific point in time.
 
-    operating state of a mechanism that holds a part or stock material during a manufacturing process. 
-    
-    It may also represent a mechanism that holds any other mechanism in place within a piece of equipment.
+    * `<<deprecated>>` `CODE` 
 
-* `CLOSE_CHUCK` 
+        programmatic code being executed.
+        
+        **DEPRECATED** in *Version 1.1*.
 
-    operating state of the service to close a chuck.
+    * `COMPOSITION_STATE` 
 
-    Subtypes of `CLOSE_CHUCK` : `REQUEST`, `RESPONSE`.
+        operating state of a mechanism represented by a {{block(Composition)}} entity.
 
+    * `CONNECTION_STATUS` 
 
-* `CLOSE_DOOR` 
+        status of the connection between an {{term(adapter)}} and an {{term(agent)}}.
 
-    operating state of the service to close a door.
+    * `CONTROLLER_MODE` 
 
-    Subtypes of `CLOSE_DOOR` : `REQUEST`, `RESPONSE`.
+        current mode of the {{block(Controller)}} component.
 
+    * `CONTROLLER_MODE_OVERRIDE` 
 
-* `CODE` 
+        setting or operator selection that changes the behavior of a piece of equipment.
 
-    programmatic code being executed.
-    
-    **DEPRECATED** in *Version 1.1*.
+    * `CONTROL_LIMIT` 
 
-* `COMPOSITION_STATE` 
+        set of limits used to indicate whether a process variable is stable and in control.
 
-    operating state of a mechanism represented by a {{block(Composition)}} entity.
+    * `COUPLED_AXES` 
 
-    Subtypes of `COMPOSITION_STATE` : `ACTION`, `LATERAL`, `MOTION`, `SWITCHED`, `VERTICAL`.
+        set of associated axes.
 
+    * `CYCLE_COUNT` 
 
-* `CONNECTION_STATUS` 
+        accumulation of the number of times a cyclic function has attempted to, or is planned to attempt to execute.
 
-    status of the connection between an {{term(adapter)}} and an {{term(agent)}}.
+    * `DATE_CODE` 
 
-* `CONTROLLER_MODE` 
+        time and date code associated with a material or other physical item.
 
-    current mode of the {{block(Controller)}} component.
+    * `DEACTIVATION_COUNT` 
 
-* `CONTROLLER_MODE_OVERRIDE` 
+        accumulation of the number of times a function has attempted to, or is planned to attempt to, deactivate or cease.
 
-    setting or operator selection that changes the behavior of a piece of equipment.
+    * `DEVICE_ADDED` 
 
-    Subtypes of `CONTROLLER_MODE_OVERRIDE` : `DRY_RUN`, `SINGLE_BLOCK`, `MACHINE_AXIS_LOCK`, `OPTIONAL_STOP`, `TOOL_CHANGE_STOP`.
+        {{term(UUID)}} of new device added to an {{term(MTConnect Agent)}}.
 
+    * `DEVICE_CHANGED` 
 
-* `CONTROL_LIMIT` 
+        {{term(UUID)}} of the device whose {{term(metadata)}} has changed.
 
-    set of limits used to indicate whether a process variable is stable and in control.
+    * `DEVICE_REMOVED` 
 
-* `COUPLED_AXES` 
+        {{term(UUID)}} of a device removed from an {{term(MTConnect Agent)}}.
 
-    set of associated axes.
+    * `DEVICE_UUID` 
 
-* `CYCLE_COUNT` 
+        identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function.
 
-    accumulation of the number of times a cyclic function has attempted to, or is planned to attempt to execute.
+    * `DIRECTION` 
 
-    Subtypes of `CYCLE_COUNT` : `GOOD`, `REMAINING`, `COMPLETE`, `ABORTED`, `BAD`, `FAILED`, `TARGET`, `ALL`.
+        direction of motion.
 
+    * `DOOR_STATE` 
 
-* `DATE_CODE` 
+        operational state of a {{block(Door)}} component or composition element.
 
-    time and date code associated with a material or other physical item.
+    * `EMERGENCY_STOP` 
 
-    Subtypes of `DATE_CODE` : `MANUFACTURE`, `EXPIRATION`, `FIRST_USE`.
+        state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment.
 
+    * `END_OF_BAR` 
 
-* `DEACTIVATION_COUNT` 
+        indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached.
 
-    accumulation of the number of times a function has attempted to, or is planned to attempt to, deactivate or cease.
+    * `EQUIPMENT_MODE` 
 
-    Subtypes of `DEACTIVATION_COUNT` : `BAD`, `FAILED`, `TARGET`, `COMPLETE`, `REMAINING`, `ALL`, `GOOD`, `ABORTED`.
+        indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities.
 
+    * `EXECUTION` 
 
-* `DEVICE_ADDED` 
+        execution status of the {{block(Component)}}.
 
-    {{term(UUID)}} of new device added to an {{term(MTConnect Agent)}}.
+    * `FIRMWARE` 
 
-* `DEVICE_CHANGED` 
+        embedded software of a {{block(Component)}}.
 
-    {{term(UUID)}} of the device whose {{term(metadata)}} has changed.
+    * `FIXTURE_ID` 
 
-* `DEVICE_REMOVED` 
+        identifier for a fixture.
 
-    {{term(UUID)}} of a device removed from an {{term(MTConnect Agent)}}.
+    * `FUNCTIONAL_MODE` 
 
-* `DEVICE_UUID` 
+        current intended production status of the {{block(Component)}}.
 
-    identifier of another piece of equipment that is temporarily associated with a component of this piece of equipment to perform a particular function.
+    * `HARDNESS` 
 
-* `DIRECTION` 
+        hardness of a material.
 
-    direction of motion.
+    * `HARDWARE` 
 
-    Subtypes of `DIRECTION` : `ROTARY`, `LINEAR`.
+        hardware of a {{block(Component)}}.
 
+    * `LIBRARY` 
 
-* `DOOR_STATE` 
+        software library on a {{block(Component)}}
 
-    operational state of a {{block(Door)}} component or composition element.
+    * `<<deprecated>>` `LINE` 
 
-* `EMERGENCY_STOP` 
+        current line of code being executed.
+        
+        **DEPRECATED** in *Version 1.4.0*.
 
-    state of the emergency stop signal for a piece of equipment, controller path, or any other component or subsystem of a piece of equipment.
+    * `LINE_LABEL` 
 
-* `END_OF_BAR` 
+        identifier for a {{block(Block)}} of code in a {{block(Program)}}.
 
-    indication of whether the end of a piece of bar stock being feed by a bar feeder has been reached.
+    * `LINE_NUMBER` 
 
-    Subtypes of `END_OF_BAR` : `PRIMARY`, `AUXILIARY`.
+        position of a block of program code within a control program.
 
+    * `LOAD_COUNT` 
 
-* `EQUIPMENT_MODE` 
+        accumulation of the number of times an operation has attempted to, or is planned to attempt to, load materials, parts, or other items.
 
-    indication that a piece of equipment, or a sub-part of a piece of equipment, is performing specific types of activities.
+    * `LOCK_STATE` 
 
-    Subtypes of `EQUIPMENT_MODE` : `LOADED`, `WORKING`, `OPERATING`, `POWERED`, `DELAY`.
+        state or operating mode of a {{block(Lock)}}.
 
+    * `MAINTENANCE_LIST` 
 
-* `EXECUTION` 
+        actions or activities to be performed in support of a piece of equipment.
 
-    execution status of the {{block(Component)}}.
+    * `MATERIAL` 
 
-* `FIRMWARE` 
+        identifier of a material used or consumed in the manufacturing process.
 
-    embedded software of a {{block(Component)}}.
+    * `MATERIAL_LAYER` 
 
-    Subtypes of `FIRMWARE` : `VERSION`, `RELEASE_DATE`, `MANUFACTURER`, `LICENSE`, `INSTALL_DATE`.
+        identifies the layers of material applied to a part or product as part of an additive manufacturing process.
 
+    * `MESSAGE` 
 
-* `FIXTURE_ID` 
+        information to be transferred from a piece of equipment to a client software application.
 
-    identifier for a fixture.
+    * `MTCONNECT_VERSION` 
 
-* `FUNCTIONAL_MODE` 
+        reference version of the MTConnect Standard supported by the {{term(adapter)}}.
 
-    current intended production status of the {{block(Component)}}.
+    * `NETWORK` 
 
-* `HARDNESS` 
+        network details of a {{block(Component)}}.
 
-    hardness of a material.
+    * `OPERATING_MODE` 
 
-    Subtypes of `HARDNESS` : `ROCKWELL`, `VICKERS`, `SHORE`, `BRINELL`, `LEEB`, `MOHS`, `VERSION`, `RELEASE_DATE`, `MANUFACTURER`, `LICENSE`, `INSTALL_DATE`.
+        state of {{block(Component)}} or {{block(Composition)}} that describes the automatic or manual operation of the entity.
 
+    * `OPERATING_SYSTEM` 
 
-* `HARDWARE` 
+        Operating System (OS) of a {{block(Component)}}.
 
-    hardware of a {{block(Component)}}.
+    * `OPERATOR_ID` 
 
-* `INTERFACE_STATE` 
+        identifier of the person currently responsible for operating the piece of equipment.
 
-    operational state of an {{block(Interface)}}.
+    * `PALLET_ID` 
 
-* `LIBRARY` 
+        identifier for a pallet.
 
-    software library on a {{block(Component)}}
+    * `PART_COUNT` 
 
-    Subtypes of `LIBRARY` : `VERSION`, `RELEASE_DATE`, `MANUFACTURER`, `LICENSE`, `INSTALL_DATE`.
+        aggregate count of parts.
 
+    * `PART_COUNT_TYPE` 
 
-* `LINE` 
+        interpretation of `PART_COUNT`.
 
-    current line of code being executed.
-    
-    **DEPRECATED** in *Version 1.4.0*.
+    * `PART_DETECT` 
 
-    Subtypes of `LINE` : `MAXIMUM`, `MINIMUM`.
+        indication designating whether a part or work piece has been detected or is present.
 
+    * `PART_GROUP_ID` 
 
-* `LINE_LABEL` 
+        identifier given to a collection of individual parts. 
 
-    identifier for a {{block(Block)}} of code in a {{block(Program)}}.
+    * `PART_ID` 
 
-* `LINE_NUMBER` 
+        identifier of a part in a manufacturing operation.
 
-    position of a block of program code within a control program.
+    * `PART_KIND_ID` 
 
-    Subtypes of `LINE_NUMBER` : `ABSOLUTE`, `INCREMENTAL`.
+        identifier given to link the individual occurrence to a class of parts, typically distinguished by a particular part design.
 
+    * `<<deprecated>>` `PART_NUMBER` 
 
-* `LOAD_COUNT` 
+        identifier of a part or product moving through the manufacturing process.
+        
+        **DEPRECATED** in *Version 1.7*. `PART_NUMBER` is now a `subType` of `PART_KIND_ID`.
 
-    accumulation of the number of times an operation has attempted to, or is planned to attempt to, load materials, parts, or other items.
+    * `PART_PROCESSING_STATE` 
 
-    Subtypes of `LOAD_COUNT` : `REMAINING`, `BAD`, `FAILED`, `ABORTED`, `ALL`, `GOOD`, `COMPLETE`, `TARGET`.
+        particular condition of the part occurrence at a specific time.
 
+    * `PART_STATUS` 
 
-* `LOCK_STATE` 
+        state or condition of a part.
 
-    state or operating mode of a {{block(Lock)}}.
+    * `PART_UNIQUE_ID` 
 
-* `MAINTENANCE_LIST` 
+        identifier given to a distinguishable, individual part. 
 
-    actions or activities to be performed in support of a piece of equipment.
+    * `PATH_FEEDRATE_OVERRIDE` 
 
-* `MATERIAL` 
+        value of a signal or calculation issued to adjust the feedrate for the axes associated with a {{block(Path)}} component that may represent a single axis or the coordinated movement of multiple axes.
 
-    identifier of a material used or consumed in the manufacturing process.
+    * `PATH_MODE` 
 
-* `MATERIAL_CHANGE` 
+        describes the operational relationship between a {{block(Path)}} entity and another {{block(Path)}} entity for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
 
-    operating state of the service to change the type of material or product being loaded or fed to a piece of equipment.
+    * `POWER_STATE` 
 
-    Subtypes of `MATERIAL_CHANGE` : `REQUEST`, `RESPONSE`.
+        indication of the status of the source of energy for an entity to allow it to perform its intended function or the state of an enabling signal providing permission for the entity to perform its functions.
 
+    * `<<deprecated>>` `POWER_STATUS` 
 
-* `MATERIAL_FEED` 
+        status of the {{block(Component)}}.
+        
+        **DEPRECATED** in *Version 1.1.0*.
 
-    operating state of the service to advance material or feed product to a piece of equipment from a continuous or bulk source.
+    * `PROCESS_AGGREGATE_ID` 
 
-    Subtypes of `MATERIAL_FEED` : `REQUEST`, `RESPONSE`.
+        identifier given to link the individual occurrence to a group of related occurrences, such as a process step in a process plan.
 
+    * `PROCESS_KIND_ID` 
 
-* `MATERIAL_LAYER` 
+        identifier given to link the individual occurrence to a class of processes or process definition.
 
-    identifies the layers of material applied to a part or product as part of an additive manufacturing process.
+    * `PROCESS_OCCURRENCE_ID` 
 
-    Subtypes of `MATERIAL_LAYER` : `ACTUAL`, `TARGET`.
+        identifier of a process being executed by the device.
 
+    * `PROCESS_STATE` 
 
-* `MATERIAL_LOAD` 
+        particular condition of the process occurrence at a specific time.
 
-    operating state of the service to load a piece of material or product.
+    * `PROCESS_TIME` 
 
-    Subtypes of `MATERIAL_LOAD` : `REQUEST`, `RESPONSE`.
+        time and date associated with an activity or event.
 
+    * `PROGRAM` 
 
-* `MATERIAL_RETRACT` 
+        name of the logic or motion program being executed by the {{block(Controller)}} component.
 
-    operating state of the service to remove or retract material or product.
+    * `PROGRAM_COMMENT` 
 
-    Subtypes of `MATERIAL_RETRACT` : `REQUEST`, `RESPONSE`.
+        comment or non-executable statement in the control program.
 
+    * `PROGRAM_EDIT` 
 
-* `MATERIAL_UNLOAD` 
+        indication of the status of the {{block(Controller)}} components program editing mode.
+        
+        A program may be edited while another is executed.
 
-    operating state of the service to unload a piece of material or product.
+    * `PROGRAM_EDIT_NAME` 
 
-    Subtypes of `MATERIAL_UNLOAD` : `REQUEST`, `RESPONSE`.
+        name of the program being edited. 
+        
+        This is used in conjunction with {{block(ProgramEdit)}} when in `ACTIVE` state. 
 
+    * `PROGRAM_HEADER` 
 
-* `MESSAGE` 
+        non-executable header section of the control program.
 
-    information to be transferred from a piece of equipment to a client software application.
+    * `PROGRAM_LOCATION` 
 
-* `MTCONNECT_VERSION` 
+        {{term(URI)}} for the source file associated with {{block(Program)}}.
 
-    reference version of the MTConnect Standard supported by the {{term(adapter)}}.
+    * `PROGRAM_LOCATION_TYPE` 
 
-* `NETWORK` 
+        defines whether the logic or motion program defined by {{block(Program)}} is being executed from the local memory of the controller or from an outside source.
 
-    network details of a {{block(Component)}}.
+    * `PROGRAM_NEST_LEVEL` 
 
-    Subtypes of `NETWORK` : `IPV4_ADDRESS`, `IPV6_ADDRESS`, `GATEWAY`, `SUBNET_MASK`, `VLAN_ID`, `MAC_ADDRESS`, `WIRELESS`.
+        indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed.
 
+    * `ROTARY_MODE` 
 
-* `OPEN_CHUCK` 
+        current operating mode for a {{block(Rotary)}} type axis.
 
-    operating state of the service to open a chuck.
+    * `ROTARY_VELOCITY_OVERRIDE` 
 
-    Subtypes of `OPEN_CHUCK` : `REQUEST`, `RESPONSE`.
+        percentage change to the velocity of the programmed velocity for a {{block(Rotary)}} axis.
 
+    * `ROTATION` 
 
-* `OPEN_DOOR` 
+        three space angular rotation relative to a coordinate system.
 
-    operating state of the service to open a door.
+    * `SENSOR_ATTACHMENT` 
 
-    Subtypes of `OPEN_DOOR` : `REQUEST`, `RESPONSE`.
+        {{term(attachment)}} between a sensor and an entity.
 
+    * `SERIAL_NUMBER` 
 
-* `OPERATING_MODE` 
+        serial number associated with a {{block(Component)}}, {{block(Asset)}}, or {{block(Device)}}.
 
-    state of {{block(Component)}} or {{block(Composition)}} that describes the automatic or manual operation of the entity.
+    * `SPECIFICATION_LIMIT` 
 
-* `OPERATING_SYSTEM` 
+        set of limits defining a range of values designating acceptable performance for a variable.
 
-    Operating System (OS) of a {{block(Component)}}.
+    * `SPINDLE_INTERLOCK` 
 
-    Subtypes of `OPERATING_SYSTEM` : `LICENSE`, `VERSION`, `RELEASE_DATE`, `INSTALL_DATE`, `MANUFACTURER`.
+        indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate.
 
+    * `TOOL_ASSET_ID` 
 
-* `OPERATOR_ID` 
+        identifier of an individual tool asset.
 
-    identifier of the person currently responsible for operating the piece of equipment.
+    * `TOOL_GROUP` 
 
-* `PALLET_ID` 
+        identifier for the tool group associated with a specific tool. Commonly used to designate spare tools.
 
-    identifier for a pallet.
+    * `<<deprecated>>` `TOOL_ID` 
 
-* `PART_CHANGE` 
+        identifier of the tool currently in use for a given `Path`.
+        
+        **DEPRECATED** in *Version 1.2.0*.   See `TOOL_ASSET_ID`.
 
-    operating state of the service to change the part or product associated with a piece of equipment to a different part or product.
+    * `TOOL_NUMBER` 
 
-    Subtypes of `PART_CHANGE` : `REQUEST`, `RESPONSE`.
+        identifier assigned by the {{block(Controller)}} component to a cutting tool when in use by a piece of equipment.
 
+    * `TOOL_OFFSET` 
 
-* `PART_COUNT` 
+        reference to the tool offset variables applied to the active cutting tool associated with a {{block(Path)}} in a {{block(Controller)}} type component.
 
-    aggregate count of parts.
+    * `TRANSFER_COUNT` 
 
-    Subtypes of `PART_COUNT` : `ALL`, `GOOD`, `BAD`, `TARGET`, `REMAINING`, `COMPLETE`, `ABORTED`, `FAILED`.
+        accumulation of the number of times an operation has attempted to, or is planned to attempt to, transfer materials, parts, or other items from one location to another.
 
+    * `TRANSLATION` 
 
-* `PART_COUNT_TYPE` 
+        three space linear translation relative to a coordinate system.
 
-    interpretation of `PART_COUNT`.
+    * `UNLOAD_COUNT` 
 
-* `PART_DETECT` 
+        accumulation of the number of times an operation has attempted to, or is planned to attempt to, unload materials, parts, or other items.
 
-    indication designating whether a part or work piece has been detected or is present.
+    * `USER` 
 
-* `PART_GROUP_ID` 
+        identifier of the person currently responsible for operating the piece of equipment.
 
-    identifier given to a collection of individual parts. 
+    * `VALVE_STATE` 
 
-    Subtypes of `PART_GROUP_ID` : `LOT`, `RAW_MATERIAL`, `BATCH`, `UUID`, `HEAT_TREAT`.
+        state of a valve is one of open, closed, or transitioning between the states.
 
+    * `VARIABLE` 
 
-* `PART_ID` 
+        data whose meaning may change over time due to changes in the operation of a piece of equipment or the process being executed on that piece of equipment.
 
-    identifier of a part in a manufacturing operation.
+    * `WAIT_STATE` 
 
-* `PART_KIND_ID` 
+        indication of the reason that {{block(Execution)}} is reporting a value of `WAIT`.
 
-    identifier given to link the individual occurrence to a class of parts, typically distinguished by a particular part design.
+    * `WIRE` 
 
-    Subtypes of `PART_KIND_ID` : `UUID`, `PART_FAMILY`, `PART_NAME`, `PART_NUMBER`.
+        identifier for the type of wire used as the cutting mechanism in Electrical Discharge Machining or similar processes.
 
+    * `WORKHOLDING_ID` 
 
-* `PART_NUMBER` 
+        identifier for the current workholding or part clamp in use by a piece of equipment.
 
-    identifier of a part or product moving through the manufacturing process.
-    
-    **DEPRECATED** in *Version 1.7*. `PART_NUMBER` is now a `subType` of
-    `PART_KIND_ID`.
+    * `WORK_OFFSET` 
 
-* `PART_PROCESSING_STATE` 
-
-    particular condition of the part occurrence at a specific time.
-
-* `PART_STATUS` 
-
-    state or condition of a part.
-
-* `PART_UNIQUE_ID` 
-
-    identifier given to a distinguishable, individual part. 
-
-    Subtypes of `PART_UNIQUE_ID` : `SERIAL_NUMBER`, `RAW_MATERIAL`, `UUID`.
-
-
-* `PATH_FEEDRATE_OVERRIDE` 
-
-    value of a signal or calculation issued to adjust the feedrate for the axes associated with a {{block(Path)}} component that may represent a single axis or the coordinated movement of multiple axes.
-
-    Subtypes of `PATH_FEEDRATE_OVERRIDE` : `JOG`, `PROGRAMMED`, `RAPID`.
-
-
-* `PATH_MODE` 
-
-    describes the operational relationship between a {{block(Path)}} entity and another {{block(Path)}} entity for pieces of equipment comprised of multiple logical groupings of controlled axes or other logical operations.
-
-* `POWER_STATE` 
-
-    indication of the status of the source of energy for an entity to allow it to perform its intended function or the state of an enabling signal providing permission for the entity to perform its functions.
-
-    Subtypes of `POWER_STATE` : `LINE`, `CONTROL`.
-
-
-* `POWER_STATUS` 
-
-    status of the {{block(Component)}}.
-    
-    **DEPRECATED** in *Version 1.1.0*.
-
-* `PROCESS_AGGREGATE_ID` 
-
-    identifier given to link the individual occurrence to a group of related occurrences, such as a process step in a process plan.
-
-    Subtypes of `PROCESS_AGGREGATE_ID` : `ORDER_NUMBER`, `PROCESS_STEP`, `PROCESS_PLAN`.
-
-
-* `PROCESS_KIND_ID` 
-
-    identifier given to link the individual occurrence to a class of processes or process definition.
-
-    Subtypes of `PROCESS_KIND_ID` : `UUID`, `ISO_STEP_EXECUTABLE`, `PROCESS_NAME`.
-
-
-* `PROCESS_OCCURRENCE_ID` 
-
-    identifier of a process being executed by the device.
-
-    Subtypes of `PROCESS_OCCURRENCE_ID` : `ACTIVITY`, `SEGMENT`, `RECIPE`, `OPERATION`.
-
-
-* `PROCESS_STATE` 
-
-    particular condition of the process occurrence at a specific time.
-
-* `PROCESS_TIME` 
-
-    time and date associated with an activity or event.
-
-    Subtypes of `PROCESS_TIME` : `START`, `COMPLETE`, `TARGET_COMPLETION`.
-
-
-* `PROGRAM` 
-
-    name of the logic or motion program being executed by the {{block(Controller)}} component.
-
-    Subtypes of `PROGRAM` : `ACTIVITY`, `SEGMENT`, `RECIPE`, `OPERATION`.
-
-
-* `PROGRAM_COMMENT` 
-
-    comment or non-executable statement in the control program.
-
-* `PROGRAM_EDIT` 
-
-    indication of the status of the {{block(Controller)}} components program editing mode.
-    
-    A program may be edited while another is executed.
-
-* `PROGRAM_EDIT_NAME` 
-
-    name of the program being edited. 
-    
-    This is used in conjunction with {{block(ProgramEdit)}} when in `ACTIVE` state. 
-
-* `PROGRAM_HEADER` 
-
-    non-executable header section of the control program.
-
-    Subtypes of `PROGRAM_HEADER` : `MAIN`, `SCHEDULE`, `ACTIVE`.
-
-
-* `PROGRAM_LOCATION` 
-
-    {{term(URI)}} for the source file associated with {{block(Program)}}.
-
-    Subtypes of `PROGRAM_LOCATION` : `SCHEDULE`, `MAIN`, `ACTIVE`.
-
-
-* `PROGRAM_LOCATION_TYPE` 
-
-    defines whether the logic or motion program defined by {{block(Program)}} is being executed from the local memory of the controller or from an outside source.
-
-    Subtypes of `PROGRAM_LOCATION_TYPE` : `SCHEDULE`, `MAIN`, `ACTIVE`.
-
-
-* `PROGRAM_NEST_LEVEL` 
-
-    indication of the nesting level within a control program that is associated with the code or instructions that is currently being executed.
-
-* `ROTARY_MODE` 
-
-    current operating mode for a {{block(Rotary)}} type axis.
-
-* `ROTARY_VELOCITY_OVERRIDE` 
-
-    percentage change to the velocity of the programmed velocity for a {{block(Rotary)}} axis.
-
-* `ROTATION` 
-
-    three space angular rotation relative to a coordinate system.
-
-* `SENSOR_ATTACHMENT` 
-
-    {{term(attachment)}} between a sensor and an entity.
-
-* `SERIAL_NUMBER` 
-
-    serial number associated with a {{block(Component)}}, {{block(Asset)}}, or {{block(Device)}}.
-
-* `SPECIFICATION_LIMIT` 
-
-    set of limits defining a range of values designating acceptable performance for a variable.
-
-* `SPINDLE_INTERLOCK` 
-
-    indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate.
-
-* `TOOL_ASSET_ID` 
-
-    identifier of an individual tool asset.
-
-* `TOOL_GROUP` 
-
-    identifier for the tool group associated with a specific tool. Commonly used to designate spare tools.
-
-* `TOOL_ID` 
-
-    identifier of the tool currently in use for a given `Path`.
-    
-    **DEPRECATED** in *Version 1.2.0*.   See `TOOL_ASSET_ID`.
-
-* `TOOL_NUMBER` 
-
-    identifier assigned by the {{block(Controller)}} component to a cutting tool when in use by a piece of equipment.
-
-* `TOOL_OFFSET` 
-
-    reference to the tool offset variables applied to the active cutting tool associated with a {{block(Path)}} in a {{block(Controller)}} type component.
-
-    Subtypes of `TOOL_OFFSET` : `RADIAL`, `LENGTH`.
-
-
-* `TRANSFER_COUNT` 
-
-    accumulation of the number of times an operation has attempted to, or is planned to attempt to, transfer materials, parts, or other items from one location to another.
-
-    Subtypes of `TRANSFER_COUNT` : `GOOD`, `ABORTED`, `FAILED`, `ALL`, `BAD`, `REMAINING`, `COMPLETE`, `TARGET`.
-
-
-* `TRANSLATION` 
-
-    three space linear translation relative to a coordinate system.
-
-* `UNLOAD_COUNT` 
-
-    accumulation of the number of times an operation has attempted to, or is planned to attempt to, unload materials, parts, or other items.
-
-    Subtypes of `UNLOAD_COUNT` : `ABORTED`, `BAD`, `FAILED`, `GOOD`, `COMPLETE`, `ALL`, `TARGET`, `REMAINING`.
-
-
-* `USER` 
-
-    identifier of the person currently responsible for operating the piece of equipment.
-
-    Subtypes of `USER` : `OPERATOR`, `MAINTENANCE`, `SET_UP`.
-
-
-* `VALVE_STATE` 
-
-    state of a valve is one of open, closed, or transitioning between the states.
-
-    Subtypes of `VALVE_STATE` : `ACTUAL`, `PROGRAMMED`.
-
-
-* `VARIABLE` 
-
-    data whose meaning may change over time due to changes in the operation of a piece of equipment or the process being executed on that piece of equipment.
-
-* `WAIT_STATE` 
-
-    indication of the reason that {{block(Execution)}} is reporting a value of `WAIT`.
-
-* `WIRE` 
-
-    identifier for the type of wire used as the cutting mechanism in Electrical Discharge Machining or similar processes.
-
-* `WORKHOLDING_ID` 
-
-    identifier for the current workholding or part clamp in use by a piece of equipment.
-
-* `WORK_OFFSET` 
-
-    offset variables for a work piece or part associated with a {{block(Path)}} in a {{block(Controller)}} type component.
+        offset variables for a work piece or part associated with a {{block(Path)}} in a {{block(Controller)}} type component.
 
 ### Sample
-
 
 abstract {{block(DataItem)}} that is continuously changing or analog data value.
 
 
+
 This data can be measured at any point-in-time and will always produce a result.
 
-The value of `<<extensible>>`{{property(type)}} with {{property(category)}} `SAMPLE` **MUST** be one of the following:
 
+The {{property(units)}} for {{block(Sample)}} **MUST** always be specified.
 
-* `ACCELERATION` 
+#### Value Properties of Sample
 
-    positive rate of change of velocity.
+{{tbl(value-properties-of-sample)}} lists the Value Properties of {{block(Sample)}}.
 
-    Subtypes of `ACCELERATION` : `ACTUAL`, `PROGRAMMED`, `COMMANDED`.
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(category)}}|`SAMPLE`|1|
+|{{property(type)}}|`SampleEnum`|1|
+{: caption="Value Properties of Sample" label="table:value-properties-of-sample"}
 
+Descriptions for Value Properties of {{block(Sample)}}:
 
-* `ACCUMULATED_TIME` 
+* {{property(type)}} 
 
-    accumulated time for an activity or event.
+    `<<extensible>>` `SampleEnum` Enumeration:
 
-* `AMPERAGE` 
+    * `ACCELERATION` 
 
-    strength of electrical current.
-    
-    **DEPRECATED** in *Version 1.6*. Replaced by `AMPERAGE_AC` and `AMPERAGE_DC`.
+        positive rate of change of velocity.
 
-    Subtypes of `AMPERAGE` : `ALTERNATING`, `DIRECT`, `ACTUAL`, `TARGET`.
+    * `ACCUMULATED_TIME` 
 
+        accumulated time for an activity or event.
 
-* `AMPERAGE_AC` 
+    * `<<deprecated>>` `AMPERAGE` 
 
-    electrical current that reverses direction at regular short intervals.
+        strength of electrical current.
+        
+        **DEPRECATED** in *Version 1.6*. Replaced by `AMPERAGE_AC` and `AMPERAGE_DC`.
 
-    Subtypes of `AMPERAGE_AC` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
+    * `AMPERAGE_AC` 
 
+        electrical current that reverses direction at regular short intervals.
 
-* `AMPERAGE_DC` 
+    * `AMPERAGE_DC` 
 
-    electric current flowing in one direction only.
+        electric current flowing in one direction only.
 
-    Subtypes of `AMPERAGE_DC` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
+    * `ANGLE` 
 
+        angular position.
 
-* `ANGLE` 
+    * `ANGULAR_ACCELERATION` 
 
-    angular position.
+        positive rate of change of angular velocity.
 
-    Subtypes of `ANGLE` : `COMMANDED`, `ACTUAL`.
+    * `ANGULAR_DECELERATION` 
 
+        negative rate of change of angular velocity.
 
-* `ANGULAR_ACCELERATION` 
+    * `ANGULAR_VELOCITY` 
 
-    positive rate of change of angular velocity.
+        rate of change of angular position.
 
-    Subtypes of `ANGULAR_ACCELERATION` : `PROGRAMMED`, `ACTUAL`, `COMMANDED`.
+    * `ASSET_UPDATE_RATE` 
 
+        average rate of change of values for assets in the MTConnect streams. 
+        
+        The average is computed over a rolling window defined by the implementation.
 
-* `ANGULAR_DECELERATION` 
+    * `AXIS_FEEDRATE` 
 
-    negative rate of change of angular velocity.
+        feedrate of a linear axis.
 
-    Subtypes of `ANGULAR_DECELERATION` : `ACTUAL`, `PROGRAMMED`, `COMMANDED`.
+    * `CAPACITY_FLUID` 
 
+        fluid capacity of an object or container.
 
-* `ANGULAR_VELOCITY` 
+    * `CAPACITY_SPATIAL` 
 
-    rate of change of angular position.
+        geometric capacity of an object or container.
 
-* `ASSET_UPDATE_RATE` 
+    * `CONCENTRATION` 
 
-    average rate of change of values for assets in the MTConnect streams. 
-    
-    The average is computed over a rolling window defined by the implementation.
+        percentage of one component within a mixture of components.
 
-* `AXIS_FEEDRATE` 
+    * `CONDUCTIVITY` 
 
-    feedrate of a linear axis.
+        ability of a material to conduct electricity.
 
-    Subtypes of `AXIS_FEEDRATE` : `ACTUAL`, `COMMANDED`, `JOG`, `PROGRAMMED`, `RAPID`, `OVERRIDE`.
+    * `CUTTING_SPEED` 
 
+        speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on.
 
-* `CAPACITY_FLUID` 
+    * `DECELERATION` 
 
-    fluid capacity of an object or container.
+        negative rate of change of velocity.
 
-* `CAPACITY_SPATIAL` 
+    * `DENSITY` 
 
-    geometric capacity of an object or container.
+        volumetric mass of a material per unit volume of that material.
 
-* `CLOCK_TIME` 
+    * `DEPOSITION_ACCELERATION_VOLUMETRIC` 
 
-    time provided by a timing device at a specific point in time.
+        rate of change in spatial volume of material deposited in an additive manufacturing process.
 
-* `CONCENTRATION` 
+    * `DEPOSITION_DENSITY` 
 
-    percentage of one component within a mixture of components.
+        density of the material deposited in an additive manufacturing process per unit of volume.
 
-* `CONDUCTIVITY` 
+    * `DEPOSITION_MASS` 
 
-    ability of a material to conduct electricity.
+        mass of the material deposited in an additive manufacturing process.
 
-* `CUTTING_SPEED` 
+    * `DEPOSITION_RATE_VOLUMETRIC` 
 
-    speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on.
+        rate at which a spatial volume of material is deposited in an additive manufacturing process.
 
-    Subtypes of `CUTTING_SPEED` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
+    * `DEPOSITION_VOLUME` 
 
+        spatial volume of material to be deposited in an additive manufacturing process.
 
-* `DECELERATION` 
+    * `DIAMETER` 
 
-    negative rate of change of velocity.
+        dimension of a diameter.
 
-    Subtypes of `DECELERATION` : `PROGRAMMED`, `COMMANDED`, `ACTUAL`.
+    * `DISPLACEMENT` 
 
+        change in position of an object.
 
-* `DENSITY` 
+    * `ELECTRICAL_ENERGY` 
 
-    volumetric mass of a material per unit volume of that material.
+        {{block(Wattage)}} used or generated by a component over an interval of time.
 
-* `DEPOSITION_ACCELERATION_VOLUMETRIC` 
+    * `EQUIPMENT_TIMER` 
 
-    rate of change in spatial volume of material deposited in an additive manufacturing process.
+        amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities.
 
-    Subtypes of `DEPOSITION_ACCELERATION_VOLUMETRIC` : `ACTUAL`, `COMMANDED`.
+    * `FILL_LEVEL` 
 
+        amount of a substance remaining compared to the planned maximum amount of that substance.
 
-* `DEPOSITION_DENSITY` 
+    * `FLOW` 
 
-    density of the material deposited in an additive manufacturing process per unit of volume.
+        rate of flow of a fluid.
 
-    Subtypes of `DEPOSITION_DENSITY` : `ACTUAL`, `COMMANDED`.
+    * `FREQUENCY` 
 
+        number of occurrences of a repeating event per unit time.
 
-* `DEPOSITION_MASS` 
+    * `<<deprecated>>` `GLOBAL_POSITION` 
 
-    mass of the material deposited in an additive manufacturing process.
+        position in three-dimensional space.
+        
+        **DEPRECATED** in Version 1.1.
 
-    Subtypes of `DEPOSITION_MASS` : `ACTUAL`, `COMMANDED`.
+    * `HUMIDITY_ABSOLUTE` 
 
+        amount of water vapor expressed in grams per cubic meter.
 
-* `DEPOSITION_RATE_VOLUMETRIC` 
+    * `HUMIDITY_RELATIVE` 
 
-    rate at which a spatial volume of material is deposited in an additive manufacturing process.
+        amount of water vapor present expressed as a percent to reach saturation at the same temperature.
 
-    Subtypes of `DEPOSITION_RATE_VOLUMETRIC` : `ACTUAL`, `COMMANDED`.
+    * `HUMIDITY_SPECIFIC` 
 
+        ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
 
-* `DEPOSITION_VOLUME` 
+    * `LENGTH` 
 
-    spatial volume of material to be deposited in an additive manufacturing process.
+        length of an object.
 
-    Subtypes of `DEPOSITION_VOLUME` : `ACTUAL`, `COMMANDED`.
+    * `<<deprecated>>` `LEVEL` 
 
+        level of a resource.
+        
+        **DEPRECATED** in *Version 1.2*.  See `FILL_LEVEL`.
 
-* `DIAMETER` 
+    * `LINEAR_FORCE` 
 
-    dimension of a diameter.
+        {{term(force)}} applied to a mass in one direction only.
 
-* `DISPLACEMENT` 
+    * `LOAD` 
 
-    change in position of an object.
+        actual versus the standard rating of a piece of equipment.
 
-* `ELECTRICAL_ENERGY` 
+    * `MASS` 
 
-    {{block(Wattage)}} used or generated by a component over an interval of time.
+        mass of an object(s) or an amount of material.
 
-* `EQUIPMENT_TIMER` 
+    * `OBSERVATION_UPDATE_RATE` 
 
-    amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities.
+        average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
 
-    Subtypes of `EQUIPMENT_TIMER` : `LOADED`, `WORKING`, `OPERATING`, `POWERED`, `DELAY`.
+    * `OPENNESS` 
 
+        percentage open where 100% is fully open and 0% is fully closed.
 
-* `FILL_LEVEL` 
+    * `ORIENTATION` 
 
-    amount of a substance remaining compared to the planned maximum amount of that substance.
+        measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
 
-* `FLOW` 
+    * `PATH_FEEDRATE` 
 
-    rate of flow of a fluid.
+        feedrate for the axes, or a single axis, associated with a {{block(Path)}} component.
 
-* `FREQUENCY` 
+    * `PATH_FEEDRATE_PER_REVOLUTION` 
 
-    number of occurrences of a repeating event per unit time.
+        feedrate for the axes, or a single axis.
 
-* `GLOBAL_POSITION` 
+    * `PATH_POSITION` 
 
-    **DEPRECATED** in Version 1.1.
+        measured or calculated position of a control point associated with a {{block(Controller)}} entity, or {{block(Path)}} entity if provided, of a piece of equipment.
 
-* `HUMIDITY_ABSOLUTE` 
+    * `PH` 
 
-    amount of water vapor expressed in grams per cubic meter.
+        acidity or alkalinity of a solution.
 
-    Subtypes of `HUMIDITY_ABSOLUTE` : `ACTUAL`, `COMMANDED`.
+    * `POSITION` 
 
+        measured or calculated position of a {{block(Component)}} element as reported by a piece of equipment.
 
-* `HUMIDITY_RELATIVE` 
+    * `POWER_FACTOR` 
 
-    amount of water vapor present expressed as a percent to reach saturation at the same temperature.
+        ratio of real power flowing to a load to the apparent power in that AC circuit.
 
-    Subtypes of `HUMIDITY_RELATIVE` : `COMMANDED`, `ACTUAL`.
+    * `PRESSURE` 
 
+        force per unit area measured relative to atmospheric pressure. 
+        
+        Commonly referred to as gauge pressure.
 
-* `HUMIDITY_SPECIFIC` 
+    * `PRESSURE_ABSOLUTE` 
 
-    ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
+        force per unit area measured relative to a vacuum.
 
-    Subtypes of `HUMIDITY_SPECIFIC` : `ACTUAL`, `COMMANDED`.
+    * `PRESSURIZATION_RATE` 
 
+        change of pressure per unit time.
 
-* `LENGTH` 
+    * `PROCESS_TIMER` 
 
-    length of an object.
+        amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment.
 
-    Subtypes of `LENGTH` : `STANDARD`, `REMAINING`, `USEABLE`.
+    * `RESISTANCE` 
 
+        degree to which a substance opposes the passage of an electric current.
 
-* `LEVEL` 
+    * `ROTARY_VELOCITY` 
 
-    level of a resource.
-    
-    **DEPRECATED** in *Version 1.2*.  See `FILL_LEVEL`.
+        rotational speed of a rotary axis.
 
-* `LINEAR_FORCE` 
+    * `SOUND_LEVEL` 
 
-    {{term(force)}} applied to a mass in one direction only.
+        sound level or sound pressure level relative to atmospheric pressure.
 
-* `LOAD` 
+    * `<<deprecated>>` `SPINDLE_SPEED` 
 
-    actual versus the standard rating of a piece of equipment.
+        rotational speed of the rotary axis.
+        
+        **DEPRECATED** in *Version 1.2*.  Replaced by `ROTARY_VELOCITY`.
 
-* `MASS` 
+    * `STRAIN` 
 
-    mass of an object(s) or an amount of material.
+        amount of deformation per unit length of an object when a load is applied.
 
-* `OBSERVATION_UPDATE_RATE` 
+    * `TEMPERATURE` 
 
-    average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
+        degree of hotness or coldness measured on a definite scale.
 
-* `OPENNESS` 
+    * `TENSION` 
 
-    percentage open where 100% is fully open and 0% is fully closed.
+        force that stretches or elongates an object.
 
-* `ORIENTATION` 
+    * `TILT` 
 
-    measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
+        angular displacement.
 
-    Subtypes of `ORIENTATION` : `ACTUAL`, `COMMANDED`.
+    * `TORQUE` 
 
+        turning force exerted on an object or by an object.
 
-* `PATH_FEEDRATE` 
+    * `VELOCITY` 
 
-    feedrate for the axes, or a single axis, associated with a {{block(Path)}} component.
+        rate of change of position of a {{block(Component)}}.
 
-    Subtypes of `PATH_FEEDRATE` : `ACTUAL`, `COMMANDED`, `JOG`, `PROGRAMMED`, `RAPID`, `OVERRIDE`.
+    * `VISCOSITY` 
 
+        fluid's resistance to flow.
 
-* `PATH_FEEDRATE_PER_REVOLUTION` 
+    * `<<deprecated>>` `VOLTAGE` 
 
-    feedrate for the axes, or a single axis.
+        electrical potential between two points.
+        
+        **DEPRECATED** in *Version 1.6*. Replaced by `VOLTAGE_AC` and `VOLTAGE_DC`.
 
-    Subtypes of `PATH_FEEDRATE_PER_REVOLUTION` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
+    * `VOLTAGE_AC` 
 
+        electrical potential between two points in an electrical circuit in which the current periodically reverses direction.
 
-* `PATH_POSITION` 
+    * `VOLTAGE_DC` 
 
-    measured or calculated position of a control point associated with a {{block(Controller)}} entity, or {{block(Path)}} entity if provided, of a piece of equipment.
+        electrical potential between two points in an electrical circuit in which the current is unidirectional.
 
-    Subtypes of `PATH_POSITION` : `ACTUAL`, `COMMANDED`, `TARGET`, `PROBE`.
+    * `VOLT_AMPERE` 
 
+        apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA).
 
-* `PH` 
+    * `VOLT_AMPERE_REACTIVE` 
 
-    acidity or alkalinity of a solution.
+        reactive power in an AC electrical circuit (commonly referred to as VAR).
 
-* `POSITION` 
+    * `VOLUME_FLUID` 
 
-    measured or calculated position of a {{block(Component)}} element as reported by a piece of equipment.
+        fluid volume of an object or container.
 
-    Subtypes of `POSITION` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`, `TARGET`.
+    * `VOLUME_SPATIAL` 
 
+        geometric volume of an object or container.
 
-* `POWER_FACTOR` 
+    * `WATTAGE` 
 
-    ratio of real power flowing to a load to the apparent power in that AC circuit.
+        power flowing through or dissipated by an electrical circuit or piece of equipment.
 
-* `PRESSURE` 
+    * `X_DIMENSION` 
 
-    force per unit area measured relative to atmospheric pressure. 
-    
-    Commonly referred to as gauge pressure.
+        dimension of an entity relative to the X direction of the referenced coordinate system.
 
-* `PRESSURE_ABSOLUTE` 
+    * `Y_DIMENSION` 
 
-    force per unit area measured relative to a vacuum.
+        dimension of an entity relative to the Y direction of the referenced coordinate system.
 
-* `PRESSURIZATION_RATE` 
+    * `Z_DIMENSION` 
 
-    change of pressure per unit time.
-
-    Subtypes of `PRESSURIZATION_RATE` : `COMMANDED`, `ACTUAL`, `PROGRAMMED`.
-
-
-* `PROCESS_TIMER` 
-
-    amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment.
-
-    Subtypes of `PROCESS_TIMER` : `PROCESS`, `DELAY`.
-
-
-* `RESISTANCE` 
-
-    degree to which a substance opposes the passage of an electric current.
-
-* `ROTARY_VELOCITY` 
-
-    rotational speed of a rotary axis.
-
-    Subtypes of `ROTARY_VELOCITY` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`, `OVERRIDE`.
-
-
-* `SOUND_LEVEL` 
-
-    sound level or sound pressure level relative to atmospheric pressure.
-
-    Subtypes of `SOUND_LEVEL` : `NO_SCALE`, `A_SCALE`, `B_SCALE`, `C_SCALE`, `D_SCALE`.
-
-
-* `SPINDLE_SPEED` 
-
-    rotational speed of the rotary axis.
-    
-    **DEPRECATED** in *Version 1.2*.  Replaced by `ROTARY_VELOCITY`.
-
-    Subtypes of `SPINDLE_SPEED` : `ACTUAL`, `COMMANDED`, `OVERRIDE`.
-
-
-* `STRAIN` 
-
-    amount of deformation per unit length of an object when a load is applied.
-
-* `TEMPERATURE` 
-
-    degree of hotness or coldness measured on a definite scale.
-
-* `TENSION` 
-
-    force that stretches or elongates an object.
-
-* `TILT` 
-
-    angular displacement.
-
-* `TORQUE` 
-
-    turning force exerted on an object or by an object.
-
-* `VALVE_POSITION` 
-
-    percentage open of a value where 100% is fully open and 0% is fully closed.
-
-* `VELOCITY` 
-
-    rate of change of position of a {{block(Component)}}.
-
-* `VISCOSITY` 
-
-    fluid's resistance to flow.
-
-* `VOLTAGE` 
-
-    electrical potential between two points.
-    
-    **DEPRECATED** in *Version 1.6*. Replaced by `VOLTAGE_AC` and `VOLTAGE_DC`.
-
-    Subtypes of `VOLTAGE` : `ALTERNATING`, `DIRECT`, `ACTUAL`, `TARGET`.
-
-
-* `VOLTAGE_AC` 
-
-    electrical potential between two points in an electrical circuit in which the current periodically reverses direction.
-
-    Subtypes of `VOLTAGE_AC` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
-
-
-* `VOLTAGE_DC` 
-
-    electrical potential between two points in an electrical circuit in which the current is unidirectional.
-
-    Subtypes of `VOLTAGE_DC` : `ACTUAL`, `COMMANDED`, `PROGRAMMED`.
-
-
-* `VOLT_AMPERE` 
-
-    apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA).
-
-* `VOLT_AMPERE_REACTIVE` 
-
-    reactive power in an AC electrical circuit (commonly referred to as VAR).
-
-* `VOLUME_FLUID` 
-
-    fluid volume of an object or container.
-
-    Subtypes of `VOLUME_FLUID` : `ACTUAL`, `CONSUMED`, `PART`, `WASTE`, `START`, `ENDED`.
-
-
-* `VOLUME_SPATIAL` 
-
-    geometric volume of an object or container.
-
-    Subtypes of `VOLUME_SPATIAL` : `ACTUAL`, `CONSUMED`, `PART`, `WASTE`, `ENDED`, `START`.
-
-
-* `WATTAGE` 
-
-    power flowing through or dissipated by an electrical circuit or piece of equipment.
-
-    Subtypes of `WATTAGE` : `ACTUAL`, `TARGET`.
-
-
-* `X_DIMENSION` 
-
-    dimension of an entity relative to the X direction of the referenced coordinate system.
-
-* `Y_DIMENSION` 
-
-    dimension of an entity relative to the Y direction of the referenced coordinate system.
-
-* `Z_DIMENSION` 
-
-    dimension of an entity relative to the Z direction of the referenced coordinate system.
+        dimension of an entity relative to the Z direction of the referenced coordinate system.

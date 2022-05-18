@@ -5,7 +5,7 @@ This section provides semantic information for the {{block(Motion)}} entity.
 
 ![Motion](figures/Motion.png "Motion"){: width="0.8"}
 
-> Note: See {{fig(Motion Schema)}} for XML schema.
+> Note: See {{figure(Motion Schema)}} for XML schema.
 
 ![Motion Example](figures/Motion%20Example.png "Motion Example"){: width="0.8"}
 
@@ -13,12 +13,13 @@ This section provides semantic information for the {{block(Motion)}} entity.
 
 ### Motion
 
-
 movement of the component relative to a coordinate system. 
+
 
 {{block(Motion)}} specifies the kinematic chain of the {{block(component)}} entities.
 
 At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be defined for a {{block(Motion)}}.
+
 
 #### Value Properties of Motion
 
@@ -31,7 +32,7 @@ At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be d
 |{{property(id)}}|`ID`|1|
 |{{property(parentIdRef)}}|`ID`|0..1|
 |{{property(type)}}|`MotionTypeEnum`|1|
-{: caption="Value Properties of Motion"}
+{: caption="Value Properties of Motion" label="table:value-properties-of-motion"}
 
 Descriptions for Value Properties of {{block(Motion)}}:
 
@@ -39,22 +40,21 @@ Descriptions for Value Properties of {{block(Motion)}}:
 
     describes if this component is actuated directly or indirectly as a result of other motion.
 
-    The value of {{property(actuation)}} **MUST** be one of the `MotionActuationTypeEnum` enumeration. 
-
     `MotionActuationTypeEnum` Enumeration:
-
 
     * `DIRECT` 
 
         movement is initiated by the component.
 
-    * `VIRTUAL` 
-
-        motion is computed and is used for expressing an imaginary movement.
-
     * `NONE` 
 
         no actuation of this axis.
+        
+        > Note: Actuation of `NONE` can be either a derived `REVOLUTE` or `PRISMATIC` motion or static `FIXED` relationship.
+
+    * `VIRTUAL` 
+
+        motion is computed and is used for expressing an imaginary movement.
 
 * {{property(coordinateSystemIdRef)}} 
 
@@ -74,26 +74,23 @@ Descriptions for Value Properties of {{block(Motion)}}:
 
     type of motion.
 
-    The value of {{property(type)}} **MUST** be one of the `MotionTypeEnum` enumeration. 
-
     `MotionTypeEnum` Enumeration:
-
-
-    * `PRISMATIC` 
-
-        sliding linear motion along an axis with a fixed range of motion.
 
     * `CONTINUOUS` 
 
         revolves around an axis with a continuous range of motion.
 
-    * `REVOLUTE` 
-
-        rotates around an axis with a fixed range of motion.
-
     * `FIXED` 
 
         axis does not move.
+
+    * `PRISMATIC` 
+
+        sliding linear motion along an axis with a fixed range of motion.
+
+    * `REVOLUTE` 
+
+        rotates around an axis with a fixed range of motion.
 
 #### Part Properties of Motion
 
@@ -105,7 +102,7 @@ Descriptions for Value Properties of {{block(Motion)}}:
 |{{block(Origin)}}|0..1|
 |{{block(Transformation)}}|0..1|
 |{{block(Description)}}|0..1|
-{: caption="Part Properties of Motion"}
+{: caption="Part Properties of Motion" label="table:part-properties-of-motion"}
 
 Descriptions for Part Properties of {{block(Motion)}}:
 
@@ -135,8 +132,8 @@ Descriptions for Part Properties of {{block(Motion)}}:
 
 ### Axis
 
-
 axis along or around which the {{block(Component)}} moves relative to a coordinate system.
+
 
 
 The value of {{property(Axis)}} **MUST** be a list of `float` of size `3`.

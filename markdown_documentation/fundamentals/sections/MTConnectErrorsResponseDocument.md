@@ -1,27 +1,30 @@
 
-## MTConnectErrors
+## MTConnectErrors Response Document
 
 This section provides semantic information for the {{block(MTConnectErrors)}} entity.
 
 ### MTConnectError
 
-
 root entity of an {{term(MTConnectErrors Response Document)}} that contains the {{term(Error Information Model)}}.
+
+![MTConnectError](figures/MTConnectError.png "MTConnectError"){: width="0.8"}
 
 > Note: Additional properties of {{block(MTConnectError)}} **MAY** be defined for schema and namespace declaration. See {{sect(Schema and Namespace Declaration Information)}} for an {{term(XML)}} example.
 
 
-#### Reference Properties of MTConnectError
 
-{{tbl(reference-properties-of-mtconnecterror)}} lists the Reference Properties of {{block(MTConnectError)}}.
+#### Part Properties of MTConnectError
 
-|Reference Property name|Multiplicity|
+{{tbl(part-properties-of-mtconnecterror)}} lists the Part Properties of {{block(MTConnectError)}}.
+
+|Part Property name|Multiplicity|
 |:-|:-:|
 |{{block(Header)}}|1|
-|{{block(Error)}} (organized by {{block(Errors)}})|1..*|
-{: caption="Reference Properties of MTConnectError"}
+|{{block(Error)}} (organized by `Errors`)|1..*|
+|`<<deprecated>>` {{block(Error)}}|1|
+{: caption="Part Properties of MTConnectError" label="table:part-properties-of-mtconnecterror"}
 
-Descriptions for Reference Properties of {{block(MTConnectError)}}:
+Descriptions for Part Properties of {{block(MTConnectError)}}:
 
 * {{block(Header)}} 
 
@@ -35,26 +38,33 @@ Descriptions for Reference Properties of {{block(MTConnectError)}}:
     
     > Note: When compatibility with Version 1.0.1 and earlier of the MTConnect Standard is required for an implementation, the {{term(MTConnectErrors Response Document)}} contains only a single {{block(Error)}} entity and the {{block(Errors)}} entity **MUST NOT** appear in the document.
 
-### Header
+* {{block(Error)}} 
 
+    error encountered by an {{term(agent)}} when responding to a {{term(request)}}.
+
+### Header
 
 provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
 
 
+
 #### Value Properties of Header
 
-{{tbl(value-properties-of-header)}} lists the Value Properties of {{block(Header)}}.
+{{tbl(value-properties-of-header4)}} lists the Value Properties of {{block(Header)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(bufferSize)}}|`uInt32`|1|
 |{{property(creationTime)}}|`dateTime`|1|
+|{{property(instanceId)}}|`uInt64`|1|
 |{{property(sender)}}|`string`|1|
 |{{property(testIndicator)}}|`boolean`|0..1|
 |{{property(version)}}|`version`|1|
+|`<<deprecated>>` {{property(firstSequence)}}|`uInt64`|0..1|
+|`<<deprecated>>` {{property(lastSequence)}}|`uInt64`|0..1|
+|`<<deprecated>>` {{property(nextSequence)}}|`uInt64`|0..1|
 |{{property(deviceModelChangeTime)}}|`dateTime`|1|
-|{{property(instanceId)}}|`uInt64`|1|
-{: caption="Value Properties of Header"}
+{: caption="Value Properties of Header" label="table:value-properties-of-header4"}
 
 Descriptions for Value Properties of {{block(Header)}}:
 
@@ -70,6 +80,12 @@ Descriptions for Value Properties of {{block(Header)}}:
 * {{property(creationTime)}} 
 
     timestamp that an {{term(agent)}} published the {{term(response document)}}. 
+
+* {{property(instanceId)}} 
+
+    identifier for a specific instantiation of the {{term(buffer)}} associated with the {{term(agent)}} that published the {{term(response document)}}.  
+         
+    {{property(instanceId)}} **MUST** be changed to a different unique number each time the {{term(buffer)}} is cleared and a new set of data begins to be collected.
 
 * {{property(sender)}} 
 
@@ -91,20 +107,30 @@ Descriptions for Value Properties of {{block(Header)}}:
     
     As an example, the value reported for {{property(version)}} for a {{term(response document)}} that was structured based on {{term(schema)}} revision 10 associated with Version 1.4.0 of the MTConnect Standard would be:  1.4.0.10
 
+* `<<deprecated>>` {{property(firstSequence)}} 
+
+    {{term(sequence number)}} assigned to the oldest piece of {{term(streaming data)}} stored in the {{term(buffer)}} of the {{term(agent)}} immediately prior to the time that the {{term(agent)}} published the {{term(response document)}}.   
+
+* `<<deprecated>>` {{property(lastSequence)}} 
+
+    {{term(sequence number)}} assigned to the last piece of {{term(streaming data)}} that was added to the {{term(buffer)}} of the {{term(agent)}} immediately prior to the time that the {{term(agent)}} published the {{term(response document)}}.   
+    
+    
+
+* `<<deprecated>>` {{property(nextSequence)}} 
+
+    {{term(sequence number)}} of the piece of {{term(streaming data)}} that is the next piece of data to be retrieved from the {{term(buffer)}} of the {{term(agent)}} that was not included in the {{term(response document)}} published by the {{term(agent)}}.
+    
+    If the {{term(streaming data)}} included in the {{term(response document)}} includes the last piece of data stored in the {{term(buffer)}} of the {{term(agent)}} at the time that the document was published, then the value reported for {{property(nextSequence)}} **MUST** be equal to {{property(lastSequence)}} + 1.
+
 * {{property(deviceModelChangeTime)}} 
 
     timestamp of the last update of the {{block(Device)}} information for any device.
 
-* {{property(instanceId)}} 
-
-    identifier for a specific instantiation of the {{term(buffer)}} associated with the {{term(agent)}} that published the {{term(response document)}}.  
-         
-    {{property(instanceId)}} **MUST** be changed to a different unique number each time the {{term(buffer)}} is cleared and a new set of data begins to be collected.
-
 ### Error
 
-
 error encountered by an {{term(agent)}} when responding to a {{term(request)}}.
+
 
 
 The value of {{property(Error)}} **MUST** be `string`.
@@ -115,8 +141,8 @@ The value of {{property(Error)}} **MUST** be `string`.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(errorCode)}}|`ErrorCodeTypes`|1|
-{: caption="Value Properties of Error"}
+|{{property(errorCode)}}|`ErrorCodeEnum`|1|
+{: caption="Value Properties of Error" label="table:value-properties-of-error"}
 
 Descriptions for Value Properties of {{block(Error)}}:
 
@@ -124,10 +150,7 @@ Descriptions for Value Properties of {{block(Error)}}:
 
     descriptive code that indicates the type of error that was encountered by an {{term(agent)}}.
 
-    The value of {{property(errorCode)}} **MUST** be one of the `ErrorCodeTypes` enumeration. 
-
-    `ErrorCodeTypes` Enumeration:
-
+    `ErrorCodeEnum` Enumeration:
 
     * `ASSET_NOT_FOUND` 
 

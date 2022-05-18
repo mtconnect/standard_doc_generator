@@ -49,7 +49,7 @@ The {{term(responder)}}, as part of clearing a failure, resets any partial actio
 
 In some cases, a {{term(requester)}} may transition to an unexpected state after it has initiated a {{term(request)}} for service.  
 
-As demonstrated in {{fig(Requester Makes Unexpected State Change)}}, the {{term(requester)}} has initiated a {{term(request)}} for service and its {{term(request)}} state has been changed to `ACTIVE`.  The {{term(responder)}} begins the actions required to provide the service.  During these actions, the {{term(requester)}} transitions its {{term(request)}} state back to `READY` before the {{term(responder)}} can complete its actions.  This **SHOULD** be regarded as a failure of the {{term(requester)}}.
+As demonstrated in {{figure(Requester Makes Unexpected State Change)}}, the {{term(requester)}} has initiated a {{term(request)}} for service and its {{term(request)}} state has been changed to `ACTIVE`.  The {{term(responder)}} begins the actions required to provide the service.  During these actions, the {{term(requester)}} transitions its {{term(request)}} state back to `READY` before the {{term(responder)}} can complete its actions.  This **SHOULD** be regarded as a failure of the {{term(requester)}}.
 
 ![Requester Makes Unexpected State Change](figures/Requester%20Makes%20Unexpected%20State%20Change.png "Requester Makes Unexpected State Change"){: width="0.8"}
 
@@ -66,7 +66,7 @@ The {{term(responder)}} resets any partial actions that were initiated and attem
 
 Similar to Scenario 5, a {{term(responder)}} may transition to an unexpected state while providing a service.  
 
-As demonstrated in {{fig(Responder Makes Unexpected State Change)}}, the {{term(responder)}} is performing the actions to provide a service and the {{term(response)}} state is `ACTIVE`.  During these actions, the {{term(responder)}} transitions its state to `NOT_READY` before completing its actions.  This should be regarded as a failure of the {{term(responder)}}.
+As demonstrated in {{figure(Responder Makes Unexpected State Change)}}, the {{term(responder)}} is performing the actions to provide a service and the {{term(response)}} state is `ACTIVE`.  During these actions, the {{term(responder)}} transitions its state to `NOT_READY` before completing its actions.  This should be regarded as a failure of the {{term(responder)}}.
 
 ![Responder Makes Unexpected State Change](figures/Responder%20Makes%20Unexpected%20State%20Change.png "Responder Makes Unexpected State Change"){: width="0.8"}
 
@@ -80,7 +80,7 @@ The {{term(responder)}}, as part of clearing the cause for the change to the une
 
 ### Responder or Requester Become UNAVAILABLE or Experience a Loss of Communication
 
-In this scenario, a failure occurs in the communications connection between the {{term(responder)}} and {{term(requester)}}.  This failure may result from the {{block(InterfaceState)}} from either piece of equipment returning a value of `UNAVAILABLE` or one of the pieces of equipment does not provide a heartbeat within the desired amount of time (See {{citetitle(MTCPart1)}} for details on heartbeat).   
+In this scenario, a failure occurs in the communications connection between the {{term(responder)}} and {{term(requester)}}.  This failure may result from the {{block(InterfaceState)}} from either piece of equipment returning a value of `UNAVAILABLE` or one of the pieces of equipment does not provide a heartbeat within the desired amount of time (See {{package(Fundamentals)}} for details on heartbeat).   
 
 ![Requester - Responder Communication Failure 1](figures/Requester%20-%20Responder%20Communication%20Failure%201.png "Requester - Responder Communication Failure 1"){: width="0.8"}
 

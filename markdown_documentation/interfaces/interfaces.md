@@ -1,5 +1,5 @@
 
-# Interfaces Overview
+# Interface Interaction Model
 
 In many manufacturing processes, multiple pieces of equipment must work together to perform a task.  The traditional method for coordinating the activities between individual pieces of equipment is to connect them using a series of wires to communicate equipment states and demands for action.  These interactions use simple binary ON/OFF signals to accomplished their intention.
 
@@ -20,16 +20,16 @@ Two primary functions are required to implement the {{term(interaction model)}} 
 
 ## Interfaces Architecture
 
-MTConnect Standard is based on a communications method that provides no direct way for one piece of equipment to change the state of or cause an action to occur in another piece of equipment.  The {{term(interaction model)}} used to implement {{termplural(interface)}} is based on a {{term(publish and subscribe)}} type of communications as described in {{citetitle(MTCPart1)}} and utilizes a {{term(request)}} and {{term(response)}} information exchange mechanism.  For {{termplural(interface)}}, pieces of equipment must perform both the publish ({{term(agent)}}) and subscribe (client) functions.  
+MTConnect Standard is based on a communications method that provides no direct way for one piece of equipment to change the state of or cause an action to occur in another piece of equipment.  The {{term(interaction model)}} used to implement {{termplural(interface)}} is based on a {{term(publish and subscribe)}} type of communications as described in {{package(Fundamentals)}} and utilizes a {{term(request)}} and {{term(response)}} information exchange mechanism.  For {{termplural(interface)}}, pieces of equipment must perform both the publish ({{term(agent)}}) and subscribe (client) functions.  
 
 
 > Note: The current definition of {{termplural(interface)}} addresses the interaction between two pieces of equipment.  Future releases of the MTConnect Standard may address the interaction between multiple (more than two) pieces of equipment.
 
 ![Data Flow Architecture for Interfaces](figures/Data%20Flow%20Architecture%20for%20Interfaces.png "Data Flow Architecture for Interfaces"){: width="0.8"}
 
-> Note: The data flow architecture illustrated in {{fig(Data Flow Architecture for Interfaces)}} was historically referred to in the MTConnect Standard as a read-read concept.
+> Note: The data flow architecture illustrated in {{figure(Data Flow Architecture for Interfaces)}} was historically referred to in the MTConnect Standard as a read-read concept.
 
-In the implementation of the {{term(interaction model)}} for {{termplural(interface)}}, two pieces of equipment can exchange information in the following manner.  One piece of equipment indicates a {{term(request)}} for service by publishing a type of {{term(request)}} using a data item provided through an {{term(agent)}} as defined in {{sect(DataItem Types for Interface)}}.  The client associated with the second piece of equipment, which is subscribing to data from the first machine, detects and interprets that {{term(request)}}.  If the second machine chooses to take any action to fulfill this {{term(request)}}, it can indicate its acceptance by publishing a {{term(response)}} using a data item provided through its {{term(agent)}}.  The client on the first piece of equipment continues to monitor information from the second piece of equipment until it detects an indication that the {{term(response)}} to the {{term(request)}} has been completed or has failed.
+In the implementation of the {{term(interaction model)}} for {{termplural(interface)}}, two pieces of equipment can exchange information in the following manner.  One piece of equipment indicates a {{term(request)}} for service by publishing a type of {{term(request)}} using a data item provided through an {{term(agent)}} as defined in {{package(DataItem Types for Interface)}}.  The client associated with the second piece of equipment, which is subscribing to data from the first machine, detects and interprets that {{term(request)}}.  If the second machine chooses to take any action to fulfill this {{term(request)}}, it can indicate its acceptance by publishing a {{term(response)}} using a data item provided through its {{term(agent)}}.  The client on the first piece of equipment continues to monitor information from the second piece of equipment until it detects an indication that the {{term(response)}} to the {{term(request)}} has been completed or has failed.
 
 An example of this type of interaction between pieces of equipment can be represented by a machine tool that wants the material to be loaded by a robot.  In this example, the machine tool is the {{term(requester)}}, and the robot is the {{term(responder)}}.  On the other hand, if the robot wants the machine tool to open a door, the robot becomes the {{term(requester)}} and the machine tool the {{term(responder)}}.
 
@@ -37,7 +37,7 @@ An example of this type of interaction between pieces of equipment can be repres
 
 The {{block(DataItem)}} elements defined by the {{term(interaction model)}} each have a `REQUEST` and `RESPONSE` subtype.  These subtypes identify if the data item represents a {{term(request)}} or a {{term(response)}}.  Using these data items, a piece of equipment changes the state of its {{term(request)}} or {{term(response)}} to indicate information that can be read by the other piece of equipment.  To aid in understanding how the {{term(interaction model)}} functions, one can view this {{term(interaction model)}} as a simple state machine. 
 
-The interaction between two pieces of equipment can be described as follows.  When the {{term(requester)}} wants an activity to be performed, it transitions its {{term(request)}} state from a `READY` state to an `ACTIVE` state.  In turn, when the client on the {{term(responder)}} reads this information and interprets the {{term(request)}}, the {{term(responder)}} announces that it is performing the requested task by changing its response state to `ACTIVE`.  When the action is finished, the {{term(responder)}} changes its response state to `COMPLETE`.  This pattern of {{term(request)}} and {{term(response)}} provides the basis for the coordination of actions between pieces of equipment.  These actions are implemented using `EVENT` category data items.  (See {{sect(DataItem Types for Interface)}} for details on the {{block(Event)}} type data items defined for {{termplural(interface)}}.)
+The interaction between two pieces of equipment can be described as follows.  When the {{term(requester)}} wants an activity to be performed, it transitions its {{term(request)}} state from a `READY` state to an `ACTIVE` state.  In turn, when the client on the {{term(responder)}} reads this information and interprets the {{term(request)}}, the {{term(responder)}} announces that it is performing the requested task by changing its response state to `ACTIVE`.  When the action is finished, the {{term(responder)}} changes its response state to `COMPLETE`.  This pattern of {{term(request)}} and {{term(response)}} provides the basis for the coordination of actions between pieces of equipment.  These actions are implemented using `EVENT` category data items.  (See {{package(DataItem Types for Interface)}} for details on the {{block(Event)}} type data items defined for {{termplural(interface)}}.)
 
 > Note: The implementation details of how the {{term(responder)}} piece of equipment reacts to the {{term(request)}} and then completes the requested task are up to the implementer.
 
@@ -45,7 +45,7 @@ The interaction between two pieces of equipment can be described as follows.  Wh
 
 The initial condition of both the {{term(request)}} and {{term(response)}} states on both pieces of equipment is `READY`.  The dotted lines indicate the on-going communications that occur to monitor the progress of the interactions between the pieces of equipment.
 
-The interaction between the pieces of equipment as illustrated in {{fig(Request and Response Overview)}} progresses through the sequence listed below.
+The interaction between the pieces of equipment as illustrated in {{figure(Request and Response Overview)}} progresses through the sequence listed below.
 
 * The {{term(request)}} transitions from `READY` to `ACTIVE` signaling that a service is needed.
 
@@ -65,17 +65,17 @@ The interaction between the pieces of equipment as illustrated in {{fig(Request 
 
 After the final action has been completed, both pieces of equipment are back in the `READY` state indicating that they are able to perform another action.
 
+{{input(sections/InterfaceInteractionModel.md)}}
+
 # Interfaces for Device and Observation Information Models
 
 The {{term(interaction model)}} for implementing {{termplural(interface)}} is defined in the MTConnect Standard as an extension to the {{term(Device Information Model)}} and {{term(Observation Information Model)}}.
 
 A piece of equipment **MAY** support multiple different {{termplural(interface)}}. Each piece of equipment supporting {{termplural(interface)}} **MUST** model the information associated with each {{term(interface)}} as an {{block(Interface)}} component.  {{block(Interface)}} is an abstract {{block(Component)}} and is realized by {{block(Interface)}} component types. 
 
-The {{fig(Interfaces in Entity Hierarchy)}} illustrates where an {{block(Interface)}} is modeled in the {{term(Device Information Model)}} for a piece of equipment.
+The {{figure(Interfaces in Entity Hierarchy)}} illustrates where an {{block(Interface)}} is modeled in the {{term(Device Information Model)}} for a piece of equipment.
 
 ![Interfaces in Entity Hierarchy](figures/Interfaces%20in%20Entity%20Hierarchy.png "Interfaces in Entity Hierarchy"){: width="0.8"}
-
-{{input(sections/Interfaces.md)}}
 
 {{input(sections/InterfaceTypes.md)}}
 
@@ -85,6 +85,10 @@ The {{fig(Interfaces in Entity Hierarchy)}} illustrates where an {{block(Interfa
 
 # Operation and Error Recovery
 
+The {{term(request and response)}} state model implemented for {{termplural(interface)}} may also be represented by a graphical model.  The scenario in {{figure(Success Scenario)}} demonstrates the state transitions that occur during a successful {{term(request)}} for service and the resulting {{term(response)}} to fulfill that service {{term(request)}}. 
 
+![Success Scenario](figures/Success%20Scenario.png "Success Scenario"){: width="0.8"}
+
+{{input(sections/OperationandErrorRecovery.md)}}
 
 {{input(sections/RequestandResponseFailureHandlingandRecovery.md)}}

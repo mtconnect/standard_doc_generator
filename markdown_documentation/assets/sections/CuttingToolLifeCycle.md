@@ -10,10 +10,10 @@ This section provides semantic information for the {{block(CuttingToolLifeCycle)
 
 ### CuttingToolLifeCycle
 
-
 data regarding the application or use of the tool.
 
 This data is provided by various pieces of equipment (i.e. machine tool, presetter) and statistical process control applications. Life cycle data will not remain static, but will change periodically when a tool is used or measured.
+
 
 
 #### Value Properties of CuttingToolLifeCycle
@@ -25,7 +25,7 @@ This data is provided by various pieces of equipment (i.e. machine tool, presett
 |{{property(ConnectionCodeMachineSide)}}|`string`|0..1|
 |{{property(ProgramToolGroup)}}|`string`|0..1|
 |{{property(ProgramToolNumber)}}|`string`|0..1|
-{: caption="Value Properties of CuttingToolLifeCycle"}
+{: caption="Value Properties of CuttingToolLifeCycle" label="table:value-properties-of-cuttingtoollifecycle"}
 
 Descriptions for Value Properties of {{block(CuttingToolLifeCycle)}}:
 
@@ -41,22 +41,23 @@ Descriptions for Value Properties of {{block(CuttingToolLifeCycle)}}:
 
     number of the tool as referenced in the part program.
 
-#### Reference Properties of CuttingToolLifeCycle
+#### Part Properties of CuttingToolLifeCycle
 
-{{tbl(reference-properties-of-cuttingtoollifecycle)}} lists the Reference Properties of {{block(CuttingToolLifeCycle)}}.
+{{tbl(part-properties-of-cuttingtoollifecycle)}} lists the Part Properties of {{block(CuttingToolLifeCycle)}}.
 
-|Reference Property name|Multiplicity|
+|Part Property name|Multiplicity|
 |:-|:-:|
 |{{block(ProcessFeedRate)}}|0..1|
 |{{block(ToolLife)}}|0..3|
 |{{block(ProcessSpindleSpeed)}}|0..1|
-|{{block(Status)}} (organized by {{block(CutterStatus)}})|1..*|
-|{{block(Measurement)}} (organized by {{block(Measurements)}})|0..*|
+|{{block(Status)}} (organized by `CutterStatus`)|1..*|
+|{{block(CuttingItem)}} (organized by `CuttingItems`)|0..*|
+|{{block(Measurement)}} (organized by `Measurements`)|0..*|
 |{{block(ReconditionCount)}}|0..1|
 |{{block(Location)}}|0..1|
-{: caption="Reference Properties of CuttingToolLifeCycle"}
+{: caption="Part Properties of CuttingToolLifeCycle" label="table:part-properties-of-cuttingtoollifecycle"}
 
-Descriptions for Reference Properties of {{block(CuttingToolLifeCycle)}}:
+Descriptions for Part Properties of {{block(CuttingToolLifeCycle)}}:
 
 * {{block(ProcessFeedRate)}} 
 
@@ -74,7 +75,7 @@ Descriptions for Reference Properties of {{block(CuttingToolLifeCycle)}}:
 
 * {{block(ProcessSpindleSpeed)}} 
 
-    constrained process spindle speed for the tool in revolutions/minute.
+    constrained process spindle speed for the tool in revolutions/minute.
     
     The {{property(value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
 
@@ -98,6 +99,12 @@ Descriptions for Reference Properties of {{block(CuttingToolLifeCycle)}}:
     
     * If the tool is `EXPIRED`, `BROKEN`, or `NOT_REGISTERED` it **MUST NOT** be `AVAILABLE`.
 
+* {{block(CuttingItem)}} 
+
+    part of of the tool that physically removes the material from the workpiece by shear deformation.
+
+    {{block(CuttingItems)}} groups one or more {{block(CuttingItem)}} entities. See {{sect(CuttingItem)}} and {{package(Cutting Item)}} for more detail.
+
 * {{block(Measurement)}} 
 
     constrained scalar value associated with a cutting tool.
@@ -106,7 +113,7 @@ Descriptions for Reference Properties of {{block(CuttingToolLifeCycle)}}:
 
 * {{block(ReconditionCount)}} 
 
-    number of times the cutter has been reconditioned.
+    number of times the cutter has been reconditioned.
 
     See {{sect(ReconditionCount)}}.
 
@@ -122,10 +129,11 @@ Descriptions for Reference Properties of {{block(CuttingToolLifeCycle)}}:
 
 ### ToolLife
 
-
 cutting tool life as related to the assembly.
 
+
 {{block(ToolLife)}} **MUST** be defined only for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingTool)}} and **MUST NOT** be defined for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingToolArchetype)}}.
+
 
 The value of {{property(ToolLife)}} **MUST** be `float`.
 
@@ -140,7 +148,7 @@ The value of {{property(ToolLife)}} **MUST** be `float`.
 |{{property(limit)}}|`float`|0..1|
 |{{property(type)}}|`ToolLifeEnum`|1|
 |{{property(warning)}}|`float`|0..1|
-{: caption="Value Properties of ToolLife"}
+{: caption="Value Properties of ToolLife" label="table:value-properties-of-toollife"}
 
 Descriptions for Value Properties of {{block(ToolLife)}}:
 
@@ -148,18 +156,15 @@ Descriptions for Value Properties of {{block(ToolLife)}}:
 
     indicates if the tool life counts from zero to maximum or maximum to zero.
 
-    The value of {{property(countDirection)}} **MUST** be one of the `CountDirectionTypeEnum` enumeration. 
-
     `CountDirectionTypeEnum` Enumeration:
-
-
-    * `UP` 
-
-        tool life counts up from zero to the maximum.
 
     * `DOWN` 
 
         tool life counts down from the maximum to zero.
+
+    * `UP` 
+
+        tool life counts up from zero to the maximum.
 
 * {{property(initial)}} 
 
@@ -173,10 +178,7 @@ Descriptions for Value Properties of {{block(ToolLife)}}:
 
     type of tool life being accumulated.
 
-    The value of {{property(type)}} **MUST** be one of the `ToolLifeEnum` enumeration. 
-
     `ToolLifeEnum` Enumeration:
-
 
     * `MINUTES` 
 
@@ -203,14 +205,15 @@ Descriptions for Value Properties of {{block(ToolLife)}}:
 
 ### Location
 
-
 location of the pot or spindle the cutting tool currently resides in.
 
 If {{property(negativeOverlap)}} or {{property(positiveOverlap)}} is provided, the tool reserves additional locations on either side, otherwise if they are not given, no additional locations are required for this tool.
 
 If the pot occupies the first or last location, a rollover to the beginning or the end of the indexable values may occur. For example, if there are 64 pots and the tool is in pot 64 with a {{property(positiveOverlap)}} of 1, the first pot **MAY** be occupied as well.
 
+
 {{block(Location)}} **MUST** be defined only for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingTool)}} and **MUST NOT** be defined for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingToolArchetype)}}.
+
 
 The value of {{property(Location)}} **MUST** be `string`.
 
@@ -228,7 +231,7 @@ The value of {{property(Location)}} **MUST** be `string`.
 |{{property(toolBar)}}|`string`|0..1|
 |{{property(toolRack)}}|`string`|0..1|
 |{{property(automaticToolChanger)}}|`string`|0..1|
-{: caption="Value Properties of Location"}
+{: caption="Value Properties of Location" label="table:value-properties-of-location"}
 
 Descriptions for Value Properties of {{block(Location)}}:
 
@@ -238,7 +241,7 @@ Descriptions for Value Properties of {{block(Location)}}:
 
 * {{property(positiveOverlap)}} 
 
-    number of locations at higher index value from this location.
+    number of locations at higher index value from this location.
 
 * {{property(type)}} 
 
@@ -246,50 +249,47 @@ Descriptions for Value Properties of {{block(Location)}}:
     
     When a `POT` or `STATION` type is used, {{property(value)}} of {{block(Location)}} **MUST** be a numeric value.
 
-    The value of {{property(type)}} **MUST** be one of the `LocationTypeEnum` enumeration. 
-
     `LocationTypeEnum` Enumeration:
-
-
-    * `POT` 
-
-        number of the pot in the tool handling system.
-
-    * `STATION` 
-
-        tool location in a horizontal turning machine.
 
     * `CRIB` 
 
         location with regard to a tool crib.
 
-    * `SPINDLE` 
+    * `END_EFFECTOR` 
 
-        location associated with a {{term(spindle)}}.
-
-    * `TRANSFER_POT` 
-
-        location for a tool awaiting transfer from a tool magazine to spindle or a turret.
-
-    * `RETURN_POT` 
-
-        location for a tool removed from a {{term(spindle)}} or turret and awaiting return to a tool magazine.
-
-    * `STAGING_POT` 
-
-        location for a tool awaiting transfer to a tool magazine or turret from outside of the piece of equipment.
-
-    * `REMOVAL_POT` 
-
-        location for a tool removed from a tool magazine or turret awaiting transfer to a location outside of the piece of equipment.
+        location associated with an end effector.
 
     * `EXPIRED_POT` 
 
         location for a tool that is no longer usable and is awaiting removal from a tool magazine or turret.
 
-    * `END_EFFECTOR` 
+    * `POT` 
 
-        location associated with an end effector.
+        number of the pot in the tool handling system.
+
+    * `REMOVAL_POT` 
+
+        location for a tool removed from a tool magazine or turret awaiting transfer to a location outside of the piece of equipment.
+
+    * `RETURN_POT` 
+
+        location for a tool removed from a {{term(spindle)}} or turret and awaiting return to a tool magazine.
+
+    * `SPINDLE` 
+
+        location associated with a {{term(spindle)}}.
+
+    * `STAGING_POT` 
+
+        location for a tool awaiting transfer to a tool magazine or turret from outside of the piece of equipment.
+
+    * `STATION` 
+
+        tool location in a horizontal turning machine.
+
+    * `TRANSFER_POT` 
+
+        location for a tool awaiting transfer from a tool magazine to spindle or a turret.
 
 * {{property(turret)}} 
 
@@ -297,7 +297,7 @@ Descriptions for Value Properties of {{block(Location)}}:
 
 * {{property(toolMagazine)}} 
 
-    tool magazine associated with a tool.
+    tool magazine associated with a tool.
 
 * {{property(toolBar)}} 
 
@@ -313,10 +313,11 @@ Descriptions for Value Properties of {{block(Location)}}:
 
 ### ReconditionCount
 
+number of times the cutter has been reconditioned.
 
-number of times the cutter has been reconditioned.
 
 {{block(ReconditionCount)}} **MUST** be defined only for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingTool)}} and **MUST NOT** be defined for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingToolArchetype)}}.
+
 
 The value of {{property(ReconditionCount)}} **MUST** be `integer`.
 
@@ -327,20 +328,20 @@ The value of {{property(ReconditionCount)}} **MUST** be `integer`.
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(maximumCount)}}|`integer`|0..1|
-{: caption="Value Properties of ReconditionCount"}
+{: caption="Value Properties of ReconditionCount" label="table:value-properties-of-reconditioncount"}
 
 Descriptions for Value Properties of {{block(ReconditionCount)}}:
 
 * {{property(maximumCount)}} 
 
-    maximum number of times the tool may be reconditioned.
+    maximum number of times the tool may be reconditioned.
 
 ### ProcessSpindleSpeed
 
-
-constrained process spindle speed for the tool in revolutions/minute.
+constrained process spindle speed for the tool in revolutions/minute.
 
 The {{property(value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
+
 
 
 The value of {{property(ProcessSpindleSpeed)}} **MUST** be `float`.
@@ -354,7 +355,7 @@ The value of {{property(ProcessSpindleSpeed)}} **MUST** be `float`.
 |{{property(maximum)}}|`float`|0..1|
 |{{property(minimum)}}|`float`|0..1|
 |{{property(nominal)}}|`float`|0..1|
-{: caption="Value Properties of ProcessSpindleSpeed"}
+{: caption="Value Properties of ProcessSpindleSpeed" label="table:value-properties-of-processspindlespeed"}
 
 Descriptions for Value Properties of {{block(ProcessSpindleSpeed)}}:
 
@@ -364,7 +365,7 @@ Descriptions for Value Properties of {{block(ProcessSpindleSpeed)}}:
 
 * {{property(minimum)}} 
 
-    lower bound for the tools spindle speed.
+    lower bound for the tools spindle speed.
 
 * {{property(nominal)}} 
 
@@ -372,10 +373,10 @@ Descriptions for Value Properties of {{block(ProcessSpindleSpeed)}}:
 
 ### ProcessFeedRate
 
-
 constrained process feed rate for the tool in mm/s.
 
 The {{property(value)}} **MAY** contain the nominal process target feed rate if available. If {{block(ProcessFeedRate)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
+
 
 
 The value of {{property(ProcessFeedRate)}} **MUST** be `string`.
@@ -389,7 +390,7 @@ The value of {{property(ProcessFeedRate)}} **MUST** be `string`.
 |{{property(maximum)}}|`float`|0..1|
 |{{property(minimum)}}|`float`|0..1|
 |{{property(nominal)}}|`float`|0..1|
-{: caption="Value Properties of ProcessFeedRate"}
+{: caption="Value Properties of ProcessFeedRate" label="table:value-properties-of-processfeedrate"}
 
 Descriptions for Value Properties of {{block(ProcessFeedRate)}}:
 
@@ -403,24 +404,19 @@ Descriptions for Value Properties of {{block(ProcessFeedRate)}}:
 
 * {{property(nominal)}} 
 
-    nominal feedrate the tool is designed to operate at.
+    nominal feedrate the tool is designed to operate at.
 
 ### Status
-
 
 status of the cutting tool.
 
 
-The value of {{property(Status)}} **MUST** be one of the `CutterStatusTypeEnum` enumeration. 
 
 `CutterStatusTypeEnum` Enumeration:
 
+* `ALLOCATED` 
 
-* `NEW` 
-
-    new tool that has not been used or first use. 
-    
-    Marks the start of the tool history.
+    tool is has been committed to a piece of equipment for use and is not available for use in any other piece of equipment.
 
 * `AVAILABLE` 
 
@@ -428,52 +424,55 @@ The value of {{property(Status)}} **MUST** be one of the `CutterStatusTypeEnum` 
     
     If this is not present, the tool is currently not ready to be used.
 
-* `UNAVAILABLE` 
+* `BROKEN` 
 
-    tool is unavailable for use in metal removal. 
-
-* `ALLOCATED` 
-
-    tool is has been committed to a piece of equipment for use and is not available for use in any other piece of equipment.
-
-* `UNALLOCATED` 
-
-    tool has not been committed to a process and can be allocated.
-
-* `MEASURED` 
-
-    tool has been measured.
-
-* `RECONDITIONED` 
-
-    tool has been reconditioned.
-
-* `USED` 
-
-    tool is in process and has remaining tool life.
+    premature tool failure.
 
 * `EXPIRED` 
 
     tool has reached the end of its useful life.
 
-* `BROKEN` 
+* `MEASURED` 
 
-    premature tool failure.
+    tool has been measured.
+
+* `NEW` 
+
+    new tool that has not been used or first use. 
+    
+    Marks the start of the tool history.
 
 * `NOT_REGISTERED` 
 
     tool cannot be used until it is entered into the system.
 
+* `RECONDITIONED` 
+
+    tool has been reconditioned.
+
+* `UNALLOCATED` 
+
+    tool has not been committed to a process and can be allocated.
+
+* `UNAVAILABLE` 
+
+    tool is unavailable for use in metal removal. 
+
 * `UNKNOWN` 
 
     tool is an indeterminate state. This is the default value.
 
-### Measurement
+* `USED` 
 
+    tool is in process and has remaining tool life.
+
+### Measurement
 
 constrained scalar value associated with a cutting tool.
 
+
 A {{block(Measurement)}} is specific to the tool management policy at a particular shop. The tool zero reference point or gauge line will be different depending on the particular implementation and will be assumed to be consistent within the shop. MTConnect Standard does not standardize the manufacturing process or the definition of the zero point.
+
 
 The value of {{property(Measurement)}} **MUST** be `float`.
 
@@ -490,7 +489,7 @@ The value of {{property(Measurement)}} **MUST** be `float`.
 |{{property(nominal)}}|`float`|0..1|
 |{{property(significantDigits)}}|`integer`|0..1|
 |{{property(units)}}|`UnitEnum`|0..1|
-{: caption="Value Properties of Measurement"}
+{: caption="Value Properties of Measurement" label="table:value-properties-of-measurement"}
 
 Descriptions for Value Properties of {{block(Measurement)}}:
 
@@ -500,9 +499,7 @@ Descriptions for Value Properties of {{block(Measurement)}}:
     
     ISO 13399 codes **MAY** be used for these codes as well. 
     
-    See {{sect(Cutting Tool Measurement Subtypes)}} and {{sect(Cutting Item Measurement Subtypes)}} for details on {{block(Measurement)}} types and their respective {{property(code)}} values.
-
-    The {{property(code)}} of {{property(code)}} **MUST** be ``.
+    See {{package(Cutting Tool Measurement Subtypes)}} and {{package(Cutting Item Measurement Subtypes)}} for details on {{block(Measurement)}} types and their respective {{property(code)}} values.
 
 * {{property(maximum)}} 
 
@@ -514,13 +511,13 @@ Descriptions for Value Properties of {{block(Measurement)}}:
 
 * {{property(nativeUnits)}} 
 
-    units the measurement was originally recorded in. See {{citetitle(MTCPart2)}} for the complete list of {{property(nativeUnits)}}.
+    units the measurement was originally recorded in. See {{package(Device Information Model)}} for the complete list of {{property(nativeUnits)}}.
 
     The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
 
 * {{property(nominal)}} 
 
-    as advertised value for the measurement.
+    as advertised value for the measurement.
 
 * {{property(significantDigits)}} 
 
@@ -528,6 +525,6 @@ Descriptions for Value Properties of {{block(Measurement)}}:
 
 * {{property(units)}} 
 
-    units for the measurements. See {{citetitle(MTCPart2)}} for the complete list of {{property(units)}}.
+    units for the measurements. See {{package(Device Information Model)}} for the complete list of {{property(units)}}.
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 

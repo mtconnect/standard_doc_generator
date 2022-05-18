@@ -5,35 +5,37 @@ This section provides semantic information for {{block(Sample)}} types.
 
 ### Acceleration
 
-positive rate of change of velocity.
-
+{{def(SampleEnum:ACCELERATION)}}
 
 
 
 The {{property(units)}} of {{property(Acceleration)}} **MUST** be `MILLIMETER/SECOND^2`.
 
-#### Subtypes of Acceleration
+The default {{property(subType)}} of {{property(Acceleration)}} is `ACTUAL`.
 
+#### Subtypes of Acceleration
 
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### AccumulatedTime
 
-accumulated time for an activity or event.
-
+{{def(SampleEnum:ACCUMULATED_TIME)}}
 
 
 
@@ -41,10 +43,7 @@ The {{property(units)}} of {{property(AccumulatedTime)}} **MUST** be `SECOND`.
 
 ### `<<deprecated>>`Amperage
 
-strength of electrical current.
-
-**DEPRECATED** in *Version 1.6*. Replaced by `AMPERAGE_AC` and `AMPERAGE_DC`.
-
+{{def(SampleEnum:AMPERAGE)}}
 
 
 
@@ -52,10 +51,12 @@ The {{property(units)}} of {{property(Amperage)}} **MUST** be `AMPERE`.
 
 #### Subtypes of Amperage
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+    
+    **DEPRECATED** in *Version 1.6*.
+
     
 
 * `ALTERNATING`
@@ -64,75 +65,89 @@ The {{property(units)}} of {{property(Amperage)}} **MUST** be `AMPERE`.
     
     If not specified further in statistic, defaults to RMS voltage. 
     
+    **DEPRECATED** in *Version 1.6*.
+
+    
 
 * `DIRECT`
 
     measurement of DC current or voltage.
+    
+    **DEPRECATED** in *Version 1.6*.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
     
+    **DEPRECATED** in *Version 1.6*.
+
+    
 
 ### AmperageAC
 
-electrical current that reverses direction at regular short intervals.
-
+{{def(SampleEnum:AMPERAGE_AC)}}
 
 
 
 The {{property(units)}} of {{property(AmperageAC)}} **MUST** be `AMPERE`.
 
-#### Subtypes of AmperageAC
+A {{property(subType)}} **MUST** always be specified.
 
+#### Subtypes of AmperageAC
 
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### AmperageDC
 
-electric current flowing in one direction only.
-
+{{def(SampleEnum:AMPERAGE_DC)}}
 
 
 
 The {{property(units)}} of {{property(AmperageDC)}} **MUST** be `AMPERE`.
 
-#### Subtypes of AmperageDC
+A {{property(subType)}} **MUST** always be specified.
 
+#### Subtypes of AmperageDC
 
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### Angle
 
-angular position.
-
+{{def(SampleEnum:ANGLE)}}
 
 
 
@@ -140,75 +155,81 @@ The {{property(units)}} of {{property(Angle)}} **MUST** be `DEGREE`.
 
 #### Subtypes of Angle
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 ### AngularAcceleration
 
-positive rate of change of angular velocity.
-
+{{def(SampleEnum:ANGULAR_ACCELERATION)}}
 
 
 
 The {{property(units)}} of {{property(AngularAcceleration)}} **MUST** be `DEGREE/SECOND^2`.
 
-#### Subtypes of AngularAcceleration
+The default {{property(subType)}} of {{property(AngularAcceleration)}} is `ACTUAL`.
 
+#### Subtypes of AngularAcceleration
 
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### AngularDeceleration
 
-negative rate of change of angular velocity.
-
+{{def(SampleEnum:ANGULAR_DECELERATION)}}
 
 
 
 The {{property(units)}} of {{property(AngularDeceleration)}} **MUST** be `DEGREE/SECOND^2`.
 
-#### Subtypes of AngularDeceleration
+The default {{property(subType)}} of {{property(AngularDeceleration)}} is `ACTUAL`.
 
+#### Subtypes of AngularDeceleration
 
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### AngularVelocity
 
-rate of change of angular position.
-
+{{def(SampleEnum:ANGULAR_VELOCITY)}}
 
 
 
@@ -216,10 +237,7 @@ The {{property(units)}} of {{property(AngularVelocity)}} **MUST** be `DEGREE/SEC
 
 ### AssetUpdateRate
 
-average rate of change of values for assets in the MTConnect streams. 
-
-The average is computed over a rolling window defined by the implementation.
-
+{{def(SampleEnum:ASSET_UPDATE_RATE)}}
 
 
 
@@ -227,8 +245,7 @@ The {{property(units)}} of {{property(AssetUpdateRate)}} **MUST** be `COUNT/SECO
 
 ### AxisFeedrate
 
-feedrate of a linear axis.
-
+{{def(SampleEnum:AXIS_FEEDRATE)}}
 
 
 
@@ -236,41 +253,47 @@ The {{property(units)}} of {{property(AxisFeedrate)}} **MUST** be `MILLIMETER/SE
 
 #### Subtypes of AxisFeedrate
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `JOG`
 
-    feedrate specified by a logic or motion program, by a pre-set value, or set by a switch as the feedrate for the {{block(Axis)}}. 
+    relating to momentary activation of a function or a movement.
+    
+    **DEPRECATION WARNING**: May be deprecated in the future.
+
     
 
 * `OVERRIDE`
 
     operator's overridden value.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 * `RAPID`
 
     performing an operation faster or in less time than nominal rate.
+
     
 
 ### CapacityFluid
 
-fluid capacity of an object or container.
-
+{{def(SampleEnum:CAPACITY_FLUID)}}
 
 
 
@@ -278,26 +301,15 @@ The {{property(units)}} of {{property(CapacityFluid)}} **MUST** be `MILLILITER`.
 
 ### CapacitySpatial
 
-geometric capacity of an object or container.
-
+{{def(SampleEnum:CAPACITY_SPATIAL)}}
 
 
 
 The {{property(units)}} of {{property(CapacitySpatial)}} **MUST** be `CUBIC_MILLIMETER`.
 
-### ClockTime
-
-time provided by a timing device at a specific point in time.
-
-
-
-
-The {{property(units)}} of {{property(ClockTime)}} **MUST** be `yyyy-mm-ddthh:mm:ss.ffff`.
-
 ### Concentration
 
-percentage of one component within a mixture of components.
-
+{{def(SampleEnum:CONCENTRATION)}}
 
 
 
@@ -305,8 +317,7 @@ The {{property(units)}} of {{property(Concentration)}} **MUST** be `PERCENT`.
 
 ### Conductivity
 
-ability of a material to conduct electricity.
-
+{{def(SampleEnum:CONDUCTIVITY)}}
 
 
 
@@ -314,8 +325,7 @@ The {{property(units)}} of {{property(Conductivity)}} **MUST** be `SIEMENS/METER
 
 ### CuttingSpeed
 
-speed difference (relative velocity) between the cutting mechanism and the surface of the workpiece it is operating on.
-
+{{def(SampleEnum:CUTTING_SPEED)}}
 
 
 
@@ -323,53 +333,57 @@ The {{property(units)}} of {{property(CuttingSpeed)}} **MUST** be `MILLIMETER/SE
 
 #### Subtypes of CuttingSpeed
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### Deceleration
 
-negative rate of change of velocity.
-
+{{def(SampleEnum:DECELERATION)}}
 
 
 
 The {{property(units)}} of {{property(Deceleration)}} **MUST** be `MILLIMETER/SECOND^2`.
 
-#### Subtypes of Deceleration
+The default {{property(subType)}} of {{property(Deceleration)}} is `ACTUAL`.
 
+#### Subtypes of Deceleration
 
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### Density
 
-volumetric mass of a material per unit volume of that material.
-
+{{def(SampleEnum:DENSITY)}}
 
 
 
@@ -377,30 +391,29 @@ The {{property(units)}} of {{property(Density)}} **MUST** be `MILLIGRAM/CUBIC_MI
 
 ### DepositionAccelerationVolumetric
 
-rate of change in spatial volume of material deposited in an additive manufacturing process.
+{{def(SampleEnum:DEPOSITION_ACCELERATION_VOLUMETRIC)}}
 
-The rate of change in spatial volume of material deposited in an additive manufacturing process.
 
 
 The {{property(units)}} of {{property(DepositionAccelerationVolumetric)}} **MUST** be `CUBIC_MILLIMETER/SECOND^2`.
 
 #### Subtypes of DepositionAccelerationVolumetric
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 ### DepositionDensity
 
-density of the material deposited in an additive manufacturing process per unit of volume.
-
+{{def(SampleEnum:DEPOSITION_DENSITY)}}
 
 
 
@@ -408,21 +421,21 @@ The {{property(units)}} of {{property(DepositionDensity)}} **MUST** be `MILLIGRA
 
 #### Subtypes of DepositionDensity
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 ### DepositionMass
 
-mass of the material deposited in an additive manufacturing process.
-
+{{def(SampleEnum:DEPOSITION_MASS)}}
 
 
 
@@ -430,21 +443,21 @@ The {{property(units)}} of {{property(DepositionMass)}} **MUST** be `MILLIGRAM`.
 
 #### Subtypes of DepositionMass
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 ### DepositionRateVolumetric
 
-rate at which a spatial volume of material is deposited in an additive manufacturing process.
-
+{{def(SampleEnum:DEPOSITION_RATE_VOLUMETRIC)}}
 
 
 
@@ -452,21 +465,21 @@ The {{property(units)}} of {{property(DepositionRateVolumetric)}} **MUST** be `C
 
 #### Subtypes of DepositionRateVolumetric
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 ### DepositionVolume
 
-spatial volume of material to be deposited in an additive manufacturing process.
-
+{{def(SampleEnum:DEPOSITION_VOLUME)}}
 
 
 
@@ -474,21 +487,21 @@ The {{property(units)}} of {{property(DepositionVolume)}} **MUST** be `CUBIC_MIL
 
 #### Subtypes of DepositionVolume
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 ### Diameter
 
-dimension of a diameter.
-
+{{def(SampleEnum:DIAMETER)}}
 
 
 
@@ -496,8 +509,7 @@ The {{property(units)}} of {{property(Diameter)}} **MUST** be `MILLIMETER`.
 
 ### Displacement
 
-change in position of an object.
-
+{{def(SampleEnum:DISPLACEMENT)}}
 
 
 
@@ -505,8 +517,7 @@ The {{property(units)}} of {{property(Displacement)}} **MUST** be `MILLIMETER`.
 
 ### ElectricalEnergy
 
-{{block(Wattage)}} used or generated by a component over an interval of time.
-
+{{def(SampleEnum:ELECTRICAL_ENERGY)}}
 
 
 
@@ -514,19 +525,20 @@ The {{property(units)}} of {{property(ElectricalEnergy)}} **MUST** be `WATT_SECO
 
 ### EquipmentTimer
 
-amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities.
-
+{{def(SampleEnum:EQUIPMENT_TIMER)}}
 
 
 
 The {{property(units)}} of {{property(EquipmentTimer)}} **MUST** be `SECOND`.
 
-#### Subtypes of EquipmentTimer
+A {{property(subType)}} **MUST** always be specified.
 
+#### Subtypes of EquipmentTimer
 
 * `DELAY`
 
     elapsed time of a temporary halt of action.
+
     
 
 * `LOADED`
@@ -534,6 +546,7 @@ The {{property(units)}} of {{property(EquipmentTimer)}} **MUST** be `SECOND`.
     time that the sub-parts of a piece of equipment are under load.
     
     Example: For traditional machine tools, this is a measurement of the time that the cutting tool is assumed to be engaged with the part.
+
     
 
 * `OPERATING`
@@ -541,6 +554,7 @@ The {{property(units)}} of {{property(EquipmentTimer)}} **MUST** be `SECOND`.
     time that the major sub-parts of a piece of equipment are powered or performing any activity whether producing a part or product or not.
     
     Example: For traditional machine tools, this includes `WORKING`, plus idle time.
+
     
 
 * `POWERED`
@@ -548,6 +562,7 @@ The {{property(units)}} of {{property(EquipmentTimer)}} **MUST** be `SECOND`.
     time that primary power is applied to the piece of equipment and, as a minimum, the controller or logic portion of the piece of equipment is powered and functioning or components that are required to remain on are powered.
     
     Example: Heaters for an extrusion machine that are required to be powered even when the equipment is turned off.
+
     
 
 * `WORKING`
@@ -555,12 +570,12 @@ The {{property(units)}} of {{property(EquipmentTimer)}} **MUST** be `SECOND`.
     time that a piece of equipment is performing any activity the equipment is active and performing a function under load or not.
     
     Example: For traditional machine tools, this includes `LOADED`, plus rapid moves, tool changes, etc.
+
     
 
 ### FillLevel
 
-amount of a substance remaining compared to the planned maximum amount of that substance.
-
+{{def(SampleEnum:FILL_LEVEL)}}
 
 
 
@@ -568,8 +583,7 @@ The {{property(units)}} of {{property(FillLevel)}} **MUST** be `PERCENT`.
 
 ### Flow
 
-rate of flow of a fluid.
-
+{{def(SampleEnum:FLOW)}}
 
 
 
@@ -577,26 +591,37 @@ The {{property(units)}} of {{property(Flow)}} **MUST** be `LITER/SECOND`.
 
 ### Frequency
 
-number of occurrences of a repeating event per unit time.
-
+{{def(SampleEnum:FREQUENCY)}}
 
 
 
 The {{property(units)}} of {{property(Frequency)}} **MUST** be `HERTZ`.
 
-### GlobalPosition
+### `<<deprecated>>`GlobalPosition
 
-**DEPRECATED** in Version 1.1.
-
+{{def(SampleEnum:GLOBAL_POSITION)}}
 
 
 
 The {{property(units)}} of {{property(GlobalPosition)}} **MUST** be `MILLIMETER`.
 
+#### Subtypes of GlobalPosition
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+* `COMMANDED`
+
+    directive value including adjustments such as an offset or overrides.
+
+    
+
 ### HumidityAbsolute
 
-amount of water vapor expressed in grams per cubic meter.
-
+{{def(SampleEnum:HUMIDITY_ABSOLUTE)}}
 
 
 
@@ -604,21 +629,21 @@ The {{property(units)}} of {{property(HumidityAbsolute)}} **MUST** be `GRAM/CUBI
 
 #### Subtypes of HumidityAbsolute
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 ### HumidityRelative
 
-amount of water vapor present expressed as a percent to reach saturation at the same temperature.
-
+{{def(SampleEnum:HUMIDITY_RELATIVE)}}
 
 
 
@@ -626,21 +651,21 @@ The {{property(units)}} of {{property(HumidityRelative)}} **MUST** be `PERCENT`.
 
 #### Subtypes of HumidityRelative
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 ### HumiditySpecific
 
-ratio of the water vapor present over the total weight of the water vapor and air present expressed as a percent.
-
+{{def(SampleEnum:HUMIDITY_SPECIFIC)}}
 
 
 
@@ -648,21 +673,21 @@ The {{property(units)}} of {{property(HumiditySpecific)}} **MUST** be `PERCENT`.
 
 #### Subtypes of HumiditySpecific
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 ### Length
 
-reference to a length type tool offset variable.
-
+{{def(SampleEnum:LENGTH)}}
 
 
 
@@ -670,28 +695,27 @@ The {{property(units)}} of {{property(Length)}} **MUST** be `MILLIMETER`.
 
 #### Subtypes of Length
 
-
 * `REMAINING`
 
     remaining total length of an object.
+
     
 
 * `STANDARD`
 
     standard or original length of an object.
+
     
 
 * `USEABLE`
 
     remaining usable length of an object.
+
     
 
-### Level
+### `<<deprecated>>`Level
 
-level of a resource.
-
-**DEPRECATED** in *Version 1.2*.  See `FILL_LEVEL`.
-
+{{def(SampleEnum:LEVEL)}}
 
 
 
@@ -699,8 +723,7 @@ The {{property(units)}} of {{property(Level)}} **MUST** be `PERCENT`.
 
 ### LinearForce
 
-{{term(force)}} applied to a mass in one direction only.
-
+{{def(SampleEnum:LINEAR_FORCE)}}
 
 
 
@@ -708,8 +731,7 @@ The {{property(units)}} of {{property(LinearForce)}} **MUST** be `NEWTON`.
 
 ### Load
 
-actual versus the standard rating of a piece of equipment.
-
+{{def(SampleEnum:LOAD)}}
 
 
 
@@ -717,8 +739,7 @@ The {{property(units)}} of {{property(Load)}} **MUST** be `PERCENT`.
 
 ### Mass
 
-mass of an object(s) or an amount of material.
-
+{{def(SampleEnum:MASS)}}
 
 
 
@@ -726,8 +747,7 @@ The {{property(units)}} of {{property(Mass)}} **MUST** be `KILOGRAM`.
 
 ### ObservationUpdateRate
 
-average rate of change of values for data items in the MTConnect streams. The average is computed over a rolling window defined by the implementation.
-
+{{def(SampleEnum:OBSERVATION_UPDATE_RATE)}}
 
 
 
@@ -735,8 +755,7 @@ The {{property(units)}} of {{property(ObservationUpdateRate)}} **MUST** be `COUN
 
 ### Openness
 
-percentage open where 100% is fully open and 0% is fully closed.
-
+{{def(SampleEnum:OPENNESS)}}
 
 
 
@@ -744,8 +763,7 @@ The {{property(units)}} of {{property(Openness)}} **MUST** be `PERCENT`.
 
 ### Orientation
 
-measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
-
+{{def(SampleEnum:ORIENTATION)}}
 
 
 
@@ -753,21 +771,21 @@ The {{property(units)}} of {{property(Orientation)}} **MUST** be `DEGREE_3D`.
 
 #### Subtypes of Orientation
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 ### PH
 
-acidity or alkalinity of a solution.
-
+{{def(SampleEnum:PH)}}
 
 
 
@@ -775,8 +793,7 @@ The {{property(units)}} of {{property(PH)}} **MUST** be `PH`.
 
 ### PathFeedrate
 
-feedrate for the axes, or a single axis, associated with a {{block(Path)}} component.
-
+{{def(SampleEnum:PATH_FEEDRATE)}}
 
 
 
@@ -784,22 +801,24 @@ The {{property(units)}} of {{property(PathFeedrate)}} **MUST** be `MILLIMETER/SE
 
 #### Subtypes of PathFeedrate
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `JOG`
 
-    feedrate specified by a logic or motion program, by a pre-set value, or set by
-    a switch as the feedrate for the axes, or a single axis, associated with a `Path`
-    when operating in a manual state or method (jogging).
+    relating to momentary activation of a function or a movement.
+    
+    **DEPRECATION WARNING**: May be deprecated in the future.
+
     
 
 * `OVERRIDE`
@@ -807,22 +826,24 @@ The {{property(units)}} of {{property(PathFeedrate)}} **MUST** be `MILLIMETER/SE
     operator's overridden value.
     
     **DEPRECATED** in *Version 1.3*.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 * `RAPID`
 
     performing an operation faster or in less time than nominal rate.
+
     
 
 ### PathFeedratePerRevolution
 
-feedrate for the axes, or a single axis.
-
+{{def(SampleEnum:PATH_FEEDRATE_PER_REVOLUTION)}}
 
 
 
@@ -830,26 +851,27 @@ The {{property(units)}} of {{property(PathFeedratePerRevolution)}} **MUST** be `
 
 #### Subtypes of PathFeedratePerRevolution
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### PathPosition
 
-measured or calculated position of a control point associated with a {{block(Controller)}} entity, or {{block(Path)}} entity if provided, of a piece of equipment.
-
+{{def(SampleEnum:PATH_POSITION)}}
 
 
 
@@ -857,15 +879,16 @@ The {{property(units)}} of {{property(PathPosition)}} **MUST** be `MILLIMETER_3D
 
 #### Subtypes of PathPosition
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROBE`
@@ -873,17 +896,18 @@ The {{property(units)}} of {{property(PathPosition)}} **MUST** be `MILLIMETER_3D
     position provided by a measurement probe.
     
     **DEPRECATION WARNING**: May be deprecated in the future.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### Position
 
-measured or calculated position of a {{block(Component)}} element as reported by a piece of equipment.
-
+{{def(SampleEnum:POSITION)}}
 
 
 
@@ -891,31 +915,33 @@ The {{property(units)}} of {{property(Position)}} **MUST** be `MILLIMETER`.
 
 #### Subtypes of Position
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### PowerFactor
 
-ratio of real power flowing to a load to the apparent power in that AC circuit.
-
+{{def(SampleEnum:POWER_FACTOR)}}
 
 
 
@@ -923,10 +949,7 @@ The {{property(units)}} of {{property(PowerFactor)}} **MUST** be `PERCENT`.
 
 ### Pressure
 
-force per unit area measured relative to atmospheric pressure. 
-
-Commonly referred to as gauge pressure.
-
+{{def(SampleEnum:PRESSURE)}}
 
 
 
@@ -934,17 +957,15 @@ The {{property(units)}} of {{property(Pressure)}} **MUST** be `PASCAL`.
 
 ### PressureAbsolute
 
-force per unit area measured relative to a vacuum.
-
 The force per unit area measured relative to a vacuum.
+
 
 
 The {{property(units)}} of {{property(PressureAbsolute)}} **MUST** be `PASCAL`.
 
 ### PressurizationRate
 
-change of pressure per unit time.
-
+{{def(SampleEnum:PRESSURIZATION_RATE)}}
 
 
 
@@ -952,37 +973,40 @@ The {{property(units)}} of {{property(PressurizationRate)}} **MUST** be `PASCAL/
 
 #### Subtypes of PressurizationRate
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### ProcessTimer
 
-amount of time a piece of equipment has performed different types of activities associated with the process being performed at that piece of equipment.
-
+{{def(SampleEnum:PROCESS_TIMER)}}
 
 
 
 The {{property(units)}} of {{property(ProcessTimer)}} **MUST** be `SECOND`.
 
-#### Subtypes of ProcessTimer
+A {{property(subType)}} **MUST** always be specified.
 
+#### Subtypes of ProcessTimer
 
 * `DELAY`
 
     elapsed time of a temporary halt of action.
+
     
 
 * `PROCESS`
@@ -991,12 +1015,12 @@ The {{property(units)}} of {{property(ProcessTimer)}} **MUST** be `SECOND`.
     that piece of equipment.
     
     This includes the time that the piece of equipment is running, producing parts or products, or in the process of producing parts.
+
     
 
 ### Resistance
 
-degree to which a substance opposes the passage of an electric current.
-
+{{def(SampleEnum:RESISTANCE)}}
 
 
 
@@ -1004,8 +1028,7 @@ The {{property(units)}} of {{property(Resistance)}} **MUST** be `OHM`.
 
 ### RotaryVelocity
 
-rotational speed of a rotary axis.
-
+{{def(SampleEnum:ROTARY_VELOCITY)}}
 
 
 
@@ -1013,15 +1036,16 @@ The {{property(units)}} of {{property(RotaryVelocity)}} **MUST** be `REVOLUTION/
 
 #### Subtypes of RotaryVelocity
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `OVERRIDE`
@@ -1029,56 +1053,60 @@ The {{property(units)}} of {{property(RotaryVelocity)}} **MUST** be `REVOLUTION/
     The operators overridden value.
     
     
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### SoundLevel
 
-sound level or sound pressure level relative to atmospheric pressure.
-
+{{def(SampleEnum:SOUND_LEVEL)}}
 
 
 
 The {{property(units)}} of {{property(SoundLevel)}} **MUST** be `DECIBEL`.
 
-#### Subtypes of SoundLevel
+The default {{property(subType)}} of {{property(SoundLevel)}} is `A_SCALE`.
 
+#### Subtypes of SoundLevel
 
 * `A_SCALE`
 
     A Scale weighting factor.   This is the default weighting factor if no factor is specified
+
     
 
 * `B_SCALE`
 
     B Scale weighting factor
+
     
 
 * `C_SCALE`
 
     C Scale weighting factor
+
     
 
 * `D_SCALE`
 
     D Scale weighting factor
+
     
 
 * `NO_SCALE`
 
     No weighting factor on the frequency scale
+
     
 
 ### `<<deprecated>>`SpindleSpeed
 
-rotational speed of the rotary axis.
-
-**DEPRECATED** in *Version 1.2*.  Replaced by `ROTARY_VELOCITY`.
-
+{{def(SampleEnum:SPINDLE_SPEED)}}
 
 
 
@@ -1086,15 +1114,20 @@ The {{property(units)}} of {{property(SpindleSpeed)}} **MUST** be `REVOLUTION/MI
 
 #### Subtypes of SpindleSpeed
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+    
+    **DEPRECATED** in *Version 1.3*.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+    
+    **DEPRECATED** in *Version 1.3*.
+
     
 
 * `OVERRIDE`
@@ -1102,12 +1135,12 @@ The {{property(units)}} of {{property(SpindleSpeed)}} **MUST** be `REVOLUTION/MI
     operator's overridden value.
     
     **DEPRECATED** in *Version 1.3*.
+
     
 
 ### Strain
 
-amount of deformation per unit length of an object when a load is applied.
-
+{{def(SampleEnum:STRAIN)}}
 
 
 
@@ -1115,8 +1148,7 @@ The {{property(units)}} of {{property(Strain)}} **MUST** be `PERCENT`.
 
 ### Temperature
 
-degree of hotness or coldness measured on a definite scale.
-
+{{def(SampleEnum:TEMPERATURE)}}
 
 
 
@@ -1124,8 +1156,7 @@ The {{property(units)}} of {{property(Temperature)}} **MUST** be `CELSIUS`.
 
 ### Tension
 
-force that stretches or elongates an object.
-
+{{def(SampleEnum:TENSION)}}
 
 
 
@@ -1133,8 +1164,7 @@ The {{property(units)}} of {{property(Tension)}} **MUST** be `NEWTON`.
 
 ### Tilt
 
-angular displacement.
-
+{{def(SampleEnum:TILT)}}
 
 
 
@@ -1142,31 +1172,15 @@ The {{property(units)}} of {{property(Tilt)}} **MUST** be `MICRO_RADIAN`.
 
 ### Torque
 
-turning force exerted on an object or by an object.
-
+{{def(SampleEnum:TORQUE)}}
 
 
 
 The {{property(units)}} of {{property(Torque)}} **MUST** be `NEWTON_METER`.
 
-### ValvePosition
-
-percentage open of a value where 100% is fully open and 0% is fully closed.
-
-Correlation with {{block(ValveState)}}:
-
-* If the value is in a fixed state and is not 0%, then it is `OPEN`.
-* If the valve is transitioning from `OPEN` to `CLOSED`, then it is `CLOSING`.
-* If the valve is transitioning from `CLOSED` to `OPEN`, then it is `OPENING`.
-* If the valve is in a fixed state and is 0%, then it is `CLOSED`.
-
-
-The {{property(units)}} of {{property(ValvePosition)}} **MUST** be `PERCENT`.
-
 ### Velocity
 
-rate of change of position of a {{block(Component)}}.
-
+{{def(SampleEnum:VELOCITY)}}
 
 
 
@@ -1174,8 +1188,7 @@ The {{property(units)}} of {{property(Velocity)}} **MUST** be `MILLIMETER/SECOND
 
 ### Viscosity
 
-fluid's resistance to flow.
-
+{{def(SampleEnum:VISCOSITY)}}
 
 
 
@@ -1183,8 +1196,7 @@ The {{property(units)}} of {{property(Viscosity)}} **MUST** be `PASCAL_SECOND`.
 
 ### VoltAmpere
 
-apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA).
-
+{{def(SampleEnum:VOLT_AMPERE)}}
 
 
 
@@ -1192,8 +1204,7 @@ The {{property(units)}} of {{property(VoltAmpere)}} **MUST** be `VOLT_AMPERE`.
 
 ### VoltAmpereReactive
 
-reactive power in an AC electrical circuit (commonly referred to as VAR).
-
+{{def(SampleEnum:VOLT_AMPERE_REACTIVE)}}
 
 
 
@@ -1201,10 +1212,7 @@ The {{property(units)}} of {{property(VoltAmpereReactive)}} **MUST** be `VOLT_AM
 
 ### `<<deprecated>>`Voltage
 
-electrical potential between two points.
-
-**DEPRECATED** in *Version 1.6*. Replaced by `VOLTAGE_AC` and `VOLTAGE_DC`.
-
+{{def(SampleEnum:VOLTAGE)}}
 
 
 
@@ -1212,10 +1220,12 @@ The {{property(units)}} of {{property(Voltage)}} **MUST** be `VOLT`.
 
 #### Subtypes of Voltage
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+    
+    **DEPRECATED** in *Version 1.6*.
+
     
 
 * `ALTERNATING`
@@ -1224,75 +1234,89 @@ The {{property(units)}} of {{property(Voltage)}} **MUST** be `VOLT`.
     
     If not specified further in statistic, defaults to RMS voltage. 
     
+    **DEPRECATED** in *Version 1.6*.
+
+    
 
 * `DIRECT`
 
     DC current or voltage.
+    
+    **DEPRECATED** in *Version 1.6*.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
     
+    **DEPRECATED** in *Version 1.6*.
+
+    
 
 ### VoltageAC
 
-electrical potential between two points in an electrical circuit in which the current periodically reverses direction.
-
+{{def(SampleEnum:VOLTAGE_AC)}}
 
 
 
 The {{property(units)}} of {{property(VoltageAC)}} **MUST** be `VOLT`.
 
-#### Subtypes of VoltageAC
+A {{property(subType)}} **MUST** always be specified.
 
+#### Subtypes of VoltageAC
 
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### VoltageDC
 
-electrical potential between two points in an electrical circuit in which the current is unidirectional.
-
+{{def(SampleEnum:VOLTAGE_DC)}}
 
 
 
 The {{property(units)}} of {{property(VoltageDC)}} **MUST** be `VOLT`.
 
-#### Subtypes of VoltageDC
+A {{property(subType)}} **MUST** always be specified.
 
+#### Subtypes of VoltageDC
 
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `COMMANDED`
 
     directive value including adjustments such as an offset or overrides.
+
     
 
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
     
 
 ### VolumeFluid
 
-fluid volume of an object or container.
-
+{{def(SampleEnum:VOLUME_FLUID)}}
 
 
 
@@ -1300,41 +1324,45 @@ The {{property(units)}} of {{property(VolumeFluid)}} **MUST** be `MILLILITER`.
 
 #### Subtypes of VolumeFluid
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `CONSUMED`
 
     reported or measured value of the amount used in the manufacturing process.
+
     
 
 * `ENDED`
 
     boundary when an activity or an event terminates.
+
     
 
 * `PART`
 
     reported or measured value of amount included in the {{term(part)}}.
+
     
 
 * `START`
 
     boundary when an activity or an event commences.
+
     
 
 * `WASTE`
 
     reported or measured value of the amount discarded.
+
     
 
 ### VolumeSpatial
 
-geometric volume of an object or container.
-
+{{def(SampleEnum:VOLUME_SPATIAL)}}
 
 
 
@@ -1342,41 +1370,45 @@ The {{property(units)}} of {{property(VolumeSpatial)}} **MUST** be `CUBIC_MILLIM
 
 #### Subtypes of VolumeSpatial
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `CONSUMED`
 
     reported or measured value of the amount used in the manufacturing process.
+
     
 
 * `ENDED`
 
     boundary when an activity or an event terminates.
+
     
 
 * `PART`
 
     reported or measured value of amount included in the {{term(part)}}.
+
     
 
 * `START`
 
     boundary when an activity or an event commences.
+
     
 
 * `WASTE`
 
     reported or measured value of the amount discarded
+
     
 
 ### Wattage
 
-power flowing through or dissipated by an electrical circuit or piece of equipment.
-
+{{def(SampleEnum:WATTAGE)}}
 
 
 
@@ -1384,21 +1416,21 @@ The {{property(units)}} of {{property(Wattage)}} **MUST** be `WATT`.
 
 #### Subtypes of Wattage
 
-
 * `ACTUAL`
 
     measured or reported value of an {{term(observation)}}.
+
     
 
 * `TARGET`
 
     goal of the operation or process.
+
     
 
 ### XDimension
 
-dimension of an entity relative to the X direction of the referenced coordinate system.
-
+{{def(SampleEnum:X_DIMENSION)}}
 
 
 
@@ -1406,8 +1438,7 @@ The {{property(units)}} of {{property(XDimension)}} **MUST** be `MILLIMETER`.
 
 ### YDimension
 
-dimension of an entity relative to the Y direction of the referenced coordinate system.
-
+{{def(SampleEnum:Y_DIMENSION)}}
 
 
 
@@ -1415,8 +1446,7 @@ The {{property(units)}} of {{property(YDimension)}} **MUST** be `MILLIMETER`.
 
 ### ZDimension
 
-dimension of an entity relative to the Z direction of the referenced coordinate system.
-
+{{def(SampleEnum:Z_DIMENSION)}}
 
 
 

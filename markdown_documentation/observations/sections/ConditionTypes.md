@@ -11,42 +11,36 @@ This section lists additional {{block(Condition)}} types that have been defined 
 
 ### Actuator
 
-indication of a fault associated with an actuator.
-
+{{def(ConditionEnum:ACTUATOR)}}
 
 
 
 ### Communications
 
-indication that the piece of equipment has experienced a communications failure.
-
+{{def(ConditionEnum:COMMUNICATIONS)}}
 
 
 
 ### DataRange
 
-indication that the value of the data associated with a measured value or a calculation is outside of an expected range.
-
+{{def(ConditionEnum:DATA_RANGE)}}
 
 
 
 ### LogicProgram
 
-indication that an error occurred in the logic program or programmable logic controller (PLC) associated with a piece of equipment.
-
+{{def(ConditionEnum:LOGIC_PROGRAM)}}
 
 
 
 ### MotionProgram
 
-indication that an error occurred in the motion program associated with a piece of equipment.
-
+{{def(ConditionEnum:MOTION_PROGRAM)}}
 
 
 
 ### System
 
-general purpose indication associated with an electronic component of a piece of equipment or a controller that represents a fault that is not associated with the operator, program, or hardware.
-
+{{def(ConditionEnum:SYSTEM)}}
 
 

@@ -7,17 +7,16 @@ This section provides semantic information for the {{block(QIFDocumentWrapper)}}
 
 > Note: See {{sect(QIFDocumentWrapper Schema Diagrams)}} for XML schema.
 
-
 ### QIFDocument
-
 
 QIF Document as given by the {{term(QIF)}} standard.
 
 
+
 ### QIFDocumentWrapper
 
-
 {{block(Asset)}} that carries the QIF Document.
+
 
 
 #### Value Properties of QIFDocumentWrapper
@@ -27,7 +26,7 @@ QIF Document as given by the {{term(QIF)}} standard.
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(qifDocumentType)}}|`QIFDocumentTypeEnum`|0..1|
-{: caption="Value Properties of QIFDocumentWrapper"}
+{: caption="Value Properties of QIFDocumentWrapper" label="table:value-properties-of-qifdocumentwrapper"}
 
 Descriptions for Value Properties of {{block(QIFDocumentWrapper)}}:
 
@@ -35,10 +34,7 @@ Descriptions for Value Properties of {{block(QIFDocumentWrapper)}}:
 
     contained QIF Document type as defined in the {{term(QIF)}} Standard.
 
-    The value of {{property(qifDocumentType)}} **MUST** be one of the `QIFDocumentTypeEnum` enumeration. 
-
     `QIFDocumentTypeEnum` Enumeration:
-
 
     * `MEASUREMENT_RESOURCE` 
 
@@ -71,7 +67,7 @@ Descriptions for Value Properties of {{block(QIFDocumentWrapper)}}:
 |Part Property name|Multiplicity|
 |:-|:-:|
 |{{block(QIFDocument)}}|1|
-{: caption="Part Properties of QIFDocumentWrapper"}
+{: caption="Part Properties of QIFDocumentWrapper" label="table:part-properties-of-qifdocumentwrapper"}
 
 Descriptions for Part Properties of {{block(QIFDocumentWrapper)}}:
 

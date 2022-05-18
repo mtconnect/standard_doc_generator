@@ -5,8 +5,8 @@ This section provides semantic information for the elements of the {{block(Defin
 
 ### CellDefinition
 
-
 semantic definition of a {{block(Cell)}}.
+
 
 
 #### Value Properties of CellDefinition
@@ -19,14 +19,14 @@ semantic definition of a {{block(Cell)}}.
 |{{property(key)}}|`string`|0..1|
 |{{property(type)}}|`DataItemTypeEnum`|0..1|
 |{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
-|{{property(keyType)}}|`string`|0..1|
-{: caption="Value Properties of CellDefinition"}
+|{{property(keyType)}}|`DataItemTypeEnum`|0..1|
+{: caption="Value Properties of CellDefinition" label="table:value-properties-of-celldefinition"}
 
 Descriptions for Value Properties of {{block(CellDefinition)}}:
 
 * {{property(units)}} 
 
-    same as {{block(DataItem)}} {{property(units,DataItem)}}. See {{sect(Value Properties of DataItem)}}.
+    same as {{block(DataItem)}} {{property(DataItem::units)}}. See {{sect(Value Properties of DataItem)}}.
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
@@ -38,19 +38,21 @@ Descriptions for Value Properties of {{block(CellDefinition)}}:
 
 * {{property(type)}} 
 
-    same as {{block(DataItem)}} {{property(type,DataItem)}}.  See {{sect(DataItem Types)}}.
+    same as {{block(DataItem)}} {{property(DataItem::type)}}. See {{package(DataItem Types)}}.
 
     The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(subType)}} 
 
-    same as {{block(DataItem)}} {{property(subType,DataItem)}}.  See {{sect(DataItem SubTypes)}}.
+    same as {{block(DataItem)}} {{property(DataItem::subType)}}. See {{sect(DataItem)}}.
 
     The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(keyType)}} 
 
     {{block(DataItem)}} {{property(type)}} that defines the meaning of the {{property(key)}}.
+
+    The value of {{property(keyType)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 #### Part Properties of CellDefinition
 
@@ -59,7 +61,7 @@ Descriptions for Value Properties of {{block(CellDefinition)}}:
 |Part Property name|Multiplicity|
 |:-|:-:|
 |{{block(Description)}}|0..1|
-{: caption="Part Properties of CellDefinition"}
+{: caption="Part Properties of CellDefinition" label="table:part-properties-of-celldefinition"}
 
 Descriptions for Part Properties of {{block(CellDefinition)}}:
 
@@ -71,8 +73,8 @@ Descriptions for Part Properties of {{block(CellDefinition)}}:
 
 ### EntryDefinition
 
-
 semantic definition of an {{block(Entry)}}.
+
 
 
 #### Value Properties of EntryDefinition
@@ -85,8 +87,8 @@ semantic definition of an {{block(Entry)}}.
 |{{property(units)}}|`UnitEnum`|0..1|
 |{{property(type)}}|`DataItemTypeEnum`|0..1|
 |{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
-|{{property(keyType)}}|`string`|0..1|
-{: caption="Value Properties of EntryDefinition"}
+|{{property(keyType)}}|`DataItemTypeEnum`|0..1|
+{: caption="Value Properties of EntryDefinition" label="table:value-properties-of-entrydefinition"}
 
 Descriptions for Value Properties of {{block(EntryDefinition)}}:
 
@@ -98,25 +100,27 @@ Descriptions for Value Properties of {{block(EntryDefinition)}}:
 
 * {{property(units)}} 
 
-    same as {{block(DataItem)}} {{property(units,DataItem)}}. See {{sect(Value Properties of DataItem)}}.
+    same as {{block(DataItem)}} {{property(DataItem::units)}}. See {{sect(Value Properties of DataItem)}}.
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
 * {{property(type)}} 
 
-    same as {{block(DataItem)}} {{property(type,DataItem)}}. See {{sect(DataItem Types)}}.
+    same as {{block(DataItem)}} {{property(DataItem::type)}}. See {{package(DataItem Types)}}.
 
     The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(subType)}} 
 
-    same as {{block(DataItem)}} {{property(subType,DataItem)}}. See {{sect(DataItem SubTypes)}}.
+    same as {{block(DataItem)}} {{property(DataItem::subType)}}. See {{sect(DataItem)}}.
 
     The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(keyType)}} 
 
     {{block(DataItem)}} {{property(type)}} that defines the meaning of the {{property(key)}}.
+
+    The value of {{property(keyType)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 #### Part Properties of EntryDefinition
 
@@ -125,8 +129,8 @@ Descriptions for Value Properties of {{block(EntryDefinition)}}:
 |Part Property name|Multiplicity|
 |:-|:-:|
 |{{block(Description)}}|0..1|
-|{{block(CellDefinition)}} (organized by {{block(CellDefinitions)}})|0..*|
-{: caption="Part Properties of EntryDefinition"}
+|{{block(CellDefinition)}} (organized by `CellDefinitions`)|0..*|
+{: caption="Part Properties of EntryDefinition" label="table:part-properties-of-entrydefinition"}
 
 Descriptions for Part Properties of {{block(EntryDefinition)}}:
 

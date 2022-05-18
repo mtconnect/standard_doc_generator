@@ -5,7 +5,7 @@ This section provides semantic information for the {{block(Specification)}} enti
 
 ![Specifications](figures/Specifications.png "Specifications"){: width="0.8"}
 
-> Note: See {{fig(Specifications Schema)}} for XML schema.
+> Note: See {{figure(Specifications Schema)}} for XML schema.
 
 ![Specification Example](figures/Specification%20Example.png "Specification Example"){: width="0.8"}
 
@@ -13,8 +13,8 @@ This section provides semantic information for the {{block(Specification)}} enti
 
 ### Specification
 
+design characteristics for a piece of equipment.
 
-design characteristics for a piece of equipment.
 
 
 #### Value Properties of Specification
@@ -31,20 +31,20 @@ design characteristics for a piece of equipment.
 |{{property(name)}}|`string`|0..1|
 |{{property(coordinateSystemIdRef)}}|`ID`|0..1|
 |{{property(id)}}|`ID`|0..1|
-|{{property(originator)}}|`OriginatorEnum`|0..1|
-{: caption="Value Properties of Specification"}
+|{{property(originator)}}|`OriginatorEnum`|1|
+{: caption="Value Properties of Specification" label="table:value-properties-of-specification"}
 
 Descriptions for Value Properties of {{block(Specification)}}:
 
 * {{property(type)}} 
 
-    same as {{block(DataItem)}} {{property(type)}}. See {{sect(DataItem Types)}}.
+    same as {{block(DataItem)}} {{property(type)}}. See {{package(DataItem Types)}}.
 
     The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(subType)}} 
 
-    same as {{block(DataItem)}} {{property(subType)}}. See {{sect(DataItem SubTypes)}}.
+    same as {{block(DataItem)}} {{property(DataItem::subType)}}. See {{sect(DataItem)}}.
 
     The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
@@ -54,7 +54,7 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
 * {{property(units)}} 
 
-    same as {{block(DataItem)}} {{property(units)}}. See {{sect(DataItem)}}.
+    same as {{block(DataItem)}} {{property(DataItem::units)}}. See {{sect(DataItem)}}.
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
@@ -78,10 +78,7 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
     reference to the creator of the {{block(Specification)}}.
 
-    The value of {{property(originator)}} **MUST** be one of the `OriginatorEnum` enumeration. 
-
     `OriginatorEnum` Enumeration:
-
 
     * `MANUFACTURER` 
 
@@ -104,19 +101,19 @@ Descriptions for Value Properties of {{block(Specification)}}:
 |{{block(UpperWarning)}}|0..1|
 |{{block(Nominal)}}|0..1|
 |{{block(Minimum)}}|0..1|
-{: caption="Part Properties of Specification"}
+{: caption="Part Properties of Specification" label="table:part-properties-of-specification"}
 
 Descriptions for Part Properties of {{block(Specification)}}:
 
 * {{block(Maximum)}} 
 
-    numeric upper constraint.
+    numeric upper constraint.
 
 * {{block(UpperLimit)}} 
 
     upper conformance boundary for a variable.
     
-    > Note: immediate concern or action may be required.
+    > Note: immediate concern or action may be required.
 
 * {{block(LowerWarning)}} 
 
@@ -142,8 +139,8 @@ Descriptions for Part Properties of {{block(Specification)}}:
 
 ### ProcessSpecification
 
-
 {{block(Specification)}} that provides information used to assess the conformance of a variable to process requirements.
+
 
 
 #### Part Properties of ProcessSpecification
@@ -155,7 +152,7 @@ Descriptions for Part Properties of {{block(Specification)}}:
 |{{block(SpecificationLimits)}}|0..1|
 |{{block(ControlLimits)}}|0..1|
 |{{block(AlarmLimits)}}|0..1|
-{: caption="Part Properties of ProcessSpecification"}
+{: caption="Part Properties of ProcessSpecification" label="table:part-properties-of-processspecification"}
 
 Descriptions for Part Properties of {{block(ProcessSpecification)}}:
 
@@ -179,8 +176,8 @@ Descriptions for Part Properties of {{block(ProcessSpecification)}}:
 
 ### ControlLimits
 
-
 set of limits that is used to indicate whether a process variable is stable and in control.
+
 
 
 #### Part Properties of ControlLimits
@@ -194,7 +191,7 @@ set of limits that is used to indicate whether a process variable is stable and 
 |{{block(LowerWarning)}}|0..1|
 |{{block(Nominal)}}|0..1|
 |{{block(LowerLimit)}}|0..1|
-{: caption="Part Properties of ControlLimits"}
+{: caption="Part Properties of ControlLimits" label="table:part-properties-of-controllimits"}
 
 Descriptions for Part Properties of {{block(ControlLimits)}}:
 
@@ -202,7 +199,7 @@ Descriptions for Part Properties of {{block(ControlLimits)}}:
 
     upper conformance boundary for a variable.
     
-    > Note: immediate concern or action may be required.
+    > Note: immediate concern or action may be required.
 
 * {{block(UpperWarning)}} 
 
@@ -224,8 +221,8 @@ Descriptions for Part Properties of {{block(ControlLimits)}}:
 
 ### AlarmLimits
 
-
 set of limits that is used to trigger warning or alarm indicators.
+
 
 
 #### Part Properties of AlarmLimits
@@ -238,7 +235,7 @@ set of limits that is used to trigger warning or alarm indicators.
 |{{block(UpperWarning)}}|0..1|
 |{{block(LowerLimit)}}|0..1|
 |{{block(LowerWarning)}}|0..1|
-{: caption="Part Properties of AlarmLimits"}
+{: caption="Part Properties of AlarmLimits" label="table:part-properties-of-alarmlimits"}
 
 Descriptions for Part Properties of {{block(AlarmLimits)}}:
 
@@ -246,7 +243,7 @@ Descriptions for Part Properties of {{block(AlarmLimits)}}:
 
     upper conformance boundary for a variable.
     
-    > Note: immediate concern or action may be required.
+    > Note: immediate concern or action may be required.
 
 * {{block(UpperWarning)}} 
 
@@ -264,8 +261,8 @@ Descriptions for Part Properties of {{block(AlarmLimits)}}:
 
 ### SpecificationLimits
 
-
 set of limits that define a range of values designating acceptable performance for a variable.
+
 
 
 #### Part Properties of SpecificationLimits
@@ -277,7 +274,7 @@ set of limits that define a range of values designating acceptable performance f
 |{{block(UpperLimit)}}|0..1|
 |{{block(Nominal)}}|0..1|
 |{{block(LowerLimit)}}|0..1|
-{: caption="Part Properties of SpecificationLimits"}
+{: caption="Part Properties of SpecificationLimits" label="table:part-properties-of-specificationlimits"}
 
 Descriptions for Part Properties of {{block(SpecificationLimits)}}:
 
@@ -285,7 +282,7 @@ Descriptions for Part Properties of {{block(SpecificationLimits)}}:
 
     upper conformance boundary for a variable.
     
-    > Note: immediate concern or action may be required.
+    > Note: immediate concern or action may be required.
 
 * {{block(Nominal)}} 
 
@@ -299,60 +296,60 @@ Descriptions for Part Properties of {{block(SpecificationLimits)}}:
 
 ### UpperWarning
 
-
 upper boundary indicating increased concern and supervision may be required.
+
 
 
 The value of {{property(UpperWarning)}} **MUST** be `float`.
 
 ### UpperLimit
 
-
 upper conformance boundary for a variable.
 
-> Note: immediate concern or action may be required.
+> Note: immediate concern or action may be required.
+
 
 
 The value of {{property(UpperLimit)}} **MUST** be `float`.
 
 ### Maximum
 
+numeric upper constraint.
 
-numeric upper constraint.
 
 
 The value of {{property(Maximum)}} **MUST** be `float`.
 
 ### LowerLimit
 
-
 lower conformance boundary for a variable.
 
 > Note: immediate concern or action may be required.
+
 
 
 The value of {{property(LowerLimit)}} **MUST** be `float`.
 
 ### LowerWarning
 
-
 lower boundary indicating increased concern and supervision may be required.
+
 
 
 The value of {{property(LowerWarning)}} **MUST** be `float`.
 
 ### Minimum
 
-
 numeric lower constraint.
+
 
 
 The value of {{property(Minimum)}} **MUST** be `float`.
 
 ### Nominal
 
-
 numeric target or expected value.
+
 
 
 The value of {{property(Nominal)}} **MUST** be `float`.

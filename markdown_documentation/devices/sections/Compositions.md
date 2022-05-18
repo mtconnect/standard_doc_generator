@@ -3,7 +3,7 @@
 
 This section provides semantic information for the {{block(Composition)}} entity.
 
-See {{fig(Components)}} for the {{block(Composition)}} model diagram.
+See {{figure(Components)}} for the {{block(Composition)}} model diagram.
 
 ![Component with Compositions Example](figures/Component%20with%20Compositions%20Example.png "Component with Compositions Example"){: width="0.8"}
 
@@ -11,11 +11,12 @@ See {{fig(Components)}} for the {{block(Composition)}} model diagram.
 
 ### Composition
 
-
 functional part of a piece of equipment contained within a {{block(Component)}}.
 
 
+
 {{block(Composition)}} **MUST NOT** have child {{block(Component)}}, {{block(Composition)}}, or {{block(DataItems)}} elements.
+
 
 #### Value Properties of Composition
 
@@ -27,13 +28,13 @@ functional part of a piece of equipment contained within a {{block(Component)}}.
 |{{property(id)}}|`ID`|1|
 |{{property(name)}}|`string`|0..1|
 |{{property(uuid)}}|`ID`|0..1|
-{: caption="Value Properties of Composition"}
+{: caption="Value Properties of Composition" label="table:value-properties-of-composition"}
 
 Descriptions for Value Properties of {{block(Composition)}}:
 
 * {{property(type)}} 
 
-    type of {{block(Composition)}} element. See {{sect(Composition Types)}}.
+    type of {{block(Composition)}}. See {{package(Composition Types)}}.
 
     The value of {{property(type)}} **MUST** be one of the `CompositionTypeEnum` enumeration. 
 
@@ -57,7 +58,7 @@ Descriptions for Value Properties of {{block(Composition)}}:
 |:-|:-:|
 |{{block(Description)}}|0..1|
 |{{block(Configuration)}}|0..1|
-{: caption="Part Properties of Composition"}
+{: caption="Part Properties of Composition" label="table:part-properties-of-composition"}
 
 Descriptions for Part Properties of {{block(Composition)}}:
 

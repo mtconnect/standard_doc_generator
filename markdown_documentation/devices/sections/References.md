@@ -1,7 +1,7 @@
 
 ## References
 
-This section provides semantic information for the {{block(Reference)}} entity. {{fig(References)}} shows the {{block(Reference)}} model. 
+This section provides semantic information for the {{block(Reference)}} entity. {{figure(References)}} shows the {{block(Reference)}} model. 
 
 {{block(Reference)}} may be modeled as part of a {{block(Device)}}, {{block(Component)}} or {{block(Interface)}} type.
 
@@ -11,10 +11,11 @@ This section provides semantic information for the {{block(Reference)}} entity. 
 
 ### Reference
 
-
 pointer to information that is associated with another entity defined elsewhere in the {{block(MTConnectDevices)}} entity for a piece of equipment.
 
+
 {{block(Reference)}} is an abstract entity and will be realized by a specific {{block(Reference)}} type for an {{block(MTConnectDevices)}} entity. See {{sect(ComponentRef)}} and {{sect(DataItemRef)}}.
+
 
 #### Value Properties of Reference
 
@@ -24,13 +25,13 @@ pointer to information that is associated with another entity defined elsewhere 
 |-|-|:-:|
 |{{property(idRef)}}|`ID`|1|
 |{{property(name)}}|`string`|0..1|
-{: caption="Value Properties of Reference"}
+{: caption="Value Properties of Reference" label="table:value-properties-of-reference"}
 
 Descriptions for Value Properties of {{block(Reference)}}:
 
 * {{property(idRef)}} 
 
-    pointer to the {{property(id)}} attribute of an element that contains the information to be associated with this element.
+    pointer to the {{property(id)}} of an entity that contains the information to be associated with this entity.
 
 * {{property(name)}} 
 
@@ -38,15 +39,17 @@ Descriptions for Value Properties of {{block(Reference)}}:
 
 ### DataItemRef
 
-
 {{block(Reference)}} that is a pointer to a {{block(DataItem)}} associated with another entity defined for a piece of equipment.
+
 
 {{block(DataItemRef)}} allows the data associated with a {{block(DataItem)}} defined in another entity to be directly associated with this entity.
 
-### ComponentRef
 
+### ComponentRef
 
 {{block(Reference)}} that is a pointer to all of the information associated with another entity defined for a piece of equipment.
 
 
+
 {{block(ComponentRef)}} allows all of the information of ({{term(lower level)}} {{block(Component)}} entities that is associated with the other entity to be directly associated with this entity.
+

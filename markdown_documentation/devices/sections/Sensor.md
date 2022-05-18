@@ -32,12 +32,13 @@ When {{block(Sensor)}} represents the {{term(sensor unit)}} for multiple {{term(
 
 ### SensorConfiguration
 
-
 configuration for a {{block(Sensor)}}.
+
 
 ![SensorConfiguration](figures/SensorConfiguration.png "SensorConfiguration"){: width="0.8"}
 
-> Note: See {{fig(SensorConfiguration Schema)}} for XML schema.
+> Note: See {{figure(SensorConfiguration Schema)}} for XML schema.
+
 
 #### Value Properties of SensorConfiguration
 
@@ -49,7 +50,7 @@ configuration for a {{block(Sensor)}}.
 |{{property(CalibrationInitials)}}|`string`|0..1|
 |{{property(FirmwareVersion)}}|`string`|1|
 |{{property(NextCalibrationDate)}}|`dateTime`|0..1|
-{: caption="Value Properties of SensorConfiguration"}
+{: caption="Value Properties of SensorConfiguration" label="table:value-properties-of-sensorconfiguration"}
 
 Descriptions for Value Properties of {{block(SensorConfiguration)}}:
 
@@ -63,7 +64,7 @@ Descriptions for Value Properties of {{block(SensorConfiguration)}}:
 
 * {{property(FirmwareVersion)}} 
 
-    Version number for the sensor unit as specified by the manufacturer.
+    Version number for the sensor unit as specified by the manufacturer.
 
 * {{property(NextCalibrationDate)}} 
 
@@ -75,8 +76,8 @@ Descriptions for Value Properties of {{block(SensorConfiguration)}}:
 
 |Part Property name|Multiplicity|
 |:-|:-:|
-|{{block(Channel)}} (organized by {{block(Channels)}})|0..*|
-{: caption="Part Properties of SensorConfiguration"}
+|{{block(Channel)}} (organized by `Channels`)|0..*|
+{: caption="Part Properties of SensorConfiguration" label="table:part-properties-of-sensorconfiguration"}
 
 Descriptions for Part Properties of {{block(SensorConfiguration)}}:
 
@@ -88,10 +89,11 @@ Descriptions for Part Properties of {{block(SensorConfiguration)}}:
 
 ### Channel
 
-
 {{term(sensing element)}} of a {{block(Sensor)}}.
 
+
 When {{block(Sensor)}} has multiple {{termplural(sensing element)}}, each {{term(sensing element)}} is modeled as a {{block(Channel)}} for the {{block(Sensor)}}. 
+
 
 #### Value Properties of Channel
 
@@ -104,7 +106,7 @@ When {{block(Sensor)}} has multiple {{termplural(sensing element)}}, each {{term
 |{{property(name)}}|`string`|0..1|
 |{{property(NextCalibrationDate)}}|`dateTime`|0..1|
 |{{property(number)}}|`string`|1|
-{: caption="Value Properties of Channel"}
+{: caption="Value Properties of Channel" label="table:value-properties-of-channel"}
 
 Descriptions for Value Properties of {{block(Channel)}}:
 
@@ -122,28 +124,11 @@ Descriptions for Value Properties of {{block(Channel)}}:
 
 * {{property(NextCalibrationDate)}} 
 
-    Date upon which the {{term(sensor element)}} is next scheduled to be calibrated with the {{term(sensor unit)}}.
+    Date upon which the {{term(sensor element)}} is next scheduled to be calibrated with the {{term(sensor unit)}}.
 
 * {{property(number)}} 
 
     unique identifier that will only refer to a specific {{term(sensing element)}}.
-
-#### Reference Properties of Channel
-
-{{tbl(reference-properties-of-channel)}} lists the Reference Properties of {{block(Channel)}}.
-
-|Reference Property name|Multiplicity|
-|:-|:-:|
-|{{block(SensorConfiguration)}} (organized by {{block(Channels)}})|1|
-{: caption="Reference Properties of Channel"}
-
-Descriptions for Reference Properties of {{block(Channel)}}:
-
-* {{block(SensorConfiguration)}} 
-
-    configuration for a {{block(Sensor)}}.
-
-    {{block(Channels)}} groups one or more {{block(Channel)}} entities. See {{block(Channel)}}.
 
 #### Part Properties of Channel
 
@@ -152,7 +137,7 @@ Descriptions for Reference Properties of {{block(Channel)}}:
 |Part Property name|Multiplicity|
 |:-|:-:|
 |{{block(Description)}}|0..1|
-{: caption="Part Properties of Channel"}
+{: caption="Part Properties of Channel" label="table:part-properties-of-channel"}
 
 Descriptions for Part Properties of {{block(Channel)}}:
 

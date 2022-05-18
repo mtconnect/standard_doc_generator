@@ -3,14 +3,14 @@
 
 This section provides semantic information for the {{block(RawMaterial)}} model.
 
-![RawMaterial](figures/RawMaterial.png "RawMaterial"){: width="0.8"}
+![RawMaterial](figures/RawMaterial.png "RawMaterial"){: width="0.5"}
 
 > Note: See {{sect(RawMaterial Schema Diagrams)}} for XML schema.
 
 ### RawMaterial
 
-
 {{block(Asset)}} that represents {{term(raw material)}}.
+
 
 
 #### Value Properties of RawMaterial
@@ -34,7 +34,7 @@ This section provides semantic information for the {{block(RawMaterial)}} model.
 |{{property(CurrentVolume)}}|`CUBIC_MILLIMETER`|0..1|
 |{{property(CurrentDimension)}}|`MILLIMETER`|0..3|
 |{{property(CurrentQuantity)}}|`integer`|0..1|
-{: caption="Value Properties of RawMaterial"}
+{: caption="Value Properties of RawMaterial" label="table:value-properties-of-rawmaterial"}
 
 Descriptions for Value Properties of {{block(RawMaterial)}}:
 
@@ -68,16 +68,9 @@ Descriptions for Value Properties of {{block(RawMaterial)}}:
 
     form of the {{term(raw material)}}.
 
-    The value of {{property(Form)}} **MUST** be one of the `FormEnum` enumeration. 
-
     `FormEnum` Enumeration:
 
-
     * `BAR` 
-
-        
-
-    * `SHEET` 
 
         
 
@@ -89,11 +82,11 @@ Descriptions for Value Properties of {{block(RawMaterial)}}:
 
         
 
-    * `POWDER` 
+    * `FILAMENT` 
 
         
 
-    * `LIQUID` 
+    * `GAS` 
 
         
 
@@ -101,11 +94,15 @@ Descriptions for Value Properties of {{block(RawMaterial)}}:
 
         
 
-    * `FILAMENT` 
+    * `LIQUID` 
 
         
 
-    * `GAS` 
+    * `POWDER` 
+
+        
+
+    * `SHEET` 
 
         
 
@@ -152,7 +149,7 @@ Descriptions for Value Properties of {{block(RawMaterial)}}:
 |Part Property name|Multiplicity|
 |:-|:-:|
 |{{block(Material)}}|0..1|
-{: caption="Part Properties of RawMaterial"}
+{: caption="Part Properties of RawMaterial" label="table:part-properties-of-rawmaterial"}
 
 Descriptions for Part Properties of {{block(RawMaterial)}}:
 
@@ -164,8 +161,8 @@ Descriptions for Part Properties of {{block(RawMaterial)}}:
 
 ### Material
 
-
 material used as the {{block(RawMaterial)}}.
+
 
 
 #### Value Properties of Material
@@ -182,7 +179,7 @@ material used as the {{block(RawMaterial)}}.
 |{{property(ManufacturingDate)}}|`dateTime`|0..1|
 |{{property(ManufacturingCode)}}|`string`|0..1|
 |{{property(MaterialCode)}}|`string`|0..1|
-{: caption="Value Properties of Material"}
+{: caption="Value Properties of Material" label="table:value-properties-of-material"}
 
 Descriptions for Value Properties of {{block(Material)}}:
 

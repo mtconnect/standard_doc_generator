@@ -5,7 +5,7 @@ This section provides semantic information for the {{block(CoordinateSystem)}} e
 
 ![CoordinateSystem](figures/CoordinateSystem.png "CoordinateSystem"){: width="0.8"}
 
-> Note: See {{fig(CoordinateSystem Schema)}} for XML schema.
+> Note: See {{figure(CoordinateSystem Schema)}} for XML schema.
 
 ![CoordinateSystem Example](figures/CoordinateSystem%20Example.png "CoordinateSystem Example"){: width="0.8"}
 
@@ -13,10 +13,11 @@ This section provides semantic information for the {{block(CoordinateSystem)}} e
 
 ### CoordinateSystem
 
-
 reference system that associates a unique set of n parameters with each point in an n-dimensional space. {{cite(ISO 10303-218:2004)}}
 
+
 At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be defined for a {{block(CoordinateSystem)}}.
+
 
 #### Value Properties of CoordinateSystem
 
@@ -30,7 +31,7 @@ At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be d
 |{{property(parentIdRef)}}|`ID`|0..1|
 |{{property(type)}}|`CoordinateSystemTypeEnum`|1|
 |{{property(Description)}}|`string`|0..1|
-{: caption="Value Properties of CoordinateSystem"}
+{: caption="Value Properties of CoordinateSystem" label="table:value-properties-of-coordinatesystem"}
 
 Descriptions for Value Properties of {{block(CoordinateSystem)}}:
 
@@ -54,16 +55,7 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
 
     type of coordinate system.
 
-    The value of {{property(type)}} **MUST** be one of the `CoordinateSystemTypeEnum` enumeration. 
-
     `CoordinateSystemTypeEnum` Enumeration:
-
-
-    * `WORLD` 
-
-        stationary coordinate system referenced to earth, which is independent of the robot motion. {{cite(ISO 9787:2013)}}
-        
-        For non-robotic devices, stationary coordinate system referenced to earth, which is independent of the motion of a piece of equipment.
 
     * `BASE` 
 
@@ -73,6 +65,22 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
         
         For non-robotic devices, it is the connection surface between the device and its supporting structure.
 
+    * `CAMERA` 
+
+        coordinate system referenced to the sensor which monitors the site of the task. {{cite(ISO 9787:2013)}}
+
+    * `MACHINE` 
+
+        coordinate system referenced to the home position and orientation of the primary axes of a piece of equipment.
+
+    * `MECHANICAL_INTERFACE` 
+
+        coordinate system referenced to the mechanical interface. {{cite(ISO 9787:2013)}}
+
+    * `MOBILE_PLATFORM` 
+
+        coordinate system referenced to one of the components of a mobile platform. {{cite(ISO 8373:2012)}}
+
     * `OBJECT` 
 
         coordinate system referenced to the object. {{cite(ISO 9787:2013)}}
@@ -81,25 +89,15 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
 
         coordinate system referenced to the site of the task. {{cite(ISO 9787:2013)}}
 
-    * `MECHANICAL_INTERFACE` 
-
-        coordinate system referenced to the mechanical interface. {{cite(ISO 9787:2013)}}
-
     * `TOOL` 
 
         coordinate system referenced to the tool or to the end effector attached to the mechanical interface. {{cite(ISO 9787:2013)}}
 
-    * `MOBILE_PLATFORM` 
+    * `WORLD` 
 
-        coordinate system referenced to one of the components of a mobile platform. {{cite(ISO 8373:2012)}}
-
-    * `MACHINE` 
-
-        coordinate system referenced to the home position and orientation of the primary axes of a piece of equipment.
-
-    * `CAMERA` 
-
-        coordinate system referenced to the sensor which monitors the site of the task. {{cite(ISO 9787:2013)}}
+        stationary coordinate system referenced to earth, which is independent of the robot motion. {{cite(ISO 9787:2013)}}
+        
+        For non-robotic devices, stationary coordinate system referenced to earth, which is independent of the motion of a piece of equipment.
 
 * {{property(Description)}} 
 
@@ -113,7 +111,7 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
 |:-|:-:|
 |{{block(Origin)}}|0..1|
 |{{block(Transformation)}}|0..1|
-{: caption="Part Properties of CoordinateSystem"}
+{: caption="Part Properties of CoordinateSystem" label="table:part-properties-of-coordinatesystem"}
 
 Descriptions for Part Properties of {{block(CoordinateSystem)}}:
 
@@ -131,18 +129,19 @@ Descriptions for Part Properties of {{block(CoordinateSystem)}}:
 
 ### Origin
 
-
 coordinates of the origin position of a coordinate system.
+
 
 
 The value of {{property(Origin)}} **MUST** be reported in `MILLIMETER_3D`.
 
 ### Transformation
 
-
 process of transforming to the origin position of the coordinate system from a parent coordinate system using {{block(Translation)}} and {{block(Rotation)}}.
 
+
 At a minimum, a {{block(Translation)}} or a {{block(Rotation)}} **MUST** be defined for a {{block(Transformation)}}.
+
 
 #### Part Properties of Transformation
 
@@ -152,7 +151,7 @@ At a minimum, a {{block(Translation)}} or a {{block(Rotation)}} **MUST** be defi
 |:-|:-:|
 |{{block(Translation)}}|0..1|
 |{{block(Rotation)}}|0..1|
-{: caption="Part Properties of Transformation"}
+{: caption="Part Properties of Transformation" label="table:part-properties-of-transformation"}
 
 Descriptions for Part Properties of {{block(Transformation)}}:
 
@@ -171,8 +170,8 @@ Descriptions for Part Properties of {{block(Transformation)}}:
 
 ### Rotation
 
-
 rotations about X, Y, and Z axes are expressed in A, B, and C respectively within a 3-dimensional vector. 
+
 
 
 
@@ -180,8 +179,8 @@ The value of {{property(Rotation)}} **MUST** be reported in `DEGREE_3D`.
 
 ### Translation
 
-
 translations along X, Y, and Z axes are expressed as x,y, and z respectively within a 3-dimensional vector. 
+
 
 
 The value of {{property(Translation)}} **MUST** be reported in `MILLIMETER_3D`.

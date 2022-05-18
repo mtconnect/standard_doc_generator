@@ -8,22 +8,24 @@ MTConnect Institute and {{term(AMT)}} have no responsibility to identify patents
 
 This Material and all MTConnect Specifications and Materials are provided "as is" and MTConnect Institute and {{term(AMT)}}, and each of their respective members, officers, affiliates, sponsors and agents, make no representation or warranty of any kind relating to these materials or to any implementation of the MTConnect Specifications or Materials in any product, including, without limitation, any expressed or implied warranty of noninfringement, merchantability, or fitness for particular purpose, or of the accuracy, reliability, or completeness of information contained herein. In no event shall MTConnect Institute or {{term(AMT)}} be liable to any user or implementer of MTConnect Specifications or Materials for the cost of procuring substitute goods or services, lost profits, loss of use, loss of data or any incidental, consequential, indirect, special or punitive damages or other direct damages, whether under contract, tort, warranty or otherwise, arising in any way out of access, use or inability to use the MTConnect Specification or other MTConnect Materials, whether or not they had advance notice of the possibility of such damage.
 
+The normative XMI is located at the following URL: [`MTConnectSysMLModel.xml`](https://model.mtconnect.org/MTConnectSysMLModel.xml)
+
 
 # Purpose of This Document
 
-This document, {{citetitle(MTCPart5)}} of the MTConnect Standard, defines a structured data model used to organize information required to coordinate inter-operations between pieces of equipment.  
+This document, {{package(Interface Interaction Model)}} of the MTConnect Standard, defines a structured data model used to organize information required to coordinate inter-operations between pieces of equipment.  
 
 This data model is based on an {{term(interaction model)}} that defines the exchange of information between pieces of equipment and is organized in the MTConnect Standard by {{block(Interfaces)}}.   
 
 {{block(Interfaces)}} is modeled as an extension to the {{term(Device Information Model)}} and {{term(Observation Information Model)}}.  {{block(Interfaces)}} leverages similar rules and terminology as those used to describe a component in the {{term(Device Information Model)}}.  {{block(Interfaces)}} also uses similar methods for reporting data to those used in the {{term(MTConnectStreams Response Document)}}.  
 
-As defined in {{citetitle(MTCPart2)}}, {{block(Interfaces)}} {{termplural(organize)}} the {{block(Interface)}} types (see {{fig(Interfaces in Entity Hierarchy)}}).  Each individual {{block(Interface)}} contains data associated with the corresponding {{term(interface)}}.
+As defined in {{package(Device Information Model)}}, {{block(Interfaces)}} {{termplural(organize)}} the {{block(Interface)}} types (see {{figure(Interfaces in Entity Hierarchy)}}).  Each individual {{block(Interface)}} contains data associated with the corresponding {{term(interface)}}.
 
-> Note: See {{citetitle(MTCPart2)}} and {{citetitle(MTCPart3)}} of the MTConnect Standard for information on how {{block(Interfaces)}} is structured in the {{termplural(response document)}} which are returned from an {{term(agent)}} in response to a {{term(probe request)}}, {{term(sample request)}}, or {{term(current request)}}.
+> Note: See {{package(Device Information Model)}} and {{package(Observation Information Model)}} of the MTConnect Standard for information on how {{block(Interfaces)}} is structured in the {{termplural(response document)}} which are returned from an {{term(agent)}} in response to a {{term(probe request)}}, {{term(sample request)}}, or {{term(current request)}}.
 
 # Terminology and Conventions
 
-Refer to Section 3 of {{citetitle(MTCPart1)}} for a dictionary of terms, reserved language, and document conventions used in the MTConnect Standard.
+Refer to {{package(Fundamentals)}} for a dictionary of terms, reserved language, and document conventions used in the MTConnect Standard.
 
 {{printglossary[title=General Terms, type=general]()}}
 {{printglossary[title=Information Model Terms, type=informationmodel]()}}
@@ -41,7 +43,7 @@ Refer to Section 3 of {{citetitle(MTCPart1)}} for a dictionary of terms, reserve
 {{glsaddall()}}
 
 
-# Interfaces Overview
+# Interface Interaction Model
 
 In many manufacturing processes, multiple pieces of equipment must work together to perform a task.  The traditional method for coordinating the activities between individual pieces of equipment is to connect them using a series of wires to communicate equipment states and demands for action.  These interactions use simple binary ON/OFF signals to accomplished their intention.
 
@@ -62,16 +64,16 @@ Two primary functions are required to implement the {{term(interaction model)}} 
 
 ## Interfaces Architecture
 
-MTConnect Standard is based on a communications method that provides no direct way for one piece of equipment to change the state of or cause an action to occur in another piece of equipment.  The {{term(interaction model)}} used to implement {{termplural(interface)}} is based on a {{term(publish and subscribe)}} type of communications as described in {{citetitle(MTCPart1)}} and utilizes a {{term(request)}} and {{term(response)}} information exchange mechanism.  For {{termplural(interface)}}, pieces of equipment must perform both the publish ({{term(agent)}}) and subscribe (client) functions.  
+MTConnect Standard is based on a communications method that provides no direct way for one piece of equipment to change the state of or cause an action to occur in another piece of equipment.  The {{term(interaction model)}} used to implement {{termplural(interface)}} is based on a {{term(publish and subscribe)}} type of communications as described in {{package(Fundamentals)}} and utilizes a {{term(request)}} and {{term(response)}} information exchange mechanism.  For {{termplural(interface)}}, pieces of equipment must perform both the publish ({{term(agent)}}) and subscribe (client) functions.  
 
 
 > Note: The current definition of {{termplural(interface)}} addresses the interaction between two pieces of equipment.  Future releases of the MTConnect Standard may address the interaction between multiple (more than two) pieces of equipment.
 
 ![Data Flow Architecture for Interfaces](figures/Data%20Flow%20Architecture%20for%20Interfaces.png "Data Flow Architecture for Interfaces"){: width="0.8"}
 
-> Note: The data flow architecture illustrated in {{fig(Data Flow Architecture for Interfaces)}} was historically referred to in the MTConnect Standard as a read-read concept.
+> Note: The data flow architecture illustrated in {{figure(Data Flow Architecture for Interfaces)}} was historically referred to in the MTConnect Standard as a read-read concept.
 
-In the implementation of the {{term(interaction model)}} for {{termplural(interface)}}, two pieces of equipment can exchange information in the following manner.  One piece of equipment indicates a {{term(request)}} for service by publishing a type of {{term(request)}} using a data item provided through an {{term(agent)}} as defined in {{sect(DataItem Types for Interface)}}.  The client associated with the second piece of equipment, which is subscribing to data from the first machine, detects and interprets that {{term(request)}}.  If the second machine chooses to take any action to fulfill this {{term(request)}}, it can indicate its acceptance by publishing a {{term(response)}} using a data item provided through its {{term(agent)}}.  The client on the first piece of equipment continues to monitor information from the second piece of equipment until it detects an indication that the {{term(response)}} to the {{term(request)}} has been completed or has failed.
+In the implementation of the {{term(interaction model)}} for {{termplural(interface)}}, two pieces of equipment can exchange information in the following manner.  One piece of equipment indicates a {{term(request)}} for service by publishing a type of {{term(request)}} using a data item provided through an {{term(agent)}} as defined in {{package(DataItem Types for Interface)}}.  The client associated with the second piece of equipment, which is subscribing to data from the first machine, detects and interprets that {{term(request)}}.  If the second machine chooses to take any action to fulfill this {{term(request)}}, it can indicate its acceptance by publishing a {{term(response)}} using a data item provided through its {{term(agent)}}.  The client on the first piece of equipment continues to monitor information from the second piece of equipment until it detects an indication that the {{term(response)}} to the {{term(request)}} has been completed or has failed.
 
 An example of this type of interaction between pieces of equipment can be represented by a machine tool that wants the material to be loaded by a robot.  In this example, the machine tool is the {{term(requester)}}, and the robot is the {{term(responder)}}.  On the other hand, if the robot wants the machine tool to open a door, the robot becomes the {{term(requester)}} and the machine tool the {{term(responder)}}.
 
@@ -79,7 +81,7 @@ An example of this type of interaction between pieces of equipment can be repres
 
 The {{block(DataItem)}} elements defined by the {{term(interaction model)}} each have a `REQUEST` and `RESPONSE` subtype.  These subtypes identify if the data item represents a {{term(request)}} or a {{term(response)}}.  Using these data items, a piece of equipment changes the state of its {{term(request)}} or {{term(response)}} to indicate information that can be read by the other piece of equipment.  To aid in understanding how the {{term(interaction model)}} functions, one can view this {{term(interaction model)}} as a simple state machine. 
 
-The interaction between two pieces of equipment can be described as follows.  When the {{term(requester)}} wants an activity to be performed, it transitions its {{term(request)}} state from a `READY` state to an `ACTIVE` state.  In turn, when the client on the {{term(responder)}} reads this information and interprets the {{term(request)}}, the {{term(responder)}} announces that it is performing the requested task by changing its response state to `ACTIVE`.  When the action is finished, the {{term(responder)}} changes its response state to `COMPLETE`.  This pattern of {{term(request)}} and {{term(response)}} provides the basis for the coordination of actions between pieces of equipment.  These actions are implemented using `EVENT` category data items.  (See {{sect(DataItem Types for Interface)}} for details on the {{block(Event)}} type data items defined for {{termplural(interface)}}.)
+The interaction between two pieces of equipment can be described as follows.  When the {{term(requester)}} wants an activity to be performed, it transitions its {{term(request)}} state from a `READY` state to an `ACTIVE` state.  In turn, when the client on the {{term(responder)}} reads this information and interprets the {{term(request)}}, the {{term(responder)}} announces that it is performing the requested task by changing its response state to `ACTIVE`.  When the action is finished, the {{term(responder)}} changes its response state to `COMPLETE`.  This pattern of {{term(request)}} and {{term(response)}} provides the basis for the coordination of actions between pieces of equipment.  These actions are implemented using `EVENT` category data items.  (See {{package(DataItem Types for Interface)}} for details on the {{block(Event)}} type data items defined for {{termplural(interface)}}.)
 
 > Note: The implementation details of how the {{term(responder)}} piece of equipment reacts to the {{term(request)}} and then completes the requested task are up to the implementer.
 
@@ -87,7 +89,7 @@ The interaction between two pieces of equipment can be described as follows.  Wh
 
 The initial condition of both the {{term(request)}} and {{term(response)}} states on both pieces of equipment is `READY`.  The dotted lines indicate the on-going communications that occur to monitor the progress of the interactions between the pieces of equipment.
 
-The interaction between the pieces of equipment as illustrated in {{fig(Request and Response Overview)}} progresses through the sequence listed below.
+The interaction between the pieces of equipment as illustrated in {{figure(Request and Response Overview)}} progresses through the sequence listed below.
 
 * The {{term(request)}} transitions from `READY` to `ACTIVE` signaling that a service is needed.
 
@@ -107,31 +109,33 @@ The interaction between the pieces of equipment as illustrated in {{fig(Request 
 
 After the final action has been completed, both pieces of equipment are back in the `READY` state indicating that they are able to perform another action.
 
+
+## Interface
+
+abstract {{block(Component)}} that coordinates actions and activities between pieces of equipment.
+
+
+
+
+### Commonly Observed DataItem Types for Interface
+
+{{tbl(commonly-observed-dataitem-types-for-interface)}} lists the Commonly Observed DataItem Types for {{block(Interface)}}.
+
+|Commonly Observed DataItem Types|Multiplicity|
+|:-|:-:|
+|{{block(InterfaceState)}}|1|
+{: caption="Commonly Observed DataItem Types for Interface" label="table:commonly-observed-dataitem-types-for-interface"}
+
+
 # Interfaces for Device and Observation Information Models
 
 The {{term(interaction model)}} for implementing {{termplural(interface)}} is defined in the MTConnect Standard as an extension to the {{term(Device Information Model)}} and {{term(Observation Information Model)}}.
 
 A piece of equipment **MAY** support multiple different {{termplural(interface)}}. Each piece of equipment supporting {{termplural(interface)}} **MUST** model the information associated with each {{term(interface)}} as an {{block(Interface)}} component.  {{block(Interface)}} is an abstract {{block(Component)}} and is realized by {{block(Interface)}} component types. 
 
-The {{fig(Interfaces in Entity Hierarchy)}} illustrates where an {{block(Interface)}} is modeled in the {{term(Device Information Model)}} for a piece of equipment.
+The {{figure(Interfaces in Entity Hierarchy)}} illustrates where an {{block(Interface)}} is modeled in the {{term(Device Information Model)}} for a piece of equipment.
 
 ![Interfaces in Entity Hierarchy](figures/Interfaces%20in%20Entity%20Hierarchy.png "Interfaces in Entity Hierarchy"){: width="0.8"}
-
-
-## Interfaces
-
-This section provides semantic information for {{block(Interface)}}.
-
-{{block(Interfaces)}} {{termplural(organize)}} one or more {{block(Interface)}} types.
-
-
-### Interface
-
-
-abstract {{block(Component)}} that coordinates actions and activities between pieces of equipment.
-
-
-
 
 
 ## Interface Types
@@ -142,30 +146,29 @@ In order to implement the {{term(interaction model)}} for {{termplural(interface
 
 ### BarFeederInterface
 
-
 {{block(Interface)}} that coordinates the operations between a bar feeder and another piece of equipment.
 
 Bar feeder is a piece of equipment that pushes bar stock (i.e., long pieces of material of various shapes) into an associated piece of equipment – most typically a lathe or turning center.
 
 
-### ChuckInterface
 
+### ChuckInterface
 
 {{block(Interface)}} that coordinates the operations between two pieces of equipment, one of which controls the operation of a chuck.
 
 The piece of equipment that is controlling the chuck **MUST** provide the data item {{block(ChuckState)}} as part of the set of information provided.
 
 
-### DoorInterface
 
+### DoorInterface
 
 {{block(Interface)}} that coordinates the operations between two pieces of equipment, one of which controls the operation of a door.
 
 The piece of equipment that is controlling the door **MUST** provide data item {{block(DoorState)}} as part of the set of information provided.
 
 
-### MaterialHandlerInterface
 
+### MaterialHandlerInterface
 
 {{block(Interface)}} that coordinates the operations between a piece of equipment and another associated piece of equipment used to automatically handle various types of materials or services associated with the original piece of equipment.
 
@@ -181,17 +184,18 @@ A robot is a common example of a material handler.
 
 
 
+
 ## Data for Interface
 
 Each {{term(interface)}} **MUST** provide the data associated with the specific {{term(interface)}} to implement the {{term(interaction model)}} and any additional data that may be needed by another piece of equipment to understand the operating states and conditions of the first piece of equipment as it applies to the {{term(interface)}}.
 
-Details on data items specific to the {{term(interaction model)}} for each type of {{term(interface)}} are provided in {{sect(DataItem Types for Interface)}}.
+Details on data items specific to the {{term(interaction model)}} for each type of {{term(interface)}} are provided in {{package(DataItem Types for Interface)}}.
 
 An implementer may choose any other data available from a piece of equipment to describe the operating states and other information needed to support an {{term(interface)}}.
 
-#### References for Interface
+### References for Interface
 
-Some of the data items needed to support a specific {{term(interface)}} may already be defined elsewhere in the {{term(MTConnectDevices Response Document)}} for a piece of equipment.  However, the implementer may not be able to directly associate this data with the {{term(interface)}} since the MTConnect Standard does not permit multiple occurrences of a piece of data to be configured in a {{term(MTConnectDevices Response Document)}}.  {{block(References)}} provides a mechanism for associating information defined elsewhere in the {{term(information model)}} for a piece of equipment with a specific {{term(interface)}}.  
+Some of the data items needed to support a specific {{term(interface)}} may already be defined elsewhere in the {{term(MTConnectDevices Response Document)}} for a piece of equipment.  However, the implementer may not be able to directly associate this data with the {{term(interface)}} since the MTConnect Standard does not permit multiple occurrences of a piece of data to be configured in an {{term(MTConnectDevices Response Document)}}.  {{block(References)}} provides a mechanism for associating information defined elsewhere in the {{term(information model)}} for a piece of equipment with a specific {{term(interface)}}.  
 
 {{block(References)}} {{termplural(organize)}} {{block(Reference)}} elements.
 
@@ -199,7 +203,7 @@ Some of the data items needed to support a specific {{term(interface)}} may alre
 
 {{block(References)}} is an economical syntax for providing interface specific information without directly duplicating the occurrence of the data. It provides a mechanism to include all necessary information required for interaction and deterministic information flow between pieces of equipment.
 
-For more information on the {{block(References)}} model, see Section 7 of {{citetitle(MTCPart2)}}.
+For more information on the {{block(References)}} model, see {{package(Device Information Model)}}.
 
 
 
@@ -211,7 +215,7 @@ Each {{block(Interface)}} contains data items which are used to communicate info
 
 Some data items **MAY** be directly associated with the {{block(Interface)}} element and others will be organized by a {{block(References)}} element. It is up to an implementer to determine which additional data items are required for a particular {{term(interface)}}.
 
-## Specific Data Items for the Interaction Model for Interface
+### Specific Data Items for the Interaction Model for Interface
 
 A special set of data items have been defined to be used in conjunction with {{block(Interface)}}. They provide information from a piece of equipment to {{term(request)}} a service to be performed by another associated piece of equipment; and for the associated piece of equipment to indicate its progress in performing its {{term(response)}} to the {{term(request)}} for service.  .
 
@@ -221,7 +225,7 @@ When these data items are used to describe a service associated with an {{term(i
 
 These data items and their associated `subType` provide the basic structure for implementing the {{term(interaction model)}} for an {{term(interface)}} and are defined in the following sections.
 
-{{fig(Request State Machine)}} and {{fig(Response State Machine)}} show possible state transitions for a {{term(request)}} and {{term(response)}} respectively. The state machine diagrams provide the permissible values of the {{termplural(observation)}} for the {{block(DataItem)}} types listed in this section.
+{{figure(Request State Machine)}} and {{figure(Response State Machine)}} show possible state transitions for a {{term(request)}} and {{term(response)}} respectively. The state machine diagrams provide the permissible values of the {{termplural(observation)}} for the {{block(DataItem)}} types listed in this section.
 
 ![Request State Machine](figures/Request%20State%20Machine.png "Request State Machine"){: width="0.8"}
 
@@ -230,31 +234,21 @@ These data items and their associated `subType` provide the basic structure for 
 
 ### CloseChuck
 
-operating state of the service to close a chuck.
+{{def(InterfaceEventEnum:CLOSE_CHUCK)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of CloseChuck
-
 
 * `REQUEST`
 
     operating state of the {{term(request)}} to close a chuck.
+
     
 
-    The value of {{property(CloseChuck)}} **MUST** be one of the `RequestStateEnum` enumeration. 
-
     `RequestStateEnum` Enumeration:
-
-
-    * `NOT_READY` 
-
-        {{term(requester)}} is not ready to make a {{term(request)}}.
-
-    * `READY` 
-
-        {{term(requester)}} is prepared to make a {{term(request)}}, but no {{term(request)}} for service is required.
 
     * `ACTIVE` 
 
@@ -264,23 +258,21 @@ operating state of the service to close a chuck.
 
         {{term(requester)}} has detected a failure condition.
 
-* `RESPONSE`
-
-    operating state of the {{term(response)}} to a {{term(request)}} to close a chuck.
-    
-
-    The value of {{property(CloseChuck)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
-
-    `ResponseStateEnum` Enumeration:
-
-
     * `NOT_READY` 
 
-        {{term(responder)}} is not ready to perform a service.
+        {{term(requester)}} is not ready to make a {{term(request)}}.
 
     * `READY` 
 
-        {{term(responder)}} is prepared to react to a {{term(request)}}, but no {{term(request)}} for service has been detected.
+        {{term(requester)}} is prepared to make a {{term(request)}}, but no {{term(request)}} for service is required.
+
+* `RESPONSE`
+
+    operating state of the {{term(response)}} to a {{term(request)}} to close a chuck.
+
+    
+
+    `ResponseStateEnum` Enumeration:
 
     * `ACTIVE` 
 
@@ -295,19 +287,28 @@ operating state of the service to close a chuck.
 
         {{term(responder)}} has detected a failure condition.
 
+    * `NOT_READY` 
+
+        {{term(responder)}} is not ready to perform a service.
+
+    * `READY` 
+
+        {{term(responder)}} is prepared to react to a {{term(request)}}, but no {{term(request)}} for service has been detected.
+
 ### CloseDoor
 
-operating state of the service to close a door.
+{{def(InterfaceEventEnum:CLOSE_DOOR)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of CloseDoor
-
 
 * `REQUEST`
 
     operating state of the {{term(request)}} to close a door.
+
     
 
     The value of {{property(CloseDoor)}} **MUST** be one of the `RequestStateEnum` enumeration. 
@@ -315,43 +316,43 @@ operating state of the service to close a door.
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to close a door.
+
     
 
     The value of {{property(CloseDoor)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### InterfaceState
 
-operational state of an {{block(Interface)}}.
+{{def(InterfaceEventEnum:INTERFACE_STATE)}}
 
 When the {{block(InterfaceState)}} is `DISABLED`, the state of all data items that are specific for the {{term(interaction model)}} associated with that {{block(Interface)}} **MUST** be set to `NOT_READY`.
 
 
-The value of {{property(InterfaceState)}} **MUST** be one of the `InterfaceStateEnum` enumeration. 
 
 `InterfaceStateEnum` Enumeration:
-
-
-* `ENABLED` 
-
-    {{block(Interface)}} is currently operational and performing as expected.
 
 * `DISABLED` 
 
     {{block(Interface)}} is currently not operational.
 
+* `ENABLED` 
+
+    {{block(Interface)}} is currently operational and performing as expected.
+
 ### MaterialChange
 
-operating state of the service to change the type of material or product being loaded or fed to a piece of equipment.
+{{def(InterfaceEventEnum:MATERIAL_CHANGE)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of MaterialChange
-
 
 * `REQUEST`
 
     operating state of the {{term(request)}} to change the type of material or product being loaded or fed to a piece of equipment.
+
     
 
     The value of {{property(MaterialChange)}} **MUST** be one of the `RequestStateEnum` enumeration. 
@@ -359,23 +360,25 @@ operating state of the service to change the type of material or product being l
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to change the type of material or product being loaded or fed to a piece of equipment.
+
     
 
     The value of {{property(MaterialChange)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### MaterialFeed
 
-operating state of the service to advance material or feed product to a piece of equipment from a continuous or bulk source.
+{{def(InterfaceEventEnum:MATERIAL_FEED)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of MaterialFeed
-
 
 * `REQUEST`
 
     operating state of the {{term(request)}} to advance material or feed product to a piece of equipment from a continuous or bulk source.
+
     
 
     The value of {{property(MaterialFeed)}} **MUST** be one of the `RequestStateEnum` enumeration. 
@@ -383,23 +386,25 @@ operating state of the service to advance material or feed product to a piece of
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to advance material or feed product to a piece of equipment from a continuous or bulk source.
+
     
 
     The value of {{property(MaterialFeed)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### MaterialLoad
 
-operating state of the service to load a piece of material or product.
+{{def(InterfaceEventEnum:MATERIAL_LOAD)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of MaterialLoad
-
 
 * `REQUEST`
 
     operating state of the {{term(request)}} to load a piece of material or product.
+
     
 
     The value of {{property(MaterialLoad)}} **MUST** be one of the `RequestStateEnum` enumeration. 
@@ -407,23 +412,25 @@ operating state of the service to load a piece of material or product.
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to load a piece of material or product.
+
     
 
     The value of {{property(MaterialLoad)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### MaterialRetract
 
-operating state of the service to remove or retract material or product.
+{{def(InterfaceEventEnum:MATERIAL_RETRACT)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of MaterialRetract
-
 
 * `REQUEST`
 
     operating state of the {{term(request)}} to remove or retract material or product.
+
     
 
     The value of {{property(MaterialRetract)}} **MUST** be one of the `RequestStateEnum` enumeration. 
@@ -431,23 +438,25 @@ operating state of the service to remove or retract material or product.
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to remove or retract material or product.
+
     
 
     The value of {{property(MaterialRetract)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### MaterialUnload
 
-operating state of the service to unload a piece of material or product.
+{{def(InterfaceEventEnum:MATERIAL_UNLOAD)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of MaterialUnload
-
 
 * `REQUEST`
 
     operating state of the {{term(request)}} to unload a piece of material or product.
+
     
 
     The value of {{property(MaterialUnload)}} **MUST** be one of the `RequestStateEnum` enumeration. 
@@ -455,23 +464,25 @@ operating state of the service to unload a piece of material or product.
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to unload a piece of material or product.
+
     
 
     The value of {{property(MaterialUnload)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### OpenChuck
 
-operating state of the service to open a chuck.
+{{def(InterfaceEventEnum:OPEN_CHUCK)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of OpenChuck
-
 
 * `REQUEST`
 
     operating state of the {{term(request)}} to open a chuck.
+
     
 
     The value of {{property(OpenChuck)}} **MUST** be one of the `RequestStateEnum` enumeration. 
@@ -479,23 +490,25 @@ operating state of the service to open a chuck.
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to open a chuck.
+
     
 
     The value of {{property(OpenChuck)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### OpenDoor
 
-operating state of the service to open a door.
+{{def(InterfaceEventEnum:OPEN_DOOR)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of OpenDoor
-
 
 * `REQUEST`
 
     operating state of the {{term(request)}} to open a door.
+
     
 
     The value of {{property(OpenDoor)}} **MUST** be one of the `RequestStateEnum` enumeration. 
@@ -503,23 +516,25 @@ operating state of the service to open a door.
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to open a door.
+
     
 
     The value of {{property(OpenDoor)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 ### PartChange
 
-operating state of the service to change the part or product associated with a piece of equipment to a different part or product.
+{{def(InterfaceEventEnum:PART_CHANGE)}}
 
 
 
+A {{property(subType)}} **MUST** always be specified.
 
 #### Subtypes of PartChange
-
 
 * `REQUEST`
 
     operating state of the {{term(request)}} to change the part or product associated with a piece of equipment to a different part or product.
+
     
 
     The value of {{property(PartChange)}} **MUST** be one of the `RequestStateEnum` enumeration. 
@@ -527,12 +542,17 @@ operating state of the service to change the part or product associated with a p
 * `RESPONSE`
 
     operating state of the {{term(response)}} to a {{term(request)}} to change the part or product associated with a piece of equipment to a different part or product.
+
     
 
     The value of {{property(PartChange)}} **MUST** be one of the `ResponseStateEnum` enumeration. 
 
 
 # Operation and Error Recovery
+
+The {{term(request and response)}} state model implemented for {{termplural(interface)}} may also be represented by a graphical model.  The scenario in {{figure(Success Scenario)}} demonstrates the state transitions that occur during a successful {{term(request)}} for service and the resulting {{term(response)}} to fulfill that service {{term(request)}}. 
+
+![Success Scenario](figures/Success%20Scenario.png "Success Scenario"){: width="0.8"}
 
 
 
@@ -587,7 +607,7 @@ The {{term(responder)}}, as part of clearing a failure, resets any partial actio
 
 In some cases, a {{term(requester)}} may transition to an unexpected state after it has initiated a {{term(request)}} for service.  
 
-As demonstrated in {{fig(Requester Makes Unexpected State Change)}}, the {{term(requester)}} has initiated a {{term(request)}} for service and its {{term(request)}} state has been changed to `ACTIVE`.  The {{term(responder)}} begins the actions required to provide the service.  During these actions, the {{term(requester)}} transitions its {{term(request)}} state back to `READY` before the {{term(responder)}} can complete its actions.  This **SHOULD** be regarded as a failure of the {{term(requester)}}.
+As demonstrated in {{figure(Requester Makes Unexpected State Change)}}, the {{term(requester)}} has initiated a {{term(request)}} for service and its {{term(request)}} state has been changed to `ACTIVE`.  The {{term(responder)}} begins the actions required to provide the service.  During these actions, the {{term(requester)}} transitions its {{term(request)}} state back to `READY` before the {{term(responder)}} can complete its actions.  This **SHOULD** be regarded as a failure of the {{term(requester)}}.
 
 ![Requester Makes Unexpected State Change](figures/Requester%20Makes%20Unexpected%20State%20Change.png "Requester Makes Unexpected State Change"){: width="0.8"}
 
@@ -604,7 +624,7 @@ The {{term(responder)}} resets any partial actions that were initiated and attem
 
 Similar to Scenario 5, a {{term(responder)}} may transition to an unexpected state while providing a service.  
 
-As demonstrated in {{fig(Responder Makes Unexpected State Change)}}, the {{term(responder)}} is performing the actions to provide a service and the {{term(response)}} state is `ACTIVE`.  During these actions, the {{term(responder)}} transitions its state to `NOT_READY` before completing its actions.  This should be regarded as a failure of the {{term(responder)}}.
+As demonstrated in {{figure(Responder Makes Unexpected State Change)}}, the {{term(responder)}} is performing the actions to provide a service and the {{term(response)}} state is `ACTIVE`.  During these actions, the {{term(responder)}} transitions its state to `NOT_READY` before completing its actions.  This should be regarded as a failure of the {{term(responder)}}.
 
 ![Responder Makes Unexpected State Change](figures/Responder%20Makes%20Unexpected%20State%20Change.png "Responder Makes Unexpected State Change"){: width="0.8"}
 
@@ -618,7 +638,7 @@ The {{term(responder)}}, as part of clearing the cause for the change to the une
 
 ### Responder or Requester Become UNAVAILABLE or Experience a Loss of Communication
 
-In this scenario, a failure occurs in the communications connection between the {{term(responder)}} and {{term(requester)}}.  This failure may result from the {{block(InterfaceState)}} from either piece of equipment returning a value of `UNAVAILABLE` or one of the pieces of equipment does not provide a heartbeat within the desired amount of time (See {{citetitle(MTCPart1)}} for details on heartbeat).   
+In this scenario, a failure occurs in the communications connection between the {{term(responder)}} and {{term(requester)}}.  This failure may result from the {{block(InterfaceState)}} from either piece of equipment returning a value of `UNAVAILABLE` or one of the pieces of equipment does not provide a heartbeat within the desired amount of time (See {{package(Fundamentals)}} for details on heartbeat).   
 
 ![Requester - Responder Communication Failure 1](figures/Requester%20-%20Responder%20Communication%20Failure%201.png "Requester - Responder Communication Failure 1"){: width="0.8"}
 
@@ -636,17 +656,18 @@ The {{term(responder)}}, as part of clearing its `FAIL` state, resets any partia
 
 
 
-# MTConnect Profile
+# Profile
 
 MTConnect Profile is a {{term(profile)}} that extends the {{term(SysML)}} metamodel for the MTConnect domain using additional data types and {{termplural(stereotype)}}.
 
-## Data Types
+## DataTypes
 
-![Data Types](figures/Data%20Types.png "Data Types")
+![DataTypes](figures/DataTypes.png "DataTypes")
 
 ### boolean
 
 primitive type.
+
 
 
 ### ID
@@ -654,9 +675,11 @@ primitive type.
 string that represents an {{term(ID)}}.
 
 
+
 ### string
 
 primitive type.
+
 
 
 ### float
@@ -664,9 +687,11 @@ primitive type.
 primitive type.
 
 
+
 ### dateTime
 
 string that represents timestamp in ISO 8601 format.
+
 
 
 ### integer
@@ -674,9 +699,11 @@ string that represents timestamp in ISO 8601 format.
 primitive type.
 
 
+
 ### xlinktype
 
 string that represents the type of an XLink element. See {{url(https://www.w3.org/TR/xlink11/)}}.
+
 
 
 ### xslang
@@ -684,9 +711,17 @@ string that represents the type of an XLink element. See {{url(https://www.w3.or
 string that represents a language tag. See {{url(http://www.ietf.org/rfc/rfc4646.txt)}}.
 
 
+
+### SECOND
+
+float that represents time in seconds.
+
+
+
 ### IDREF
 
 string that represents a reference to an `ID`.
+
 
 
 ### xlinkhref
@@ -694,9 +729,11 @@ string that represents a reference to an `ID`.
 string that represents the locator attribute of an XLink element. See {{url(https://www.w3.org/TR/xlink11/)}}.
 
 
+
 ### x509
 
 string that represents an `x509` data block. {{cite(ISO/IEC 9594-8:2020)}}.
+
 
 
 ### int32
@@ -704,9 +741,11 @@ string that represents an `x509` data block. {{cite(ISO/IEC 9594-8:2020)}}.
 32-bit integer.
 
 
+
 ### int64
 
 64-bit integer.
+
 
 
 ### version
@@ -714,9 +753,11 @@ string that represents an `x509` data block. {{cite(ISO/IEC 9594-8:2020)}}.
 series of four numeric values, separated by a decimal point, representing a {{term(major)}}, {{term(minor)}}, and {{term(revision)}} number of the MTConnect Standard and the revision number of a specific {{term(schema)}}.
 
 
+
 ### uInt32
 
 32-bit unsigned integer.
+
 
 
 ### uInt64
@@ -724,13 +765,21 @@ series of four numeric values, separated by a decimal point, representing a {{te
 64-bit unsigned integer.
 
 
+
 ## Stereotypes
 
 ![Stereotypes](figures/Stereotypes.png "Stereotypes")
 
+### organizer
+
+element that {{termplural(organize)}} other elements of a type.
+
+
+
 ### deprecated
 
 element that has been deprecated.
+
 
 
 ### extensible
@@ -738,9 +787,29 @@ element that has been deprecated.
 enumeration that can be extended.
 
 
-### organizer
 
-element that {{termplural(organize)}} other elements of a type.
+### informative
+
+element that is descriptive and non-normative.
+
+
+
+### valueType
+
+extends SysML `<<ValueType>>` to include `Class` as a value type.
+
+
+
+### normative
+
+element that has been added to the standard.
+
+
+
+### observes
+
+association in which a {{term(Component)}} makes {{termplural(Observation)}} about an observable {{term(DataItem)}}.
+
 
 
 
