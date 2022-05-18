@@ -27,6 +27,14 @@ module Kramdown
     class MtcLatex < Latex
       
       @@labels = Set.new
+
+      @@information_models = {
+        "Fundamentals" => "MTCPart1",
+        "Device Information Model" => "MTCPart2",
+        "Observation Information Model" => "MTCPart3",
+        "Asset Information Model" => "MTCPart4",
+        "Interface Interaction Model" => "MTCPart5"
+      }
       
       def initialize(root, options)
         @colspan = nil
@@ -43,7 +51,15 @@ module Kramdown
       end
 
       def includes_label?(label)
-        return @@labels.include?(label)
+        @@labels.include?(label)
+      end
+
+      def get_citetitle_args(information_model)
+        @@information_models[information_model]
+      end
+
+      def is_document_title?(information_model)
+        @@information_models.has_key?(information_model)
       end
       
       def convert_macro(el, _opts)
@@ -79,14 +95,30 @@ module Kramdown
             id = args.downcase.gsub('/', '').split.join('-')
             "\\sect{#{id}}"
 
+          when "package"
+            id = args.downcase.gsub('/', '').split.join('-')
+            self.is_document_title?(args) ? "\\citetitle{#{get_citetitle_args(args)}}" : "\\sect{#{id}}"
+
+          when "cite"
+            "\\textit{Ref~#{args}}"
+
+          when "block"
+            "\\block{#{args.split("::")[-1]}}"
+
+          when "operation"
+            "\\operation{#{args.split("::")[-1]}}"
+
+          when "property"
+            "\\property{#{args.split("::")[-1]}}"
+
           when "input"
             latex_args = args.gsub("markdown", "latex").gsub(".md", ".tex")
             "\\input{#{latex_args}}"
 
           when "def"
-            property_name = args.split(":")[-1]
-            if $dataitemtypes.has_key?(property_name)
-              kd = ::Kramdown::Document.new($dataitemtypes[property_name]['documentation'], input: 'MTCKramdown', html_to_native: true)
+            enum_name, enum_literal = args.split(":")
+            if $enum.has_key?(enum_name)
+              kd = ::Kramdown::Document.new($enum[enum_name][enum_literal]['documentation'], input: 'MTCKramdown', html_to_native: true)
               kd.to_mtc_latex
             else
               ""
@@ -102,6 +134,14 @@ module Kramdown
         end
       end
 
+      def update_label_to_avoid_dup(label, suffix=2)
+        if self.includes_label?(label+suffix.to_s)
+          update_label_to_avoid_dup(label, suffix+1)
+        else
+          label+suffix.to_s
+        end
+      end
+
       def convert_header(el, opts)
         level = output_header_level(el.options[:level]) - 1
         type = @options[:latex_headers][level]
@@ -109,7 +149,7 @@ module Kramdown
         if ((id = el.attr['id']) ||
             (@options[:auto_ids] && (id = generate_id(el.options[:raw_text])))) && in_toc?(el)
           label = "sec:#{id}"
-          label += "2" if self.includes_label?(label)
+          label = update_label_to_avoid_dup(label) if self.includes_label?(label)
           self.add_label(label)
           "\\#{type}{#{inner(el, opts)}}\\hypertarget{#{label}}{}\\label{#{label}}#{mbox}\n\n"
         else
@@ -379,7 +419,7 @@ module MarkdownConverter
   end
 
   def self.post_conversion_formatting(latex)
-    return latex.gsub("\\item{}","\\item").gsub("\\_","\\textunderscore ").gsub("\\$","$").gsub("\\^{}","^")
+    return latex.gsub("\\item{}","\\item").gsub("\\_","\\textunderscore ").gsub(/\_/,"\\textunderscore ").gsub("\\$","$").gsub("\\^{}","\\textsuperscript ").gsub("\\textunderscore 2 ","_{2}")
   end
   
   def self.convert_glossary(file)
