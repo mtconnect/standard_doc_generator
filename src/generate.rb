@@ -53,6 +53,7 @@ $namespaces = Hash[xmi_node.namespaces.map { |k, v| [k.split(':').last, v] }]
 
 $mtconnect_version = Options[:version] ? Options[:version] : "X.X"
 $dataitemtypes = Hash.new
+$enum = Hash.new
 
 operations = Set.new(ARGV)
 
