@@ -13,6 +13,8 @@ package :SolidModel, 'Solid model eternal reference' do
     member :CoordinateSystemIdRef, 'The identifier of the coordinate system that this motion is relative to', 0..1
     member :Transformation, 'A rotation and translation', 0..1
     member :Scale, 'Scaling vector for the model', 0..1, :SolidModelScale
+    member :Units, 'The units of the measurement', 0..1
+    member :NativeUnits, 'The units as expressed by the machine', 0..1
   end
 
 
