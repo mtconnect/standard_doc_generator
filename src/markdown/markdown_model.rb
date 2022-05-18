@@ -27,16 +27,25 @@ class MarkdownModel < Model
     @@generator
   end
 
-  def self.generate_md(f, model)
+  def heading_level=(heading_level)
+    @@heading_level = heading_level
+  end
+
+  def heading_level
+    @@heading_level
+  end
+
+  def self.generate_md(f, model, heading_level)
     if @@models[model]
       if model.end_with?('Types') || model == "DataItem Types for Interface"
         @@models[model].types.sort_by! { |t| t.name }
         @@models[model].generate_subtypes(model)
       end
-      @@models[model].generate_md(f)
+      @@models[model].heading_level = heading_level
+      @@models[model].generate_md(f) if @@models[model].type == 'uml:Package'
     else
-      $logger.fatal "Cannot find model: #{model}"
-      exit @@models[model]
+      $logger.info "Cannot find model: #{model}"
+      $logger.info "Skipping model: #{model}"
     end
   end
   
@@ -47,9 +56,10 @@ class MarkdownModel < Model
     FileUtils.mkdir_p(md_directory)
     File.open(File.join(@@directory, file), "w") do |fs|
       $logger.info "Generating model #{@name}"
-      fs.puts "\n## #{@name}\n"
-      
-      generate_documentation(fs)
+      unless @@heading_level == 1
+        fs.puts "\n## #{@name}\n"
+        generate_documentation(fs)
+      end
       @types.each do |type|
         if type.parent.nil? || type.parent.model != self
           recurse_types(fs, type)
@@ -73,15 +83,14 @@ class MarkdownModel < Model
 
   def self.generate_profile(f, profile_config)
     profile_config.each do |profile_type, profile_info|
-        
-        f.puts "\n## #{profile_type}\n"
-        f.puts "\n![#{profile_type}](figures/#{profile_type.gsub(" ","%20")}.png \"#{profile_type}\")"
-        
-        @@models[profile_info['model']].types.each do |type|
-            if type.type == 'uml:DataType' || type.type == 'uml:Stereotype'
-                type.generate_profile_docs(f)
-            end
+      f.puts "\n## #{profile_type}\n"
+      f.puts "\n![#{profile_type}](figures/#{profile_type.gsub(" ","%20")}.png \"#{profile_type}\")\n"
+
+      @@models[profile_info['model']].types.each do |type|
+        if type.type == 'uml:DataType' || type.type == 'uml:Stereotype'
+            type.generate_profile_docs(f)
         end
+      end
     end
   end
 
