@@ -1,23 +1,28 @@
 {
 	"documents": {
 		"Part 1.0": {
-			"directory": "protocols",
-			"doc_title": "Overview and Fundamentals",
+			"directory": "fundamentals",
+			"doc_title": "Fundamentals",
 			"models": [
-				"MTConnect Fundamentals",
-				"MTConnect ReST Protocol",
+				"Fundamentals",
 				{
-					"Error Information Model": ["MTConnectErrors"]
+					"MTConnect Protocol": [
+						"REST Protocol",
+						"MTConnectDevices Response Document",
+						"MTConnectStreams Response Document",
+						"MTConnectAssets Response Document"
+					]
+				},
+				{
+					"Error Information Model": ["MTConnectErrors Response Document"]
 				}
 			]
 		},
 		"Part 2.0": {
 			"directory": "devices",
-			"doc_title": "Devices Information Model",
+			"doc_title": "Device Information Model",
 			"models": [
-				{
-					"Devices Information Model": ["MTConnectDevices"]
-				},
+				"Device Information Model",
 				{
 					"Components Model": [
 						"Components",
@@ -38,8 +43,7 @@
 						"Properties of DataItem",
 						"Properties of Definition",
 						"Relationship Types for DataItem",
-						"DataItem Types",
-						"DataItem SubTypes"
+						"DataItem Types"
 					]
 				},
 				{
@@ -60,21 +64,12 @@
 		},
 		"Part 3.0": {
 			"directory": "observations",
-			"doc_title": "Observations Information Model",
+			"doc_title": "Observation Information Model",
 			"models": [
-				{
-					"Observations Information Model": ["MTConnectStreams"]
-				},
-				{
-					"Streams Model": [
-						"Streams",
-						"Observations",
-						"Representations"
-					]
-				},
+				"Observation Information Model",
+				"Representations",
 				{
 					"Observation Types": [
-						"Condition States",
 						"Condition Types",
 						"Event Types",
 						"Sample Types"
@@ -84,14 +79,9 @@
 		},
 		"Part 4.0": {
 			"directory": "assets",
-			"doc_title": "Assets Information Model",
+			"doc_title": "Asset Information Model",
 			"models": [
-				{
-					"Assets Information Model": [
-						"MTConnectAssets",
-						"Assets"
-					]
-				},
+				"Asset Information Model",
 				{
 					"Cutting Tool Asset Information Model":[
 						"Cutting Tool",
@@ -114,12 +104,11 @@
 		},
 		"Part 5.0": {
 			"directory": "interfaces",
-			"doc_title": "Interfaces",
+			"doc_title": "Interface Interaction Model",
 			"models": [
-				"Interfaces Overview",
+				"Interface Interaction Model",
 				{
 					"Interfaces for Device and Observation Information Models":[
-						"Interfaces",
 						"Interface Types",
 						"Data for Interface",
 						"DataItem Types for Interface"
@@ -135,7 +124,7 @@
 	},
 	"glossary": {
 		"General Terms": {
-			"model": "MTConnect Glossary",
+			"model": "Glossary",
 			"type": "general"
 		},
 		"Information Model Terms": {
@@ -164,11 +153,11 @@
 		}
 	},
 	"profile":{
-		"Data Types": {
+		"DataTypes": {
 			"model": "DataTypes"
 		},
 		"Stereotypes": {
-			"model": "Profile"
+			"model": "Stereotypes"
 		}
 	}
 }
