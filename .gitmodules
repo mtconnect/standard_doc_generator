@@ -10,6 +10,6 @@
 [submodule "latex_documentation/interfaces"]
 	path = latex_documentation/interfaces
 	url = https://git.overleaf.com/611e5197509bbdc7173f2742
-[submodule "latex_documentation/protocols"]
-	path = latex_documentation/protocols
+[submodule "latex_documentation/fundamentals"]
+	path = latex_documentation/fundamentals
 	url = https://git.overleaf.com/619e7d969720bc2ecd011552
