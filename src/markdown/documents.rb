@@ -23,74 +23,113 @@ module Document
       f.puts "\n{{input(#{documentation_name})}}\n"
     elsif @documentation
       f.puts "\n#{tab}#{@documentation.gsub("\n","\n#{tab}")}\n"
-      f.puts "#{tab}#{@additional_documentation.gsub("\n","\n#{tab}")}\n" if @additional_documentation
+      f.puts "\n#{tab}#{@additional_documentation.gsub("\n","\n#{tab}")}\n" if @additional_documentation
     end
   end
 
-  def generate_table(columns, justification, rows, caption)
-    return <<-EOT
+  def has_mtconnect_stereotype?
+    #to be updated
+    return /[[:lower:]]/.match(@stereotype[0])
+  end
+
+  def section_heading
+    stereotype = has_mtconnect_stereotype? ? "`\<\<#{@stereotype}\>\>`" : ""
+    return stereotype + @name
+  end
+
+  def stereotype_to_s(element)
+    return !element.stereotype.empty? && /[[:lower:]]/.match(element.stereotype[0]) ? "`<<#{element.stereotype}>>` " : ""
+  end
+
+  def section_heading_level_to_s(add_level=0)
+    return "#"*(@model.heading_level + add_level)
+  end
+
+  def generate_section_name_with_heading_level(f, add_level=0)
+    f.puts "\n#{section_heading_level_to_s(add_level)} #{section_heading}\n"
+  end
+
+  def generate_table(fs, columns, justification, rows, caption)
+    label = get_label_from_caption(caption)
+    fs.puts <<-EOT
 |#{columns.join("|")}|
 |#{justification.join("|")}|
 |#{rows.map{|r| [r.join("|")]}.join("|\n|")}|
-{: caption=\"#{caption}\"}
+{: caption=\"#{caption}\" label=\"table:#{label}\"}
 EOT
+    @model.generator.labels << label
   end
 
-  def get_valuetype_documentation(relation, num_of_tabs = 0, property_name = @name)
+  def get_label_from_caption(caption)
+    label = caption.downcase.gsub(" ","-")
+    label = update_label_to_avoid_dup(label) if @model.generator.labels.include?(label)
+    label
+  end
+
+  def update_label_to_avoid_dup(label, suffix=2)
+    if @model.generator.labels.include?(label+suffix.to_s)
+      update_label_to_avoid_dup(label, suffix+1)
+    else
+      label+suffix.to_s
+    end
+  end
+
+  def generate_valuetype_documentation(f, relation, num_of_tabs = 0, property_name = @name)
     tab = "    " * num_of_tabs
     target = relation.final_target.type
     is_primitive_type = target.documentation == "primitive type."
     
-    if relation.name == 'units' && relation.default
-      return "\n#{tab}The {{property(units)}} of {{property(#{property_name})}} **MUST** be `#{relation.default}`.\n"
-    
+    if relation.name == 'units'
+      if relation.default
+        f.puts "\n#{tab}The {{property(units)}} of {{property(#{property_name})}} **MUST** be `#{relation.default}`.\n"
+      elsif target.type == 'uml:Enumeration' && target.enum_already_documented? && property_name != @name
+        f.puts "\n#{tab}The value of {{property(#{property_name})}} **MUST** be one of the `#{target.name}` enumeration. \n"
+      elsif relation.redefinesProperty && relation.multiplicity =="1"
+        f.puts "\nThe {{property(units)}} for {{block(#{property_name})}} **MUST** always be specified.\n"
+      end
+   
     elsif relation.name == 'code'
       if relation.default == "N/A"
-        return "\n#{tab}The {{property(code)}} is `N/A` for {{property(#{property_name})}}.\n"
+        f.puts "\n#{tab}The {{property(code)}} is `N/A` for {{property(#{property_name})}}.\n"
+      elsif relation.redefinesProperty
+        f.puts "\n#{tab}The {{property(code)}} of {{property(#{property_name})}} **MUST** be `#{relation.default}`.\n"
       end
-      return "\n#{tab}The {{property(code)}} of {{property(#{property_name})}} **MUST** be `#{relation.default}`.\n"
-    
+
+    elsif relation.name == 'subType'
+      if relation.default
+        f.puts "\nThe default {{property(subType)}} of {{property(#{property_name})}} is `#{relation.default}`.\n"
+      elsif relation.multiplicity == "1"
+        f.puts "\nA {{property(subType)}} **MUST** always be specified.\n"
+      end
+      if target.type == 'uml:Enumeration' && target.enum_already_documented? && property_name != @name
+       f.puts "\n#{tab}The value of {{property(#{property_name})}} **MUST** be one of the `#{target.name}` enumeration. \n"
+      end
+
     elsif target.type == 'uml:Enumeration'
-      return "\n#{tab}The value of {{property(#{property_name})}} **MUST** be one of the `#{target.name}` enumeration. \n"
+      f.puts "\n#{tab}The value of {{property(#{property_name})}} **MUST** be one of the `#{target.name}` enumeration. \n" if target.enum_already_documented?
     
     elsif target.type == 'uml:Class'
-      return "\n#{tab}The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `#{target.name}` keys.\n"
+      f.puts "\n#{tab}The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `#{target.name}` keys.\n"
     
     elsif target.type == 'uml:DataType' && !is_primitive_type && relation.multiplicity == '3'
-      return "\n#{tab}The value of {{property(#{property_name})}} **MUST** be reported in `#{target.name}_3D`.\n"
+      f.puts "\n#{tab}The value of {{property(#{property_name})}} **MUST** be reported in `#{target.name}_3D`.\n"
     
     elsif is_primitive_type && !relation.multiplicity.end_with?('0') && !relation.multiplicity.end_with?('1')
-      return "\n#{tab}The value of {{property(#{property_name})}} **MUST** be a list of `#{target.name}` of size `#{relation.multiplicity}`.\n"
+      f.puts "\n#{tab}The value of {{property(#{property_name})}} **MUST** be a list of `#{target.name}` of size `#{relation.multiplicity}`.\n"
         
     elsif is_primitive_type
-      return "\n#{tab}The value of {{property(#{property_name})}} **MUST** be `#{target.name}`.\n"
+      f.puts "\n#{tab}The value of {{property(#{property_name})}} **MUST** be `#{target.name}`.\n"
     
     else
-      return "\n#{tab}The value of {{property(#{property_name})}} **MUST** be `#{target.name}`. See {{sect(#{target.name})}}.\n"
+      f.puts "\n#{tab}The value of {{property(#{property_name})}} **MUST** be `#{target.name}`. See {{sect(#{target.name.downcase})}}.\n"
     end
   end
-
-  def generate_glossary_entry(glossary_type)
-    plural = @name.end_with?('y') ? @name[0...-1]+"ies" : (@name.end_with?('s') ? @name : @name+"s" )
-    return <<-EOT
-{{newglossaryentry(#{@name})
-{
-    type={#{glossary_type}},
-    name={#{@name}},
-    description={#{@documentation}},
-    plural={#{plural}}
-}}}
-
-EOT
-  end
-  
+ 
   def get_section_documentation(root_model,section_package_name, section_name)
-	section_model = root_model.at("//packagedElement[@name='#{section_package_name}']")
-	if section_model && section_model.at("//*[@body='#{section_name}']")
-		return section_model.at("//*[@body='#{section_name}']").ownedComment['body']
-	else
-		return ""
-	end
+    section_model = root_model.at("//packagedElement[(@xmi:type='uml:Package' or @xmi:type='uml:Profile') and @name='#{section_package_name}']")
+    section_doc_node = section_model.at("//*[@body='#{section_name}']")
+    section_doc_node = root_model.at("//packagedElement[(@xmi:type='uml:Package' or @xmi:type='uml:Profile') and @name='#{section_name}']") unless section_doc_node
+    return (section_model && section_doc_node) ? section_doc_node.ownedComment['body'] : ""
   end
 
   def generate_section_intro(f,root_model,section_package_name, section_name)
