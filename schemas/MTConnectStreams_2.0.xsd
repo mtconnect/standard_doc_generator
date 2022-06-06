@@ -31,7 +31,7 @@ WHETHER UNDER CONTRACT, TORT, WARRANTY OR OTHERWISE, ARISING IN ANY WAY OUT OF
 THIS AGREEMENT, USE OR INABILITY TO USE MTCONNECT MATERIALS, WHETHER OR NOT
 SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
 -->
-<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns='urn:mtconnect.org:MTConnectStreams:2.0.0' xmlns:mt='urn:mtconnect.org:MTConnectStreams:2.0.0' targetNamespace='urn:mtconnect.org:MTConnectStreams:2.0.0' elementFormDefault='qualified' attributeFormDefault='unqualified'>
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' xmlns='urn:mtconnect.org:MTConnectStreams:2.0' xmlns:mt='urn:mtconnect.org:MTConnectStreams:2.0' targetNamespace='urn:mtconnect.org:MTConnectStreams:2.0' elementFormDefault='qualified' attributeFormDefault='unqualified' xmlns:vc='http://www.w3.org/2007/XMLSchema-versioning' vc:minVersion='1.1'>
   <xs:element name='MTConnectStreams' type='MTConnectStreamsType'>
     <xs:annotation>
       <xs:documentation>
@@ -4049,7 +4049,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         See {{package(Observation Information Model)}} for more detail.
       </xs:documentation>
     </xs:annotation>
-    <xs:all>
+    <xs:sequence>
       <xs:element name='DeviceStream' type='DeviceStreamType' minOccurs='0' maxOccurs='unbounded'>
         <xs:annotation>
           <xs:documentation>
@@ -4057,7 +4057,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-    </xs:all>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name='DeviceStreamType'>
     <xs:annotation>
@@ -4065,7 +4065,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         Description
       </xs:documentation>
     </xs:annotation>
-    <xs:all>
+    <xs:sequence>
       <xs:element name='ComponentStream' type='ComponentStreamType' minOccurs='0' maxOccurs='unbounded'>
         <xs:annotation>
           <xs:documentation>
@@ -4081,7 +4081,7 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-    </xs:all>
+    </xs:sequence>
     <xs:attribute name='name' type='NameType' use='required'>
       <xs:annotation>
         <xs:documentation>
@@ -4179,9 +4179,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         {{sect(Sample)}}.
       </xs:documentation>
     </xs:annotation>
-    <xs:all>
+    <xs:sequence>
       <xs:element ref='Sample' minOccurs='1' maxOccurs='unbounded'/>
-    </xs:all>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name='EventsType'>
     <xs:annotation>
@@ -4190,9 +4190,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         {{sect(Event)}}.
       </xs:documentation>
     </xs:annotation>
-    <xs:all>
+    <xs:sequence>
       <xs:element ref='Event' minOccurs='1' maxOccurs='unbounded'/>
-    </xs:all>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name='ConditionListType'>
     <xs:annotation>
@@ -4200,9 +4200,9 @@ SUCH PARTY HAD ADVANCE NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
         A collection of conditions
       </xs:documentation>
     </xs:annotation>
-    <xs:all>
+    <xs:sequence>
       <xs:element ref='Condition' minOccurs='1' maxOccurs='unbounded'/>
-    </xs:all>
+    </xs:sequence>
   </xs:complexType>
   <xs:simpleType name='UnavailableValueType'>
     <xs:annotation>
