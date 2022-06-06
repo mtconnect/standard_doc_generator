@@ -5,7 +5,7 @@ package :Component, 'Top Level Components Package' do
   attr :Model, 'The model name'
   
   type :Devices, 'The top level components' do
-    member :Agent, 'The Agent Device'
+    member :Agent, 'The Agent Device', 0..1
     member :Device, 'A piece of equipment', 1..INF
   end
   
