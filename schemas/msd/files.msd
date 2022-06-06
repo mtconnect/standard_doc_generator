@@ -29,17 +29,14 @@ package :Files, 'Files or Documents' do
     value :PRODUCTION_PROGRAM, 'Machine instructions to perform a process'
   end
   
-  type :AbstractFile, 'Abstract model that all file types inherit from', :Asset do
+  # Archetype
+  type :FileArchetype, 'Common information regarding a file', :Asset do
     member :Name, 'The file name', :FileName
     member :MediaType, 'The mime type of the file', :FileMimeType
     member :ApplicationCategory, 'The classification of this file'
     member :ApplicationType, 'The sub classification of this file'
     member :FileProperties, 'A set of file properties', 0..1
     member :FileComments, 'The Destination is a reference to the target Device for this File', 0..1
-  end
-  
-  # Archetype
-  type :FileArchetype, 'Common information regarding a file', :AbstractFile do
   end
   
   # Common
@@ -63,7 +60,14 @@ package :Files, 'Files or Documents' do
   basic_type :PublicKey, 'An X501 Public Key'
   basic_type :Signature, 'A secure hash'
   basic_type :FileTime, 'A file time', :dateTime
-  type :File, 'The file version info', :AbstractFile do
+  
+  type :File, 'The file version info', :Asset do
+    member :Name, 'The file name', :FileName
+    member :MediaType, 'The mime type of the file', :FileMimeType
+    member :ApplicationCategory, 'The classification of this file'
+    member :ApplicationType, 'The sub classification of this file'
+    member :FileProperties, 'A set of file properties', 0..1
+    member :FileComments, 'The Destination is a reference to the target Device for this File', 0..1
     member :Size, 'The size in bytes', :FileSize
     member :VersionId, 'The version identifier'
     member :State, 'The file state', :FileState
