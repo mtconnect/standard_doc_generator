@@ -278,7 +278,7 @@ class Schema
       end
 
       # Add the elements to the sequence.
-      if @ordered
+      if @ordered or has_unbounded_element?
         sequence = REXML::Element.new('xs:sequence')
       else
         sequence = REXML::Element.new('xs:all')
@@ -294,6 +294,11 @@ class Schema
     rescue
       puts "Error when generating schema for #{@name}: #{$!}"
       raise
+    end
+
+    def has_unbounded_element?
+      unbounded_elements = @members.select { |m| m if m.occurrence.is_a?(Range) and m.occurrence.last == INF }
+      return !unbounded_elements.empty? ? true : false
     end
 
     def add_attributes
