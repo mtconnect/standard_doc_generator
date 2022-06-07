@@ -152,7 +152,7 @@ package :DataItems, 'Data Items Package' do
 
   type :AbstractDataItemRelationship, 'Common base for data item relationship' do
     abstract
-    member :Name, 'A descriptive name associated with this Relationship'
+    member :Name, 'A descriptive name associated with this Relationship', 0..1
     member :IdRef, 'A reference to the related DataItem id.', :ReferenceId
   end
 
