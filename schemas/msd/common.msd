@@ -26,7 +26,7 @@ package :common, 'Common attributes and elements for all schemas' do
   attr :ComponentId, 'The id of the component (maps to the id from probe)', :ID
   attr :ID, 'An identifier', :ID
   attr :SignificantDigitsValue, 'The number significant digits', :integer
-  attr :CompositionId, 'The item\'s reference to the Device model composition', :IDREF
+  attr :CompositionId, 'The item\'s reference to the Device model composition', :NMTOKEN
   attr :DurationTime, 'A length of time in seconds', :float
   attr :Removed, 'A flag indicating the item has been removed', :boolean
   attr :Key, 'The key for adata set', :NMTOKEN
