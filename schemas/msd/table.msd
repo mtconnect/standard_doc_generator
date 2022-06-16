@@ -12,9 +12,10 @@ package :DataSet, 'Table Package' do
     member :Cell, 'The table\'s cell', 0..INF, :TableCell
   end
 
-  # Create data set events for non-state events
-  %w{WorkOffset ToolOffset}.each do |s| 
-    type = self.schema.type(s.to_sym)
+  # Create table dataitems 
+  Glossary.events.merge(Glossary.samples).each do |name, dataitem|
+    next unless name != 'Alarm' and ['Sample','Event'].include?(dataitem['parent'])
+    type = self.schema.type(name.to_sym)
     vm = type.value_member
     cell_type = if vm and vm.type
                    vm.type

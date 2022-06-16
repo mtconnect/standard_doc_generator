@@ -11,9 +11,10 @@ package :DataSet, 'DataSet Package' do
     member :Removed, 'an indicatore that the entry has been removed', 0..1
   end
 
-  # Create data set events for non-state events
-  %w{Variable}.each do |s| 
-    type = self.schema.type(s.to_sym)
+  # Create data set dataitems
+  Glossary.events.merge(Glossary.samples).each do |name, dataitem|
+    next unless name != 'Alarm' and ['Sample','Event'].include?(dataitem['parent'])
+    type = self.schema.type(name.to_sym)
     vm = type.value_member
     entry_type = if vm and vm.type
                    vm.type
