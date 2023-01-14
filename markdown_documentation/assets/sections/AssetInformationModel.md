@@ -21,7 +21,7 @@ It is used in the manufacturing process, but is not permanently associated with 
 |{{property(assetId)}}|`ID`|1|
 |{{property(deviceUuid)}}|`ID`|0..1|
 |{{property(removed)}}|`boolean`|0..1|
-|{{property(timestamp)}}|`dateTime`|1|
+|{{property(timestamp)}}|`datetime`|1|
 {: caption="Value Properties of Asset" label="table:value-properties-of-asset"}
 
 Descriptions for Value Properties of {{block(Asset)}}:

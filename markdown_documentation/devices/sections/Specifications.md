@@ -5,7 +5,7 @@ This section provides semantic information for the {{block(Specification)}} enti
 
 ![Specifications](figures/Specifications.png "Specifications"){: width="0.8"}
 
-> Note: See {{figure(Specifications Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ![Specification Example](figures/Specification%20Example.png "Specification Example"){: width="0.8"}
 

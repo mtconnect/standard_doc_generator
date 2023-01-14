@@ -41,27 +41,29 @@ IEEE STD 1451.4-1994, Standard for a Smart Transducer Interface for Sensors and 
 
 ### Observations Schema Diagrams
 
-![Streams Schema](figures/Streams%20Schema.png "Streams Schema"){: width="0.8"}
+See `Streams` element in `MTConnectStreams` schema.
 
-![DeviceStream Schema](figures/DeviceStream%20Schema.png "DeviceStream Schema"){: width="0.8"}
+See `DeviceStream` element in `MTConnectStreams` schema.
 
-![ComponentStream Schema](figures/ComponentStream%20Schema.png "ComponentStream Schema"){: width="0.8"}
+See `ComponentStream` element in `MTConnectStreams` schema.
 
-![Sample Schema](figures/Sample%20Schema.png "Sample Schema"){: width="0.8"}
+See `Sample` element in `MTConnectStreams` schema.
 
-![Event Schema](figures/Event%20Schema.png "Event Schema"){: width="0.8"}
+See `Event` element in `MTConnectStreams` schema.
 
-![Condition Schema](figures/Condition%20Schema.png "Condition Schema"){: width="0.8"}
+See `Condition` element in `MTConnectStreams` schema.
 
 ### Representation Schema Diagrams
 
-![AbsTimeSeries Schema](figures/AbsTimeSeries%20Schema.png "AbsTimeSeries Schema"){: width="0.8"}
+See `AbsTimeSeries` element in `MTConnectStreams` schema.
 
-![DataSet Schema](figures/DataSet%20Schema.png "DataSet Schema"){: width="0.8"}
+See `PartCountDiscrete` element in `MTConnectStreams` schema.
 
-![Entry Schema](figures/Entry%20Schema.png "Entry Schema"){: width="0.8"}
+See `VariableDataSet` element in `MTConnectStreams` schema.
 
-![Table Schema](figures/Table%20Schema.png "Table Schema"){: width="0.8"}
+See `Entry` element in `MTConnectStreams` schema.
+
+See `WorkOffsetTable` element in `MTConnectStreams` schema.
 
 ## XML Examples
 

@@ -39,45 +39,47 @@ IEEE STD 1451.4-1994, Standard for a Smart Transducer Interface for Sensors and 
 
 ## XML Schema Diagrams
 
+See XML schemas for the MTConnect standard here: {{url(https://schemas.mtconnect.org/)}}.
+
 ### Assets Schema Diagrams
 
-![Asset Schema](figures/Asset%20Schema.png "Asset Schema"){: width="0.8"}
+See `Asset` element in `MTConnectAssets` schema.
 
-![Description Schema](figures/Description%20Schema.png "Description Schema"){: width="0.8"}
+See `Description` element in `MTConnectAssets` schema.
 
 ### CuttingTool Schema Diagrams
 
-![CuttingTool Schema](figures/CuttingTool%20Schema.png "CuttingTool Schema"){: width="0.6"}
+See `CuttingTool` element in `MTConnectAssets` schema.
 
-![CuttingToolDefinition Schema](figures/CuttingToolDefinition%20Schema.png "CuttingToolDefinition Schema"){: width="0.8"}
+See `CuttingToolDefinition` element in `MTConnectAssets` schema.
 
-![CuttingToolArchetypeReference Schema](figures/CuttingToolArchetypeReference%20Schema.png "CuttingToolArchetypeReference Schema"){: width="0.8"}
+See `CuttingToolArchetypeReference` element in `MTConnectAssets` schema.
 
 ### CuttingToolLifeCycle Schema Diagrams
 
-![CuttingToolLifeCycle Schema](figures/CuttingToolLifeCycle%20Schema.png "CuttingToolLifeCycle Schema"){: width="0.4"}
+See `CuttingToolLifeCycle` element in `MTConnectAssets` schema.
 
-![CutterStatus Schema](figures/CutterStatus%20Schema.png "CutterStatus Schema"){: width="0.8"}
+See `CutterStatus` element in `MTConnectAssets` schema.
 
-![Location Schema](figures/Location%20Schema.png "Location Schema"){: width="0.8"}
+See `Location` element in `MTConnectAssets` schema.
 
-![Measurement Schema](figures/Measurement%20Schema.png "Measurement Schema"){: width="0.8"}
+See `Measurement` element in `MTConnectAssets` schema.
 
-![ProcessFeedRate Schema](figures/ProcessFeedRate%20Schema.png "ProcessFeedRate Schema"){: width="0.8"}
+See `ProcessFeedRate` element in `MTConnectAssets` schema.
 
-![ProcessSpindleSpeed Schema](figures/ProcessSpindleSpeed%20Schema.png "ProcessSpindleSpeed Schema"){: width="0.8"}
+See `ProcessSpindleSpeed` element in `MTConnectAssets` schema.
 
-![ReconditionCount Schema](figures/ReconditionCount%20Schema.png "ReconditionCount Schema"){: width="0.8"}
+See `ReconditionCount` element in `MTConnectAssets` schema.
 
-![ToolLife Schema](figures/ToolLife%20Schema.png "ToolLife Schema"){: width="0.8"}
+See `ToolLife` element in `MTConnectAssets` schema.
 
 ### CuttingItem Schema Diagrams
 
-![CuttingItems Schema](figures/CuttingItems%20Schema.png "CuttingItems Schema"){: width="0.8"}
+See `CuttingItems` element in `MTConnectAssets` schema.
 
-![CuttingItem Schema](figures/CuttingItem%20Schema.png "CuttingItem Schema"){: width="0.6"}
+See `CuttingItem` element in `MTConnectAssets` schema.
 
-![ItemLife Schema](figures/ItemLife%20Schema.png "ItemLife Schema"){: width="0.7"}
+See `ItemLife` element in `MTConnectAssets` schema.
 
 ### ISO 13399 Diagrams
 
@@ -399,14 +401,12 @@ http://mtconnect.org/schemas/MTConnectAssets\_1.2.xsd">
 
 ### File Schema Diagrams
 
-![AbstractFile Schema](figures/AbstractFile%20Schema.png "AbstractFile Schema"){: width="0.8"}
-
-![File Schema](figures/File%20Schema.png "File Schema"){: width="0.7"}
+See `File` element in `MTConnectAssets` schema.
 
 ### RawMaterial Schema Diagrams
 
-![RawMaterial Schema](figures/RawMaterial%20Schema.png "RawMaterial Schema"){: width="0.6"}
+See `RawMaterial` element in `MTConnectAssets` schema.
 
 ### QIFDocumentWrapper Schema Diagrams
 
-![QIFDocumentWrapper Schema](figures/QIFDocumentWrapper%20Schema.png "QIFDocumentWrapper Schema"){: width="0.8"}
+See `QIFDocumentWrapper` element in `MTConnectAssets` schema.

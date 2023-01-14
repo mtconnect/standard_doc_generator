@@ -322,7 +322,6 @@ Descriptions for Part Properties of {{block(Component)}}:
 * {{block(Composition)}} 
 
     functional part of a piece of equipment contained within a {{block(Component)}}.
-    
 
     {{block(Compositions)}} groups one or more {{block(Composition)}} entities. See {{package(Compositions)}}.
 
@@ -460,6 +459,32 @@ It takes energy usually provided by air, electric current, or liquid and convert
 
 It **MAY** contain connectivity state of the data source and additional telemetry about the data source and source-specific information.
 
+
+### Amplifier
+
+leaf {{block(Component)}} composed of an electronic component or circuit that amplifies power, electric current, or voltage.
+
+
+
+#### Part Properties of Amplifier
+
+{{tbl(part-properties-of-amplifier)}} lists the Part Properties of {{block(Amplifier)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Amplifier" label="table:part-properties-of-amplifier"}
+
+Descriptions for Part Properties of {{block(Amplifier)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
 
 ### Auxiliary
 
@@ -637,11 +662,271 @@ A machine having an axis with more than one child **MUST** number each branch us
 
 
 
+### Ballscrew
+
+leaf {{block(Component)}} composed of a mechanical structure that transforms rotary motion into linear motion.
+
+
+
+#### Part Properties of Ballscrew
+
+{{tbl(part-properties-of-ballscrew)}} lists the Part Properties of {{block(Ballscrew)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Ballscrew" label="table:part-properties-of-ballscrew"}
+
+Descriptions for Part Properties of {{block(Ballscrew)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Belt
+
+leaf {{block(Component)}} composed of an endless flexible band that transmits motion for a piece of equipment or conveys materials and objects.
+
+
+
+#### Part Properties of Belt
+
+{{tbl(part-properties-of-belt)}} lists the Part Properties of {{block(Belt)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Belt" label="table:part-properties-of-belt"}
+
+Descriptions for Part Properties of {{block(Belt)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Brake
+
+leaf {{block(Component)}} that slows or stops a moving object by the absorption or transfer of the energy of momentum, usually by means of friction, electrical force, or magnetic force.
+
+
+
+#### Part Properties of Brake
+
+{{tbl(part-properties-of-brake)}} lists the Part Properties of {{block(Brake)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Brake" label="table:part-properties-of-brake"}
+
+Descriptions for Part Properties of {{block(Brake)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Chain
+
+leaf {{block(Component)}} composed of interconnected series of objects that band together and are used to transmit motion for a piece of equipment or to convey materials and objects.
+
+
+
+#### Part Properties of Chain
+
+{{tbl(part-properties-of-chain)}} lists the Part Properties of {{block(Chain)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Chain" label="table:part-properties-of-chain"}
+
+Descriptions for Part Properties of {{block(Chain)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Chopper
+
+leaf {{block(Component)}} that breaks material into smaller pieces.
+
+
+
+#### Part Properties of Chopper
+
+{{tbl(part-properties-of-chopper)}} lists the Part Properties of {{block(Chopper)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Chopper" label="table:part-properties-of-chopper"}
+
+Descriptions for Part Properties of {{block(Chopper)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
 ### Chuck
 
-{{block(Component)}} composed of a mechanism that holds a part or stock material in place.
+leaf {{block(Component)}} composed of a mechanism that holds a part or stock material in place.
 
 
+
+### Chute
+
+leaf {{block(Component)}} composed of an inclined channel that conveys material.
+
+
+
+#### Part Properties of Chute
+
+{{tbl(part-properties-of-chute)}} lists the Part Properties of {{block(Chute)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Chute" label="table:part-properties-of-chute"}
+
+Descriptions for Part Properties of {{block(Chute)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### CircuitBreaker
+
+leaf {{block(Component)}} that interrupts an electric circuit.
+
+
+
+#### Part Properties of CircuitBreaker
+
+{{tbl(part-properties-of-circuitbreaker)}} lists the Part Properties of {{block(CircuitBreaker)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of CircuitBreaker" label="table:part-properties-of-circuitbreaker"}
+
+Descriptions for Part Properties of {{block(CircuitBreaker)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Clamp
+
+leaf {{block(Component)}} that strengthens, support, or fastens objects in place.
+
+
+
+#### Part Properties of Clamp
+
+{{tbl(part-properties-of-clamp)}} lists the Part Properties of {{block(Clamp)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Clamp" label="table:part-properties-of-clamp"}
+
+Descriptions for Part Properties of {{block(Clamp)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Compressor
+
+leaf {{block(Component)}} composed of a pump or other mechanism that reduces volume and increases pressure of gases in order to condense the gases to drive pneumatically powered pieces of equipment.
+
+
+
+#### Part Properties of Compressor
+
+{{tbl(part-properties-of-compressor)}} lists the Part Properties of {{block(Compressor)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Compressor" label="table:part-properties-of-compressor"}
+
+Descriptions for Part Properties of {{block(Compressor)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### CoolingTower
+
+leaf {{block(Component)}} composed of a heat exchange system that uses a fluid to transfer heat to the atmosphere.
+
+
+
+#### Part Properties of CoolingTower
+
+{{tbl(part-properties-of-coolingtower)}} lists the Part Properties of {{block(CoolingTower)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of CoolingTower" label="table:part-properties-of-coolingtower"}
+
+Descriptions for Part Properties of {{block(CoolingTower)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
 
 ### Door
 
@@ -662,6 +947,294 @@ The closure can be opened or closed to allow or restrict access to other parts o
 |{{block(DoorState)}}|1|
 {: caption="Commonly Observed DataItem Types for Door" label="table:commonly-observed-dataitem-types-for-door"}
 
+### Drain
+
+leaf {{block(Component)}} that allows material to flow for the purpose of drainage from, for example, a vessel or tank.
+
+
+
+#### Part Properties of Drain
+
+{{tbl(part-properties-of-drain)}} lists the Part Properties of {{block(Drain)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Drain" label="table:part-properties-of-drain"}
+
+Descriptions for Part Properties of {{block(Drain)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Encoder
+
+leaf {{block(Component)}} that measures position.
+
+
+
+#### Part Properties of Encoder
+
+{{tbl(part-properties-of-encoder)}} lists the Part Properties of {{block(Encoder)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Encoder" label="table:part-properties-of-encoder"}
+
+Descriptions for Part Properties of {{block(Encoder)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### ExpiredPot
+
+leaf {{block(Component)}} that is a {{block(Pot)}} for a tool that is no longer usable for removal from a {{block(ToolMagazine)}} or {{block(Turret)}}.
+
+
+
+#### Part Properties of ExpiredPot
+
+{{tbl(part-properties-of-expiredpot)}} lists the Part Properties of {{block(ExpiredPot)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of ExpiredPot" label="table:part-properties-of-expiredpot"}
+
+Descriptions for Part Properties of {{block(ExpiredPot)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### ExposureUnit
+
+leaf {{block(Component)}} that emits a type of radiation.
+
+
+
+#### Part Properties of ExposureUnit
+
+{{tbl(part-properties-of-exposureunit)}} lists the Part Properties of {{block(ExposureUnit)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of ExposureUnit" label="table:part-properties-of-exposureunit"}
+
+Descriptions for Part Properties of {{block(ExposureUnit)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### ExtrusionUnit
+
+leaf {{block(Component)}} that dispenses liquid or powered materials.
+
+
+
+#### Part Properties of ExtrusionUnit
+
+{{tbl(part-properties-of-extrusionunit)}} lists the Part Properties of {{block(ExtrusionUnit)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of ExtrusionUnit" label="table:part-properties-of-extrusionunit"}
+
+Descriptions for Part Properties of {{block(ExtrusionUnit)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Fan
+
+leaf {{block(Component)}} that produces a current of air.
+
+
+
+#### Part Properties of Fan
+
+{{tbl(part-properties-of-fan)}} lists the Part Properties of {{block(Fan)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Fan" label="table:part-properties-of-fan"}
+
+Descriptions for Part Properties of {{block(Fan)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Filter
+
+leaf {{block(Component)}} through which liquids or gases are passed to remove suspended impurities or to recover solids.
+
+
+
+#### Part Properties of Filter
+
+{{tbl(part-properties-of-filter)}} lists the Part Properties of {{block(Filter)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Filter" label="table:part-properties-of-filter"}
+
+Descriptions for Part Properties of {{block(Filter)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Galvanomotor
+
+leaf {{block(Component)}} composed of an electromechanical actuator that produces deflection of a beam of light or energy in response to electric current through its coil in a magnetic field.
+
+
+
+#### Part Properties of Galvanomotor
+
+{{tbl(part-properties-of-galvanomotor)}} lists the Part Properties of {{block(Galvanomotor)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Galvanomotor" label="table:part-properties-of-galvanomotor"}
+
+Descriptions for Part Properties of {{block(Galvanomotor)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Gripper
+
+leaf {{block(Component)}} that holds a part, stock material, or any other item in place.
+
+
+
+#### Part Properties of Gripper
+
+{{tbl(part-properties-of-gripper)}} lists the Part Properties of {{block(Gripper)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Gripper" label="table:part-properties-of-gripper"}
+
+Descriptions for Part Properties of {{block(Gripper)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Hopper
+
+leaf {{block(Component)}} composed of a chamber or bin in which materials are stored temporarily, typically being filled through the top and dispensed through the bottom.
+
+
+
+#### Part Properties of Hopper
+
+{{tbl(part-properties-of-hopper)}} lists the Part Properties of {{block(Hopper)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Hopper" label="table:part-properties-of-hopper"}
+
+Descriptions for Part Properties of {{block(Hopper)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### LinearPositionFeedback
+
+leaf {{block(Component)}} that measures linear motion or position.
+
+**DEPRECATION WARNING** : May be deprecated in the future. Recommend using {{block(Encoder)}}.
+
+
+
+#### Part Properties of LinearPositionFeedback
+
+{{tbl(part-properties-of-linearpositionfeedback)}} lists the Part Properties of {{block(LinearPositionFeedback)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of LinearPositionFeedback" label="table:part-properties-of-linearpositionfeedback"}
+
+Descriptions for Part Properties of {{block(LinearPositionFeedback)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
 ### Lock
 
 {{block(Component)}} that physically prohibits a {{block(Device)}} or {{block(Component)}} from opening or operating.
@@ -676,6 +1249,58 @@ The closure can be opened or closed to allow or restrict access to other parts o
 |:-|:-:|
 |{{block(LockState)}}|0..1|
 {: caption="Commonly Observed DataItem Types for Lock" label="table:commonly-observed-dataitem-types-for-lock"}
+
+### Motor
+
+leaf {{block(Component)}} that converts electrical, pneumatic, or hydraulic energy into mechanical energy.
+
+
+
+#### Part Properties of Motor
+
+{{tbl(part-properties-of-motor)}} lists the Part Properties of {{block(Motor)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Motor" label="table:part-properties-of-motor"}
+
+Descriptions for Part Properties of {{block(Motor)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Oil
+
+leaf {{block(Component)}} composed of a viscous liquid.
+
+
+
+#### Part Properties of Oil
+
+{{tbl(part-properties-of-oil)}} lists the Part Properties of {{block(Oil)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Oil" label="table:part-properties-of-oil"}
+
+Descriptions for Part Properties of {{block(Oil)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
 
 ### Part
 
@@ -729,11 +1354,63 @@ If the {{block(Controller)}} is capable of performing more than one independent 
 |{{block(Execution)}}|0..1|
 {: caption="Commonly Observed DataItem Types for Path" label="table:commonly-observed-dataitem-types-for-path"}
 
+### Pot
+
+leaf {{block(Component)}} composed of a tool storage location associated with a {{block(ToolMagazine)}} or {{block(AutomaticToolChanger)}}.
+
+
+
+#### Part Properties of Pot
+
+{{tbl(part-properties-of-pot)}} lists the Part Properties of {{block(Pot)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Pot" label="table:part-properties-of-pot"}
+
+Descriptions for Part Properties of {{block(Pot)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
 ### `<<deprecated>>`Power
 
 {{block(Power)}} was **DEPRECATED** in *MTConnect Version 1.1* and was replaced by {{block(Availability)}} data item type.
 
 
+
+### PowerSupply
+
+leaf {{block(Component)}} that provides power to electric mechanisms.
+
+
+
+#### Part Properties of PowerSupply
+
+{{tbl(part-properties-of-powersupply)}} lists the Part Properties of {{block(PowerSupply)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of PowerSupply" label="table:part-properties-of-powersupply"}
+
+Descriptions for Part Properties of {{block(PowerSupply)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
 
 ### Process
 
@@ -764,6 +1441,110 @@ abstract {{block(Component)}} composed of a manufacturing process being executed
 |{{block(PartUniqueId)}}|0..1|
 {: caption="Commonly Observed DataItem Types for ProcessOccurrence" label="table:commonly-observed-dataitem-types-for-processoccurrence"}
 
+### Pulley
+
+leaf {{block(Component)}} composed of a mechanism or wheel that turns in a frame or block and serves to change the direction of or to transmit force.
+
+
+
+#### Part Properties of Pulley
+
+{{tbl(part-properties-of-pulley)}} lists the Part Properties of {{block(Pulley)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Pulley" label="table:part-properties-of-pulley"}
+
+Descriptions for Part Properties of {{block(Pulley)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Pump
+
+leaf {{block(Component)}} that raises, drives, exhausts, or compresses fluids or gases by means of a piston, plunger, or set of rotating vanes.
+
+
+
+#### Part Properties of Pump
+
+{{tbl(part-properties-of-pump)}} lists the Part Properties of {{block(Pump)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Pump" label="table:part-properties-of-pump"}
+
+Descriptions for Part Properties of {{block(Pump)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Reel
+
+leaf {{block(Component)}} composed of a rotary storage unit for material.
+
+
+
+#### Part Properties of Reel
+
+{{tbl(part-properties-of-reel)}} lists the Part Properties of {{block(Reel)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Reel" label="table:part-properties-of-reel"}
+
+Descriptions for Part Properties of {{block(Reel)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### RemovalPot
+
+leaf {{block(Component)}} that is a {{block(Pot)}} for a tool that has to be removed from a {{block(ToolMagazine)}} or {{block(Turret)}} to a location outside of the piece of equipment.
+
+
+
+#### Part Properties of RemovalPot
+
+{{tbl(part-properties-of-removalpot)}} lists the Part Properties of {{block(RemovalPot)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of RemovalPot" label="table:part-properties-of-removalpot"}
+
+Descriptions for Part Properties of {{block(RemovalPot)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
 ### Resource
 
 abstract {{block(Component)}} composed of material or personnel involved in a manufacturing process.
@@ -790,6 +1571,58 @@ abstract {{block(Component)}} composed of material or personnel involved in a ma
 
 
 
+
+### ReturnPot
+
+leaf {{block(Component)}} that is a {{block(Pot)}} for a tool that has been removed from {{term(spindle)}} or {{block(Turret)}} and awaiting for return to a {{block(ToolMagazine)}}.
+
+
+
+#### Part Properties of ReturnPot
+
+{{tbl(part-properties-of-returnpot)}} lists the Part Properties of {{block(ReturnPot)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of ReturnPot" label="table:part-properties-of-returnpot"}
+
+Descriptions for Part Properties of {{block(ReturnPot)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### SensingElement
+
+leaf {{block(Component)}} that provides a signal or measured value.
+
+
+
+#### Part Properties of SensingElement
+
+{{tbl(part-properties-of-sensingelement)}} lists the Part Properties of {{block(SensingElement)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of SensingElement" label="table:part-properties-of-sensingelement"}
+
+Descriptions for Part Properties of {{block(SensingElement)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
 
 ### Sensor
 
@@ -819,6 +1652,110 @@ See {{block(SensorConfiguration)}} for more details on the use and configuration
 
 
 
+### Spreader
+
+leaf {{block(Component)}} that flattens or spreading materials.
+
+
+
+#### Part Properties of Spreader
+
+{{tbl(part-properties-of-spreader)}} lists the Part Properties of {{block(Spreader)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Spreader" label="table:part-properties-of-spreader"}
+
+Descriptions for Part Properties of {{block(Spreader)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### StagingPot
+
+leaf {{block(Component)}} that is a {{block(Pot)}} for a tool that is awaiting transfer to a {{block(ToolMagazine)}} or {{block(Turret)}} from outside of the piece of equipment.
+
+
+
+#### Part Properties of StagingPot
+
+{{tbl(part-properties-of-stagingpot)}} lists the Part Properties of {{block(StagingPot)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of StagingPot" label="table:part-properties-of-stagingpot"}
+
+Descriptions for Part Properties of {{block(StagingPot)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Station
+
+leaf {{block(Component)}} composed of a storage or mounting location for a tool associated with a {{block(Turret)}}, {{block(GangToolBar)}}, or {{block(ToolRack)}}.
+
+
+
+#### Part Properties of Station
+
+{{tbl(part-properties-of-station)}} lists the Part Properties of {{block(Station)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Station" label="table:part-properties-of-station"}
+
+Descriptions for Part Properties of {{block(Station)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### StorageBattery
+
+leaf {{block(Component)}} composed of one or more cells in which chemical energy is converted into electricity and used as a source of power. 
+
+
+
+#### Part Properties of StorageBattery
+
+{{tbl(part-properties-of-storagebattery)}} lists the Part Properties of {{block(StorageBattery)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of StorageBattery" label="table:part-properties-of-storagebattery"}
+
+Descriptions for Part Properties of {{block(StorageBattery)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
 ### Structure
 
 {{block(Component)}} composed of part(s) comprising the rigid bodies of the piece of equipment.
@@ -830,6 +1767,32 @@ See {{block(SensorConfiguration)}} for more details on the use and configuration
 {{block(Structure)}} that provides a connection between {{block(Component)}} entities.
 
 
+
+### Switch
+
+leaf {{block(Component)}} that turns on or off an electric current or makes or breaks a circuit.
+
+
+
+#### Part Properties of Switch
+
+{{tbl(part-properties-of-switch)}} lists the Part Properties of {{block(Switch)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Switch" label="table:part-properties-of-switch"}
+
+Descriptions for Part Properties of {{block(Switch)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
 
 ### System
 
@@ -952,6 +1915,292 @@ For example, this could be the power source for an EDM machining process, an ele
 {{block(WorkEnvelope)}} **MAY** provide information regarding the physical workspace and the conditions within that workspace.
 
 
+### Table
+
+leaf {{block(Component)}} composed of a surface for holding an object or material.
+
+
+
+#### Part Properties of Table
+
+{{tbl(part-properties-of-table)}} lists the Part Properties of {{block(Table)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Table" label="table:part-properties-of-table"}
+
+Descriptions for Part Properties of {{block(Table)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Tank
+
+leaf {{block(Component)}} composed of a receptacle or container that holds material.
+
+
+
+#### Part Properties of Tank
+
+{{tbl(part-properties-of-tank)}} lists the Part Properties of {{block(Tank)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Tank" label="table:part-properties-of-tank"}
+
+Descriptions for Part Properties of {{block(Tank)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Tensioner
+
+leaf {{block(Component)}} that provides or applies a stretch or strain to another mechanism.
+
+
+
+#### Part Properties of Tensioner
+
+{{tbl(part-properties-of-tensioner)}} lists the Part Properties of {{block(Tensioner)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Tensioner" label="table:part-properties-of-tensioner"}
+
+Descriptions for Part Properties of {{block(Tensioner)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### TransferArm
+
+leaf {{block(Component)}} that physically moves a tool from one location to another.
+
+
+
+#### Part Properties of TransferArm
+
+{{tbl(part-properties-of-transferarm)}} lists the Part Properties of {{block(TransferArm)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of TransferArm" label="table:part-properties-of-transferarm"}
+
+Descriptions for Part Properties of {{block(TransferArm)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### TransferPot
+
+leaf {{block(Component)}} that is a {{block(Pot)}} for a tool that is awaiting transfer from a {{block(ToolMagazine)}} to {{term(spindle)}} or {{block(Turret)}}.
+
+
+
+#### Part Properties of TransferPot
+
+{{tbl(part-properties-of-transferpot)}} lists the Part Properties of {{block(TransferPot)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of TransferPot" label="table:part-properties-of-transferpot"}
+
+Descriptions for Part Properties of {{block(TransferPot)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Transformer
+
+leaf {{block(Component)}} that transforms electric energy from a source to a secondary circuit.
+
+
+
+#### Part Properties of Transformer
+
+{{tbl(part-properties-of-transformer)}} lists the Part Properties of {{block(Transformer)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Transformer" label="table:part-properties-of-transformer"}
+
+Descriptions for Part Properties of {{block(Transformer)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Valve
+
+leaf {{block(Component)}} that halts or controls the flow of a liquid, gas, or other material through a passage, pipe, inlet, or outlet.
+
+
+
+#### Part Properties of Valve
+
+{{tbl(part-properties-of-valve)}} lists the Part Properties of {{block(Valve)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Valve" label="table:part-properties-of-valve"}
+
+Descriptions for Part Properties of {{block(Valve)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Vat
+
+leaf {{block(Component)}} composed of a container that holds liquid or powdered materials.
+
+
+
+#### Part Properties of Vat
+
+{{tbl(part-properties-of-vat)}} lists the Part Properties of {{block(Vat)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Vat" label="table:part-properties-of-vat"}
+
+Descriptions for Part Properties of {{block(Vat)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Water
+
+leaf {{block(Component)}} composed of $$H_2 O$$.
+
+
+
+#### Part Properties of Water
+
+{{tbl(part-properties-of-water)}} lists the Part Properties of {{block(Water)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Water" label="table:part-properties-of-water"}
+
+Descriptions for Part Properties of {{block(Water)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Wire
+
+leaf {{block(Component)}} composed of a string like piece or filament of relatively rigid or flexible material provided in a variety of diameters.
+
+
+
+#### Part Properties of Wire
+
+{{tbl(part-properties-of-wire)}} lists the Part Properties of {{block(Wire)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Wire" label="table:part-properties-of-wire"}
+
+Descriptions for Part Properties of {{block(Wire)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
+### Workpiece
+
+leaf {{block(Component)}} composed of an object or material on which a form of work is performed.
+
+
+
+#### Part Properties of Workpiece
+
+{{tbl(part-properties-of-workpiece)}} lists the Part Properties of {{block(Workpiece)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(hasComposition)}}|0|
+|{{block(hasComponent)}}|0|
+{: caption="Part Properties of Workpiece" label="table:part-properties-of-workpiece"}
+
+Descriptions for Part Properties of {{block(Workpiece)}}:
+
+* {{block(Composition)}} 
+
+    functional part of a piece of equipment contained within a {{block(Component)}}.
+
+* {{block(Component)}} 
+
+    logical or physical entity that provides a capability.
+
 
 
 ## Component Organizer Types
@@ -1051,7 +2300,6 @@ See {{figure(Components)}} for the {{block(Composition)}} model diagram.
 functional part of a piece of equipment contained within a {{block(Component)}}.
 
 
-
 {{block(Composition)}} **MUST NOT** have child {{block(Component)}}, {{block(Composition)}}, or {{block(DataItems)}} elements.
 
 
@@ -1061,23 +2309,23 @@ functional part of a piece of equipment contained within a {{block(Component)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(type)}}|`CompositionTypeEnum`|1|
 |{{property(id)}}|`ID`|1|
+|{{property(type)}}|`CompositionTypeEnum`|1|
 |{{property(name)}}|`string`|0..1|
 |{{property(uuid)}}|`ID`|0..1|
 {: caption="Value Properties of Composition" label="table:value-properties-of-composition"}
 
 Descriptions for Value Properties of {{block(Composition)}}:
 
-* {{property(type)}} 
-
-    type of {{block(Composition)}}. See {{package(Composition Types)}}.
-
-    The value of {{property(type)}} **MUST** be one of the `CompositionTypeEnum` enumeration. 
-
 * {{property(id)}} 
 
     unique identifier for the {{block(Composition)}} element.
+
+* {{property(type)}} 
+
+    type of {{block(Composition)}}.
+
+    The value of {{property(type)}} **MUST** be one of the `CompositionTypeEnum` enumeration. 
 
 * {{property(name)}} 
 
@@ -1112,322 +2360,6 @@ Descriptions for Part Properties of {{block(Composition)}}:
     See {{sect(Configurations Model)}}.
 
 
-
-## Composition Types
-
-This section provides semantic information for the types of {{block(Composition)}} that are currently available to describe sub-parts of a {{block(Component)}}.
-
-### Actuator
-
-{{block(Composition)}} that moves or controls a mechanism or system.
-
-
-It takes energy usually provided by air, electric current, or liquid and converts the energy into some kind of motion. 
-
-
-### Amplifier
-
-{{block(Composition)}} composed of an electronic component or circuit that amplifies power, electric current, or voltage.
-
-
-
-### Ballscrew
-
-{{block(Composition)}} composed of a mechanical structure that transforms rotary motion into linear motion.
-
-
-
-### Belt
-
-{{block(Composition)}} composed of an endless flexible band that transmits motion for a piece of equipment or conveys materials and objects.
-
-
-
-### Brake
-
-{{block(Composition)}} that slows or stops a moving object by the absorption or transfer of the energy of momentum, usually by means of friction, electrical force, or magnetic force.
-
-
-
-### Chain
-
-{{block(Composition)}} composed of interconnected series of objects that band together and are used to transmit motion for a piece of equipment or to convey materials and objects.
-
-
-
-### Chopper
-
-{{block(Composition)}} that breaks material into smaller pieces.
-
-
-
-### Chuck
-
-{{block(Composition)}} that holds a part, stock material, or any other item in place.
-
-
-
-### Chute
-
-{{block(Composition)}} composed of an inclined channel that conveys material.
-
-
-
-### CircuitBreaker
-
-{{block(Composition)}} that interrupts an electric circuit.
-
-
-
-### Clamp
-
-{{block(Composition)}} that strengthens, support, or fastens objects in place.
-
-
-
-### Compressor
-
-{{block(Composition)}} composed of a pump or other mechanism that reduces volume and increases pressure of gases in order to condense the gases to drive pneumatically powered pieces of equipment.
-
-
-
-### CoolingTower
-
-{{block(Composition)}} composed of a heat exchange system that uses a fluid to transfer heat to the atmosphere.
-
-
-
-### Door
-
-{{block(Composition)}} that can cover a physical access portal into a piece of equipment allowing or restricting access to other parts of the equipment.
-
-
-
-### Drain
-
-{{block(Composition)}} that allows material to flow for the purpose of drainage from, for example, a vessel or tank.
-
-
-
-### Encoder
-
-{{block(Composition)}} that measures position.
-
-
-
-### ExpiredPot
-
-{{block(Pot)}} for a tool that is no longer usable for removal from a {{block(ToolMagazine)}} or {{block(Turret)}}.
-
-
-
-### ExposureUnit
-
-{{block(Composition)}} that emits a type of radiation.
-
-
-
-### ExtrusionUnit
-
-{{block(Composition)}} that dispenses liquid or powered materials.
-
-
-
-### Fan
-
-{{block(Composition)}} that produces a current of air.
-
-
-
-### Filter
-
-{{block(Composition)}} through which liquids or gases are passed to remove suspended impurities or to recover solids.
-
-
-
-### Galvanomotor
-
-{{block(Composition)}} composed of an electromechanical actuator that produces deflection of a beam of light or energy in response to electric current through its coil in a magnetic field.
-
-
-
-### Gripper
-
-{{block(Composition)}} that holds a part, stock material, or any other item in place.
-
-
-
-### Hopper
-
-{{block(Composition)}} composed of a chamber or bin in which materials are stored temporarily, typically being filled through the top and dispensed through the bottom.
-
-
-
-### LinearPositionFeedback
-
-{{block(Composition)}} that measures linear motion or position.
-
-**DEPRECATION WARNING** : May be deprecated in the future. Recommend using {{block(Encoder)}}.
-
-
-
-### Motor
-
-{{block(Composition)}} that converts electrical, pneumatic, or hydraulic energy into mechanical energy.
-
-
-
-### Oil
-
-{{block(Composition)}} composed of a viscous liquid.
-
-
-
-### Pot
-
-{{block(Composition)}} composed of a tool storage location associated with a {{block(ToolMagazine)}} or {{block(AutomaticToolChanger)}}.
-
-
-
-### PowerSupply
-
-{{block(Composition)}} that provides power to electric mechanisms.
-
-
-
-### Pulley
-
-{{block(Composition)}} composed of a mechanism or wheel that turns in a frame or block and serves to change the direction of or to transmit force.
-
-
-
-### Pump
-
-{{block(Composition)}} that raises, drives, exhausts, or compresses fluids or gases by means of a piston, plunger, or set of rotating vanes.
-
-
-
-### Reel
-
-{{block(Composition)}} composed of a rotary storage unit for material.
-
-
-
-### RemovalPot
-
-{{block(Pot)}} for a tool that has to be removed from a {{block(ToolMagazine)}} or {{block(Turret)}} to a location outside of the piece of equipment.
-
-
-
-### ReturnPot
-
-{{block(Pot)}} for a tool that has been removed from {{term(spindle)}} or {{block(Turret)}} and awaiting for return to a {{block(ToolMagazine)}}.
-
-
-
-### SensingElement
-
-{{block(Composition)}} that provides a signal or measured value.
-
-
-
-### Spreader
-
-{{block(Composition)}} that flattens or spreading materials.
-
-
-
-### StagingPot
-
-{{block(Pot)}} for a tool that is awaiting transfer to a {{block(ToolMagazine)}} or {{block(Turret)}} from outside of the piece of equipment.
-
-
-
-### Station
-
-{{block(Composition)}} composed of a storage or mounting location for a tool associated with a {{block(Turret)}}, {{block(GangToolBar)}}, or {{block(ToolRack)}}.
-
-
-
-### StorageBattery
-
-{{block(Composition)}} composed of one or more cells in which chemical energy is converted into electricity and used as a source of power. 
-
-
-
-### Switch
-
-{{block(Composition)}} that turns on or off an electric current or makes or breaks a circuit.
-
-
-
-### Table
-
-{{block(Composition)}} composed of a surface for holding an object or material.
-
-
-
-### Tank
-
-{{block(Composition)}} composed of a receptacle or container that holds material.
-
-
-
-### Tensioner
-
-{{block(Composition)}} that provides or applies a stretch or strain to another mechanism.
-
-
-
-### TransferArm
-
-{{block(Composition)}} that physically moves a tool from one location to another.
-
-
-
-### TransferPot
-
-{{block(Pot)}} for a tool that is awaiting transfer from a {{block(ToolMagazine)}} to {{term(spindle)}} or {{block(Turret)}}.
-
-
-
-### Transformer
-
-{{block(Composition)}} that transforms electric energy from a source to a secondary circuit.
-
-
-
-### Valve
-
-{{block(Composition)}} that halts or controls the flow of a liquid, gas, or other material through a passage, pipe, inlet, or outlet.
-
-
-
-### Vat
-
-{{block(Composition)}} composed of a container that holds liquid or powdered materials.
-
-
-
-### Water
-
-{{block(Composition)}} composed of $$H_2 O$$.
-
-
-
-### Wire
-
-{{block(Composition)}} composed of a string like piece or filament of relatively rigid or flexible material provided in a variety of diameters.
-
-
-
-### Workpiece
-
-{{block(Composition)}} composed of an object or material on which a form of work is performed.
-
-
-
-
 # DataItems Model
 
 For an {{block(MTConnectDevices)}} entity, {{termplural(DataItem)}} describe data that can be reported by a piece of equipment and are associated with {{block(Device)}} and {{block(Component)}} entities. While the {{termplural(DataItem)}} describe the data that can be reported by a piece of equipment as an {{block(MTConnectDevices)}} entity, the actual data values are provided by the {{block(MTConnectStreams)}} entity in the {{term(MTConnectStreams Response Document)}}. See {{package(Observation Information Model)}} for detail on the reported values.
@@ -1443,7 +2375,7 @@ This section provides semantic information for the {{block(DataItem)}} entity. {
 
 ![DataItems](figures/DataItems.png "DataItems"){: width="0.8"}
 
-> Note: See {{figure(DataItems Schema)}} for XML schema.
+> Note: See {{sect(DataItems Schema Diagrams)}} for XML schema.
 
 ### DataItem
 
@@ -1531,6 +2463,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     `<<extensible>>` `NativeUnitEnum` Enumeration:
 
+    * `AMPERE_HOUR` 
+
+        electric charge in ampere hour.
+
     * `BAR` 
 
         pressure in Bar.
@@ -1570,6 +2506,18 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     * `GALLON/MINUTE` 
 
         gallons per minute.
+
+    * `GRAVITATIONAL_ACCELERATION` 
+
+        acceleration relative to earth's gravity given in `METER/SECOND^2`.
+        
+        > Note 1 to entry: At different points on Earth's surface, the free-fall acceleration ranges from 9.764 to 9.834 m/s2 (Wikipedia: Gravitational Acceleration). The constant can be customized depending on the location in the universe.
+        
+        > Note 2 to entry: In the standard, it is assumed that Earth's average value of gravitational acceleration is 9.90665 m/s2.
+
+    * `GRAVITATIONAL_FORCE` 
+
+        $$MASS\times GRAVITATIONAL_ACCELERATION$$ (g) given in `METER/SECOND^2`.
 
     * `HOUR` 
 
@@ -2171,6 +3119,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         degrees Celsius.
 
+    * `COULOMB` 
+
+        electric charge in coulombs (C).
+
     * `COUNT` 
 
         count of something.
@@ -2240,6 +3192,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     * `LITER/SECOND` 
 
         liters per second.
+
+    * `METER/SECOND^2` 
+
+        acceleration in meters per second squared.
 
     * `MICRO_RADIAN` 
 
@@ -2439,7 +3395,7 @@ Descriptions for Reference Properties of {{block(DataItem)}}:
 |{{block(InitialValue)}}|0..1|
 |{{block(ResetTrigger)}}|0..1|
 |{{block(Definition)}}|0..1|
-|{{block(Relationship)}} (organized by `Relationships`)|0..*|
+|{{block(AbstractDataItemRelationship)}} (organized by `Relationships`)|0..*|
 {: caption="Part Properties of DataItem" label="table:part-properties-of-dataitem"}
 
 Descriptions for Part Properties of {{block(DataItem)}}:
@@ -2476,9 +3432,9 @@ Descriptions for Part Properties of {{block(DataItem)}}:
 
     See {{sect(Definition)}}.
 
-* {{block(Relationship)}} 
+* {{block(AbstractDataItemRelationship)}} 
 
-    association between two pieces of equipment that function independently but together perform a manufacturing operation.
+    association between a {{block(DataItem)}} and another entity.
 
     {{block(Relationships)}} groups one or more {{block(DataItemRelationship)}} and {{block(SpecificationRelationship)}}. See {{package(Relationships)}}.
 
@@ -2875,13 +3831,39 @@ Descriptions for Part Properties of {{block(EntryDefinition)}}:
 
 ## Relationship Types for DataItem
 
-This section provides semantic information for the types of {{block(Relationship)}} that can be defined for a {{block(DataItem)}}.
+This section provides semantic information for the types of {{block(AbstractDataItemRelationship)}} that can be defined for a {{block(DataItem)}}.
 
-See {{package(Relationships)}} for details on the {{block(Relationship)}} model.
+### AbstractDataItemRelationship
+
+association between a {{block(DataItem)}} and another entity.
+
+
+{{block(AbstractDataItemRelationship)}} is an abstract entity and hence will be realized by specific {{block(AbstractDataItemRelationship)}} types in an {{block(MTConnectDevices)}} entity. See {{package(Relationship Types for DataItem)}}.
+
+
+#### Value Properties of AbstractDataItemRelationship
+
+{{tbl(value-properties-of-abstractdataitemrelationship)}} lists the Value Properties of {{block(AbstractDataItemRelationship)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(idRef)}}|`ID`|1|
+|{{property(name)}}|`string`|0..1|
+{: caption="Value Properties of AbstractDataItemRelationship" label="table:value-properties-of-abstractdataitemrelationship"}
+
+Descriptions for Value Properties of {{block(AbstractDataItemRelationship)}}:
+
+* {{property(idRef)}} 
+
+    reference to the related entity's {{property(id)}}.
+
+* {{property(name)}} 
+
+    descriptive name associated with this {{block(AbstractDataItemRelationship)}}.
 
 ### SpecificationRelationship
 
-{{block(Relationship)}} that provides a semantic reference to another {{block(Specification)}} described by the {{property(type)}} and {{property(idRef)}} property.
+{{block(AbstractDataItemRelationship)}} that provides a semantic reference to another {{block(Specification)}} described by the {{property(type)}} and {{property(idRef)}} property.
 
 
 
@@ -2892,7 +3874,6 @@ See {{package(Relationships)}} for details on the {{block(Relationship)}} model.
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(type)}}|`SpecificationRelationshipTypeEnum`|1|
-|{{property(idRef)}}|`ID`|1|
 {: caption="Value Properties of SpecificationRelationship" label="table:value-properties-of-specificationrelationship"}
 
 Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
@@ -2907,13 +3888,9 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 
         referenced {{block(Specification)}} provides process limits.
 
-* {{property(idRef)}} 
-
-    reference to the related {{block(Specification)}} {{property(id)}}.
-
 ### DataItemRelationship
 
-{{block(Relationship)}} that provides a semantic reference to another {{block(DataItem)}} described by the {{property(type)}} property.
+{{block(AbstractDataItemRelationship)}} that provides a semantic reference to another {{block(DataItem)}} described by the {{property(type)}} property.
 
 
 
@@ -2924,7 +3901,6 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(type)}}|`DataItemRelationshipTypeEnum`|1|
-|{{property(idRef)}}|`ID`|1|
 {: caption="Value Properties of DataItemRelationship" label="table:value-properties-of-dataitemrelationship"}
 
 Descriptions for Value Properties of {{block(DataItemRelationship)}}:
@@ -2950,10 +3926,6 @@ Descriptions for Value Properties of {{block(DataItemRelationship)}}:
     * `OBSERVATION` 
 
         referenced {{block(DataItem)}} provides the observed values.
-
-* {{property(idRef)}} 
-
-    reference to the related {{block(DataItem)}} {{property(id)}}.
 
 
 
@@ -3117,6 +4089,10 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         state of a {{block(Linear)}} or {{block(Rotary)}} component representing an axis.
 
+    * `BATTERY_STATE` 
+
+        present status of the battery.
+
     * `BLOCK` 
 
         line of code or command being executed by a {{block(Controller)}} entity.
@@ -3241,6 +4217,14 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         hardware of a {{block(Component)}}.
 
+    * `HOST_NAME` 
+
+        name of the host computer supplying data.
+
+    * `LEAK_DETECT` 
+
+        indication designating whether a leak has been detected.
+
     * `LIBRARY` 
 
         software library on a {{block(Component)}}
@@ -3290,6 +4274,10 @@ Descriptions for Value Properties of {{block(Event)}}:
     * `NETWORK` 
 
         network details of a {{block(Component)}}.
+
+    * `NETWORK_PORT` 
+
+        number of the TCP/IP or UDP/IP port for the connection endpoint.
 
     * `OPERATING_MODE` 
 
@@ -3433,7 +4421,7 @@ Descriptions for Value Properties of {{block(Event)}}:
 
     * `ROTATION` 
 
-        three space angular rotation relative to a coordinate system.
+        three space angular displacement of an object or coordinate system relative to a {{term(cartesian coordinate system)}}.
 
     * `SENSOR_ATTACHMENT` 
 
@@ -3479,7 +4467,7 @@ Descriptions for Value Properties of {{block(Event)}}:
 
     * `TRANSLATION` 
 
-        three space linear translation relative to a coordinate system.
+        three space linear displacement of an object or coordinate system relative to a {{term(cartesian coordinate system)}}.
 
     * `UNLOAD_COUNT` 
 
@@ -3588,6 +4576,14 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
         feedrate of a linear axis.
 
+    * `BATTERY_CAPACITY` 
+
+        maximum rated charge a battery is capable of maintaining based on the battery discharging at a specified current over a specified time period.
+
+    * `BATTERY_CHARGE` 
+
+        value of the battery's present capacity expressed as a percentage of the battery's maximum rated capacity.
+
     * `CAPACITY_FLUID` 
 
         fluid capacity of an object or container.
@@ -3595,6 +4591,10 @@ Descriptions for Value Properties of {{block(Sample)}}:
     * `CAPACITY_SPATIAL` 
 
         geometric capacity of an object or container.
+
+    * `CHARGE_RATE` 
+
+        value of the current being supplied to the {{block(Component)}} for the purpose of charging.
 
     * `CONCENTRATION` 
 
@@ -3636,13 +4636,29 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
         spatial volume of material to be deposited in an additive manufacturing process.
 
+    * `DEW_POINT` 
+
+        temperature at which moisture begins to condense, corresponding to saturation for a given absolute humidity.
+
     * `DIAMETER` 
 
         dimension of a diameter.
 
+    * `DISCHARGE_RATE` 
+
+        value of current being drawn from the {{block(Component)}}.
+
     * `DISPLACEMENT` 
 
         change in position of an object.
+
+    * `DISPLACEMENT_ANGULAR` 
+
+        absolute value of the change in angular position around a vector
+
+    * `DISPLACEMENT_LINEAR` 
+
+        absolute value of the change in position along a vector.
 
     * `ELECTRICAL_ENERGY` 
 
@@ -3660,6 +4676,18 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
         rate of flow of a fluid.
 
+    * `FOLLOWING_ERROR` 
+
+        difference between actual and commanded position at any specific point in time during a motion.
+
+    * `FOLLOWING_ERROR_ANGULAR` 
+
+        angular difference between the commanded encoder/resolver position and the actual encoder/resolver position at any specified point in time during a motion.
+
+    * `FOLLOWING_ERROR_LINEAR` 
+
+        difference between the commanded encoder/resolver position and the actual encoder/resolver position at any specified point in time during a motion.
+
     * `FREQUENCY` 
 
         number of occurrences of a repeating event per unit time.
@@ -3669,6 +4697,14 @@ Descriptions for Value Properties of {{block(Sample)}}:
         position in three-dimensional space.
         
         **DEPRECATED** in Version 1.1.
+
+    * `GRAVITATIONAL_ACCELERATION` 
+
+        acceleration relative to Earth's gravity of 9.80665 `METER/SECOND^2`.
+
+    * `GRAVITATIONAL_FORCE` 
+
+        force relative to earth's gravity.
 
     * `HUMIDITY_ABSOLUTE` 
 
@@ -3714,7 +4750,7 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
     * `ORIENTATION` 
 
-        measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
+        angular position of a plane or vector relative to a {{term(cartesian coordinate system)}}
 
     * `PATH_FEEDRATE` 
 
@@ -3726,7 +4762,7 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
     * `PATH_POSITION` 
 
-        measured or calculated position of a control point associated with a {{block(Controller)}} entity, or {{block(Path)}} entity if provided, of a piece of equipment.
+        position of a control point associated with a {{block(Controller)}} or a {{block(Path)}}.
 
     * `PH` 
 
@@ -3734,7 +4770,11 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
     * `POSITION` 
 
-        measured or calculated position of a {{block(Component)}} element as reported by a piece of equipment.
+        point along an axis in a {{term(cartesian coordinate system)}}.
+
+    * `POSITION_CARTESIAN` 
+
+        point in a {{term(cartesian coordinate system)}}.
 
     * `POWER_FACTOR` 
 
@@ -3765,6 +4805,18 @@ Descriptions for Value Properties of {{block(Sample)}}:
     * `ROTARY_VELOCITY` 
 
         rotational speed of a rotary axis.
+
+    * `SETTLING_ERROR` 
+
+        difference between actual and commanded position at the end of a motion.
+
+    * `SETTLING_ERROR_ANGULAR` 
+
+        angular difference between the commanded encoder/resolver position, and the actual encoder/resolver position when motion is complete.
+
+    * `SETTLING_ERROR_LINEAR` 
+
+        difference between the commanded encoder/resolver position, and the actual encoder/resolver position when motion is complete.
 
     * `SOUND_LEVEL` 
 
@@ -3923,7 +4975,7 @@ This section provides semantic information for the {{block(Configuration)}} enti
 
 ![Configuration](figures/Configuration.png "Configuration"){: width="0.8"}
 
-> Note: See {{figure(Configuration Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ### Configuration
 
@@ -3940,7 +4992,7 @@ technical information about an entity describing its physical layout, functional
 |{{block(SolidModel)}}|0..1|
 |{{block(SensorConfiguration)}}|0..1|
 |{{block(Motion)}}|0..1|
-|{{block(Relationship)}} (organized by `Relationships`)|0..*|
+|{{block(ConfigurationRelationship)}} (organized by `Relationships`)|0..*|
 |{{block(CoordinateSystem)}} (organized by `CoordinateSystems`)|0..*|
 |{{block(Specification)}} (organized by `Specifications`)|0..*|
 {: caption="Part Properties of Configuration" label="table:part-properties-of-configuration"}
@@ -3965,11 +5017,11 @@ Descriptions for Part Properties of {{block(Configuration)}}:
 
     See {{sect(Motion)}}.
 
-* {{block(Relationship)}} 
+* {{block(ConfigurationRelationship)}} 
 
     association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
-    {{block(Relationships)}} groups one or more {{block(Relationship)}} types. See {{package(Relationships)}}.
+    {{block(Relationships)}} groups one or more {{block(ConfigurationRelationship)}} types. See {{package(Relationships)}}.
 
 * {{block(CoordinateSystem)}} 
 
@@ -3991,7 +5043,7 @@ This section provides semantic information for the {{block(CoordinateSystem)}} e
 
 ![CoordinateSystem](figures/CoordinateSystem.png "CoordinateSystem"){: width="0.8"}
 
-> Note: See {{figure(CoordinateSystem Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ![CoordinateSystem Example](figures/CoordinateSystem%20Example.png "CoordinateSystem Example"){: width="0.8"}
 
@@ -4179,7 +5231,7 @@ This section provides semantic information for the {{block(Motion)}} entity.
 
 ![Motion](figures/Motion.png "Motion"){: width="0.8"}
 
-> Note: See {{figure(Motion Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ![Motion Example](figures/Motion%20Example.png "Motion Example"){: width="0.8"}
 
@@ -4316,70 +5368,45 @@ The value of {{property(Axis)}} **MUST** be a list of `float` of size `3`.
 
 ## Relationships
 
-This section provides semantic information for the {{block(Relationship)}} entity.
+This section provides semantic information for the {{block(ConfigurationRelationship)}} entity.
 
 ![Relationships](figures/Relationships.png "Relationships"){: width="0.8"}
 
-> Note: See {{figure(Relationships Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ![Relationship Example](figures/Relationship%20Example.png "Relationship Example"){: width="0.8"}
 
 > Note: See {{lst(relationship-example)}} for the {{term(XML)}} representation of the same example.
 
-### Relationship
+### ConfigurationRelationship
 
 association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
 
-{{block(Relationship)}} is an abstract entity and hence will be realized by specific {{block(Relationship)}} types in an {{block(MTConnectDevices)}} entity. See {{sect(ComponentRelationship)}}, {{sect(DeviceRelationship)}} and {{package(Relationship Types for DataItem)}}.
+{{block(ConfigurationRelationship)}} is an abstract entity and hence will be realized by specific {{block(ConfigurationRelationship)}} types in an {{block(MTConnectDevices)}} entity. See {{sect(ComponentRelationship)}} and {{sect(DeviceRelationship)}}.
 
 
-### ComponentRelationship
+#### Value Properties of ConfigurationRelationship
 
-{{block(Relationship)}} that describes the association between two components within a piece of equipment that function independently but together perform a capability or service within a piece of equipment.
-
-
-
-#### Value Properties of ComponentRelationship
-
-{{tbl(value-properties-of-componentrelationship)}} lists the Value Properties of {{block(ComponentRelationship)}}.
+{{tbl(value-properties-of-configurationrelationship)}} lists the Value Properties of {{block(ConfigurationRelationship)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(idRef)}}|`ID`|1|
 |{{property(name)}}|`string`|0..1|
 |{{property(id)}}|`ID`|1|
-|{{property(criticality)}}|`CriticalityTypeEnum`|0..1|
 |{{property(type)}}|`RelationshipTypeEnum`|1|
-{: caption="Value Properties of ComponentRelationship" label="table:value-properties-of-componentrelationship"}
+|{{property(criticality)}}|`CriticalityTypeEnum`|0..1|
+{: caption="Value Properties of ConfigurationRelationship" label="table:value-properties-of-configurationrelationship"}
 
-Descriptions for Value Properties of {{block(ComponentRelationship)}}:
-
-* {{property(idRef)}} 
-
-    reference to the associated {{block(Component)}} element.
+Descriptions for Value Properties of {{block(ConfigurationRelationship)}}:
 
 * {{property(name)}} 
 
-    name associated with this {{block(Relationship)}}.
+    name associated with this {{block(ConfigurationRelationship)}}.
 
 * {{property(id)}} 
 
-    unique identifier for this {{block(Relationship)}}.
-
-* {{property(criticality)}} 
-
-    defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
-
-    `CriticalityTypeEnum` Enumeration:
-
-    * `CRITICAL` 
-
-        services or functions provided by the associated element is required for the operation of this element.
-
-    * `NONCRITICAL` 
-
-        services or functions provided by the associated element is not required for the operation of this element.
+    unique identifier for this {{block(ConfigurationRelationship)}}.
 
 * {{property(type)}} 
 
@@ -4399,9 +5426,44 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 
         functions as a peer which provides equal functionality and capabilities in the relationship with the associated element.
 
+* {{property(criticality)}} 
+
+    defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
+
+    `CriticalityTypeEnum` Enumeration:
+
+    * `CRITICAL` 
+
+        services or functions provided by the associated element is required for the operation of this element.
+
+    * `NONCRITICAL` 
+
+        services or functions provided by the associated element is not required for the operation of this element.
+
+### ComponentRelationship
+
+{{block(ConfigurationRelationship)}} that describes the association between two components within a piece of equipment that function independently but together perform a capability or service within a piece of equipment.
+
+
+
+#### Value Properties of ComponentRelationship
+
+{{tbl(value-properties-of-componentrelationship)}} lists the Value Properties of {{block(ComponentRelationship)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(idRef)}}|`ID`|1|
+{: caption="Value Properties of ComponentRelationship" label="table:value-properties-of-componentrelationship"}
+
+Descriptions for Value Properties of {{block(ComponentRelationship)}}:
+
+* {{property(idRef)}} 
+
+    reference to the associated {{block(Component)}}.
+
 ### DeviceRelationship
 
-{{block(Relationship)}} that describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
+{{block(ConfigurationRelationship)}} that describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
 
 
@@ -4415,10 +5477,6 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 |{{property(href)}}|`xlinkhref`|0..1|
 |{{property(role)}}|`RoleTypeEnum`|0..1|
 |{{property(xlink:type)}}|`xlinktype`|0..1|
-|{{property(type)}}|`RelationshipTypeEnum`|1|
-|{{property(name)}}|`string`|0..1|
-|{{property(id)}}|`ID`|1|
-|{{property(criticality)}}|`CriticalityTypeEnum`|0..1|
 {: caption="Value Properties of DeviceRelationship" label="table:value-properties-of-devicerelationship"}
 
 Descriptions for Value Properties of {{block(DeviceRelationship)}}:
@@ -4449,25 +5507,36 @@ Descriptions for Value Properties of {{block(DeviceRelationship)}}:
 
     `xlink:type`**MUST** have a fixed value of `locator` as defined in W3C XLink 1.1 {{cite(https://www.w3.org/TR/xlink11/)}}.
 
-* {{property(type)}} 
+### AssetRelationship
 
-    defines the authority that this piece of equipment has relative to the associated piece of equipment.
+{{block(ConfigurationRelationship)}} that describes the association between a {{block(Component)}} and an {{block(Asset)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `RelationshipTypeEnum` enumeration. 
 
-* {{property(name)}} 
 
-    name associated with this {{block(Relationship)}}.
+#### Value Properties of AssetRelationship
 
-* {{property(id)}} 
+{{tbl(value-properties-of-assetrelationship)}} lists the Value Properties of {{block(AssetRelationship)}}.
 
-    unique identifier for this {{block(Relationship)}}.
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(assetIdRef)}}|`ID`|1|
+|{{property(assetType)}}|`string`|1|
+|{{property(href)}}|`xlinkhref`|0..1|
+{: caption="Value Properties of AssetRelationship" label="table:value-properties-of-assetrelationship"}
 
-* {{property(criticality)}} 
+Descriptions for Value Properties of {{block(AssetRelationship)}}:
 
-    defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
+* {{property(assetIdRef)}} 
 
-    The value of {{property(criticality)}} **MUST** be one of the `CriticalityTypeEnum` enumeration. 
+    uuid of the related {{block(Asset)}}.
+
+* {{property(assetType)}} 
+
+    type of {{block(Asset)}} being referenced.
+
+* {{property(href)}} 
+
+    {{term(URI)}} reference to the associated {{block(Asset)}}.
 
 
 
@@ -4509,7 +5578,7 @@ configuration for a {{block(Sensor)}}.
 
 ![SensorConfiguration](figures/SensorConfiguration.png "SensorConfiguration"){: width="0.8"}
 
-> Note: See {{figure(SensorConfiguration Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 
 #### Value Properties of SensorConfiguration
@@ -4518,10 +5587,10 @@ configuration for a {{block(Sensor)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(CalibrationDate)}}|`dateTime`|0..1|
+|{{property(CalibrationDate)}}|`datetime`|0..1|
 |{{property(CalibrationInitials)}}|`string`|0..1|
 |{{property(FirmwareVersion)}}|`string`|1|
-|{{property(NextCalibrationDate)}}|`dateTime`|0..1|
+|{{property(NextCalibrationDate)}}|`datetime`|0..1|
 {: caption="Value Properties of SensorConfiguration" label="table:value-properties-of-sensorconfiguration"}
 
 Descriptions for Value Properties of {{block(SensorConfiguration)}}:
@@ -4573,10 +5642,10 @@ When {{block(Sensor)}} has multiple {{termplural(sensing element)}}, each {{term
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(CalibrationDate)}}|`dateTime`|0..1|
+|{{property(CalibrationDate)}}|`datetime`|0..1|
 |{{property(CalibrationInitials)}}|`string`|0..1|
 |{{property(name)}}|`string`|0..1|
-|{{property(NextCalibrationDate)}}|`dateTime`|0..1|
+|{{property(NextCalibrationDate)}}|`datetime`|0..1|
 |{{property(number)}}|`string`|1|
 {: caption="Value Properties of Channel" label="table:value-properties-of-channel"}
 
@@ -4627,7 +5696,7 @@ This section provides semantic information for the {{block(SolidModel)}} entity.
 
 ![SolidModel](figures/SolidModel.png "SolidModel"){: width="0.8"}
 
-> Note: See {{figure(SolidModel Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ![SolidModel Example](figures/SolidModel%20Example.png "SolidModel Example"){: width="0.8"}
 
@@ -4767,7 +5836,7 @@ This section provides semantic information for the {{block(Specification)}} enti
 
 ![Specifications](figures/Specifications.png "Specifications"){: width="0.8"}
 
-> Note: See {{figure(Specifications Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ![Specification Example](figures/Specification%20Example.png "Specification Example"){: width="0.8"}
 
@@ -5151,7 +6220,7 @@ primitive type.
 
 
 
-### dateTime
+### datetime
 
 string that represents timestamp in ISO 8601 format.
 
@@ -5217,13 +6286,13 @@ series of four numeric values, separated by a decimal point, representing a {{te
 
 
 
-### uInt32
+### uint32
 
 32-bit unsigned integer.
 
 
 
-### uInt64
+### uint64
 
 64-bit unsigned integer.
 
@@ -5317,53 +6386,55 @@ IEEE STD 1451.4-1994, Standard for a Smart Transducer Interface for Sensors and 
 
 ## XML Schema Diagrams
 
+See XML schemas for the MTConnect standard here: {{url(https://schemas.mtconnect.org/)}}.
+
 ### Components Schema Diagrams
 
-![Components Schema](figures/Components%20Schema.png "Components Schema"){: width="0.8"}
+See `Components` element in `MTConnectDevices` schema.
 
-![Component Description Schema](figures/Component%20Description%20Schema.png "Component Description Schema"){: width="0.8"}
+See `Description` element in `MTConnectDevices` schema.
 
 ### DataItems Schema Diagrams
 
-![DataItems Schema](figures/DataItems%20Schema.png "DataItems Schema"){: width="0.8"}
+See `DataItems` element in `MTConnectDevices` schema.
 
-![Source Schema](figures/Source%20Schema.png "Source Schema"){: width="0.8"}
+See `Source` element in `MTConnectDevices` schema.
 
-![Constraints Schema](figures/Constraints%20Schema.png "Constraints Schema"){: width="0.8"}
+See `Constraints` element in `MTConnectDevices` schema.
 
-![Filter Schema](figures/Filter%20Schema.png "Filter Schema"){: width="0.8"}
+See `Filter` element in `MTConnectDevices` schema.
 
-![Definition Schema](figures/Definition%20Schema.png "Definition Schema"){: width="0.8"}
+See `Definition` element in `MTConnectDevices` schema.
 
 ### References Schema Diagrams
 
-![References Schema](figures/References%20Schema.png "References Schema"){: width="0.8"}
+See `References` element in `MTConnectDevices` schema.
 
-![ComponentRef Schema](figures/ComponentRef%20Schema.png "ComponentRef Schema"){: width="0.8"}
+See `ComponentRef` element in `MTConnectDevices` schema.
 
-![DataItemRef Schema](figures/DataItemRef%20Schema.png "DataItemRef Schema"){: width="0.8"}
+See `DataItemRef` element in `MTConnectDevices` schema.
 
 ### Configuration Schema Diagrams
 
-![Configuration Schema](figures/Configuration%20Schema.png "Configuration Schema"){: width="0.8"}
+See `Configuration` element in `MTConnectDevices` schema.
 
-![CoordinateSystem Schema](figures/CoordinateSystem%20Schema.png "CoordinateSystem Schema"){: width="0.8"}
+See `CoordinateSystem` element in `MTConnectDevices` schema.
 
-![Motion Schema](figures/Motion%20Schema.png "Motion Schema"){: width="0.8"}
+See `Motion` element in `MTConnectDevices` schema.
 
-![Relationships Schema](figures/Relationships%20Schema.png "Relationships Schema"){: width="0.8"}
+See `Relationships` element in `MTConnectDevices` schema.
 
-![ComponentRelationship Schema](figures/ComponentRelationship%20Schema.png "ComponentRelationship Schema"){: width="0.8"}
+See `ComponentRelationship` element in `MTConnectDevices` schema.
 
-![DeviceRelationship Schema](figures/DeviceRelationship%20Schema.png "DeviceRelationship Schema"){: width="0.8"}
+See `DeviceRelationship` element in `MTConnectDevices` schema.
 
-![SensorConfiguration Schema](figures/SensorConfiguration%20Schema.png "SensorConfiguration Schema"){: width="0.8"}
+See `SensorConfiguration` element in `MTConnectDevices` schema.
 
-![SolidModel Schema](figures/SolidModel%20Schema.png "SolidModel Schema"){: width="0.8"}
+See `SolidModel` element in `MTConnectDevices` schema.
 
-![Specifications Schema](figures/Specifications%20Schema.png "Specifications Schema"){: width="0.8"}
+See `Specifications` element in `MTConnectDevices` schema.
 
-![ProcessSpecification Schema](figures/ProcessSpecification%20Schema.png "ProcessSpecification Schema"){: width="0.8"}
+See `ProcessSpecification` element in `MTConnectDevices` schema.
 
 ## XML Examples
 

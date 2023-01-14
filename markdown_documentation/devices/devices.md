@@ -73,8 +73,6 @@ Both {{block(Component)}} and {{block(Composition)}} entities are {{term(lower l
 
 {{input(sections/Compositions.md)}}
 
-{{input(sections/CompositionTypes.md)}}
-
 # DataItems Model
 
 For an {{block(MTConnectDevices)}} entity, {{termplural(DataItem)}} describe data that can be reported by a piece of equipment and are associated with {{block(Device)}} and {{block(Component)}} entities. While the {{termplural(DataItem)}} describe the data that can be reported by a piece of equipment as an {{block(MTConnectDevices)}} entity, the actual data values are provided by the {{block(MTConnectStreams)}} entity in the {{term(MTConnectStreams Response Document)}}. See {{package(Observation Information Model)}} for detail on the reported values.

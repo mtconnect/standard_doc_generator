@@ -68,7 +68,7 @@ It is used in the manufacturing process, but is not permanently associated with 
 |{{property(assetId)}}|`ID`|1|
 |{{property(deviceUuid)}}|`ID`|0..1|
 |{{property(removed)}}|`boolean`|0..1|
-|{{property(timestamp)}}|`dateTime`|1|
+|{{property(timestamp)}}|`datetime`|1|
 {: caption="Value Properties of Asset" label="table:value-properties-of-asset"}
 
 Descriptions for Value Properties of {{block(Asset)}}:
@@ -179,7 +179,7 @@ Descriptions for Value Properties of {{block(CuttingTool)}}:
     This will reference the tool item and adaptive items specifically. The cutting items
     manufacturers’ will be a property of {{block(CuttingItem)}}.
     
-    > Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{figure(CuttingTool Schema)}}.
+    > Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{sect(CuttingTool Schema Diagrams)}}.
 
 * {{property(serialNumber)}} 
 
@@ -214,7 +214,7 @@ Descriptions for Part Properties of {{block(CuttingTool)}}:
 
     reference information about the {{property(assetId)}} and/or the URL of the data source of {{block(CuttingToolArchetype)}}.
 
-* {{block(CuttingToolDefinition)}} 
+* `<<deprecated>>` {{block(CuttingToolDefinition)}} 
 
     detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
 
@@ -246,7 +246,7 @@ Descriptions for Value Properties of {{block(CuttingToolArchetype)}}:
     This will reference the tool item and adaptive items specifically. The cutting items
     manufacturers’ will be a property of {{block(CuttingItem)}}.
     
-    > Note: In {{term(XML)}}, the representation will be a comma(,) delimited list of manufacturer names. See {{figure(CuttingTool Schema)}}.
+    > Note: In {{term(XML)}}, the representation will be a comma(,) delimited list of manufacturer names. See {{sect(CuttingTool Schema Diagrams)}}.
 
 * {{property(serialNumber)}} 
 
@@ -262,17 +262,17 @@ Descriptions for Value Properties of {{block(CuttingToolArchetype)}}:
 
 |Part Property name|Multiplicity|
 |:-|:-:|
-|{{block(CuttingToolDefinition)}}|0..1|
+|`<<deprecated>>` {{block(CuttingToolDefinition)}}|0..1|
 |{{block(CuttingToolLifeCycle)}}|0..1|
 {: caption="Part Properties of CuttingToolArchetype" label="table:part-properties-of-cuttingtoolarchetype"}
 
 Descriptions for Part Properties of {{block(CuttingToolArchetype)}}:
 
-* {{block(CuttingToolDefinition)}} 
+* `<<deprecated>>` {{block(CuttingToolDefinition)}} 
 
     detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
 
-    See {{sect(CuttingToolDefinition)}}.
+    **DEPRECATED** in *Version 2.1.0* for {{block(CuttingToolArchetype)}}.
 
 * {{block(CuttingToolLifeCycle)}} 
 
@@ -305,7 +305,7 @@ Descriptions for Value Properties of {{block(CuttingToolArchetypeReference)}}:
 
     {{term(URL)}} of the {{block(CuttingToolArchetype)}} {{term(information model)}}.
 
-### CuttingToolDefinition
+### `<<deprecated>>`CuttingToolDefinition
 
 detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
 
@@ -327,24 +327,6 @@ Descriptions for Value Properties of {{block(CuttingToolDefinition)}}:
 * {{property(format)}} 
 
     identifies the expected representation of the enclosed data.
-
-    `FormatTypeEnum` Enumeration:
-
-    * `EXPRESS` 
-
-        document will confirm to the ISO 10303 Part 21 standard.
-
-    * `TEXT` 
-
-        document will be a text representation of the tool data.
-
-    * `UNDEFINED` 
-
-        document will be provided in an undefined format.
-
-    * `XML` 
-
-        default value for the definition. The content will be an {{term(XML)}} document.
 
 
 
@@ -952,7 +934,7 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
     This will reference the tool item and adaptive items specifically. The cutting items
     manufacturers’ will be a property of {{block(CuttingItem)}}.
     
-    > Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{figure(CuttingItem Schema)}}.
+    > Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{sect(CuttingItem Schema Diagrams)}}.
 
 * {{property(ProgramToolGroup)}} 
 
@@ -1608,8 +1590,8 @@ Descriptions for Part Properties of {{block(AbstractFile)}}:
 |{{property(state)}}|`FileStateEnum`|1|
 |{{property(Signature)}}|`x509`|0..1|
 |{{property(PublicKey)}}|`x509`|0..1|
-|{{property(CreationTime)}}|`dateTime`|1|
-|{{property(ModificationTime)}}|`dateTime`|0..1|
+|{{property(CreationTime)}}|`datetime`|1|
+|{{property(ModificationTime)}}|`datetime`|0..1|
 {: caption="Value Properties of File" label="table:value-properties-of-file"}
 
 Descriptions for Value Properties of {{block(File)}}:
@@ -1723,7 +1705,7 @@ The value of {{property(FileComment)}} **MUST** be `string`.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(timestamp)}}|`dateTime`|1|
+|{{property(timestamp)}}|`datetime`|1|
 {: caption="Value Properties of FileComment" label="table:value-properties-of-filecomment"}
 
 Descriptions for Value Properties of {{block(FileComment)}}:
@@ -1817,9 +1799,9 @@ This section provides semantic information for the {{block(RawMaterial)}} model.
 |{{property(serialNumber)}}|`string`|0..1|
 |{{property(HasMaterial)}}|`boolean`|0..1|
 |{{property(Form)}}|`FormEnum`|1|
-|{{property(ManufacturingDate)}}|`dateTime`|0..1|
-|{{property(FirstUseDate)}}|`dateTime`|0..1|
-|{{property(LastUseDate)}}|`dateTime`|0..1|
+|{{property(ManufacturingDate)}}|`datetime`|0..1|
+|{{property(FirstUseDate)}}|`datetime`|0..1|
+|{{property(LastUseDate)}}|`datetime`|0..1|
 |{{property(InitialVolume)}}|`CUBIC_MILLIMETER`|0..1|
 |{{property(InitialDimension)}}|`MILLIMETER`|0..3|
 |{{property(InitialQuantity)}}|`integer`|0..1|
@@ -1968,7 +1950,7 @@ material used as the {{block(RawMaterial)}}.
 |{{property(type)}}|`string`|1|
 |{{property(Lot)}}|`string`|0..1|
 |{{property(Manufacturer)}}|`string`|0..1|
-|{{property(ManufacturingDate)}}|`dateTime`|0..1|
+|{{property(ManufacturingDate)}}|`datetime`|0..1|
 |{{property(ManufacturingCode)}}|`string`|0..1|
 |{{property(MaterialCode)}}|`string`|0..1|
 {: caption="Value Properties of Material" label="table:value-properties-of-material"}
@@ -2132,7 +2114,7 @@ primitive type.
 
 
 
-### dateTime
+### datetime
 
 string that represents timestamp in ISO 8601 format.
 
@@ -2198,13 +2180,13 @@ series of four numeric values, separated by a decimal point, representing a {{te
 
 
 
-### uInt32
+### uint32
 
 32-bit unsigned integer.
 
 
 
-### uInt64
+### uint64
 
 64-bit unsigned integer.
 
@@ -2298,45 +2280,47 @@ IEEE STD 1451.4-1994, Standard for a Smart Transducer Interface for Sensors and 
 
 ## XML Schema Diagrams
 
+See XML schemas for the MTConnect standard here: {{url(https://schemas.mtconnect.org/)}}.
+
 ### Assets Schema Diagrams
 
-![Asset Schema](figures/Asset%20Schema.png "Asset Schema"){: width="0.8"}
+See `Asset` element in `MTConnectAssets` schema.
 
-![Description Schema](figures/Description%20Schema.png "Description Schema"){: width="0.8"}
+See `Description` element in `MTConnectAssets` schema.
 
 ### CuttingTool Schema Diagrams
 
-![CuttingTool Schema](figures/CuttingTool%20Schema.png "CuttingTool Schema"){: width="0.6"}
+See `CuttingTool` element in `MTConnectAssets` schema.
 
-![CuttingToolDefinition Schema](figures/CuttingToolDefinition%20Schema.png "CuttingToolDefinition Schema"){: width="0.8"}
+See `CuttingToolDefinition` element in `MTConnectAssets` schema.
 
-![CuttingToolArchetypeReference Schema](figures/CuttingToolArchetypeReference%20Schema.png "CuttingToolArchetypeReference Schema"){: width="0.8"}
+See `CuttingToolArchetypeReference` element in `MTConnectAssets` schema.
 
 ### CuttingToolLifeCycle Schema Diagrams
 
-![CuttingToolLifeCycle Schema](figures/CuttingToolLifeCycle%20Schema.png "CuttingToolLifeCycle Schema"){: width="0.4"}
+See `CuttingToolLifeCycle` element in `MTConnectAssets` schema.
 
-![CutterStatus Schema](figures/CutterStatus%20Schema.png "CutterStatus Schema"){: width="0.8"}
+See `CutterStatus` element in `MTConnectAssets` schema.
 
-![Location Schema](figures/Location%20Schema.png "Location Schema"){: width="0.8"}
+See `Location` element in `MTConnectAssets` schema.
 
-![Measurement Schema](figures/Measurement%20Schema.png "Measurement Schema"){: width="0.8"}
+See `Measurement` element in `MTConnectAssets` schema.
 
-![ProcessFeedRate Schema](figures/ProcessFeedRate%20Schema.png "ProcessFeedRate Schema"){: width="0.8"}
+See `ProcessFeedRate` element in `MTConnectAssets` schema.
 
-![ProcessSpindleSpeed Schema](figures/ProcessSpindleSpeed%20Schema.png "ProcessSpindleSpeed Schema"){: width="0.8"}
+See `ProcessSpindleSpeed` element in `MTConnectAssets` schema.
 
-![ReconditionCount Schema](figures/ReconditionCount%20Schema.png "ReconditionCount Schema"){: width="0.8"}
+See `ReconditionCount` element in `MTConnectAssets` schema.
 
-![ToolLife Schema](figures/ToolLife%20Schema.png "ToolLife Schema"){: width="0.8"}
+See `ToolLife` element in `MTConnectAssets` schema.
 
 ### CuttingItem Schema Diagrams
 
-![CuttingItems Schema](figures/CuttingItems%20Schema.png "CuttingItems Schema"){: width="0.8"}
+See `CuttingItems` element in `MTConnectAssets` schema.
 
-![CuttingItem Schema](figures/CuttingItem%20Schema.png "CuttingItem Schema"){: width="0.6"}
+See `CuttingItem` element in `MTConnectAssets` schema.
 
-![ItemLife Schema](figures/ItemLife%20Schema.png "ItemLife Schema"){: width="0.7"}
+See `ItemLife` element in `MTConnectAssets` schema.
 
 ### ISO 13399 Diagrams
 
@@ -2658,14 +2642,12 @@ http://mtconnect.org/schemas/MTConnectAssets\_1.2.xsd">
 
 ### File Schema Diagrams
 
-![AbstractFile Schema](figures/AbstractFile%20Schema.png "AbstractFile Schema"){: width="0.8"}
-
-![File Schema](figures/File%20Schema.png "File Schema"){: width="0.7"}
+See `File` element in `MTConnectAssets` schema.
 
 ### RawMaterial Schema Diagrams
 
-![RawMaterial Schema](figures/RawMaterial%20Schema.png "RawMaterial Schema"){: width="0.6"}
+See `RawMaterial` element in `MTConnectAssets` schema.
 
 ### QIFDocumentWrapper Schema Diagrams
 
-![QIFDocumentWrapper Schema](figures/QIFDocumentWrapper%20Schema.png "QIFDocumentWrapper Schema"){: width="0.8"}
+See `QIFDocumentWrapper` element in `MTConnectAssets` schema.

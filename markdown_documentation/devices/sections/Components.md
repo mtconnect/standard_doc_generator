@@ -126,7 +126,6 @@ Descriptions for Part Properties of {{block(Component)}}:
 * {{block(Composition)}} 
 
     functional part of a piece of equipment contained within a {{block(Component)}}.
-    
 
     {{block(Compositions)}} groups one or more {{block(Composition)}} entities. See {{package(Compositions)}}.
 

@@ -5,7 +5,7 @@ This section provides semantic information for the {{block(SolidModel)}} entity.
 
 ![SolidModel](figures/SolidModel.png "SolidModel"){: width="0.8"}
 
-> Note: See {{figure(SolidModel Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ![SolidModel Example](figures/SolidModel%20Example.png "SolidModel Example"){: width="0.8"}
 

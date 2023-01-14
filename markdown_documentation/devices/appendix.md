@@ -39,53 +39,55 @@ IEEE STD 1451.4-1994, Standard for a Smart Transducer Interface for Sensors and 
 
 ## XML Schema Diagrams
 
+See XML schemas for the MTConnect standard here: {{url(https://schemas.mtconnect.org/)}}.
+
 ### Components Schema Diagrams
 
-![Components Schema](figures/Components%20Schema.png "Components Schema"){: width="0.8"}
+See `Components` element in `MTConnectDevices` schema.
 
-![Component Description Schema](figures/Component%20Description%20Schema.png "Component Description Schema"){: width="0.8"}
+See `Description` element in `MTConnectDevices` schema.
 
 ### DataItems Schema Diagrams
 
-![DataItems Schema](figures/DataItems%20Schema.png "DataItems Schema"){: width="0.8"}
+See `DataItems` element in `MTConnectDevices` schema.
 
-![Source Schema](figures/Source%20Schema.png "Source Schema"){: width="0.8"}
+See `Source` element in `MTConnectDevices` schema.
 
-![Constraints Schema](figures/Constraints%20Schema.png "Constraints Schema"){: width="0.8"}
+See `Constraints` element in `MTConnectDevices` schema.
 
-![Filter Schema](figures/Filter%20Schema.png "Filter Schema"){: width="0.8"}
+See `Filter` element in `MTConnectDevices` schema.
 
-![Definition Schema](figures/Definition%20Schema.png "Definition Schema"){: width="0.8"}
+See `Definition` element in `MTConnectDevices` schema.
 
 ### References Schema Diagrams
 
-![References Schema](figures/References%20Schema.png "References Schema"){: width="0.8"}
+See `References` element in `MTConnectDevices` schema.
 
-![ComponentRef Schema](figures/ComponentRef%20Schema.png "ComponentRef Schema"){: width="0.8"}
+See `ComponentRef` element in `MTConnectDevices` schema.
 
-![DataItemRef Schema](figures/DataItemRef%20Schema.png "DataItemRef Schema"){: width="0.8"}
+See `DataItemRef` element in `MTConnectDevices` schema.
 
 ### Configuration Schema Diagrams
 
-![Configuration Schema](figures/Configuration%20Schema.png "Configuration Schema"){: width="0.8"}
+See `Configuration` element in `MTConnectDevices` schema.
 
-![CoordinateSystem Schema](figures/CoordinateSystem%20Schema.png "CoordinateSystem Schema"){: width="0.8"}
+See `CoordinateSystem` element in `MTConnectDevices` schema.
 
-![Motion Schema](figures/Motion%20Schema.png "Motion Schema"){: width="0.8"}
+See `Motion` element in `MTConnectDevices` schema.
 
-![Relationships Schema](figures/Relationships%20Schema.png "Relationships Schema"){: width="0.8"}
+See `Relationships` element in `MTConnectDevices` schema.
 
-![ComponentRelationship Schema](figures/ComponentRelationship%20Schema.png "ComponentRelationship Schema"){: width="0.8"}
+See `ComponentRelationship` element in `MTConnectDevices` schema.
 
-![DeviceRelationship Schema](figures/DeviceRelationship%20Schema.png "DeviceRelationship Schema"){: width="0.8"}
+See `DeviceRelationship` element in `MTConnectDevices` schema.
 
-![SensorConfiguration Schema](figures/SensorConfiguration%20Schema.png "SensorConfiguration Schema"){: width="0.8"}
+See `SensorConfiguration` element in `MTConnectDevices` schema.
 
-![SolidModel Schema](figures/SolidModel%20Schema.png "SolidModel Schema"){: width="0.8"}
+See `SolidModel` element in `MTConnectDevices` schema.
 
-![Specifications Schema](figures/Specifications%20Schema.png "Specifications Schema"){: width="0.8"}
+See `Specifications` element in `MTConnectDevices` schema.
 
-![ProcessSpecification Schema](figures/ProcessSpecification%20Schema.png "ProcessSpecification Schema"){: width="0.8"}
+See `ProcessSpecification` element in `MTConnectDevices` schema.
 
 ## XML Examples
 

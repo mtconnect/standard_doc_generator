@@ -31,7 +31,7 @@ primitive type.
 
 
 
-### dateTime
+### datetime
 
 string that represents timestamp in ISO 8601 format.
 
@@ -97,13 +97,13 @@ series of four numeric values, separated by a decimal point, representing a {{te
 
 
 
-### uInt32
+### uint32
 
 32-bit unsigned integer.
 
 
 
-### uInt64
+### uint64
 
 64-bit unsigned integer.
 

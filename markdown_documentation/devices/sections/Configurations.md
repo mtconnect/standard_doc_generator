@@ -5,7 +5,7 @@
 
 ![Configuration](figures/Configuration.png "Configuration"){: width="0.8"}
 
-> Note: See {{figure(Configuration Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ### Configuration
 
@@ -22,7 +22,7 @@ technical information about an entity describing its physical layout, functional
 |{{block(SolidModel)}}|0..1|
 |{{block(SensorConfiguration)}}|0..1|
 |{{block(Motion)}}|0..1|
-|{{block(Relationship)}} (organized by `Relationships`)|0..*|
+|{{block(ConfigurationRelationship)}} (organized by `Relationships`)|0..*|
 |{{block(CoordinateSystem)}} (organized by `CoordinateSystems`)|0..*|
 |{{block(Specification)}} (organized by `Specifications`)|0..*|
 {: caption="Part Properties of Configuration" label="table:part-properties-of-configuration"}
@@ -47,11 +47,11 @@ Descriptions for Part Properties of {{block(Configuration)}}:
 
     See {{sect(Motion)}}.
 
-* {{block(Relationship)}} 
+* {{block(ConfigurationRelationship)}} 
 
     association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
-    {{block(Relationships)}} groups one or more {{block(Relationship)}} types. See {{package(Relationships)}}.
+    {{block(Relationships)}} groups one or more {{block(ConfigurationRelationship)}} types. See {{package(Relationships)}}.
 
 * {{block(CoordinateSystem)}} 
 

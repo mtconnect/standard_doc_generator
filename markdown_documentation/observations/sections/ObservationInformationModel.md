@@ -185,7 +185,7 @@ The name of an {{block(Observation)}} type reported in the {{term(MTConnectStrea
 |{{property(name)}}|`string`|0..1|
 |{{property(sequence)}}|`integer`|1|
 |{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
-|{{property(timestamp)}}|`dateTime`|1|
+|{{property(timestamp)}}|`datetime`|1|
 |{{property(type)}}|`DataItemTypeEnum`|1|
 |{{property(units)}}|`UnitEnum`|0..1|
 {: caption="Value Properties of Observation" label="table:value-properties-of-observation"}

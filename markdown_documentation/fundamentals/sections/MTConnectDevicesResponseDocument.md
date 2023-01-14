@@ -21,7 +21,6 @@ root entity of an {{term(MTConnectDevices Response Document)}} that contains the
 |:-|:-:|
 |{{block(Header)}}|1|
 |{{block(Device)}} (organized by `Devices`)|1..*|
-|`<<deprecated>>` {{block(AssetCount)}} (organized by `<<deprecated>>` `AssetCounts`)|0..*|
 {: caption="Part Properties of MTConnectDevices" label="table:part-properties-of-mtconnectdevices"}
 
 Descriptions for Part Properties of {{block(MTConnectDevices)}}:
@@ -36,12 +35,6 @@ Descriptions for Part Properties of {{block(MTConnectDevices)}}:
 
     {{block(Devices)}} groups one or more {{block(Device)}} entities. See {{package(Device Information Model)}} for more detail.
 
-* `<<deprecated>>` {{block(AssetCount)}} 
-
-    count of each asset type currently in the {{term(agent)}}.
-
-    {{block(AssetCounts)}} groups {{block(AssetCount)}} entities.
-
 ### Header
 
 provides information from an {{term(agent)}} defining version information, storage capacity, and parameters associated with the data management within the {{term(agent)}}.
@@ -54,18 +47,18 @@ provides information from an {{term(agent)}} defining version information, stora
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(assetBufferSize)}}|`uInt32`|1|
-|{{property(assetCount)}}|`uInt32`|1|
-|{{property(bufferSize)}}|`uInt32`|1|
-|{{property(creationTime)}}|`dateTime`|1|
-|{{property(instanceId)}}|`uInt64`|1|
+|{{property(assetBufferSize)}}|`uint32`|1|
+|{{property(assetCount)}}|`uint32`|1|
+|{{property(bufferSize)}}|`uint32`|1|
+|{{property(creationTime)}}|`datetime`|1|
+|{{property(instanceId)}}|`uint64`|1|
 |{{property(sender)}}|`string`|1|
 |{{property(testIndicator)}}|`boolean`|0..1|
 |{{property(version)}}|`version`|1|
-|`<<deprecated>>` {{property(firstSequence)}}|`uInt64`|0..1|
-|`<<deprecated>>` {{property(lastSequence)}}|`uInt64`|0..1|
-|`<<deprecated>>` {{property(nextSequence)}}|`uInt64`|0..1|
-|{{property(deviceModelChangeTime)}}|`dateTime`|1|
+|`<<deprecated>>` {{property(firstSequence)}}|`uint64`|0..1|
+|`<<deprecated>>` {{property(lastSequence)}}|`uint64`|0..1|
+|`<<deprecated>>` {{property(nextSequence)}}|`uint64`|0..1|
+|{{property(deviceModelChangeTime)}}|`datetime`|1|
 {: caption="Value Properties of Header" label="table:value-properties-of-header"}
 
 Descriptions for Value Properties of {{block(Header)}}:
@@ -143,6 +136,23 @@ Descriptions for Value Properties of {{block(Header)}}:
 
     timestamp of the last update of the {{block(Device)}} information for any device.
 
+#### Part Properties of Header
+
+{{tbl(part-properties-of-header)}} lists the Part Properties of {{block(Header)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|`<<deprecated>>` {{block(AssetCount)}} (organized by `<<deprecated>>` `AssetCounts`)|0..*|
+{: caption="Part Properties of Header" label="table:part-properties-of-header"}
+
+Descriptions for Part Properties of {{block(Header)}}:
+
+* `<<deprecated>>` {{block(AssetCount)}} 
+
+    count of each asset type currently in the {{term(agent)}}.
+
+    {{block(AssetCounts)}} groups {{block(AssetCount)}} entities.
+
 ### `<<deprecated>>`AssetCount
 
 count of each asset type currently in the {{term(agent)}}.
@@ -155,7 +165,7 @@ count of each asset type currently in the {{term(agent)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(assetType)}}|`AssetTypeEnum`|1|
+|{{property(assetType)}}|`string`|1|
 {: caption="Value Properties of AssetCount" label="table:value-properties-of-assetcount"}
 
 Descriptions for Value Properties of {{block(AssetCount)}}:

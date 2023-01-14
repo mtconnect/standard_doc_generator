@@ -584,6 +584,14 @@
     plural={top levels}
 }}}
 
+{{newglossaryentry(cartesian coordinate system)
+{
+    type={general},
+    name={cartesian coordinate system},
+    description={3D orthogonal coordinate system {{cite(ISO/IEC 19794-5:2011(en))}}.},
+    plural={cartesian coordinate systems}
+}}}
+
 {{newglossaryentry(Error Information Model)
 {
     type={informationmodel},

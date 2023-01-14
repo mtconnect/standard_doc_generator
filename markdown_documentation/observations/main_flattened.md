@@ -253,7 +253,7 @@ The name of an {{block(Observation)}} type reported in the {{term(MTConnectStrea
 |{{property(name)}}|`string`|0..1|
 |{{property(sequence)}}|`integer`|1|
 |{{property(subType)}}|`DataItemSubTypeEnum`|0..1|
-|{{property(timestamp)}}|`dateTime`|1|
+|{{property(timestamp)}}|`datetime`|1|
 |{{property(type)}}|`DataItemTypeEnum`|1|
 |{{property(units)}}|`UnitEnum`|0..1|
 {: caption="Value Properties of Observation" label="table:value-properties-of-observation"}
@@ -591,7 +591,7 @@ default {{block(Representation)}} type for all {{block(Observation)}} types wher
 
 ![TemperatureTimeSeries](figures/TemperatureTimeSeries.png "TemperatureTimeSeries"){: width="0.8"}
 
-> Note: See {{figure(AbsTimeSeries Schema)}} for XML schema.
+> Note: See {{sect(Representation Schema Diagrams)}} for XML schema.
 
 {{block(TimeSeries)}} **MUST** report multiple values at fixed intervals in a single {{block(Observation)}}. At minimum, one of {{block(DataItem)}} or {{block(Observation)}} **MUST** specify the {{property(sampleRate)}} in `Hertz`(values/second); fractional rates are permitted. When the {{block(Observation)}} and the {{block(DataItem)}} specify the {{property(sampleRate)}}, the {{block(Observation)}} {{property(sampleRate)}} supersedes the {{block(DataItem)}}.
 
@@ -723,7 +723,7 @@ Descriptions for Part Properties of {{block(DataSet)}}:
 
 ![WorkOffsetTable](figures/WorkOffsetTable.png "WorkOffsetTable"){: width="0.8"}
 
-> Note: See {{figure(Table Schema)}} for XML schema.
+> Note: See {{sect(Representation Schema Diagrams)}} for XML schema.
 
 {{block(Table)}} has the same behavior as the {{block(DataSet)}} for change tracking, clearing, and history. When an {{block(Entry)}} changes, all {{block(Cell)}} entities update at the same time; they are not tracked separately like {{block(Entry)}}.
 
@@ -1148,9 +1148,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Application)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Application)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `LICENSE`
 
@@ -1170,9 +1170,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Application)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Application)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `VERSION`
 
@@ -1192,7 +1192,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(assetType)}}|`string`|1|
+|{{property(assetType)}}|`string`|0..1|
 {: caption="Value Properties of AssetChanged" label="table:value-properties-of-assetchanged"}
 
 Descriptions for Value Properties of {{block(AssetChanged)}}:
@@ -1221,7 +1221,7 @@ The value of {{property(AssetCount)}} **MUST** be `integer`.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(assetType)}}|`string`|1|
+|{{property(assetType)}}|`string`|0..1|
 {: caption="Value Properties of AssetRemoved" label="table:value-properties-of-assetremoved"}
 
 Descriptions for Value Properties of {{block(AssetRemoved)}}:
@@ -1345,6 +1345,30 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
     axis is in motion.
 
+### BatteryState
+
+{{def(EventEnum:BATTERY_STATE)}}
+
+
+
+`BatteryStateEnum` Enumeration:
+
+* `CHARGED` 
+
+    {{block(Component)}} is at it's maximum rated charge level.
+
+* `CHARGING` 
+
+    {{block(Component)}}'s charge is increasing.
+
+* `DISCHARGED` 
+
+    {{block(Component)}} is at it's minimum charge level.
+
+* `DISCHARGING` 
+
+    {{block(Component)}}'s charge is decreasing.
+
 ### Block
 
 {{def(EventEnum:BLOCK)}}
@@ -1413,7 +1437,7 @@ The value of {{property(BlockCount)}} **MUST** be `integer`.
 
 
 
-The value of {{property(ClockTime)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+The value of {{property(ClockTime)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
 ### `<<deprecated>>`Code
 
@@ -1779,7 +1803,7 @@ The value of {{property(CycleCount)}} **MUST** be `integer`.
 
 
 
-The value of {{property(DateCode)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+The value of {{property(DateCode)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
 #### Subtypes of DateCode
 
@@ -2156,9 +2180,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Firmware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Firmware)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `LICENSE`
 
@@ -2178,9 +2202,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Firmware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Firmware)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `VERSION`
 
@@ -2292,9 +2316,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Hardware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Hardware)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `LICENSE`
 
@@ -2314,15 +2338,37 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Hardware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Hardware)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `VERSION`
 
     version of the hardware or software.
 
     
+
+### HostName
+
+{{def(EventEnum:HOST_NAME)}}
+
+
+
+### LeakDetect
+
+{{def(EventEnum:LEAK_DETECT)}}
+
+
+
+`LeakDetectEnum` Enumeration:
+
+* `DETECTED` 
+
+    leak is currently being detected.
+
+* `NOT_DETECTED` 
+
+    leak is currently not being detected.
 
 ### Library
 
@@ -2340,9 +2386,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Library)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Library)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `LICENSE`
 
@@ -2362,9 +2408,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Library)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Library)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `VERSION`
 
@@ -2542,13 +2588,13 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
     next date/time stamp that maintenance should be performed.
 
-    The value of {{property(NEXT_SERVICE_DATE)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(NEXT_SERVICE_DATE)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
 * `RESET` 
 
     last date/time stamp of the {{term(observation)}} was reset.
 
-    The value of {{property(RESET)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(RESET)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
 * `SEVERITY` 
 
@@ -2580,7 +2626,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
     last date/time stamp that maintenance was performed.
 
-    The value of {{property(LAST_SERVICE_DATE)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(LAST_SERVICE_DATE)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
 * `UNITS` 
 
@@ -2627,6 +2673,21 @@ The value of {{property(MaterialLayer)}} **MUST** be `integer`.
 {{def(EventEnum:MESSAGE)}}
 
 
+
+#### Value Properties of Message
+
+{{tbl(value-properties-of-message)}} lists the Value Properties of {{block(Message)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(nativeCode)}}|`string`|0..1|
+{: caption="Value Properties of Message" label="table:value-properties-of-message"}
+
+Descriptions for Value Properties of {{block(Message)}}:
+
+* {{property(nativeCode)}} 
+
+    control system local identification of the information being transferred.
 
 ### Network
 
@@ -2692,6 +2753,14 @@ A {{property(subType)}} **MUST** always be specified.
 
         
 
+### NetworkPort
+
+{{def(EventEnum:NETWORK_PORT)}}
+
+
+
+The value of {{property(NetworkPort)}} **MUST** be `integer`.
+
 ### OperatingMode
 
 {{def(EventEnum:OPERATING_MODE)}}
@@ -2740,9 +2809,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(OperatingSystem)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(OperatingSystem)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `LICENSE`
 
@@ -2762,9 +2831,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(OperatingSystem)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(OperatingSystem)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `VERSION`
 
@@ -3298,6 +3367,8 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 
 
+A {{property(subType)}} **MUST** always be specified.
+
 #### Subtypes of ProcessTime
 
 * `COMPLETE`
@@ -3375,6 +3446,28 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 {{def(EventEnum:PROGRAM_COMMENT)}}
 
 
+
+#### Subtypes of ProgramComment
+
+* `ACTIVE`
+
+    identity of the logic or motion program currently executing.
+
+    
+
+* `MAIN`
+
+    identity of the primary logic or motion program currently being executed. 
+    
+    It is the starting nest level in a call structure and may contain calls to sub programs.
+
+    
+
+* `SCHEDULE`
+
+    identity of a control program that is used to specify the order of execution of other programs.
+
+    
 
 ### ProgramEdit
 
@@ -3546,6 +3639,8 @@ The value of {{property(RotaryVelocityOverride)}} **MUST** be `float`.
 
 
 The {{property(units)}} of {{property(Rotation)}} **MUST** be `DEGREE_3D`.
+
+The value of {{property(Rotation)}} **MUST** be a list of `float` of size `0..3`.
 
 ### SensorAttachment
 
@@ -3736,6 +3831,8 @@ The value of {{property(TransferCount)}} **MUST** be `integer`.
 
 
 The {{property(units)}} of {{property(Translation)}} **MUST** be `MILLIMETER_3D`.
+
+The value of {{property(Translation)}} **MUST** be a list of `float` of size `0..3`.
 
 ### UnloadCount
 
@@ -4237,6 +4334,54 @@ The {{property(units)}} of {{property(AxisFeedrate)}} **MUST** be `MILLIMETER/SE
 
     
 
+### BatteryCapacity
+
+{{def(SampleEnum:BATTERY_CAPACITY)}}
+
+
+
+The {{property(units)}} of {{property(BatteryCapacity)}} **MUST** be `COULOMB`.
+
+The default {{property(subType)}} of {{property(BatteryCapacity)}} is `ACTUAL`.
+
+#### Subtypes of BatteryCapacity
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+* `TARGET`
+
+    goal of the operation or process.
+
+    
+
+### BatteryCharge
+
+{{def(SampleEnum:BATTERY_CHARGE)}}
+
+
+
+The {{property(units)}} of {{property(BatteryCharge)}} **MUST** be `PERCENT`.
+
+The default {{property(subType)}} of {{property(BatteryCharge)}} is `ACTUAL`.
+
+#### Subtypes of BatteryCharge
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+* `TARGET`
+
+    goal of the operation or process.
+
+    
+
 ### CapacityFluid
 
 {{def(SampleEnum:CAPACITY_FLUID)}}
@@ -4252,6 +4397,30 @@ The {{property(units)}} of {{property(CapacityFluid)}} **MUST** be `MILLILITER`.
 
 
 The {{property(units)}} of {{property(CapacitySpatial)}} **MUST** be `CUBIC_MILLIMETER`.
+
+### ChargeRate
+
+{{def(SampleEnum:CHARGE_RATE)}}
+
+
+
+The {{property(units)}} of {{property(ChargeRate)}} **MUST** be `AMPERE`.
+
+The default {{property(subType)}} of {{property(ChargeRate)}} is `ACTUAL`.
+
+#### Subtypes of ChargeRate
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+* `TARGET`
+
+    goal of the operation or process.
+
+    
 
 ### Concentration
 
@@ -4445,6 +4614,14 @@ The {{property(units)}} of {{property(DepositionVolume)}} **MUST** be `CUBIC_MIL
 
     
 
+### DewPoint
+
+{{def(SampleEnum:DEW_POINT)}}
+
+
+
+The {{property(units)}} of {{property(DewPoint)}} **MUST** be `CELSIUS`.
+
 ### Diameter
 
 {{def(SampleEnum:DIAMETER)}}
@@ -4453,6 +4630,30 @@ The {{property(units)}} of {{property(DepositionVolume)}} **MUST** be `CUBIC_MIL
 
 The {{property(units)}} of {{property(Diameter)}} **MUST** be `MILLIMETER`.
 
+### DischargeRate
+
+{{def(SampleEnum:DISCHARGE_RATE)}}
+
+
+
+The {{property(units)}} of {{property(DischargeRate)}} **MUST** be `AMPERE`.
+
+The default {{property(subType)}} of {{property(DischargeRate)}} is `ACTUAL`.
+
+#### Subtypes of DischargeRate
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+* `TARGET`
+
+    goal of the operation or process.
+
+    
+
 ### Displacement
 
 {{def(SampleEnum:DISPLACEMENT)}}
@@ -4460,6 +4661,26 @@ The {{property(units)}} of {{property(Diameter)}} **MUST** be `MILLIMETER`.
 
 
 The {{property(units)}} of {{property(Displacement)}} **MUST** be `MILLIMETER`.
+
+### DisplacementAngular
+
+{{def(SampleEnum:DISPLACEMENT_ANGULAR)}}
+
+> Note: The displacement vector **MAY** be defined by the motion of the owning {{block(Component)}}.
+
+
+
+The {{property(units)}} of {{property(DisplacementAngular)}} **MUST** be `DEGREE`.
+
+### DisplacementLinear
+
+{{def(SampleEnum:DISPLACEMENT_LINEAR)}}
+
+> Note: The displacement vector **MAY** be defined by the motion of the owning {{block(Component)}}.
+
+
+
+The {{property(units)}} of {{property(DisplacementLinear)}} **MUST** be `MILLIMETER`.
 
 ### ElectricalEnergy
 
@@ -4535,6 +4756,54 @@ The {{property(units)}} of {{property(FillLevel)}} **MUST** be `PERCENT`.
 
 The {{property(units)}} of {{property(Flow)}} **MUST** be `LITER/SECOND`.
 
+### FollowingError
+
+{{def(SampleEnum:FOLLOWING_ERROR)}}
+
+
+
+The {{property(units)}} of {{property(FollowingError)}} **MUST** be `COUNT`.
+
+#### Subtypes of FollowingError
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+### FollowingErrorAngular
+
+{{def(SampleEnum:FOLLOWING_ERROR_ANGULAR)}}
+
+
+
+The {{property(units)}} of {{property(FollowingErrorAngular)}} **MUST** be `DEGREE`.
+
+#### Subtypes of FollowingErrorAngular
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+### FollowingErrorLinear
+
+{{def(SampleEnum:FOLLOWING_ERROR_LINEAR)}}
+
+
+
+The {{property(units)}} of {{property(FollowingErrorLinear)}} **MUST** be `MILLIMETER`.
+
+#### Subtypes of FollowingErrorLinear
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
 ### Frequency
 
 {{def(SampleEnum:FREQUENCY)}}
@@ -4564,6 +4833,26 @@ The {{property(units)}} of {{property(GlobalPosition)}} **MUST** be `MILLIMETER`
     directive value including adjustments such as an offset or overrides.
 
     
+
+### GravitationalAcceleration
+
+{{def(SampleEnum:GRAVITATIONAL_ACCELERATION)}}
+
+
+
+
+
+The {{property(units)}} of {{property(GravitationalAcceleration)}} **MUST** be `GRAVITATIONAL_ACCELERATION`.
+
+### GravitationalForce
+
+{{def(SampleEnum:GRAVITATIONAL_FORCE)}}
+
+> Note: $$Mass\times GravitationalAcceleration$$
+
+
+
+The {{property(units)}} of {{property(GravitationalForce)}} **MUST** be `GRAVITATIONAL_FORCE`.
 
 ### HumidityAbsolute
 
@@ -4715,6 +5004,8 @@ The {{property(units)}} of {{property(Openness)}} **MUST** be `PERCENT`.
 
 The {{property(units)}} of {{property(Orientation)}} **MUST** be `DEGREE_3D`.
 
+The value of {{property(Orientation)}} **MUST** be a list of `float` of size `0..3`.
+
 #### Subtypes of Orientation
 
 * `ACTUAL`
@@ -4823,6 +5114,8 @@ The {{property(units)}} of {{property(PathFeedratePerRevolution)}} **MUST** be `
 
 The {{property(units)}} of {{property(PathPosition)}} **MUST** be `MILLIMETER_3D`.
 
+The value of {{property(PathPosition)}} **MUST** be a list of `float` of size `0..3`.
+
 #### Subtypes of PathPosition
 
 * `ACTUAL`
@@ -4884,6 +5177,16 @@ The {{property(units)}} of {{property(Position)}} **MUST** be `MILLIMETER`.
     goal of the operation or process.
 
     
+
+### PositionCartesian
+
+{{def(SampleEnum:POSITION_CARTESIAN)}}
+
+
+
+The {{property(units)}} of {{property(PositionCartesian)}} **MUST** be `MILLIMETER_3D`.
+
+The value of {{property(PositionCartesian)}} **MUST** be a list of `float` of size `0..3`.
 
 ### PowerFactor
 
@@ -5005,6 +5308,54 @@ The {{property(units)}} of {{property(RotaryVelocity)}} **MUST** be `REVOLUTION/
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
+    
+
+### SettlingError
+
+{{def(SampleEnum:SETTLING_ERROR)}}
+
+
+
+The {{property(units)}} of {{property(SettlingError)}} **MUST** be `COUNT`.
+
+#### Subtypes of SettlingError
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+### SettlingErrorAngular
+
+{{def(SampleEnum:SETTLING_ERROR_ANGULAR)}}
+
+
+
+The {{property(units)}} of {{property(SettlingErrorAngular)}} **MUST** be `DEGREE`.
+
+#### Subtypes of SettlingErrorAngular
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+### SettlingErrorLinear
+
+{{def(SampleEnum:SETTLING_ERROR_LINEAR)}}
+
+
+
+The {{property(units)}} of {{property(SettlingErrorLinear)}} **MUST** be `MILLIMETER`.
+
+#### Subtypes of SettlingErrorLinear
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
 
     
 
@@ -5433,7 +5784,7 @@ primitive type.
 
 
 
-### dateTime
+### datetime
 
 string that represents timestamp in ISO 8601 format.
 
@@ -5499,13 +5850,13 @@ series of four numeric values, separated by a decimal point, representing a {{te
 
 
 
-### uInt32
+### uint32
 
 32-bit unsigned integer.
 
 
 
-### uInt64
+### uint64
 
 64-bit unsigned integer.
 
@@ -5601,27 +5952,29 @@ IEEE STD 1451.4-1994, Standard for a Smart Transducer Interface for Sensors and 
 
 ### Observations Schema Diagrams
 
-![Streams Schema](figures/Streams%20Schema.png "Streams Schema"){: width="0.8"}
+See `Streams` element in `MTConnectStreams` schema.
 
-![DeviceStream Schema](figures/DeviceStream%20Schema.png "DeviceStream Schema"){: width="0.8"}
+See `DeviceStream` element in `MTConnectStreams` schema.
 
-![ComponentStream Schema](figures/ComponentStream%20Schema.png "ComponentStream Schema"){: width="0.8"}
+See `ComponentStream` element in `MTConnectStreams` schema.
 
-![Sample Schema](figures/Sample%20Schema.png "Sample Schema"){: width="0.8"}
+See `Sample` element in `MTConnectStreams` schema.
 
-![Event Schema](figures/Event%20Schema.png "Event Schema"){: width="0.8"}
+See `Event` element in `MTConnectStreams` schema.
 
-![Condition Schema](figures/Condition%20Schema.png "Condition Schema"){: width="0.8"}
+See `Condition` element in `MTConnectStreams` schema.
 
 ### Representation Schema Diagrams
 
-![AbsTimeSeries Schema](figures/AbsTimeSeries%20Schema.png "AbsTimeSeries Schema"){: width="0.8"}
+See `AbsTimeSeries` element in `MTConnectStreams` schema.
 
-![DataSet Schema](figures/DataSet%20Schema.png "DataSet Schema"){: width="0.8"}
+See `PartCountDiscrete` element in `MTConnectStreams` schema.
 
-![Entry Schema](figures/Entry%20Schema.png "Entry Schema"){: width="0.8"}
+See `VariableDataSet` element in `MTConnectStreams` schema.
 
-![Table Schema](figures/Table%20Schema.png "Table Schema"){: width="0.8"}
+See `Entry` element in `MTConnectStreams` schema.
+
+See `WorkOffsetTable` element in `MTConnectStreams` schema.
 
 ## XML Examples
 

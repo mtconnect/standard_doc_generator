@@ -47,11 +47,11 @@ provides information from an {{term(agent)}} defining version information, stora
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(deviceModelChangeTime)}}|`dateTime`|1|
-|{{property(assetBufferSize)}}|`uInt32`|1|
-|{{property(assetCount)}}|`uInt32`|1|
-|{{property(creationTime)}}|`dateTime`|1|
-|{{property(instanceId)}}|`uInt64`|1|
+|{{property(deviceModelChangeTime)}}|`datetime`|1|
+|{{property(assetBufferSize)}}|`uint32`|1|
+|{{property(assetCount)}}|`uint32`|1|
+|{{property(creationTime)}}|`datetime`|1|
+|{{property(instanceId)}}|`uint64`|1|
 |{{property(sender)}}|`string`|1|
 |{{property(testIndicator)}}|`boolean`|0..1|
 |{{property(version)}}|`version`|1|

@@ -291,6 +291,54 @@ The {{property(units)}} of {{property(AxisFeedrate)}} **MUST** be `MILLIMETER/SE
 
     
 
+### BatteryCapacity
+
+{{def(SampleEnum:BATTERY_CAPACITY)}}
+
+
+
+The {{property(units)}} of {{property(BatteryCapacity)}} **MUST** be `COULOMB`.
+
+The default {{property(subType)}} of {{property(BatteryCapacity)}} is `ACTUAL`.
+
+#### Subtypes of BatteryCapacity
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+* `TARGET`
+
+    goal of the operation or process.
+
+    
+
+### BatteryCharge
+
+{{def(SampleEnum:BATTERY_CHARGE)}}
+
+
+
+The {{property(units)}} of {{property(BatteryCharge)}} **MUST** be `PERCENT`.
+
+The default {{property(subType)}} of {{property(BatteryCharge)}} is `ACTUAL`.
+
+#### Subtypes of BatteryCharge
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+* `TARGET`
+
+    goal of the operation or process.
+
+    
+
 ### CapacityFluid
 
 {{def(SampleEnum:CAPACITY_FLUID)}}
@@ -306,6 +354,30 @@ The {{property(units)}} of {{property(CapacityFluid)}} **MUST** be `MILLILITER`.
 
 
 The {{property(units)}} of {{property(CapacitySpatial)}} **MUST** be `CUBIC_MILLIMETER`.
+
+### ChargeRate
+
+{{def(SampleEnum:CHARGE_RATE)}}
+
+
+
+The {{property(units)}} of {{property(ChargeRate)}} **MUST** be `AMPERE`.
+
+The default {{property(subType)}} of {{property(ChargeRate)}} is `ACTUAL`.
+
+#### Subtypes of ChargeRate
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+* `TARGET`
+
+    goal of the operation or process.
+
+    
 
 ### Concentration
 
@@ -499,6 +571,14 @@ The {{property(units)}} of {{property(DepositionVolume)}} **MUST** be `CUBIC_MIL
 
     
 
+### DewPoint
+
+{{def(SampleEnum:DEW_POINT)}}
+
+
+
+The {{property(units)}} of {{property(DewPoint)}} **MUST** be `CELSIUS`.
+
 ### Diameter
 
 {{def(SampleEnum:DIAMETER)}}
@@ -507,6 +587,30 @@ The {{property(units)}} of {{property(DepositionVolume)}} **MUST** be `CUBIC_MIL
 
 The {{property(units)}} of {{property(Diameter)}} **MUST** be `MILLIMETER`.
 
+### DischargeRate
+
+{{def(SampleEnum:DISCHARGE_RATE)}}
+
+
+
+The {{property(units)}} of {{property(DischargeRate)}} **MUST** be `AMPERE`.
+
+The default {{property(subType)}} of {{property(DischargeRate)}} is `ACTUAL`.
+
+#### Subtypes of DischargeRate
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+* `TARGET`
+
+    goal of the operation or process.
+
+    
+
 ### Displacement
 
 {{def(SampleEnum:DISPLACEMENT)}}
@@ -514,6 +618,26 @@ The {{property(units)}} of {{property(Diameter)}} **MUST** be `MILLIMETER`.
 
 
 The {{property(units)}} of {{property(Displacement)}} **MUST** be `MILLIMETER`.
+
+### DisplacementAngular
+
+{{def(SampleEnum:DISPLACEMENT_ANGULAR)}}
+
+> Note: The displacement vector **MAY** be defined by the motion of the owning {{block(Component)}}.
+
+
+
+The {{property(units)}} of {{property(DisplacementAngular)}} **MUST** be `DEGREE`.
+
+### DisplacementLinear
+
+{{def(SampleEnum:DISPLACEMENT_LINEAR)}}
+
+> Note: The displacement vector **MAY** be defined by the motion of the owning {{block(Component)}}.
+
+
+
+The {{property(units)}} of {{property(DisplacementLinear)}} **MUST** be `MILLIMETER`.
 
 ### ElectricalEnergy
 
@@ -589,6 +713,54 @@ The {{property(units)}} of {{property(FillLevel)}} **MUST** be `PERCENT`.
 
 The {{property(units)}} of {{property(Flow)}} **MUST** be `LITER/SECOND`.
 
+### FollowingError
+
+{{def(SampleEnum:FOLLOWING_ERROR)}}
+
+
+
+The {{property(units)}} of {{property(FollowingError)}} **MUST** be `COUNT`.
+
+#### Subtypes of FollowingError
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+### FollowingErrorAngular
+
+{{def(SampleEnum:FOLLOWING_ERROR_ANGULAR)}}
+
+
+
+The {{property(units)}} of {{property(FollowingErrorAngular)}} **MUST** be `DEGREE`.
+
+#### Subtypes of FollowingErrorAngular
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+### FollowingErrorLinear
+
+{{def(SampleEnum:FOLLOWING_ERROR_LINEAR)}}
+
+
+
+The {{property(units)}} of {{property(FollowingErrorLinear)}} **MUST** be `MILLIMETER`.
+
+#### Subtypes of FollowingErrorLinear
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
 ### Frequency
 
 {{def(SampleEnum:FREQUENCY)}}
@@ -618,6 +790,26 @@ The {{property(units)}} of {{property(GlobalPosition)}} **MUST** be `MILLIMETER`
     directive value including adjustments such as an offset or overrides.
 
     
+
+### GravitationalAcceleration
+
+{{def(SampleEnum:GRAVITATIONAL_ACCELERATION)}}
+
+
+
+
+
+The {{property(units)}} of {{property(GravitationalAcceleration)}} **MUST** be `GRAVITATIONAL_ACCELERATION`.
+
+### GravitationalForce
+
+{{def(SampleEnum:GRAVITATIONAL_FORCE)}}
+
+> Note: $$Mass\times GravitationalAcceleration$$
+
+
+
+The {{property(units)}} of {{property(GravitationalForce)}} **MUST** be `GRAVITATIONAL_FORCE`.
 
 ### HumidityAbsolute
 
@@ -769,6 +961,8 @@ The {{property(units)}} of {{property(Openness)}} **MUST** be `PERCENT`.
 
 The {{property(units)}} of {{property(Orientation)}} **MUST** be `DEGREE_3D`.
 
+The value of {{property(Orientation)}} **MUST** be a list of `float` of size `0..3`.
+
 #### Subtypes of Orientation
 
 * `ACTUAL`
@@ -877,6 +1071,8 @@ The {{property(units)}} of {{property(PathFeedratePerRevolution)}} **MUST** be `
 
 The {{property(units)}} of {{property(PathPosition)}} **MUST** be `MILLIMETER_3D`.
 
+The value of {{property(PathPosition)}} **MUST** be a list of `float` of size `0..3`.
+
 #### Subtypes of PathPosition
 
 * `ACTUAL`
@@ -938,6 +1134,16 @@ The {{property(units)}} of {{property(Position)}} **MUST** be `MILLIMETER`.
     goal of the operation or process.
 
     
+
+### PositionCartesian
+
+{{def(SampleEnum:POSITION_CARTESIAN)}}
+
+
+
+The {{property(units)}} of {{property(PositionCartesian)}} **MUST** be `MILLIMETER_3D`.
+
+The value of {{property(PositionCartesian)}} **MUST** be a list of `float` of size `0..3`.
 
 ### PowerFactor
 
@@ -1059,6 +1265,54 @@ The {{property(units)}} of {{property(RotaryVelocity)}} **MUST** be `REVOLUTION/
 * `PROGRAMMED`
 
     directive value without offsets and adjustments.
+
+    
+
+### SettlingError
+
+{{def(SampleEnum:SETTLING_ERROR)}}
+
+
+
+The {{property(units)}} of {{property(SettlingError)}} **MUST** be `COUNT`.
+
+#### Subtypes of SettlingError
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+### SettlingErrorAngular
+
+{{def(SampleEnum:SETTLING_ERROR_ANGULAR)}}
+
+
+
+The {{property(units)}} of {{property(SettlingErrorAngular)}} **MUST** be `DEGREE`.
+
+#### Subtypes of SettlingErrorAngular
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
+
+    
+
+### SettlingErrorLinear
+
+{{def(SampleEnum:SETTLING_ERROR_LINEAR)}}
+
+
+
+The {{property(units)}} of {{property(SettlingErrorLinear)}} **MUST** be `MILLIMETER`.
+
+#### Subtypes of SettlingErrorLinear
+
+* `ACTUAL`
+
+    measured or reported value of an {{term(observation)}}.
 
     
 

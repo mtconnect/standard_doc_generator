@@ -1,70 +1,45 @@
 
 ## Relationships
 
-This section provides semantic information for the {{block(Relationship)}} entity.
+This section provides semantic information for the {{block(ConfigurationRelationship)}} entity.
 
 ![Relationships](figures/Relationships.png "Relationships"){: width="0.8"}
 
-> Note: See {{figure(Relationships Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ![Relationship Example](figures/Relationship%20Example.png "Relationship Example"){: width="0.8"}
 
 > Note: See {{lst(relationship-example)}} for the {{term(XML)}} representation of the same example.
 
-### Relationship
+### ConfigurationRelationship
 
 association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
 
-{{block(Relationship)}} is an abstract entity and hence will be realized by specific {{block(Relationship)}} types in an {{block(MTConnectDevices)}} entity. See {{sect(ComponentRelationship)}}, {{sect(DeviceRelationship)}} and {{package(Relationship Types for DataItem)}}.
+{{block(ConfigurationRelationship)}} is an abstract entity and hence will be realized by specific {{block(ConfigurationRelationship)}} types in an {{block(MTConnectDevices)}} entity. See {{sect(ComponentRelationship)}} and {{sect(DeviceRelationship)}}.
 
 
-### ComponentRelationship
+#### Value Properties of ConfigurationRelationship
 
-{{block(Relationship)}} that describes the association between two components within a piece of equipment that function independently but together perform a capability or service within a piece of equipment.
-
-
-
-#### Value Properties of ComponentRelationship
-
-{{tbl(value-properties-of-componentrelationship)}} lists the Value Properties of {{block(ComponentRelationship)}}.
+{{tbl(value-properties-of-configurationrelationship)}} lists the Value Properties of {{block(ConfigurationRelationship)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(idRef)}}|`ID`|1|
 |{{property(name)}}|`string`|0..1|
 |{{property(id)}}|`ID`|1|
-|{{property(criticality)}}|`CriticalityTypeEnum`|0..1|
 |{{property(type)}}|`RelationshipTypeEnum`|1|
-{: caption="Value Properties of ComponentRelationship" label="table:value-properties-of-componentrelationship"}
+|{{property(criticality)}}|`CriticalityTypeEnum`|0..1|
+{: caption="Value Properties of ConfigurationRelationship" label="table:value-properties-of-configurationrelationship"}
 
-Descriptions for Value Properties of {{block(ComponentRelationship)}}:
-
-* {{property(idRef)}} 
-
-    reference to the associated {{block(Component)}} element.
+Descriptions for Value Properties of {{block(ConfigurationRelationship)}}:
 
 * {{property(name)}} 
 
-    name associated with this {{block(Relationship)}}.
+    name associated with this {{block(ConfigurationRelationship)}}.
 
 * {{property(id)}} 
 
-    unique identifier for this {{block(Relationship)}}.
-
-* {{property(criticality)}} 
-
-    defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
-
-    `CriticalityTypeEnum` Enumeration:
-
-    * `CRITICAL` 
-
-        services or functions provided by the associated element is required for the operation of this element.
-
-    * `NONCRITICAL` 
-
-        services or functions provided by the associated element is not required for the operation of this element.
+    unique identifier for this {{block(ConfigurationRelationship)}}.
 
 * {{property(type)}} 
 
@@ -84,9 +59,44 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 
         functions as a peer which provides equal functionality and capabilities in the relationship with the associated element.
 
+* {{property(criticality)}} 
+
+    defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
+
+    `CriticalityTypeEnum` Enumeration:
+
+    * `CRITICAL` 
+
+        services or functions provided by the associated element is required for the operation of this element.
+
+    * `NONCRITICAL` 
+
+        services or functions provided by the associated element is not required for the operation of this element.
+
+### ComponentRelationship
+
+{{block(ConfigurationRelationship)}} that describes the association between two components within a piece of equipment that function independently but together perform a capability or service within a piece of equipment.
+
+
+
+#### Value Properties of ComponentRelationship
+
+{{tbl(value-properties-of-componentrelationship)}} lists the Value Properties of {{block(ComponentRelationship)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(idRef)}}|`ID`|1|
+{: caption="Value Properties of ComponentRelationship" label="table:value-properties-of-componentrelationship"}
+
+Descriptions for Value Properties of {{block(ComponentRelationship)}}:
+
+* {{property(idRef)}} 
+
+    reference to the associated {{block(Component)}}.
+
 ### DeviceRelationship
 
-{{block(Relationship)}} that describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
+{{block(ConfigurationRelationship)}} that describes the association between two pieces of equipment that function independently but together perform a manufacturing operation.
 
 
 
@@ -100,10 +110,6 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 |{{property(href)}}|`xlinkhref`|0..1|
 |{{property(role)}}|`RoleTypeEnum`|0..1|
 |{{property(xlink:type)}}|`xlinktype`|0..1|
-|{{property(type)}}|`RelationshipTypeEnum`|1|
-|{{property(name)}}|`string`|0..1|
-|{{property(id)}}|`ID`|1|
-|{{property(criticality)}}|`CriticalityTypeEnum`|0..1|
 {: caption="Value Properties of DeviceRelationship" label="table:value-properties-of-devicerelationship"}
 
 Descriptions for Value Properties of {{block(DeviceRelationship)}}:
@@ -134,22 +140,33 @@ Descriptions for Value Properties of {{block(DeviceRelationship)}}:
 
     `xlink:type`**MUST** have a fixed value of `locator` as defined in W3C XLink 1.1 {{cite(https://www.w3.org/TR/xlink11/)}}.
 
-* {{property(type)}} 
+### AssetRelationship
 
-    defines the authority that this piece of equipment has relative to the associated piece of equipment.
+{{block(ConfigurationRelationship)}} that describes the association between a {{block(Component)}} and an {{block(Asset)}}.
 
-    The value of {{property(type)}} **MUST** be one of the `RelationshipTypeEnum` enumeration. 
 
-* {{property(name)}} 
 
-    name associated with this {{block(Relationship)}}.
+#### Value Properties of AssetRelationship
 
-* {{property(id)}} 
+{{tbl(value-properties-of-assetrelationship)}} lists the Value Properties of {{block(AssetRelationship)}}.
 
-    unique identifier for this {{block(Relationship)}}.
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(assetIdRef)}}|`ID`|1|
+|{{property(assetType)}}|`string`|1|
+|{{property(href)}}|`xlinkhref`|0..1|
+{: caption="Value Properties of AssetRelationship" label="table:value-properties-of-assetrelationship"}
 
-* {{property(criticality)}} 
+Descriptions for Value Properties of {{block(AssetRelationship)}}:
 
-    defines whether the services or functions provided by the associated piece of equipment is required for the operation of this piece of equipment.
+* {{property(assetIdRef)}} 
 
-    The value of {{property(criticality)}} **MUST** be one of the `CriticalityTypeEnum` enumeration. 
+    uuid of the related {{block(Asset)}}.
+
+* {{property(assetType)}} 
+
+    type of {{block(Asset)}} being referenced.
+
+* {{property(href)}} 
+
+    {{term(URI)}} reference to the associated {{block(Asset)}}.

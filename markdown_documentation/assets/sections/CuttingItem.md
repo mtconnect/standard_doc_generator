@@ -71,7 +71,7 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
     This will reference the tool item and adaptive items specifically. The cutting items
     manufacturers’ will be a property of {{block(CuttingItem)}}.
     
-    > Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{figure(CuttingItem Schema)}}.
+    > Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{sect(CuttingItem Schema Diagrams)}}.
 
 * {{property(ProgramToolGroup)}} 
 

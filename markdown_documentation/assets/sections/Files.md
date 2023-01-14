@@ -145,8 +145,8 @@ Descriptions for Part Properties of {{block(AbstractFile)}}:
 |{{property(state)}}|`FileStateEnum`|1|
 |{{property(Signature)}}|`x509`|0..1|
 |{{property(PublicKey)}}|`x509`|0..1|
-|{{property(CreationTime)}}|`dateTime`|1|
-|{{property(ModificationTime)}}|`dateTime`|0..1|
+|{{property(CreationTime)}}|`datetime`|1|
+|{{property(ModificationTime)}}|`datetime`|0..1|
 {: caption="Value Properties of File" label="table:value-properties-of-file"}
 
 Descriptions for Value Properties of {{block(File)}}:
@@ -260,7 +260,7 @@ The value of {{property(FileComment)}} **MUST** be `string`.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(timestamp)}}|`dateTime`|1|
+|{{property(timestamp)}}|`datetime`|1|
 {: caption="Value Properties of FileComment" label="table:value-properties-of-filecomment"}
 
 Descriptions for Value Properties of {{block(FileComment)}}:

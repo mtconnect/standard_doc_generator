@@ -34,7 +34,7 @@ default {{block(Representation)}} type for all {{block(Observation)}} types wher
 
 ![TemperatureTimeSeries](figures/TemperatureTimeSeries.png "TemperatureTimeSeries"){: width="0.8"}
 
-> Note: See {{figure(AbsTimeSeries Schema)}} for XML schema.
+> Note: See {{sect(Representation Schema Diagrams)}} for XML schema.
 
 {{block(TimeSeries)}} **MUST** report multiple values at fixed intervals in a single {{block(Observation)}}. At minimum, one of {{block(DataItem)}} or {{block(Observation)}} **MUST** specify the {{property(sampleRate)}} in `Hertz`(values/second); fractional rates are permitted. When the {{block(Observation)}} and the {{block(DataItem)}} specify the {{property(sampleRate)}}, the {{block(Observation)}} {{property(sampleRate)}} supersedes the {{block(DataItem)}}.
 
@@ -166,7 +166,7 @@ Descriptions for Part Properties of {{block(DataSet)}}:
 
 ![WorkOffsetTable](figures/WorkOffsetTable.png "WorkOffsetTable"){: width="0.8"}
 
-> Note: See {{figure(Table Schema)}} for XML schema.
+> Note: See {{sect(Representation Schema Diagrams)}} for XML schema.
 
 {{block(Table)}} has the same behavior as the {{block(DataSet)}} for change tracking, clearing, and history. When an {{block(Entry)}} changes, all {{block(Cell)}} entities update at the same time; they are not tracked separately like {{block(Entry)}}.
 

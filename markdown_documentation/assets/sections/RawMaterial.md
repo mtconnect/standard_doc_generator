@@ -25,9 +25,9 @@ This section provides semantic information for the {{block(RawMaterial)}} model.
 |{{property(serialNumber)}}|`string`|0..1|
 |{{property(HasMaterial)}}|`boolean`|0..1|
 |{{property(Form)}}|`FormEnum`|1|
-|{{property(ManufacturingDate)}}|`dateTime`|0..1|
-|{{property(FirstUseDate)}}|`dateTime`|0..1|
-|{{property(LastUseDate)}}|`dateTime`|0..1|
+|{{property(ManufacturingDate)}}|`datetime`|0..1|
+|{{property(FirstUseDate)}}|`datetime`|0..1|
+|{{property(LastUseDate)}}|`datetime`|0..1|
 |{{property(InitialVolume)}}|`CUBIC_MILLIMETER`|0..1|
 |{{property(InitialDimension)}}|`MILLIMETER`|0..3|
 |{{property(InitialQuantity)}}|`integer`|0..1|
@@ -176,7 +176,7 @@ material used as the {{block(RawMaterial)}}.
 |{{property(type)}}|`string`|1|
 |{{property(Lot)}}|`string`|0..1|
 |{{property(Manufacturer)}}|`string`|0..1|
-|{{property(ManufacturingDate)}}|`dateTime`|0..1|
+|{{property(ManufacturingDate)}}|`datetime`|0..1|
 |{{property(ManufacturingCode)}}|`string`|0..1|
 |{{property(MaterialCode)}}|`string`|0..1|
 {: caption="Value Properties of Material" label="table:value-properties-of-material"}

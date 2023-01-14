@@ -47,16 +47,16 @@ provides information from an {{term(agent)}} defining version information, stora
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(firstSequence)}}|`uInt64`|1|
-|{{property(lastSequence)}}|`uInt64`|1|
-|{{property(nextSequence)}}|`uInt64`|1|
+|{{property(firstSequence)}}|`uint64`|1|
+|{{property(lastSequence)}}|`uint64`|1|
+|{{property(nextSequence)}}|`uint64`|1|
 |{{property(version)}}|`version`|1|
 |{{property(testIndicator)}}|`boolean`|0..1|
 |{{property(sender)}}|`string`|1|
-|{{property(instanceId)}}|`uInt64`|1|
-|{{property(creationTime)}}|`dateTime`|1|
-|{{property(bufferSize)}}|`uInt32`|1|
-|{{property(deviceModelChangeTime)}}|`dateTime`|1|
+|{{property(instanceId)}}|`uint64`|1|
+|{{property(creationTime)}}|`datetime`|1|
+|{{property(bufferSize)}}|`uint32`|1|
+|{{property(deviceModelChangeTime)}}|`datetime`|1|
 {: caption="Value Properties of Header" label="table:value-properties-of-header2"}
 
 Descriptions for Value Properties of {{block(Header)}}:

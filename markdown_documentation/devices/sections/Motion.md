@@ -5,7 +5,7 @@ This section provides semantic information for the {{block(Motion)}} entity.
 
 ![Motion](figures/Motion.png "Motion"){: width="0.8"}
 
-> Note: See {{figure(Motion Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ![Motion Example](figures/Motion%20Example.png "Motion Example"){: width="0.8"}
 

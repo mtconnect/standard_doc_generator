@@ -5,7 +5,7 @@ This section provides semantic information for the {{block(CoordinateSystem)}} e
 
 ![CoordinateSystem](figures/CoordinateSystem.png "CoordinateSystem"){: width="0.8"}
 
-> Note: See {{figure(CoordinateSystem Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 ![CoordinateSystem Example](figures/CoordinateSystem%20Example.png "CoordinateSystem Example"){: width="0.8"}
 

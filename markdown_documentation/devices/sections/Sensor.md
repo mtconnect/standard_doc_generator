@@ -37,7 +37,7 @@ configuration for a {{block(Sensor)}}.
 
 ![SensorConfiguration](figures/SensorConfiguration.png "SensorConfiguration"){: width="0.8"}
 
-> Note: See {{figure(SensorConfiguration Schema)}} for XML schema.
+> Note: See {{sect(Configuration Schema Diagrams)}} for XML schema.
 
 
 #### Value Properties of SensorConfiguration
@@ -46,10 +46,10 @@ configuration for a {{block(Sensor)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(CalibrationDate)}}|`dateTime`|0..1|
+|{{property(CalibrationDate)}}|`datetime`|0..1|
 |{{property(CalibrationInitials)}}|`string`|0..1|
 |{{property(FirmwareVersion)}}|`string`|1|
-|{{property(NextCalibrationDate)}}|`dateTime`|0..1|
+|{{property(NextCalibrationDate)}}|`datetime`|0..1|
 {: caption="Value Properties of SensorConfiguration" label="table:value-properties-of-sensorconfiguration"}
 
 Descriptions for Value Properties of {{block(SensorConfiguration)}}:
@@ -101,10 +101,10 @@ When {{block(Sensor)}} has multiple {{termplural(sensing element)}}, each {{term
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(CalibrationDate)}}|`dateTime`|0..1|
+|{{property(CalibrationDate)}}|`datetime`|0..1|
 |{{property(CalibrationInitials)}}|`string`|0..1|
 |{{property(name)}}|`string`|0..1|
-|{{property(NextCalibrationDate)}}|`dateTime`|0..1|
+|{{property(NextCalibrationDate)}}|`datetime`|0..1|
 |{{property(number)}}|`string`|1|
 {: caption="Value Properties of Channel" label="table:value-properties-of-channel"}
 

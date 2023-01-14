@@ -159,6 +159,10 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         state of a {{block(Linear)}} or {{block(Rotary)}} component representing an axis.
 
+    * `BATTERY_STATE` 
+
+        present status of the battery.
+
     * `BLOCK` 
 
         line of code or command being executed by a {{block(Controller)}} entity.
@@ -283,6 +287,14 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         hardware of a {{block(Component)}}.
 
+    * `HOST_NAME` 
+
+        name of the host computer supplying data.
+
+    * `LEAK_DETECT` 
+
+        indication designating whether a leak has been detected.
+
     * `LIBRARY` 
 
         software library on a {{block(Component)}}
@@ -332,6 +344,10 @@ Descriptions for Value Properties of {{block(Event)}}:
     * `NETWORK` 
 
         network details of a {{block(Component)}}.
+
+    * `NETWORK_PORT` 
+
+        number of the TCP/IP or UDP/IP port for the connection endpoint.
 
     * `OPERATING_MODE` 
 
@@ -475,7 +491,7 @@ Descriptions for Value Properties of {{block(Event)}}:
 
     * `ROTATION` 
 
-        three space angular rotation relative to a coordinate system.
+        three space angular displacement of an object or coordinate system relative to a {{term(cartesian coordinate system)}}.
 
     * `SENSOR_ATTACHMENT` 
 
@@ -521,7 +537,7 @@ Descriptions for Value Properties of {{block(Event)}}:
 
     * `TRANSLATION` 
 
-        three space linear translation relative to a coordinate system.
+        three space linear displacement of an object or coordinate system relative to a {{term(cartesian coordinate system)}}.
 
     * `UNLOAD_COUNT` 
 
@@ -630,6 +646,14 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
         feedrate of a linear axis.
 
+    * `BATTERY_CAPACITY` 
+
+        maximum rated charge a battery is capable of maintaining based on the battery discharging at a specified current over a specified time period.
+
+    * `BATTERY_CHARGE` 
+
+        value of the battery's present capacity expressed as a percentage of the battery's maximum rated capacity.
+
     * `CAPACITY_FLUID` 
 
         fluid capacity of an object or container.
@@ -637,6 +661,10 @@ Descriptions for Value Properties of {{block(Sample)}}:
     * `CAPACITY_SPATIAL` 
 
         geometric capacity of an object or container.
+
+    * `CHARGE_RATE` 
+
+        value of the current being supplied to the {{block(Component)}} for the purpose of charging.
 
     * `CONCENTRATION` 
 
@@ -678,13 +706,29 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
         spatial volume of material to be deposited in an additive manufacturing process.
 
+    * `DEW_POINT` 
+
+        temperature at which moisture begins to condense, corresponding to saturation for a given absolute humidity.
+
     * `DIAMETER` 
 
         dimension of a diameter.
 
+    * `DISCHARGE_RATE` 
+
+        value of current being drawn from the {{block(Component)}}.
+
     * `DISPLACEMENT` 
 
         change in position of an object.
+
+    * `DISPLACEMENT_ANGULAR` 
+
+        absolute value of the change in angular position around a vector
+
+    * `DISPLACEMENT_LINEAR` 
+
+        absolute value of the change in position along a vector.
 
     * `ELECTRICAL_ENERGY` 
 
@@ -702,6 +746,18 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
         rate of flow of a fluid.
 
+    * `FOLLOWING_ERROR` 
+
+        difference between actual and commanded position at any specific point in time during a motion.
+
+    * `FOLLOWING_ERROR_ANGULAR` 
+
+        angular difference between the commanded encoder/resolver position and the actual encoder/resolver position at any specified point in time during a motion.
+
+    * `FOLLOWING_ERROR_LINEAR` 
+
+        difference between the commanded encoder/resolver position and the actual encoder/resolver position at any specified point in time during a motion.
+
     * `FREQUENCY` 
 
         number of occurrences of a repeating event per unit time.
@@ -711,6 +767,14 @@ Descriptions for Value Properties of {{block(Sample)}}:
         position in three-dimensional space.
         
         **DEPRECATED** in Version 1.1.
+
+    * `GRAVITATIONAL_ACCELERATION` 
+
+        acceleration relative to Earth's gravity of 9.80665 `METER/SECOND^2`.
+
+    * `GRAVITATIONAL_FORCE` 
+
+        force relative to earth's gravity.
 
     * `HUMIDITY_ABSOLUTE` 
 
@@ -756,7 +820,7 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
     * `ORIENTATION` 
 
-        measured or calculated orientation of a plane or vector relative to a cartesian coordinate system.
+        angular position of a plane or vector relative to a {{term(cartesian coordinate system)}}
 
     * `PATH_FEEDRATE` 
 
@@ -768,7 +832,7 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
     * `PATH_POSITION` 
 
-        measured or calculated position of a control point associated with a {{block(Controller)}} entity, or {{block(Path)}} entity if provided, of a piece of equipment.
+        position of a control point associated with a {{block(Controller)}} or a {{block(Path)}}.
 
     * `PH` 
 
@@ -776,7 +840,11 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
     * `POSITION` 
 
-        measured or calculated position of a {{block(Component)}} element as reported by a piece of equipment.
+        point along an axis in a {{term(cartesian coordinate system)}}.
+
+    * `POSITION_CARTESIAN` 
+
+        point in a {{term(cartesian coordinate system)}}.
 
     * `POWER_FACTOR` 
 
@@ -807,6 +875,18 @@ Descriptions for Value Properties of {{block(Sample)}}:
     * `ROTARY_VELOCITY` 
 
         rotational speed of a rotary axis.
+
+    * `SETTLING_ERROR` 
+
+        difference between actual and commanded position at the end of a motion.
+
+    * `SETTLING_ERROR_ANGULAR` 
+
+        angular difference between the commanded encoder/resolver position, and the actual encoder/resolver position when motion is complete.
+
+    * `SETTLING_ERROR_LINEAR` 
+
+        difference between the commanded encoder/resolver position, and the actual encoder/resolver position when motion is complete.
 
     * `SOUND_LEVEL` 
 

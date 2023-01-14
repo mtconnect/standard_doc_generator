@@ -155,11 +155,11 @@ In addition to {{term(XML)}} and {{term(HTTP)}}, An {{term(agent)}} **MAY** prov
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(instanceId)}}|`uInt32`|1|
-|{{property(sequenceNumber)}}|`uInt64`|1|
-|{{property(bufferSize)}}|`uInt32`|1|
-|{{property(maxAssets)}}|`uInt32`|1|
-|{{property(assetCount)}}|`uInt32`|1|
+|{{property(instanceId)}}|`uint32`|1|
+|{{property(sequenceNumber)}}|`uint64`|1|
+|{{property(bufferSize)}}|`uint32`|1|
+|{{property(maxAssets)}}|`uint32`|1|
+|{{property(assetCount)}}|`uint32`|1|
 {: caption="Value Properties of Agent" label="table:value-properties-of-agent"}
 
 Descriptions for Value Properties of {{block(Agent)}}:

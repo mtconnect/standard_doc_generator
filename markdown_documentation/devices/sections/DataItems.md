@@ -5,7 +5,7 @@ This section provides semantic information for the {{block(DataItem)}} entity. {
 
 ![DataItems](figures/DataItems.png "DataItems"){: width="0.8"}
 
-> Note: See {{figure(DataItems Schema)}} for XML schema.
+> Note: See {{sect(DataItems Schema Diagrams)}} for XML schema.
 
 ### DataItem
 
@@ -93,6 +93,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     `<<extensible>>` `NativeUnitEnum` Enumeration:
 
+    * `AMPERE_HOUR` 
+
+        electric charge in ampere hour.
+
     * `BAR` 
 
         pressure in Bar.
@@ -132,6 +136,18 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     * `GALLON/MINUTE` 
 
         gallons per minute.
+
+    * `GRAVITATIONAL_ACCELERATION` 
+
+        acceleration relative to earth's gravity given in `METER/SECOND^2`.
+        
+        > Note 1 to entry: At different points on Earth's surface, the free-fall acceleration ranges from 9.764 to 9.834 m/s2 (Wikipedia: Gravitational Acceleration). The constant can be customized depending on the location in the universe.
+        
+        > Note 2 to entry: In the standard, it is assumed that Earth's average value of gravitational acceleration is 9.90665 m/s2.
+
+    * `GRAVITATIONAL_FORCE` 
+
+        $$MASS\times GRAVITATIONAL_ACCELERATION$$ (g) given in `METER/SECOND^2`.
 
     * `HOUR` 
 
@@ -733,6 +749,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         degrees Celsius.
 
+    * `COULOMB` 
+
+        electric charge in coulombs (C).
+
     * `COUNT` 
 
         count of something.
@@ -802,6 +822,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     * `LITER/SECOND` 
 
         liters per second.
+
+    * `METER/SECOND^2` 
+
+        acceleration in meters per second squared.
 
     * `MICRO_RADIAN` 
 
@@ -1001,7 +1025,7 @@ Descriptions for Reference Properties of {{block(DataItem)}}:
 |{{block(InitialValue)}}|0..1|
 |{{block(ResetTrigger)}}|0..1|
 |{{block(Definition)}}|0..1|
-|{{block(Relationship)}} (organized by `Relationships`)|0..*|
+|{{block(AbstractDataItemRelationship)}} (organized by `Relationships`)|0..*|
 {: caption="Part Properties of DataItem" label="table:part-properties-of-dataitem"}
 
 Descriptions for Part Properties of {{block(DataItem)}}:
@@ -1038,8 +1062,8 @@ Descriptions for Part Properties of {{block(DataItem)}}:
 
     See {{sect(Definition)}}.
 
-* {{block(Relationship)}} 
+* {{block(AbstractDataItemRelationship)}} 
 
-    association between two pieces of equipment that function independently but together perform a manufacturing operation.
+    association between a {{block(DataItem)}} and another entity.
 
     {{block(Relationships)}} groups one or more {{block(DataItemRelationship)}} and {{block(SpecificationRelationship)}}. See {{package(Relationships)}}.

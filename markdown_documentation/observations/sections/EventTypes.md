@@ -200,9 +200,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Application)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Application)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `LICENSE`
 
@@ -222,9 +222,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Application)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Application)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `VERSION`
 
@@ -244,7 +244,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(assetType)}}|`string`|1|
+|{{property(assetType)}}|`string`|0..1|
 {: caption="Value Properties of AssetChanged" label="table:value-properties-of-assetchanged"}
 
 Descriptions for Value Properties of {{block(AssetChanged)}}:
@@ -273,7 +273,7 @@ The value of {{property(AssetCount)}} **MUST** be `integer`.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(assetType)}}|`string`|1|
+|{{property(assetType)}}|`string`|0..1|
 {: caption="Value Properties of AssetRemoved" label="table:value-properties-of-assetremoved"}
 
 Descriptions for Value Properties of {{block(AssetRemoved)}}:
@@ -397,6 +397,30 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
     axis is in motion.
 
+### BatteryState
+
+{{def(EventEnum:BATTERY_STATE)}}
+
+
+
+`BatteryStateEnum` Enumeration:
+
+* `CHARGED` 
+
+    {{block(Component)}} is at it's maximum rated charge level.
+
+* `CHARGING` 
+
+    {{block(Component)}}'s charge is increasing.
+
+* `DISCHARGED` 
+
+    {{block(Component)}} is at it's minimum charge level.
+
+* `DISCHARGING` 
+
+    {{block(Component)}}'s charge is decreasing.
+
 ### Block
 
 {{def(EventEnum:BLOCK)}}
@@ -465,7 +489,7 @@ The value of {{property(BlockCount)}} **MUST** be `integer`.
 
 
 
-The value of {{property(ClockTime)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+The value of {{property(ClockTime)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
 ### `<<deprecated>>`Code
 
@@ -831,7 +855,7 @@ The value of {{property(CycleCount)}} **MUST** be `integer`.
 
 
 
-The value of {{property(DateCode)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+The value of {{property(DateCode)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
 #### Subtypes of DateCode
 
@@ -1208,9 +1232,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Firmware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Firmware)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `LICENSE`
 
@@ -1230,9 +1254,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Firmware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Firmware)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `VERSION`
 
@@ -1344,9 +1368,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Hardware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Hardware)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `LICENSE`
 
@@ -1366,15 +1390,37 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Hardware)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Hardware)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `VERSION`
 
     version of the hardware or software.
 
     
+
+### HostName
+
+{{def(EventEnum:HOST_NAME)}}
+
+
+
+### LeakDetect
+
+{{def(EventEnum:LEAK_DETECT)}}
+
+
+
+`LeakDetectEnum` Enumeration:
+
+* `DETECTED` 
+
+    leak is currently being detected.
+
+* `NOT_DETECTED` 
+
+    leak is currently not being detected.
 
 ### Library
 
@@ -1392,9 +1438,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Library)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Library)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `LICENSE`
 
@@ -1414,9 +1460,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(Library)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(Library)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `VERSION`
 
@@ -1594,13 +1640,13 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
     next date/time stamp that maintenance should be performed.
 
-    The value of {{property(NEXT_SERVICE_DATE)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(NEXT_SERVICE_DATE)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
 * `RESET` 
 
     last date/time stamp of the {{term(observation)}} was reset.
 
-    The value of {{property(RESET)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(RESET)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
 * `SEVERITY` 
 
@@ -1632,7 +1678,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
     last date/time stamp that maintenance was performed.
 
-    The value of {{property(LAST_SERVICE_DATE)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(LAST_SERVICE_DATE)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
 * `UNITS` 
 
@@ -1679,6 +1725,21 @@ The value of {{property(MaterialLayer)}} **MUST** be `integer`.
 {{def(EventEnum:MESSAGE)}}
 
 
+
+#### Value Properties of Message
+
+{{tbl(value-properties-of-message)}} lists the Value Properties of {{block(Message)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(nativeCode)}}|`string`|0..1|
+{: caption="Value Properties of Message" label="table:value-properties-of-message"}
+
+Descriptions for Value Properties of {{block(Message)}}:
+
+* {{property(nativeCode)}} 
+
+    control system local identification of the information being transferred.
 
 ### Network
 
@@ -1744,6 +1805,14 @@ A {{property(subType)}} **MUST** always be specified.
 
         
 
+### NetworkPort
+
+{{def(EventEnum:NETWORK_PORT)}}
+
+
+
+The value of {{property(NetworkPort)}} **MUST** be `integer`.
+
 ### OperatingMode
 
 {{def(EventEnum:OPERATING_MODE)}}
@@ -1792,9 +1861,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(OperatingSystem)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(OperatingSystem)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `LICENSE`
 
@@ -1814,9 +1883,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
-    The value of {{property(OperatingSystem)}} **MUST** be `dateTime`. See {{sect(datetime)}}.
+    The value of {{property(OperatingSystem)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-    `dateTime` Enumeration:
+    `datetime` Enumeration:
 
 * `VERSION`
 
@@ -2350,6 +2419,8 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 
 
+A {{property(subType)}} **MUST** always be specified.
+
 #### Subtypes of ProcessTime
 
 * `COMPLETE`
@@ -2427,6 +2498,28 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 {{def(EventEnum:PROGRAM_COMMENT)}}
 
 
+
+#### Subtypes of ProgramComment
+
+* `ACTIVE`
+
+    identity of the logic or motion program currently executing.
+
+    
+
+* `MAIN`
+
+    identity of the primary logic or motion program currently being executed. 
+    
+    It is the starting nest level in a call structure and may contain calls to sub programs.
+
+    
+
+* `SCHEDULE`
+
+    identity of a control program that is used to specify the order of execution of other programs.
+
+    
 
 ### ProgramEdit
 
@@ -2598,6 +2691,8 @@ The value of {{property(RotaryVelocityOverride)}} **MUST** be `float`.
 
 
 The {{property(units)}} of {{property(Rotation)}} **MUST** be `DEGREE_3D`.
+
+The value of {{property(Rotation)}} **MUST** be a list of `float` of size `0..3`.
 
 ### SensorAttachment
 
@@ -2788,6 +2883,8 @@ The value of {{property(TransferCount)}} **MUST** be `integer`.
 
 
 The {{property(units)}} of {{property(Translation)}} **MUST** be `MILLIMETER_3D`.
+
+The value of {{property(Translation)}} **MUST** be a list of `float` of size `0..3`.
 
 ### UnloadCount
 
