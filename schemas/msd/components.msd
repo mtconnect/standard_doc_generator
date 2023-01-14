@@ -1,6 +1,6 @@
 
 package :Component, 'Top Level Components Package' do
-  attr :Station, 'The station id for this device'
+  attr :ComponentStation, 'The station id for this device'
   attr :Iso841Class, 'The ISO 841 classification for the device', :integer
   attr :Model, 'The model name'
   
@@ -29,7 +29,7 @@ package :Component, 'Top Level Components Package' do
     member :Manufacturer, 'The manufacturer', 0..1, :Name
     member :Model, 'The model', 0..1
     member :SerialNumber, 'The serial number', 0..1, :SerialNumberAttr
-    member :Station, 'The station location', 0..1
+    member :Station, 'The station location', 0..1, :ComponentStation
     member :any, 'The content of the description can text or XML elements', 0..INF
   end
   

@@ -7,8 +7,11 @@ package :Events, 'Event Package' do
   basic_type(:FloatEventValue, 'Integer event value') {
     union(:float, :UnavailableValue)
   }
-  basic_type(:StringEventValue, 'Srring event value') {
+  basic_type(:StringEventValue, 'String event value') {
     union(:string, :UnavailableValue)
+  }
+  basic_type(:DateTimeEventValue, 'DateTime String event value') {
+    union(:dateTime, :UnavailableValue)
   }
   basic_type(:StringListValue, 'A list of axis names') {
     list(:string)
@@ -31,6 +34,10 @@ package :Events, 'Event Package' do
   type :StringListEvent, 'An unfaceted string event', :Event do
     member :Value, 'A string value', :StringListEventValue
   end
+  
+  type :DateTimeEvent, 'An unfaceted datetime event', :Event do
+    member :Value, 'A datetime value', :DateTimeEventValue
+  end
 
   type :IntegerEvent, 'An event with an integer value', :Event do
     member :Value, 'A string value', :IntegerEventValue
@@ -44,7 +51,8 @@ package :Events, 'Event Package' do
              "integer" => :IntegerEvent,
              "float" => :FloatEvent,
              "arraystring" => :StringListEvent,
-			 "enumeration" => :StringEvent }
+			 "enumeration" => :StringEvent,
+			 "datetime" => :DateTimeEvent }
 
   Glossary.events.each do |name, event|
     unless event['parent'] == 'Event' and name != "Alarm"
