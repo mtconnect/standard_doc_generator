@@ -4,10 +4,10 @@
 
 Run the following command:
 
-	ruby src/generate.rb --version=2.0.0 docs
+	ruby src/generate.rb --version=2.1.0 docs
 
 ## Generating XML Schema
 
 Run the following command:
 
-	ruby src/generate.rb --version=2.0.0 schema
+	ruby src/generate.rb --version=2.1 schema
