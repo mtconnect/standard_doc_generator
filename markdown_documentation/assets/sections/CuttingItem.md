@@ -56,7 +56,7 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
 
     free form description of the location on the cutting tool.
     
-    For clarity, the words `FLUTE`, `INSERT`, and `CARTRIDGE` **SHOULD** be used to assist in noting the location of a {{block(CuttingItem)}}. {{property(Locus)}} **MAY** be any free form string, but **SHOULD** adhere to the following rules:
+    For clarity, the words `FLUTE`, `INSERT`, and `CARTRIDGE` **SHOULD** be used to assist in noting the location of a {{block(CuttingItem)}}. {{property(CuttingItem::Locus)}} **MAY** be any free form string, but **SHOULD** adhere to the following rules:
     
     * The location numbering **SHOULD** start at the furthest {{block(CuttingItem)}} and work it’s way back to the {{block(CuttingItem)}} closest to the gauge line.
     
@@ -85,7 +85,7 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
 |:-|:-:|
 |{{block(Status)}} (organized by `CutterStatus`)|1..*|
 |{{block(ItemLife)}}|0..3|
-|{{block(Measurement)}} (organized by `Measurements`)|0..*|
+|{{block(ToolingMeasurement)}} (organized by `Measurements`)|0..*|
 {: caption="Part Properties of CuttingItem" label="table:part-properties-of-cuttingitem"}
 
 Descriptions for Part Properties of {{block(CuttingItem)}}:
@@ -116,7 +116,7 @@ Descriptions for Part Properties of {{block(CuttingItem)}}:
 
     See {{sect(ItemLife)}}.
 
-* {{block(Measurement)}} 
+* {{block(ToolingMeasurement)}} 
 
     constrained scalar value associated with a cutting tool.
 

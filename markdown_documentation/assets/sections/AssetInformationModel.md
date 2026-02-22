@@ -19,9 +19,10 @@ It is used in the manufacturing process, but is not permanently associated with 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(assetId)}}|`ID`|1|
-|{{property(deviceUuid)}}|`ID`|0..1|
+|{{property(deviceUuid)}}|`UUID`|0..1|
 |{{property(removed)}}|`boolean`|0..1|
 |{{property(timestamp)}}|`datetime`|1|
+|{{property(hash)}}|`string`|0..1|
 {: caption="Value Properties of Asset" label="table:value-properties-of-asset"}
 
 Descriptions for Value Properties of {{block(Asset)}}:
@@ -34,7 +35,7 @@ Descriptions for Value Properties of {{block(Asset)}}:
 
     associated piece of equipment's {{term(UUID)}} that supplied the {{block(Asset)}}'s data.
     
-    It references to the {{property(uuid)}} property of the {{block(Device)}} defined in {{package(Device Information Model)}}.
+    It references to {{property(Device::uuid)}} defined in {{package(Device Information Model)}}.
 
 * {{property(removed)}} 
 
@@ -44,26 +45,44 @@ Descriptions for Value Properties of {{block(Asset)}}:
 
     time the {{block(Asset)}} data was last modified.
 
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
+
 ### Part Properties of Asset
 
 {{tbl(part-properties-of-asset)}} lists the Part Properties of {{block(Asset)}}.
 
 |Part Property name|Multiplicity|
 |:-|:-:|
-|{{block(Description)}}|0..1|
 |{{block(Configuration)}}|0..1|
 {: caption="Part Properties of Asset" label="table:part-properties-of-asset"}
 
 Descriptions for Part Properties of {{block(Asset)}}:
-
-* {{block(Description)}} 
-
-    descriptive content.
-
-    This can contain configuration information and manufacturer specific details.
 
 * {{block(Configuration)}} 
 
     technical information about an entity describing its physical layout, functional characteristics, and relationships with other entities.
 
     See {{block(Configuration)}} in {{package(Device Information Model)}}.
+
+## PhysicalAsset
+
+abstract physical {{block(Asset)}}.
+
+
+
+### Part Properties of PhysicalAsset
+
+{{tbl(part-properties-of-physicalasset)}} lists the Part Properties of {{block(PhysicalAsset)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Measurement)}} (organized by `Measurements`)|0..*|
+{: caption="Part Properties of PhysicalAsset" label="table:part-properties-of-physicalasset"}
+
+Descriptions for Part Properties of {{block(PhysicalAsset)}}:
+
+* {{block(Measurement)}} 
+
+    constrained scalar value associated with an {{block(Asset)}}.

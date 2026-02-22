@@ -30,6 +30,7 @@ At most only one of {{block(Origin)}} or {{block(Transformation)}} **MUST** be d
 |{{property(nativeName)}}|`string`|0..1|
 |{{property(parentIdRef)}}|`ID`|0..1|
 |{{property(type)}}|`CoordinateSystemTypeEnum`|1|
+|{{property(uuid)}}|`UUID`|0..1|
 |{{property(Description)}}|`string`|0..1|
 {: caption="Value Properties of CoordinateSystem" label="table:value-properties-of-coordinatesystem"}
 
@@ -37,7 +38,7 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
 
 * {{property(id)}} 
 
-    unique identifier for this element.
+    unique identifier for the coordinate system.
 
 * {{property(name)}} 
 
@@ -49,7 +50,7 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
 
 * {{property(parentIdRef)}} 
 
-    pointer to the {{property(id)}} attribute of the parent {{block(CoordinateSystem)}}.
+    pointer to the {{property(CoordinateSystem::id)}}.
 
 * {{property(type)}} 
 
@@ -99,6 +100,10 @@ Descriptions for Value Properties of {{block(CoordinateSystem)}}:
         
         For non-robotic devices, stationary coordinate system referenced to earth, which is independent of the motion of a piece of equipment.
 
+* {{property(uuid)}} 
+
+    {{term(UUID)}} for the coordinate system.
+
 * {{property(Description)}} 
 
     natural language description of the {{block(CoordinateSystem)}}.
@@ -133,7 +138,20 @@ coordinates of the origin position of a coordinate system.
 
 
 
-The value of {{property(Origin)}} **MUST** be reported in `MILLIMETER_3D`.
+#### Part Properties of Origin
+
+{{tbl(part-properties-of-origin)}} lists the Part Properties of {{block(Origin)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(value)}}|0..1|
+{: caption="Part Properties of Origin" label="table:part-properties-of-origin"}
+
+Descriptions for Part Properties of {{block(Origin)}}:
+
+* {{block(OriginDataSet)}} 
+
+    x-coordinate.
 
 ### Transformation
 
@@ -175,7 +193,20 @@ rotations about X, Y, and Z axes are expressed in A, B, and C respectively withi
 
 
 
-The value of {{property(Rotation)}} **MUST** be reported in `DEGREE_3D`.
+#### Part Properties of Rotation
+
+{{tbl(part-properties-of-rotation)}} lists the Part Properties of {{block(Rotation)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(value)}}|0..1|
+{: caption="Part Properties of Rotation" label="table:part-properties-of-rotation"}
+
+Descriptions for Part Properties of {{block(Rotation)}}:
+
+* {{block(RotationDataSet)}} 
+
+    rotation about X axis.
 
 ### Translation
 
@@ -183,4 +214,17 @@ translations along X, Y, and Z axes are expressed as x,y, and z respectively wit
 
 
 
-The value of {{property(Translation)}} **MUST** be reported in `MILLIMETER_3D`.
+#### Part Properties of Translation
+
+{{tbl(part-properties-of-translation)}} lists the Part Properties of {{block(Translation)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(value)}}|0..1|
+{: caption="Part Properties of Translation" label="table:part-properties-of-translation"}
+
+Descriptions for Part Properties of {{block(Translation)}}:
+
+* {{block(TranslationDataSet)}} 
+
+    translation along X axis.

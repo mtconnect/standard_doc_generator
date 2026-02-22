@@ -15,8 +15,8 @@ If the response to the request for data from an {{term(agent)}} does not contain
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(name)}}|`ID`|1|
-|{{property(uuid)}}|`ID`|1|
+|{{property(name)}}|`string`|1|
+|{{property(uuid)}}|`UUID`|1|
 {: caption="Value Properties of DeviceStream" label="table:value-properties-of-devicestream"}
 
 Descriptions for Value Properties of {{block(DeviceStream)}}:
@@ -25,13 +25,11 @@ Descriptions for Value Properties of {{block(DeviceStream)}}:
 
     name of the {{block(Device)}}.
     
-    The value reported for {{property(name,DeviceStream)}} **MUST** be the same as the value defined for the {{property(name,Device)}} attribute of the same {{block(Device)}} in the {{term(MTConnectDevices Response Document)}}.
+    The value reported for {{property(DeviceStream::name)}} **MUST** be the same as the value defined for the {{property(Device::name)}} in the {{term(MTConnectDevices Response Document)}}.
 
 * {{property(uuid)}} 
 
-    uuid of the {{block(Device)}}.
-    
-    The value reported for {{property(uuid,DeviceStream)}} **MUST** be the same as the value defined for the {{property(uuid,Device)}} attribute of the same {{block(Device)}} in the {{term(MTConnectDevices Response Document)}}.
+    uuid of the {{block(Device)}}.  The value reported for {{property(DeviceStream::uuid)}} **MUST** be the same as the value defined for the {{property(Device::uuid)}} of the same {{block(Device)}} in the {{term(MTConnectDevices Response Document)}}.
 
 ### Part Properties of DeviceStream
 
@@ -68,7 +66,7 @@ At least one of {{block(Sample)}}, {{block(Event)}}, or {{block(Condition)}} **M
 |{{property(componentId)}}|`ID`|1|
 |{{property(name)}}|`string`|0..1|
 |{{property(nativeName)}}|`string`|0..1|
-|{{property(uuid)}}|`ID`|0..1|
+|{{property(uuid)}}|`UUID`|0..1|
 {: caption="Value Properties of ComponentStream" label="table:value-properties-of-componentstream"}
 
 Descriptions for Value Properties of {{block(ComponentStream)}}:
@@ -77,12 +75,11 @@ Descriptions for Value Properties of {{block(ComponentStream)}}:
 
     identifies the {{block(Component)}} type associated with the {{block(ComponentStream)}}.
     
-    Examples of {{property(component)}} are {{block(Device)}}, {{block(Controller)}}, {{block(Linear)}} and {{block(Loader)}}.
+    Examples of {{property(ComponentStream::component)}} are {{block(Device)}}, {{block(Controller)}}, {{block(Linear)}} and {{block(Loader)}}.
 
 * {{property(componentId)}} 
 
-    identifier of the {{block(Component)}} as defined by the {{property(id)}}
-    attribute in the {{term(MTConnectDevices Response Document)}}.
+    identifier of the {{block(Component)}} as defined by the {{property(Component::id)}} in the {{term(MTConnectDevices Response Document)}}.
 
 * {{property(name)}} 
 
@@ -142,7 +139,7 @@ abstract entity that provides telemetry data for a {{block(DataItem)}} at a poin
 
 > Note: See {{sect(Observations Schema Diagrams)}} for XML schema. The XML schema also shows differences in XML representation of certain MTConnect entities.
 
-{{figure(DeviceStream Example)}} shows a complete example of {{block(DeviceStream)}} for the {{block(Device)}} shown in {{textit(Figure 2: Component Example)}} in {{package(Device Information Model)}}.
+{{figure(DeviceStream Example)}} shows a complete example of {{block(DeviceStream)}} for the {{block(Device)}} shown in {{package(Device Information Model)}}.
 
 ![DeviceStream Example](figures/DeviceStream%20Example.png "DeviceStream Example"){: width="0.8"}
 
@@ -169,9 +166,9 @@ This section provides semantic information for the {{block(Observation)}} model.
 
 #### Naming Convention for Observation types
 
-The name of an {{block(Observation)}} type **MUST** derive from the {{block(DataItem)}} property {{property(type)}} converted to Pascal-Case by removing underscores (_ ) and capitalizing each word. The conversion **MUST NOT** apply to the following abbreviated words: `PH`, `AC`, `DC` and `URI`. `MTCONNECT` **MUST** be converted to `MTConnect`. See {{figure(Observations made for DataItem Example)}} for an example.
+The name of an {{block(Observation)}} type **MUST** derive from the associated {{property(DataItem::type)}} converted to Pascal-Case by removing underscores (_ ) and capitalizing each word. The conversion **MUST NOT** apply to the following abbreviated words: `PH`, `AC`, `DC` and `URI`. `MTCONNECT` **MUST** be converted to `MTConnect`. See {{figure(Observations made for DataItem Example)}} for an example.
 
-The name of an {{block(Observation)}} type reported in the {{term(MTConnectStreams Response Document)}} is extended when the {{property(representation)}} property is used to further describe that {{block(DataItem)}} in the {{term(MTConnectDevices Response Document)}}. See {{package(Representations)}} for more details.
+The name of an {{block(Observation)}} type reported in the {{term(MTConnectStreams Response Document)}} is extended when the {{property(DataItem::representation)}} is used to further describe that {{block(DataItem)}} in the {{term(MTConnectDevices Response Document)}}. See {{package(Representations)}} for more details.
 
 
 ### Value Properties of Observation
@@ -188,6 +185,7 @@ The name of an {{block(Observation)}} type reported in the {{term(MTConnectStrea
 |{{property(timestamp)}}|`datetime`|1|
 |{{property(type)}}|`DataItemTypeEnum`|1|
 |{{property(units)}}|`UnitEnum`|0..1|
+|{{property(isUnavailable)}}|`boolean`|1|
 {: caption="Value Properties of Observation" label="table:value-properties-of-observation"}
 
 Descriptions for Value Properties of {{block(Observation)}}:
@@ -200,27 +198,25 @@ Descriptions for Value Properties of {{block(Observation)}}:
 
     unique identifier of the {{block(DataItem)}} associated with this {{block(Observation)}}.
     
-    {{property(dataItemId)}} **MUST** match the {{property(id)}} attribute of
-    the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Observation::dataItemId)}} **MUST** match the associated {{property(DataItem::id)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
 * {{property(name)}} 
 
     name of the {{block(DataItem)}} associated with this {{block(Observation)}}.
     
-    {{property(name)}} **MUST** match the {{property(name)}} attribute of
-    the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Observation::name)}} **MUST** match the associated {{property(DataItem::name)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
 * {{property(sequence)}} 
 
     number representing the sequential position of an occurrence of an {{term(observation)}} in the data buffer of an {{term(agent)}}.
     
-    {{property(sequence)}} **MUST** have a value represented as an unsigned 64-bit value from 1 to $$ 2^{64}-1 $$.
+    {{property(Observation::sequence)}} **MUST** have a value represented as an unsigned 64-bit value from 1 to $$ 2^{64}-1 $$.
 
 * {{property(subType)}} 
 
     subtype of the {{block(DataItem)}} associated with this {{block(Observation)}}.
     
-    {{property(subType)}} **MUST** match the {{property(subType)}} attribute of the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Observation::subType)}} **MUST** match the associated {{property(DataItem::subType)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
     The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
@@ -232,7 +228,7 @@ Descriptions for Value Properties of {{block(Observation)}}:
 
     type of the {{block(DataItem)}} associated with this {{block(Observation)}}.
     
-    {{property(type)}} **MUST** match the {{property(type)}} attribute of the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Observation::type)}} **MUST** match the associated {{property(DataItem::type)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
     The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
@@ -240,15 +236,41 @@ Descriptions for Value Properties of {{block(Observation)}}:
 
     units of the {{block(DataItem)}} associated with this {{block(Observation)}}.
     
-    {{property(units)}} **MUST** match the {{property(units)}} attribute of the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Observation::units)}} **MUST** match the associated {{property(DataItem::units)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
+
+* {{property(isUnavailable)}} 
+
+    when `true`, {{property(Observation::result)}} is indeterminate.
+    
+    > Note 1 to entry: In {{term(XML)}}, when `isUnavailable` is `true`, the {{term(XML)}} `CDATA` of the `Observation` **MUST** be `UNAVAILABLE`.
+     ```xml
+    <Execution dataItemId="..." ...>UNAVAILABLE</Execution>
+    ```
+    
+    > Note 2 to entry: In {{term(JSON)}}, when `isUnavailable` is `true`, the {{term(JSON)}} `value` of the `Observation` **MUST** be `UNAVAILABLE`.
+    ```json
+      "Execution" : [ { "dataItemId": "..." ..., "value": "UNAVAILABLE" } ]
+    ```
 
 * {{property(result)}} 
 
     {{term(observation)}} of the {{block(Observation)}} entity.
     
-    The default value type for {{property(result)}} is `string`.
+    The default value type for {{property(Observation::result)}} is `string`.
+    
+    > Note 1 to entry: in {{term(XML)}} the {{property(Observation::result)}} is the `CDATA` of the Observation {{term(element)}}.
+    
+    ~~~~xml
+    <Execution dataItemId="..." ...>READY</Execution>
+    ~~~~
+    
+    > Note 2 to entry: in {{term(JSON)}} the {{property(Observation::result)}} is the member `value` of the Observation object.
+    
+    ~~~~json
+    "Execution" : [ { "dataItemId": "..." ..., "value": "READY" } ]
+    ~~~~
 
 ## Sample
 
@@ -257,11 +279,11 @@ Descriptions for Value Properties of {{block(Observation)}}:
 
 
 
-It provides the information and data reported from a piece of equipment for those {{block(DataItem)}} entities defined with a {{property(category,DataItem)}} property of `SAMPLE` in the {{term(MTConnectDevices Response Document)}}.
+It provides the information and data reported from a piece of equipment for those {{block(DataItem)}} entities defined with {{property(DataItem::category)}} as `SAMPLE` in the {{term(MTConnectDevices Response Document)}}.
 
 {{block(Sample)}} **MUST** always be reported in `float`.
 
-{{figure(Sample Example)}} shows {{block(Sample)}} type examples. It also shows an example for when the {{property(result)}} is not available (`dataItemId`=`cspeed`).
+{{figure(Sample Example)}} shows {{block(Sample)}} type examples. It also shows an example for when the {{property(Observation::result)}} is not available (`dataItemId`=`cspeed`).
 
 ![Sample Example](figures/Sample%20Example.png "Sample Example"){: width="0.8"}
 
@@ -292,51 +314,51 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
     time-period over which the data was collected.
     
-    {{property(duration)}} **MUST** be provided when the {{property(statistic)}} attribute of the {{block(DataItem)}} is defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Sample::duration)}} **MUST** be provided when the {{property(DataItem::statistic)}} is defined in the {{term(MTConnectDevices Response Document)}}.
 
 * {{property(resetTriggered)}} 
 
     identifies when a reported value has been reset and what has caused that reset to occur for those {{block(DataItem)}} entities that may be periodically reset to an initial value.
     
-    {{property(resetTriggered)}} **MUST** only be provided for the specific occurrence of a {{block(DataItem)}} reported in the {{term(MTConnectStreams Response Document)}} when the reset occurred.
+    `resetTriggered` **MUST** only be provided for the specific occurrence of a {{block(DataItem)}} reported in the {{term(MTConnectStreams Response Document)}} when the reset occurred.
 
     `ResetTriggeredEnum` Enumeration:
 
     * `ACTION_COMPLETE` 
 
-        {{property(result)}} of the {{block(Observation)}} that is measuring an action or operation was reset upon completion of that action or operation.
+        {{property(Observation::result)}} is measuring an action or operation was reset upon completion of that action or operation.
 
     * `ANNUAL` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset at the end of a 12-month period.
+        {{property(Observation::result)}} was reset at the end of a 12-month period.
 
     * `DAY` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset at the end of a 24-hour period.
+        {{property(Observation::result)}} was reset at the end of a 24-hour period.
 
     * `MAINTENANCE` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset upon completion of a maintenance event.
+        {{property(Observation::result)}} was reset upon completion of a maintenance event.
 
     * `MANUAL` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset based on a physical reset action.
+        {{property(Observation::result)}} was reset based on a physical reset action.
 
     * `MONTH` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset at the end of a monthly period.
+        {{property(Observation::result)}} was reset at the end of a monthly period.
 
     * `POWER_ON` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset when power was applied to the piece of equipment after a planned or unplanned interruption of power has occurred.
+        {{property(Observation::result)}} was reset when power was applied to the piece of equipment after a planned or unplanned interruption of power has occurred.
 
     * `SHIFT` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset at the end of a work shift.
+        {{property(Observation::result)}} was reset at the end of a work shift.
 
     * `WEEK` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset at the end of a 7-day period.
+        {{property(Observation::result)}} was reset at the end of a 7-day period.
 
 * {{property(sampleRate)}} 
 
@@ -345,7 +367,7 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
 * {{property(statistic)}} 
 
-    type of statistical calculation defined by the {{property(statistic)}} attribute of the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    type of statistical calculation defined by the {{property(DataItem::statistic)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
     The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration. 
 
@@ -356,9 +378,9 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
 
 
-It provides the information and data reported from a piece of equipment for those {{block(DataItem)}} entities defined with a {{property(category,DataItem)}} property of `EVENT` in the {{term(MTConnectDevices Response Document)}}.
+It provides the information and data reported from a piece of equipment for those {{block(DataItem)}} entities defined with {{property(DataItem::category)}} as `EVENT` in the {{term(MTConnectDevices Response Document)}}.
 
-{{figure(Event Example)}} shows {{block(Event)}} type examples. It also shows an example for when the {{property(result)}} is not available (`dataItemId`=`d1_asset_rem`).
+{{figure(Event Example)}} shows {{block(Event)}} type examples. It also shows an example for when the {{property(Observation::result)}} is not available (`dataItemId`=`d1_asset_rem`).
 
 ![Event Example](figures/Event%20Example.png "Event Example"){: width="0.8"}
 
@@ -382,7 +404,7 @@ Descriptions for Value Properties of {{block(Event)}}:
 
     identifies when a reported value has been reset and what has caused that reset to occur for those {{block(DataItem)}} entities that may be periodically reset to an initial value.
     
-    {{property(resetTriggered)}} **MUST** only be provided for the specific occurrence of a {{block(DataItem)}} reported in the {{term(MTConnectStreams Response Document)}} when the reset occurred.
+    `resetTriggered` **MUST** only be provided for the specific occurrence of a {{block(DataItem)}} reported in the {{term(MTConnectStreams Response Document)}} when the reset occurred.
 
     The value of {{property(resetTriggered)}} **MUST** be one of the `ResetTriggeredEnum` enumeration. 
 
@@ -393,9 +415,9 @@ Descriptions for Value Properties of {{block(Event)}}:
 
 
 
-It provides the information and data reported from a piece of equipment for those {{block(DataItem)}} entities defined with a {{property(category,DataItem)}} property of `CONDITION` in the {{term(MTConnectDevices Response Document)}}.
+It provides the information and data reported from a piece of equipment with {{property(DataItem::category)}} as `CONDITION` in the {{term(MTConnectDevices Response Document)}}.
 
-{{figure(Condition Example)}} shows {{block(Condition)}} type examples for various {{property(state)}}: `Normal` (`dataItemId` = `path_system`) and `Warning` (`dataItemId` = `logic_cond`). It also shows an example for when the {{property(state)}} is not available (`dataItemId` = `cont_system`).
+{{figure(Condition Example)}} shows {{block(Condition)}} type examples for various {{property(Condition::state)}}: `Normal` (`dataItemId` = `path_system`) and `Warning` (`dataItemId` = `logic_cond`). It also shows an example for when the {{property(Condition::state)}} is not available (`dataItemId` = `cont_system`).
 
 ![Condition Example](figures/Condition%20Example.png "Condition Example"){: width="0.8"}
 
@@ -416,15 +438,14 @@ The following {{sect(Value Properties of Condition)}} lists the additional and/o
 |{{property(statistic)}}|`StatisticEnum`|0..1|
 |{{property(xs:lang)}}|`xslang`|0..1|
 |{{property(state)}}|`ConditionStateEnum`|0..1|
+|{{property(conditionId)}}|`string`|1|
 {: caption="Value Properties of Condition" label="table:value-properties-of-condition"}
 
 Descriptions for Value Properties of {{block(Condition)}}:
 
 * {{property(nativeCode)}} 
 
-    native code (usually an alpha-numeric value) generated by the controller of a piece of equipment providing a reference identifier for a {{block(Condition)}}.
-    
-    This is the same information an operator or maintenance personnel may see as a reference code designating a specific fault code provided by the piece of equipment.
+    native code is the proprietary identifier designating a specific alarm, fault or warning code provided by the piece of equipment.
 
 * {{property(nativeSeverity)}} 
 
@@ -434,7 +455,7 @@ Descriptions for Value Properties of {{block(Condition)}}:
 
     additional information regarding a {{term(condition state)}} associated with the measured value of a process variable.
     
-    {{property(qualifier)}} defines whether the {{term(condition state)}} represented indicates a measured value that is above or below an expected value of a process variable.
+    {{property(Condition::qualifier)}} defines whether the {{term(condition state)}} represented indicates a measured value that is above or below an expected value of a process variable.
 
     `QualifierEnum` Enumeration:
 
@@ -448,15 +469,15 @@ Descriptions for Value Properties of {{block(Condition)}}:
 
 * {{property(statistic)}} 
 
-    {{property(statistic)}} provides additional information describing the meaning of the {{block(Condition)}} element.
+    {{property(Condition::statistic)}} provides additional information describing the meaning of the {{block(Condition)}} entity.
     
-    {{property(statistic)}} **MUST** match the {{property(statistic)}} attribute of the {{block(DataItem)}} entity defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Condition::statistic)}} **MUST** match the {{property(DataItem::statistic)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
     The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration. 
 
 * {{property(xs:lang)}} 
 
-    specifies the language of the {{property(result)}} returned for the {{block(Condition)}}. 
+    specifies the language of the {{property(Observation::result)}} returned for the {{block(Condition)}}. 
     
     See {{cite(IETF RFC 4646)}} (http://www.ietf.org/rfc/rfc4646.txt).
 
@@ -477,3 +498,15 @@ Descriptions for Value Properties of {{block(Condition)}}:
     * `Warning` 
 
         {{term(condition state)}} that requires concern and supervision and may become hazardous if no action is taken.
+
+* {{property(conditionId)}} 
+
+    identifier of an individual {{term(condition activation)}} provided by a piece of equipment.
+    
+    {{property(Condition::conditionId)}} **MUST** be unique for all concurrent {{termpl(condition activation)}}.
+    
+    {{property(Condition::conditionId)}} **MUST** be maintained for all state transitions related to the same {{term(condition activation)}}.
+    
+    Multiple {{property(Condition::conditionId)}}s **MAY** exist for the same {{property(nativeCode)}}.
+    
+    If {{property(Condition::conditionId)}} is not given, the value is the {{property(Condition::nativeCode)}}. If {{property(Condition::nativeCode)}} and {{property(Condition::conditionId)}} are not given, {{property(Condition::conditionId)}} **MUST** be generated.

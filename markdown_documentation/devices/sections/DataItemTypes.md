@@ -3,7 +3,7 @@
 
 This section provides semantic information for the types of a {{block(DataItem)}}.
 
-In the MTConnect Standard, {{block(DataItem)}} elements are defined and organized based upon the {{property(category)}} and {{property(type)}} attributes.  The {{property(category)}} attribute provides a high level grouping for {{block(DataItem)}} elements based on the kind of information that is reported by the data item.
+In the MTConnect Standard, {{block(DataItem)}} are defined and organized based upon the {{property(DataItem::category)}} and {{property(DataItem::type)}}.  The {{property(DataItem::category)}} provides a high level grouping for {{block(DataItem)}}s based on the kind of information that is reported by the data item.
 
 These categories are:
 
@@ -13,9 +13,9 @@ These categories are:
 
 * `CONDITION`: A `CONDITION` reports information about the health of a piece of equipment and its ability to function.
 
-The {{property(type)}} attribute specifies the specific kind of data that is reported.   For some types of data items, a {{property(subType)}} attribute may also be used to differentiate between multiple data items of the same {{property(type)}} where the information reported by the data item has a different, but related, meaning.
+The {{property(DataItem::type)}} specifies the specific kind of data that is reported.   For some types of data items, a {{property(DataItem::subType)}} may also be used to differentiate between multiple data items of the same {{property(DataItem::type)}} where the information reported by the data item has a different, but related, meaning.
 
-Many types of data items provide two forms of data: a value (reported as either a `SAMPLE` or `EVENT`) and a health status (reported as a `CONDITION`).  These {{block(DataItem)}} types **MAY** be defined in more than one {{property(category)}} based on the data that they report.
+Many types of data items provide two forms of data: a value (reported as either a `SAMPLE` or `EVENT`) and a health status (reported as a `CONDITION`).  These {{block(DataItem)}} types **MAY** be defined in more than one {{property(DataItem::category)}} based on the data that they report.
 
 
 ### Condition
@@ -101,6 +101,10 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         set of axes currently associated with a {{block(Path)}} or {{block(Controller)}}.
 
+    * `ACTIVE_POWER_SOURCE` 
+
+        active energy source for the {{block(Component)}}.
+
     * `ACTUATOR_STATE` 
 
         operational state of an apparatus for moving or controlling a mechanism or system.
@@ -117,7 +121,13 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         **DEPRECATED:** Replaced with `CONDITION` category data items in Version 1.1.0.
 
-    * `ALARM_LIMIT` 
+    * `<<deprecated>>` `ALARM_LIMIT` 
+
+        set of limits used to trigger warning or alarm indicators.
+        
+        **DEPRECATED** in *Version 2.5*. Replaced by  `ALARM_LIMITS`.
+
+    * `ALARM_LIMITS` 
 
         set of limits used to trigger warning or alarm indicators.
 
@@ -171,6 +181,14 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         total count of the number of blocks of program code that have been executed since execution started.
 
+    * `CHARACTERISTIC_PERSISTENT_ID` 
+
+        {{term(UUID)}} of the {{term(characteristic)}}.
+
+    * `CHARACTERISTIC_STATUS` 
+
+        pass/fail result of the measurement.
+
     * `CHUCK_INTERLOCK` 
 
         state of an interlock function or control logic state intended to prevent the associated {{block(Chuck)}} component from being operated.
@@ -191,6 +209,10 @@ Descriptions for Value Properties of {{block(Event)}}:
         
         **DEPRECATED** in *Version 1.1*.
 
+    * `COMPONENT_DATA` 
+
+        {{block(Event)}} that represents a {{block(Component)}} where the {{block(EntryDefinition)}} identifies the {{block(Component)}} and the {{block(CellDefinition)}}s define the {{block(Component)}}'s observed {{block(DataItem)}}s.
+
     * `COMPOSITION_STATE` 
 
         operating state of a mechanism represented by a {{block(Composition)}} entity.
@@ -207,7 +229,13 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         setting or operator selection that changes the behavior of a piece of equipment.
 
-    * `CONTROL_LIMIT` 
+    * `<<deprecated>>` `CONTROL_LIMIT` 
+
+        set of limits used to indicate whether a process variable is stable and in control.
+        
+        **DEPRECATED** in *Version 2.5*. Replaced by `CONTROL_LIMITS`.
+
+    * `CONTROL_LIMITS` 
 
         set of limits used to indicate whether a process variable is stable and in control.
 
@@ -265,7 +293,15 @@ Descriptions for Value Properties of {{block(Event)}}:
 
     * `EXECUTION` 
 
-        execution status of the {{block(Component)}}.
+        operating state of a {{block(Component)}}.
+
+    * `FEATURE_MEASUREMENT` 
+
+        assessing elements of a {{term(feature)}}.
+
+    * `FEATURE_PERSISTENT_ID` 
+
+        {{term(UUID)}} of a {{term(feature)}}. {{cite(ISO 10303 AP 242/239)}}.
 
     * `FIRMWARE` 
 
@@ -273,7 +309,7 @@ Descriptions for Value Properties of {{block(Event)}}:
 
     * `FIXTURE_ID` 
 
-        identifier for a fixture.
+        identifier for the current workholding or part clamp in use by a piece of equipment.
 
     * `FUNCTIONAL_MODE` 
 
@@ -317,6 +353,18 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         accumulation of the number of times an operation has attempted to, or is planned to attempt to, load materials, parts, or other items.
 
+    * `LOCATION_ADDRESS` 
+
+        structured information that allows the unambiguous determination of an object for purposes of identification and location. {{cite(ISO 19160-4:2017)}}
+
+    * `LOCATION_NARRATIVE` 
+
+        textual description of the location of an object or activity.
+
+    * `LOCATION_SPATIAL_GEOGRAPHIC` 
+
+        absolute geographic location defined by two coordinates, longitude and latitude and an elevation.
+
     * `LOCK_STATE` 
 
         state or operating mode of a {{block(Lock)}}.
@@ -332,6 +380,18 @@ Descriptions for Value Properties of {{block(Event)}}:
     * `MATERIAL_LAYER` 
 
         identifies the layers of material applied to a part or product as part of an additive manufacturing process.
+
+    * `MEASUREMENT_TYPE` 
+
+        class of measurement being performed. {{cite(QIF 3:2018 Section 6.3)}}
+
+    * `MEASUREMENT_UNITS` 
+
+        engineering units of the measurement.
+
+    * `MEASUREMENT_VALUE` 
+
+        measurement based on the measurement type.
 
     * `MESSAGE` 
 
@@ -384,6 +444,10 @@ Descriptions for Value Properties of {{block(Event)}}:
     * `PART_ID` 
 
         identifier of a part in a manufacturing operation.
+
+    * `PART_INDEX` 
+
+        sequence of a part in a group of parts.
 
     * `PART_KIND_ID` 
 
@@ -497,11 +561,21 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         {{term(attachment)}} between a sensor and an entity.
 
+    * `SENSOR_STATE` 
+
+        detection result of a sensor.
+
     * `SERIAL_NUMBER` 
 
         serial number associated with a {{block(Component)}}, {{block(Asset)}}, or {{block(Device)}}.
 
-    * `SPECIFICATION_LIMIT` 
+    * `<<deprecated>>` `SPECIFICATION_LIMIT` 
+
+        set of limits defining a range of values designating acceptable performance for a variable.
+        
+        **DEPRECATED** in *Version 2.5*. Replaced by  `SPECIFICATION_LIMITS`.
+
+    * `SPECIFICATION_LIMITS` 
 
         set of limits defining a range of values designating acceptable performance for a variable.
 
@@ -509,9 +583,17 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         indication of the status of the spindle for a piece of equipment when power has been removed and it is free to rotate.
 
+    * `THICKNESS` 
+
+        dimension between two surfaces of an object, usually the dimension of smallest measure, for example an additive layer, or a depth of cut.
+
     * `TOOL_ASSET_ID` 
 
         identifier of an individual tool asset.
+
+    * `TOOL_CUTTING_ITEM` 
+
+        references the {{block(CuttingToolLifeCycle)}} {{block(CuttingItem)}} index related to the {{property(CuttingItem::indices)}} of the currently active cutting tool edge.
 
     * `TOOL_GROUP` 
 
@@ -521,7 +603,7 @@ Descriptions for Value Properties of {{block(Event)}}:
 
         identifier of the tool currently in use for a given `Path`.
         
-        **DEPRECATED** in *Version 1.2.0*.   See `TOOL_ASSET_ID`.
+        **DEPRECATED** in *Version 1.2.0*.   See `TOOL_NUMBER`.
 
     * `TOOL_NUMBER` 
 
@@ -529,7 +611,11 @@ Descriptions for Value Properties of {{block(Event)}}:
 
     * `TOOL_OFFSET` 
 
-        reference to the tool offset variables applied to the active cutting tool associated with a {{block(Path)}} in a {{block(Controller)}} type component.
+        reference to the tool offset variables applied to the active cutting tool.
+
+    * `TOOL_OFFSETS` 
+
+        properties of each addressable tool offset.
 
     * `TRANSFER_COUNT` 
 
@@ -538,6 +624,14 @@ Descriptions for Value Properties of {{block(Event)}}:
     * `TRANSLATION` 
 
         three space linear displacement of an object or coordinate system relative to a {{term(cartesian coordinate system)}}.
+
+    * `UNCERTAINTY` 
+
+        {{term(uncertainty)}} specified by {{block(UncertaintyType)}}.
+
+    * `UNCERTAINTY_TYPE` 
+
+        method used to compute {{term(standard uncertainty)}}.
 
     * `UNLOAD_COUNT` 
 
@@ -566,10 +660,16 @@ Descriptions for Value Properties of {{block(Event)}}:
     * `WORKHOLDING_ID` 
 
         identifier for the current workholding or part clamp in use by a piece of equipment.
+        
+        **DEPRECATION WARNING**: Recommend using `FIXTURE_ID` instead.
 
     * `WORK_OFFSET` 
 
-        offset variables for a work piece or part associated with a {{block(Path)}} in a {{block(Controller)}} type component.
+        reference to offset variables for a work piece or part.
+
+    * `WORK_OFFSETS` 
+
+        properties of each addressable work offset.
 
 ### Sample
 
@@ -656,11 +756,11 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
     * `CAPACITY_FLUID` 
 
-        fluid capacity of an object or container.
+        maximum amount of fluid that can be held by a container.
 
     * `CAPACITY_SPATIAL` 
 
-        geometric capacity of an object or container.
+        maximum amount of material that can be held by a container.
 
     * `CHARGE_RATE` 
 
@@ -737,6 +837,10 @@ Descriptions for Value Properties of {{block(Sample)}}:
     * `EQUIPMENT_TIMER` 
 
         amount of time a piece of equipment or a sub-part of a piece of equipment has performed specific activities.
+
+    * `FILL_HEIGHT` 
+
+        amount of a substance in a container.
 
     * `FILL_LEVEL` 
 
@@ -822,6 +926,14 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
         angular position of a plane or vector relative to a {{term(cartesian coordinate system)}}
 
+    * `PARTICLE_COUNT` 
+
+        number of particles counted by their size or other characteristics.
+
+    * `PARTICLE_SIZE` 
+
+        size of particles counted by their size or other characteristics.
+
     * `PATH_FEEDRATE` 
 
         feedrate for the axes, or a single axis, associated with a {{block(Path)}} component.
@@ -871,6 +983,10 @@ Descriptions for Value Properties of {{block(Sample)}}:
     * `RESISTANCE` 
 
         degree to which a substance opposes the passage of an electric current.
+
+    * `RESISTIVITY` 
+
+        inability of a material to conduct electricity.
 
     * `ROTARY_VELOCITY` 
 

@@ -83,8 +83,8 @@ If the response to the request for data from an {{term(agent)}} does not contain
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(name)}}|`ID`|1|
-|{{property(uuid)}}|`ID`|1|
+|{{property(name)}}|`string`|1|
+|{{property(uuid)}}|`UUID`|1|
 {: caption="Value Properties of DeviceStream" label="table:value-properties-of-devicestream"}
 
 Descriptions for Value Properties of {{block(DeviceStream)}}:
@@ -93,13 +93,11 @@ Descriptions for Value Properties of {{block(DeviceStream)}}:
 
     name of the {{block(Device)}}.
     
-    The value reported for {{property(name,DeviceStream)}} **MUST** be the same as the value defined for the {{property(name,Device)}} attribute of the same {{block(Device)}} in the {{term(MTConnectDevices Response Document)}}.
+    The value reported for {{property(DeviceStream::name)}} **MUST** be the same as the value defined for the {{property(Device::name)}} in the {{term(MTConnectDevices Response Document)}}.
 
 * {{property(uuid)}} 
 
-    uuid of the {{block(Device)}}.
-    
-    The value reported for {{property(uuid,DeviceStream)}} **MUST** be the same as the value defined for the {{property(uuid,Device)}} attribute of the same {{block(Device)}} in the {{term(MTConnectDevices Response Document)}}.
+    uuid of the {{block(Device)}}.  The value reported for {{property(DeviceStream::uuid)}} **MUST** be the same as the value defined for the {{property(Device::uuid)}} of the same {{block(Device)}} in the {{term(MTConnectDevices Response Document)}}.
 
 ### Part Properties of DeviceStream
 
@@ -136,7 +134,7 @@ At least one of {{block(Sample)}}, {{block(Event)}}, or {{block(Condition)}} **M
 |{{property(componentId)}}|`ID`|1|
 |{{property(name)}}|`string`|0..1|
 |{{property(nativeName)}}|`string`|0..1|
-|{{property(uuid)}}|`ID`|0..1|
+|{{property(uuid)}}|`UUID`|0..1|
 {: caption="Value Properties of ComponentStream" label="table:value-properties-of-componentstream"}
 
 Descriptions for Value Properties of {{block(ComponentStream)}}:
@@ -145,12 +143,11 @@ Descriptions for Value Properties of {{block(ComponentStream)}}:
 
     identifies the {{block(Component)}} type associated with the {{block(ComponentStream)}}.
     
-    Examples of {{property(component)}} are {{block(Device)}}, {{block(Controller)}}, {{block(Linear)}} and {{block(Loader)}}.
+    Examples of {{property(ComponentStream::component)}} are {{block(Device)}}, {{block(Controller)}}, {{block(Linear)}} and {{block(Loader)}}.
 
 * {{property(componentId)}} 
 
-    identifier of the {{block(Component)}} as defined by the {{property(id)}}
-    attribute in the {{term(MTConnectDevices Response Document)}}.
+    identifier of the {{block(Component)}} as defined by the {{property(Component::id)}} in the {{term(MTConnectDevices Response Document)}}.
 
 * {{property(name)}} 
 
@@ -210,7 +207,7 @@ abstract entity that provides telemetry data for a {{block(DataItem)}} at a poin
 
 > Note: See {{sect(Observations Schema Diagrams)}} for XML schema. The XML schema also shows differences in XML representation of certain MTConnect entities.
 
-{{figure(DeviceStream Example)}} shows a complete example of {{block(DeviceStream)}} for the {{block(Device)}} shown in {{textit(Figure 2: Component Example)}} in {{package(Device Information Model)}}.
+{{figure(DeviceStream Example)}} shows a complete example of {{block(DeviceStream)}} for the {{block(Device)}} shown in {{package(Device Information Model)}}.
 
 ![DeviceStream Example](figures/DeviceStream%20Example.png "DeviceStream Example"){: width="0.8"}
 
@@ -237,9 +234,9 @@ This section provides semantic information for the {{block(Observation)}} model.
 
 #### Naming Convention for Observation types
 
-The name of an {{block(Observation)}} type **MUST** derive from the {{block(DataItem)}} property {{property(type)}} converted to Pascal-Case by removing underscores (_ ) and capitalizing each word. The conversion **MUST NOT** apply to the following abbreviated words: `PH`, `AC`, `DC` and `URI`. `MTCONNECT` **MUST** be converted to `MTConnect`. See {{figure(Observations made for DataItem Example)}} for an example.
+The name of an {{block(Observation)}} type **MUST** derive from the associated {{property(DataItem::type)}} converted to Pascal-Case by removing underscores (_ ) and capitalizing each word. The conversion **MUST NOT** apply to the following abbreviated words: `PH`, `AC`, `DC` and `URI`. `MTCONNECT` **MUST** be converted to `MTConnect`. See {{figure(Observations made for DataItem Example)}} for an example.
 
-The name of an {{block(Observation)}} type reported in the {{term(MTConnectStreams Response Document)}} is extended when the {{property(representation)}} property is used to further describe that {{block(DataItem)}} in the {{term(MTConnectDevices Response Document)}}. See {{package(Representations)}} for more details.
+The name of an {{block(Observation)}} type reported in the {{term(MTConnectStreams Response Document)}} is extended when the {{property(DataItem::representation)}} is used to further describe that {{block(DataItem)}} in the {{term(MTConnectDevices Response Document)}}. See {{package(Representations)}} for more details.
 
 
 ### Value Properties of Observation
@@ -256,6 +253,7 @@ The name of an {{block(Observation)}} type reported in the {{term(MTConnectStrea
 |{{property(timestamp)}}|`datetime`|1|
 |{{property(type)}}|`DataItemTypeEnum`|1|
 |{{property(units)}}|`UnitEnum`|0..1|
+|{{property(isUnavailable)}}|`boolean`|1|
 {: caption="Value Properties of Observation" label="table:value-properties-of-observation"}
 
 Descriptions for Value Properties of {{block(Observation)}}:
@@ -268,27 +266,25 @@ Descriptions for Value Properties of {{block(Observation)}}:
 
     unique identifier of the {{block(DataItem)}} associated with this {{block(Observation)}}.
     
-    {{property(dataItemId)}} **MUST** match the {{property(id)}} attribute of
-    the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Observation::dataItemId)}} **MUST** match the associated {{property(DataItem::id)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
 * {{property(name)}} 
 
     name of the {{block(DataItem)}} associated with this {{block(Observation)}}.
     
-    {{property(name)}} **MUST** match the {{property(name)}} attribute of
-    the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Observation::name)}} **MUST** match the associated {{property(DataItem::name)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
 * {{property(sequence)}} 
 
     number representing the sequential position of an occurrence of an {{term(observation)}} in the data buffer of an {{term(agent)}}.
     
-    {{property(sequence)}} **MUST** have a value represented as an unsigned 64-bit value from 1 to $$ 2^{64}-1 $$.
+    {{property(Observation::sequence)}} **MUST** have a value represented as an unsigned 64-bit value from 1 to $$ 2^{64}-1 $$.
 
 * {{property(subType)}} 
 
     subtype of the {{block(DataItem)}} associated with this {{block(Observation)}}.
     
-    {{property(subType)}} **MUST** match the {{property(subType)}} attribute of the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Observation::subType)}} **MUST** match the associated {{property(DataItem::subType)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
     The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
@@ -300,7 +296,7 @@ Descriptions for Value Properties of {{block(Observation)}}:
 
     type of the {{block(DataItem)}} associated with this {{block(Observation)}}.
     
-    {{property(type)}} **MUST** match the {{property(type)}} attribute of the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Observation::type)}} **MUST** match the associated {{property(DataItem::type)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
     The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
@@ -308,15 +304,41 @@ Descriptions for Value Properties of {{block(Observation)}}:
 
     units of the {{block(DataItem)}} associated with this {{block(Observation)}}.
     
-    {{property(units)}} **MUST** match the {{property(units)}} attribute of the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Observation::units)}} **MUST** match the associated {{property(DataItem::units)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
+
+* {{property(isUnavailable)}} 
+
+    when `true`, {{property(Observation::result)}} is indeterminate.
+    
+    > Note 1 to entry: In {{term(XML)}}, when `isUnavailable` is `true`, the {{term(XML)}} `CDATA` of the `Observation` **MUST** be `UNAVAILABLE`.
+     ```xml
+    <Execution dataItemId="..." ...>UNAVAILABLE</Execution>
+    ```
+    
+    > Note 2 to entry: In {{term(JSON)}}, when `isUnavailable` is `true`, the {{term(JSON)}} `value` of the `Observation` **MUST** be `UNAVAILABLE`.
+    ```json
+      "Execution" : [ { "dataItemId": "..." ..., "value": "UNAVAILABLE" } ]
+    ```
 
 * {{property(result)}} 
 
     {{term(observation)}} of the {{block(Observation)}} entity.
     
-    The default value type for {{property(result)}} is `string`.
+    The default value type for {{property(Observation::result)}} is `string`.
+    
+    > Note 1 to entry: in {{term(XML)}} the {{property(Observation::result)}} is the `CDATA` of the Observation {{term(element)}}.
+    
+    ~~~~xml
+    <Execution dataItemId="..." ...>READY</Execution>
+    ~~~~
+    
+    > Note 2 to entry: in {{term(JSON)}} the {{property(Observation::result)}} is the member `value` of the Observation object.
+    
+    ~~~~json
+    "Execution" : [ { "dataItemId": "..." ..., "value": "READY" } ]
+    ~~~~
 
 ## Sample
 
@@ -325,11 +347,11 @@ Descriptions for Value Properties of {{block(Observation)}}:
 
 
 
-It provides the information and data reported from a piece of equipment for those {{block(DataItem)}} entities defined with a {{property(category,DataItem)}} property of `SAMPLE` in the {{term(MTConnectDevices Response Document)}}.
+It provides the information and data reported from a piece of equipment for those {{block(DataItem)}} entities defined with {{property(DataItem::category)}} as `SAMPLE` in the {{term(MTConnectDevices Response Document)}}.
 
 {{block(Sample)}} **MUST** always be reported in `float`.
 
-{{figure(Sample Example)}} shows {{block(Sample)}} type examples. It also shows an example for when the {{property(result)}} is not available (`dataItemId`=`cspeed`).
+{{figure(Sample Example)}} shows {{block(Sample)}} type examples. It also shows an example for when the {{property(Observation::result)}} is not available (`dataItemId`=`cspeed`).
 
 ![Sample Example](figures/Sample%20Example.png "Sample Example"){: width="0.8"}
 
@@ -360,51 +382,51 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
     time-period over which the data was collected.
     
-    {{property(duration)}} **MUST** be provided when the {{property(statistic)}} attribute of the {{block(DataItem)}} is defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Sample::duration)}} **MUST** be provided when the {{property(DataItem::statistic)}} is defined in the {{term(MTConnectDevices Response Document)}}.
 
 * {{property(resetTriggered)}} 
 
     identifies when a reported value has been reset and what has caused that reset to occur for those {{block(DataItem)}} entities that may be periodically reset to an initial value.
     
-    {{property(resetTriggered)}} **MUST** only be provided for the specific occurrence of a {{block(DataItem)}} reported in the {{term(MTConnectStreams Response Document)}} when the reset occurred.
+    `resetTriggered` **MUST** only be provided for the specific occurrence of a {{block(DataItem)}} reported in the {{term(MTConnectStreams Response Document)}} when the reset occurred.
 
     `ResetTriggeredEnum` Enumeration:
 
     * `ACTION_COMPLETE` 
 
-        {{property(result)}} of the {{block(Observation)}} that is measuring an action or operation was reset upon completion of that action or operation.
+        {{property(Observation::result)}} is measuring an action or operation was reset upon completion of that action or operation.
 
     * `ANNUAL` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset at the end of a 12-month period.
+        {{property(Observation::result)}} was reset at the end of a 12-month period.
 
     * `DAY` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset at the end of a 24-hour period.
+        {{property(Observation::result)}} was reset at the end of a 24-hour period.
 
     * `MAINTENANCE` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset upon completion of a maintenance event.
+        {{property(Observation::result)}} was reset upon completion of a maintenance event.
 
     * `MANUAL` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset based on a physical reset action.
+        {{property(Observation::result)}} was reset based on a physical reset action.
 
     * `MONTH` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset at the end of a monthly period.
+        {{property(Observation::result)}} was reset at the end of a monthly period.
 
     * `POWER_ON` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset when power was applied to the piece of equipment after a planned or unplanned interruption of power has occurred.
+        {{property(Observation::result)}} was reset when power was applied to the piece of equipment after a planned or unplanned interruption of power has occurred.
 
     * `SHIFT` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset at the end of a work shift.
+        {{property(Observation::result)}} was reset at the end of a work shift.
 
     * `WEEK` 
 
-        {{property(result)}} of the {{block(Observation)}} was reset at the end of a 7-day period.
+        {{property(Observation::result)}} was reset at the end of a 7-day period.
 
 * {{property(sampleRate)}} 
 
@@ -413,7 +435,7 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
 * {{property(statistic)}} 
 
-    type of statistical calculation defined by the {{property(statistic)}} attribute of the {{block(DataItem)}} defined in the {{term(MTConnectDevices Response Document)}}.
+    type of statistical calculation defined by the {{property(DataItem::statistic)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
     The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration. 
 
@@ -424,9 +446,9 @@ Descriptions for Value Properties of {{block(Sample)}}:
 
 
 
-It provides the information and data reported from a piece of equipment for those {{block(DataItem)}} entities defined with a {{property(category,DataItem)}} property of `EVENT` in the {{term(MTConnectDevices Response Document)}}.
+It provides the information and data reported from a piece of equipment for those {{block(DataItem)}} entities defined with {{property(DataItem::category)}} as `EVENT` in the {{term(MTConnectDevices Response Document)}}.
 
-{{figure(Event Example)}} shows {{block(Event)}} type examples. It also shows an example for when the {{property(result)}} is not available (`dataItemId`=`d1_asset_rem`).
+{{figure(Event Example)}} shows {{block(Event)}} type examples. It also shows an example for when the {{property(Observation::result)}} is not available (`dataItemId`=`d1_asset_rem`).
 
 ![Event Example](figures/Event%20Example.png "Event Example"){: width="0.8"}
 
@@ -450,7 +472,7 @@ Descriptions for Value Properties of {{block(Event)}}:
 
     identifies when a reported value has been reset and what has caused that reset to occur for those {{block(DataItem)}} entities that may be periodically reset to an initial value.
     
-    {{property(resetTriggered)}} **MUST** only be provided for the specific occurrence of a {{block(DataItem)}} reported in the {{term(MTConnectStreams Response Document)}} when the reset occurred.
+    `resetTriggered` **MUST** only be provided for the specific occurrence of a {{block(DataItem)}} reported in the {{term(MTConnectStreams Response Document)}} when the reset occurred.
 
     The value of {{property(resetTriggered)}} **MUST** be one of the `ResetTriggeredEnum` enumeration. 
 
@@ -461,9 +483,9 @@ Descriptions for Value Properties of {{block(Event)}}:
 
 
 
-It provides the information and data reported from a piece of equipment for those {{block(DataItem)}} entities defined with a {{property(category,DataItem)}} property of `CONDITION` in the {{term(MTConnectDevices Response Document)}}.
+It provides the information and data reported from a piece of equipment with {{property(DataItem::category)}} as `CONDITION` in the {{term(MTConnectDevices Response Document)}}.
 
-{{figure(Condition Example)}} shows {{block(Condition)}} type examples for various {{property(state)}}: `Normal` (`dataItemId` = `path_system`) and `Warning` (`dataItemId` = `logic_cond`). It also shows an example for when the {{property(state)}} is not available (`dataItemId` = `cont_system`).
+{{figure(Condition Example)}} shows {{block(Condition)}} type examples for various {{property(Condition::state)}}: `Normal` (`dataItemId` = `path_system`) and `Warning` (`dataItemId` = `logic_cond`). It also shows an example for when the {{property(Condition::state)}} is not available (`dataItemId` = `cont_system`).
 
 ![Condition Example](figures/Condition%20Example.png "Condition Example"){: width="0.8"}
 
@@ -484,15 +506,14 @@ The following {{sect(Value Properties of Condition)}} lists the additional and/o
 |{{property(statistic)}}|`StatisticEnum`|0..1|
 |{{property(xs:lang)}}|`xslang`|0..1|
 |{{property(state)}}|`ConditionStateEnum`|0..1|
+|{{property(conditionId)}}|`string`|1|
 {: caption="Value Properties of Condition" label="table:value-properties-of-condition"}
 
 Descriptions for Value Properties of {{block(Condition)}}:
 
 * {{property(nativeCode)}} 
 
-    native code (usually an alpha-numeric value) generated by the controller of a piece of equipment providing a reference identifier for a {{block(Condition)}}.
-    
-    This is the same information an operator or maintenance personnel may see as a reference code designating a specific fault code provided by the piece of equipment.
+    native code is the proprietary identifier designating a specific alarm, fault or warning code provided by the piece of equipment.
 
 * {{property(nativeSeverity)}} 
 
@@ -502,7 +523,7 @@ Descriptions for Value Properties of {{block(Condition)}}:
 
     additional information regarding a {{term(condition state)}} associated with the measured value of a process variable.
     
-    {{property(qualifier)}} defines whether the {{term(condition state)}} represented indicates a measured value that is above or below an expected value of a process variable.
+    {{property(Condition::qualifier)}} defines whether the {{term(condition state)}} represented indicates a measured value that is above or below an expected value of a process variable.
 
     `QualifierEnum` Enumeration:
 
@@ -516,15 +537,15 @@ Descriptions for Value Properties of {{block(Condition)}}:
 
 * {{property(statistic)}} 
 
-    {{property(statistic)}} provides additional information describing the meaning of the {{block(Condition)}} element.
+    {{property(Condition::statistic)}} provides additional information describing the meaning of the {{block(Condition)}} entity.
     
-    {{property(statistic)}} **MUST** match the {{property(statistic)}} attribute of the {{block(DataItem)}} entity defined in the {{term(MTConnectDevices Response Document)}}.
+    {{property(Condition::statistic)}} **MUST** match the {{property(DataItem::statistic)}} defined in the {{term(MTConnectDevices Response Document)}}.
 
     The value of {{property(statistic)}} **MUST** be one of the `StatisticEnum` enumeration. 
 
 * {{property(xs:lang)}} 
 
-    specifies the language of the {{property(result)}} returned for the {{block(Condition)}}. 
+    specifies the language of the {{property(Observation::result)}} returned for the {{block(Condition)}}. 
     
     See {{cite(IETF RFC 4646)}} (http://www.ietf.org/rfc/rfc4646.txt).
 
@@ -546,6 +567,18 @@ Descriptions for Value Properties of {{block(Condition)}}:
 
         {{term(condition state)}} that requires concern and supervision and may become hazardous if no action is taken.
 
+* {{property(conditionId)}} 
+
+    identifier of an individual {{term(condition activation)}} provided by a piece of equipment.
+    
+    {{property(Condition::conditionId)}} **MUST** be unique for all concurrent {{termpl(condition activation)}}.
+    
+    {{property(Condition::conditionId)}} **MUST** be maintained for all state transitions related to the same {{term(condition activation)}}.
+    
+    Multiple {{property(Condition::conditionId)}}s **MAY** exist for the same {{property(nativeCode)}}.
+    
+    If {{property(Condition::conditionId)}} is not given, the value is the {{property(Condition::nativeCode)}}. If {{property(Condition::nativeCode)}} and {{property(Condition::conditionId)}} are not given, {{property(Condition::conditionId)}} **MUST** be generated.
+
 
 # Representations
 
@@ -558,10 +591,10 @@ This section provides semantic information for the {{block(Representation)}} mod
 
 ## Representation
 
-specifies the format and structure of the {{property(result)}} for an {{block(Observation)}}. 
+specifies the format and structure of {{property(Observation::result)}}.
 
 
-The {{block(Representation)}} type for an {{block(Observation)}} is defined by the associated {{block(DataItem)}}'s property {{property(representation)}} in the {{term(MTConnectDevices Response Document)}}.
+The {{block(Representation)}} type for an {{block(Observation)}} is defined by the associated {{property(DataItem::representation)}} in the {{term(MTConnectDevices Response Document)}}.
 
 {{block(Value)}} is the default {{block(Representation)}} type for all {{block(Observation)}} types.
 
@@ -572,7 +605,7 @@ Example: The name for {{block(Sample)}} {{block(Observation)}} type `Temperature
 
 ## Value
 
-default {{block(Representation)}} type for all {{block(Observation)}} types where {{property(result)}} of the {{block(Observation)}} types is an MTConnect data type. See {{package(DataTypes)}}.
+default {{block(Representation)}} type for all {{block(Observation)}} types where {{property(Observation::result)}} type is an MTConnect data type. See {{package(DataTypes)}}.
 
 
 
@@ -583,9 +616,9 @@ default {{block(Representation)}} type for all {{block(Observation)}} types wher
 
 
 
-{{block(TimeSeries)}} for an {{block(Observation)}} is defined by the associated {{block(DataItem)}}'s property {{property(representation)}} as `TIME_SERIES`.
+{{block(TimeSeries)}} for an {{block(Observation)}} is defined by the associated {{property(DataItem::representation)}} as `TIME_SERIES`.
 
-{{block(DataItem)}} with `TIME_SERIES` {{property(representation)}} **MUST** have a {{property(category)}} of `SAMPLE`.
+{{property(DataItem::representation)}} as `TIME_SERIES` **MUST** have {{property(DataItem::category)}} of `SAMPLE`.
 
 {{figure(TemperatureTimeSeries)}} shows the model for {{block(Temperature)}} ({{block(Sample)}} type) with a {{block(Representation)}} type of {{block(TimeSeries)}}. 
 
@@ -593,9 +626,9 @@ default {{block(Representation)}} type for all {{block(Observation)}} types wher
 
 > Note: See {{sect(Representation Schema Diagrams)}} for XML schema.
 
-{{block(TimeSeries)}} **MUST** report multiple values at fixed intervals in a single {{block(Observation)}}. At minimum, one of {{block(DataItem)}} or {{block(Observation)}} **MUST** specify the {{property(sampleRate)}} in `Hertz`(values/second); fractional rates are permitted. When the {{block(Observation)}} and the {{block(DataItem)}} specify the {{property(sampleRate)}}, the {{block(Observation)}} {{property(sampleRate)}} supersedes the {{block(DataItem)}}.
+{{block(TimeSeries)}} **MUST** report multiple values at fixed intervals in a single {{block(Observation)}}. At minimum, one of {{property(DataItem::sampleRate)}} or {{property(Sample::sampleRate)}} **MUST** be specified. When both are specified, the {{property(Sample::sampleRate)}} supersedes the {{property(DataItem::sampleRate)}}.
 
-The {{block(Observation)}} **MUST** set the {{property(timestamp)}} to the time the last value was observed. The {{property(duration)}} **MAY** indicate the time interval from the first to the last value in the series.
+{{property(Observation::timestamp)}} **MUST** be set to the time the last value was observed. The {{property(Sample::duration)}} **MAY** indicate the time interval from the first to the last value in the series.
 
 {{sect(Value Properties of TimeSeries)}} defines additional attributes for an {{block(Observation)}} with {{block(TimeSeries)}} {{block(Representation)}} type.
 
@@ -622,11 +655,11 @@ Descriptions for Value Properties of {{block(TimeSeries)}}:
 
 
 
-{{block(Discrete)}} for an {{block(Observation)}} is defined by the associated {{block(DataItem)}}'s property {{property(representation)}} as `DISCRETE`.
+{{block(Discrete)}} for an {{block(Observation)}} is defined by the associated {{property(DataItem::representation)}} as `DISCRETE`.
 
-{{block(DataItem)}} with `DISCRETE` {{property(representation)}} **MUST** have a {{property(category)}} of `EVENT`.
+{{property(DataItem::representation)}} as `DISCRETE` **MUST** have {{property(DataItem::category)}} as `EVENT`.
 
-*MTConnect Version 1.5* replaced {{property(representation)}} `DISCRETE` with a {{property(discrete)}} property for {{block(DataItem)}}.
+*MTConnect Version 1.5* replaced {{property(DataItem::representation)}} as `DISCRETE` with {{property(DataItem::discrete)}}.
 
 Each occurrence of the {{block(Observation)}} **MAY** have the same value as the previous occurrence, and **MUST NOT** suppress duplicates.
 
@@ -640,9 +673,9 @@ Examples of {{block(Discrete)}}: A `PartCount` reporting the completion of each 
 
 
 
-{{block(DataSet)}} for an {{block(Observation)}} is defined by the associated {{block(DataItem)}}'s property {{property(representation)}} as `DATA_SET`.
+{{block(DataSet)}} for an {{block(Observation)}} is defined by the associated {{property(DataItem::representation)}} as `DATA_SET`.
 
-{{block(DataItem)}} with `DATA_SET` {{property(representation)}} **MUST** have a {{property(category)}} of `SAMPLE` or `EVENT`.
+{{property(DataItem::representation)}} as `DATA_SET` **MUST** have {{property(DataItem::category)}} as `SAMPLE` or `EVENT`.
 
 {{figure(VariableDataSet)}} shows the model for {{block(Variable)}} ({{block(Event)}} type) with a {{block(Representation)}} type of {{block(DataSet)}}. 
 
@@ -650,7 +683,7 @@ Examples of {{block(Discrete)}}: A `PartCount` reporting the completion of each 
 
 > Note: See {{figure(DataSet Schema)}} for XML schema.
 
-{{block(DataSet)}} reports multiple values as a set of {{term(key-value pair)}} where each {{term(key)}} **MUST** be unique. The representation of the {{term(key-value pair)}} is an {{block(Entry)}}. The value of each {{block(Entry)}} **MUST** have the same constraints and format as the {{block(Observation)}} defined for the `VALUE` {{property(representation)}} for the {{block(DataItem)}} {{property(type)}} (See {{block(Value)}}). 
+{{block(DataSet)}} reports multiple values as a set of {{term(key-value pair)}} where each {{term(key)}} **MUST** be unique. The representation of the {{term(key-value pair)}} is an {{block(Entry)}}. The value of each {{block(Entry)}} **MUST** have the same constraints and format as the {{block(Observation)}} defined for {{property(DataItem::representation)}} as `VALUE` for the {{block(DataItem)}} type. (See {{block(Value)}}). 
 
 The meaning of each {{block(Entry)}} **MAY** be provided as the {{block(DataItem)}} {{block(EntryDefinition)}}.
 
@@ -664,15 +697,15 @@ The meaning of each {{block(Entry)}} **MAY** be provided as the {{block(DataItem
 
 An {{term(agent)}} **MUST** maintain the current state of the {{block(DataSet)}} as described in {{package(Fundamentals)}}.
 
-One or more {{termplural(key-value pair)}} **MAY** be added, removed, or changed in an {{block(Observation)}}. An {{term(agent)}} **MUST** publish the changes to one or more {{termplural(key-value pair)}} as a single {{block(Observation)}}. An {{term(agent)}} **MUST** indicate the removal of a {{term(key-value pair)}} from a {{block(DataSet)}} using the {{property(removed)}} attribute equal `true`.
+One or more {{termplural(key-value pair)}} **MAY** be added, removed, or changed in an {{block(Observation)}}. An {{term(agent)}} **MUST** publish the changes to one or more {{termplural(key-value pair)}} as a single {{block(Observation)}}. An {{term(agent)}} **MUST** indicate the removal of a {{term(key-value pair)}} from a {{block(DataSet)}} using the {{property(Entry::removed)}} as `true`.
 
-When the {{block(DataItem)}} {{property(discrete,DataItem)}} attribute is `false` or is not present, an {{term(agent)}} in response to a {{term(sample request)}} **MUST** only publish the changed {{term(key-value pair)}} since the previous state of the {{block(DataSet)}}.
+When the {{property(DataItem::discrete)}} is `false` or is not present, an {{term(agent)}} in response to a {{term(sample request)}} **MUST** only publish the changed {{term(key-value pair)}} since the previous state of the {{block(DataSet)}}.
 
-When the {{block(DataItem)}} {{property(discrete,DataItem)}} attribute is `true`, an {{term(agent)}}, in response to a {{term(sample request)}}, **MUST** report all {{termplural(key-value pair)}} ignoring the state of the {{block(DataSet)}}.
+When the {{property(DataItem::discrete)}} attribute is `true`, an {{term(agent)}}, in response to a {{term(sample request)}}, **MUST** report all {{termplural(key-value pair)}} ignoring the state of the {{block(DataSet)}}.
 
 When an {{term(agent)}} responds to a {{term(current request)}}, the {{term(response document)}} **MUST** include the full set of {{termplural(key-value pair)}}. If the {{term(current request)}} includes an `at` query parameter, the {{term(agent)}} **MUST** provide the set of {{termplural(key-value pair)}} at the  {{term(sequence number)}}.
 
-When an {{block(Observation)}} {{term(reset)}} occurs, the {{block(DataSet)}} **MUST** remove all {{termplural(key-value pair)}} making the set empty. The {{block(Observation)}} **MAY** simultaneously populate the {{block(DataSet)}} with new {{termplural(key-value pair)}}. The previous entries **MUST NOT** be included and **MUST NOT** have {{property(removed)}} attribute equal `true`.
+When an {{block(Observation)}} {{term(reset)}} occurs, the {{block(DataSet)}} **MUST** remove all {{termplural(key-value pair)}} making the set empty. The {{block(Observation)}} **MAY** simultaneously populate the {{block(DataSet)}} with new {{termplural(key-value pair)}}. The previous entries **MUST NOT** be included and **MUST NOT** have {{property(Entry::removed)}} as `true`.
 
 When the {{block(Observation)}}  is `UNAVAILABLE` the {{block(DataSet)}} **MUST** remove all {{termplural(key-value pair)}} making the set empty.
 
@@ -715,9 +748,9 @@ Descriptions for Part Properties of {{block(DataSet)}}:
 
 
 
-{{block(Table)}} for an {{block(Observation)}} is defined by the associated {{block(DataItem)}}'s property {{property(representation)}} as `TABLE`.
+{{block(Table)}} for an {{block(Observation)}} is defined by the associated {{property(DataItem::representation)}} as `TABLE`.
 
-{{block(DataItem)}} with `TABLE` {{property(representation)}} **MUST** have a {{property(category)}} of `SAMPLE` or `EVENT`.
+{{property(DataItem::representation)}} as `TABLE` **MUST** have {{property(DataItem::category)}} as `SAMPLE` or `EVENT`.
 
 {{figure(WorkOffsetTable)}} shows the model for {{block(WorkOffset)}} ({{block(Event)}} type) with a {{block(Representation)}} type of {{block(Table)}}. 
 
@@ -729,7 +762,7 @@ Descriptions for Part Properties of {{block(DataSet)}}:
 
 The meaning of each {{block(Entry)}} and {{block(Cell)}} **MAY** be provided as the {{block(DataItem)}} {{block(EntryDefinition)}} and {{block(CellDefinition)}}.
 
-The {{block(Entry)}} {{property(key)}} attribute **MUST** be the unique identity of the {{block(Entry)}} within an {{block(Observation)}}. The {{block(Cell)}} {{property(key)}} attribute **MUST** be the unique identity of the {{block(Cell)}} within an {{block(Entry)}}.
+{{property(Entry::key)}}  **MUST** be the unique identity of the {{block(Entry)}} within an {{block(Observation)}}. {{property(Cell::key)}} **MUST** be the unique identity of the {{block(Cell)}} within an {{block(Entry)}}.
 
 {{figure(Table Example)}} shows {{block(Event)}} {{block(Observation)}} type {{block(WorkOffset)}} with a {{block(Representation)}} type of `Table`.
 
@@ -781,13 +814,12 @@ Descriptions for Part Properties of {{block(Table)}}:
 {{term(key-value pair)}} published as part of a {{block(DataSet)}}.
 
 
-#### Constraints for Entry Values
 
-The value of each {{block(Entry)}} **MUST** have the same restrictions as the value of an {{term(observation)}} with {{property(representation)}} of `VALUE`.
+The value of each {{block(Entry)}} **MUST** have the same restrictions as the value of an {{term(observation)}} with {{property(DataItem::representation)}} as `VALUE`.
 
 An {{block(Entry)}} **MAY** be further constrained by the {{block(DataItem)}} definition (see {{package(Device Information Model)}}), for example a `VariableDataSet` having a string value **MAY** have a floating-point {{block(Temperature)}} value. A restriction **MUST NOT** be broadened or removed, for example, the value "READY" **MUST NOT** occur with a `TemperatureDataSet` constrained to floating-point numbers.
 
-The {{package(Device Information Model)}} {{block(DataItem)}} {{block(Definition)}} **MAY** provide the {{property(type)}} and {{property(units)}} of an {{block(Entry)}} for a {{property(key)}}.
+{{block(EntryDefinition)}} **MAY** provide the type and units of an {{property(Entry::key)}}.
 
 
 
@@ -865,11 +897,11 @@ Descriptions for Part Properties of {{block(TableEntry)}}:
 
 #### Constraints for Cell Values
 
-The value of each {{block(Cell)}} **MUST** have the same restrictions as the value of an {{term(observation)}} with {{property(representation)}} of `VALUE`.
+The value of each {{block(Cell)}} **MUST** have the same restrictions as the value of an {{term(observation)}} with {{property(DataItem::representation)}} as `VALUE`.
 
 An {{block(Cell)}} **MAY** be further constrained by the {{block(DataItem)}} definition (see {{package(Device Information Model)}}), for example a `VariableDataSet` having a string value **MAY** have a floating-point {{block(Temperature)}} value. A restriction **MUST NOT** be broadened or removed, for example, the value `READY` **MUST NOT** occur with a `TemperatureDataSet` constrained limited to floating-point numbers.
 
-The {{package(Device Information Model)}} {{block(DataItem)}} {{block(Definition)}} **MAY** provide the {{property(type)}} and {{property(units)}} of a {{block(Cell)}} for a {{property(key)}}.
+{{block(CellDefinition)}} **MAY** provide type and units of a {{property(Cell::key)}}.
 
 
 ### Value Properties of Cell
@@ -892,7 +924,7 @@ Descriptions for Value Properties of {{block(Cell)}}:
 
 This section provides semantic information for the {{block(Observation)}} types.
 
-{{block(Observation)}} entities are instantiated as {{block(Sample)}}, {{block(Event)}} or {{block(Condition)}} entities based upon the {{property(category)}} and {{property(type)}} attributes defined for the corresponding {{block(DataItem)}}.
+{{block(Observation)}} entities are instantiated as {{block(Sample)}}, {{block(Event)}} or {{block(Condition)}} entities based upon the {{property(DataItem::category)}} and {{property(DataItem::type)}} defined for the corresponding {{block(DataItem)}}.
 
 See {{figure(DeviceStream Example)}} for examples on how the {{block(Observation)}} types are organized within {{block(ComponentStream)}}.
 
@@ -905,43 +937,43 @@ This section provides semantic information for {{block(Condition)}} types.
 
 {{block(Condition)}} types are reported differently from other {{block(Observation)}} types. They are reported based on the {{term(condition state)}} for each {{block(Condition)}}.
 
-The {{property(type)}} and {{property(subType)}} (where applicable) properties for a {{block(Condition)}} **MAY** be any of the {{property(type)}} and {{property(subType)}} attributes defined for `SAMPLE` {{property(category)}} or `EVENT` {{property(category)}} {{block(DataItem)}} listed in the {{term(Device Information Model)}}.
+The {{property(DataItem::type)}} and {{property(DataItem::subType)}} (where applicable) for a {{block(Condition)}} **MAY** be any of the {{property(DataItem::type)}} and {{property(DataItem::subType)}} defined for {{block(DataItem)}}s with {{property(DataItem::category)}} as `SAMPLE` or {{property(DataItem::category)}} as `EVENT` listed in the {{term(Device Information Model)}}.
 
 This section lists additional {{block(Condition)}} types that have been defined to represent the health and fault status of {{termplural(Component)}}.
 
 ### Actuator
 
-{{def(ConditionEnum:ACTUATOR)}}
+{{def(ConditionEnum::ACTUATOR)}}
 
 
 
 ### Communications
 
-{{def(ConditionEnum:COMMUNICATIONS)}}
+{{def(ConditionEnum::COMMUNICATIONS)}}
 
 
 
 ### DataRange
 
-{{def(ConditionEnum:DATA_RANGE)}}
+{{def(ConditionEnum::DATA_RANGE)}}
 
 
 
 ### LogicProgram
 
-{{def(ConditionEnum:LOGIC_PROGRAM)}}
+{{def(ConditionEnum::LOGIC_PROGRAM)}}
 
 
 
 ### MotionProgram
 
-{{def(ConditionEnum:MOTION_PROGRAM)}}
+{{def(ConditionEnum::MOTION_PROGRAM)}}
 
 
 
 ### System
 
-{{def(ConditionEnum:SYSTEM)}}
+{{def(ConditionEnum::SYSTEM)}}
 
 
 
@@ -953,7 +985,7 @@ This section provides semantic information for {{block(Event)}} types.
 
 ### ActivationCount
 
-{{def(EventEnum:ACTIVATION_COUNT)}}
+{{def(EventEnum::ACTIVATION_COUNT)}}
 
 
 
@@ -1013,15 +1045,23 @@ The value of {{property(ActivationCount)}} **MUST** be `integer`.
 
 ### ActiveAxes
 
-{{def(EventEnum:ACTIVE_AXES)}}
+{{def(EventEnum::ACTIVE_AXES)}}
 
 
 
 The value of {{property(ActiveAxes)}} **MUST** be a list of `string` of size `0..*`.
 
+### ActivePowerSource
+
+{{def(EventEnum::ACTIVE_POWER_SOURCE)}}
+
+
+
+The value of {{property(ActivePowerSource)}} **MUST** be `string`.
+
 ### ActuatorState
 
-{{def(EventEnum:ACTUATOR_STATE)}}
+{{def(EventEnum::ACTUATOR_STATE)}}
 
 
 
@@ -1037,19 +1077,19 @@ The value of {{property(ActiveAxes)}} **MUST** be a list of `string` of size `0.
 
 ### AdapterSoftwareVersion
 
-{{def(EventEnum:ADAPTER_SOFTWARE_VERSION)}}
+{{def(EventEnum::ADAPTER_SOFTWARE_VERSION)}}
 
 
 
 ### AdapterURI
 
-{{def(EventEnum:ADAPTER_URI)}}
+{{def(EventEnum::ADAPTER_URI)}}
 
 
 
 ### `<<deprecated>>`Alarm
 
-{{def(EventEnum:ALARM)}}
+{{def(EventEnum::ALARM)}}
 
 
 
@@ -1090,9 +1130,9 @@ Descriptions for Value Properties of {{block(Alarm)}}:
     
     See {{cite(IETF RFC 4646)}} (http://www.ietf.org/rfc/rfc4646.txt).
 
-### AlarmLimit
+### `<<deprecated>>`AlarmLimit
 
-{{def(EventEnum:ALARM_LIMIT)}}
+{{def(EventEnum::ALARM_LIMIT)}}
 
 
 
@@ -1100,7 +1140,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
 
 `AlarmLimitResult` keys:
 
-* `UPPER_LIMIT` 
+* `UpperLimit` 
 
     upper conformance boundary for a variable.
     
@@ -1108,21 +1148,21 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
     
     
 
-    The value of {{property(UPPER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
 
-* `UPPER_WARNING` 
+* `UpperWarning` 
 
     upper boundary indicating increased concern and supervision may be required.
 
-    The value of {{property(UPPER_WARNING)}} **MUST** be `float`.
+    The value of {{property(UpperWarning)}} **MUST** be `float`.
 
-* `LOWER_WARNING` 
+* `LowerWarning` 
 
     lower boundary indicating increased concern and supervision may be required.
 
-    The value of {{property(LOWER_WARNING)}} **MUST** be `float`.
+    The value of {{property(LowerWarning)}} **MUST** be `float`.
 
-* `LOWER_LIMIT` 
+* `LowerLimit` 
 
     lower conformance boundary for a variable.
     
@@ -1130,11 +1170,53 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
     
     
 
-    The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
+
+### AlarmLimits
+
+{{def(EventEnum::ALARM_LIMITS)}}
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLimitResult` keys.
+
+`AlarmLimitResult` keys:
+
+* `UpperLimit` 
+
+    upper conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
+
+* `UpperWarning` 
+
+    upper boundary indicating increased concern and supervision may be required.
+
+    The value of {{property(UpperWarning)}} **MUST** be `float`.
+
+* `LowerWarning` 
+
+    lower boundary indicating increased concern and supervision may be required.
+
+    The value of {{property(LowerWarning)}} **MUST** be `float`.
+
+* `LowerLimit` 
+
+    lower conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
 
 ### Application
 
-{{def(EventEnum:APPLICATION)}}
+{{def(EventEnum::APPLICATION)}}
 
 
 
@@ -1182,7 +1264,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### AssetChanged
 
-{{def(EventEnum:ASSET_CHANGED)}}
+{{def(EventEnum::ASSET_CHANGED)}}
 
 
 
@@ -1193,6 +1275,7 @@ A {{property(subType)}} **MUST** always be specified.
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(assetType)}}|`string`|0..1|
+|{{property(hash)}}|`string`|0..1|
 {: caption="Value Properties of AssetChanged" label="table:value-properties-of-assetchanged"}
 
 Descriptions for Value Properties of {{block(AssetChanged)}}:
@@ -1201,9 +1284,13 @@ Descriptions for Value Properties of {{block(AssetChanged)}}:
 
     type of {{block(Asset)}} changed. See {{package(Asset Information Model)}} for details on the {{block(Asset)}} model.
 
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
+
 ### AssetCount
 
-{{def(EventEnum:ASSET_COUNT)}}
+{{def(EventEnum::ASSET_COUNT)}}
 
 
 
@@ -1211,7 +1298,7 @@ The value of {{property(AssetCount)}} **MUST** be `integer`.
 
 ### AssetRemoved
 
-{{def(EventEnum:ASSET_REMOVED)}}
+{{def(EventEnum::ASSET_REMOVED)}}
 
 
 
@@ -1222,6 +1309,7 @@ The value of {{property(AssetCount)}} **MUST** be `integer`.
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(assetType)}}|`string`|0..1|
+|{{property(hash)}}|`string`|0..1|
 {: caption="Value Properties of AssetRemoved" label="table:value-properties-of-assetremoved"}
 
 Descriptions for Value Properties of {{block(AssetRemoved)}}:
@@ -1230,9 +1318,13 @@ Descriptions for Value Properties of {{block(AssetRemoved)}}:
 
     type of {{block(Asset)}} removed. See {{package(Asset Information Model)}} for details on the {{block(Asset)}} model.
 
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
+
 ### Availability
 
-{{def(EventEnum:AVAILABILITY)}}
+{{def(EventEnum::AVAILABILITY)}}
 
 
 
@@ -1248,7 +1340,7 @@ Descriptions for Value Properties of {{block(AssetRemoved)}}:
 
 ### AxisCoupling
 
-{{def(EventEnum:AXIS_COUPLING)}}
+{{def(EventEnum::AXIS_COUPLING)}}
 
 
 
@@ -1272,7 +1364,7 @@ Descriptions for Value Properties of {{block(AssetRemoved)}}:
 
 ### AxisFeedrateOverride
 
-{{def(EventEnum:AXIS_FEEDRATE_OVERRIDE)}}
+{{def(EventEnum::AXIS_FEEDRATE_OVERRIDE)}}
 
 
 
@@ -1305,7 +1397,7 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
 ### AxisInterlock
 
-{{def(EventEnum:AXIS_INTERLOCK)}}
+{{def(EventEnum::AXIS_INTERLOCK)}}
 
 
 
@@ -1321,7 +1413,7 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
 ### AxisState
 
-{{def(EventEnum:AXIS_STATE)}}
+{{def(EventEnum::AXIS_STATE)}}
 
 
 
@@ -1347,7 +1439,7 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
 ### BatteryState
 
-{{def(EventEnum:BATTERY_STATE)}}
+{{def(EventEnum::BATTERY_STATE)}}
 
 
 
@@ -1371,21 +1463,69 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
 ### Block
 
-{{def(EventEnum:BLOCK)}}
+{{def(EventEnum::BLOCK)}}
 
 
 
 ### BlockCount
 
-{{def(EventEnum:BLOCK_COUNT)}}
+{{def(EventEnum::BLOCK_COUNT)}}
 
 
 
 The value of {{property(BlockCount)}} **MUST** be `integer`.
 
+### CharacteristicPersistentId
+
+{{def(EventEnum::CHARACTERISTIC_PERSISTENT_ID)}}
+
+
+
+The value of {{property(CharacteristicPersistentId)}} **MUST** be `ID`. See {{sect(id)}}.
+
+### CharacteristicStatus
+
+{{def(EventEnum::CHARACTERISTIC_STATUS)}}
+
+
+
+`CharacteristicStatusEnum` Enumeration:
+
+* `BASIC_OR_THEORETIC_EXACT_DIMENSION` 
+
+    nominal provided without tolerance limits. {{cite(QIF 3:2018 5.10.2.6)}}
+
+* `FAIL` 
+
+    measurement is not within acceptable tolerances.
+
+* `INDETERMINATE` 
+
+    measurement cannot be determined.
+
+* `NOT_ANALYZED` 
+
+    measurement cannot be evaluated.
+
+* `PASS` 
+
+    measurement is within acceptable tolerances.
+
+* `REWORK` 
+
+    failed, but acceptable constraints achievable by utilizing additional manufacturing processes.
+
+* `SYSTEM_ERROR` 
+
+    measurement is indeterminate due to an equipment failure.
+
+* `UNDEFINED` 
+
+    status of measurement cannot be determined.
+
 ### ChuckInterlock
 
-{{def(EventEnum:CHUCK_INTERLOCK)}}
+{{def(EventEnum::CHUCK_INTERLOCK)}}
 
 
 
@@ -1411,7 +1551,7 @@ The value of {{property(BlockCount)}} **MUST** be `integer`.
 
 ### ChuckState
 
-{{def(EventEnum:CHUCK_STATE)}}
+{{def(EventEnum::CHUCK_STATE)}}
 
 
 
@@ -1433,7 +1573,7 @@ The value of {{property(BlockCount)}} **MUST** be `integer`.
 
 ### ClockTime
 
-{{def(EventEnum:CLOCK_TIME)}}
+{{def(EventEnum::CLOCK_TIME)}}
 
 
 
@@ -1441,13 +1581,23 @@ The value of {{property(ClockTime)}} **MUST** be `datetime`. See {{sect(datetime
 
 ### `<<deprecated>>`Code
 
-{{def(EventEnum:CODE)}}
+{{def(EventEnum::CODE)}}
+
+
+
+### ComponentData
+
+tabular {{def(EventEnum::COMPONENT_DATA)}}
+
+If the {{block(Component)}} multiplicity can be determined, the device model **MUST** use a fixed set of {{block(Component)}}s.
+
+{{block(ComponentData)}} **MUST** provide a {{block(DataItem)}} {{block(Definition)}}.
 
 
 
 ### CompositionState
 
-{{def(EventEnum:COMPOSITION_STATE)}}
+{{def(EventEnum::COMPOSITION_STATE)}}
 
 
 
@@ -1557,7 +1707,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### ConnectionStatus
 
-{{def(EventEnum:CONNECTION_STATUS)}}
+{{def(EventEnum::CONNECTION_STATUS)}}
 
 
 
@@ -1577,9 +1727,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     {{term(agent)}} is waiting for a connection request from an {{term(adapter)}}.
 
-### ControlLimit
+### `<<deprecated>>`ControlLimit
 
-{{def(EventEnum:CONTROL_LIMIT)}}
+{{def(EventEnum::CONTROL_LIMIT)}}
 
 
 
@@ -1587,7 +1737,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
 
 `ControlLimitResult` keys:
 
-* `UPPER_LIMIT` 
+* `UpperLimit` 
 
     upper conformance boundary for a variable.
     
@@ -1595,27 +1745,27 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
     
     
 
-    The value of {{property(UPPER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
 
-* `UPPER_WARNING` 
+* `UpperWarning` 
 
     upper boundary indicating increased concern and supervision may be required.
 
-    The value of {{property(UPPER_WARNING)}} **MUST** be `float`.
+    The value of {{property(UpperWarning)}} **MUST** be `float`.
 
-* `NOMINAL` 
+* `Nominal` 
 
     ideal or desired value for a variable.
 
-    The value of {{property(NOMINAL)}} **MUST** be `float`.
+    The value of {{property(Nominal)}} **MUST** be `float`.
 
-* `LOWER_WARNING` 
+* `LowerWarning` 
 
     lower boundary indicating increased concern and supervision may be required.
 
-    The value of {{property(LOWER_WARNING)}} **MUST** be `float`.
+    The value of {{property(LowerWarning)}} **MUST** be `float`.
 
-* `LOWER_LIMIT` 
+* `LowerLimit` 
 
     lower conformance boundary for a variable.
     
@@ -1623,11 +1773,59 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
     
     
 
-    The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
+
+### ControlLimits
+
+{{def(EventEnum::CONTROL_LIMITS)}}
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `ControlLimitResult` keys.
+
+`ControlLimitResult` keys:
+
+* `UpperLimit` 
+
+    upper conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
+
+* `UpperWarning` 
+
+    upper boundary indicating increased concern and supervision may be required.
+
+    The value of {{property(UpperWarning)}} **MUST** be `float`.
+
+* `Nominal` 
+
+    ideal or desired value for a variable.
+
+    The value of {{property(Nominal)}} **MUST** be `float`.
+
+* `LowerWarning` 
+
+    lower boundary indicating increased concern and supervision may be required.
+
+    The value of {{property(LowerWarning)}} **MUST** be `float`.
+
+* `LowerLimit` 
+
+    lower conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
 
 ### ControllerMode
 
-{{def(EventEnum:CONTROLLER_MODE)}}
+{{def(EventEnum::CONTROLLER_MODE)}}
 
 
 
@@ -1663,7 +1861,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
 
 ### ControllerModeOverride
 
-{{def(EventEnum:CONTROLLER_MODE_OVERRIDE)}}
+{{def(EventEnum::CONTROLLER_MODE_OVERRIDE)}}
 
 
 
@@ -1731,7 +1929,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### CoupledAxes
 
-{{def(EventEnum:COUPLED_AXES)}}
+{{def(EventEnum::COUPLED_AXES)}}
 
 
 
@@ -1739,7 +1937,7 @@ The value of {{property(CoupledAxes)}} **MUST** be a list of `string` of size `0
 
 ### CycleCount
 
-{{def(EventEnum:CYCLE_COUNT)}}
+{{def(EventEnum::CYCLE_COUNT)}}
 
 
 
@@ -1799,7 +1997,7 @@ The value of {{property(CycleCount)}} **MUST** be `integer`.
 
 ### DateCode
 
-{{def(EventEnum:DATE_CODE)}}
+{{def(EventEnum::DATE_CODE)}}
 
 
 
@@ -1827,7 +2025,7 @@ The value of {{property(DateCode)}} **MUST** be `datetime`. See {{sect(datetime)
 
 ### DeactivationCount
 
-{{def(EventEnum:DEACTIVATION_COUNT)}}
+{{def(EventEnum::DEACTIVATION_COUNT)}}
 
 
 
@@ -1887,31 +2085,76 @@ The value of {{property(DeactivationCount)}} **MUST** be `integer`.
 
 ### DeviceAdded
 
-{{def(EventEnum:DEVICE_ADDED)}}
+{{def(EventEnum::DEVICE_ADDED)}}
 
 
+
+#### Value Properties of DeviceAdded
+
+{{tbl(value-properties-of-deviceadded)}} lists the Value Properties of {{block(DeviceAdded)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(hash)}}|`string`|0..1|
+{: caption="Value Properties of DeviceAdded" label="table:value-properties-of-deviceadded"}
+
+Descriptions for Value Properties of {{block(DeviceAdded)}}:
+
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
 
 ### DeviceChanged
 
-{{def(EventEnum:DEVICE_CHANGED)}}
+{{def(EventEnum::DEVICE_CHANGED)}}
 
 
+
+#### Value Properties of DeviceChanged
+
+{{tbl(value-properties-of-devicechanged)}} lists the Value Properties of {{block(DeviceChanged)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(hash)}}|`string`|0..1|
+{: caption="Value Properties of DeviceChanged" label="table:value-properties-of-devicechanged"}
+
+Descriptions for Value Properties of {{block(DeviceChanged)}}:
+
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
 
 ### DeviceRemoved
 
-{{def(EventEnum:DEVICE_REMOVED)}}
+{{def(EventEnum::DEVICE_REMOVED)}}
 
 
+
+#### Value Properties of DeviceRemoved
+
+{{tbl(value-properties-of-deviceremoved)}} lists the Value Properties of {{block(DeviceRemoved)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(hash)}}|`string`|0..1|
+{: caption="Value Properties of DeviceRemoved" label="table:value-properties-of-deviceremoved"}
+
+Descriptions for Value Properties of {{block(DeviceRemoved)}}:
+
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
 
 ### DeviceUuid
 
-{{def(EventEnum:DEVICE_UUID)}}
+{{def(EventEnum::DEVICE_UUID)}}
 
 
 
 ### Direction
 
-{{def(EventEnum:DIRECTION)}}
+{{def(EventEnum::DIRECTION)}}
 
 
 
@@ -1979,7 +2222,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### DoorState
 
-{{def(EventEnum:DOOR_STATE)}}
+{{def(EventEnum::DOOR_STATE)}}
 
 
 
@@ -2001,7 +2244,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### EmergencyStop
 
-{{def(EventEnum:EMERGENCY_STOP)}}
+{{def(EventEnum::EMERGENCY_STOP)}}
 
 
 
@@ -2017,7 +2260,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### EndOfBar
 
-{{def(EventEnum:END_OF_BAR)}}
+{{def(EventEnum::END_OF_BAR)}}
 
 
 
@@ -2053,7 +2296,7 @@ The default {{property(subType)}} of {{property(EndOfBar)}} is `PRIMARY`.
 
 ### EquipmentMode
 
-{{def(EventEnum:EQUIPMENT_MODE)}}
+{{def(EventEnum::EQUIPMENT_MODE)}}
 
 
 
@@ -2112,7 +2355,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Execution
 
-{{def(EventEnum:EXECUTION)}}
+{{def(EventEnum::EXECUTION)}}
 
 
 
@@ -2142,6 +2385,12 @@ A {{property(subType)}} **MUST** always be specified.
 
     program completed execution.
 
+* `<<deprecated>>` `PROGRAM_OPTIONAL_STOP` 
+
+    program has been intentionally optionally stopped using an M01 or similar code.
+    
+    **DEPRECATED** in *version 1.4* and replaced with `OPTIONAL_STOP`.
+
 * `PROGRAM_STOPPED` 
 
     command from the program has intentionally interrupted execution.
@@ -2164,9 +2413,127 @@ A {{property(subType)}} **MUST** always be specified.
     
     Execution resumes automatically once the secondary operation completes.
 
+### FeatureMeasurement
+
+tabular representation of {{def(EventEnum::FEATURE_MEASUREMENT)}}
+
+{{block(FeatureMeasurement)}} **MAY** include a {{term(characteristic)}} in which case it **MAY** include a `CHARACTERISTIC_STATUS`.
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `FeatureMeasurementResult` keys.
+
+`FeatureMeasurementResult` keys:
+
+* `MeasurementId` 
+
+    identifier of this measurement.
+
+    The value of {{property(MeasurementId)}} **MUST** be `ID`. See {{sect(id)}}.
+
+* `FeaturePersistentId` 
+
+    {{term(UUID)}} of the feature.
+
+    The value of {{property(FeaturePersistentId)}} **MUST** be `ID`. See {{sect(id)}}.
+
+* `CharacteristicPersistentId` 
+
+    {{term(UUID)}} of the characteristic.
+
+    The value of {{property(CharacteristicPersistentId)}} **MUST** be `ID`. See {{sect(id)}}.
+
+* `MeasurementType` 
+
+    class of measurement being performed. {{cite(QIF 3:2018 Section 6.3)}}
+    
+    Examples: `POINT`, `RADIUS`, `ANGLE`, `LENGTH`, etc.
+
+    The value of {{property(MeasurementType)}} **MUST** be `string`.
+
+* `MeasurementValue` 
+
+    measurement based on the measurement type.
+
+    The value of {{property(MeasurementValue)}} **MUST** be `float`.
+
+* `MeasurementUnits` 
+
+    engineering units of the measurement.
+
+    The value of {{property(MeasurementUnits)}} **MUST** be `string`.
+
+* `CharacteristicStatus` 
+
+    pass/fail result of the measurement.
+
+    The value of {{property(CharacteristicStatus)}} **MUST** be one of the `CharacteristicStatusEnum` enumeration. 
+
+    `CharacteristicStatusEnum` Enumeration:
+
+    * `BASIC_OR_THEORETIC_EXACT_DIMENSION` 
+
+        nominal provided without tolerance limits. {{cite(QIF 3:2018 5.10.2.6)}}
+
+    * `FAIL` 
+
+        measurement is not within acceptable tolerances.
+
+    * `INDETERMINATE` 
+
+        measurement cannot be determined.
+
+    * `NOT_ANALYZED` 
+
+        measurement cannot be evaluated.
+
+    * `PASS` 
+
+        measurement is within acceptable tolerances.
+
+    * `REWORK` 
+
+        failed, but acceptable constraints achievable by utilizing additional manufacturing processes.
+
+    * `SYSTEM_ERROR` 
+
+        measurement is indeterminate due to an equipment failure.
+
+    * `UNDEFINED` 
+
+        status of measurement cannot be determined.
+
+* `UncertaintyType` 
+
+    method used to compute {{term(standard uncertainty)}}.
+
+    `UncertaintyTypeEnum` Enumeration:
+
+    * `COMBINED` 
+
+        {{term(combined standard uncertainty)}}.
+
+    * `MEAN` 
+
+        {{term(standard uncertainty)}} using arithmetic mean or average the observations. {{cite(JCGM 100:2008 4.2)}}
+
+* `Uncertainty` 
+
+    {{term(uncertainty)}} specified by `UNCERTAINTY_TYPE`.
+
+    The value of {{property(Uncertainty)}} **MUST** be `float`.
+
+### FeaturePersisitentId
+
+{{def(EventEnum::FEATURE_PERSISTENT_ID)}}
+
+
+
+The value of {{property(FeaturePersisitentId)}} **MUST** be `ID`. See {{sect(id)}}.
+
 ### Firmware
 
-{{def(EventEnum:FIRMWARE)}}
+{{def(EventEnum::FIRMWARE)}}
 
 
 
@@ -2214,13 +2581,13 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### FixtureId
 
-{{def(EventEnum:FIXTURE_ID)}}
+{{def(EventEnum::FIXTURE_ID)}}
 
 
 
 ### FunctionalMode
 
-{{def(EventEnum:FUNCTIONAL_MODE)}}
+{{def(EventEnum::FUNCTIONAL_MODE)}}
 
 
 
@@ -2254,7 +2621,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Hardness
 
-{{def(EventEnum:HARDNESS)}}
+{{def(EventEnum::HARDNESS)}}
 
 
 
@@ -2302,7 +2669,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Hardware
 
-{{def(EventEnum:HARDWARE)}}
+{{def(EventEnum::HARDWARE)}}
 
 
 
@@ -2332,6 +2699,12 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
+* `MODEL`
+
+    model info of the hardware or software.
+
+    
+
 * `RELEASE_DATE`
 
     date the hardware or software was released for general use. 
@@ -2350,13 +2723,13 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### HostName
 
-{{def(EventEnum:HOST_NAME)}}
+{{def(EventEnum::HOST_NAME)}}
 
 
 
 ### LeakDetect
 
-{{def(EventEnum:LEAK_DETECT)}}
+{{def(EventEnum::LEAK_DETECT)}}
 
 
 
@@ -2372,7 +2745,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Library
 
-{{def(EventEnum:LIBRARY)}}
+{{def(EventEnum::LIBRARY)}}
 
 
 
@@ -2420,7 +2793,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### `<<deprecated>>`Line
 
-{{def(EventEnum:LINE)}}
+{{def(EventEnum::LINE)}}
 
 
 
@@ -2440,13 +2813,13 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### LineLabel
 
-{{def(EventEnum:LINE_LABEL)}}
+{{def(EventEnum::LINE_LABEL)}}
 
 
 
 ### LineNumber
 
-{{def(EventEnum:LINE_NUMBER)}}
+{{def(EventEnum::LINE_NUMBER)}}
 
 
 
@@ -2468,7 +2841,7 @@ The value of {{property(LineNumber)}} **MUST** be `integer`.
 
 ### LoadCount
 
-{{def(EventEnum:LOAD_COUNT)}}
+{{def(EventEnum::LOAD_COUNT)}}
 
 
 
@@ -2526,9 +2899,161 @@ The value of {{property(LoadCount)}} **MUST** be `integer`.
 
     
 
+### LocationAddress
+
+{{def(EventEnum::LOCATION_ADDRESS)}}
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `LocationAddressResult` keys.
+
+`LocationAddressResult` keys:
+
+* `GivenName` 
+
+    element specifying the name used to distinguish between persons having the same surname(s) and who may have access to a particular delivery point.
+
+    The value of {{property(GivenName)}} **MUST** be `string`.
+
+* `Surname` 
+
+    element which identifies the family or parentage of an individual.
+
+    The value of {{property(Surname)}} **MUST** be `string`.
+
+* `Qualification` 
+
+    element indicating an individual’s professional or academic qualification or rank in a professional group or society (e.g. PhD, Fellow of the Royal Society, FRS, Barrister at Law).
+
+    The value of {{property(Qualification)}} **MUST** be `string`.
+
+* `NameQualifier` 
+
+    element used in some countries to distinguish between persons with the same surname(s) who have similar given names or initials (e.g.III, Senior, the Third.).
+
+    The value of {{property(NameQualifier)}} **MUST** be `string`.
+
+* `OrganizationName` 
+
+    element giving the official name, the registered business name or other official designation of an organization.
+
+    The value of {{property(OrganizationName)}} **MUST** be `string`.
+
+* `LegalStatus` 
+
+    element indicating the formal registration of an organization (e.g. GmbH, Inc., Ltd.).
+
+    The value of {{property(LegalStatus)}} **MUST** be `string`.
+
+* `OrganizationUnit` 
+
+    element identifying a subdivision of an organization.
+
+    The value of {{property(OrganizationUnit)}} **MUST** be `string`.
+
+* `Building` 
+
+    element identifying the number or name and type of the edifice or construction in or adjacent to which a delivery point is located.
+
+    The value of {{property(Building)}} **MUST** be `string`.
+
+* `Floor` 
+
+    element indicating the floor or level on which a delivery point is located in a multi-story building.
+
+    The value of {{property(Floor)}} **MUST** be `string`.
+
+* `Door` 
+
+    element indicating the apartment, room or office in, at or adjacent to which a delivery point, situated within a building, is located.
+
+    The value of {{property(Door)}} **MUST** be `string`.
+
+* `Thoroughfare` 
+
+    element which identifies the road or part of a road or other access route along which a delivery point can be accessed, either directly or via a secondary or tertiary road or access route.
+
+    The value of {{property(Thoroughfare)}} **MUST** be `string`.
+
+* `PremiseIdentifier` 
+
+    element designating the area or the object on an area, adjacent to thoroughfare, in which the delivery point or delivery point access is located.
+
+    The value of {{property(PremiseIdentifier)}} **MUST** be `string`.
+
+* `Town` 
+
+    element indicating the name of the populated place in which a delivery point is located, or the populated.
+
+    The value of {{property(Town)}} **MUST** be `string`.
+
+* `Region` 
+
+    element specifying the geographic or administrative area of the country in which the town is situated.
+
+    The value of {{property(Region)}} **MUST** be `string`.
+
+* `District` 
+
+    element indicating the name of the area within or adjacent to the town in which a delivery point is located, or via which it is accessed.
+
+    The value of {{property(District)}} **MUST** be `string`.
+
+* `CountryName` 
+
+    element designating the country, dependency or area of geopolitical interest, in which a delivery point is located or via which the delivery point is accessed.
+
+    The value of {{property(CountryName)}} **MUST** be `string`.
+
+* `CountryCode` 
+
+    interest, in which a delivery point is located or via which the delivery point is accessed.
+
+    The value of {{property(CountryCode)}} **MUST** be `string`.
+
+* `PostCode` 
+
+    element designating the code used for the sorting of mail.
+
+    The value of {{property(PostCode)}} **MUST** be `string`.
+
+### LocationNarrative
+
+{{def(EventEnum::LOCATION_NARRATIVE)}}
+
+
+
+### LocationSpatialGeographic
+
+{{def(EventEnum::LOCATION_SPATIAL_GEOGRAPHIC)}}
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `LocationSpatialGeographicResult` keys.
+
+`LocationSpatialGeographicResult` keys:
+
+* `Longitude` 
+
+    geographic longitude.
+
+    The value of {{property(Longitude)}} **MUST** be `DEGREE`. See {{sect(degree)}}.
+
+* `Latitude` 
+
+    geographic latitude.
+
+    The value of {{property(Latitude)}} **MUST** be `DEGREE`. See {{sect(degree)}}.
+
+* `Altitude` 
+
+    height relative to a reference.
+
+    The value of {{property(Altitude)}} **MUST** be `METER`. See {{sect(meter)}}.
+
 ### LockState
 
-{{def(EventEnum:LOCK_STATE)}}
+{{def(EventEnum::LOCK_STATE)}}
 
 
 
@@ -2544,19 +3069,19 @@ The value of {{property(LoadCount)}} **MUST** be `integer`.
 
 ### MTConnectVersion
 
-{{def(EventEnum:MTCONNECT_VERSION)}}
+{{def(EventEnum::MTCONNECT_VERSION)}}
 
 
 
 ### MaintenanceList
 
-{{def(EventEnum:MAINTENANCE_LIST)}}
+{{def(EventEnum::MAINTENANCE_LIST)}}
 
-If the {{property(INTERVAL)}} {{property(key)}} is not provided, it is assumed `ABSOLUTE`.
+If {{property(MaintenanceList::result::Interval)}} `key` is not provided, it is assumed `ABSOLUTE`.
 
-If the {{property(DIRECTION)}} {{property(key)}} is not provided, it is assumed `UP`.
+If {{property(MaintenanceList::result::Direction)}} `key` is not provided, it is assumed `UP`.
 
-If the {{property(UNITS)}} {{property(key)}} is not provided, it is assumed to be `COUNT`.
+If {{property(MaintenanceList::result::Units)}} `key` is not provided, it is assumed to be `COUNT`.
 
 
 
@@ -2564,13 +3089,13 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
 `MaintenanceListResult` keys:
 
-* `VALUE` 
+* `Value` 
 
     current interval value of the activity.
 
-    The value of {{property(VALUE)}} **MUST** be `float`.
+    The value of {{property(Value)}} **MUST** be `float`.
 
-* `INTERVAL` 
+* `Interval` 
 
     interval of the value observed.
 
@@ -2584,25 +3109,25 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
         
 
-* `NEXT_SERVICE_DATE` 
+* `NextServiceDate` 
 
     next date/time stamp that maintenance should be performed.
 
-    The value of {{property(NEXT_SERVICE_DATE)}} **MUST** be `datetime`. See {{sect(datetime)}}.
+    The value of {{property(NextServiceDate)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-* `RESET` 
+* `Reset` 
 
     last date/time stamp of the {{term(observation)}} was reset.
 
-    The value of {{property(RESET)}} **MUST** be `datetime`. See {{sect(datetime)}}.
+    The value of {{property(Reset)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-* `SEVERITY` 
+* `Severity` 
 
     level of severity on a scale of 1-10.
 
-    The value of {{property(SEVERITY)}} **MUST** be `integer`.
+    The value of {{property(Severity)}} **MUST** be `integer`.
 
-* `DIRECTION` 
+* `Direction` 
 
     direction of the value observed.
 
@@ -2616,39 +3141,39 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
         
 
-* `NAME` 
+* `Name` 
 
     identifier of the maintenance activity.
 
-    The value of {{property(NAME)}} **MUST** be `string`.
+    The value of {{property(Name)}} **MUST** be `string`.
 
-* `LAST_SERVICE_DATE` 
+* `LastServiceDate` 
 
     last date/time stamp that maintenance was performed.
 
-    The value of {{property(LAST_SERVICE_DATE)}} **MUST** be `datetime`. See {{sect(datetime)}}.
+    The value of {{property(LastServiceDate)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-* `UNITS` 
+* `Units` 
 
-    same as {{block(DataItem)}} {{property(units)}}. See {{package(Device Information Model)}}.
+    same as {{property(DataItem::units)}}. See {{package(Device Information Model)}}.
 
-    The value of {{property(UNITS)}} **MUST** be one of the `UnitEnum` enumeration. 
+    The value of {{property(Units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
-* `TARGET` 
+* `Target` 
 
     target value of the next maintenance.
 
-    The value of {{property(TARGET)}} **MUST** be `float`.
+    The value of {{property(Target)}} **MUST** be `float`.
 
 ### Material
 
-{{def(EventEnum:MATERIAL)}}
+{{def(EventEnum::MATERIAL)}}
 
 
 
 ### MaterialLayer
 
-{{def(EventEnum:MATERIAL_LAYER)}}
+{{def(EventEnum::MATERIAL_LAYER)}}
 
 
 
@@ -2668,9 +3193,31 @@ The value of {{property(MaterialLayer)}} **MUST** be `integer`.
 
     
 
+### MeasurementType
+
+{{def(EventEnum::MEASUREMENT_TYPE)}}
+
+Examples: `POINT`, `RADIUS`, `ANGLE`, `LENGTH`, etc.
+
+
+
+### MeasurementUnits
+
+{{def(EventEnum::MEASUREMENT_UNITS)}}
+
+
+
+### MeasurementValue
+
+{{def(EventEnum::MEASUREMENT_VALUE)}}
+
+
+
+The value of {{property(MeasurementValue)}} **MUST** be `double`.
+
 ### Message
 
-{{def(EventEnum:MESSAGE)}}
+{{def(EventEnum::MESSAGE)}}
 
 
 
@@ -2691,7 +3238,7 @@ Descriptions for Value Properties of {{block(Message)}}:
 
 ### Network
 
-{{def(EventEnum:NETWORK)}}
+{{def(EventEnum::NETWORK)}}
 
 
 
@@ -2755,7 +3302,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### NetworkPort
 
-{{def(EventEnum:NETWORK_PORT)}}
+{{def(EventEnum::NETWORK_PORT)}}
 
 
 
@@ -2763,7 +3310,7 @@ The value of {{property(NetworkPort)}} **MUST** be `integer`.
 
 ### OperatingMode
 
-{{def(EventEnum:OPERATING_MODE)}}
+{{def(EventEnum::OPERATING_MODE)}}
 
 
 
@@ -2795,7 +3342,7 @@ The value of {{property(NetworkPort)}} **MUST** be `integer`.
 
 ### OperatingSystem
 
-{{def(EventEnum:OPERATING_SYSTEM)}}
+{{def(EventEnum::OPERATING_SYSTEM)}}
 
 
 
@@ -2843,19 +3390,19 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### OperatorId
 
-{{def(EventEnum:OPERATOR_ID)}}
+{{def(EventEnum::OPERATOR_ID)}}
 
 
 
 ### PalletId
 
-{{def(EventEnum:PALLET_ID)}}
+{{def(EventEnum::PALLET_ID)}}
 
 
 
 ### PartCount
 
-{{def(EventEnum:PART_COUNT)}}
+{{def(EventEnum::PART_COUNT)}}
 
 
 
@@ -2915,7 +3462,7 @@ The default {{property(subType)}} of {{property(PartCount)}} is `ALL`.
 
 ### PartCountType
 
-{{def(EventEnum:PART_COUNT_TYPE)}}
+{{def(EventEnum::PART_COUNT_TYPE)}}
 
 
 
@@ -2931,7 +3478,7 @@ The default {{property(subType)}} of {{property(PartCount)}} is `ALL`.
 
 ### PartDetect
 
-{{def(EventEnum:PART_DETECT)}}
+{{def(EventEnum::PART_DETECT)}}
 
 
 
@@ -2947,9 +3494,9 @@ The default {{property(subType)}} of {{property(PartCount)}} is `ALL`.
 
 ### PartGroupId
 
-{{def(EventEnum:PART_GROUP_ID)}}
+{{def(EventEnum::PART_GROUP_ID)}}
 
-If no {{property(subType)}} is specified, `UUID` is default.
+If no {{property(DataItem::subType)}} is specified, `UUID` is default.
 
 
 
@@ -2989,15 +3536,23 @@ The default {{property(subType)}} of {{property(PartGroupId)}} is `UUID`.
 
 ### PartId
 
-{{def(EventEnum:PART_ID)}}
+{{def(EventEnum::PART_ID)}}
 
 
+
+### PartIndex
+
+{{def(EventEnum::PART_INDEX)}}
+
+
+
+The value of {{property(PartIndex)}} **MUST** be `integer`.
 
 ### PartKindId
 
-{{def(EventEnum:PART_KIND_ID)}}
+{{def(EventEnum::PART_KIND_ID)}}
 
-If no {{property(subType)}} is specified, `UUID` is default.
+If no {{property(DataItem::subType)}} is specified, `UUID` is default.
 
 
 
@@ -3031,13 +3586,13 @@ The default {{property(subType)}} of {{property(PartKindId)}} is `UUID`.
 
 ### `<<deprecated>>`PartNumber
 
-{{def(EventEnum:PART_NUMBER)}}
+{{def(EventEnum::PART_NUMBER)}}
 
 
 
 ### PartProcessingState
 
-{{def(EventEnum:PART_PROCESSING_STATE)}}
+{{def(EventEnum::PART_PROCESSING_STATE)}}
 
 
 
@@ -3099,7 +3654,7 @@ The default {{property(subType)}} of {{property(PartKindId)}} is `UUID`.
 
 ### PartStatus
 
-{{def(EventEnum:PART_STATUS)}}
+{{def(EventEnum::PART_STATUS)}}
 
 If unique identifier is given, part status is for that individual. If group identifier is given without a unique identifier, then the status is assumed to be for the whole group.
 
@@ -3117,9 +3672,9 @@ If unique identifier is given, part status is for that individual. If group iden
 
 ### PartUniqueId
 
-{{def(EventEnum:PART_UNIQUE_ID)}}
+{{def(EventEnum::PART_UNIQUE_ID)}}
 
-If no {{property(subType)}} is specified, `UUID` is default.
+If no {{property(DataItem::subType)}} is specified, `UUID` is default.
 
 
 
@@ -3147,7 +3702,7 @@ The default {{property(subType)}} of {{property(PartUniqueId)}} is `UUID`.
 
 ### PathFeedrateOverride
 
-{{def(EventEnum:PATH_FEEDRATE_OVERRIDE)}}
+{{def(EventEnum::PATH_FEEDRATE_OVERRIDE)}}
 
 
 
@@ -3177,7 +3732,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### PathMode
 
-{{def(EventEnum:PATH_MODE)}}
+{{def(EventEnum::PATH_MODE)}}
 
 
 
@@ -3201,7 +3756,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### PowerState
 
-{{def(EventEnum:POWER_STATE)}}
+{{def(EventEnum::POWER_STATE)}}
 
 
 
@@ -3231,7 +3786,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### `<<deprecated>>`PowerStatus
 
-{{def(EventEnum:POWER_STATUS)}}
+{{def(EventEnum::POWER_STATUS)}}
 
 
 
@@ -3247,7 +3802,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### ProcessAggregateId
 
-{{def(EventEnum:PROCESS_AGGREGATE_ID)}}
+{{def(EventEnum::PROCESS_AGGREGATE_ID)}}
 
 
 
@@ -3273,7 +3828,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### ProcessKindId
 
-{{def(EventEnum:PROCESS_KIND_ID)}}
+{{def(EventEnum::PROCESS_KIND_ID)}}
 
 
 
@@ -3299,7 +3854,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### ProcessOccurrenceId
 
-{{def(EventEnum:PROCESS_OCCURRENCE_ID)}}
+{{def(EventEnum::PROCESS_OCCURRENCE_ID)}}
 
 
 
@@ -3331,7 +3886,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### ProcessState
 
-{{def(EventEnum:PROCESS_STATE)}}
+{{def(EventEnum::PROCESS_STATE)}}
 
 
 
@@ -3363,7 +3918,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### ProcessTime
 
-{{def(EventEnum:PROCESS_TIME)}}
+{{def(EventEnum::PROCESS_TIME)}}
 
 
 
@@ -3391,7 +3946,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Program
 
-{{def(EventEnum:PROGRAM)}}
+{{def(EventEnum::PROGRAM)}}
 
 
 
@@ -3443,7 +3998,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### ProgramComment
 
-{{def(EventEnum:PROGRAM_COMMENT)}}
+{{def(EventEnum::PROGRAM_COMMENT)}}
 
 
 
@@ -3471,7 +4026,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### ProgramEdit
 
-{{def(EventEnum:PROGRAM_EDIT)}}
+{{def(EventEnum::PROGRAM_EDIT)}}
 
 
 
@@ -3491,13 +4046,13 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### ProgramEditName
 
-{{def(EventEnum:PROGRAM_EDIT_NAME)}}
+{{def(EventEnum::PROGRAM_EDIT_NAME)}}
 
 
 
 ### ProgramHeader
 
-{{def(EventEnum:PROGRAM_HEADER)}}
+{{def(EventEnum::PROGRAM_HEADER)}}
 
 
 
@@ -3527,7 +4082,7 @@ The default {{property(subType)}} of {{property(ProgramHeader)}} is `MAIN`.
 
 ### ProgramLocation
 
-{{def(EventEnum:PROGRAM_LOCATION)}}
+{{def(EventEnum::PROGRAM_LOCATION)}}
 
 
 
@@ -3555,7 +4110,7 @@ The default {{property(subType)}} of {{property(ProgramHeader)}} is `MAIN`.
 
 ### ProgramLocationType
 
-{{def(EventEnum:PROGRAM_LOCATION_TYPE)}}
+{{def(EventEnum::PROGRAM_LOCATION_TYPE)}}
 
 
 
@@ -3593,7 +4148,7 @@ The default {{property(subType)}} of {{property(ProgramHeader)}} is `MAIN`.
 
 ### ProgramNestLevel
 
-{{def(EventEnum:PROGRAM_NEST_LEVEL)}}
+{{def(EventEnum::PROGRAM_NEST_LEVEL)}}
 
 If an initial value is not defined, the nesting level associated with the highest or initial nesting level of the program **MUST** default to zero (0).
 
@@ -3604,7 +4159,7 @@ The value of {{property(ProgramNestLevel)}} **MUST** be `integer`.
 
 ### RotaryMode
 
-{{def(EventEnum:ROTARY_MODE)}}
+{{def(EventEnum::ROTARY_MODE)}}
 
 
 
@@ -3624,7 +4179,7 @@ The value of {{property(ProgramNestLevel)}} **MUST** be `integer`.
 
 ### RotaryVelocityOverride
 
-{{def(EventEnum:ROTARY_VELOCITY_OVERRIDE)}}
+{{def(EventEnum::ROTARY_VELOCITY_OVERRIDE)}}
 
 This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a {{block(Rotary)}} type axis.
 
@@ -3634,17 +4189,17 @@ The value of {{property(RotaryVelocityOverride)}} **MUST** be `float`.
 
 ### Rotation
 
-{{def(EventEnum:ROTATION)}}
+{{def(EventEnum::ROTATION)}}
 
 
 
 The {{property(units)}} of {{property(Rotation)}} **MUST** be `DEGREE_3D`.
 
-The value of {{property(Rotation)}} **MUST** be a list of `float` of size `0..3`.
+The value of {{property(Rotation)}} **MUST** be `float3d`. See {{sect(float3d)}}.
 
 ### SensorAttachment
 
-{{def(EventEnum:SENSOR_ATTACHMENT)}}
+{{def(EventEnum::SENSOR_ATTACHMENT)}}
 
 
 
@@ -3652,21 +4207,69 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `SensorA
 
 `SensorAttachmentResult` keys:
 
-* `SENSOR_ID` 
+* `SensorId` 
 
-    The identity of a sensor used to observe some measurement of an item.
+    identity of a sensor used to observe some measurement of an item.
 
-    The value of {{property(SENSOR_ID)}} **MUST** be `string`.
+    The value of {{property(SensorId)}} **MUST** be `ID`. See {{sect(id)}}.
+
+### SensorState
+
+{{def(EventEnum::SENSOR_STATE)}}
+
+
+
+The default {{property(subType)}} of {{property(SensorState)}} is `BINARY`.
+
+#### Subtypes of SensorState
+
+* `BINARY`
+
+    {{def(EventEnum::SENSOR_STATE)}} where the state is {{def(DataItemSubTypeEnum::BINARY)}}
+
+    
+
+    The value of {{property(SensorState)}} **MUST** be `binary`. See {{sect(binary)}}.
+
+    `binary` Enumeration:
+
+* `BOOLEAN`
+
+    {{def(EventEnum::SENSOR_STATE)}} where the state is {{def(DataItemSubTypeEnum::BOOLEAN)}}
+
+    
+
+    The value of {{property(SensorState)}} **MUST** be `boolean`.
+
+    `boolean` Enumeration:
+
+* `DETECT`
+
+    {{def(EventEnum::SENSOR_STATE)}} where the state is {{def(DataItemSubTypeEnum::DETECT)}}
+
+    
+
+    The value of {{property(SensorState)}} **MUST** be one of the `CompositionStateSwitchedEnum` enumeration. 
+
+* `ENUMERATED`
+
+    {{def(EventEnum::SENSOR_STATE)}} where the state is {{def(DataItemSubTypeEnum::ENUMERATED)}}
+
+    
+
+    The value of {{property(SensorState)}} **MUST** be `integer`.
+
+    `integer` Enumeration:
 
 ### SerialNumber
 
-{{def(EventEnum:SERIAL_NUMBER)}}
+{{def(EventEnum::SERIAL_NUMBER)}}
 
 
 
-### SpecificationLimit
+### `<<deprecated>>`SpecificationLimit
 
-{{def(EventEnum:SPECIFICATION_LIMIT)}}
+{{def(EventEnum::SPECIFICATION_LIMIT)}}
 
 
 
@@ -3674,7 +4277,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
 
 `SpecificationLimitResult` keys:
 
-* `UPPER_LIMIT` 
+* `UpperLimit` 
 
     upper conformance boundary for a variable.
     
@@ -3682,15 +4285,15 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
     
     
 
-    The value of {{property(UPPER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
 
-* `NOMINAL` 
+* `Nominal` 
 
     ideal or desired value for a variable.
 
-    The value of {{property(NOMINAL)}} **MUST** be `float`.
+    The value of {{property(Nominal)}} **MUST** be `float`.
 
-* `LOWER_LIMIT` 
+* `LowerLimit` 
 
     lower conformance boundary for a variable.
     
@@ -3698,11 +4301,47 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
     
     
 
-    The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
+
+### SpecificationLimits
+
+{{def(EventEnum::SPECIFICATION_LIMITS)}}
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `SpecificationLimitResult` keys.
+
+`SpecificationLimitResult` keys:
+
+* `UpperLimit` 
+
+    upper conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
+
+* `Nominal` 
+
+    ideal or desired value for a variable.
+
+    The value of {{property(Nominal)}} **MUST** be `float`.
+
+* `LowerLimit` 
+
+    lower conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
 
 ### SpindleInterlock
 
-{{def(EventEnum:SPINDLE_INTERLOCK)}}
+{{def(EventEnum::SPINDLE_INTERLOCK)}}
 
 
 
@@ -3716,33 +4355,75 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
 
     spindle has not been deactivated.
 
+### Thickness
+
+{{def(EventEnum::THICKNESS)}}
+
+
+
+The default {{property(subType)}} of {{property(Thickness)}} is `ACTUAL`.
+
+The value of {{property(Thickness)}} **MUST** be `float`.
+
+#### Subtypes of Thickness
+
+* `ACTUAL`
+
+    {{def(EventEnum::THICKNESS)}} that is {{def(DataItemSubTypeEnum::ACTUAL)}}.
+
+    
+
+* `COMMANDED`
+
+    {{def(EventEnum::THICKNESS)}} that is {{def(DataItemSubTypeEnum::COMMANDED)}}.
+
+    
+
+* `PROGRAMMED`
+
+    {{def(EventEnum::THICKNESS)}} that is {{def(DataItemSubTypeEnum::PROGRAMMED)}}.
+
+    
+
+* `TARGET`
+
+    {{def(EventEnum::THICKNESS)}} that is {{def(DataItemSubTypeEnum::TARGET)}}.
+
+    
+
 ### ToolAssetId
 
-{{def(EventEnum:TOOL_ASSET_ID)}}
+{{def(EventEnum::TOOL_ASSET_ID)}}
+
+
+
+### ToolCuttingItem
+
+{{def(EventEnum::TOOL_CUTTING_ITEM)}}
 
 
 
 ### ToolGroup
 
-{{def(EventEnum:TOOL_GROUP)}}
+{{def(EventEnum::TOOL_GROUP)}}
 
 
 
 ### `<<deprecated>>`ToolId
 
-{{def(EventEnum:TOOL_ID)}}
+{{def(EventEnum::TOOL_ID)}}
 
 
 
 ### ToolNumber
 
-{{def(EventEnum:TOOL_NUMBER)}}
+{{def(EventEnum::TOOL_NUMBER)}}
 
 
 
 ### ToolOffset
 
-{{def(EventEnum:TOOL_OFFSET)}}
+{{def(EventEnum::TOOL_OFFSET)}}
 
 
 
@@ -3764,9 +4445,15 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
+### ToolOffsets
+
+tabular representation of {{def(EventEnum::TOOL_OFFSETS)}}
+
+
+
 ### TransferCount
 
-{{def(EventEnum:TRANSFER_COUNT)}}
+{{def(EventEnum::TRANSFER_COUNT)}}
 
 
 
@@ -3826,17 +4513,43 @@ The value of {{property(TransferCount)}} **MUST** be `integer`.
 
 ### Translation
 
-{{def(EventEnum:TRANSLATION)}}
+{{def(EventEnum::TRANSLATION)}}
 
 
 
 The {{property(units)}} of {{property(Translation)}} **MUST** be `MILLIMETER_3D`.
 
-The value of {{property(Translation)}} **MUST** be a list of `float` of size `0..3`.
+The value of {{property(Translation)}} **MUST** be `float3d`. See {{sect(float3d)}}.
+
+### Uncertainty
+
+{{def(EventEnum::UNCERTAINTY)}}
+
+
+
+The value of {{property(Uncertainty)}} **MUST** be `double`.
+
+### UncertaintyType
+
+{{def(EventEnum::UNCERTAINTY_TYPE)}}
+
+
+
+The value of {{property(UncertaintyType)}} **MUST** be one of the `UncertaintyTypeEnum` enumeration. 
+
+`UncertaintyTypeEnum` Enumeration:
+
+* `COMBINED` 
+
+    {{term(combined standard uncertainty)}}.
+
+* `MEAN` 
+
+    {{term(standard uncertainty)}} using arithmetic mean or average the observations. {{cite(JCGM 100:2008 4.2)}}
 
 ### UnloadCount
 
-{{def(EventEnum:UNLOAD_COUNT)}}
+{{def(EventEnum::UNLOAD_COUNT)}}
 
 
 
@@ -3896,7 +4609,7 @@ The value of {{property(UnloadCount)}} **MUST** be `integer`.
 
 ### User
 
-{{def(EventEnum:USER)}}
+{{def(EventEnum::USER)}}
 
 
 
@@ -3924,7 +4637,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### ValveState
 
-{{def(EventEnum:VALVE_STATE)}}
+{{def(EventEnum::VALVE_STATE)}}
 
 
 
@@ -3966,13 +4679,15 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Variable
 
-{{def(EventEnum:VARIABLE)}}
+{{def(EventEnum::VARIABLE)}}
 
 
 
 ### WaitState
 
-{{def(EventEnum:WAIT_STATE)}}
+{{def(EventEnum::WAIT_STATE)}}
+
+When {{property(Execution::result)}} is not `WAIT`, {{property(Observation::isUnavailable)}} of {{block(WaitState)}} **MUST** be `true`.
 
 
 
@@ -4024,19 +4739,25 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Wire
 
-{{def(EventEnum:WIRE)}}
+{{def(EventEnum::WIRE)}}
 
 
 
 ### WorkOffset
 
-{{def(EventEnum:WORK_OFFSET)}}
+{{def(EventEnum::WORK_OFFSET)}}
+
+
+
+### WorkOffsets
+
+tabular representation of {{def(EventEnum::WORK_OFFSETS)}}
 
 
 
 ### WorkholdingId
 
-{{def(EventEnum:WORKHOLDING_ID)}}
+{{def(EventEnum::WORKHOLDING_ID)}}
 
 
 
@@ -4048,7 +4769,7 @@ This section provides semantic information for {{block(Sample)}} types.
 
 ### Acceleration
 
-{{def(SampleEnum:ACCELERATION)}}
+{{def(SampleEnum::ACCELERATION)}}
 
 
 
@@ -4078,7 +4799,7 @@ The default {{property(subType)}} of {{property(Acceleration)}} is `ACTUAL`.
 
 ### AccumulatedTime
 
-{{def(SampleEnum:ACCUMULATED_TIME)}}
+{{def(SampleEnum::ACCUMULATED_TIME)}}
 
 
 
@@ -4086,7 +4807,7 @@ The {{property(units)}} of {{property(AccumulatedTime)}} **MUST** be `SECOND`.
 
 ### `<<deprecated>>`Amperage
 
-{{def(SampleEnum:AMPERAGE)}}
+{{def(SampleEnum::AMPERAGE)}}
 
 
 
@@ -4130,7 +4851,7 @@ The {{property(units)}} of {{property(Amperage)}} **MUST** be `AMPERE`.
 
 ### AmperageAC
 
-{{def(SampleEnum:AMPERAGE_AC)}}
+{{def(SampleEnum::AMPERAGE_AC)}}
 
 
 
@@ -4160,7 +4881,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### AmperageDC
 
-{{def(SampleEnum:AMPERAGE_DC)}}
+{{def(SampleEnum::AMPERAGE_DC)}}
 
 
 
@@ -4190,7 +4911,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Angle
 
-{{def(SampleEnum:ANGLE)}}
+{{def(SampleEnum::ANGLE)}}
 
 
 
@@ -4212,7 +4933,7 @@ The {{property(units)}} of {{property(Angle)}} **MUST** be `DEGREE`.
 
 ### AngularAcceleration
 
-{{def(SampleEnum:ANGULAR_ACCELERATION)}}
+{{def(SampleEnum::ANGULAR_ACCELERATION)}}
 
 
 
@@ -4242,7 +4963,7 @@ The default {{property(subType)}} of {{property(AngularAcceleration)}} is `ACTUA
 
 ### AngularDeceleration
 
-{{def(SampleEnum:ANGULAR_DECELERATION)}}
+{{def(SampleEnum::ANGULAR_DECELERATION)}}
 
 
 
@@ -4272,7 +4993,7 @@ The default {{property(subType)}} of {{property(AngularDeceleration)}} is `ACTUA
 
 ### AngularVelocity
 
-{{def(SampleEnum:ANGULAR_VELOCITY)}}
+{{def(SampleEnum::ANGULAR_VELOCITY)}}
 
 
 
@@ -4280,7 +5001,7 @@ The {{property(units)}} of {{property(AngularVelocity)}} **MUST** be `DEGREE/SEC
 
 ### AssetUpdateRate
 
-{{def(SampleEnum:ASSET_UPDATE_RATE)}}
+{{def(SampleEnum::ASSET_UPDATE_RATE)}}
 
 
 
@@ -4288,7 +5009,7 @@ The {{property(units)}} of {{property(AssetUpdateRate)}} **MUST** be `COUNT/SECO
 
 ### AxisFeedrate
 
-{{def(SampleEnum:AXIS_FEEDRATE)}}
+{{def(SampleEnum::AXIS_FEEDRATE)}}
 
 
 
@@ -4336,7 +5057,7 @@ The {{property(units)}} of {{property(AxisFeedrate)}} **MUST** be `MILLIMETER/SE
 
 ### BatteryCapacity
 
-{{def(SampleEnum:BATTERY_CAPACITY)}}
+{{def(SampleEnum::BATTERY_CAPACITY)}}
 
 
 
@@ -4360,7 +5081,7 @@ The default {{property(subType)}} of {{property(BatteryCapacity)}} is `ACTUAL`.
 
 ### BatteryCharge
 
-{{def(SampleEnum:BATTERY_CHARGE)}}
+{{def(SampleEnum::BATTERY_CHARGE)}}
 
 
 
@@ -4384,7 +5105,7 @@ The default {{property(subType)}} of {{property(BatteryCharge)}} is `ACTUAL`.
 
 ### CapacityFluid
 
-{{def(SampleEnum:CAPACITY_FLUID)}}
+{{def(SampleEnum::CAPACITY_FLUID)}}
 
 
 
@@ -4392,7 +5113,7 @@ The {{property(units)}} of {{property(CapacityFluid)}} **MUST** be `MILLILITER`.
 
 ### CapacitySpatial
 
-{{def(SampleEnum:CAPACITY_SPATIAL)}}
+{{def(SampleEnum::CAPACITY_SPATIAL)}}
 
 
 
@@ -4400,7 +5121,7 @@ The {{property(units)}} of {{property(CapacitySpatial)}} **MUST** be `CUBIC_MILL
 
 ### ChargeRate
 
-{{def(SampleEnum:CHARGE_RATE)}}
+{{def(SampleEnum::CHARGE_RATE)}}
 
 
 
@@ -4424,7 +5145,7 @@ The default {{property(subType)}} of {{property(ChargeRate)}} is `ACTUAL`.
 
 ### Concentration
 
-{{def(SampleEnum:CONCENTRATION)}}
+{{def(SampleEnum::CONCENTRATION)}}
 
 
 
@@ -4432,7 +5153,7 @@ The {{property(units)}} of {{property(Concentration)}} **MUST** be `PERCENT`.
 
 ### Conductivity
 
-{{def(SampleEnum:CONDUCTIVITY)}}
+{{def(SampleEnum::CONDUCTIVITY)}}
 
 
 
@@ -4440,7 +5161,7 @@ The {{property(units)}} of {{property(Conductivity)}} **MUST** be `SIEMENS/METER
 
 ### CuttingSpeed
 
-{{def(SampleEnum:CUTTING_SPEED)}}
+{{def(SampleEnum::CUTTING_SPEED)}}
 
 
 
@@ -4468,7 +5189,7 @@ The {{property(units)}} of {{property(CuttingSpeed)}} **MUST** be `MILLIMETER/SE
 
 ### Deceleration
 
-{{def(SampleEnum:DECELERATION)}}
+{{def(SampleEnum::DECELERATION)}}
 
 
 
@@ -4498,7 +5219,7 @@ The default {{property(subType)}} of {{property(Deceleration)}} is `ACTUAL`.
 
 ### Density
 
-{{def(SampleEnum:DENSITY)}}
+{{def(SampleEnum::DENSITY)}}
 
 
 
@@ -4506,7 +5227,7 @@ The {{property(units)}} of {{property(Density)}} **MUST** be `MILLIGRAM/CUBIC_MI
 
 ### DepositionAccelerationVolumetric
 
-{{def(SampleEnum:DEPOSITION_ACCELERATION_VOLUMETRIC)}}
+{{def(SampleEnum::DEPOSITION_ACCELERATION_VOLUMETRIC)}}
 
 
 
@@ -4528,7 +5249,7 @@ The {{property(units)}} of {{property(DepositionAccelerationVolumetric)}} **MUST
 
 ### DepositionDensity
 
-{{def(SampleEnum:DEPOSITION_DENSITY)}}
+{{def(SampleEnum::DEPOSITION_DENSITY)}}
 
 
 
@@ -4550,7 +5271,7 @@ The {{property(units)}} of {{property(DepositionDensity)}} **MUST** be `MILLIGRA
 
 ### DepositionMass
 
-{{def(SampleEnum:DEPOSITION_MASS)}}
+{{def(SampleEnum::DEPOSITION_MASS)}}
 
 
 
@@ -4572,7 +5293,7 @@ The {{property(units)}} of {{property(DepositionMass)}} **MUST** be `MILLIGRAM`.
 
 ### DepositionRateVolumetric
 
-{{def(SampleEnum:DEPOSITION_RATE_VOLUMETRIC)}}
+{{def(SampleEnum::DEPOSITION_RATE_VOLUMETRIC)}}
 
 
 
@@ -4594,7 +5315,7 @@ The {{property(units)}} of {{property(DepositionRateVolumetric)}} **MUST** be `C
 
 ### DepositionVolume
 
-{{def(SampleEnum:DEPOSITION_VOLUME)}}
+{{def(SampleEnum::DEPOSITION_VOLUME)}}
 
 
 
@@ -4616,7 +5337,7 @@ The {{property(units)}} of {{property(DepositionVolume)}} **MUST** be `CUBIC_MIL
 
 ### DewPoint
 
-{{def(SampleEnum:DEW_POINT)}}
+{{def(SampleEnum::DEW_POINT)}}
 
 
 
@@ -4624,7 +5345,7 @@ The {{property(units)}} of {{property(DewPoint)}} **MUST** be `CELSIUS`.
 
 ### Diameter
 
-{{def(SampleEnum:DIAMETER)}}
+{{def(SampleEnum::DIAMETER)}}
 
 
 
@@ -4632,7 +5353,7 @@ The {{property(units)}} of {{property(Diameter)}} **MUST** be `MILLIMETER`.
 
 ### DischargeRate
 
-{{def(SampleEnum:DISCHARGE_RATE)}}
+{{def(SampleEnum::DISCHARGE_RATE)}}
 
 
 
@@ -4656,7 +5377,7 @@ The default {{property(subType)}} of {{property(DischargeRate)}} is `ACTUAL`.
 
 ### Displacement
 
-{{def(SampleEnum:DISPLACEMENT)}}
+{{def(SampleEnum::DISPLACEMENT)}}
 
 
 
@@ -4664,7 +5385,7 @@ The {{property(units)}} of {{property(Displacement)}} **MUST** be `MILLIMETER`.
 
 ### DisplacementAngular
 
-{{def(SampleEnum:DISPLACEMENT_ANGULAR)}}
+{{def(SampleEnum::DISPLACEMENT_ANGULAR)}}
 
 > Note: The displacement vector **MAY** be defined by the motion of the owning {{block(Component)}}.
 
@@ -4674,7 +5395,7 @@ The {{property(units)}} of {{property(DisplacementAngular)}} **MUST** be `DEGREE
 
 ### DisplacementLinear
 
-{{def(SampleEnum:DISPLACEMENT_LINEAR)}}
+{{def(SampleEnum::DISPLACEMENT_LINEAR)}}
 
 > Note: The displacement vector **MAY** be defined by the motion of the owning {{block(Component)}}.
 
@@ -4684,7 +5405,7 @@ The {{property(units)}} of {{property(DisplacementLinear)}} **MUST** be `MILLIME
 
 ### ElectricalEnergy
 
-{{def(SampleEnum:ELECTRICAL_ENERGY)}}
+{{def(SampleEnum::ELECTRICAL_ENERGY)}}
 
 
 
@@ -4692,7 +5413,7 @@ The {{property(units)}} of {{property(ElectricalEnergy)}} **MUST** be `WATT_SECO
 
 ### EquipmentTimer
 
-{{def(SampleEnum:EQUIPMENT_TIMER)}}
+{{def(SampleEnum::EQUIPMENT_TIMER)}}
 
 
 
@@ -4740,9 +5461,31 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
+### FillHeight
+
+{{def(SampleEnum::FILL_HEIGHT)}}
+
+
+
+The {{property(units)}} of {{property(FillHeight)}} **MUST** be `MILLIMETER`.
+
+#### Subtypes of FillHeight
+
+* `ACTUAL`
+
+    {{def(SampleEnum::FILL_HEIGHT)}} that is {{def(DataItemSubTypeEnum::ACTUAL)}}
+
+    
+
+* `TARGET`
+
+    {{def(SampleEnum::FILL_HEIGHT)}} that is {{def(DataItemSubTypeEnum::TARGET)}}
+
+    
+
 ### FillLevel
 
-{{def(SampleEnum:FILL_LEVEL)}}
+{{def(SampleEnum::FILL_LEVEL)}}
 
 
 
@@ -4750,7 +5493,7 @@ The {{property(units)}} of {{property(FillLevel)}} **MUST** be `PERCENT`.
 
 ### Flow
 
-{{def(SampleEnum:FLOW)}}
+{{def(SampleEnum::FLOW)}}
 
 
 
@@ -4758,7 +5501,7 @@ The {{property(units)}} of {{property(Flow)}} **MUST** be `LITER/SECOND`.
 
 ### FollowingError
 
-{{def(SampleEnum:FOLLOWING_ERROR)}}
+{{def(SampleEnum::FOLLOWING_ERROR)}}
 
 
 
@@ -4774,7 +5517,7 @@ The {{property(units)}} of {{property(FollowingError)}} **MUST** be `COUNT`.
 
 ### FollowingErrorAngular
 
-{{def(SampleEnum:FOLLOWING_ERROR_ANGULAR)}}
+{{def(SampleEnum::FOLLOWING_ERROR_ANGULAR)}}
 
 
 
@@ -4790,7 +5533,7 @@ The {{property(units)}} of {{property(FollowingErrorAngular)}} **MUST** be `DEGR
 
 ### FollowingErrorLinear
 
-{{def(SampleEnum:FOLLOWING_ERROR_LINEAR)}}
+{{def(SampleEnum::FOLLOWING_ERROR_LINEAR)}}
 
 
 
@@ -4806,7 +5549,7 @@ The {{property(units)}} of {{property(FollowingErrorLinear)}} **MUST** be `MILLI
 
 ### Frequency
 
-{{def(SampleEnum:FREQUENCY)}}
+{{def(SampleEnum::FREQUENCY)}}
 
 
 
@@ -4814,7 +5557,7 @@ The {{property(units)}} of {{property(Frequency)}} **MUST** be `HERTZ`.
 
 ### `<<deprecated>>`GlobalPosition
 
-{{def(SampleEnum:GLOBAL_POSITION)}}
+{{def(SampleEnum::GLOBAL_POSITION)}}
 
 
 
@@ -4836,7 +5579,7 @@ The {{property(units)}} of {{property(GlobalPosition)}} **MUST** be `MILLIMETER`
 
 ### GravitationalAcceleration
 
-{{def(SampleEnum:GRAVITATIONAL_ACCELERATION)}}
+{{def(SampleEnum::GRAVITATIONAL_ACCELERATION)}}
 
 
 
@@ -4846,7 +5589,7 @@ The {{property(units)}} of {{property(GravitationalAcceleration)}} **MUST** be `
 
 ### GravitationalForce
 
-{{def(SampleEnum:GRAVITATIONAL_FORCE)}}
+{{def(SampleEnum::GRAVITATIONAL_FORCE)}}
 
 > Note: $$Mass\times GravitationalAcceleration$$
 
@@ -4856,7 +5599,7 @@ The {{property(units)}} of {{property(GravitationalForce)}} **MUST** be `GRAVITA
 
 ### HumidityAbsolute
 
-{{def(SampleEnum:HUMIDITY_ABSOLUTE)}}
+{{def(SampleEnum::HUMIDITY_ABSOLUTE)}}
 
 
 
@@ -4878,7 +5621,7 @@ The {{property(units)}} of {{property(HumidityAbsolute)}} **MUST** be `GRAM/CUBI
 
 ### HumidityRelative
 
-{{def(SampleEnum:HUMIDITY_RELATIVE)}}
+{{def(SampleEnum::HUMIDITY_RELATIVE)}}
 
 
 
@@ -4900,7 +5643,7 @@ The {{property(units)}} of {{property(HumidityRelative)}} **MUST** be `PERCENT`.
 
 ### HumiditySpecific
 
-{{def(SampleEnum:HUMIDITY_SPECIFIC)}}
+{{def(SampleEnum::HUMIDITY_SPECIFIC)}}
 
 
 
@@ -4922,7 +5665,7 @@ The {{property(units)}} of {{property(HumiditySpecific)}} **MUST** be `PERCENT`.
 
 ### Length
 
-{{def(SampleEnum:LENGTH)}}
+{{def(SampleEnum::LENGTH)}}
 
 
 
@@ -4950,7 +5693,7 @@ The {{property(units)}} of {{property(Length)}} **MUST** be `MILLIMETER`.
 
 ### `<<deprecated>>`Level
 
-{{def(SampleEnum:LEVEL)}}
+{{def(SampleEnum::LEVEL)}}
 
 
 
@@ -4958,7 +5701,7 @@ The {{property(units)}} of {{property(Level)}} **MUST** be `PERCENT`.
 
 ### LinearForce
 
-{{def(SampleEnum:LINEAR_FORCE)}}
+{{def(SampleEnum::LINEAR_FORCE)}}
 
 
 
@@ -4966,7 +5709,7 @@ The {{property(units)}} of {{property(LinearForce)}} **MUST** be `NEWTON`.
 
 ### Load
 
-{{def(SampleEnum:LOAD)}}
+{{def(SampleEnum::LOAD)}}
 
 
 
@@ -4974,7 +5717,7 @@ The {{property(units)}} of {{property(Load)}} **MUST** be `PERCENT`.
 
 ### Mass
 
-{{def(SampleEnum:MASS)}}
+{{def(SampleEnum::MASS)}}
 
 
 
@@ -4982,7 +5725,7 @@ The {{property(units)}} of {{property(Mass)}} **MUST** be `KILOGRAM`.
 
 ### ObservationUpdateRate
 
-{{def(SampleEnum:OBSERVATION_UPDATE_RATE)}}
+{{def(SampleEnum::OBSERVATION_UPDATE_RATE)}}
 
 
 
@@ -4990,7 +5733,7 @@ The {{property(units)}} of {{property(ObservationUpdateRate)}} **MUST** be `COUN
 
 ### Openness
 
-{{def(SampleEnum:OPENNESS)}}
+{{def(SampleEnum::OPENNESS)}}
 
 
 
@@ -4998,13 +5741,13 @@ The {{property(units)}} of {{property(Openness)}} **MUST** be `PERCENT`.
 
 ### Orientation
 
-{{def(SampleEnum:ORIENTATION)}}
+{{def(SampleEnum::ORIENTATION)}}
 
 
 
 The {{property(units)}} of {{property(Orientation)}} **MUST** be `DEGREE_3D`.
 
-The value of {{property(Orientation)}} **MUST** be a list of `float` of size `0..3`.
+The value of {{property(Orientation)}} **MUST** be `float3d`. See {{sect(float3d)}}.
 
 #### Subtypes of Orientation
 
@@ -5022,15 +5765,51 @@ The value of {{property(Orientation)}} **MUST** be a list of `float` of size `0.
 
 ### PH
 
-{{def(SampleEnum:PH)}}
+{{def(SampleEnum::PH)}}
 
 
 
 The {{property(units)}} of {{property(PH)}} **MUST** be `PH`.
 
+### ParticleCount
+
+{{def(SampleEnum::PARTICLE_COUNT)}}
+
+
+
+The {{property(units)}} of {{property(ParticleCount)}} **MUST** be `COUNT`.
+
+#### Subtypes of ParticleCount
+
+* `GAS`
+
+    {{def(SampleEnum::PARTICLE_COUNT)}} for a {{def(DataItemSubType::GAS)}}
+
+    
+
+* `LIQUID`
+
+    {{def(SampleEnum::PARTICLE_COUNT)}} for a {{def(DataItemSubType::LIQUID)}}
+
+    
+
+* `SOLID`
+
+    {{def(SampleEnum::PARTICLE_COUNT)}} for a {{def(DataItemSubType::SOLID)}}
+
+    
+
+### ParticleSize
+
+{{def(SampleEnum::PARTICLE_SIZE)}}
+
+
+
+The {{property(units)}} of {{property(ParticleSize)}} **MUST** be `MILLIMETER`.
+
 ### PathFeedrate
 
-{{def(SampleEnum:PATH_FEEDRATE)}}
+{{def(SampleEnum::PATH_FEEDRATE)}}
 
 
 
@@ -5080,7 +5859,7 @@ The {{property(units)}} of {{property(PathFeedrate)}} **MUST** be `MILLIMETER/SE
 
 ### PathFeedratePerRevolution
 
-{{def(SampleEnum:PATH_FEEDRATE_PER_REVOLUTION)}}
+{{def(SampleEnum::PATH_FEEDRATE_PER_REVOLUTION)}}
 
 
 
@@ -5106,15 +5885,47 @@ The {{property(units)}} of {{property(PathFeedratePerRevolution)}} **MUST** be `
 
     
 
-### PathPosition
+### `<<hasFormatSpecificRepresentation>>`PathPosition
 
-{{def(SampleEnum:PATH_POSITION)}}
+{{def(SampleEnum::PATH_POSITION)}}
 
+
+
+
+~~~~xml
+<DataItem type='PATH_POSITION' id='pathposit1' units="MILLIMETER_3D"/>
+~~~~
+{: caption="XML Device Model Example for `PathPosition` using `MILLIMETER_3D` unit"}
+
+~~~~xml
+<PathPosition>10.0 0.0 20.0</PathPosition>
+~~~~
+{: caption="XML Streams Response Example for `PathPosition` using `MILLIMETER_3D` unit"}
+
+
+~~~~xml
+<DataItem type='PATH_POSITION' id='pathposit1' representation="DATA_SET">
+  <Definition>
+    <EntryDefinition key='X' units='MILLIMETER'>
+    <EntryDefinition key='Y' units='MILLIMETER'>
+    <EntryDefinition key='Z' units='MILLIMETER'>
+  </Definition>
+</DataItem>
+~~~~
+{: caption="XML Device Model Example for `PathPosition` to demonstrate multi-dimensional representation using `DataSet` representation"}
+
+~~~~xml
+<PathPositionDataSet id='pathposit1'>
+  <Entry key='X'>10.0</Entry>
+  <Entry key='Z'>20.0</Entry>
+</PathPositionDataSet>
+~~~~
+{: caption="XML Streams Response Example for `PathPosition` to demonstrate multi-dimensional representation using `DataSet` representation"}
 
 
 The {{property(units)}} of {{property(PathPosition)}} **MUST** be `MILLIMETER_3D`.
 
-The value of {{property(PathPosition)}} **MUST** be a list of `float` of size `0..3`.
+The value of {{property(PathPosition)}} **MUST** be `float3d`. See {{sect(float3d)}}.
 
 #### Subtypes of PathPosition
 
@@ -5146,7 +5957,7 @@ The value of {{property(PathPosition)}} **MUST** be a list of `float` of size `0
 
 ### Position
 
-{{def(SampleEnum:POSITION)}}
+{{def(SampleEnum::POSITION)}}
 
 
 
@@ -5180,17 +5991,17 @@ The {{property(units)}} of {{property(Position)}} **MUST** be `MILLIMETER`.
 
 ### PositionCartesian
 
-{{def(SampleEnum:POSITION_CARTESIAN)}}
+{{def(SampleEnum::POSITION_CARTESIAN)}}
 
 
 
 The {{property(units)}} of {{property(PositionCartesian)}} **MUST** be `MILLIMETER_3D`.
 
-The value of {{property(PositionCartesian)}} **MUST** be a list of `float` of size `0..3`.
+The value of {{property(PositionCartesian)}} **MUST** be `float3d`. See {{sect(float3d)}}.
 
 ### PowerFactor
 
-{{def(SampleEnum:POWER_FACTOR)}}
+{{def(SampleEnum::POWER_FACTOR)}}
 
 
 
@@ -5198,7 +6009,7 @@ The {{property(units)}} of {{property(PowerFactor)}} **MUST** be `PERCENT`.
 
 ### Pressure
 
-{{def(SampleEnum:PRESSURE)}}
+{{def(SampleEnum::PRESSURE)}}
 
 
 
@@ -5214,7 +6025,7 @@ The {{property(units)}} of {{property(PressureAbsolute)}} **MUST** be `PASCAL`.
 
 ### PressurizationRate
 
-{{def(SampleEnum:PRESSURIZATION_RATE)}}
+{{def(SampleEnum::PRESSURIZATION_RATE)}}
 
 
 
@@ -5242,7 +6053,7 @@ The {{property(units)}} of {{property(PressurizationRate)}} **MUST** be `PASCAL/
 
 ### ProcessTimer
 
-{{def(SampleEnum:PROCESS_TIMER)}}
+{{def(SampleEnum::PROCESS_TIMER)}}
 
 
 
@@ -5269,15 +6080,23 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Resistance
 
-{{def(SampleEnum:RESISTANCE)}}
+{{def(SampleEnum::RESISTANCE)}}
 
 
 
 The {{property(units)}} of {{property(Resistance)}} **MUST** be `OHM`.
 
+### Resistivity
+
+{{def(SampleEnum::RESISTIVITY)}}
+
+
+
+The {{property(units)}} of {{property(Resistivity)}} **MUST** be `OHM_METER`.
+
 ### RotaryVelocity
 
-{{def(SampleEnum:ROTARY_VELOCITY)}}
+{{def(SampleEnum::ROTARY_VELOCITY)}}
 
 
 
@@ -5313,7 +6132,7 @@ The {{property(units)}} of {{property(RotaryVelocity)}} **MUST** be `REVOLUTION/
 
 ### SettlingError
 
-{{def(SampleEnum:SETTLING_ERROR)}}
+{{def(SampleEnum::SETTLING_ERROR)}}
 
 
 
@@ -5329,7 +6148,7 @@ The {{property(units)}} of {{property(SettlingError)}} **MUST** be `COUNT`.
 
 ### SettlingErrorAngular
 
-{{def(SampleEnum:SETTLING_ERROR_ANGULAR)}}
+{{def(SampleEnum::SETTLING_ERROR_ANGULAR)}}
 
 
 
@@ -5345,7 +6164,7 @@ The {{property(units)}} of {{property(SettlingErrorAngular)}} **MUST** be `DEGRE
 
 ### SettlingErrorLinear
 
-{{def(SampleEnum:SETTLING_ERROR_LINEAR)}}
+{{def(SampleEnum::SETTLING_ERROR_LINEAR)}}
 
 
 
@@ -5361,7 +6180,7 @@ The {{property(units)}} of {{property(SettlingErrorLinear)}} **MUST** be `MILLIM
 
 ### SoundLevel
 
-{{def(SampleEnum:SOUND_LEVEL)}}
+{{def(SampleEnum::SOUND_LEVEL)}}
 
 
 
@@ -5403,7 +6222,7 @@ The default {{property(subType)}} of {{property(SoundLevel)}} is `A_SCALE`.
 
 ### `<<deprecated>>`SpindleSpeed
 
-{{def(SampleEnum:SPINDLE_SPEED)}}
+{{def(SampleEnum::SPINDLE_SPEED)}}
 
 
 
@@ -5437,7 +6256,7 @@ The {{property(units)}} of {{property(SpindleSpeed)}} **MUST** be `REVOLUTION/MI
 
 ### Strain
 
-{{def(SampleEnum:STRAIN)}}
+{{def(SampleEnum::STRAIN)}}
 
 
 
@@ -5445,7 +6264,7 @@ The {{property(units)}} of {{property(Strain)}} **MUST** be `PERCENT`.
 
 ### Temperature
 
-{{def(SampleEnum:TEMPERATURE)}}
+{{def(SampleEnum::TEMPERATURE)}}
 
 
 
@@ -5453,7 +6272,7 @@ The {{property(units)}} of {{property(Temperature)}} **MUST** be `CELSIUS`.
 
 ### Tension
 
-{{def(SampleEnum:TENSION)}}
+{{def(SampleEnum::TENSION)}}
 
 
 
@@ -5461,7 +6280,7 @@ The {{property(units)}} of {{property(Tension)}} **MUST** be `NEWTON`.
 
 ### Tilt
 
-{{def(SampleEnum:TILT)}}
+{{def(SampleEnum::TILT)}}
 
 
 
@@ -5469,7 +6288,7 @@ The {{property(units)}} of {{property(Tilt)}} **MUST** be `MICRO_RADIAN`.
 
 ### Torque
 
-{{def(SampleEnum:TORQUE)}}
+{{def(SampleEnum::TORQUE)}}
 
 
 
@@ -5477,7 +6296,7 @@ The {{property(units)}} of {{property(Torque)}} **MUST** be `NEWTON_METER`.
 
 ### Velocity
 
-{{def(SampleEnum:VELOCITY)}}
+{{def(SampleEnum::VELOCITY)}}
 
 
 
@@ -5485,7 +6304,7 @@ The {{property(units)}} of {{property(Velocity)}} **MUST** be `MILLIMETER/SECOND
 
 ### Viscosity
 
-{{def(SampleEnum:VISCOSITY)}}
+{{def(SampleEnum::VISCOSITY)}}
 
 
 
@@ -5493,7 +6312,7 @@ The {{property(units)}} of {{property(Viscosity)}} **MUST** be `PASCAL_SECOND`.
 
 ### VoltAmpere
 
-{{def(SampleEnum:VOLT_AMPERE)}}
+{{def(SampleEnum::VOLT_AMPERE)}}
 
 
 
@@ -5501,7 +6320,7 @@ The {{property(units)}} of {{property(VoltAmpere)}} **MUST** be `VOLT_AMPERE`.
 
 ### VoltAmpereReactive
 
-{{def(SampleEnum:VOLT_AMPERE_REACTIVE)}}
+{{def(SampleEnum::VOLT_AMPERE_REACTIVE)}}
 
 
 
@@ -5509,7 +6328,7 @@ The {{property(units)}} of {{property(VoltAmpereReactive)}} **MUST** be `VOLT_AM
 
 ### `<<deprecated>>`Voltage
 
-{{def(SampleEnum:VOLTAGE)}}
+{{def(SampleEnum::VOLTAGE)}}
 
 
 
@@ -5553,7 +6372,7 @@ The {{property(units)}} of {{property(Voltage)}} **MUST** be `VOLT`.
 
 ### VoltageAC
 
-{{def(SampleEnum:VOLTAGE_AC)}}
+{{def(SampleEnum::VOLTAGE_AC)}}
 
 
 
@@ -5583,7 +6402,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### VoltageDC
 
-{{def(SampleEnum:VOLTAGE_DC)}}
+{{def(SampleEnum::VOLTAGE_DC)}}
 
 
 
@@ -5613,7 +6432,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### VolumeFluid
 
-{{def(SampleEnum:VOLUME_FLUID)}}
+{{def(SampleEnum::VOLUME_FLUID)}}
 
 
 
@@ -5659,7 +6478,7 @@ The {{property(units)}} of {{property(VolumeFluid)}} **MUST** be `MILLILITER`.
 
 ### VolumeSpatial
 
-{{def(SampleEnum:VOLUME_SPATIAL)}}
+{{def(SampleEnum::VOLUME_SPATIAL)}}
 
 
 
@@ -5705,7 +6524,7 @@ The {{property(units)}} of {{property(VolumeSpatial)}} **MUST** be `CUBIC_MILLIM
 
 ### Wattage
 
-{{def(SampleEnum:WATTAGE)}}
+{{def(SampleEnum::WATTAGE)}}
 
 
 
@@ -5727,7 +6546,7 @@ The {{property(units)}} of {{property(Wattage)}} **MUST** be `WATT`.
 
 ### XDimension
 
-{{def(SampleEnum:X_DIMENSION)}}
+{{def(SampleEnum::X_DIMENSION)}}
 
 
 
@@ -5735,7 +6554,7 @@ The {{property(units)}} of {{property(XDimension)}} **MUST** be `MILLIMETER`.
 
 ### YDimension
 
-{{def(SampleEnum:Y_DIMENSION)}}
+{{def(SampleEnum::Y_DIMENSION)}}
 
 
 
@@ -5743,7 +6562,7 @@ The {{property(units)}} of {{property(YDimension)}} **MUST** be `MILLIMETER`.
 
 ### ZDimension
 
-{{def(SampleEnum:Z_DIMENSION)}}
+{{def(SampleEnum::Z_DIMENSION)}}
 
 
 
@@ -5814,12 +6633,6 @@ float that represents time in seconds.
 
 
 
-### IDREF
-
-string that represents a reference to an `ID`.
-
-
-
 ### xlinkhref
 
 string that represents the locator attribute of an XLink element. See {{url(https://www.w3.org/TR/xlink11/)}}.
@@ -5846,7 +6659,7 @@ string that represents an `x509` data block. {{cite(ISO/IEC 9594-8:2020)}}.
 
 ### version
 
-series of four numeric values, separated by a decimal point, representing a {{term(major)}}, {{term(minor)}}, and {{term(revision)}} number of the MTConnect Standard and the revision number of a specific {{term(schema)}}.
+series of three numeric values, separated by a decimal point, representing a {{term(major)}}, {{term(minor)}}, and {{term(patch)}} number of the MTConnect Standard.
 
 
 
@@ -5859,6 +6672,42 @@ series of four numeric values, separated by a decimal point, representing a {{te
 ### uint64
 
 64-bit unsigned integer.
+
+
+
+### binary
+
+base-2 numeral system or binary numeral system represented by two digits: "0" and "1".
+
+
+
+### double
+
+primitive type.
+
+
+
+### Array
+
+array.
+
+
+
+### `<<hasFormatSpecificRepresentation>>`float3d
+
+array of size 3 and datatype float.
+
+
+
+### UUID
+
+Universally Unique IDentifier. {{cite(IETF:RFC-4122)}}
+
+
+
+### METER
+
+float that represents measurement in meter.
 
 
 
@@ -5890,12 +6739,6 @@ element that is descriptive and non-normative.
 
 
 
-### valueType
-
-extends SysML `<<ValueType>>` to include `Class` as a value type.
-
-
-
 ### normative
 
 element that has been added to the standard.
@@ -5905,6 +6748,36 @@ element that has been added to the standard.
 ### observes
 
 association in which a {{term(Component)}} makes {{termplural(Observation)}} about an observable {{term(DataItem)}}.
+
+
+
+### satisfiedBy
+
+
+
+
+
+### hasFormatSpecificRepresentation
+
+element that has format specific representation that might be different from the element's SysML representation.
+
+
+
+### valueType
+
+extends `Class`to be used as a SysML `<<ValueType>>`.
+
+
+
+### isArray
+
+datatype that is an array.
+
+
+
+### MTConnectRequirementSpecification
+
+MTConnect Requirement.
 
 
 

@@ -35,7 +35,7 @@ At least one of {{block(Component)}}, {{block(DataItem)}}, or {{block(Reference)
 |{{property(nativeName)}}|`string`|0..1|
 |{{property(sampleInterval)}}|`float`|0..1|
 |`<<deprecated>>` {{property(sampleRate)}}|`float`|0..1|
-|{{property(uuid)}}|`ID`|0..1|
+|{{property(uuid)}}|`UUID`|0..1|
 |{{property(coordinateSystemIdRef)}}|`ID`|0..1|
 {: caption="Value Properties of Component" label="table:value-properties-of-component"}
 
@@ -49,7 +49,7 @@ Descriptions for Value Properties of {{block(Component)}}:
 
     name of the {{block(Component)}}.
     
-    When provided, {{property(name)}} **MUST** be unique for all child {{block(Component)}} entities of a parent {{block(Component)}}.
+    When provided, {{property(Component::name)}} **MUST** be unique for all child {{block(Component)}} entities of a parent {{block(Component)}}.
 
 * {{property(nativeName)}} 
 
@@ -62,12 +62,11 @@ Descriptions for Value Properties of {{block(Component)}}:
     This information may be used by client software applications to understand how often information from a {{block(Component)}} is expected to be refreshed.
     
     The refresh rate for data from all child {{block(Component)}} entities will be the
-    same as for the parent {{block(Component)}} element unless specifically overridden by another {{property(sampleInterval)}} provided for the child
-    {{block(Component)}}.
+    same as for the parent {{block(Component)}} element unless specifically overridden by another {{property(Component::sampleInterval)}} provided for the child {{block(Component)}}.
 
 * `<<deprecated>>` {{property(sampleRate)}} 
 
-    **DEPRECATED** in *MTConnect Version 1.2*. Replaced by {{property(sampleInterval,Component)}}.
+    **DEPRECATED** in *MTConnect Version 1.2*. Replaced by {{property(Component::sampleInterval)}}.
 
 * {{property(uuid)}} 
 
@@ -207,4 +206,4 @@ Descriptions for Value Properties of {{block(Description)}}:
 
 * {{property(station)}} 
 
-    station where the physical part or logical function of a piece of equipment is located when it is part of a manufacturing unit or cell with multiple stations.
+    identifier where a manufacturing function takes place.

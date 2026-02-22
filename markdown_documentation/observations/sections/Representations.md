@@ -1,10 +1,10 @@
 
 ## Representation
 
-specifies the format and structure of the {{property(result)}} for an {{block(Observation)}}. 
+specifies the format and structure of {{property(Observation::result)}}.
 
 
-The {{block(Representation)}} type for an {{block(Observation)}} is defined by the associated {{block(DataItem)}}'s property {{property(representation)}} in the {{term(MTConnectDevices Response Document)}}.
+The {{block(Representation)}} type for an {{block(Observation)}} is defined by the associated {{property(DataItem::representation)}} in the {{term(MTConnectDevices Response Document)}}.
 
 {{block(Value)}} is the default {{block(Representation)}} type for all {{block(Observation)}} types.
 
@@ -15,7 +15,7 @@ Example: The name for {{block(Sample)}} {{block(Observation)}} type `Temperature
 
 ## Value
 
-default {{block(Representation)}} type for all {{block(Observation)}} types where {{property(result)}} of the {{block(Observation)}} types is an MTConnect data type. See {{package(DataTypes)}}.
+default {{block(Representation)}} type for all {{block(Observation)}} types where {{property(Observation::result)}} type is an MTConnect data type. See {{package(DataTypes)}}.
 
 
 
@@ -26,9 +26,9 @@ default {{block(Representation)}} type for all {{block(Observation)}} types wher
 
 
 
-{{block(TimeSeries)}} for an {{block(Observation)}} is defined by the associated {{block(DataItem)}}'s property {{property(representation)}} as `TIME_SERIES`.
+{{block(TimeSeries)}} for an {{block(Observation)}} is defined by the associated {{property(DataItem::representation)}} as `TIME_SERIES`.
 
-{{block(DataItem)}} with `TIME_SERIES` {{property(representation)}} **MUST** have a {{property(category)}} of `SAMPLE`.
+{{property(DataItem::representation)}} as `TIME_SERIES` **MUST** have {{property(DataItem::category)}} of `SAMPLE`.
 
 {{figure(TemperatureTimeSeries)}} shows the model for {{block(Temperature)}} ({{block(Sample)}} type) with a {{block(Representation)}} type of {{block(TimeSeries)}}. 
 
@@ -36,9 +36,9 @@ default {{block(Representation)}} type for all {{block(Observation)}} types wher
 
 > Note: See {{sect(Representation Schema Diagrams)}} for XML schema.
 
-{{block(TimeSeries)}} **MUST** report multiple values at fixed intervals in a single {{block(Observation)}}. At minimum, one of {{block(DataItem)}} or {{block(Observation)}} **MUST** specify the {{property(sampleRate)}} in `Hertz`(values/second); fractional rates are permitted. When the {{block(Observation)}} and the {{block(DataItem)}} specify the {{property(sampleRate)}}, the {{block(Observation)}} {{property(sampleRate)}} supersedes the {{block(DataItem)}}.
+{{block(TimeSeries)}} **MUST** report multiple values at fixed intervals in a single {{block(Observation)}}. At minimum, one of {{property(DataItem::sampleRate)}} or {{property(Sample::sampleRate)}} **MUST** be specified. When both are specified, the {{property(Sample::sampleRate)}} supersedes the {{property(DataItem::sampleRate)}}.
 
-The {{block(Observation)}} **MUST** set the {{property(timestamp)}} to the time the last value was observed. The {{property(duration)}} **MAY** indicate the time interval from the first to the last value in the series.
+{{property(Observation::timestamp)}} **MUST** be set to the time the last value was observed. The {{property(Sample::duration)}} **MAY** indicate the time interval from the first to the last value in the series.
 
 {{sect(Value Properties of TimeSeries)}} defines additional attributes for an {{block(Observation)}} with {{block(TimeSeries)}} {{block(Representation)}} type.
 
@@ -65,11 +65,11 @@ Descriptions for Value Properties of {{block(TimeSeries)}}:
 
 
 
-{{block(Discrete)}} for an {{block(Observation)}} is defined by the associated {{block(DataItem)}}'s property {{property(representation)}} as `DISCRETE`.
+{{block(Discrete)}} for an {{block(Observation)}} is defined by the associated {{property(DataItem::representation)}} as `DISCRETE`.
 
-{{block(DataItem)}} with `DISCRETE` {{property(representation)}} **MUST** have a {{property(category)}} of `EVENT`.
+{{property(DataItem::representation)}} as `DISCRETE` **MUST** have {{property(DataItem::category)}} as `EVENT`.
 
-*MTConnect Version 1.5* replaced {{property(representation)}} `DISCRETE` with a {{property(discrete)}} property for {{block(DataItem)}}.
+*MTConnect Version 1.5* replaced {{property(DataItem::representation)}} as `DISCRETE` with {{property(DataItem::discrete)}}.
 
 Each occurrence of the {{block(Observation)}} **MAY** have the same value as the previous occurrence, and **MUST NOT** suppress duplicates.
 
@@ -83,9 +83,9 @@ Examples of {{block(Discrete)}}: A `PartCount` reporting the completion of each 
 
 
 
-{{block(DataSet)}} for an {{block(Observation)}} is defined by the associated {{block(DataItem)}}'s property {{property(representation)}} as `DATA_SET`.
+{{block(DataSet)}} for an {{block(Observation)}} is defined by the associated {{property(DataItem::representation)}} as `DATA_SET`.
 
-{{block(DataItem)}} with `DATA_SET` {{property(representation)}} **MUST** have a {{property(category)}} of `SAMPLE` or `EVENT`.
+{{property(DataItem::representation)}} as `DATA_SET` **MUST** have {{property(DataItem::category)}} as `SAMPLE` or `EVENT`.
 
 {{figure(VariableDataSet)}} shows the model for {{block(Variable)}} ({{block(Event)}} type) with a {{block(Representation)}} type of {{block(DataSet)}}. 
 
@@ -93,7 +93,7 @@ Examples of {{block(Discrete)}}: A `PartCount` reporting the completion of each 
 
 > Note: See {{figure(DataSet Schema)}} for XML schema.
 
-{{block(DataSet)}} reports multiple values as a set of {{term(key-value pair)}} where each {{term(key)}} **MUST** be unique. The representation of the {{term(key-value pair)}} is an {{block(Entry)}}. The value of each {{block(Entry)}} **MUST** have the same constraints and format as the {{block(Observation)}} defined for the `VALUE` {{property(representation)}} for the {{block(DataItem)}} {{property(type)}} (See {{block(Value)}}). 
+{{block(DataSet)}} reports multiple values as a set of {{term(key-value pair)}} where each {{term(key)}} **MUST** be unique. The representation of the {{term(key-value pair)}} is an {{block(Entry)}}. The value of each {{block(Entry)}} **MUST** have the same constraints and format as the {{block(Observation)}} defined for {{property(DataItem::representation)}} as `VALUE` for the {{block(DataItem)}} type. (See {{block(Value)}}). 
 
 The meaning of each {{block(Entry)}} **MAY** be provided as the {{block(DataItem)}} {{block(EntryDefinition)}}.
 
@@ -107,15 +107,15 @@ The meaning of each {{block(Entry)}} **MAY** be provided as the {{block(DataItem
 
 An {{term(agent)}} **MUST** maintain the current state of the {{block(DataSet)}} as described in {{package(Fundamentals)}}.
 
-One or more {{termplural(key-value pair)}} **MAY** be added, removed, or changed in an {{block(Observation)}}. An {{term(agent)}} **MUST** publish the changes to one or more {{termplural(key-value pair)}} as a single {{block(Observation)}}. An {{term(agent)}} **MUST** indicate the removal of a {{term(key-value pair)}} from a {{block(DataSet)}} using the {{property(removed)}} attribute equal `true`.
+One or more {{termplural(key-value pair)}} **MAY** be added, removed, or changed in an {{block(Observation)}}. An {{term(agent)}} **MUST** publish the changes to one or more {{termplural(key-value pair)}} as a single {{block(Observation)}}. An {{term(agent)}} **MUST** indicate the removal of a {{term(key-value pair)}} from a {{block(DataSet)}} using the {{property(Entry::removed)}} as `true`.
 
-When the {{block(DataItem)}} {{property(discrete,DataItem)}} attribute is `false` or is not present, an {{term(agent)}} in response to a {{term(sample request)}} **MUST** only publish the changed {{term(key-value pair)}} since the previous state of the {{block(DataSet)}}.
+When the {{property(DataItem::discrete)}} is `false` or is not present, an {{term(agent)}} in response to a {{term(sample request)}} **MUST** only publish the changed {{term(key-value pair)}} since the previous state of the {{block(DataSet)}}.
 
-When the {{block(DataItem)}} {{property(discrete,DataItem)}} attribute is `true`, an {{term(agent)}}, in response to a {{term(sample request)}}, **MUST** report all {{termplural(key-value pair)}} ignoring the state of the {{block(DataSet)}}.
+When the {{property(DataItem::discrete)}} attribute is `true`, an {{term(agent)}}, in response to a {{term(sample request)}}, **MUST** report all {{termplural(key-value pair)}} ignoring the state of the {{block(DataSet)}}.
 
 When an {{term(agent)}} responds to a {{term(current request)}}, the {{term(response document)}} **MUST** include the full set of {{termplural(key-value pair)}}. If the {{term(current request)}} includes an `at` query parameter, the {{term(agent)}} **MUST** provide the set of {{termplural(key-value pair)}} at the  {{term(sequence number)}}.
 
-When an {{block(Observation)}} {{term(reset)}} occurs, the {{block(DataSet)}} **MUST** remove all {{termplural(key-value pair)}} making the set empty. The {{block(Observation)}} **MAY** simultaneously populate the {{block(DataSet)}} with new {{termplural(key-value pair)}}. The previous entries **MUST NOT** be included and **MUST NOT** have {{property(removed)}} attribute equal `true`.
+When an {{block(Observation)}} {{term(reset)}} occurs, the {{block(DataSet)}} **MUST** remove all {{termplural(key-value pair)}} making the set empty. The {{block(Observation)}} **MAY** simultaneously populate the {{block(DataSet)}} with new {{termplural(key-value pair)}}. The previous entries **MUST NOT** be included and **MUST NOT** have {{property(Entry::removed)}} as `true`.
 
 When the {{block(Observation)}}  is `UNAVAILABLE` the {{block(DataSet)}} **MUST** remove all {{termplural(key-value pair)}} making the set empty.
 
@@ -158,9 +158,9 @@ Descriptions for Part Properties of {{block(DataSet)}}:
 
 
 
-{{block(Table)}} for an {{block(Observation)}} is defined by the associated {{block(DataItem)}}'s property {{property(representation)}} as `TABLE`.
+{{block(Table)}} for an {{block(Observation)}} is defined by the associated {{property(DataItem::representation)}} as `TABLE`.
 
-{{block(DataItem)}} with `TABLE` {{property(representation)}} **MUST** have a {{property(category)}} of `SAMPLE` or `EVENT`.
+{{property(DataItem::representation)}} as `TABLE` **MUST** have {{property(DataItem::category)}} as `SAMPLE` or `EVENT`.
 
 {{figure(WorkOffsetTable)}} shows the model for {{block(WorkOffset)}} ({{block(Event)}} type) with a {{block(Representation)}} type of {{block(Table)}}. 
 
@@ -172,7 +172,7 @@ Descriptions for Part Properties of {{block(DataSet)}}:
 
 The meaning of each {{block(Entry)}} and {{block(Cell)}} **MAY** be provided as the {{block(DataItem)}} {{block(EntryDefinition)}} and {{block(CellDefinition)}}.
 
-The {{block(Entry)}} {{property(key)}} attribute **MUST** be the unique identity of the {{block(Entry)}} within an {{block(Observation)}}. The {{block(Cell)}} {{property(key)}} attribute **MUST** be the unique identity of the {{block(Cell)}} within an {{block(Entry)}}.
+{{property(Entry::key)}}  **MUST** be the unique identity of the {{block(Entry)}} within an {{block(Observation)}}. {{property(Cell::key)}} **MUST** be the unique identity of the {{block(Cell)}} within an {{block(Entry)}}.
 
 {{figure(Table Example)}} shows {{block(Event)}} {{block(Observation)}} type {{block(WorkOffset)}} with a {{block(Representation)}} type of `Table`.
 
@@ -224,13 +224,12 @@ Descriptions for Part Properties of {{block(Table)}}:
 {{term(key-value pair)}} published as part of a {{block(DataSet)}}.
 
 
-#### Constraints for Entry Values
 
-The value of each {{block(Entry)}} **MUST** have the same restrictions as the value of an {{term(observation)}} with {{property(representation)}} of `VALUE`.
+The value of each {{block(Entry)}} **MUST** have the same restrictions as the value of an {{term(observation)}} with {{property(DataItem::representation)}} as `VALUE`.
 
 An {{block(Entry)}} **MAY** be further constrained by the {{block(DataItem)}} definition (see {{package(Device Information Model)}}), for example a `VariableDataSet` having a string value **MAY** have a floating-point {{block(Temperature)}} value. A restriction **MUST NOT** be broadened or removed, for example, the value "READY" **MUST NOT** occur with a `TemperatureDataSet` constrained to floating-point numbers.
 
-The {{package(Device Information Model)}} {{block(DataItem)}} {{block(Definition)}} **MAY** provide the {{property(type)}} and {{property(units)}} of an {{block(Entry)}} for a {{property(key)}}.
+{{block(EntryDefinition)}} **MAY** provide the type and units of an {{property(Entry::key)}}.
 
 
 
@@ -308,11 +307,11 @@ Descriptions for Part Properties of {{block(TableEntry)}}:
 
 #### Constraints for Cell Values
 
-The value of each {{block(Cell)}} **MUST** have the same restrictions as the value of an {{term(observation)}} with {{property(representation)}} of `VALUE`.
+The value of each {{block(Cell)}} **MUST** have the same restrictions as the value of an {{term(observation)}} with {{property(DataItem::representation)}} as `VALUE`.
 
 An {{block(Cell)}} **MAY** be further constrained by the {{block(DataItem)}} definition (see {{package(Device Information Model)}}), for example a `VariableDataSet` having a string value **MAY** have a floating-point {{block(Temperature)}} value. A restriction **MUST NOT** be broadened or removed, for example, the value `READY` **MUST NOT** occur with a `TemperatureDataSet` constrained limited to floating-point numbers.
 
-The {{package(Device Information Model)}} {{block(DataItem)}} {{block(Definition)}} **MAY** provide the {{property(type)}} and {{property(units)}} of a {{block(Cell)}} for a {{property(key)}}.
+{{block(CellDefinition)}} **MAY** provide type and units of a {{property(Cell::key)}}.
 
 
 ### Value Properties of Cell

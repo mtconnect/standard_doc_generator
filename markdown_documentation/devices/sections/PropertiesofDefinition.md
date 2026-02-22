@@ -26,7 +26,7 @@ Descriptions for Value Properties of {{block(CellDefinition)}}:
 
 * {{property(units)}} 
 
-    same as {{block(DataItem)}} {{property(DataItem::units)}}. See {{sect(Value Properties of DataItem)}}.
+    same as {{property(DataItem::units)}}. See {{sect(Value Properties of DataItem)}}.
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
@@ -34,42 +34,25 @@ Descriptions for Value Properties of {{block(CellDefinition)}}:
 
     unique identification of the {{block(Cell)}} in the {{block(Definition)}}. 
     
-    The description applies to all {{block(Cell)}} {{termplural(observation)}} having this {{property(key)}}.
+    The description applies to all {{block(Cell)}} {{termplural(observation)}} having this {{property(CellDefinition::key)}}.
 
 * {{property(type)}} 
 
-    same as {{block(DataItem)}} {{property(DataItem::type)}}. See {{package(DataItem Types)}}.
+    same as {{property(DataItem::type)}}. See {{package(DataItem Types)}}.
 
     The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(subType)}} 
 
-    same as {{block(DataItem)}} {{property(DataItem::subType)}}. See {{sect(DataItem)}}.
+    same as {{property(DataItem::subType)}}. See {{sect(DataItem)}}.
 
     The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(keyType)}} 
 
-    {{block(DataItem)}} {{property(type)}} that defines the meaning of the {{property(key)}}.
+    {{property(DataItem::type)}} that defines the meaning of {{property(CellDefinition::key)}}.
 
     The value of {{property(keyType)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
-
-#### Part Properties of CellDefinition
-
-{{tbl(part-properties-of-celldefinition)}} lists the Part Properties of {{block(CellDefinition)}}.
-
-|Part Property name|Multiplicity|
-|:-|:-:|
-|{{block(Description)}}|0..1|
-{: caption="Part Properties of CellDefinition" label="table:part-properties-of-celldefinition"}
-
-Descriptions for Part Properties of {{block(CellDefinition)}}:
-
-* {{block(Description)}} 
-
-    descriptive content.
-
-    See {{sect(Description)}}.
 
 ### EntryDefinition
 
@@ -96,29 +79,29 @@ Descriptions for Value Properties of {{block(EntryDefinition)}}:
 
     unique identification of the {{block(Entry)}} in the {{block(Definition)}}. 
     
-    The description applies to all {{block(Entry)}} {{termplural(observation)}} having this {{property(key)}}.
+    The description applies to all {{block(Entry)}} {{termplural(observation)}} having this {{property(EntryDefinition::key)}}.
 
 * {{property(units)}} 
 
-    same as {{block(DataItem)}} {{property(DataItem::units)}}. See {{sect(Value Properties of DataItem)}}.
+    same as {{property(DataItem::units)}}. See {{sect(Value Properties of DataItem)}}.
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
 * {{property(type)}} 
 
-    same as {{block(DataItem)}} {{property(DataItem::type)}}. See {{package(DataItem Types)}}.
+    same as {{property(DataItem::type)}}. See {{package(DataItem Types)}}.
 
     The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(subType)}} 
 
-    same as {{block(DataItem)}} {{property(DataItem::subType)}}. See {{sect(DataItem)}}.
+    same as {{property(DataItem::subType)}}. See {{sect(DataItem)}}.
 
     The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(keyType)}} 
 
-    {{block(DataItem)}} {{property(type)}} that defines the meaning of the {{property(key)}}.
+    {{property(DataItem::type)}} that defines the meaning of {{property(EntryDefinition::key)}}.
 
     The value of {{property(keyType)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
@@ -128,20 +111,13 @@ Descriptions for Value Properties of {{block(EntryDefinition)}}:
 
 |Part Property name|Multiplicity|
 |:-|:-:|
-|{{block(Description)}}|0..1|
 |{{block(CellDefinition)}} (organized by `CellDefinitions`)|0..*|
 {: caption="Part Properties of EntryDefinition" label="table:part-properties-of-entrydefinition"}
 
 Descriptions for Part Properties of {{block(EntryDefinition)}}:
 
-* {{block(Description)}} 
-
-    descriptive content.
-
-    See {{sect(Description)}}.
-
 * {{block(CellDefinition)}} 
 
     semantic definition of a {{block(Cell)}}.
 
-    {{block(CellDefinitions)}} groups one or more {{block(CellDefinition)}} entities if the {{property(representation,DataItem)}} of {{block(DataItem)}} is `TABLE`. See {{sect(CellDefinition)}}.
+    {{block(CellDefinitions)}} groups one or more {{block(CellDefinition)}} entities if {{property(DataItem::representation)}} is `TABLE`. See {{sect(CellDefinition)}}.

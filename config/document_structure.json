@@ -57,7 +57,9 @@
 						"Relationships",
 						"Sensor",
 						"SolidModel",
-						"Specifications"
+						"Specifications",
+						"ImageFiles",
+						"PowerSources"
 					]
 				}
 			]
@@ -99,6 +101,15 @@
 				},
 				{
 					"QIF Asset Information Model":["QIF"]
+				},
+				{
+					"Component Configuration Parameters Asset Information Model":["Component Configuration Parameters"]
+				},
+				{
+					"Fixture Asset Information Model":["Fixture"]
+				},
+				{
+					"Pallet Asset Information Model":["Pallet"]
 				}
 			]
 		},

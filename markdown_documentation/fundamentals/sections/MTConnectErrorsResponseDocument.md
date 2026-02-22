@@ -7,7 +7,7 @@ This section provides semantic information for the {{block(MTConnectErrors)}} en
 
 root entity of an {{term(MTConnectErrors Response Document)}} that contains the {{term(Error Information Model)}}.
 
-![MTConnectError](figures/MTConnectError.png "MTConnectError"){: width="0.8"}
+![MTConnectError](figures/MTConnectErrors.png "MTConnectError"){: width="0.8"}
 
 > Note: Additional properties of {{block(MTConnectError)}} **MAY** be defined for schema and namespace declaration. See {{sect(Schema and Namespace Declaration Information)}} for an {{term(XML)}} example.
 
@@ -72,9 +72,9 @@ Descriptions for Value Properties of {{block(Header)}}:
 
     maximum number of {{termplural(DataItem)}} that **MAY** be retained in the {{term(agent)}} that published the {{term(response document)}} at any point in time.
     
-    > Note 1 to entry:  {{property(bufferSize)}} represents the maximum number of sequence numbers that **MAY** be stored in the {{term(agent)}}. 
+    > Note 1 to entry:  {{property(Header::bufferSize)}} represents the maximum number of sequence numbers that **MAY** be stored in the {{term(agent)}}. 
     
-    > Note 2 to entry: The implementer is responsible for allocating the appropriate amount of storage capacity required to accommodate the {{property(bufferSize)}}.
+    > Note 2 to entry: The implementer is responsible for allocating the appropriate amount of storage capacity required to accommodate the {{property(Header::bufferSize)}}.
     
 
 * {{property(creationTime)}} 
@@ -85,13 +85,13 @@ Descriptions for Value Properties of {{block(Header)}}:
 
     identifier for a specific instantiation of the {{term(buffer)}} associated with the {{term(agent)}} that published the {{term(response document)}}.  
          
-    {{property(instanceId)}} **MUST** be changed to a different unique number each time the {{term(buffer)}} is cleared and a new set of data begins to be collected.
+    {{property(Header::instanceId)}} **MUST** be changed to a different unique number each time the {{term(buffer)}} is cleared and a new set of data begins to be collected.
 
 * {{property(sender)}} 
 
     identification defining where the {{term(agent)}} that published the {{term(response document)}} is installed or hosted.
     
-    {{property(sender)}} **MUST** be either an IP Address or Hostname describing where the {{term(agent)}} is installed or the URL of the {{term(agent)}}; e.g., `http://<address>[:port]/`. 
+    {{property(Header::sender)}} **MUST** be either an IP Address or Hostname describing where the {{term(agent)}} is installed or the URL of the {{term(agent)}}; e.g., `http://<address>[:port]/`. 
     
     > Note:  The port number need not be specified if it is the default HTTP port 80.
 
@@ -99,13 +99,13 @@ Descriptions for Value Properties of {{block(Header)}}:
 
     indicates whether the {{term(agent)}} that published the {{term(response document)}} is operating in a test mode.
     
-    If {{property(testIndicator)}} is not specified, the value for {{property(testIndicator)}} **MUST** be interpreted to be `false`.
+    If {{property(Header::testIndicator)}} is not specified, the value for {{property(Header::testIndicator)}} **MUST** be interpreted to be `false`.
 
 * {{property(version)}} 
 
     {{term(major)}}, {{term(minor)}}, and {{term(revision)}} number of the MTConnect Standard that defines the {{term(semantic data model)}} that represents the content of the {{term(response document)}}. It also includes the revision number of the {{term(schema)}} associated with that specific {{term(semantic data model)}}.
     
-    As an example, the value reported for {{property(version)}} for a {{term(response document)}} that was structured based on {{term(schema)}} revision 10 associated with Version 1.4.0 of the MTConnect Standard would be:  1.4.0.10
+    As an example, the value reported for {{property(Header::version)}} for a {{term(response document)}} that was structured based on {{term(schema)}} revision 10 associated with Version 1.4.0 of the MTConnect Standard would be:  1.4.0.10
 
 * `<<deprecated>>` {{property(firstSequence)}} 
 
@@ -121,7 +121,7 @@ Descriptions for Value Properties of {{block(Header)}}:
 
     {{term(sequence number)}} of the piece of {{term(streaming data)}} that is the next piece of data to be retrieved from the {{term(buffer)}} of the {{term(agent)}} that was not included in the {{term(response document)}} published by the {{term(agent)}}.
     
-    If the {{term(streaming data)}} included in the {{term(response document)}} includes the last piece of data stored in the {{term(buffer)}} of the {{term(agent)}} at the time that the document was published, then the value reported for {{property(nextSequence)}} **MUST** be equal to {{property(lastSequence)}} + 1.
+    If the {{term(streaming data)}} included in the {{term(response document)}} includes the last piece of data stored in the {{term(buffer)}} of the {{term(agent)}} at the time that the document was published, then the value reported for {{property(Header::nextSequence)}} **MUST** be equal to {{property(Header::lastSequence)}} + 1.
 
 * {{property(deviceModelChangeTime)}} 
 
@@ -190,7 +190,7 @@ Descriptions for Value Properties of {{block(Error)}}:
 
     * `TOO_MANY` 
 
-        {{property(count)}} parameter provided in the {{term(request)}} for information requires either of the following:
+        `count` parameter provided in the {{term(request)}} for information requires either of the following:
         
         * {{term(streaming data)}} that includes more pieces of data than the {{term(agent)}} is capable of organizing in an {{term(MTConnectStreams Response Document)}}. 
         

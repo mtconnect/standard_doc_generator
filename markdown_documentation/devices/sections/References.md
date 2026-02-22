@@ -31,7 +31,7 @@ Descriptions for Value Properties of {{block(Reference)}}:
 
 * {{property(idRef)}} 
 
-    pointer to the {{property(id)}} of an entity that contains the information to be associated with this entity.
+    pointer to the `id` of an entity that contains the information to be associated with this entity.
 
 * {{property(name)}} 
 

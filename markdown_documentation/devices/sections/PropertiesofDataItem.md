@@ -127,15 +127,15 @@ Descriptions for Value Properties of {{block(Filter)}}:
         
         The value of {{block(Filter)}} **MUST** be an absolute value reported in seconds representing the time between reported samples of the value of the data item.
 
-### MinimumDeltaFilter
+### `<<hasFormatSpecificRepresentation>>`MinimumDeltaFilter
 
-{{def(FilterEnum:MINIMUM_DELTA)}}
+{{def(FilterEnum::MINIMUM_DELTA)}}
 
 
 
-### PeriodFilter
+### `<<hasFormatSpecificRepresentation>>`PeriodFilter
 
-{{def(FilterEnum:PERIOD)}}
+{{def(FilterEnum::PERIOD)}}
 
 
 
@@ -181,7 +181,7 @@ Descriptions for Value Properties of {{block(Constraints)}}:
 
     single data value that is expected to be reported for a {{block(DataItem)}}.
     
-    {{property(Value)}} **MUST NOT** be used in conjunction with any other {{block(Constraint)}} elements.
+    {{property(Constraints::Value)}} **MUST NOT** be used in conjunction with any other {{block(Constraint)}} elements.
 
 #### Part Properties of Constraints
 
@@ -202,7 +202,7 @@ Descriptions for Part Properties of {{block(Constraints)}}:
 
 ### Definition
 
-defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated with the {{block(DataItem)}} when the {{property(representation)}} is either `DATA` or `TABLE`.
+defines the meaning of {{block(Entry)}} and {{block(Cell)}} entities when the associated {{property(DataItem::representation)}} is either `DATA_SET` or `TABLE`.
 
 
 
@@ -213,7 +213,6 @@ defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated 
 |Part Property name|Multiplicity|
 |:-|:-:|
 |{{block(CellDefinition)}} (organized by `CellDefinitions`)|0..*|
-|{{block(Description)}}|0..1|
 |{{block(EntryDefinition)}} (organized by `EntryDefinitions`)|0..*|
 {: caption="Part Properties of Definition" label="table:part-properties-of-definition"}
 
@@ -224,12 +223,6 @@ Descriptions for Part Properties of {{block(Definition)}}:
     semantic definition of a {{block(Cell)}}.
 
     {{block(CellDefinitions)}} groups one or more {{block(CellDefinition)}} entities. See {{sect(CellDefinition)}}.
-
-* {{block(Description)}} 
-
-    descriptive content.
-
-    See {{sect(Description)}}.
 
 * {{block(EntryDefinition)}} 
 

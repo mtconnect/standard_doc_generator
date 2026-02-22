@@ -106,7 +106,7 @@ Descriptions for Value Properties of {{block(ComponentRelationship)}}:
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(deviceUuidRef)}}|`ID`|1|
+|{{property(deviceUuidRef)}}|`UUID`|1|
 |{{property(href)}}|`xlinkhref`|0..1|
 |{{property(role)}}|`RoleTypeEnum`|0..1|
 |{{property(xlink:type)}}|`xlinktype`|0..1|
@@ -116,7 +116,7 @@ Descriptions for Value Properties of {{block(DeviceRelationship)}}:
 
 * {{property(deviceUuidRef)}} 
 
-    reference to the {{property(uuid)}} attribute of the {{block(Device)}} element of the associated piece of equipment.
+    reference to the {{property(Device::uuid)}} of the associated piece of equipment.
 
 * {{property(href)}} 
 

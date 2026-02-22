@@ -13,14 +13,6 @@ This section provides guidance for the most common relationships between {{block
 
 As described in {{package(Components)}}, {{block(Component)}} is an abstract entity and will be always realized by a specific {{block(Component)}} type.
 
-### Actuator
-
-{{block(Component)}} composed of a physical apparatus that moves or controls a mechanism or system. 
-
-
-It takes energy usually provided by air, electric current, or liquid and converts the energy into some kind of motion.
-
-
 ### Adapter
 
 {{block(Component)}} that provides information about the data source for an {{term(MTConnect Agent)}}.
@@ -67,42 +59,6 @@ abstract {{block(Component)}} composed of removable part(s) of a piece of equipm
 
 
 For example, this could describe the portion of a piece of equipment that manages a material extrusion process or a vat polymerization process.
-
-
-#### Environmental
-
-{{block(Auxiliary)}} that monitors, manages, or conditions the environment around or within a piece of equipment.
-
-
-
-##### Heating
-
-{{block(System)}} that delivers controlled amounts of heat to achieve a target temperature at a specified heating rate.
-
-
-> Note: As an example, Energy Delivery Method can be either through Electric heaters or Gas burners.
-
-
-##### Vacuum
-
-{{block(System)}} that evacuates gases and liquids from an enclosed and sealed space to a controlled negative pressure or a molecular density below the prevailing atmospheric level.
-
-
-
-##### Cooling
-
-{{block(System)}} that extracts controlled amounts of heat to achieve a target temperature at a specified cooling rate.
-
-
-> Note: As an example, Energy Extraction Method can be via cooling water pipes running through the chamber.
-
-
-##### Pressure
-
-{{block(System)}} that delivers compressed gas or fluid and controls the pressure and rate of pressure change to a desired target set-point.
-
-
-> Note: For example, Delivery Method can be a Compressed Air or N2 tank that is piped via an inlet valve to the chamber.
 
 
 #### Loader
@@ -178,7 +134,7 @@ abstract {{block(Component)}} composed of a motion system that provides linear o
 
 In robotics, the term *Axis* is synonymous with *Joint*. A *Joint* is the connection between two parts of the structure that move in relation to each other.
 
-{{block(Linear)}} and {{block(Rotary)}} components **MUST** have a {{property(name)}} attribute that **MUST** follow the conventions described below. Use the {{property(nativeName)}} attribute for the manufacturer's name of the axis if it differs from the assigned {{property(name)}}.
+{{block(Linear)}} and {{block(Rotary)}} components **MUST** have {{property(Component::name)}} that **MUST** follow the conventions described below. Use the {{property(Component::nativeName)}} for the manufacturer's name of the axis if it differs from the assigned {{property(Component::name)}}.
 
 MTConnect has two high-level classes for automation equipment as follows: (1) Equipment that controls cartesian coordinate axes and (2) Equipment that controls articulated axes. There are ambiguous cases where some machines exhibit both characteristics; when this occurs, the primary control system's configuration determines the classification.
 
@@ -190,15 +146,15 @@ The following sections define the designation of names for the axes and addition
 
 A Three-Dimensional Cartesian Coordinate control system organizes its axes orthogonally relative to a machine coordinate system where the manufacturer of the equipment specifies the origin. 
 
-{{block(Axes)}} {{property(name)}} **SHOULD** comply with ISO 841, if possible.
+{{block(Axes)}} {{property(Component::name)}} **SHOULD** comply with ISO 841, if possible.
 
 ##### Linear Motion
 
-A piece of equipment **MUST** represent prismatic motion using a {{block(Linear)}} axis {{block(Component)}} and assign its {{property(name)}} using the designations `X`, `Y`, and `Z`. A {{block(Linear)}} axis {{property(name)}} **MUST** append a monotonically increasing suffix when there are more than one parallel axes; for example, `X2`, `X3`, and `X4`. 
+A piece of equipment **MUST** represent prismatic motion using a {{block(Linear)}} axis and assign its {{property(Component::name)}} using the designations `X`, `Y`, and `Z`. A {{block(Linear)}} axis {{property(Component::name)}} **MUST** append a monotonically increasing suffix when there are more than one parallel axes; for example, `X2`, `X3`, and `X4`. 
 
 ##### Rotary Motion
 
-MTConnect **MUST** assign the {{property(name)}} to {{block(Rotary)}} axes exhibiting rotary motion using `A`, `B`, and `C`. A {{block(Rotary)}} axis {{property(name)}} **MUST** append a monotonically increasing suffix when more than one {{block(Rotary)}} axis rotates around the same {{block(Linear)}} axis; for example, `A2`, `A3`, and `A4`. 
+MTConnect **MUST** assign the {{property(Component::name)}} to {{block(Rotary)}} axes exhibiting rotary motion using `A`, `B`, and `C`. A {{block(Rotary)}} axis {{property(Component::name)}} **MUST** append a monotonically increasing suffix when more than one {{block(Rotary)}} axis rotates around the same {{block(Linear)}} axis; for example, `A2`, `A3`, and `A4`. 
 
 #### Articulated Machine Control Systems
 
@@ -217,11 +173,66 @@ A machine having an axis with more than one child **MUST** number each branch us
 
 
 
+#### Part Properties of Linear
+
+{{tbl(part-properties-of-linear)}} lists the Part Properties of {{block(Linear)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(observesLoad)}}|0..1|
+|{{block(observesTemperature)}}|0..1|
+|{{block(observesAxisFeedrateActual)}}|0..1|
+{: caption="Part Properties of Linear" label="table:part-properties-of-linear"}
+
+Descriptions for Part Properties of {{block(Linear)}}:
+
+* {{block(Load)}} 
+
+    {{def(SampleEnum::LOAD)}}
+
+* {{block(Temperature)}} 
+
+    {{def(SampleEnum::TEMPERATURE)}}
+
+* {{block(AxisFeedrate.Actual)}} 
+
+    measured or reported value of an {{term(observation)}}.
+
 #### Rotary
 
 {{block(Component Types::Axis)}} that provides rotation about a fixed axis.
 
 
+
+#### Part Properties of Rotary
+
+{{tbl(part-properties-of-rotary)}} lists the Part Properties of {{block(Rotary)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(observesLoad)}}|0..1|
+|{{block(observesTemperature)}}|0..1|
+|{{block(observesRotaryVelocity)}}|0..1|
+|{{block(observesAxisFeedrate)}}|0..1|
+{: caption="Part Properties of Rotary" label="table:part-properties-of-rotary"}
+
+Descriptions for Part Properties of {{block(Rotary)}}:
+
+* {{block(Load)}} 
+
+    {{def(SampleEnum::LOAD)}}
+
+* {{block(Temperature)}} 
+
+    {{def(SampleEnum::TEMPERATURE)}}
+
+* {{block(RotaryVelocity)}} 
+
+    {{def(SampleEnum::ROTARY_VELOCITY)}}
+
+* {{block(AxisFeedrate)}} 
+
+    {{def(SampleEnum::AXIS_FEEDRATE)}}
 
 #### `<<deprecated>>`Spindle
 
@@ -568,6 +579,14 @@ Descriptions for Part Properties of {{block(Encoder)}}:
 
     logical or physical entity that provides a capability.
 
+### Environmental
+
+{{block(Component)}} that observes the surroundings of another {{block(Component)}}.
+
+> Note: {{block(Environmental)}} **SHOULD** be organized by {{block(Auxillaries)}}, {{block(Systems)}} or {{block(Parts)}} depending on the relationship to the {{block(Component)}}.
+
+
+
 ### ExpiredPot
 
 leaf {{block(Component)}} that is a {{block(Pot)}} for a tool that is no longer usable for removal from a {{block(ToolMagazine)}} or {{block(Turret)}}.
@@ -885,6 +904,64 @@ abstract {{block(Component)}} composed of a {{term(part)}} being processed by a 
 {{block(PartId)}} **MUST** be defined for {{block(PartOccurrence)}}.
 
 
+~~~~xml
+<Parts id="partOccSet">
+   <Components>
+	   <PartOccurrence id="partOccur">
+		 <DataItems>
+		   <DataItem id="partSet" category="EVENT" representation="TABLE" type ="COMPONENT_DATA">
+			  <Definition>
+				 <EntryDefinitions>
+					  <EntryDefinition keyType="PART_UNIQUE_ID"/>
+				 </EntryDefinitions>
+				 <CellDefinitions>
+					<CellDefinition key="partNumber" type="PART_KIND_ID" subType="PART_NUMBER"/>
+					<CellDefinition key="batchId" type="PART_GROUP_ID" subType="BATCH"/>
+					<CellDefinition key="quantity" type="PART_COUNT" subType="TARGET"/>
+					<CellDefinition key="actualCompleteTime" type="PROCESS_TIME" subType="COMPLETE"/>
+					<CellDefinition key="partState" type="PROCESS_STATE"/>
+				</CellDefinitions>
+			  </Definition>
+			</DataItem>
+		 </DataItems>
+	   </PartOccurrence>
+	</Components>
+</Parts>
+~~~~
+{: caption="XML Device Model Example for PartOccurrence and ComponentData"}
+
+
+~~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/styles/Streams.xsl"?>
+<MTConnectStreams>
+  <Streams>
+    <DeviceStream name="VMC-3Axis" uuid="test_27MAY">
+      <ComponentStream component="PartOccurrence" name="partSet" componentId="partOccur">
+        <Events>
+          <ComponentDataTable dataItemId="partSet" timestamp="2020-10-28T19:45:43.070010Z" sequence="95" count="2">
+            <Entry key="part1">
+              <Cell key="actualStartTime">2009-06-15T00:00:00.000000</Cell>
+              <Cell key="partId">part1</Cell>
+              <Cell key="partName">SomeName</Cell>
+              <Cell key="uniqueID">abc-123</Cell>
+            </Entry>
+            <Entry key="part2">
+              <Cell key="actualStartTime">2009-06-15T00:00:00.007925</Cell>
+              <Cell key="partId">part2</Cell>
+              <Cell key="partName">AnotherName</Cell>
+              <Cell key="uniqueID">def-123</Cell>
+            </Entry>
+          </ComponentDataTable>
+        </Events>
+      </ComponentStream>
+    </DeviceStream>
+  </Streams>
+</MTConnectStreams>
+~~~~
+{: caption="XML Streams Response Example for PartOccurrence and ComponentData"}
+
+
 #### Commonly Observed DataItem Types for PartOccurrence
 
 {{tbl(commonly-observed-dataitem-types-for-partoccurrence)}} lists the Commonly Observed DataItem Types for {{block(PartOccurrence)}}.
@@ -902,6 +979,71 @@ abstract {{block(Component)}} composed of a {{term(part)}} being processed by a 
 |{{block(User)}}|0..1|
 {: caption="Commonly Observed DataItem Types for PartOccurrence" label="table:commonly-observed-dataitem-types-for-partoccurrence"}
 
+##### FeatureOccurrence
+
+{{block(Component)}} that provides information related to an individual {{term(feature)}}.
+
+
+
+#### Part Properties of FeatureOccurrence
+
+{{tbl(part-properties-of-featureoccurrence)}} lists the Part Properties of {{block(FeatureOccurrence)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(observesFeaturePersisitentId)}}|0..1|
+|{{block(observesFeatureMeasurement)}}|0..1|
+|{{block(observesMeasurementType)}}|0..1|
+|{{block(observesCharacteristicPersistentId)}}|0..1|
+|{{block(observesCharacteristicStatus)}}|0..1|
+|{{block(observesUncertainty)}}|0..1|
+|{{block(observesUncertaintyType)}}|0..1|
+|{{block(observesMeasurementUnits)}}|0..1|
+|{{block(observesMeasurementValue)}}|0..1|
+{: caption="Part Properties of FeatureOccurrence" label="table:part-properties-of-featureoccurrence"}
+
+Descriptions for Part Properties of {{block(FeatureOccurrence)}}:
+
+* {{block(FeaturePersisitentId)}} 
+
+    {{def(EventEnum::FEATURE_PERSISTENT_ID)}}
+
+* {{block(FeatureMeasurement)}} 
+
+    tabular representation of {{def(EventEnum::FEATURE_MEASUREMENT)}}
+    
+    {{block(FeatureMeasurement)}} **MAY** include a {{term(characteristic)}} in which case it **MAY** include a `CHARACTERISTIC_STATUS`.
+
+* {{block(MeasurementType)}} 
+
+    {{def(EventEnum::MEASUREMENT_TYPE)}}
+    
+    Examples: `POINT`, `RADIUS`, `ANGLE`, `LENGTH`, etc.
+
+* {{block(CharacteristicPersistentId)}} 
+
+    {{def(EventEnum::CHARACTERISTIC_PERSISTENT_ID)}}
+
+* {{block(CharacteristicStatus)}} 
+
+    {{def(EventEnum::CHARACTERISTIC_STATUS)}}
+
+* {{block(Uncertainty)}} 
+
+    {{def(EventEnum::UNCERTAINTY)}}
+
+* {{block(UncertaintyType)}} 
+
+    {{def(EventEnum::UNCERTAINTY_TYPE)}}
+
+* {{block(MeasurementUnits)}} 
+
+    {{def(EventEnum::MEASUREMENT_UNITS)}}
+
+* {{block(MeasurementValue)}} 
+
+    {{def(EventEnum::MEASUREMENT_VALUE)}}
+
 ### Path
 
 {{block(Component)}} that organizes an independent operation or function within a {{block(Controller)}}.
@@ -913,6 +1055,48 @@ For many types of equipment, {{block(Path)}} organizes a set of {{block(Axes)}},
 
 If the {{block(Controller)}} is capable of performing more than one independent operation or function simultaneously, a separate {{block(Path)}} **MUST** be used to organize the data associated with each independent operation or function.
 
+
+#### Part Properties of Path
+
+{{tbl(part-properties-of-path)}} lists the Part Properties of {{block(Path)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(observesProgram)}}|0..1|
+|{{block(observesPathFeedrateOverrideProgrammed)}}|0..1|
+|{{block(observesPathFeedrateOverrideRapid)}}|0..1|
+|{{block(observesRotaryVelocityOverride)}}|0..1|
+|{{block(observesPathFeedrate)}}|0..1|
+|{{block(observesPartCount)}}|0..1|
+{: caption="Part Properties of Path" label="table:part-properties-of-path"}
+
+Descriptions for Part Properties of {{block(Path)}}:
+
+* {{block(Program)}} 
+
+    {{def(EventEnum::PROGRAM)}}
+
+* {{block(PathFeedrateOverride.Programmed)}} 
+
+    directive value without offsets and adjustments.
+
+* {{block(PathFeedrateOverride.Rapid)}} 
+
+    performing an operation faster or in less time than nominal rate.
+
+* {{block(RotaryVelocityOverride)}} 
+
+    {{def(EventEnum::ROTARY_VELOCITY_OVERRIDE)}}
+    
+    This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a {{block(Rotary)}} type axis.
+
+* {{block(PathFeedrate)}} 
+
+    {{def(SampleEnum::PATH_FEEDRATE)}}
+
+* {{block(PartCount)}} 
+
+    {{def(EventEnum::PART_COUNT)}}
 
 #### Commonly Observed DataItem Types for Path
 
@@ -1134,12 +1318,57 @@ abstract {{block(Component)}} composed of material or personnel involved in a ma
 {{block(Stock)}} may be either a continuous piece of material from which multiple parts may be produced or it may be a discrete piece of material that will be made into a part or a set of parts.
 
 
+#### Part Properties of Stock
+
+{{tbl(part-properties-of-stock)}} lists the Part Properties of {{block(Stock)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(observesMaterial)}}|0..1|
+|{{block(observesLengthRemaining)}}|0..1|
+|{{block(observesLengthStandard)}}|0..1|
+{: caption="Part Properties of Stock" label="table:part-properties-of-stock"}
+
+Descriptions for Part Properties of {{block(Stock)}}:
+
+* {{block(Material)}} 
+
+    {{def(EventEnum::MATERIAL)}}
+
+* {{block(Length.Remaining)}} 
+
+    remaining total length of an object.
+
+* {{block(Length.Standard)}} 
+
+    standard or original length of an object.
+
 #### Personnel
 
 {{block(Resource)}} composed of an individual or individuals who either control, support, or otherwise interface with a piece of equipment.
 
 
 
+
+#### Part Properties of Personnel
+
+{{tbl(part-properties-of-personnel)}} lists the Part Properties of {{block(Personnel)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(observesUserOperator)}}|0..1|
+|{{block(observesUserMaintenance)}}|0..1|
+{: caption="Part Properties of Personnel" label="table:part-properties-of-personnel"}
+
+Descriptions for Part Properties of {{block(Personnel)}}:
+
+* {{block(User.Operator)}} 
+
+    identifier of the person currently responsible for operating the piece of equipment.
+
+* {{block(User.Maintenance)}} 
+
+    identifier of the person currently responsible for performing maintenance on the piece of equipment.
 
 ### ReturnPot
 
@@ -1369,6 +1598,58 @@ abstract {{block(Component)}} that is permanently integrated into the piece of e
 
 
 
+#### Actuator
+
+{{block(Component)}} composed of a physical apparatus that moves or controls a mechanism or system. 
+
+
+It takes energy usually provided by air, electric current, or liquid and converts the energy into some kind of motion.
+
+
+##### Hydraulic
+
+{{block(System)}} that provides movement and distribution of pressurized liquid throughout the piece of equipment.
+
+
+
+#### Part Properties of Hydraulic
+
+{{tbl(part-properties-of-hydraulic)}} lists the Part Properties of {{block(Hydraulic)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(observesPressure)}}|0..1|
+{: caption="Part Properties of Hydraulic" label="table:part-properties-of-hydraulic"}
+
+Descriptions for Part Properties of {{block(Hydraulic)}}:
+
+* {{block(Pressure)}} 
+
+    {{def(SampleEnum::PRESSURE)}}
+
+##### Pneumatic
+
+{{block(System)}} that uses compressed gasses to actuate components or do work within the piece of equipment.
+
+
+> Note: Actuation is usually performed using a cylinder.
+
+
+#### Part Properties of Pneumatic
+
+{{tbl(part-properties-of-pneumatic)}} lists the Part Properties of {{block(Pneumatic)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(observesPressure)}}|0..1|
+{: caption="Part Properties of Pneumatic" label="table:part-properties-of-pneumatic"}
+
+Descriptions for Part Properties of {{block(Pneumatic)}}:
+
+* {{block(Pressure)}} 
+
+    {{def(SampleEnum::PRESSURE)}}
+
 #### Controller
 
 {{block(System)}} that provides regulation or management of a system or component. {{cite(ISO 16484-5:2017)}}
@@ -1386,6 +1667,11 @@ Typical types of controllers for a piece of equipment include CNC (Computer Nume
 |Part Property name|Multiplicity|
 |:-|:-:|
 |{{block(Path)}}|0..*|
+|{{block(observesEmergencyStop)}}|0..1|
+|{{block(observesSystemCondition)}}|0..1|
+|{{block(observesControllerMode)}}|0..1|
+|{{block(observesCommunicationsCondition)}}|0..1|
+|{{block(observesLogicProgramCondition)}}|0..1|
 {: caption="Part Properties of Controller" label="table:part-properties-of-controller"}
 
 Descriptions for Part Properties of {{block(Controller)}}:
@@ -1394,11 +1680,46 @@ Descriptions for Part Properties of {{block(Controller)}}:
 
     {{block(Component)}} that organizes an independent operation or function within a {{block(Controller)}}.
 
+* {{block(EmergencyStop)}} 
+
+    {{def(EventEnum::EMERGENCY_STOP)}}
+
+* {{block(System)}} 
+
+    {{def(ConditionEnum::SYSTEM)}}
+
+* {{block(ControllerMode)}} 
+
+    {{def(EventEnum::CONTROLLER_MODE)}}
+
+* {{block(Communications)}} 
+
+    {{def(ConditionEnum::COMMUNICATIONS)}}
+
+* {{block(LogicProgram)}} 
+
+    {{def(ConditionEnum::LOGIC_PROGRAM)}}
+
 #### Coolant
 
 {{block(System)}} that provides distribution and management of fluids that remove heat from a piece of equipment.
 
 
+
+#### Part Properties of Coolant
+
+{{tbl(part-properties-of-coolant)}} lists the Part Properties of {{block(Coolant)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(observesConcentration)}}|0..1|
+{: caption="Part Properties of Coolant" label="table:part-properties-of-coolant"}
+
+Descriptions for Part Properties of {{block(Coolant)}}:
+
+* {{block(Concentration)}} 
+
+    {{def(SampleEnum::CONCENTRATION)}}
 
 #### Dielectric
 
@@ -1413,8 +1734,23 @@ For example, this could describe the dielectric system for an EDM process or the
 {{block(System)}} composed of the main power supply for the piece of equipment that provides distribution of that power throughout the equipment.
 
 
-The electric system will provide all the data with regard to electric current, voltage, frequency, etc. that applies to the piece of equipment as a functional unit. Data regarding electric power that is specific to a {{block(Component)}} will be reported for that specific {{block(Component)}.
+The electric system will provide all the data with regard to electric current, voltage, frequency, etc. that applies to the piece of equipment as a functional unit. Data regarding electric power that is specific to a {{block(Component)}} will be reported for that specific {{block(Component)}}.
 
+
+#### Part Properties of Electric
+
+{{tbl(part-properties-of-electric)}} lists the Part Properties of {{block(Electric)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(observesWattage)}}|0..1|
+{: caption="Part Properties of Electric" label="table:part-properties-of-electric"}
+
+Descriptions for Part Properties of {{block(Electric)}}:
+
+* {{block(Wattage)}} 
+
+    {{def(SampleEnum::WATTAGE)}}
 
 #### Enclosure
 
@@ -1440,24 +1776,10 @@ It is the part of a piece of equipment that interacts with the manufacturing pro
 For example, this could describe the wire delivery system for an EDM or welding process; conveying system or pump and valve system distributing material to a blending station; or a fuel delivery system feeding a furnace.
 
 
-#### Hydraulic
-
-{{block(System)}} that provides movement and distribution of pressurized liquid throughout the piece of equipment.
-
-
-
 #### Lubrication
 
 {{block(System)}} that provides distribution and management of fluids used to lubricate portions of the piece of equipment.
 
-
-
-#### Pneumatic
-
-{{block(System)}} that uses compressed gasses to actuate components or do work within the piece of equipment.
-
-
-> Note: Actuation is usually performed using a cylinder.
 
 
 #### ProcessPower
@@ -1476,12 +1798,48 @@ For example, this could be the power source for an EDM machining process, an ele
 {{block(Protective)}} does not include the information relating to the {{block(Enclosure)}}.
 
 
+#### Heating
+
+{{block(System)}} that delivers controlled amounts of heat to achieve a target temperature at a specified heating rate.
+
+
+> Note: As an example, Energy Delivery Method can be either through Electric heaters or Gas burners.
+
+
+#### Vacuum
+
+{{block(System)}} that evacuates gases and liquids from an enclosed and sealed space to a controlled negative pressure or a molecular density below the prevailing atmospheric level.
+
+
+
+#### Cooling
+
+{{block(System)}} that extracts controlled amounts of heat to achieve a target temperature at a specified cooling rate.
+
+
+> Note: As an example, Energy Extraction Method can be via cooling water pipes running through the chamber.
+
+
+#### Pressure
+
+{{block(System)}} that delivers compressed gas or fluid and controls the pressure and rate of pressure change to a desired target set-point.
+
+
+> Note: For example, Delivery Method can be a Compressed Air or N2 tank that is piped via an inlet valve to the chamber.
+
+
 #### WorkEnvelope
 
 {{block(System)}} composed of the physical process execution space within a piece of equipment.
 
 
 {{block(WorkEnvelope)}} **MAY** provide information regarding the physical workspace and the conditions within that workspace.
+
+
+#### AirHandler
+
+system that circulates air or regulates airflow without altering temperature or humidity.
+
 
 
 ### Table
@@ -1512,7 +1870,7 @@ Descriptions for Part Properties of {{block(Table)}}:
 
 ### Tank
 
-leaf {{block(Component)}} composed of a receptacle or container that holds material.
+leaf {{block(Component)}} generally composed of an enclosed container.
 
 
 
@@ -1668,7 +2026,7 @@ Descriptions for Part Properties of {{block(Valve)}}:
 
 ### Vat
 
-leaf {{block(Component)}} composed of a container that holds liquid or powdered materials.
+leaf {{block(Component)}} generally composed of an open container.
 
 
 

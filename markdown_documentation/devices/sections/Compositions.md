@@ -26,7 +26,7 @@ functional part of a piece of equipment contained within a {{block(Component)}}.
 |{{property(id)}}|`ID`|1|
 |{{property(type)}}|`CompositionTypeEnum`|1|
 |{{property(name)}}|`string`|0..1|
-|{{property(uuid)}}|`ID`|0..1|
+|{{property(uuid)}}|`UUID`|0..1|
 {: caption="Value Properties of Composition" label="table:value-properties-of-composition"}
 
 Descriptions for Value Properties of {{block(Composition)}}:

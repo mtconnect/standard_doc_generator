@@ -129,20 +129,3 @@ Descriptions for Value Properties of {{block(Channel)}}:
 * {{property(number)}} 
 
     unique identifier that will only refer to a specific {{term(sensing element)}}.
-
-#### Part Properties of Channel
-
-{{tbl(part-properties-of-channel)}} lists the Part Properties of {{block(Channel)}}.
-
-|Part Property name|Multiplicity|
-|:-|:-:|
-|{{block(Description)}}|0..1|
-{: caption="Part Properties of Channel" label="table:part-properties-of-channel"}
-
-Descriptions for Part Properties of {{block(Channel)}}:
-
-* {{block(Description)}} 
-
-    descriptive content.
-
-    See {{sect(Description)}}.

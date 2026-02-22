@@ -25,7 +25,7 @@ Descriptions for Value Properties of {{block(AbstractDataItemRelationship)}}:
 
 * {{property(idRef)}} 
 
-    reference to the related entity's {{property(id)}}.
+    reference to the related entity's `id`.
 
 * {{property(name)}} 
 
@@ -33,7 +33,7 @@ Descriptions for Value Properties of {{block(AbstractDataItemRelationship)}}:
 
 ### SpecificationRelationship
 
-{{block(AbstractDataItemRelationship)}} that provides a semantic reference to another {{block(Specification)}} described by the {{property(type)}} and {{property(idRef)}} property.
+{{block(AbstractDataItemRelationship)}} that provides a semantic reference to another {{block(Specification)}} described by {{property(SpecificationRelationship::type)}} and {{property(SpecificationRelationship::idRef)}}.
 
 
 
@@ -60,7 +60,7 @@ Descriptions for Value Properties of {{block(SpecificationRelationship)}}:
 
 ### DataItemRelationship
 
-{{block(AbstractDataItemRelationship)}} that provides a semantic reference to another {{block(DataItem)}} described by the {{property(type)}} property.
+{{block(AbstractDataItemRelationship)}} that provides a semantic reference to another {{block(DataItem)}} described by {{property(DataItemRelationship::type)}}.
 
 
 
@@ -87,7 +87,7 @@ Descriptions for Value Properties of {{block(DataItemRelationship)}}:
 
     * `COORDINATE_SYSTEM` 
 
-        referenced {{block(DataItem)}} provides the {{property(id)}} of the effective Coordinate System.
+        referenced {{block(DataItem)}} provides the `id` of the effective Coordinate System.
 
     * `LIMIT` 
 

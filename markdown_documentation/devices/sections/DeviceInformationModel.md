@@ -6,7 +6,7 @@
 
 A {{block(Device)}} {{termplural(organize)}} its parts as {{block(Component)}} entities.
 
-A {{block(Device)}} **MUST** have a {{property(name)}} and {{property(uuid)}} attribute to identify itself. 
+A {{block(Device)}} **MUST** have a {{property(Device::name)}} and {{property(Device::uuid)}} to identify itself. 
 
 A {{block(Device)}} **MUST** have the following {{block(DataItems)}}: {{block(Availability)}}, {{block(AssetChanged)}}, and {{block(AssetRemoved)}}.
 
@@ -23,9 +23,10 @@ See {{package(Components)}} for more details on the properties of {{block(Device
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |`<<deprecated>>` {{property(iso841Class)}}|`string`|0..1|
-|{{property(uuid)}}|`ID`|1|
+|{{property(uuid)}}|`UUID`|1|
 |{{property(mtconnectVersion)}}|`string`|0..1|
 |{{property(name)}}|`string`|1|
+|{{property(hash)}}|`string`|0..1|
 {: caption="Value Properties of Device" label="table:value-properties-of-device"}
 
 Descriptions for Value Properties of {{block(Device)}}:
@@ -37,6 +38,10 @@ Descriptions for Value Properties of {{block(Device)}}:
 * {{property(mtconnectVersion)}} 
 
     MTConnect version of the {{term(Device Information Model)}} used to configure the information to be published for a piece of equipment in an {{term(MTConnect Response Document)}}.
+
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
 
 ### Part Properties of Device
 

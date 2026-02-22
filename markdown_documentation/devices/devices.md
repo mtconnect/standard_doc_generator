@@ -114,3 +114,7 @@ This section provides semantic information for the {{block(Configuration)}} enti
 {{input(sections/SolidModel.md)}}
 
 {{input(sections/Specifications.md)}}
+
+{{input(sections/ImageFiles.md)}}
+
+{{input(sections/PowerSources.md)}}

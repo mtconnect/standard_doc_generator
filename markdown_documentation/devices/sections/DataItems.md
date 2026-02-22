@@ -67,13 +67,13 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     for measured values relative to a coordinate system like {{block(Position)}}, the coordinate system used may be reported.
     
-    **DEPRECATED** in *Version 2.0*. Replaced by {{property(coordinateSystemIdRef)}}. 
+    **DEPRECATED** in *Version 2.0*. Replaced by {{property(Component::coordinateSystemIdRef)}}. 
 
 * {{property(discrete)}} 
 
     indication signifying whether each value reported for the {{term(Observation)}} is significant and whether duplicate values are to be suppressed.
     
-    If a value is not defined for {{property(discrete)}}, the default value **MUST** be `false`.
+    If a value is not defined for {{property(DataItem::discrete)}}, the default value **MUST** be `false`.
 
 * {{property(id)}} 
 
@@ -99,15 +99,27 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `BAR` 
 
-        pressure in Bar.
+        pressure in bar.
 
     * `CENTIPOISE` 
 
-        measure of viscosity.
+        viscosity in centipoise.
+
+    * `CUBIC_FOOT` 
+
+        geometric volume in cubic foot.
+
+    * `CUBIC_FOOT/HOUR` 
+
+        change of geometric volume in cubic foot per hour.
+
+    * `CUBIC_FOOT/MINUTE` 
+
+        change of geometric volume in cubic foot per minute.
 
     * `DEGREE/MINUTE` 
 
-        rotational velocity in degrees per minute.
+        rotational velocity in degree per minute.
 
     * `FAHRENHEIT` 
 
@@ -115,19 +127,19 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `FOOT` 
 
-        feet.
+        length in foot.
 
     * `FOOT/MINUTE` 
 
-        feet per minute.
+        speed in foot per minute.
 
     * `FOOT/SECOND` 
 
-        feet per second.
+        speed in foot per second.
 
     * `FOOT/SECOND^2` 
 
-        acceleration in feet per second squared.
+        acceleration in foot per second squared.
 
     * `FOOT_3D` 
 
@@ -135,11 +147,11 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `GALLON/MINUTE` 
 
-        gallons per minute.
+        volumetric flow in gallon per minute.
 
     * `GRAVITATIONAL_ACCELERATION` 
 
-        acceleration relative to earth's gravity given in `METER/SECOND^2`.
+        acceleration relative to earth's gravity given in meter per second squared.
         
         > Note 1 to entry: At different points on Earth's surface, the free-fall acceleration ranges from 9.764 to 9.834 m/s2 (Wikipedia: Gravitational Acceleration). The constant can be customized depending on the location in the universe.
         
@@ -147,27 +159,31 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `GRAVITATIONAL_FORCE` 
 
-        $$MASS\times GRAVITATIONAL_ACCELERATION$$ (g) given in `METER/SECOND^2`.
+        `MASS` times `GRAVITATIONAL_ACCELERATION`  (g).
 
     * `HOUR` 
 
-        measurement of time in hours.
+        time in hour.
 
     * `INCH` 
 
-        inches.
+        length in inch.
 
     * `INCH/MINUTE` 
 
-        inches per minute.
+        speed in inch per minute.
+
+    * `INCH/REVOLUTION` 
+
+        feedrate per revolution in inch per revolution.
 
     * `INCH/SECOND` 
 
-        inches per second.
+        speed in inch per second.
 
     * `INCH/SECOND^2` 
 
-        acceleration in inches per second squared.
+        acceleration in inch per second squared.
 
     * `INCH_3D` 
 
@@ -175,35 +191,43 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `INCH_POUND` 
 
-        measure of torque in inch pounds.
+        torque in inch pound.
 
     * `KELVIN` 
 
-        measurement of temperature.
+        temperature in Kelvin.
 
     * `KILOWATT` 
 
-        measurement in kilowatt.
+        power in kilowatt.
 
     * `KILOWATT_HOUR` 
 
-        kilowatt hours which is 3.6 mega joules.
+        energy in kilowatt-hour.
 
     * `LITER/MINUTE` 
 
-        measurement of rate of flow of a fluid.
+        volumetric flow in liter per minute.
+
+    * `MICROMETER` 
+
+        length in micrometer.
+
+    * `MICROTORR` 
+
+        pressure in microtorr.
 
     * `MILLIMETER/MINUTE` 
 
-        velocity in millimeters per minute.
+        speed in millimeter per minute.
 
     * `MILLIMETER_MERCURY` 
 
-        pressure in Millimeter of Mercury (mmHg).
+        pressure in millimeter of mercury (mmHg).
 
     * `MINUTE` 
 
-        measurement of time in minutes.
+        time in minute.
 
     * `OTHER` 
 
@@ -211,35 +235,43 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `PASCAL/MINUTE` 
 
-        pascal per minute.
+        pressurization rate in pascal per minute.
 
     * `POUND` 
 
-        US pounds.
+        mass in pound.
 
     * `POUND/INCH^2` 
 
-        pressure in pounds per square inch (PSI).
+        pressure in pound per square inch (PSI).
 
     * `RADIAN` 
 
-        angle in radians.
+        angle in radian.
 
     * `RADIAN/MINUTE` 
 
-        velocity in radians per minute.
+        angular velocity in radian per minute.
 
     * `RADIAN/SECOND` 
 
-        rotational acceleration in radian per second squared.
+        angular velocity in radian per second.
 
     * `RADIAN/SECOND^2` 
 
-        rotational acceleration in radian per second squared.
+        angular acceleration in radian per second squared.
+
+    * `RANKINE` 
+
+        temperature in Rankine.
+
+    * `SQUARE_INCH` 
+
+        geometric area in inch squared.
 
     * `TORR` 
 
-        pressure in Torr.
+        pressure in torr.
 
 * {{property(sampleRate)}} 
 
@@ -293,7 +325,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
 * {{property(subType)}} 
 
-    sub-categorization of the data item {{property(type)}}.
+    sub-categorization of the {{property(DataItem::type)}}.
 
     `<<extensible>>` `DataItemSubTypeEnum` Enumeration:
 
@@ -319,7 +351,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `ACTUAL` 
 
-        measured or reported value of an {{term(observation)}}.
+        reported value of an {{term(observation)}}.
 
     * `ALL` 
 
@@ -346,6 +378,14 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     * `BATCH` 
 
         group of parts produced in a batch.
+
+    * `BINARY` 
+
+        observed as a binary data type.
+
+    * `BOOLEAN` 
+
+        observed as a boolean data type.
 
     * `BRINELL` 
 
@@ -379,6 +419,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         elapsed time of a temporary halt of action.
 
+    * `DETECT` 
+
+        indicated by the presence or existence of something.
+
     * `<<deprecated>>` `DIRECT` 
 
         DC current or voltage.
@@ -397,6 +441,11 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         boundary when an activity or an event terminates.
 
+    * `ENUMERATED` 
+
+        observed as a set containing a restricted number of discrete values where each discrete value is named and unique.
+        {{cite(ISO 21961:2003, 013)}}
+
     * `EXPIRATION` 
 
         relating to the expiration or end of useful life for a material or other physical item.
@@ -408,6 +457,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
     * `FIRST_USE` 
 
         relating to the first use of a material or other physical item.
+
+    * `GAS` 
+
+        fluid that has no definite shape or volume.
 
     * `GATEWAY` 
 
@@ -471,6 +524,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         direction of motion of a linear motion.
 
+    * `LIQUID` 
+
+        fluid that has a definite volume but no definite shape.
+
     * `LOADED` 
 
         indication that the subparts of a piece of equipment are under load.
@@ -511,9 +568,17 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         maximum value.
 
+    * `MEASURED` 
+
+        {{def(DataItemSubType::ACTUAL)}} that has {{term(uncertainty)}}.
+
     * `MINIMUM` 
 
         minimum value.
+
+    * `MODEL` 
+
+        model info of the hardware or software.
 
     * `MOHS` 
 
@@ -573,7 +638,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `PRIMARY` 
 
-        main or most important location of a piece of bar stock.
+        main or principle.
 
     * `PROBE` 
 
@@ -665,6 +730,10 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         setting or operator selection that changes the behavior of the controller on a piece of equipment. 
 
+    * `SOLID` 
+
+        matter that has a definite shape and a definite volume.
+
     * `STANDARD` 
 
         standard measure of an object or an action.
@@ -743,15 +812,15 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `AMPERE` 
 
-        amps.
+        electric current in ampere.
 
     * `CELSIUS` 
 
-        degrees Celsius.
+        temperature in degree Celsius.
 
     * `COULOMB` 
 
-        electric charge in coulombs (C).
+        electric charge in coulomb.
 
     * `COUNT` 
 
@@ -759,11 +828,15 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `COUNT/SECOND` 
 
-        counts per second.
+        frequency in count per second.
+
+    * `CUBIC_METER` 
+
+        geometric volume in meter.
 
     * `CUBIC_MILLIMETER` 
 
-        geometric volume in millimeters.
+        geometric volume in millimeter.
 
     * `CUBIC_MILLIMETER/SECOND` 
 
@@ -775,19 +848,19 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `DECIBEL` 
 
-        sound level.
+        sound level in decibel.
 
     * `DEGREE` 
 
-        angle in degrees.
+        angle in degree.
 
     * `DEGREE/SECOND` 
 
-        angular degrees per second.
+        angular velocity in degree per second.
 
     * `DEGREE/SECOND^2` 
 
-        angular acceleration in degrees per second squared.
+        angular acceleration in degree per second squared.
 
     * `DEGREE_3D` 
 
@@ -797,67 +870,67 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `GRAM` 
 
-        gram.
+        mass in gram.
 
     * `GRAM/CUBIC_METER` 
 
-        gram per cubic meter.
+        density in gram per cubic meter.
 
     * `HERTZ` 
 
-        frequency measured in cycles per second.
+        frequency in cycles per second.
 
     * `JOULE` 
 
-        measurement of energy.
+        energy in joule.
 
     * `KILOGRAM` 
 
-        kilograms.
+        mass in kilogram.
 
     * `LITER` 
 
-        measurement of volume of a fluid.
+        volume in liter.
 
     * `LITER/SECOND` 
 
-        liters per second.
+        volumetric flow in liter per second.
 
     * `METER/SECOND^2` 
 
-        acceleration in meters per second squared.
+        acceleration in meter per second squared.
 
     * `MICRO_RADIAN` 
 
-        measurement of tilt.
+        tilt in micro radian.
 
     * `MILLIGRAM` 
 
-        milligram.
+        mass in milligram.
 
     * `MILLIGRAM/CUBIC_MILLIMETER` 
 
-        milligram per cubic millimeter.
+        density in milligram per cubic millimeter.
 
     * `MILLILITER` 
 
-        milliliter.
+        volume in milliliter.
 
     * `MILLIMETER` 
 
-        millimeters.
+        length in millimeter.
 
     * `MILLIMETER/REVOLUTION` 
 
-        millimeters per revolution.
+        feedrate per revolution in millimeter per revolution.
 
     * `MILLIMETER/SECOND` 
 
-        millimeters per second.
+        speed in millimeter per second.
 
     * `MILLIMETER/SECOND^2` 
 
-        acceleration in millimeters per second squared.
+        acceleration in millimeter per second squared.
 
     * `MILLIMETER_3D` 
 
@@ -865,39 +938,43 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `NEWTON` 
 
-        force in Newtons.
+        force in newton.
 
     * `NEWTON_METER` 
 
-        torque, a unit for force times distance.
+        torque in newton-meter.
 
     * `OHM` 
 
-        measure of electrical resistance.
+        electrical resistance in ohm.
+
+    * `OHM_METER` 
+
+        resistivity in ohm-meter.
 
     * `PASCAL` 
 
-        pressure in Newtons per square meter.
+        pressure or stress in pascal.
 
     * `PASCAL/SECOND` 
 
-        pascal per second.
+        pressurization rate in pascal per second.
 
     * `PASCAL_SECOND` 
 
-        measurement of viscosity.
+        viscosity in pascal-second.
 
     * `PERCENT` 
 
-        percentage.
+        amount in or for every hundred.
 
     * `PH` 
 
-        measure of the acidity or alkalinity of a solution.
+        acidity or alkalinity of a solution in pH.
 
     * `REVOLUTION/MINUTE` 
 
-        revolutions per minute.
+        rotational velocity in revolution per minute.
 
     * `REVOLUTION/SECOND` 
 
@@ -905,15 +982,19 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `REVOLUTION/SECOND^2` 
 
-        revolutions per second squared.
+        rotational acceleration in revolution per second squared.
 
     * `SECOND` 
 
-        measurement of time.
+        time in second.
 
     * `SIEMENS/METER` 
 
-        measurement of electrical conductivity.
+        electrical conductivity in siemens per meter.
+
+    * `SQUARE_MILLIMETER` 
+
+        geometric area in millimeter.
 
     * `UNIT_VECTOR_3D` 
 
@@ -923,29 +1004,29 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `VOLT` 
 
-        volts.
+        electric potential, electric potential difference or electromotive force in volt.
 
     * `VOLT_AMPERE` 
 
-        measurement of the apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA).
+        apparent power in an electrical circuit, equal to the product of root-mean-square (RMS) voltage and RMS current (commonly referred to as VA) in volt-ampere.
 
     * `VOLT_AMPERE_REACTIVE` 
 
-        measurement of reactive power in an AC electrical circuit (commonly referred to as VAR).
+        reactive power in an AC electrical circuit (commonly referred to as VAR) in volt-ampere-reactive.
 
     * `WATT` 
 
-        watts.
+        power in watt.
 
     * `WATT_SECOND` 
 
-        measurement of electrical energy, equal to one Joule.
+        electrical energy in watt-second
 
 * {{property(representation)}} 
 
     description of a means to interpret data consisting of multiple data points or samples reported as a single value.  
     
-    If {{property(representation)}} is not specified, it **MUST** be determined to be `VALUE`.
+    If {{property(DataItem::representation)}} is not specified, it **MUST** be determined to be `VALUE`.
     
 
     `RepresentationEnum` Enumeration:
@@ -958,7 +1039,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
     * `<<deprecated>>` `DISCRETE` 
 
-        **DEPRECATED** as a {{property(representation)}} in *MTConnect Version 1.5*. Replaced by the {{property(discrete,DataItem)}} attribute of a {{block(DataItem)}}.
+        **DEPRECATED** as {{property(DataItem::representation)}} type in *MTConnect Version 1.5*. Replaced by the {{property(DataItem::discrete)}}.
 
     * `TABLE` 
 
@@ -966,7 +1047,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
         
         A {{term(table)}} follows the same behavior as the {{term(data set)}} for change tracking, clearing, and history. When an {{block(Entry)}} changes, all {{block(Cell)}} elements update as a single unit following the behavior of a {{term(data set)}}.
         
-        > Note: It is best to use the {{block(Variable)}} {{block(DataItem)}} {{property(type)}} if the {{block(Cell)}} elements represent multiple semantic types.
+        > Note: It is best to use {{block(Variable)}} if the {{block(Cell)}} entities represent multiple semantic types.
         
         Each {{block(Entry)}} in the {{term(table)}} **MUST** have a unique key. Each {{block(Cell)}} of each {{block(Entry)}} in the {{term(table)}} **MUST** have a unique key.
         
@@ -982,7 +1063,7 @@ Descriptions for Value Properties of {{block(DataItem)}}:
 
         measured value of the sample data.
         
-        If no {{property(representation,DataItem)}} is specified for a data item, the {{property(representation,DataItem)}} **MUST** be determined to be `VALUE`.
+        If no {{property(DataItem::representation)}} is specified for a data item, the {{property(DataItem::representation)}} **MUST** be determined to be `VALUE`.
 
 * {{property(coordinateSystemIdRef)}} 
 
@@ -1058,7 +1139,7 @@ Descriptions for Part Properties of {{block(DataItem)}}:
 
 * {{block(Definition)}} 
 
-    defines the meaning of {{block(Entry)}} and {{block(Cell)}} elements associated with the {{block(DataItem)}} when the {{property(representation)}} is either `DATA` or `TABLE`.
+    defines the meaning of {{block(Entry)}} and {{block(Cell)}} entities when the associated {{property(DataItem::representation)}} is either `DATA_SET` or `TABLE`.
 
     See {{sect(Definition)}}.
 

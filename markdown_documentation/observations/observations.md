@@ -40,7 +40,7 @@ This section provides semantic information for the {{block(Representation)}} mod
 
 This section provides semantic information for the {{block(Observation)}} types.
 
-{{block(Observation)}} entities are instantiated as {{block(Sample)}}, {{block(Event)}} or {{block(Condition)}} entities based upon the {{property(category)}} and {{property(type)}} attributes defined for the corresponding {{block(DataItem)}}.
+{{block(Observation)}} entities are instantiated as {{block(Sample)}}, {{block(Event)}} or {{block(Condition)}} entities based upon the {{property(DataItem::category)}} and {{property(DataItem::type)}} defined for the corresponding {{block(DataItem)}}.
 
 See {{figure(DeviceStream Example)}} for examples on how the {{block(Observation)}} types are organized within {{block(ComponentStream)}}.
 

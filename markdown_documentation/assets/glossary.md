@@ -80,7 +80,7 @@
 {
     type={general},
     name={controlled vocabulary},
-    description={restricted set of values that may be published for an {{term(observation)}}.},
+    description={restricted set of values for a given property.},
     plural={controlled vocabularies}
 }}}
 
@@ -388,12 +388,12 @@
     plural={response documents}
 }}}
 
-{{newglossaryentry(revision)
+{{newglossaryentry(patch)
 {
     type={general},
-    name={revision},
+    name={patch},
     description={supplemental identifier representing only organizational or editorial changes to a {{term(minor)}} version document with no changes in the functionality described in that document.},
-    plural={revisions}
+    plural={patchs}
 }}}
 
 {{newglossaryentry(schema)
@@ -590,6 +590,72 @@
     name={cartesian coordinate system},
     description={3D orthogonal coordinate system {{cite(ISO/IEC 19794-5:2011(en))}}.},
     plural={cartesian coordinate systems}
+}}}
+
+{{newglossaryentry(characteristic)
+{
+    type={general},
+    name={characteristic},
+    description={control placed on an element of a {{term(feature)}} such as its size, location, or form, which may be a specification limit, a nominal with tolerance, or some other numerical or non-numerical control. {{cite(QIF 3.0 3.4.29)}}. {{cite(AS9102-B)}}.},
+    plural={characteristics}
+}}}
+
+{{newglossaryentry(feature)
+{
+    type={general},
+    name={feature},
+    description={topological entity(ies) or design requirements related to a geometric model. {{cite(QIF 3.0-3.4.59)}}},
+    plural={features}
+}}}
+
+{{newglossaryentry(location)
+{
+    type={general},
+    name={location},
+    description={place or named space associated with an object or that can be occupied by an object.},
+    plural={locations}
+}}}
+
+{{newglossaryentry(position)
+{
+    type={general},
+    name={position},
+    description={{{term(location)}} that is represented by a point in space relative to a reference.},
+    plural={positions}
+}}}
+
+{{newglossaryentry(uncertainty)
+{
+    type={general},
+    name={uncertainty},
+    description={uncertainty (of measurement) parameter, associated with the result of a measurement, that characterizes the dispersion of the values that could reasonably be attributed to the measurand. {{cite(JCGM 100:2008 2.2.3)}}
+
+> Note: Use of the term uncertainty refers to uncertainty of measurement.},
+    plural={uncertainties}
+}}}
+
+{{newglossaryentry(standard uncertainty)
+{
+    type={general},
+    name={standard uncertainty},
+    description={{{term(uncertainty)}} of the result of a measurement expressed as a standard deviation. {{cite(JCGM 100:2008 2.3.1)}}},
+    plural={standard uncertainties}
+}}}
+
+{{newglossaryentry(combined standard uncertainty)
+{
+    type={general},
+    name={combined standard uncertainty},
+    description={{{term(standard uncertainty)}} of the result of a measurement when that result is obtained from the values of a number of other quantities, equal to the positive square root of a sum of terms, the terms being the variances or covariances of these other quantities weighted according to how the measurement result varies with changes in these quantities. {{cite(JCGM 100:2008 2.3.4)}}},
+    plural={combined standard uncertainties}
+}}}
+
+{{newglossaryentry(condition activation)
+{
+    type={general},
+    name={condition activation},
+    description={state transition from `Normal` to either `Warning` or `Fault`.},
+    plural={condition activations}
 }}}
 
 {{newglossaryentry(Error Information Model)
@@ -1253,7 +1319,7 @@
 
 > Note 1 to entry: An {{term(Asset)}} relies upon an {{term(Device)}} to provide {{termplural(observation)}} and information about itself and the {{term(Device)}} revises the information to reflect changes to the {{term(Asset)}} during their interaction. Examples of {{termplural(Asset)}} are cutting tools, Part Information, Manufacturing Processes, Fixtures, and Files.
 
-> Note 2 to entry: A singular {{property(assetId,Asset)}} uniquely identifies an {{term(Asset)}} throughout its lifecycle and is used to track and relate the {{term(Asset)}} to other {{termplural(Device)}} and entities.
+> Note 2 to entry: A singular {{property(Asset::assetId)}} uniquely identifies an {{term(Asset)}} throughout its lifecycle and is used to track and relate the {{term(Asset)}} to other {{termplural(Device)}} and entities.
 
 > Note 3 to entry: {{termplural(Asset)}} are temporally associated with a device and can be removed from the device without damage or alteration to its primary functions.
 

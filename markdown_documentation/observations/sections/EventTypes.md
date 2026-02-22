@@ -5,7 +5,7 @@ This section provides semantic information for {{block(Event)}} types.
 
 ### ActivationCount
 
-{{def(EventEnum:ACTIVATION_COUNT)}}
+{{def(EventEnum::ACTIVATION_COUNT)}}
 
 
 
@@ -65,15 +65,23 @@ The value of {{property(ActivationCount)}} **MUST** be `integer`.
 
 ### ActiveAxes
 
-{{def(EventEnum:ACTIVE_AXES)}}
+{{def(EventEnum::ACTIVE_AXES)}}
 
 
 
 The value of {{property(ActiveAxes)}} **MUST** be a list of `string` of size `0..*`.
 
+### ActivePowerSource
+
+{{def(EventEnum::ACTIVE_POWER_SOURCE)}}
+
+
+
+The value of {{property(ActivePowerSource)}} **MUST** be `string`.
+
 ### ActuatorState
 
-{{def(EventEnum:ACTUATOR_STATE)}}
+{{def(EventEnum::ACTUATOR_STATE)}}
 
 
 
@@ -89,19 +97,19 @@ The value of {{property(ActiveAxes)}} **MUST** be a list of `string` of size `0.
 
 ### AdapterSoftwareVersion
 
-{{def(EventEnum:ADAPTER_SOFTWARE_VERSION)}}
+{{def(EventEnum::ADAPTER_SOFTWARE_VERSION)}}
 
 
 
 ### AdapterURI
 
-{{def(EventEnum:ADAPTER_URI)}}
+{{def(EventEnum::ADAPTER_URI)}}
 
 
 
 ### `<<deprecated>>`Alarm
 
-{{def(EventEnum:ALARM)}}
+{{def(EventEnum::ALARM)}}
 
 
 
@@ -142,9 +150,9 @@ Descriptions for Value Properties of {{block(Alarm)}}:
     
     See {{cite(IETF RFC 4646)}} (http://www.ietf.org/rfc/rfc4646.txt).
 
-### AlarmLimit
+### `<<deprecated>>`AlarmLimit
 
-{{def(EventEnum:ALARM_LIMIT)}}
+{{def(EventEnum::ALARM_LIMIT)}}
 
 
 
@@ -152,7 +160,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
 
 `AlarmLimitResult` keys:
 
-* `UPPER_LIMIT` 
+* `UpperLimit` 
 
     upper conformance boundary for a variable.
     
@@ -160,21 +168,21 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
     
     
 
-    The value of {{property(UPPER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
 
-* `UPPER_WARNING` 
+* `UpperWarning` 
 
     upper boundary indicating increased concern and supervision may be required.
 
-    The value of {{property(UPPER_WARNING)}} **MUST** be `float`.
+    The value of {{property(UpperWarning)}} **MUST** be `float`.
 
-* `LOWER_WARNING` 
+* `LowerWarning` 
 
     lower boundary indicating increased concern and supervision may be required.
 
-    The value of {{property(LOWER_WARNING)}} **MUST** be `float`.
+    The value of {{property(LowerWarning)}} **MUST** be `float`.
 
-* `LOWER_LIMIT` 
+* `LowerLimit` 
 
     lower conformance boundary for a variable.
     
@@ -182,11 +190,53 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLi
     
     
 
-    The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
+
+### AlarmLimits
+
+{{def(EventEnum::ALARM_LIMITS)}}
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `AlarmLimitResult` keys.
+
+`AlarmLimitResult` keys:
+
+* `UpperLimit` 
+
+    upper conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
+
+* `UpperWarning` 
+
+    upper boundary indicating increased concern and supervision may be required.
+
+    The value of {{property(UpperWarning)}} **MUST** be `float`.
+
+* `LowerWarning` 
+
+    lower boundary indicating increased concern and supervision may be required.
+
+    The value of {{property(LowerWarning)}} **MUST** be `float`.
+
+* `LowerLimit` 
+
+    lower conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
 
 ### Application
 
-{{def(EventEnum:APPLICATION)}}
+{{def(EventEnum::APPLICATION)}}
 
 
 
@@ -234,7 +284,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### AssetChanged
 
-{{def(EventEnum:ASSET_CHANGED)}}
+{{def(EventEnum::ASSET_CHANGED)}}
 
 
 
@@ -245,6 +295,7 @@ A {{property(subType)}} **MUST** always be specified.
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(assetType)}}|`string`|0..1|
+|{{property(hash)}}|`string`|0..1|
 {: caption="Value Properties of AssetChanged" label="table:value-properties-of-assetchanged"}
 
 Descriptions for Value Properties of {{block(AssetChanged)}}:
@@ -253,9 +304,13 @@ Descriptions for Value Properties of {{block(AssetChanged)}}:
 
     type of {{block(Asset)}} changed. See {{package(Asset Information Model)}} for details on the {{block(Asset)}} model.
 
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
+
 ### AssetCount
 
-{{def(EventEnum:ASSET_COUNT)}}
+{{def(EventEnum::ASSET_COUNT)}}
 
 
 
@@ -263,7 +318,7 @@ The value of {{property(AssetCount)}} **MUST** be `integer`.
 
 ### AssetRemoved
 
-{{def(EventEnum:ASSET_REMOVED)}}
+{{def(EventEnum::ASSET_REMOVED)}}
 
 
 
@@ -274,6 +329,7 @@ The value of {{property(AssetCount)}} **MUST** be `integer`.
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(assetType)}}|`string`|0..1|
+|{{property(hash)}}|`string`|0..1|
 {: caption="Value Properties of AssetRemoved" label="table:value-properties-of-assetremoved"}
 
 Descriptions for Value Properties of {{block(AssetRemoved)}}:
@@ -282,9 +338,13 @@ Descriptions for Value Properties of {{block(AssetRemoved)}}:
 
     type of {{block(Asset)}} removed. See {{package(Asset Information Model)}} for details on the {{block(Asset)}} model.
 
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
+
 ### Availability
 
-{{def(EventEnum:AVAILABILITY)}}
+{{def(EventEnum::AVAILABILITY)}}
 
 
 
@@ -300,7 +360,7 @@ Descriptions for Value Properties of {{block(AssetRemoved)}}:
 
 ### AxisCoupling
 
-{{def(EventEnum:AXIS_COUPLING)}}
+{{def(EventEnum::AXIS_COUPLING)}}
 
 
 
@@ -324,7 +384,7 @@ Descriptions for Value Properties of {{block(AssetRemoved)}}:
 
 ### AxisFeedrateOverride
 
-{{def(EventEnum:AXIS_FEEDRATE_OVERRIDE)}}
+{{def(EventEnum::AXIS_FEEDRATE_OVERRIDE)}}
 
 
 
@@ -357,7 +417,7 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
 ### AxisInterlock
 
-{{def(EventEnum:AXIS_INTERLOCK)}}
+{{def(EventEnum::AXIS_INTERLOCK)}}
 
 
 
@@ -373,7 +433,7 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
 ### AxisState
 
-{{def(EventEnum:AXIS_STATE)}}
+{{def(EventEnum::AXIS_STATE)}}
 
 
 
@@ -399,7 +459,7 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
 ### BatteryState
 
-{{def(EventEnum:BATTERY_STATE)}}
+{{def(EventEnum::BATTERY_STATE)}}
 
 
 
@@ -423,21 +483,69 @@ The value of {{property(AxisFeedrateOverride)}} **MUST** be `float`.
 
 ### Block
 
-{{def(EventEnum:BLOCK)}}
+{{def(EventEnum::BLOCK)}}
 
 
 
 ### BlockCount
 
-{{def(EventEnum:BLOCK_COUNT)}}
+{{def(EventEnum::BLOCK_COUNT)}}
 
 
 
 The value of {{property(BlockCount)}} **MUST** be `integer`.
 
+### CharacteristicPersistentId
+
+{{def(EventEnum::CHARACTERISTIC_PERSISTENT_ID)}}
+
+
+
+The value of {{property(CharacteristicPersistentId)}} **MUST** be `ID`. See {{sect(id)}}.
+
+### CharacteristicStatus
+
+{{def(EventEnum::CHARACTERISTIC_STATUS)}}
+
+
+
+`CharacteristicStatusEnum` Enumeration:
+
+* `BASIC_OR_THEORETIC_EXACT_DIMENSION` 
+
+    nominal provided without tolerance limits. {{cite(QIF 3:2018 5.10.2.6)}}
+
+* `FAIL` 
+
+    measurement is not within acceptable tolerances.
+
+* `INDETERMINATE` 
+
+    measurement cannot be determined.
+
+* `NOT_ANALYZED` 
+
+    measurement cannot be evaluated.
+
+* `PASS` 
+
+    measurement is within acceptable tolerances.
+
+* `REWORK` 
+
+    failed, but acceptable constraints achievable by utilizing additional manufacturing processes.
+
+* `SYSTEM_ERROR` 
+
+    measurement is indeterminate due to an equipment failure.
+
+* `UNDEFINED` 
+
+    status of measurement cannot be determined.
+
 ### ChuckInterlock
 
-{{def(EventEnum:CHUCK_INTERLOCK)}}
+{{def(EventEnum::CHUCK_INTERLOCK)}}
 
 
 
@@ -463,7 +571,7 @@ The value of {{property(BlockCount)}} **MUST** be `integer`.
 
 ### ChuckState
 
-{{def(EventEnum:CHUCK_STATE)}}
+{{def(EventEnum::CHUCK_STATE)}}
 
 
 
@@ -485,7 +593,7 @@ The value of {{property(BlockCount)}} **MUST** be `integer`.
 
 ### ClockTime
 
-{{def(EventEnum:CLOCK_TIME)}}
+{{def(EventEnum::CLOCK_TIME)}}
 
 
 
@@ -493,13 +601,23 @@ The value of {{property(ClockTime)}} **MUST** be `datetime`. See {{sect(datetime
 
 ### `<<deprecated>>`Code
 
-{{def(EventEnum:CODE)}}
+{{def(EventEnum::CODE)}}
+
+
+
+### ComponentData
+
+tabular {{def(EventEnum::COMPONENT_DATA)}}
+
+If the {{block(Component)}} multiplicity can be determined, the device model **MUST** use a fixed set of {{block(Component)}}s.
+
+{{block(ComponentData)}} **MUST** provide a {{block(DataItem)}} {{block(Definition)}}.
 
 
 
 ### CompositionState
 
-{{def(EventEnum:COMPOSITION_STATE)}}
+{{def(EventEnum::COMPOSITION_STATE)}}
 
 
 
@@ -609,7 +727,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### ConnectionStatus
 
-{{def(EventEnum:CONNECTION_STATUS)}}
+{{def(EventEnum::CONNECTION_STATUS)}}
 
 
 
@@ -629,9 +747,9 @@ A {{property(subType)}} **MUST** always be specified.
 
     {{term(agent)}} is waiting for a connection request from an {{term(adapter)}}.
 
-### ControlLimit
+### `<<deprecated>>`ControlLimit
 
-{{def(EventEnum:CONTROL_LIMIT)}}
+{{def(EventEnum::CONTROL_LIMIT)}}
 
 
 
@@ -639,7 +757,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
 
 `ControlLimitResult` keys:
 
-* `UPPER_LIMIT` 
+* `UpperLimit` 
 
     upper conformance boundary for a variable.
     
@@ -647,27 +765,27 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
     
     
 
-    The value of {{property(UPPER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
 
-* `UPPER_WARNING` 
+* `UpperWarning` 
 
     upper boundary indicating increased concern and supervision may be required.
 
-    The value of {{property(UPPER_WARNING)}} **MUST** be `float`.
+    The value of {{property(UpperWarning)}} **MUST** be `float`.
 
-* `NOMINAL` 
+* `Nominal` 
 
     ideal or desired value for a variable.
 
-    The value of {{property(NOMINAL)}} **MUST** be `float`.
+    The value of {{property(Nominal)}} **MUST** be `float`.
 
-* `LOWER_WARNING` 
+* `LowerWarning` 
 
     lower boundary indicating increased concern and supervision may be required.
 
-    The value of {{property(LOWER_WARNING)}} **MUST** be `float`.
+    The value of {{property(LowerWarning)}} **MUST** be `float`.
 
-* `LOWER_LIMIT` 
+* `LowerLimit` 
 
     lower conformance boundary for a variable.
     
@@ -675,11 +793,59 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
     
     
 
-    The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
+
+### ControlLimits
+
+{{def(EventEnum::CONTROL_LIMITS)}}
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `ControlLimitResult` keys.
+
+`ControlLimitResult` keys:
+
+* `UpperLimit` 
+
+    upper conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
+
+* `UpperWarning` 
+
+    upper boundary indicating increased concern and supervision may be required.
+
+    The value of {{property(UpperWarning)}} **MUST** be `float`.
+
+* `Nominal` 
+
+    ideal or desired value for a variable.
+
+    The value of {{property(Nominal)}} **MUST** be `float`.
+
+* `LowerWarning` 
+
+    lower boundary indicating increased concern and supervision may be required.
+
+    The value of {{property(LowerWarning)}} **MUST** be `float`.
+
+* `LowerLimit` 
+
+    lower conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
 
 ### ControllerMode
 
-{{def(EventEnum:CONTROLLER_MODE)}}
+{{def(EventEnum::CONTROLLER_MODE)}}
 
 
 
@@ -715,7 +881,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Control
 
 ### ControllerModeOverride
 
-{{def(EventEnum:CONTROLLER_MODE_OVERRIDE)}}
+{{def(EventEnum::CONTROLLER_MODE_OVERRIDE)}}
 
 
 
@@ -783,7 +949,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### CoupledAxes
 
-{{def(EventEnum:COUPLED_AXES)}}
+{{def(EventEnum::COUPLED_AXES)}}
 
 
 
@@ -791,7 +957,7 @@ The value of {{property(CoupledAxes)}} **MUST** be a list of `string` of size `0
 
 ### CycleCount
 
-{{def(EventEnum:CYCLE_COUNT)}}
+{{def(EventEnum::CYCLE_COUNT)}}
 
 
 
@@ -851,7 +1017,7 @@ The value of {{property(CycleCount)}} **MUST** be `integer`.
 
 ### DateCode
 
-{{def(EventEnum:DATE_CODE)}}
+{{def(EventEnum::DATE_CODE)}}
 
 
 
@@ -879,7 +1045,7 @@ The value of {{property(DateCode)}} **MUST** be `datetime`. See {{sect(datetime)
 
 ### DeactivationCount
 
-{{def(EventEnum:DEACTIVATION_COUNT)}}
+{{def(EventEnum::DEACTIVATION_COUNT)}}
 
 
 
@@ -939,31 +1105,76 @@ The value of {{property(DeactivationCount)}} **MUST** be `integer`.
 
 ### DeviceAdded
 
-{{def(EventEnum:DEVICE_ADDED)}}
+{{def(EventEnum::DEVICE_ADDED)}}
 
 
+
+#### Value Properties of DeviceAdded
+
+{{tbl(value-properties-of-deviceadded)}} lists the Value Properties of {{block(DeviceAdded)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(hash)}}|`string`|0..1|
+{: caption="Value Properties of DeviceAdded" label="table:value-properties-of-deviceadded"}
+
+Descriptions for Value Properties of {{block(DeviceAdded)}}:
+
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
 
 ### DeviceChanged
 
-{{def(EventEnum:DEVICE_CHANGED)}}
+{{def(EventEnum::DEVICE_CHANGED)}}
 
 
+
+#### Value Properties of DeviceChanged
+
+{{tbl(value-properties-of-devicechanged)}} lists the Value Properties of {{block(DeviceChanged)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(hash)}}|`string`|0..1|
+{: caption="Value Properties of DeviceChanged" label="table:value-properties-of-devicechanged"}
+
+Descriptions for Value Properties of {{block(DeviceChanged)}}:
+
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
 
 ### DeviceRemoved
 
-{{def(EventEnum:DEVICE_REMOVED)}}
+{{def(EventEnum::DEVICE_REMOVED)}}
 
 
+
+#### Value Properties of DeviceRemoved
+
+{{tbl(value-properties-of-deviceremoved)}} lists the Value Properties of {{block(DeviceRemoved)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(hash)}}|`string`|0..1|
+{: caption="Value Properties of DeviceRemoved" label="table:value-properties-of-deviceremoved"}
+
+Descriptions for Value Properties of {{block(DeviceRemoved)}}:
+
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
 
 ### DeviceUuid
 
-{{def(EventEnum:DEVICE_UUID)}}
+{{def(EventEnum::DEVICE_UUID)}}
 
 
 
 ### Direction
 
-{{def(EventEnum:DIRECTION)}}
+{{def(EventEnum::DIRECTION)}}
 
 
 
@@ -1031,7 +1242,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### DoorState
 
-{{def(EventEnum:DOOR_STATE)}}
+{{def(EventEnum::DOOR_STATE)}}
 
 
 
@@ -1053,7 +1264,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### EmergencyStop
 
-{{def(EventEnum:EMERGENCY_STOP)}}
+{{def(EventEnum::EMERGENCY_STOP)}}
 
 
 
@@ -1069,7 +1280,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### EndOfBar
 
-{{def(EventEnum:END_OF_BAR)}}
+{{def(EventEnum::END_OF_BAR)}}
 
 
 
@@ -1105,7 +1316,7 @@ The default {{property(subType)}} of {{property(EndOfBar)}} is `PRIMARY`.
 
 ### EquipmentMode
 
-{{def(EventEnum:EQUIPMENT_MODE)}}
+{{def(EventEnum::EQUIPMENT_MODE)}}
 
 
 
@@ -1164,7 +1375,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Execution
 
-{{def(EventEnum:EXECUTION)}}
+{{def(EventEnum::EXECUTION)}}
 
 
 
@@ -1194,6 +1405,12 @@ A {{property(subType)}} **MUST** always be specified.
 
     program completed execution.
 
+* `<<deprecated>>` `PROGRAM_OPTIONAL_STOP` 
+
+    program has been intentionally optionally stopped using an M01 or similar code.
+    
+    **DEPRECATED** in *version 1.4* and replaced with `OPTIONAL_STOP`.
+
 * `PROGRAM_STOPPED` 
 
     command from the program has intentionally interrupted execution.
@@ -1216,9 +1433,127 @@ A {{property(subType)}} **MUST** always be specified.
     
     Execution resumes automatically once the secondary operation completes.
 
+### FeatureMeasurement
+
+tabular representation of {{def(EventEnum::FEATURE_MEASUREMENT)}}
+
+{{block(FeatureMeasurement)}} **MAY** include a {{term(characteristic)}} in which case it **MAY** include a `CHARACTERISTIC_STATUS`.
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `FeatureMeasurementResult` keys.
+
+`FeatureMeasurementResult` keys:
+
+* `MeasurementId` 
+
+    identifier of this measurement.
+
+    The value of {{property(MeasurementId)}} **MUST** be `ID`. See {{sect(id)}}.
+
+* `FeaturePersistentId` 
+
+    {{term(UUID)}} of the feature.
+
+    The value of {{property(FeaturePersistentId)}} **MUST** be `ID`. See {{sect(id)}}.
+
+* `CharacteristicPersistentId` 
+
+    {{term(UUID)}} of the characteristic.
+
+    The value of {{property(CharacteristicPersistentId)}} **MUST** be `ID`. See {{sect(id)}}.
+
+* `MeasurementType` 
+
+    class of measurement being performed. {{cite(QIF 3:2018 Section 6.3)}}
+    
+    Examples: `POINT`, `RADIUS`, `ANGLE`, `LENGTH`, etc.
+
+    The value of {{property(MeasurementType)}} **MUST** be `string`.
+
+* `MeasurementValue` 
+
+    measurement based on the measurement type.
+
+    The value of {{property(MeasurementValue)}} **MUST** be `float`.
+
+* `MeasurementUnits` 
+
+    engineering units of the measurement.
+
+    The value of {{property(MeasurementUnits)}} **MUST** be `string`.
+
+* `CharacteristicStatus` 
+
+    pass/fail result of the measurement.
+
+    The value of {{property(CharacteristicStatus)}} **MUST** be one of the `CharacteristicStatusEnum` enumeration. 
+
+    `CharacteristicStatusEnum` Enumeration:
+
+    * `BASIC_OR_THEORETIC_EXACT_DIMENSION` 
+
+        nominal provided without tolerance limits. {{cite(QIF 3:2018 5.10.2.6)}}
+
+    * `FAIL` 
+
+        measurement is not within acceptable tolerances.
+
+    * `INDETERMINATE` 
+
+        measurement cannot be determined.
+
+    * `NOT_ANALYZED` 
+
+        measurement cannot be evaluated.
+
+    * `PASS` 
+
+        measurement is within acceptable tolerances.
+
+    * `REWORK` 
+
+        failed, but acceptable constraints achievable by utilizing additional manufacturing processes.
+
+    * `SYSTEM_ERROR` 
+
+        measurement is indeterminate due to an equipment failure.
+
+    * `UNDEFINED` 
+
+        status of measurement cannot be determined.
+
+* `UncertaintyType` 
+
+    method used to compute {{term(standard uncertainty)}}.
+
+    `UncertaintyTypeEnum` Enumeration:
+
+    * `COMBINED` 
+
+        {{term(combined standard uncertainty)}}.
+
+    * `MEAN` 
+
+        {{term(standard uncertainty)}} using arithmetic mean or average the observations. {{cite(JCGM 100:2008 4.2)}}
+
+* `Uncertainty` 
+
+    {{term(uncertainty)}} specified by `UNCERTAINTY_TYPE`.
+
+    The value of {{property(Uncertainty)}} **MUST** be `float`.
+
+### FeaturePersisitentId
+
+{{def(EventEnum::FEATURE_PERSISTENT_ID)}}
+
+
+
+The value of {{property(FeaturePersisitentId)}} **MUST** be `ID`. See {{sect(id)}}.
+
 ### Firmware
 
-{{def(EventEnum:FIRMWARE)}}
+{{def(EventEnum::FIRMWARE)}}
 
 
 
@@ -1266,13 +1601,13 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### FixtureId
 
-{{def(EventEnum:FIXTURE_ID)}}
+{{def(EventEnum::FIXTURE_ID)}}
 
 
 
 ### FunctionalMode
 
-{{def(EventEnum:FUNCTIONAL_MODE)}}
+{{def(EventEnum::FUNCTIONAL_MODE)}}
 
 
 
@@ -1306,7 +1641,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Hardness
 
-{{def(EventEnum:HARDNESS)}}
+{{def(EventEnum::HARDNESS)}}
 
 
 
@@ -1354,7 +1689,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Hardware
 
-{{def(EventEnum:HARDWARE)}}
+{{def(EventEnum::HARDWARE)}}
 
 
 
@@ -1384,6 +1719,12 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
+* `MODEL`
+
+    model info of the hardware or software.
+
+    
+
 * `RELEASE_DATE`
 
     date the hardware or software was released for general use. 
@@ -1402,13 +1743,13 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### HostName
 
-{{def(EventEnum:HOST_NAME)}}
+{{def(EventEnum::HOST_NAME)}}
 
 
 
 ### LeakDetect
 
-{{def(EventEnum:LEAK_DETECT)}}
+{{def(EventEnum::LEAK_DETECT)}}
 
 
 
@@ -1424,7 +1765,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Library
 
-{{def(EventEnum:LIBRARY)}}
+{{def(EventEnum::LIBRARY)}}
 
 
 
@@ -1472,7 +1813,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### `<<deprecated>>`Line
 
-{{def(EventEnum:LINE)}}
+{{def(EventEnum::LINE)}}
 
 
 
@@ -1492,13 +1833,13 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### LineLabel
 
-{{def(EventEnum:LINE_LABEL)}}
+{{def(EventEnum::LINE_LABEL)}}
 
 
 
 ### LineNumber
 
-{{def(EventEnum:LINE_NUMBER)}}
+{{def(EventEnum::LINE_NUMBER)}}
 
 
 
@@ -1520,7 +1861,7 @@ The value of {{property(LineNumber)}} **MUST** be `integer`.
 
 ### LoadCount
 
-{{def(EventEnum:LOAD_COUNT)}}
+{{def(EventEnum::LOAD_COUNT)}}
 
 
 
@@ -1578,9 +1919,161 @@ The value of {{property(LoadCount)}} **MUST** be `integer`.
 
     
 
+### LocationAddress
+
+{{def(EventEnum::LOCATION_ADDRESS)}}
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `LocationAddressResult` keys.
+
+`LocationAddressResult` keys:
+
+* `GivenName` 
+
+    element specifying the name used to distinguish between persons having the same surname(s) and who may have access to a particular delivery point.
+
+    The value of {{property(GivenName)}} **MUST** be `string`.
+
+* `Surname` 
+
+    element which identifies the family or parentage of an individual.
+
+    The value of {{property(Surname)}} **MUST** be `string`.
+
+* `Qualification` 
+
+    element indicating an individual’s professional or academic qualification or rank in a professional group or society (e.g. PhD, Fellow of the Royal Society, FRS, Barrister at Law).
+
+    The value of {{property(Qualification)}} **MUST** be `string`.
+
+* `NameQualifier` 
+
+    element used in some countries to distinguish between persons with the same surname(s) who have similar given names or initials (e.g.III, Senior, the Third.).
+
+    The value of {{property(NameQualifier)}} **MUST** be `string`.
+
+* `OrganizationName` 
+
+    element giving the official name, the registered business name or other official designation of an organization.
+
+    The value of {{property(OrganizationName)}} **MUST** be `string`.
+
+* `LegalStatus` 
+
+    element indicating the formal registration of an organization (e.g. GmbH, Inc., Ltd.).
+
+    The value of {{property(LegalStatus)}} **MUST** be `string`.
+
+* `OrganizationUnit` 
+
+    element identifying a subdivision of an organization.
+
+    The value of {{property(OrganizationUnit)}} **MUST** be `string`.
+
+* `Building` 
+
+    element identifying the number or name and type of the edifice or construction in or adjacent to which a delivery point is located.
+
+    The value of {{property(Building)}} **MUST** be `string`.
+
+* `Floor` 
+
+    element indicating the floor or level on which a delivery point is located in a multi-story building.
+
+    The value of {{property(Floor)}} **MUST** be `string`.
+
+* `Door` 
+
+    element indicating the apartment, room or office in, at or adjacent to which a delivery point, situated within a building, is located.
+
+    The value of {{property(Door)}} **MUST** be `string`.
+
+* `Thoroughfare` 
+
+    element which identifies the road or part of a road or other access route along which a delivery point can be accessed, either directly or via a secondary or tertiary road or access route.
+
+    The value of {{property(Thoroughfare)}} **MUST** be `string`.
+
+* `PremiseIdentifier` 
+
+    element designating the area or the object on an area, adjacent to thoroughfare, in which the delivery point or delivery point access is located.
+
+    The value of {{property(PremiseIdentifier)}} **MUST** be `string`.
+
+* `Town` 
+
+    element indicating the name of the populated place in which a delivery point is located, or the populated.
+
+    The value of {{property(Town)}} **MUST** be `string`.
+
+* `Region` 
+
+    element specifying the geographic or administrative area of the country in which the town is situated.
+
+    The value of {{property(Region)}} **MUST** be `string`.
+
+* `District` 
+
+    element indicating the name of the area within or adjacent to the town in which a delivery point is located, or via which it is accessed.
+
+    The value of {{property(District)}} **MUST** be `string`.
+
+* `CountryName` 
+
+    element designating the country, dependency or area of geopolitical interest, in which a delivery point is located or via which the delivery point is accessed.
+
+    The value of {{property(CountryName)}} **MUST** be `string`.
+
+* `CountryCode` 
+
+    interest, in which a delivery point is located or via which the delivery point is accessed.
+
+    The value of {{property(CountryCode)}} **MUST** be `string`.
+
+* `PostCode` 
+
+    element designating the code used for the sorting of mail.
+
+    The value of {{property(PostCode)}} **MUST** be `string`.
+
+### LocationNarrative
+
+{{def(EventEnum::LOCATION_NARRATIVE)}}
+
+
+
+### LocationSpatialGeographic
+
+{{def(EventEnum::LOCATION_SPATIAL_GEOGRAPHIC)}}
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `LocationSpatialGeographicResult` keys.
+
+`LocationSpatialGeographicResult` keys:
+
+* `Longitude` 
+
+    geographic longitude.
+
+    The value of {{property(Longitude)}} **MUST** be `DEGREE`. See {{sect(degree)}}.
+
+* `Latitude` 
+
+    geographic latitude.
+
+    The value of {{property(Latitude)}} **MUST** be `DEGREE`. See {{sect(degree)}}.
+
+* `Altitude` 
+
+    height relative to a reference.
+
+    The value of {{property(Altitude)}} **MUST** be `METER`. See {{sect(meter)}}.
+
 ### LockState
 
-{{def(EventEnum:LOCK_STATE)}}
+{{def(EventEnum::LOCK_STATE)}}
 
 
 
@@ -1596,19 +2089,19 @@ The value of {{property(LoadCount)}} **MUST** be `integer`.
 
 ### MTConnectVersion
 
-{{def(EventEnum:MTCONNECT_VERSION)}}
+{{def(EventEnum::MTCONNECT_VERSION)}}
 
 
 
 ### MaintenanceList
 
-{{def(EventEnum:MAINTENANCE_LIST)}}
+{{def(EventEnum::MAINTENANCE_LIST)}}
 
-If the {{property(INTERVAL)}} {{property(key)}} is not provided, it is assumed `ABSOLUTE`.
+If {{property(MaintenanceList::result::Interval)}} `key` is not provided, it is assumed `ABSOLUTE`.
 
-If the {{property(DIRECTION)}} {{property(key)}} is not provided, it is assumed `UP`.
+If {{property(MaintenanceList::result::Direction)}} `key` is not provided, it is assumed `UP`.
 
-If the {{property(UNITS)}} {{property(key)}} is not provided, it is assumed to be `COUNT`.
+If {{property(MaintenanceList::result::Units)}} `key` is not provided, it is assumed to be `COUNT`.
 
 
 
@@ -1616,13 +2109,13 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
 `MaintenanceListResult` keys:
 
-* `VALUE` 
+* `Value` 
 
     current interval value of the activity.
 
-    The value of {{property(VALUE)}} **MUST** be `float`.
+    The value of {{property(Value)}} **MUST** be `float`.
 
-* `INTERVAL` 
+* `Interval` 
 
     interval of the value observed.
 
@@ -1636,25 +2129,25 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
         
 
-* `NEXT_SERVICE_DATE` 
+* `NextServiceDate` 
 
     next date/time stamp that maintenance should be performed.
 
-    The value of {{property(NEXT_SERVICE_DATE)}} **MUST** be `datetime`. See {{sect(datetime)}}.
+    The value of {{property(NextServiceDate)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-* `RESET` 
+* `Reset` 
 
     last date/time stamp of the {{term(observation)}} was reset.
 
-    The value of {{property(RESET)}} **MUST** be `datetime`. See {{sect(datetime)}}.
+    The value of {{property(Reset)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-* `SEVERITY` 
+* `Severity` 
 
     level of severity on a scale of 1-10.
 
-    The value of {{property(SEVERITY)}} **MUST** be `integer`.
+    The value of {{property(Severity)}} **MUST** be `integer`.
 
-* `DIRECTION` 
+* `Direction` 
 
     direction of the value observed.
 
@@ -1668,39 +2161,39 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Mainten
 
         
 
-* `NAME` 
+* `Name` 
 
     identifier of the maintenance activity.
 
-    The value of {{property(NAME)}} **MUST** be `string`.
+    The value of {{property(Name)}} **MUST** be `string`.
 
-* `LAST_SERVICE_DATE` 
+* `LastServiceDate` 
 
     last date/time stamp that maintenance was performed.
 
-    The value of {{property(LAST_SERVICE_DATE)}} **MUST** be `datetime`. See {{sect(datetime)}}.
+    The value of {{property(LastServiceDate)}} **MUST** be `datetime`. See {{sect(datetime)}}.
 
-* `UNITS` 
+* `Units` 
 
-    same as {{block(DataItem)}} {{property(units)}}. See {{package(Device Information Model)}}.
+    same as {{property(DataItem::units)}}. See {{package(Device Information Model)}}.
 
-    The value of {{property(UNITS)}} **MUST** be one of the `UnitEnum` enumeration. 
+    The value of {{property(Units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
-* `TARGET` 
+* `Target` 
 
     target value of the next maintenance.
 
-    The value of {{property(TARGET)}} **MUST** be `float`.
+    The value of {{property(Target)}} **MUST** be `float`.
 
 ### Material
 
-{{def(EventEnum:MATERIAL)}}
+{{def(EventEnum::MATERIAL)}}
 
 
 
 ### MaterialLayer
 
-{{def(EventEnum:MATERIAL_LAYER)}}
+{{def(EventEnum::MATERIAL_LAYER)}}
 
 
 
@@ -1720,9 +2213,31 @@ The value of {{property(MaterialLayer)}} **MUST** be `integer`.
 
     
 
+### MeasurementType
+
+{{def(EventEnum::MEASUREMENT_TYPE)}}
+
+Examples: `POINT`, `RADIUS`, `ANGLE`, `LENGTH`, etc.
+
+
+
+### MeasurementUnits
+
+{{def(EventEnum::MEASUREMENT_UNITS)}}
+
+
+
+### MeasurementValue
+
+{{def(EventEnum::MEASUREMENT_VALUE)}}
+
+
+
+The value of {{property(MeasurementValue)}} **MUST** be `double`.
+
 ### Message
 
-{{def(EventEnum:MESSAGE)}}
+{{def(EventEnum::MESSAGE)}}
 
 
 
@@ -1743,7 +2258,7 @@ Descriptions for Value Properties of {{block(Message)}}:
 
 ### Network
 
-{{def(EventEnum:NETWORK)}}
+{{def(EventEnum::NETWORK)}}
 
 
 
@@ -1807,7 +2322,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### NetworkPort
 
-{{def(EventEnum:NETWORK_PORT)}}
+{{def(EventEnum::NETWORK_PORT)}}
 
 
 
@@ -1815,7 +2330,7 @@ The value of {{property(NetworkPort)}} **MUST** be `integer`.
 
 ### OperatingMode
 
-{{def(EventEnum:OPERATING_MODE)}}
+{{def(EventEnum::OPERATING_MODE)}}
 
 
 
@@ -1847,7 +2362,7 @@ The value of {{property(NetworkPort)}} **MUST** be `integer`.
 
 ### OperatingSystem
 
-{{def(EventEnum:OPERATING_SYSTEM)}}
+{{def(EventEnum::OPERATING_SYSTEM)}}
 
 
 
@@ -1895,19 +2410,19 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### OperatorId
 
-{{def(EventEnum:OPERATOR_ID)}}
+{{def(EventEnum::OPERATOR_ID)}}
 
 
 
 ### PalletId
 
-{{def(EventEnum:PALLET_ID)}}
+{{def(EventEnum::PALLET_ID)}}
 
 
 
 ### PartCount
 
-{{def(EventEnum:PART_COUNT)}}
+{{def(EventEnum::PART_COUNT)}}
 
 
 
@@ -1967,7 +2482,7 @@ The default {{property(subType)}} of {{property(PartCount)}} is `ALL`.
 
 ### PartCountType
 
-{{def(EventEnum:PART_COUNT_TYPE)}}
+{{def(EventEnum::PART_COUNT_TYPE)}}
 
 
 
@@ -1983,7 +2498,7 @@ The default {{property(subType)}} of {{property(PartCount)}} is `ALL`.
 
 ### PartDetect
 
-{{def(EventEnum:PART_DETECT)}}
+{{def(EventEnum::PART_DETECT)}}
 
 
 
@@ -1999,9 +2514,9 @@ The default {{property(subType)}} of {{property(PartCount)}} is `ALL`.
 
 ### PartGroupId
 
-{{def(EventEnum:PART_GROUP_ID)}}
+{{def(EventEnum::PART_GROUP_ID)}}
 
-If no {{property(subType)}} is specified, `UUID` is default.
+If no {{property(DataItem::subType)}} is specified, `UUID` is default.
 
 
 
@@ -2041,15 +2556,23 @@ The default {{property(subType)}} of {{property(PartGroupId)}} is `UUID`.
 
 ### PartId
 
-{{def(EventEnum:PART_ID)}}
+{{def(EventEnum::PART_ID)}}
 
 
+
+### PartIndex
+
+{{def(EventEnum::PART_INDEX)}}
+
+
+
+The value of {{property(PartIndex)}} **MUST** be `integer`.
 
 ### PartKindId
 
-{{def(EventEnum:PART_KIND_ID)}}
+{{def(EventEnum::PART_KIND_ID)}}
 
-If no {{property(subType)}} is specified, `UUID` is default.
+If no {{property(DataItem::subType)}} is specified, `UUID` is default.
 
 
 
@@ -2083,13 +2606,13 @@ The default {{property(subType)}} of {{property(PartKindId)}} is `UUID`.
 
 ### `<<deprecated>>`PartNumber
 
-{{def(EventEnum:PART_NUMBER)}}
+{{def(EventEnum::PART_NUMBER)}}
 
 
 
 ### PartProcessingState
 
-{{def(EventEnum:PART_PROCESSING_STATE)}}
+{{def(EventEnum::PART_PROCESSING_STATE)}}
 
 
 
@@ -2151,7 +2674,7 @@ The default {{property(subType)}} of {{property(PartKindId)}} is `UUID`.
 
 ### PartStatus
 
-{{def(EventEnum:PART_STATUS)}}
+{{def(EventEnum::PART_STATUS)}}
 
 If unique identifier is given, part status is for that individual. If group identifier is given without a unique identifier, then the status is assumed to be for the whole group.
 
@@ -2169,9 +2692,9 @@ If unique identifier is given, part status is for that individual. If group iden
 
 ### PartUniqueId
 
-{{def(EventEnum:PART_UNIQUE_ID)}}
+{{def(EventEnum::PART_UNIQUE_ID)}}
 
-If no {{property(subType)}} is specified, `UUID` is default.
+If no {{property(DataItem::subType)}} is specified, `UUID` is default.
 
 
 
@@ -2199,7 +2722,7 @@ The default {{property(subType)}} of {{property(PartUniqueId)}} is `UUID`.
 
 ### PathFeedrateOverride
 
-{{def(EventEnum:PATH_FEEDRATE_OVERRIDE)}}
+{{def(EventEnum::PATH_FEEDRATE_OVERRIDE)}}
 
 
 
@@ -2229,7 +2752,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### PathMode
 
-{{def(EventEnum:PATH_MODE)}}
+{{def(EventEnum::PATH_MODE)}}
 
 
 
@@ -2253,7 +2776,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### PowerState
 
-{{def(EventEnum:POWER_STATE)}}
+{{def(EventEnum::POWER_STATE)}}
 
 
 
@@ -2283,7 +2806,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### `<<deprecated>>`PowerStatus
 
-{{def(EventEnum:POWER_STATUS)}}
+{{def(EventEnum::POWER_STATUS)}}
 
 
 
@@ -2299,7 +2822,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### ProcessAggregateId
 
-{{def(EventEnum:PROCESS_AGGREGATE_ID)}}
+{{def(EventEnum::PROCESS_AGGREGATE_ID)}}
 
 
 
@@ -2325,7 +2848,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### ProcessKindId
 
-{{def(EventEnum:PROCESS_KIND_ID)}}
+{{def(EventEnum::PROCESS_KIND_ID)}}
 
 
 
@@ -2351,7 +2874,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### ProcessOccurrenceId
 
-{{def(EventEnum:PROCESS_OCCURRENCE_ID)}}
+{{def(EventEnum::PROCESS_OCCURRENCE_ID)}}
 
 
 
@@ -2383,7 +2906,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### ProcessState
 
-{{def(EventEnum:PROCESS_STATE)}}
+{{def(EventEnum::PROCESS_STATE)}}
 
 
 
@@ -2415,7 +2938,7 @@ The value of {{property(PathFeedrateOverride)}} **MUST** be `float`.
 
 ### ProcessTime
 
-{{def(EventEnum:PROCESS_TIME)}}
+{{def(EventEnum::PROCESS_TIME)}}
 
 
 
@@ -2443,7 +2966,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Program
 
-{{def(EventEnum:PROGRAM)}}
+{{def(EventEnum::PROGRAM)}}
 
 
 
@@ -2495,7 +3018,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### ProgramComment
 
-{{def(EventEnum:PROGRAM_COMMENT)}}
+{{def(EventEnum::PROGRAM_COMMENT)}}
 
 
 
@@ -2523,7 +3046,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### ProgramEdit
 
-{{def(EventEnum:PROGRAM_EDIT)}}
+{{def(EventEnum::PROGRAM_EDIT)}}
 
 
 
@@ -2543,13 +3066,13 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### ProgramEditName
 
-{{def(EventEnum:PROGRAM_EDIT_NAME)}}
+{{def(EventEnum::PROGRAM_EDIT_NAME)}}
 
 
 
 ### ProgramHeader
 
-{{def(EventEnum:PROGRAM_HEADER)}}
+{{def(EventEnum::PROGRAM_HEADER)}}
 
 
 
@@ -2579,7 +3102,7 @@ The default {{property(subType)}} of {{property(ProgramHeader)}} is `MAIN`.
 
 ### ProgramLocation
 
-{{def(EventEnum:PROGRAM_LOCATION)}}
+{{def(EventEnum::PROGRAM_LOCATION)}}
 
 
 
@@ -2607,7 +3130,7 @@ The default {{property(subType)}} of {{property(ProgramHeader)}} is `MAIN`.
 
 ### ProgramLocationType
 
-{{def(EventEnum:PROGRAM_LOCATION_TYPE)}}
+{{def(EventEnum::PROGRAM_LOCATION_TYPE)}}
 
 
 
@@ -2645,7 +3168,7 @@ The default {{property(subType)}} of {{property(ProgramHeader)}} is `MAIN`.
 
 ### ProgramNestLevel
 
-{{def(EventEnum:PROGRAM_NEST_LEVEL)}}
+{{def(EventEnum::PROGRAM_NEST_LEVEL)}}
 
 If an initial value is not defined, the nesting level associated with the highest or initial nesting level of the program **MUST** default to zero (0).
 
@@ -2656,7 +3179,7 @@ The value of {{property(ProgramNestLevel)}} **MUST** be `integer`.
 
 ### RotaryMode
 
-{{def(EventEnum:ROTARY_MODE)}}
+{{def(EventEnum::ROTARY_MODE)}}
 
 
 
@@ -2676,7 +3199,7 @@ The value of {{property(ProgramNestLevel)}} **MUST** be `integer`.
 
 ### RotaryVelocityOverride
 
-{{def(EventEnum:ROTARY_VELOCITY_OVERRIDE)}}
+{{def(EventEnum::ROTARY_VELOCITY_OVERRIDE)}}
 
 This command represents a percentage change to the velocity calculated by a logic or motion program or set by a switch for a {{block(Rotary)}} type axis.
 
@@ -2686,17 +3209,17 @@ The value of {{property(RotaryVelocityOverride)}} **MUST** be `float`.
 
 ### Rotation
 
-{{def(EventEnum:ROTATION)}}
+{{def(EventEnum::ROTATION)}}
 
 
 
 The {{property(units)}} of {{property(Rotation)}} **MUST** be `DEGREE_3D`.
 
-The value of {{property(Rotation)}} **MUST** be a list of `float` of size `0..3`.
+The value of {{property(Rotation)}} **MUST** be `float3d`. See {{sect(float3d)}}.
 
 ### SensorAttachment
 
-{{def(EventEnum:SENSOR_ATTACHMENT)}}
+{{def(EventEnum::SENSOR_ATTACHMENT)}}
 
 
 
@@ -2704,21 +3227,69 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `SensorA
 
 `SensorAttachmentResult` keys:
 
-* `SENSOR_ID` 
+* `SensorId` 
 
-    The identity of a sensor used to observe some measurement of an item.
+    identity of a sensor used to observe some measurement of an item.
 
-    The value of {{property(SENSOR_ID)}} **MUST** be `string`.
+    The value of {{property(SensorId)}} **MUST** be `ID`. See {{sect(id)}}.
+
+### SensorState
+
+{{def(EventEnum::SENSOR_STATE)}}
+
+
+
+The default {{property(subType)}} of {{property(SensorState)}} is `BINARY`.
+
+#### Subtypes of SensorState
+
+* `BINARY`
+
+    {{def(EventEnum::SENSOR_STATE)}} where the state is {{def(DataItemSubTypeEnum::BINARY)}}
+
+    
+
+    The value of {{property(SensorState)}} **MUST** be `binary`. See {{sect(binary)}}.
+
+    `binary` Enumeration:
+
+* `BOOLEAN`
+
+    {{def(EventEnum::SENSOR_STATE)}} where the state is {{def(DataItemSubTypeEnum::BOOLEAN)}}
+
+    
+
+    The value of {{property(SensorState)}} **MUST** be `boolean`.
+
+    `boolean` Enumeration:
+
+* `DETECT`
+
+    {{def(EventEnum::SENSOR_STATE)}} where the state is {{def(DataItemSubTypeEnum::DETECT)}}
+
+    
+
+    The value of {{property(SensorState)}} **MUST** be one of the `CompositionStateSwitchedEnum` enumeration. 
+
+* `ENUMERATED`
+
+    {{def(EventEnum::SENSOR_STATE)}} where the state is {{def(DataItemSubTypeEnum::ENUMERATED)}}
+
+    
+
+    The value of {{property(SensorState)}} **MUST** be `integer`.
+
+    `integer` Enumeration:
 
 ### SerialNumber
 
-{{def(EventEnum:SERIAL_NUMBER)}}
+{{def(EventEnum::SERIAL_NUMBER)}}
 
 
 
-### SpecificationLimit
+### `<<deprecated>>`SpecificationLimit
 
-{{def(EventEnum:SPECIFICATION_LIMIT)}}
+{{def(EventEnum::SPECIFICATION_LIMIT)}}
 
 
 
@@ -2726,7 +3297,7 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
 
 `SpecificationLimitResult` keys:
 
-* `UPPER_LIMIT` 
+* `UpperLimit` 
 
     upper conformance boundary for a variable.
     
@@ -2734,15 +3305,15 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
     
     
 
-    The value of {{property(UPPER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
 
-* `NOMINAL` 
+* `Nominal` 
 
     ideal or desired value for a variable.
 
-    The value of {{property(NOMINAL)}} **MUST** be `float`.
+    The value of {{property(Nominal)}} **MUST** be `float`.
 
-* `LOWER_LIMIT` 
+* `LowerLimit` 
 
     lower conformance boundary for a variable.
     
@@ -2750,11 +3321,47 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
     
     
 
-    The value of {{property(LOWER_LIMIT)}} **MUST** be `float`.
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
+
+### SpecificationLimits
+
+{{def(EventEnum::SPECIFICATION_LIMITS)}}
+
+
+
+The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `SpecificationLimitResult` keys.
+
+`SpecificationLimitResult` keys:
+
+* `UpperLimit` 
+
+    upper conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(UpperLimit)}} **MUST** be `float`.
+
+* `Nominal` 
+
+    ideal or desired value for a variable.
+
+    The value of {{property(Nominal)}} **MUST** be `float`.
+
+* `LowerLimit` 
+
+    lower conformance boundary for a variable.
+    
+    > Note: immediate concern or action may be required.
+    
+    
+
+    The value of {{property(LowerLimit)}} **MUST** be `float`.
 
 ### SpindleInterlock
 
-{{def(EventEnum:SPINDLE_INTERLOCK)}}
+{{def(EventEnum::SPINDLE_INTERLOCK)}}
 
 
 
@@ -2768,33 +3375,75 @@ The {{block(Entry)}} {{property(key)}} **MUST** be one or more from the `Specifi
 
     spindle has not been deactivated.
 
+### Thickness
+
+{{def(EventEnum::THICKNESS)}}
+
+
+
+The default {{property(subType)}} of {{property(Thickness)}} is `ACTUAL`.
+
+The value of {{property(Thickness)}} **MUST** be `float`.
+
+#### Subtypes of Thickness
+
+* `ACTUAL`
+
+    {{def(EventEnum::THICKNESS)}} that is {{def(DataItemSubTypeEnum::ACTUAL)}}.
+
+    
+
+* `COMMANDED`
+
+    {{def(EventEnum::THICKNESS)}} that is {{def(DataItemSubTypeEnum::COMMANDED)}}.
+
+    
+
+* `PROGRAMMED`
+
+    {{def(EventEnum::THICKNESS)}} that is {{def(DataItemSubTypeEnum::PROGRAMMED)}}.
+
+    
+
+* `TARGET`
+
+    {{def(EventEnum::THICKNESS)}} that is {{def(DataItemSubTypeEnum::TARGET)}}.
+
+    
+
 ### ToolAssetId
 
-{{def(EventEnum:TOOL_ASSET_ID)}}
+{{def(EventEnum::TOOL_ASSET_ID)}}
+
+
+
+### ToolCuttingItem
+
+{{def(EventEnum::TOOL_CUTTING_ITEM)}}
 
 
 
 ### ToolGroup
 
-{{def(EventEnum:TOOL_GROUP)}}
+{{def(EventEnum::TOOL_GROUP)}}
 
 
 
 ### `<<deprecated>>`ToolId
 
-{{def(EventEnum:TOOL_ID)}}
+{{def(EventEnum::TOOL_ID)}}
 
 
 
 ### ToolNumber
 
-{{def(EventEnum:TOOL_NUMBER)}}
+{{def(EventEnum::TOOL_NUMBER)}}
 
 
 
 ### ToolOffset
 
-{{def(EventEnum:TOOL_OFFSET)}}
+{{def(EventEnum::TOOL_OFFSET)}}
 
 
 
@@ -2816,9 +3465,15 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
+### ToolOffsets
+
+tabular representation of {{def(EventEnum::TOOL_OFFSETS)}}
+
+
+
 ### TransferCount
 
-{{def(EventEnum:TRANSFER_COUNT)}}
+{{def(EventEnum::TRANSFER_COUNT)}}
 
 
 
@@ -2878,17 +3533,43 @@ The value of {{property(TransferCount)}} **MUST** be `integer`.
 
 ### Translation
 
-{{def(EventEnum:TRANSLATION)}}
+{{def(EventEnum::TRANSLATION)}}
 
 
 
 The {{property(units)}} of {{property(Translation)}} **MUST** be `MILLIMETER_3D`.
 
-The value of {{property(Translation)}} **MUST** be a list of `float` of size `0..3`.
+The value of {{property(Translation)}} **MUST** be `float3d`. See {{sect(float3d)}}.
+
+### Uncertainty
+
+{{def(EventEnum::UNCERTAINTY)}}
+
+
+
+The value of {{property(Uncertainty)}} **MUST** be `double`.
+
+### UncertaintyType
+
+{{def(EventEnum::UNCERTAINTY_TYPE)}}
+
+
+
+The value of {{property(UncertaintyType)}} **MUST** be one of the `UncertaintyTypeEnum` enumeration. 
+
+`UncertaintyTypeEnum` Enumeration:
+
+* `COMBINED` 
+
+    {{term(combined standard uncertainty)}}.
+
+* `MEAN` 
+
+    {{term(standard uncertainty)}} using arithmetic mean or average the observations. {{cite(JCGM 100:2008 4.2)}}
 
 ### UnloadCount
 
-{{def(EventEnum:UNLOAD_COUNT)}}
+{{def(EventEnum::UNLOAD_COUNT)}}
 
 
 
@@ -2948,7 +3629,7 @@ The value of {{property(UnloadCount)}} **MUST** be `integer`.
 
 ### User
 
-{{def(EventEnum:USER)}}
+{{def(EventEnum::USER)}}
 
 
 
@@ -2976,7 +3657,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### ValveState
 
-{{def(EventEnum:VALVE_STATE)}}
+{{def(EventEnum::VALVE_STATE)}}
 
 
 
@@ -3018,13 +3699,15 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Variable
 
-{{def(EventEnum:VARIABLE)}}
+{{def(EventEnum::VARIABLE)}}
 
 
 
 ### WaitState
 
-{{def(EventEnum:WAIT_STATE)}}
+{{def(EventEnum::WAIT_STATE)}}
+
+When {{property(Execution::result)}} is not `WAIT`, {{property(Observation::isUnavailable)}} of {{block(WaitState)}} **MUST** be `true`.
 
 
 
@@ -3076,18 +3759,24 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Wire
 
-{{def(EventEnum:WIRE)}}
+{{def(EventEnum::WIRE)}}
 
 
 
 ### WorkOffset
 
-{{def(EventEnum:WORK_OFFSET)}}
+{{def(EventEnum::WORK_OFFSET)}}
+
+
+
+### WorkOffsets
+
+tabular representation of {{def(EventEnum::WORK_OFFSETS)}}
 
 
 
 ### WorkholdingId
 
-{{def(EventEnum:WORKHOLDING_ID)}}
+{{def(EventEnum::WORKHOLDING_ID)}}
 
 

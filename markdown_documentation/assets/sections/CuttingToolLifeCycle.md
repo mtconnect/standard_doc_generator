@@ -52,7 +52,7 @@ Descriptions for Value Properties of {{block(CuttingToolLifeCycle)}}:
 |{{block(ProcessSpindleSpeed)}}|0..1|
 |{{block(Status)}} (organized by `CutterStatus`)|1..*|
 |{{block(CuttingItem)}} (organized by `CuttingItems`)|0..*|
-|{{block(Measurement)}} (organized by `Measurements`)|0..*|
+|{{block(ToolingMeasurement)}} (organized by `Measurements`)|0..*|
 |{{block(ReconditionCount)}}|0..1|
 |{{block(Location)}}|0..1|
 {: caption="Part Properties of CuttingToolLifeCycle" label="table:part-properties-of-cuttingtoollifecycle"}
@@ -63,7 +63,7 @@ Descriptions for Part Properties of {{block(CuttingToolLifeCycle)}}:
 
     constrained process feed rate for the tool in mm/s.
     
-    The {{property(value)}} **MAY** contain the nominal process target feed rate if available. If {{block(ProcessFeedRate)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
+    The {{property(ProcessFeedRate::value)}} **MAY** contain the nominal process target feed rate if available. If {{block(ProcessFeedRate)}} is provided, at least one value of {{property(ProcessFeedRate::maximum)}}, {{property(ProcessFeedRate::nominal)}}, or {{property(ProcessFeedRate::minimum)}} **MUST** be specified.
 
     See {{sect(ProcessFeedRate)}}.
 
@@ -77,7 +77,7 @@ Descriptions for Part Properties of {{block(CuttingToolLifeCycle)}}:
 
     constrained process spindle speed for the tool in revolutions/minute.
     
-    The {{property(value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
+    The {{property(ProcessSpindleSpeed::value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(ProcessSpindleSpeed::maximum)}}, {{property(ProcessSpindleSpeed::nominal)}}, or {{property(ProcessSpindleSpeed::minimum)}} **MUST** be specified.
 
     See {{sect(ProcessSpindleSpeed)}}.
 
@@ -105,7 +105,7 @@ Descriptions for Part Properties of {{block(CuttingToolLifeCycle)}}:
 
     {{block(CuttingItems)}} groups one or more {{block(CuttingItem)}} entities. See {{sect(CuttingItem)}} and {{package(Cutting Item)}} for more detail.
 
-* {{block(Measurement)}} 
+* {{block(ToolingMeasurement)}} 
 
     constrained scalar value associated with a cutting tool.
 
@@ -121,9 +121,9 @@ Descriptions for Part Properties of {{block(CuttingToolLifeCycle)}}:
 
     location of the pot or spindle the cutting tool currently resides in.
     
-    If {{property(negativeOverlap)}} or {{property(positiveOverlap)}} is provided, the tool reserves additional locations on either side, otherwise if they are not given, no additional locations are required for this tool.
+    If {{property(Location::negativeOverlap)}} or {{property(Location::positiveOverlap)}} is provided, the tool reserves additional locations on either side, otherwise if they are not given, no additional locations are required for this tool.
     
-    If the pot occupies the first or last location, a rollover to the beginning or the end of the indexable values may occur. For example, if there are 64 pots and the tool is in pot 64 with a {{property(positiveOverlap)}} of 1, the first pot **MAY** be occupied as well.
+    If the pot occupies the first or last location, a rollover to the beginning or the end of the indexable values may occur. For example, if there are 64 pots and the tool is in pot 64 with a {{property(Location::positiveOverlap)}} of 1, the first pot **MAY** be occupied as well.
 
     See {{sect(Location)}} for more detail.
 
@@ -207,9 +207,9 @@ Descriptions for Value Properties of {{block(ToolLife)}}:
 
 location of the pot or spindle the cutting tool currently resides in.
 
-If {{property(negativeOverlap)}} or {{property(positiveOverlap)}} is provided, the tool reserves additional locations on either side, otherwise if they are not given, no additional locations are required for this tool.
+If {{property(Location::negativeOverlap)}} or {{property(Location::positiveOverlap)}} is provided, the tool reserves additional locations on either side, otherwise if they are not given, no additional locations are required for this tool.
 
-If the pot occupies the first or last location, a rollover to the beginning or the end of the indexable values may occur. For example, if there are 64 pots and the tool is in pot 64 with a {{property(positiveOverlap)}} of 1, the first pot **MAY** be occupied as well.
+If the pot occupies the first or last location, a rollover to the beginning or the end of the indexable values may occur. For example, if there are 64 pots and the tool is in pot 64 with a {{property(Location::positiveOverlap)}} of 1, the first pot **MAY** be occupied as well.
 
 
 {{block(Location)}} **MUST** be defined only for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingTool)}} and **MUST NOT** be defined for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingToolArchetype)}}.
@@ -247,7 +247,7 @@ Descriptions for Value Properties of {{block(Location)}}:
 
     type of location being identified. 
     
-    When a `POT` or `STATION` type is used, {{property(value)}} of {{block(Location)}} **MUST** be a numeric value.
+    When a `POT` or `STATION` type is used, {{property(Location::value)}}**MUST** be a numeric value.
 
     `LocationTypeEnum` Enumeration:
 
@@ -316,8 +316,6 @@ Descriptions for Value Properties of {{block(Location)}}:
 number of times the cutter has been reconditioned.
 
 
-{{block(ReconditionCount)}} **MUST** be defined only for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingTool)}} and **MUST NOT** be defined for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingToolArchetype)}}.
-
 
 The value of {{property(ReconditionCount)}} **MUST** be `integer`.
 
@@ -340,7 +338,7 @@ Descriptions for Value Properties of {{block(ReconditionCount)}}:
 
 constrained process spindle speed for the tool in revolutions/minute.
 
-The {{property(value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
+The {{property(ProcessSpindleSpeed::value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(ProcessSpindleSpeed::maximum)}}, {{property(ProcessSpindleSpeed::nominal)}}, or {{property(ProcessSpindleSpeed::minimum)}} **MUST** be specified.
 
 
 
@@ -375,11 +373,11 @@ Descriptions for Value Properties of {{block(ProcessSpindleSpeed)}}:
 
 constrained process feed rate for the tool in mm/s.
 
-The {{property(value)}} **MAY** contain the nominal process target feed rate if available. If {{block(ProcessFeedRate)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
+The {{property(ProcessFeedRate::value)}} **MAY** contain the nominal process target feed rate if available. If {{block(ProcessFeedRate)}} is provided, at least one value of {{property(ProcessFeedRate::maximum)}}, {{property(ProcessFeedRate::nominal)}}, or {{property(ProcessFeedRate::minimum)}} **MUST** be specified.
 
 
 
-The value of {{property(ProcessFeedRate)}} **MUST** be `string`.
+The value of {{property(ProcessFeedRate)}} **MUST** be `float`.
 
 #### Value Properties of ProcessFeedRate
 
@@ -466,7 +464,7 @@ status of the cutting tool.
 
     tool is in process and has remaining tool life.
 
-### Measurement
+### ToolingMeasurement
 
 constrained scalar value associated with a cutting tool.
 
@@ -474,24 +472,16 @@ constrained scalar value associated with a cutting tool.
 A {{block(Measurement)}} is specific to the tool management policy at a particular shop. The tool zero reference point or gauge line will be different depending on the particular implementation and will be assumed to be consistent within the shop. MTConnect Standard does not standardize the manufacturing process or the definition of the zero point.
 
 
-The value of {{property(Measurement)}} **MUST** be `float`.
+#### Value Properties of ToolingMeasurement
 
-#### Value Properties of Measurement
-
-{{tbl(value-properties-of-measurement)}} lists the Value Properties of {{block(Measurement)}}.
+{{tbl(value-properties-of-toolingmeasurement)}} lists the Value Properties of {{block(ToolingMeasurement)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(code)}}|`CodeEnum`|0..1|
-|{{property(maximum)}}|`float`|0..1|
-|{{property(minimum)}}|`float`|0..1|
-|{{property(nativeUnits)}}|`NativeUnitEnum`|0..1|
-|{{property(nominal)}}|`float`|0..1|
-|{{property(significantDigits)}}|`integer`|0..1|
-|{{property(units)}}|`UnitEnum`|0..1|
-{: caption="Value Properties of Measurement" label="table:value-properties-of-measurement"}
+{: caption="Value Properties of ToolingMeasurement" label="table:value-properties-of-toolingmeasurement"}
 
-Descriptions for Value Properties of {{block(Measurement)}}:
+Descriptions for Value Properties of {{block(ToolingMeasurement)}}:
 
 * {{property(code)}} 
 
@@ -499,32 +489,4 @@ Descriptions for Value Properties of {{block(Measurement)}}:
     
     ISO 13399 codes **MAY** be used for these codes as well. 
     
-    See {{package(Cutting Tool Measurement Subtypes)}} and {{package(Cutting Item Measurement Subtypes)}} for details on {{block(Measurement)}} types and their respective {{property(code)}} values.
-
-* {{property(maximum)}} 
-
-    maximum value for the measurement. 
-
-* {{property(minimum)}} 
-
-    minimum value for the measurement. 
-
-* {{property(nativeUnits)}} 
-
-    units the measurement was originally recorded in. See {{package(Device Information Model)}} for the complete list of {{property(nativeUnits)}}.
-
-    The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
-
-* {{property(nominal)}} 
-
-    as advertised value for the measurement.
-
-* {{property(significantDigits)}} 
-
-    number of significant digits in the reported value. 
-
-* {{property(units)}} 
-
-    units for the measurements. See {{package(Device Information Model)}} for the complete list of {{property(units)}}.
-
-    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
+    See {{package(Cutting Tool Measurement Subtypes)}} and {{package(Cutting Item Measurement Subtypes)}} for details on {{block(Measurement)}} types and their respective {{property(Measurement::code)}} values.

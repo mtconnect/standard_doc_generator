@@ -38,33 +38,33 @@ Descriptions for Value Properties of {{block(Specification)}}:
 
 * {{property(type)}} 
 
-    same as {{block(DataItem)}} {{property(type)}}. See {{package(DataItem Types)}}.
+    same as {{property(DataItem::type)}}. See {{package(DataItem Types)}}.
 
     The value of {{property(type)}} **MUST** be one of the `DataItemTypeEnum` enumeration. 
 
 * {{property(subType)}} 
 
-    same as {{block(DataItem)}} {{property(DataItem::subType)}}. See {{sect(DataItem)}}.
+    same as {{property(DataItem::subType)}}. See {{sect(DataItem)}}.
 
     The value of {{property(subType)}} **MUST** be one of the `DataItemSubTypeEnum` enumeration. 
 
 * {{property(dataItemIdRef)}} 
 
-    reference to the {{property(id)}} attribute of the {{block(DataItem)}} associated with this element.
+    reference to the {{property(DataItem::id)}} associated with this entity.
 
 * {{property(units)}} 
 
-    same as {{block(DataItem)}} {{property(DataItem::units)}}. See {{sect(DataItem)}}.
+    same as {{property(DataItem::units)}}. See {{sect(DataItem)}}.
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
 * {{property(compositionIdRef)}} 
 
-    reference to the {{property(id)}} attribute of the {{block(Composition)}} associated with this element.
+    reference to the {{property(Composition::id)}} associated with this entity.
 
 * {{property(name)}} 
 
-    {{property(name)}} provides additional meaning and differentiates between {{block(Specification)}} elements.
+    {{property(Specification::name)}} provides additional meaning and differentiates between {{block(Specification)}} entities.
 
 * {{property(coordinateSystemIdRef)}} 
 

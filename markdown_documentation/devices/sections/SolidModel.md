@@ -16,11 +16,11 @@ This section provides semantic information for the {{block(SolidModel)}} entity.
 references to a file with the three-dimensional geometry of the {{block(Component)}} or {{block(Composition)}}.
 
 
-The geometry **MAY** have a transformation and a scale to position the {{block(Component)}} with respect to the other {{block(Component)}}s. A geometry file can contain a set of assembled items, in this case, the {{block(SolidModel)}} reference the {{property(id,SolidModel)}} of the assembly model file and the specific item within that file.
+The geometry **MAY** have a transformation and a scale to position the {{block(Component)}} with respect to the other {{block(Component)}}s. A geometry file can contain a set of assembled items, in this case, the {{block(SolidModel)}} references the {{property(SolidModel::id)}} of the assembly model file and the specific item within that file.
 
 The {{block(SolidModel)}} **MAY** provide a translation, rotation, and scale to correctly place it relative to the other geometries in the machine. If the {{block(Component)}} can move and has a {{block(Motion)}} {{block(Configuration)}}, the {{block(SolidModel)}} will move when the {{block(Component)}} or {{block(Composition)}} moves.
 
-Either an {{property(href,SolidModel)}} or a {{property(modelIdRef,SolidModel)}} and an {{property(itemRef,SolidModel)}} **MUST** be specified.
+Either an {{property(SolidModel::href)}} or a {{property(SolidModel::modelIdRef)}} and an {{property(SolidModel::itemRef)}} **MUST** be specified.
 
 
 #### Value Properties of SolidModel
@@ -31,6 +31,8 @@ Either an {{property(href,SolidModel)}} or a {{property(modelIdRef,SolidModel)}}
 |-|-|:-:|
 |{{property(id)}}|`ID`|1|
 |{{property(solidModelIdRef)}}|`ID`|0..1|
+|{{property(href)}}|`string`|0..1|
+|{{property(itemRef)}}|`string`|0..1|
 |{{property(mediaType)}}|`MediaTypeEnum`|1|
 |{{property(coordinateSystemIdRef)}}|`ID`|0..1|
 |{{property(nativeUnits)}}|`NativeUnitEnum`|0..1|
@@ -46,6 +48,20 @@ Descriptions for Value Properties of {{block(SolidModel)}}:
 * {{property(solidModelIdRef)}} 
 
     associated model file if an item reference is used.
+
+* {{property(href)}} 
+
+    {{term(URL)}} giving the location of the {{block(SolidModel)}}. 
+    
+    If not present, the model referenced in the {{property(SolidModel::solidModelIdRef)}} is used.
+    
+    {{property(SolidModel::href)}} is of type `xlink:href` from the W3C XLink specification.
+
+* {{property(itemRef)}} 
+
+    reference to the item within the model within the related geometry. A {{property(SolidModel::solidModelIdRef)}} **MUST** be given. 
+    
+    > Note: `Item` defined in ASME Y14.100 - A nonspecific term used to denote any unit or product, including materials, parts, assemblies, equipment, accessories, and computer software.
 
 * {{property(mediaType)}} 
 
@@ -95,13 +111,13 @@ Descriptions for Value Properties of {{block(SolidModel)}}:
 
 * {{property(nativeUnits)}} 
 
-    same as {{block(DataItem)}} {{property(DataItem::nativeUnits)}}. See {{sect(DataItem)}}.
+    same as {{property(DataItem::nativeUnits)}}. See {{sect(DataItem)}}.
 
     The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
 
 * {{property(units)}} 
 
-    same as {{block(DataItem)}} {{property(DataItem::units)}}. See {{sect(DataItem)}}.
+    same as {{property(DataItem::units)}}. See {{sect(DataItem)}}.
 
     The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
 
@@ -135,4 +151,17 @@ either a single multiplier applied to all three dimensions or a three space mult
 
 
 
-The value of {{property(Scale)}} **MUST** be a list of `float` of size `3`.
+#### Part Properties of Scale
+
+{{tbl(part-properties-of-scale)}} lists the Part Properties of {{block(Scale)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(value)}}|0..1|
+{: caption="Part Properties of Scale" label="table:part-properties-of-scale"}
+
+Descriptions for Part Properties of {{block(Scale)}}:
+
+* {{block(ScaleDataSet)}} 
+
+    multiplier for X axis.

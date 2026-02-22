@@ -5,7 +5,7 @@ This section provides semantic information for {{block(Sample)}} types.
 
 ### Acceleration
 
-{{def(SampleEnum:ACCELERATION)}}
+{{def(SampleEnum::ACCELERATION)}}
 
 
 
@@ -35,7 +35,7 @@ The default {{property(subType)}} of {{property(Acceleration)}} is `ACTUAL`.
 
 ### AccumulatedTime
 
-{{def(SampleEnum:ACCUMULATED_TIME)}}
+{{def(SampleEnum::ACCUMULATED_TIME)}}
 
 
 
@@ -43,7 +43,7 @@ The {{property(units)}} of {{property(AccumulatedTime)}} **MUST** be `SECOND`.
 
 ### `<<deprecated>>`Amperage
 
-{{def(SampleEnum:AMPERAGE)}}
+{{def(SampleEnum::AMPERAGE)}}
 
 
 
@@ -87,7 +87,7 @@ The {{property(units)}} of {{property(Amperage)}} **MUST** be `AMPERE`.
 
 ### AmperageAC
 
-{{def(SampleEnum:AMPERAGE_AC)}}
+{{def(SampleEnum::AMPERAGE_AC)}}
 
 
 
@@ -117,7 +117,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### AmperageDC
 
-{{def(SampleEnum:AMPERAGE_DC)}}
+{{def(SampleEnum::AMPERAGE_DC)}}
 
 
 
@@ -147,7 +147,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Angle
 
-{{def(SampleEnum:ANGLE)}}
+{{def(SampleEnum::ANGLE)}}
 
 
 
@@ -169,7 +169,7 @@ The {{property(units)}} of {{property(Angle)}} **MUST** be `DEGREE`.
 
 ### AngularAcceleration
 
-{{def(SampleEnum:ANGULAR_ACCELERATION)}}
+{{def(SampleEnum::ANGULAR_ACCELERATION)}}
 
 
 
@@ -199,7 +199,7 @@ The default {{property(subType)}} of {{property(AngularAcceleration)}} is `ACTUA
 
 ### AngularDeceleration
 
-{{def(SampleEnum:ANGULAR_DECELERATION)}}
+{{def(SampleEnum::ANGULAR_DECELERATION)}}
 
 
 
@@ -229,7 +229,7 @@ The default {{property(subType)}} of {{property(AngularDeceleration)}} is `ACTUA
 
 ### AngularVelocity
 
-{{def(SampleEnum:ANGULAR_VELOCITY)}}
+{{def(SampleEnum::ANGULAR_VELOCITY)}}
 
 
 
@@ -237,7 +237,7 @@ The {{property(units)}} of {{property(AngularVelocity)}} **MUST** be `DEGREE/SEC
 
 ### AssetUpdateRate
 
-{{def(SampleEnum:ASSET_UPDATE_RATE)}}
+{{def(SampleEnum::ASSET_UPDATE_RATE)}}
 
 
 
@@ -245,7 +245,7 @@ The {{property(units)}} of {{property(AssetUpdateRate)}} **MUST** be `COUNT/SECO
 
 ### AxisFeedrate
 
-{{def(SampleEnum:AXIS_FEEDRATE)}}
+{{def(SampleEnum::AXIS_FEEDRATE)}}
 
 
 
@@ -293,7 +293,7 @@ The {{property(units)}} of {{property(AxisFeedrate)}} **MUST** be `MILLIMETER/SE
 
 ### BatteryCapacity
 
-{{def(SampleEnum:BATTERY_CAPACITY)}}
+{{def(SampleEnum::BATTERY_CAPACITY)}}
 
 
 
@@ -317,7 +317,7 @@ The default {{property(subType)}} of {{property(BatteryCapacity)}} is `ACTUAL`.
 
 ### BatteryCharge
 
-{{def(SampleEnum:BATTERY_CHARGE)}}
+{{def(SampleEnum::BATTERY_CHARGE)}}
 
 
 
@@ -341,7 +341,7 @@ The default {{property(subType)}} of {{property(BatteryCharge)}} is `ACTUAL`.
 
 ### CapacityFluid
 
-{{def(SampleEnum:CAPACITY_FLUID)}}
+{{def(SampleEnum::CAPACITY_FLUID)}}
 
 
 
@@ -349,7 +349,7 @@ The {{property(units)}} of {{property(CapacityFluid)}} **MUST** be `MILLILITER`.
 
 ### CapacitySpatial
 
-{{def(SampleEnum:CAPACITY_SPATIAL)}}
+{{def(SampleEnum::CAPACITY_SPATIAL)}}
 
 
 
@@ -357,7 +357,7 @@ The {{property(units)}} of {{property(CapacitySpatial)}} **MUST** be `CUBIC_MILL
 
 ### ChargeRate
 
-{{def(SampleEnum:CHARGE_RATE)}}
+{{def(SampleEnum::CHARGE_RATE)}}
 
 
 
@@ -381,7 +381,7 @@ The default {{property(subType)}} of {{property(ChargeRate)}} is `ACTUAL`.
 
 ### Concentration
 
-{{def(SampleEnum:CONCENTRATION)}}
+{{def(SampleEnum::CONCENTRATION)}}
 
 
 
@@ -389,7 +389,7 @@ The {{property(units)}} of {{property(Concentration)}} **MUST** be `PERCENT`.
 
 ### Conductivity
 
-{{def(SampleEnum:CONDUCTIVITY)}}
+{{def(SampleEnum::CONDUCTIVITY)}}
 
 
 
@@ -397,7 +397,7 @@ The {{property(units)}} of {{property(Conductivity)}} **MUST** be `SIEMENS/METER
 
 ### CuttingSpeed
 
-{{def(SampleEnum:CUTTING_SPEED)}}
+{{def(SampleEnum::CUTTING_SPEED)}}
 
 
 
@@ -425,7 +425,7 @@ The {{property(units)}} of {{property(CuttingSpeed)}} **MUST** be `MILLIMETER/SE
 
 ### Deceleration
 
-{{def(SampleEnum:DECELERATION)}}
+{{def(SampleEnum::DECELERATION)}}
 
 
 
@@ -455,7 +455,7 @@ The default {{property(subType)}} of {{property(Deceleration)}} is `ACTUAL`.
 
 ### Density
 
-{{def(SampleEnum:DENSITY)}}
+{{def(SampleEnum::DENSITY)}}
 
 
 
@@ -463,7 +463,7 @@ The {{property(units)}} of {{property(Density)}} **MUST** be `MILLIGRAM/CUBIC_MI
 
 ### DepositionAccelerationVolumetric
 
-{{def(SampleEnum:DEPOSITION_ACCELERATION_VOLUMETRIC)}}
+{{def(SampleEnum::DEPOSITION_ACCELERATION_VOLUMETRIC)}}
 
 
 
@@ -485,7 +485,7 @@ The {{property(units)}} of {{property(DepositionAccelerationVolumetric)}} **MUST
 
 ### DepositionDensity
 
-{{def(SampleEnum:DEPOSITION_DENSITY)}}
+{{def(SampleEnum::DEPOSITION_DENSITY)}}
 
 
 
@@ -507,7 +507,7 @@ The {{property(units)}} of {{property(DepositionDensity)}} **MUST** be `MILLIGRA
 
 ### DepositionMass
 
-{{def(SampleEnum:DEPOSITION_MASS)}}
+{{def(SampleEnum::DEPOSITION_MASS)}}
 
 
 
@@ -529,7 +529,7 @@ The {{property(units)}} of {{property(DepositionMass)}} **MUST** be `MILLIGRAM`.
 
 ### DepositionRateVolumetric
 
-{{def(SampleEnum:DEPOSITION_RATE_VOLUMETRIC)}}
+{{def(SampleEnum::DEPOSITION_RATE_VOLUMETRIC)}}
 
 
 
@@ -551,7 +551,7 @@ The {{property(units)}} of {{property(DepositionRateVolumetric)}} **MUST** be `C
 
 ### DepositionVolume
 
-{{def(SampleEnum:DEPOSITION_VOLUME)}}
+{{def(SampleEnum::DEPOSITION_VOLUME)}}
 
 
 
@@ -573,7 +573,7 @@ The {{property(units)}} of {{property(DepositionVolume)}} **MUST** be `CUBIC_MIL
 
 ### DewPoint
 
-{{def(SampleEnum:DEW_POINT)}}
+{{def(SampleEnum::DEW_POINT)}}
 
 
 
@@ -581,7 +581,7 @@ The {{property(units)}} of {{property(DewPoint)}} **MUST** be `CELSIUS`.
 
 ### Diameter
 
-{{def(SampleEnum:DIAMETER)}}
+{{def(SampleEnum::DIAMETER)}}
 
 
 
@@ -589,7 +589,7 @@ The {{property(units)}} of {{property(Diameter)}} **MUST** be `MILLIMETER`.
 
 ### DischargeRate
 
-{{def(SampleEnum:DISCHARGE_RATE)}}
+{{def(SampleEnum::DISCHARGE_RATE)}}
 
 
 
@@ -613,7 +613,7 @@ The default {{property(subType)}} of {{property(DischargeRate)}} is `ACTUAL`.
 
 ### Displacement
 
-{{def(SampleEnum:DISPLACEMENT)}}
+{{def(SampleEnum::DISPLACEMENT)}}
 
 
 
@@ -621,7 +621,7 @@ The {{property(units)}} of {{property(Displacement)}} **MUST** be `MILLIMETER`.
 
 ### DisplacementAngular
 
-{{def(SampleEnum:DISPLACEMENT_ANGULAR)}}
+{{def(SampleEnum::DISPLACEMENT_ANGULAR)}}
 
 > Note: The displacement vector **MAY** be defined by the motion of the owning {{block(Component)}}.
 
@@ -631,7 +631,7 @@ The {{property(units)}} of {{property(DisplacementAngular)}} **MUST** be `DEGREE
 
 ### DisplacementLinear
 
-{{def(SampleEnum:DISPLACEMENT_LINEAR)}}
+{{def(SampleEnum::DISPLACEMENT_LINEAR)}}
 
 > Note: The displacement vector **MAY** be defined by the motion of the owning {{block(Component)}}.
 
@@ -641,7 +641,7 @@ The {{property(units)}} of {{property(DisplacementLinear)}} **MUST** be `MILLIME
 
 ### ElectricalEnergy
 
-{{def(SampleEnum:ELECTRICAL_ENERGY)}}
+{{def(SampleEnum::ELECTRICAL_ENERGY)}}
 
 
 
@@ -649,7 +649,7 @@ The {{property(units)}} of {{property(ElectricalEnergy)}} **MUST** be `WATT_SECO
 
 ### EquipmentTimer
 
-{{def(SampleEnum:EQUIPMENT_TIMER)}}
+{{def(SampleEnum::EQUIPMENT_TIMER)}}
 
 
 
@@ -697,9 +697,31 @@ A {{property(subType)}} **MUST** always be specified.
 
     
 
+### FillHeight
+
+{{def(SampleEnum::FILL_HEIGHT)}}
+
+
+
+The {{property(units)}} of {{property(FillHeight)}} **MUST** be `MILLIMETER`.
+
+#### Subtypes of FillHeight
+
+* `ACTUAL`
+
+    {{def(SampleEnum::FILL_HEIGHT)}} that is {{def(DataItemSubTypeEnum::ACTUAL)}}
+
+    
+
+* `TARGET`
+
+    {{def(SampleEnum::FILL_HEIGHT)}} that is {{def(DataItemSubTypeEnum::TARGET)}}
+
+    
+
 ### FillLevel
 
-{{def(SampleEnum:FILL_LEVEL)}}
+{{def(SampleEnum::FILL_LEVEL)}}
 
 
 
@@ -707,7 +729,7 @@ The {{property(units)}} of {{property(FillLevel)}} **MUST** be `PERCENT`.
 
 ### Flow
 
-{{def(SampleEnum:FLOW)}}
+{{def(SampleEnum::FLOW)}}
 
 
 
@@ -715,7 +737,7 @@ The {{property(units)}} of {{property(Flow)}} **MUST** be `LITER/SECOND`.
 
 ### FollowingError
 
-{{def(SampleEnum:FOLLOWING_ERROR)}}
+{{def(SampleEnum::FOLLOWING_ERROR)}}
 
 
 
@@ -731,7 +753,7 @@ The {{property(units)}} of {{property(FollowingError)}} **MUST** be `COUNT`.
 
 ### FollowingErrorAngular
 
-{{def(SampleEnum:FOLLOWING_ERROR_ANGULAR)}}
+{{def(SampleEnum::FOLLOWING_ERROR_ANGULAR)}}
 
 
 
@@ -747,7 +769,7 @@ The {{property(units)}} of {{property(FollowingErrorAngular)}} **MUST** be `DEGR
 
 ### FollowingErrorLinear
 
-{{def(SampleEnum:FOLLOWING_ERROR_LINEAR)}}
+{{def(SampleEnum::FOLLOWING_ERROR_LINEAR)}}
 
 
 
@@ -763,7 +785,7 @@ The {{property(units)}} of {{property(FollowingErrorLinear)}} **MUST** be `MILLI
 
 ### Frequency
 
-{{def(SampleEnum:FREQUENCY)}}
+{{def(SampleEnum::FREQUENCY)}}
 
 
 
@@ -771,7 +793,7 @@ The {{property(units)}} of {{property(Frequency)}} **MUST** be `HERTZ`.
 
 ### `<<deprecated>>`GlobalPosition
 
-{{def(SampleEnum:GLOBAL_POSITION)}}
+{{def(SampleEnum::GLOBAL_POSITION)}}
 
 
 
@@ -793,7 +815,7 @@ The {{property(units)}} of {{property(GlobalPosition)}} **MUST** be `MILLIMETER`
 
 ### GravitationalAcceleration
 
-{{def(SampleEnum:GRAVITATIONAL_ACCELERATION)}}
+{{def(SampleEnum::GRAVITATIONAL_ACCELERATION)}}
 
 
 
@@ -803,7 +825,7 @@ The {{property(units)}} of {{property(GravitationalAcceleration)}} **MUST** be `
 
 ### GravitationalForce
 
-{{def(SampleEnum:GRAVITATIONAL_FORCE)}}
+{{def(SampleEnum::GRAVITATIONAL_FORCE)}}
 
 > Note: $$Mass\times GravitationalAcceleration$$
 
@@ -813,7 +835,7 @@ The {{property(units)}} of {{property(GravitationalForce)}} **MUST** be `GRAVITA
 
 ### HumidityAbsolute
 
-{{def(SampleEnum:HUMIDITY_ABSOLUTE)}}
+{{def(SampleEnum::HUMIDITY_ABSOLUTE)}}
 
 
 
@@ -835,7 +857,7 @@ The {{property(units)}} of {{property(HumidityAbsolute)}} **MUST** be `GRAM/CUBI
 
 ### HumidityRelative
 
-{{def(SampleEnum:HUMIDITY_RELATIVE)}}
+{{def(SampleEnum::HUMIDITY_RELATIVE)}}
 
 
 
@@ -857,7 +879,7 @@ The {{property(units)}} of {{property(HumidityRelative)}} **MUST** be `PERCENT`.
 
 ### HumiditySpecific
 
-{{def(SampleEnum:HUMIDITY_SPECIFIC)}}
+{{def(SampleEnum::HUMIDITY_SPECIFIC)}}
 
 
 
@@ -879,7 +901,7 @@ The {{property(units)}} of {{property(HumiditySpecific)}} **MUST** be `PERCENT`.
 
 ### Length
 
-{{def(SampleEnum:LENGTH)}}
+{{def(SampleEnum::LENGTH)}}
 
 
 
@@ -907,7 +929,7 @@ The {{property(units)}} of {{property(Length)}} **MUST** be `MILLIMETER`.
 
 ### `<<deprecated>>`Level
 
-{{def(SampleEnum:LEVEL)}}
+{{def(SampleEnum::LEVEL)}}
 
 
 
@@ -915,7 +937,7 @@ The {{property(units)}} of {{property(Level)}} **MUST** be `PERCENT`.
 
 ### LinearForce
 
-{{def(SampleEnum:LINEAR_FORCE)}}
+{{def(SampleEnum::LINEAR_FORCE)}}
 
 
 
@@ -923,7 +945,7 @@ The {{property(units)}} of {{property(LinearForce)}} **MUST** be `NEWTON`.
 
 ### Load
 
-{{def(SampleEnum:LOAD)}}
+{{def(SampleEnum::LOAD)}}
 
 
 
@@ -931,7 +953,7 @@ The {{property(units)}} of {{property(Load)}} **MUST** be `PERCENT`.
 
 ### Mass
 
-{{def(SampleEnum:MASS)}}
+{{def(SampleEnum::MASS)}}
 
 
 
@@ -939,7 +961,7 @@ The {{property(units)}} of {{property(Mass)}} **MUST** be `KILOGRAM`.
 
 ### ObservationUpdateRate
 
-{{def(SampleEnum:OBSERVATION_UPDATE_RATE)}}
+{{def(SampleEnum::OBSERVATION_UPDATE_RATE)}}
 
 
 
@@ -947,7 +969,7 @@ The {{property(units)}} of {{property(ObservationUpdateRate)}} **MUST** be `COUN
 
 ### Openness
 
-{{def(SampleEnum:OPENNESS)}}
+{{def(SampleEnum::OPENNESS)}}
 
 
 
@@ -955,13 +977,13 @@ The {{property(units)}} of {{property(Openness)}} **MUST** be `PERCENT`.
 
 ### Orientation
 
-{{def(SampleEnum:ORIENTATION)}}
+{{def(SampleEnum::ORIENTATION)}}
 
 
 
 The {{property(units)}} of {{property(Orientation)}} **MUST** be `DEGREE_3D`.
 
-The value of {{property(Orientation)}} **MUST** be a list of `float` of size `0..3`.
+The value of {{property(Orientation)}} **MUST** be `float3d`. See {{sect(float3d)}}.
 
 #### Subtypes of Orientation
 
@@ -979,15 +1001,51 @@ The value of {{property(Orientation)}} **MUST** be a list of `float` of size `0.
 
 ### PH
 
-{{def(SampleEnum:PH)}}
+{{def(SampleEnum::PH)}}
 
 
 
 The {{property(units)}} of {{property(PH)}} **MUST** be `PH`.
 
+### ParticleCount
+
+{{def(SampleEnum::PARTICLE_COUNT)}}
+
+
+
+The {{property(units)}} of {{property(ParticleCount)}} **MUST** be `COUNT`.
+
+#### Subtypes of ParticleCount
+
+* `GAS`
+
+    {{def(SampleEnum::PARTICLE_COUNT)}} for a {{def(DataItemSubType::GAS)}}
+
+    
+
+* `LIQUID`
+
+    {{def(SampleEnum::PARTICLE_COUNT)}} for a {{def(DataItemSubType::LIQUID)}}
+
+    
+
+* `SOLID`
+
+    {{def(SampleEnum::PARTICLE_COUNT)}} for a {{def(DataItemSubType::SOLID)}}
+
+    
+
+### ParticleSize
+
+{{def(SampleEnum::PARTICLE_SIZE)}}
+
+
+
+The {{property(units)}} of {{property(ParticleSize)}} **MUST** be `MILLIMETER`.
+
 ### PathFeedrate
 
-{{def(SampleEnum:PATH_FEEDRATE)}}
+{{def(SampleEnum::PATH_FEEDRATE)}}
 
 
 
@@ -1037,7 +1095,7 @@ The {{property(units)}} of {{property(PathFeedrate)}} **MUST** be `MILLIMETER/SE
 
 ### PathFeedratePerRevolution
 
-{{def(SampleEnum:PATH_FEEDRATE_PER_REVOLUTION)}}
+{{def(SampleEnum::PATH_FEEDRATE_PER_REVOLUTION)}}
 
 
 
@@ -1063,15 +1121,47 @@ The {{property(units)}} of {{property(PathFeedratePerRevolution)}} **MUST** be `
 
     
 
-### PathPosition
+### `<<hasFormatSpecificRepresentation>>`PathPosition
 
-{{def(SampleEnum:PATH_POSITION)}}
+{{def(SampleEnum::PATH_POSITION)}}
 
+
+
+
+~~~~xml
+<DataItem type='PATH_POSITION' id='pathposit1' units="MILLIMETER_3D"/>
+~~~~
+{: caption="XML Device Model Example for `PathPosition` using `MILLIMETER_3D` unit"}
+
+~~~~xml
+<PathPosition>10.0 0.0 20.0</PathPosition>
+~~~~
+{: caption="XML Streams Response Example for `PathPosition` using `MILLIMETER_3D` unit"}
+
+
+~~~~xml
+<DataItem type='PATH_POSITION' id='pathposit1' representation="DATA_SET">
+  <Definition>
+    <EntryDefinition key='X' units='MILLIMETER'>
+    <EntryDefinition key='Y' units='MILLIMETER'>
+    <EntryDefinition key='Z' units='MILLIMETER'>
+  </Definition>
+</DataItem>
+~~~~
+{: caption="XML Device Model Example for `PathPosition` to demonstrate multi-dimensional representation using `DataSet` representation"}
+
+~~~~xml
+<PathPositionDataSet id='pathposit1'>
+  <Entry key='X'>10.0</Entry>
+  <Entry key='Z'>20.0</Entry>
+</PathPositionDataSet>
+~~~~
+{: caption="XML Streams Response Example for `PathPosition` to demonstrate multi-dimensional representation using `DataSet` representation"}
 
 
 The {{property(units)}} of {{property(PathPosition)}} **MUST** be `MILLIMETER_3D`.
 
-The value of {{property(PathPosition)}} **MUST** be a list of `float` of size `0..3`.
+The value of {{property(PathPosition)}} **MUST** be `float3d`. See {{sect(float3d)}}.
 
 #### Subtypes of PathPosition
 
@@ -1103,7 +1193,7 @@ The value of {{property(PathPosition)}} **MUST** be a list of `float` of size `0
 
 ### Position
 
-{{def(SampleEnum:POSITION)}}
+{{def(SampleEnum::POSITION)}}
 
 
 
@@ -1137,17 +1227,17 @@ The {{property(units)}} of {{property(Position)}} **MUST** be `MILLIMETER`.
 
 ### PositionCartesian
 
-{{def(SampleEnum:POSITION_CARTESIAN)}}
+{{def(SampleEnum::POSITION_CARTESIAN)}}
 
 
 
 The {{property(units)}} of {{property(PositionCartesian)}} **MUST** be `MILLIMETER_3D`.
 
-The value of {{property(PositionCartesian)}} **MUST** be a list of `float` of size `0..3`.
+The value of {{property(PositionCartesian)}} **MUST** be `float3d`. See {{sect(float3d)}}.
 
 ### PowerFactor
 
-{{def(SampleEnum:POWER_FACTOR)}}
+{{def(SampleEnum::POWER_FACTOR)}}
 
 
 
@@ -1155,7 +1245,7 @@ The {{property(units)}} of {{property(PowerFactor)}} **MUST** be `PERCENT`.
 
 ### Pressure
 
-{{def(SampleEnum:PRESSURE)}}
+{{def(SampleEnum::PRESSURE)}}
 
 
 
@@ -1171,7 +1261,7 @@ The {{property(units)}} of {{property(PressureAbsolute)}} **MUST** be `PASCAL`.
 
 ### PressurizationRate
 
-{{def(SampleEnum:PRESSURIZATION_RATE)}}
+{{def(SampleEnum::PRESSURIZATION_RATE)}}
 
 
 
@@ -1199,7 +1289,7 @@ The {{property(units)}} of {{property(PressurizationRate)}} **MUST** be `PASCAL/
 
 ### ProcessTimer
 
-{{def(SampleEnum:PROCESS_TIMER)}}
+{{def(SampleEnum::PROCESS_TIMER)}}
 
 
 
@@ -1226,15 +1316,23 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### Resistance
 
-{{def(SampleEnum:RESISTANCE)}}
+{{def(SampleEnum::RESISTANCE)}}
 
 
 
 The {{property(units)}} of {{property(Resistance)}} **MUST** be `OHM`.
 
+### Resistivity
+
+{{def(SampleEnum::RESISTIVITY)}}
+
+
+
+The {{property(units)}} of {{property(Resistivity)}} **MUST** be `OHM_METER`.
+
 ### RotaryVelocity
 
-{{def(SampleEnum:ROTARY_VELOCITY)}}
+{{def(SampleEnum::ROTARY_VELOCITY)}}
 
 
 
@@ -1270,7 +1368,7 @@ The {{property(units)}} of {{property(RotaryVelocity)}} **MUST** be `REVOLUTION/
 
 ### SettlingError
 
-{{def(SampleEnum:SETTLING_ERROR)}}
+{{def(SampleEnum::SETTLING_ERROR)}}
 
 
 
@@ -1286,7 +1384,7 @@ The {{property(units)}} of {{property(SettlingError)}} **MUST** be `COUNT`.
 
 ### SettlingErrorAngular
 
-{{def(SampleEnum:SETTLING_ERROR_ANGULAR)}}
+{{def(SampleEnum::SETTLING_ERROR_ANGULAR)}}
 
 
 
@@ -1302,7 +1400,7 @@ The {{property(units)}} of {{property(SettlingErrorAngular)}} **MUST** be `DEGRE
 
 ### SettlingErrorLinear
 
-{{def(SampleEnum:SETTLING_ERROR_LINEAR)}}
+{{def(SampleEnum::SETTLING_ERROR_LINEAR)}}
 
 
 
@@ -1318,7 +1416,7 @@ The {{property(units)}} of {{property(SettlingErrorLinear)}} **MUST** be `MILLIM
 
 ### SoundLevel
 
-{{def(SampleEnum:SOUND_LEVEL)}}
+{{def(SampleEnum::SOUND_LEVEL)}}
 
 
 
@@ -1360,7 +1458,7 @@ The default {{property(subType)}} of {{property(SoundLevel)}} is `A_SCALE`.
 
 ### `<<deprecated>>`SpindleSpeed
 
-{{def(SampleEnum:SPINDLE_SPEED)}}
+{{def(SampleEnum::SPINDLE_SPEED)}}
 
 
 
@@ -1394,7 +1492,7 @@ The {{property(units)}} of {{property(SpindleSpeed)}} **MUST** be `REVOLUTION/MI
 
 ### Strain
 
-{{def(SampleEnum:STRAIN)}}
+{{def(SampleEnum::STRAIN)}}
 
 
 
@@ -1402,7 +1500,7 @@ The {{property(units)}} of {{property(Strain)}} **MUST** be `PERCENT`.
 
 ### Temperature
 
-{{def(SampleEnum:TEMPERATURE)}}
+{{def(SampleEnum::TEMPERATURE)}}
 
 
 
@@ -1410,7 +1508,7 @@ The {{property(units)}} of {{property(Temperature)}} **MUST** be `CELSIUS`.
 
 ### Tension
 
-{{def(SampleEnum:TENSION)}}
+{{def(SampleEnum::TENSION)}}
 
 
 
@@ -1418,7 +1516,7 @@ The {{property(units)}} of {{property(Tension)}} **MUST** be `NEWTON`.
 
 ### Tilt
 
-{{def(SampleEnum:TILT)}}
+{{def(SampleEnum::TILT)}}
 
 
 
@@ -1426,7 +1524,7 @@ The {{property(units)}} of {{property(Tilt)}} **MUST** be `MICRO_RADIAN`.
 
 ### Torque
 
-{{def(SampleEnum:TORQUE)}}
+{{def(SampleEnum::TORQUE)}}
 
 
 
@@ -1434,7 +1532,7 @@ The {{property(units)}} of {{property(Torque)}} **MUST** be `NEWTON_METER`.
 
 ### Velocity
 
-{{def(SampleEnum:VELOCITY)}}
+{{def(SampleEnum::VELOCITY)}}
 
 
 
@@ -1442,7 +1540,7 @@ The {{property(units)}} of {{property(Velocity)}} **MUST** be `MILLIMETER/SECOND
 
 ### Viscosity
 
-{{def(SampleEnum:VISCOSITY)}}
+{{def(SampleEnum::VISCOSITY)}}
 
 
 
@@ -1450,7 +1548,7 @@ The {{property(units)}} of {{property(Viscosity)}} **MUST** be `PASCAL_SECOND`.
 
 ### VoltAmpere
 
-{{def(SampleEnum:VOLT_AMPERE)}}
+{{def(SampleEnum::VOLT_AMPERE)}}
 
 
 
@@ -1458,7 +1556,7 @@ The {{property(units)}} of {{property(VoltAmpere)}} **MUST** be `VOLT_AMPERE`.
 
 ### VoltAmpereReactive
 
-{{def(SampleEnum:VOLT_AMPERE_REACTIVE)}}
+{{def(SampleEnum::VOLT_AMPERE_REACTIVE)}}
 
 
 
@@ -1466,7 +1564,7 @@ The {{property(units)}} of {{property(VoltAmpereReactive)}} **MUST** be `VOLT_AM
 
 ### `<<deprecated>>`Voltage
 
-{{def(SampleEnum:VOLTAGE)}}
+{{def(SampleEnum::VOLTAGE)}}
 
 
 
@@ -1510,7 +1608,7 @@ The {{property(units)}} of {{property(Voltage)}} **MUST** be `VOLT`.
 
 ### VoltageAC
 
-{{def(SampleEnum:VOLTAGE_AC)}}
+{{def(SampleEnum::VOLTAGE_AC)}}
 
 
 
@@ -1540,7 +1638,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### VoltageDC
 
-{{def(SampleEnum:VOLTAGE_DC)}}
+{{def(SampleEnum::VOLTAGE_DC)}}
 
 
 
@@ -1570,7 +1668,7 @@ A {{property(subType)}} **MUST** always be specified.
 
 ### VolumeFluid
 
-{{def(SampleEnum:VOLUME_FLUID)}}
+{{def(SampleEnum::VOLUME_FLUID)}}
 
 
 
@@ -1616,7 +1714,7 @@ The {{property(units)}} of {{property(VolumeFluid)}} **MUST** be `MILLILITER`.
 
 ### VolumeSpatial
 
-{{def(SampleEnum:VOLUME_SPATIAL)}}
+{{def(SampleEnum::VOLUME_SPATIAL)}}
 
 
 
@@ -1662,7 +1760,7 @@ The {{property(units)}} of {{property(VolumeSpatial)}} **MUST** be `CUBIC_MILLIM
 
 ### Wattage
 
-{{def(SampleEnum:WATTAGE)}}
+{{def(SampleEnum::WATTAGE)}}
 
 
 
@@ -1684,7 +1782,7 @@ The {{property(units)}} of {{property(Wattage)}} **MUST** be `WATT`.
 
 ### XDimension
 
-{{def(SampleEnum:X_DIMENSION)}}
+{{def(SampleEnum::X_DIMENSION)}}
 
 
 
@@ -1692,7 +1790,7 @@ The {{property(units)}} of {{property(XDimension)}} **MUST** be `MILLIMETER`.
 
 ### YDimension
 
-{{def(SampleEnum:Y_DIMENSION)}}
+{{def(SampleEnum::Y_DIMENSION)}}
 
 
 
@@ -1700,7 +1798,7 @@ The {{property(units)}} of {{property(YDimension)}} **MUST** be `MILLIMETER`.
 
 ### ZDimension
 
-{{def(SampleEnum:Z_DIMENSION)}}
+{{def(SampleEnum::Z_DIMENSION)}}
 
 
 

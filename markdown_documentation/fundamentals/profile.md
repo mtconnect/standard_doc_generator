@@ -61,12 +61,6 @@ float that represents time in seconds.
 
 
 
-### IDREF
-
-string that represents a reference to an `ID`.
-
-
-
 ### xlinkhref
 
 string that represents the locator attribute of an XLink element. See {{url(https://www.w3.org/TR/xlink11/)}}.
@@ -93,7 +87,7 @@ string that represents an `x509` data block. {{cite(ISO/IEC 9594-8:2020)}}.
 
 ### version
 
-series of four numeric values, separated by a decimal point, representing a {{term(major)}}, {{term(minor)}}, and {{term(revision)}} number of the MTConnect Standard and the revision number of a specific {{term(schema)}}.
+series of three numeric values, separated by a decimal point, representing a {{term(major)}}, {{term(minor)}}, and {{term(patch)}} number of the MTConnect Standard.
 
 
 
@@ -106,6 +100,42 @@ series of four numeric values, separated by a decimal point, representing a {{te
 ### uint64
 
 64-bit unsigned integer.
+
+
+
+### binary
+
+base-2 numeral system or binary numeral system represented by two digits: "0" and "1".
+
+
+
+### double
+
+primitive type.
+
+
+
+### Array
+
+array.
+
+
+
+### `<<hasFormatSpecificRepresentation>>`float3d
+
+array of size 3 and datatype float.
+
+
+
+### UUID
+
+Universally Unique IDentifier. {{cite(IETF:RFC-4122)}}
+
+
+
+### METER
+
+float that represents measurement in meter.
 
 
 
@@ -137,12 +167,6 @@ element that is descriptive and non-normative.
 
 
 
-### valueType
-
-extends SysML `<<ValueType>>` to include `Class` as a value type.
-
-
-
 ### normative
 
 element that has been added to the standard.
@@ -152,5 +176,35 @@ element that has been added to the standard.
 ### observes
 
 association in which a {{term(Component)}} makes {{termplural(Observation)}} about an observable {{term(DataItem)}}.
+
+
+
+### satisfiedBy
+
+
+
+
+
+### hasFormatSpecificRepresentation
+
+element that has format specific representation that might be different from the element's SysML representation.
+
+
+
+### valueType
+
+extends `Class`to be used as a SysML `<<ValueType>>`.
+
+
+
+### isArray
+
+datatype that is an array.
+
+
+
+### MTConnectRequirementSpecification
+
+MTConnect Requirement.
 
 

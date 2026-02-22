@@ -25,6 +25,8 @@ technical information about an entity describing its physical layout, functional
 |{{block(ConfigurationRelationship)}} (organized by `Relationships`)|0..*|
 |{{block(CoordinateSystem)}} (organized by `CoordinateSystems`)|0..*|
 |{{block(Specification)}} (organized by `Specifications`)|0..*|
+|{{block(ImageFile)}} (organized by `ImageFiles`)|0..*|
+|{{block(PowerSource)}} (organized by `PowerSources`)|0..*|
 {: caption="Part Properties of Configuration" label="table:part-properties-of-configuration"}
 
 Descriptions for Part Properties of {{block(Configuration)}}:
@@ -64,3 +66,15 @@ Descriptions for Part Properties of {{block(Configuration)}}:
     design characteristics for a piece of equipment.
 
     {{block(Specifications)}} groups one or more {{block(Specification)}} entities. See {{package(Specifications)}}.
+
+* {{block(ImageFile)}} 
+
+    reference to a file containing an image of the {{block(Component)}}.
+
+    {{block(ImageFiles)}} groups one or more {{block(ImageFile)}} entities. See {{package(ImageFiles)}}.
+
+* {{block(PowerSource)}} 
+
+    potential energy sources for the {{block(Component)}}.
+
+    {{block(PowerSources)}} groups one or more {{block(PowerSource)}} entities. See {{package(PowerSources)}}.

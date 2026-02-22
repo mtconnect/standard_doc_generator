@@ -73,7 +73,7 @@ An example would be:  <{{term(element name)}}>Content of the Element</{{term(ele
 ~~~~
 {: caption="Example of attributes for an element"}
 
-In this example, {{block(DataItem)}} is the {{term(element name)}}.  {{property(category)}}, {{property(id)}}, {{property(nativeUnits)}}, {{property(type)}}, and {{property(units)}} are the names of the attributes.  “`SAMPLE`", “`S1load`", “`PERCENT`", “`LOAD`", and “`PERCENT`" are the values for each of the respective attributes.
+In this example, {{block(DataItem)}} is the {{term(element name)}}.  `category`, `id`, `nativeUnits`, `type`, and `units` are the names of the attributes.  “`SAMPLE`", “`S1load`", “`PERCENT`", “`LOAD`", and “`PERCENT`" are the values for each of the respective attributes.
 
 * {{term(CDATA)}}:  {{term(CDATA)}} is an XML term representing *Character Data*. *Character Data* contains a value(s) or text that is associated with an XML element.  {{term(CDATA)}} can be restricted to certain formats, patterns, or words.  
 
@@ -181,7 +181,7 @@ MTConnect is an extensible standard, which means that implementers **MAY** exten
 
 The following are typical extensions that **MAY** be considered in the MTConnect {{termplural(data model)}}:
 
-* Additional {{property(type)}} and {{property(subtype)}} values for {{termplural(DataItem)}}.
+* Additional `type` and `subtype` values for {{termplural(DataItem)}}.
 
 * Additional {{termplural(structural element)}} as containers.
 

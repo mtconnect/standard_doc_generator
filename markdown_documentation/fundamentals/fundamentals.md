@@ -125,9 +125,9 @@ The {{term(agent)}} **MUST** only place {{termplural(observation)}} in the {{ter
 
 The {{term(agent)}} **MUST** place every {{term(observation)}} in the {{term(buffer)}}, without checking for changes, in the following cases:
 
-* The {{property(discrete)}} attribute is `true` for the {{block(DataItem)}}. 
-* The {{property(representation)}} is `DISCRETE`.
-* The {{property(representation)}} is `TIME_SERIES`.
+* The {{property(DataItem::discrete)}} is `true`. 
+* The {{property(DataItem::representation)}} is `DISCRETE`.
+* The {{property(DataItem::representation)}} is `TIME_SERIES`.
 
 #### Maintaining Last Value for Data Entities
 
@@ -155,11 +155,11 @@ An {{term(agent)}} **MAY** only retain a limited number of {{block(Asset)}}s in 
 
 ![First In First Out Asset Buffer Management](figures/first-in-first-out-asset-buffer-management.png "first-in-first-out-asset-buffer-management"){: width="0.6"}
 
-{{block(Asset)}}s are indexed by {{property(assetId)}}. In the case of {{block(Asset)}}s, {{figure(relationship-between-assetid-and-stored-asset-documents)}} demonstrates the relationship between the key ({{property(assetId)}}) and the stored {{block(Asset)}}:
+{{block(Asset)}}s are indexed by {{property(Asset::assetId)}}. In the case of {{block(Asset)}}s, {{figure(relationship-between-assetid-and-stored-asset-documents)}} demonstrates the relationship between the key ({{property(Asset::assetId)}}) and the stored {{block(Asset)}}:
 
 ![Relationship between assetId and stored Asset documents](figures/relationship-between-assetid-and-stored-asset-documents.png "relationship-between-assetid-and-stored-asset-documents"){: width="0.25"}
 
-> Note: The key ({{property(assetId)}}) is independent of the order of the {{block(Asset)}} stored in the {{term(asset buffer)}}.
+> Note: The key ({{property(Asset::assetId)}}) is independent of the order of the {{block(Asset)}} stored in the {{term(asset buffer)}}.
 
 When the {{term(agent)}} receives a new {{block(Asset)}}, one of the following rules **MUST** apply:
 
@@ -167,7 +167,7 @@ When the {{term(agent)}} receives a new {{block(Asset)}}, one of the following r
 
 * If the {{block(Asset)}} is already in the {{term(asset buffer)}}, the {{term(agent)}} **MUST** replace the existing {{block(Asset)}} and move the {{block(Asset)}} to the front of the {{term(asset buffer)}}. 
 
-The number of {{block(Asset)}} that may be stored in an {{term(agent)}} is defined by the value for {{property(assetBufferSize)}}. An {{property(assetBufferSize)}} of 4,294,967,296 or $$ 2^{32 } $$ **MUST** indicate unlimited storage.
+The number of {{block(Asset)}} that may be stored in an {{term(agent)}} is defined by the value for {{property(Header::assetBufferSize)}}. An {{property(Header::assetBufferSize)}} of 4,294,967,296 or $$ 2^{32 } $$ **MUST** indicate unlimited storage.
 
 The {{term(asset buffer)}} **MAY** be ephemeral and the {{block(Asset)}} entities will be lost if the {{term(agent)}} clears the {{term(asset buffer)}}. They must be recovered from the data source.
 

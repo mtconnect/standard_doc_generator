@@ -168,7 +168,7 @@ Descriptions for Value Properties of {{block(Agent)}}:
 
     identifier for an {{term(instance)}} of the {{term(agent)}}.
          
-    {{property(instanceId)}} **MUST** be changed to a different unique number each time the {{term(buffer)}} is cleared and a new set of data begins to be collected.
+    {{property(Header::instanceId)}} **MUST** be changed to a different unique number each time the {{term(buffer)}} is cleared and a new set of data begins to be collected.
 
 * {{property(sequenceNumber)}} 
 
@@ -184,7 +184,7 @@ Descriptions for Value Properties of {{block(Agent)}}:
 
 * {{property(assetCount)}} 
 
-    current number of {{termplural(Asset)}} that are currently stored in the {{term(agent)}} as of the {{property(creationTime)}} that the {{term(agent)}} published the {{term(response document)}}.
+    current number of {{termplural(Asset)}} that are currently stored in the {{term(agent)}} as of the {{property(Header::creationTime)}} that the {{term(agent)}} published the {{term(response document)}}.
 
 #### Part Properties of Agent
 
@@ -202,13 +202,13 @@ Descriptions for Part Properties of {{block(Agent)}}:
 
     abstract entity that provides telemetry data for a {{block(DataItem)}} at a point in time.
 
-    {{property(buffer)}} is a {{term(buffer)}} for {{block(Observation)}} types.
+    `buffer` is a {{term(buffer)}} for {{block(Observation)}} types.
 
 * {{block(Asset)}} 
 
     abstract {{term(Asset)}}. 
 
-    {{property(assetBuffer)}} is an {{term(asset buffer)}} for {{block(Asset)}} types.
+    `assetBuffer` is an {{term(asset buffer)}} for {{block(Asset)}} types.
 
 #### Operations for Agent
 
@@ -267,6 +267,12 @@ Descriptions for Part Properties of {{block(Agent)}}:
         {{block(MTConnectDevices)}} if successful, {{block(MTConnectError)}} otherwise.
           
 
+    * `deviceType`
+
+        type of {{block(Device)}}.
+        
+        If present, {{property(Agent::probe::deviceType)}} **MUST** have a value of `Device` or `Agent`. See {{package(Device Information Model)}}.
+
 * `current`
 
     {{term(agent)}} **MUST** respond to a successful {{term(current request)}} with an {{block(MTConnectStreams)}} block containing the latest values for the selected {{termplural(observation)}}. If the `at` parameter is given, the values for the {{termplural(observation)}} are a snapshot taken when the `lastSequence` number was equal to the value of the `at` parameter.
@@ -288,15 +294,15 @@ Descriptions for Part Properties of {{block(Agent)}}:
 
     * `frequency`
 
-        {{term(agent)}} **MUST** stream samples and events to the client application pausing for frequency milliseconds between each part. Each part will contain a maximum of {{property(count)}} events or samples and from will be used to indicate the beginning of the stream.
+        {{term(agent)}} **MUST** stream samples and events to the client application pausing for frequency milliseconds between each part. 
         
-        **DEPRECATED** Version 1.2, replace by {{property(interval)}}
+        **DEPRECATED** Version 1.2, replace by {{property(Agent::current::interval)}}
 
     * `at`
 
         {{termplural(response document)}} **MUST** include {{termplural(observation)}} consistent with a specific {{term(sequence number)}} given by the value of the `at` parameter.
         
-        If the value is either less than the `firstSequence` or greater than the `lastSequence`, the {{term(request)}} **MUST** return a 404 {{term(HTTP Status Code)}} and the {{term(agent)}} **MUST** return an {{term(MTConnectErrors Response Document)}} with an `OUT_OF_RANGE` {{property(errorCode)}}. 
+        If the value is either less than the `firstSequence` or greater than the `lastSequence`, the {{term(request)}} **MUST** return a 404 {{term(HTTP Status Code)}} and the {{term(agent)}} **MUST** return an {{term(MTConnectErrors Response Document)}} with an `OUT_OF_RANGE` {{property(Error::errorCode)}}. 
           
         The `at` parameter **MUST NOT** be used in conjunction with the `interval` parameter.
         
@@ -354,6 +360,12 @@ Descriptions for Part Properties of {{block(Agent)}}:
         {{term(agent)}} responds to a {{term(current request)}} with an {{term(MTConnectStreams Response Document)}} that contains the current value of {{termplural(Observation)}} associated with each piece of {{term(streaming data)}} available from the {{term(agent)}}, subject to any filtering defined in the {{term(request)}}.
         
 
+    * `deviceType`
+
+        type of {{block(Device)}}.
+        
+        If present, {{property(Agent::current::deviceType)}} **MUST** have a value of `Device` or `Agent`. See {{package(Device Information Model)}}.
+
 * `sample`
 
     {{term(agent)}} **MUST** respond to a successful  {{term(sample request)}} with an {{block(MTConnectStreams)}} entity containing the values for the selected {{termplural(observation)}} according to the parameters provided.
@@ -381,7 +393,7 @@ Descriptions for Part Properties of {{block(Agent)}}:
         
         If `from` and `count` parameters are not given, `from` **MUST** default to the `firstSequence`. 
         
-        If the `from` parameter is less than the `firstSequence` or greater than `lastSequence`, the {{term(agent)}} **MUST** return a `404` {{term(HTTP Status Code)}} and **MUST** publish an {{term(MTConnectErrors Response Document)}} with an `OUT_OF_RANGE` {{property(errorCode)}}. 
+        If the `from` parameter is less than the `firstSequence` or greater than `lastSequence`, the {{term(agent)}} **MUST** return a `404` {{term(HTTP Status Code)}} and **MUST** publish an {{term(MTConnectErrors Response Document)}} with an `OUT_OF_RANGE` {{property(Error::errorCode)}}. 
         
 
     * `count`
@@ -398,16 +410,16 @@ Descriptions for Part Properties of {{block(Agent)}}:
         
         If `count` is not provided, it **MUST** default to `100`. 
         
-        If the absolute value of `count` is greater than the size of the {{term(buffer)}} or equal to zero (0), the {{term(agent)}} **MUST** return a `404` {{term(HTTP Status Code)}} and **MUST** publish an {{term(MTConnectErrors Response Document)}} with an `OUT_OF_RANGE`  {{property(errorCode)}}. 
+        If the absolute value of `count` is greater than the size of the {{term(buffer)}} or equal to zero (0), the {{term(agent)}} **MUST** return a `404` {{term(HTTP Status Code)}} and **MUST** publish an {{term(MTConnectErrors Response Document)}} with an `OUT_OF_RANGE`  {{property(Error::errorCode)}}. 
         
-        If the `count` parameter is not a numeric value, the {{term(agent)}} **MUST** return a `400` {{term(HTTP Status Code)}} and **MUST** publish an {{term(MTConnectErrors Response Document)}} with an `INVALID_REQUEST`  {{property(errorCode)}}.
+        If the `count` parameter is not a numeric value, the {{term(agent)}} **MUST** return a `400` {{term(HTTP Status Code)}} and **MUST** publish an {{term(MTConnectErrors Response Document)}} with an `INVALID_REQUEST`  {{property(Error::errorCode)}}.
         
 
     * `frequency`
 
-        {{term(agent)}} **MUST** stream samples and events to the client application pausing for frequency milliseconds between each part. Each part will contain a maximum of {{property(count)}} events or samples and from will be used to indicate the beginning of the stream.
+        {{term(agent)}} **MUST** stream samples and events to the client application pausing for frequency milliseconds between each part. Each part will contain a maximum {{property(Agent::sample::count)}} of events or samples and {{property(Agent::sample::from)}} will be used to indicate the beginning of the stream.
         
-        **DEPRECATED** Version 1.2, replace by {{property(interval)}}
+        **DEPRECATED** Version 1.2, replace by {{property(Agent::sample::interval)}}
 
     * `heartbeat`
 
@@ -497,6 +509,12 @@ Descriptions for Part Properties of {{block(Agent)}}:
         {{term(agent)}} **MUST** respond to a successful {{term(sample request)}} with an {{term(HTTP Status Code)}} `200` (`OK`) and an {{term(MTConnectStreams Response Document)}}. If the {{term(request)}} fails, the {{term(agent)}} **MUST** respond with an {{term(MTConnectErrors Response Document)}} an {{term(HTTP Status Code)}} other than 200.
         
 
+    * `deviceType`
+
+        type of {{block(Device)}}.
+        
+        If present, {{property(Agent::sample::deviceType)}} **MUST** have a value of `Device` or `Agent`. See {{package(Device Information Model)}}.
+
 * `asset`
 
     {{term(agent)}} **MUST** respond to a successful {{term(asset request)}} with an {{block(MTConnectAssets)}} entity with the selected {{term(asset)}} entities according to the parameters provided.
@@ -529,12 +547,13 @@ Descriptions for Part Properties of {{block(Agent)}}:
 
     * `removed`
 
-        value for {{property(removed)}} **MUST** be `true` or `false` and interpreted as follows:
+        value for {{property(Agent::asset::removed)}} **MUST** be `true` or `false` and interpreted as follows:
           
         * `true`: {{termplural(MTConnectAssets Response Document)}} for {{termplural(asset)}} marked as removed **MUST** be included in the {{term(response document)}}. 
+        
         * `false`: {{termplural(MTConnectAssets Response Document)}} for {{termplural(asset)}} marked as removed **MUST NOT** be included in the {{term(response document)}}. 
           
-        If {{property(removed)}} is not given, the default value **MUST** be `false`. 
+        If {{property(Agent::asset::removed)}} is not given, the default value **MUST** be `false`. 
         
 
     * `status`

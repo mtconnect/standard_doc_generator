@@ -3,11 +3,11 @@
 
 The MTConnect Standard supports a simple distributed storage mechanism that allows applications and equipment to share and exchange complex information models in a similar way to a distributed data store.  The {{term(Asset Information Model)}} associates each {{block(MTConnectAssets)}} entity with a unique identifier and allows for some predefined mechanisms to find, create, request, update, and delete these electronic documents in a way that provides for consistency across multiple pieces of equipment.
 
-The protocol provides a limited mechanism of accessing {{termplural(Asset)}} using the following properties: {{property(assetId)}}, {{term(asset)}} type (element name of {{term(asset)}} root), and the piece of equipment associated with the {{term(asset)}}.  These access strategies will provide the following services and answer the following questions: What {{termplural(asset)}} are from a particular piece of equipment?  What are the {{termplural(asset)}} of a particular type? What {{term(asset)}} is stored for a given {{property(assetId)}}?
+The protocol provides a limited mechanism of accessing {{termplural(Asset)}} using the following properties: {{property(Asset::assetId)}}, {{term(asset)}} type (element name of {{term(asset)}} root), and the piece of equipment associated with the {{term(asset)}}.  These access strategies will provide the following services and answer the following questions: What {{termplural(asset)}} are from a particular piece of equipment?  What are the {{termplural(asset)}} of a particular type? What {{term(asset)}} is stored for a given {{property(Asset::assetId)}}?
 
 Although these mechanisms are provided, an {{term(agent)}} should not be considered a data store or a system of reference.  The {{term(agent)}} is providing an ephemeral storage capability that will temporarily manage the data for applications wishing to communicate and manage data as needed by the various processes.  An application cannot rely on an {{term(agent)}} for long term persistence or durability since the {{term(agent)}} is only required to temporarily store the {{term(asset)}} data and may require another system to provide the source data upon initialization.  An {{term(agent)}} is always providing the best-known equipment centric view of the data given the limitations of that piece of equipment.
 
-The MTConnect Standard has two data item types to support change notification when an {{term(Asset)}} is added, updated or removed. {{block(AssetChanged)}} states the {{property(assetId)}} of the {{term(Asset)}} that has been added or updated. {{block(AssetRemoved)}} states the {{property(assetId)}} of the {{term(Asset)}} that has been removed. See {{package(Observation Information Model)}} for more details.
+The MTConnect Standard has two data item types to support change notification when an {{term(Asset)}} is added, updated or removed. {{block(AssetChanged)}} states the {{property(Asset::assetId)}} of the {{term(Asset)}} that has been added or updated. {{block(AssetRemoved)}} states the {{property(Asset::assetId)}} of the {{term(Asset)}} that has been removed. See {{package(Observation Information Model)}} for more details.
 
 {{input(sections/AssetInformationModel.md)}}
 
@@ -73,3 +73,21 @@ The MTConnect {{term(QIF)}} {{term(Asset Information Model)}} provides a wrapper
 Information about the {{term(QIF)}} standards is at the following location: https://qifstandards.org
 
 {{input(sections/QIF.md)}}
+
+# Component Configuration Parameters Asset Information Model
+
+
+
+{{input(sections/ComponentConfigurationParameters.md)}}
+
+# Fixture Asset Information Model
+
+
+
+{{input(sections/Fixture.md)}}
+
+# Pallet Asset Information Model
+
+
+
+{{input(sections/Pallet.md)}}

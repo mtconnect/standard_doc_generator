@@ -311,7 +311,7 @@ reference to the target {{block(Device)}} for this {{block(File)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(deviceUuid)}}|`ID`|1|
+|{{property(deviceUuid)}}|`UUID`|1|
 {: caption="Value Properties of Destination" label="table:value-properties-of-destination"}
 
 Descriptions for Value Properties of {{block(Destination)}}:

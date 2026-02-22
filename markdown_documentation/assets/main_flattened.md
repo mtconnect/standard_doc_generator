@@ -39,11 +39,11 @@ Refer to {{package(Fundamentals)}} for a dictionary of terms, reserved language,
 
 The MTConnect Standard supports a simple distributed storage mechanism that allows applications and equipment to share and exchange complex information models in a similar way to a distributed data store.  The {{term(Asset Information Model)}} associates each {{block(MTConnectAssets)}} entity with a unique identifier and allows for some predefined mechanisms to find, create, request, update, and delete these electronic documents in a way that provides for consistency across multiple pieces of equipment.
 
-The protocol provides a limited mechanism of accessing {{termplural(Asset)}} using the following properties: {{property(assetId)}}, {{term(asset)}} type (element name of {{term(asset)}} root), and the piece of equipment associated with the {{term(asset)}}.  These access strategies will provide the following services and answer the following questions: What {{termplural(asset)}} are from a particular piece of equipment?  What are the {{termplural(asset)}} of a particular type? What {{term(asset)}} is stored for a given {{property(assetId)}}?
+The protocol provides a limited mechanism of accessing {{termplural(Asset)}} using the following properties: {{property(Asset::assetId)}}, {{term(asset)}} type (element name of {{term(asset)}} root), and the piece of equipment associated with the {{term(asset)}}.  These access strategies will provide the following services and answer the following questions: What {{termplural(asset)}} are from a particular piece of equipment?  What are the {{termplural(asset)}} of a particular type? What {{term(asset)}} is stored for a given {{property(Asset::assetId)}}?
 
 Although these mechanisms are provided, an {{term(agent)}} should not be considered a data store or a system of reference.  The {{term(agent)}} is providing an ephemeral storage capability that will temporarily manage the data for applications wishing to communicate and manage data as needed by the various processes.  An application cannot rely on an {{term(agent)}} for long term persistence or durability since the {{term(agent)}} is only required to temporarily store the {{term(asset)}} data and may require another system to provide the source data upon initialization.  An {{term(agent)}} is always providing the best-known equipment centric view of the data given the limitations of that piece of equipment.
 
-The MTConnect Standard has two data item types to support change notification when an {{term(Asset)}} is added, updated or removed. {{block(AssetChanged)}} states the {{property(assetId)}} of the {{term(Asset)}} that has been added or updated. {{block(AssetRemoved)}} states the {{property(assetId)}} of the {{term(Asset)}} that has been removed. See {{package(Observation Information Model)}} for more details.
+The MTConnect Standard has two data item types to support change notification when an {{term(Asset)}} is added, updated or removed. {{block(AssetChanged)}} states the {{property(Asset::assetId)}} of the {{term(Asset)}} that has been added or updated. {{block(AssetRemoved)}} states the {{property(Asset::assetId)}} of the {{term(Asset)}} that has been removed. See {{package(Observation Information Model)}} for more details.
 
 
 ## Asset
@@ -66,9 +66,10 @@ It is used in the manufacturing process, but is not permanently associated with 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(assetId)}}|`ID`|1|
-|{{property(deviceUuid)}}|`ID`|0..1|
+|{{property(deviceUuid)}}|`UUID`|0..1|
 |{{property(removed)}}|`boolean`|0..1|
 |{{property(timestamp)}}|`datetime`|1|
+|{{property(hash)}}|`string`|0..1|
 {: caption="Value Properties of Asset" label="table:value-properties-of-asset"}
 
 Descriptions for Value Properties of {{block(Asset)}}:
@@ -81,7 +82,7 @@ Descriptions for Value Properties of {{block(Asset)}}:
 
     associated piece of equipment's {{term(UUID)}} that supplied the {{block(Asset)}}'s data.
     
-    It references to the {{property(uuid)}} property of the {{block(Device)}} defined in {{package(Device Information Model)}}.
+    It references to {{property(Device::uuid)}} defined in {{package(Device Information Model)}}.
 
 * {{property(removed)}} 
 
@@ -91,29 +92,47 @@ Descriptions for Value Properties of {{block(Asset)}}:
 
     time the {{block(Asset)}} data was last modified.
 
+* {{property(hash)}} 
+
+    condensed message digest from a secure one-way hash function. {{cite(FIPS PUB 180-4)}}
+
 ### Part Properties of Asset
 
 {{tbl(part-properties-of-asset)}} lists the Part Properties of {{block(Asset)}}.
 
 |Part Property name|Multiplicity|
 |:-|:-:|
-|{{block(Description)}}|0..1|
 |{{block(Configuration)}}|0..1|
 {: caption="Part Properties of Asset" label="table:part-properties-of-asset"}
 
 Descriptions for Part Properties of {{block(Asset)}}:
-
-* {{block(Description)}} 
-
-    descriptive content.
-
-    This can contain configuration information and manufacturer specific details.
 
 * {{block(Configuration)}} 
 
     technical information about an entity describing its physical layout, functional characteristics, and relationships with other entities.
 
     See {{block(Configuration)}} in {{package(Device Information Model)}}.
+
+## PhysicalAsset
+
+abstract physical {{block(Asset)}}.
+
+
+
+### Part Properties of PhysicalAsset
+
+{{tbl(part-properties-of-physicalasset)}} lists the Part Properties of {{block(PhysicalAsset)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Measurement)}} (organized by `Measurements`)|0..*|
+{: caption="Part Properties of PhysicalAsset" label="table:part-properties-of-physicalasset"}
+
+Descriptions for Part Properties of {{block(PhysicalAsset)}}:
+
+* {{block(Measurement)}} 
+
+    constrained scalar value associated with an {{block(Asset)}}.
 
 
 # Cutting Tool Asset Information Model
@@ -165,25 +184,11 @@ This section provides semantic information for the {{block(CuttingTool)}} and {{
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(manufacturers)}}|`string`|0..*|
 |{{property(serialNumber)}}|`string`|1|
 |{{property(toolId)}}|`string`|1|
 {: caption="Value Properties of CuttingTool" label="table:value-properties-of-cuttingtool"}
 
 Descriptions for Value Properties of {{block(CuttingTool)}}:
-
-* {{property(manufacturers)}} 
-
-    manufacturers of the cutting tool.
-    
-    This will reference the tool item and adaptive items specifically. The cutting items
-    manufacturers’ will be a property of {{block(CuttingItem)}}.
-    
-    > Note: In {{term(XML)}}, the representation **MUST** be a comma(,) delimited list of manufacturer names. See {{sect(CuttingTool Schema Diagrams)}}.
-
-* {{property(serialNumber)}} 
-
-    unique identifier for this assembly.
 
 * {{property(toolId)}} 
 
@@ -212,9 +217,9 @@ Descriptions for Part Properties of {{block(CuttingTool)}}:
 
 * {{block(CuttingToolArchetypeReference)}} 
 
-    reference information about the {{property(assetId)}} and/or the URL of the data source of {{block(CuttingToolArchetype)}}.
+    reference information about the {{property(Asset::assetId)}} and/or the URL of the data source of {{block(CuttingToolArchetype)}}.
 
-* `<<deprecated>>` {{block(CuttingToolDefinition)}} 
+* {{block(CuttingToolDefinition)}} 
 
     detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
 
@@ -232,25 +237,11 @@ Descriptions for Part Properties of {{block(CuttingTool)}}:
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(manufacturers)}}|`string`|0..*|
 |{{property(serialNumber)}}|`string`|1|
 |{{property(toolId)}}|`string`|1|
 {: caption="Value Properties of CuttingToolArchetype" label="table:value-properties-of-cuttingtoolarchetype"}
 
 Descriptions for Value Properties of {{block(CuttingToolArchetype)}}:
-
-* {{property(manufacturers)}} 
-
-    manufacturers of the cutting tool.
-    
-    This will reference the tool item and adaptive items specifically. The cutting items
-    manufacturers’ will be a property of {{block(CuttingItem)}}.
-    
-    > Note: In {{term(XML)}}, the representation will be a comma(,) delimited list of manufacturer names. See {{sect(CuttingTool Schema Diagrams)}}.
-
-* {{property(serialNumber)}} 
-
-    unique identifier for this assembly.
 
 * {{property(toolId)}} 
 
@@ -262,13 +253,13 @@ Descriptions for Value Properties of {{block(CuttingToolArchetype)}}:
 
 |Part Property name|Multiplicity|
 |:-|:-:|
-|`<<deprecated>>` {{block(CuttingToolDefinition)}}|0..1|
+|{{block(CuttingToolDefinition)}}|0..1|
 |{{block(CuttingToolLifeCycle)}}|0..1|
 {: caption="Part Properties of CuttingToolArchetype" label="table:part-properties-of-cuttingtoolarchetype"}
 
 Descriptions for Part Properties of {{block(CuttingToolArchetype)}}:
 
-* `<<deprecated>>` {{block(CuttingToolDefinition)}} 
+* {{block(CuttingToolDefinition)}} 
 
     detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
 
@@ -284,11 +275,11 @@ Descriptions for Part Properties of {{block(CuttingToolArchetype)}}:
 
 ### CuttingToolArchetypeReference
 
-reference information about the {{property(assetId)}} and/or the URL of the data source of {{block(CuttingToolArchetype)}}.
+reference information about the {{property(Asset::assetId)}} and/or the URL of the data source of {{block(CuttingToolArchetype)}}.
 
 
 
-The value of {{property(CuttingToolArchetypeReference)}} **MUST** be `IDREF`. See {{sect(idref)}}.
+The value of {{property(CuttingToolArchetypeReference)}} **MUST** be `ID`. See {{sect(id)}}.
 
 #### Value Properties of CuttingToolArchetypeReference
 
@@ -305,7 +296,7 @@ Descriptions for Value Properties of {{block(CuttingToolArchetypeReference)}}:
 
     {{term(URL)}} of the {{block(CuttingToolArchetype)}} {{term(information model)}}.
 
-### `<<deprecated>>`CuttingToolDefinition
+### CuttingToolDefinition
 
 detailed structure of the cutting tool which is static during its lifecycle. {{cite(ISO 13399)}}.
 
@@ -327,6 +318,24 @@ Descriptions for Value Properties of {{block(CuttingToolDefinition)}}:
 * {{property(format)}} 
 
     identifies the expected representation of the enclosed data.
+
+    `FormatTypeEnum` Enumeration:
+
+    * `EXPRESS` 
+
+        document will confirm to the ISO 10303 Part 21 standard.
+
+    * `TEXT` 
+
+        document will be a text representation of the tool data.
+
+    * `UNDEFINED` 
+
+        document will be provided in an undefined format.
+
+    * `XML` 
+
+        default value for the definition. The content will be an {{term(XML)}} document.
 
 
 
@@ -383,7 +392,7 @@ Descriptions for Value Properties of {{block(CuttingToolLifeCycle)}}:
 |{{block(ProcessSpindleSpeed)}}|0..1|
 |{{block(Status)}} (organized by `CutterStatus`)|1..*|
 |{{block(CuttingItem)}} (organized by `CuttingItems`)|0..*|
-|{{block(Measurement)}} (organized by `Measurements`)|0..*|
+|{{block(ToolingMeasurement)}} (organized by `Measurements`)|0..*|
 |{{block(ReconditionCount)}}|0..1|
 |{{block(Location)}}|0..1|
 {: caption="Part Properties of CuttingToolLifeCycle" label="table:part-properties-of-cuttingtoollifecycle"}
@@ -394,7 +403,7 @@ Descriptions for Part Properties of {{block(CuttingToolLifeCycle)}}:
 
     constrained process feed rate for the tool in mm/s.
     
-    The {{property(value)}} **MAY** contain the nominal process target feed rate if available. If {{block(ProcessFeedRate)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
+    The {{property(ProcessFeedRate::value)}} **MAY** contain the nominal process target feed rate if available. If {{block(ProcessFeedRate)}} is provided, at least one value of {{property(ProcessFeedRate::maximum)}}, {{property(ProcessFeedRate::nominal)}}, or {{property(ProcessFeedRate::minimum)}} **MUST** be specified.
 
     See {{sect(ProcessFeedRate)}}.
 
@@ -408,7 +417,7 @@ Descriptions for Part Properties of {{block(CuttingToolLifeCycle)}}:
 
     constrained process spindle speed for the tool in revolutions/minute.
     
-    The {{property(value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
+    The {{property(ProcessSpindleSpeed::value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(ProcessSpindleSpeed::maximum)}}, {{property(ProcessSpindleSpeed::nominal)}}, or {{property(ProcessSpindleSpeed::minimum)}} **MUST** be specified.
 
     See {{sect(ProcessSpindleSpeed)}}.
 
@@ -436,7 +445,7 @@ Descriptions for Part Properties of {{block(CuttingToolLifeCycle)}}:
 
     {{block(CuttingItems)}} groups one or more {{block(CuttingItem)}} entities. See {{sect(CuttingItem)}} and {{package(Cutting Item)}} for more detail.
 
-* {{block(Measurement)}} 
+* {{block(ToolingMeasurement)}} 
 
     constrained scalar value associated with a cutting tool.
 
@@ -452,9 +461,9 @@ Descriptions for Part Properties of {{block(CuttingToolLifeCycle)}}:
 
     location of the pot or spindle the cutting tool currently resides in.
     
-    If {{property(negativeOverlap)}} or {{property(positiveOverlap)}} is provided, the tool reserves additional locations on either side, otherwise if they are not given, no additional locations are required for this tool.
+    If {{property(Location::negativeOverlap)}} or {{property(Location::positiveOverlap)}} is provided, the tool reserves additional locations on either side, otherwise if they are not given, no additional locations are required for this tool.
     
-    If the pot occupies the first or last location, a rollover to the beginning or the end of the indexable values may occur. For example, if there are 64 pots and the tool is in pot 64 with a {{property(positiveOverlap)}} of 1, the first pot **MAY** be occupied as well.
+    If the pot occupies the first or last location, a rollover to the beginning or the end of the indexable values may occur. For example, if there are 64 pots and the tool is in pot 64 with a {{property(Location::positiveOverlap)}} of 1, the first pot **MAY** be occupied as well.
 
     See {{sect(Location)}} for more detail.
 
@@ -538,9 +547,9 @@ Descriptions for Value Properties of {{block(ToolLife)}}:
 
 location of the pot or spindle the cutting tool currently resides in.
 
-If {{property(negativeOverlap)}} or {{property(positiveOverlap)}} is provided, the tool reserves additional locations on either side, otherwise if they are not given, no additional locations are required for this tool.
+If {{property(Location::negativeOverlap)}} or {{property(Location::positiveOverlap)}} is provided, the tool reserves additional locations on either side, otherwise if they are not given, no additional locations are required for this tool.
 
-If the pot occupies the first or last location, a rollover to the beginning or the end of the indexable values may occur. For example, if there are 64 pots and the tool is in pot 64 with a {{property(positiveOverlap)}} of 1, the first pot **MAY** be occupied as well.
+If the pot occupies the first or last location, a rollover to the beginning or the end of the indexable values may occur. For example, if there are 64 pots and the tool is in pot 64 with a {{property(Location::positiveOverlap)}} of 1, the first pot **MAY** be occupied as well.
 
 
 {{block(Location)}} **MUST** be defined only for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingTool)}} and **MUST NOT** be defined for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingToolArchetype)}}.
@@ -578,7 +587,7 @@ Descriptions for Value Properties of {{block(Location)}}:
 
     type of location being identified. 
     
-    When a `POT` or `STATION` type is used, {{property(value)}} of {{block(Location)}} **MUST** be a numeric value.
+    When a `POT` or `STATION` type is used, {{property(Location::value)}}**MUST** be a numeric value.
 
     `LocationTypeEnum` Enumeration:
 
@@ -647,8 +656,6 @@ Descriptions for Value Properties of {{block(Location)}}:
 number of times the cutter has been reconditioned.
 
 
-{{block(ReconditionCount)}} **MUST** be defined only for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingTool)}} and **MUST NOT** be defined for the {{block(CuttingToolLifeCycle)}} of {{block(CuttingToolArchetype)}}.
-
 
 The value of {{property(ReconditionCount)}} **MUST** be `integer`.
 
@@ -671,7 +678,7 @@ Descriptions for Value Properties of {{block(ReconditionCount)}}:
 
 constrained process spindle speed for the tool in revolutions/minute.
 
-The {{property(value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
+The {{property(ProcessSpindleSpeed::value)}} **MAY** contain the nominal process target spindle speed if available. If {{block(ProcessSpindleSpeed)}} is provided, at least one value of {{property(ProcessSpindleSpeed::maximum)}}, {{property(ProcessSpindleSpeed::nominal)}}, or {{property(ProcessSpindleSpeed::minimum)}} **MUST** be specified.
 
 
 
@@ -706,11 +713,11 @@ Descriptions for Value Properties of {{block(ProcessSpindleSpeed)}}:
 
 constrained process feed rate for the tool in mm/s.
 
-The {{property(value)}} **MAY** contain the nominal process target feed rate if available. If {{block(ProcessFeedRate)}} is provided, at least one value of {{property(maximum)}}, {{property(nominal)}}, or {{property(minimum)}} **MUST** be specified.
+The {{property(ProcessFeedRate::value)}} **MAY** contain the nominal process target feed rate if available. If {{block(ProcessFeedRate)}} is provided, at least one value of {{property(ProcessFeedRate::maximum)}}, {{property(ProcessFeedRate::nominal)}}, or {{property(ProcessFeedRate::minimum)}} **MUST** be specified.
 
 
 
-The value of {{property(ProcessFeedRate)}} **MUST** be `string`.
+The value of {{property(ProcessFeedRate)}} **MUST** be `float`.
 
 #### Value Properties of ProcessFeedRate
 
@@ -797,7 +804,7 @@ status of the cutting tool.
 
     tool is in process and has remaining tool life.
 
-### Measurement
+### ToolingMeasurement
 
 constrained scalar value associated with a cutting tool.
 
@@ -805,24 +812,16 @@ constrained scalar value associated with a cutting tool.
 A {{block(Measurement)}} is specific to the tool management policy at a particular shop. The tool zero reference point or gauge line will be different depending on the particular implementation and will be assumed to be consistent within the shop. MTConnect Standard does not standardize the manufacturing process or the definition of the zero point.
 
 
-The value of {{property(Measurement)}} **MUST** be `float`.
+#### Value Properties of ToolingMeasurement
 
-#### Value Properties of Measurement
-
-{{tbl(value-properties-of-measurement)}} lists the Value Properties of {{block(Measurement)}}.
+{{tbl(value-properties-of-toolingmeasurement)}} lists the Value Properties of {{block(ToolingMeasurement)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
 |{{property(code)}}|`CodeEnum`|0..1|
-|{{property(maximum)}}|`float`|0..1|
-|{{property(minimum)}}|`float`|0..1|
-|{{property(nativeUnits)}}|`NativeUnitEnum`|0..1|
-|{{property(nominal)}}|`float`|0..1|
-|{{property(significantDigits)}}|`integer`|0..1|
-|{{property(units)}}|`UnitEnum`|0..1|
-{: caption="Value Properties of Measurement" label="table:value-properties-of-measurement"}
+{: caption="Value Properties of ToolingMeasurement" label="table:value-properties-of-toolingmeasurement"}
 
-Descriptions for Value Properties of {{block(Measurement)}}:
+Descriptions for Value Properties of {{block(ToolingMeasurement)}}:
 
 * {{property(code)}} 
 
@@ -830,35 +829,7 @@ Descriptions for Value Properties of {{block(Measurement)}}:
     
     ISO 13399 codes **MAY** be used for these codes as well. 
     
-    See {{package(Cutting Tool Measurement Subtypes)}} and {{package(Cutting Item Measurement Subtypes)}} for details on {{block(Measurement)}} types and their respective {{property(code)}} values.
-
-* {{property(maximum)}} 
-
-    maximum value for the measurement. 
-
-* {{property(minimum)}} 
-
-    minimum value for the measurement. 
-
-* {{property(nativeUnits)}} 
-
-    units the measurement was originally recorded in. See {{package(Device Information Model)}} for the complete list of {{property(nativeUnits)}}.
-
-    The value of {{property(nativeUnits)}} **MUST** be one of the `NativeUnitEnum` enumeration. 
-
-* {{property(nominal)}} 
-
-    as advertised value for the measurement.
-
-* {{property(significantDigits)}} 
-
-    number of significant digits in the reported value. 
-
-* {{property(units)}} 
-
-    units for the measurements. See {{package(Device Information Model)}} for the complete list of {{property(units)}}.
-
-    The value of {{property(units)}} **MUST** be one of the `UnitEnum` enumeration. 
+    See {{package(Cutting Tool Measurement Subtypes)}} and {{package(Cutting Item Measurement Subtypes)}} for details on {{block(Measurement)}} types and their respective {{property(Measurement::code)}} values.
 
 
 
@@ -919,7 +890,7 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
 
     free form description of the location on the cutting tool.
     
-    For clarity, the words `FLUTE`, `INSERT`, and `CARTRIDGE` **SHOULD** be used to assist in noting the location of a {{block(CuttingItem)}}. {{property(Locus)}} **MAY** be any free form string, but **SHOULD** adhere to the following rules:
+    For clarity, the words `FLUTE`, `INSERT`, and `CARTRIDGE` **SHOULD** be used to assist in noting the location of a {{block(CuttingItem)}}. {{property(CuttingItem::Locus)}} **MAY** be any free form string, but **SHOULD** adhere to the following rules:
     
     * The location numbering **SHOULD** start at the furthest {{block(CuttingItem)}} and work it’s way back to the {{block(CuttingItem)}} closest to the gauge line.
     
@@ -948,7 +919,7 @@ Descriptions for Value Properties of {{block(CuttingItem)}}:
 |:-|:-:|
 |{{block(Status)}} (organized by `CutterStatus`)|1..*|
 |{{block(ItemLife)}}|0..3|
-|{{block(Measurement)}} (organized by `Measurements`)|0..*|
+|{{block(ToolingMeasurement)}} (organized by `Measurements`)|0..*|
 {: caption="Part Properties of CuttingItem" label="table:part-properties-of-cuttingitem"}
 
 Descriptions for Part Properties of {{block(CuttingItem)}}:
@@ -979,7 +950,7 @@ Descriptions for Part Properties of {{block(CuttingItem)}}:
 
     See {{sect(ItemLife)}}.
 
-* {{block(Measurement)}} 
+* {{block(ToolingMeasurement)}} 
 
     constrained scalar value associated with a cutting tool.
 
@@ -1756,7 +1727,7 @@ reference to the target {{block(Device)}} for this {{block(File)}}.
 
 |Value Property name|Value Property type|Multiplicity|
 |-|-|:-:|
-|{{property(deviceUuid)}}|`ID`|1|
+|{{property(deviceUuid)}}|`UUID`|1|
 {: caption="Value Properties of Destination" label="table:value-properties-of-destination"}
 
 Descriptions for Value Properties of {{block(Destination)}}:
@@ -2080,6 +2051,166 @@ Descriptions for Part Properties of {{block(QIFDocumentWrapper)}}:
     QIF Document as given by the {{term(QIF)}} standard.
 
 
+# Component Configuration Parameters Asset Information Model
+
+
+
+
+## Component Configuration Parameters
+
+This section provides semantic information for the {{block(ComponentConfigurationParameters)}} model.
+
+![ComponentConfigurationParameters](figures/ComponentConfigurationParameters.png "ComponentConfigurationParameters"){: width="0.8"}
+
+
+### ComponentConfigurationParameters
+
+set of {{block(ParameterSet)}}s that govern the functionality of the related {{block(Component)}}.
+
+
+
+#### Part Properties of ComponentConfigurationParameters
+
+{{tbl(part-properties-of-componentconfigurationparameters)}} lists the Part Properties of {{block(ComponentConfigurationParameters)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(ParameterSet)}} (organized by `ParameterSets`)|1..*|
+{: caption="Part Properties of ComponentConfigurationParameters" label="table:part-properties-of-componentconfigurationparameters"}
+
+Descriptions for Part Properties of {{block(ComponentConfigurationParameters)}}:
+
+* {{block(ParameterSet)}} 
+
+    set of {{block(Parameter)}}s.
+
+    {{block(ParameterSets)}} groups one or more {{block(ParameterSet)}} entities. See {{sect(ParameterSet)}}.
+
+### ParameterSet
+
+set of {{block(Parameter)}}s.
+
+
+
+#### Value Properties of ParameterSet
+
+{{tbl(value-properties-of-parameterset)}} lists the Value Properties of {{block(ParameterSet)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(name)}}|`string`|0..1|
+{: caption="Value Properties of ParameterSet" label="table:value-properties-of-parameterset"}
+
+Descriptions for Value Properties of {{block(ParameterSet)}}:
+
+* {{property(name)}} 
+
+    name of the parameter set if more than one exists.
+
+#### Part Properties of ParameterSet
+
+{{tbl(part-properties-of-parameterset)}} lists the Part Properties of {{block(ParameterSet)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(Parameter)}} (organized by `Parameters`)|1..*|
+{: caption="Part Properties of ParameterSet" label="table:part-properties-of-parameterset"}
+
+Descriptions for Part Properties of {{block(ParameterSet)}}:
+
+* {{block(Parameter)}} 
+
+    property that determines the characteristic or behavior of an entity.
+
+    {{block(Parameters)}} groups one or more {{block(Parameter)}} entities. See {{sect(Parameter)}}.
+
+### Parameter
+
+property that determines the characteristic or behavior of an entity.
+
+
+
+The value of {{property(Parameter)}} **MUST** be `string`.
+
+#### Value Properties of Parameter
+
+{{tbl(value-properties-of-parameter)}} lists the Value Properties of {{block(Parameter)}}.
+
+|Value Property name|Value Property type|Multiplicity|
+|-|-|:-:|
+|{{property(identifier)}}|`string`|1|
+|{{property(name)}}|`string`|1|
+|{{property(minimum)}}|`double`|0..1|
+|{{property(maximum)}}|`double`|0..1|
+|{{property(nominal)}}|`double`|0..1|
+|{{property(units)}}|`string`|0..1|
+{: caption="Value Properties of Parameter" label="table:value-properties-of-parameter"}
+
+Descriptions for Value Properties of {{block(Parameter)}}:
+
+* {{property(identifier)}} 
+
+    internal identifier, register, or address.
+
+* {{property(name)}} 
+
+    descriptive name.
+
+* {{property(minimum)}} 
+
+    minimal allowed value.
+
+* {{property(maximum)}} 
+
+    maximum allowed value.
+
+* {{property(nominal)}} 
+
+    nominal value.
+
+* {{property(units)}} 
+
+    engineering units.
+    
+    {{property(Parameter::units)}} **SHOULD** be SI or MTConnect Units.
+
+
+# Fixture Asset Information Model
+
+
+
+
+## Fixture
+
+This section provides semantic information for the {{block(Fixture)}} model.
+
+![Fixture](figures/Fixture.png "Files"){: width="0.8"}
+
+### Fixture
+
+identifier of the {{block(Pallet)}}.
+
+
+
+
+# Pallet Asset Information Model
+
+
+
+
+## Pallet
+
+This section provides semantic information for the {{block(Pallet)}} model.
+
+![Pallet](figures/Pallet.png "Files"){: width="0.8"}
+
+### Pallet
+
+{{block(PhysicalAsset)}} that has a portable platform for handling, storing, or moving materials, parts, blanks etc.
+
+
+
+
 
 
 # Profile
@@ -2144,12 +2275,6 @@ float that represents time in seconds.
 
 
 
-### IDREF
-
-string that represents a reference to an `ID`.
-
-
-
 ### xlinkhref
 
 string that represents the locator attribute of an XLink element. See {{url(https://www.w3.org/TR/xlink11/)}}.
@@ -2176,7 +2301,7 @@ string that represents an `x509` data block. {{cite(ISO/IEC 9594-8:2020)}}.
 
 ### version
 
-series of four numeric values, separated by a decimal point, representing a {{term(major)}}, {{term(minor)}}, and {{term(revision)}} number of the MTConnect Standard and the revision number of a specific {{term(schema)}}.
+series of three numeric values, separated by a decimal point, representing a {{term(major)}}, {{term(minor)}}, and {{term(patch)}} number of the MTConnect Standard.
 
 
 
@@ -2189,6 +2314,42 @@ series of four numeric values, separated by a decimal point, representing a {{te
 ### uint64
 
 64-bit unsigned integer.
+
+
+
+### binary
+
+base-2 numeral system or binary numeral system represented by two digits: "0" and "1".
+
+
+
+### double
+
+primitive type.
+
+
+
+### Array
+
+array.
+
+
+
+### `<<hasFormatSpecificRepresentation>>`float3d
+
+array of size 3 and datatype float.
+
+
+
+### UUID
+
+Universally Unique IDentifier. {{cite(IETF:RFC-4122)}}
+
+
+
+### METER
+
+float that represents measurement in meter.
 
 
 
@@ -2220,12 +2381,6 @@ element that is descriptive and non-normative.
 
 
 
-### valueType
-
-extends SysML `<<ValueType>>` to include `Class` as a value type.
-
-
-
 ### normative
 
 element that has been added to the standard.
@@ -2235,6 +2390,36 @@ element that has been added to the standard.
 ### observes
 
 association in which a {{term(Component)}} makes {{termplural(Observation)}} about an observable {{term(DataItem)}}.
+
+
+
+### satisfiedBy
+
+
+
+
+
+### hasFormatSpecificRepresentation
+
+element that has format specific representation that might be different from the element's SysML representation.
+
+
+
+### valueType
+
+extends `Class`to be used as a SysML `<<ValueType>>`.
+
+
+
+### isArray
+
+datatype that is an array.
+
+
+
+### MTConnectRequirementSpecification
+
+MTConnect Requirement.
 
 
 

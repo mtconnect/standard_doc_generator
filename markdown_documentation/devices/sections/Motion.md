@@ -66,7 +66,7 @@ Descriptions for Value Properties of {{block(Motion)}}:
 
 * {{property(parentIdRef)}} 
 
-    pointer to the {{property(id)}} attribute of the parent {{block(Motion)}}.
+    pointer to the {{property(Motion::id)}}.
     
     The kinematic chain connects all components using the parent relations. All motion is connected to the motion of the parent. The first node in the chain will not have a parent.
 
@@ -101,7 +101,6 @@ Descriptions for Value Properties of {{block(Motion)}}:
 |{{block(Axis)}}|0..1|
 |{{block(Origin)}}|0..1|
 |{{block(Transformation)}}|0..1|
-|{{block(Description)}}|0..1|
 {: caption="Part Properties of Motion" label="table:part-properties-of-motion"}
 
 Descriptions for Part Properties of {{block(Motion)}}:
@@ -124,16 +123,23 @@ Descriptions for Part Properties of {{block(Motion)}}:
 
     See {{sect(Transformation)}}.
 
-* {{block(Description)}} 
-
-    descriptive content.
-
-    See {{sect(Description)}}.
-
 ### Axis
 
 axis along or around which the {{block(Component)}} moves relative to a coordinate system.
 
 
 
-The value of {{property(Axis)}} **MUST** be a list of `float` of size `3`.
+#### Part Properties of Axis
+
+{{tbl(part-properties-of-axis)}} lists the Part Properties of {{block(Axis)}}.
+
+|Part Property name|Multiplicity|
+|:-|:-:|
+|{{block(value)}}|0..1|
+{: caption="Part Properties of Axis" label="table:part-properties-of-axis"}
+
+Descriptions for Part Properties of {{block(Axis)}}:
+
+* {{block(AxisDataSet)}} 
+
+    x-component of {{block(Axis)}}.
