@@ -116,7 +116,8 @@ module Kramdown
             "\\input{#{latex_args}}"
 
           when "def"
-            enum_name, enum_literal = args.split(":")
+            enum_name, enum_literal = args.split("::")
+            $logger.info ">> #{enum_name}, #{enum_literal}"
             if $enum.has_key?(enum_name)
               kd = ::Kramdown::Document.new($enum[enum_name][enum_literal]['documentation'], input: 'MTCKramdown', html_to_native: true)
               kd.to_mtc_latex

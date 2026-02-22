@@ -13,13 +13,13 @@ module Document
   end
 
 
-  def documentation_exists?
-    File.exists?(documentation_file_name)
+  def documentation_exist?
+    File.exist?(documentation_file_name)
   end
 
   def generate_documentation(f, num_of_tabs=0)
     tab = "    " * num_of_tabs
-    if documentation_exists?
+    if documentation_exist?
       f.puts "\n{{input(#{documentation_name})}}\n"
     elsif @documentation
       f.puts "\n#{tab}#{@documentation.gsub("\n","\n#{tab}")}\n"
@@ -127,9 +127,9 @@ EOT
  
   def get_section_documentation(root_model,section_package_name, section_name)
     section_model = root_model.at("//packagedElement[(@xmi:type='uml:Package' or @xmi:type='uml:Profile') and @name='#{section_package_name}']")
-    section_doc_node = section_model.at("//*[@body='#{section_name}']")
+    section_doc_node = section_model.at(".//*[@body='#{section_name}']")
     section_doc_node = root_model.at("//packagedElement[(@xmi:type='uml:Package' or @xmi:type='uml:Profile') and @name='#{section_name}']") unless section_doc_node
-    return (section_model && section_doc_node) ? section_doc_node.ownedComment['body'] : ""
+    section_doc_node&.at_xpath('ownedComment')&.[]('body') || ""
   end
 
   def generate_section_intro(f,root_model,section_package_name, section_name)

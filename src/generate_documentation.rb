@@ -16,12 +16,14 @@ class DocumentGenerator
 
   def initialize(xmi)
     @xmi = xmi
-    @skip_models = Set["CSV Imports",    #Packages/Models to be skipped while generating definitions
+    @skip_models = Set["Imports",    #Packages/Models to be skipped while generating definitions
       "Simulation",                       #from the XMI
       "MTConnect",
-      "Agent Architecture",
+      "Reference Agent Architecture",
       "Development Process",
-      "Examples"
+      "WIP: Device Examples",
+      "WIP: Use Cases",
+      "MTConnect Device Validation"
     ]
     @enums = ["DataItemTypeEnum",        #Enumerations to be ignored during recursive gen of docs
       "SampleEnum",
