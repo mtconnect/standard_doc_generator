@@ -20,6 +20,10 @@ package :Events, 'Event Package' do
     union(:StringListValue, :UnavailableValue)
   }
 
+  basic_type(:ThreeSpaceEventValue, 'Common floating point event value') {
+    union(:ThreeSpaceValue, :UnavailableValue)
+  }
+
   type :Event, 'An abstract event' do
     abstract
     mixed
@@ -31,8 +35,12 @@ package :Events, 'Event Package' do
     member :Value, 'A string value', :StringEventValue
   end
 
-  type :StringListEvent, 'An unfaceted string event', :Event do
+  type :StringListEvent, 'An unfaceted string list event', :Event do
     member :Value, 'A string value', :StringListEventValue
+  end
+
+  type :ThreeSpaceEvent, 'Common floating point event value', :Event do
+    member :Value, 'A string value', :ThreeSpaceEventValue
   end
   
   type :DateTimeEvent, 'An unfaceted datetime event', :Event do
@@ -45,14 +53,16 @@ package :Events, 'Event Package' do
 
   type :FloatEvent, 'An event with an integer value', :Event do
     member :Value, 'A string value', :FloatEventValue
-  end
+  end 
 
   facets = { "string" => :StringEvent,
              "integer" => :IntegerEvent,
              "float" => :FloatEvent,
+             "double" => :FloatEvent,
+             "float3d" => :ThreeSpaceEvent,
              "arraystring" => :StringListEvent,
-			 "enumeration" => :StringEvent,
-			 "datetime" => :DateTimeEvent }
+            "enumeration" => :StringEvent,
+            "datetime" => :DateTimeEvent }
 
   Glossary.events.each do |name, event|
     unless event['parent'] == 'Event' and name != "Alarm"
@@ -83,8 +93,13 @@ package :Events, 'Event Package' do
     
   end
 
-  %w{AssetChanged AssetRemoved}.each do |s|
-    self.schema.type(s.to_sym).member(:AssetType, 'The type of asset', :AssetAttrType)
+  %w{AssetChanged AssetRemoved AssetAdded}.each do |s|
+    self.schema.type(s.to_sym).member(:AssetType, 'The type of asset', 0..1, :AssetAttrType)
+    self.schema.type(s.to_sym).member(:Hash, 'secure one-way hash function', 0..1, :Hash)
+  end
+
+  %w{DeviceChanged DeviceRemoved DeviceAdded}.each do |s|
+    self.schema.type(s.to_sym).member(:Hash, 'secure one-way hash function', 0..1, :Hash)
   end
       
   # Create discrete events for non-state events

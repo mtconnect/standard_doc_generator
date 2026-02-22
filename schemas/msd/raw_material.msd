@@ -37,34 +37,35 @@ package :raw_material, '{block(RawMaterial)}} is an {{block(Asset)}} that repres
  
   type :RawMaterialMaterial, 'material used as the {{block(RawMaterial)}}' do
     member :id, 'The unique identifier for the material', 0..1, :ID
-	member :Name, 'The name of the material.', 0..1
-	member :Type, 'The type of material.' ,1 , :RawMaterialMaterialType
-	
-	member :Lot, 'The manufacturer\'s lot code of the material.', 0..1
-	member :Manufacturer, 'The name of the material manufacturer.', 0..1
-	member :ManufacturingDate, 'The manufacturing date of the material from the material manufacturer.', 0..1
-	member :ManufacturingCode, 'The lot code of the raw feed stock for the material, from the feed stock manufacturer.', 0..1
-	member :MaterialCode, 'The ASTM standard code that the material complies with.', 0..1
+    member :Name, 'The name of the material.', 0..1
+    member :Type, 'The type of material.' ,1 , :RawMaterialMaterialType
+    
+    member :Lot, 'The manufacturer\'s lot code of the material.', 0..1
+    member :Manufacturer, 'The name of the material manufacturer.', 0..1
+    member :ManufacturingDate, 'The manufacturing date of the material from the material manufacturer.', 0..1
+    member :ManufacturingCode, 'The lot code of the raw feed stock for the material, from the feed stock manufacturer.', 0..1
+    member :MaterialCode, 'The ASTM standard code that the material complies with.', 0..1
   end
   
   type :RawMaterial, '{block(RawMaterial)}} is an {{block(Asset)}} that represents {{term(raw material)}}.', :Asset do
-	member :Name, 'The {{term(raw material)}} name.', 0..1
-	member :ContainerType, 'The type of container holding the {{term(raw material)}}.', 0..1
-	member :ProcessKind, 'The ISO process type supported by this {{term(raw material)}}.', 0..1
-	member :SerialNumber, ' The serial number of the {{term(raw material)}}', 0..1, :RawMaterialSerialNumber
-	
-	element :Form, 'The form of the {{term(raw material)}}.', 1
-	member :HasMaterial, '{{block(Material)}} has existing usable volume', 0..1
-	member :ManufacturingDate, 'The date the {{term(raw material)}} was created', 0..1
-	member :FirstUseDate, 'The date {{term(raw material)}} was first used.', 0..1
-	member :LastUseDate, 'The date {{term(raw material)}} was last used.', 0..1
-	member :InitialVolume, 'The amount of material initially placed in {{term(raw material)}} when manufactured.', 0..1
-	member :InitialDimension, 'The dimension of material initially placed in the material container when manufactured.', 0..1
+    member :Name, 'The {{term(raw material)}} name.', 0..1
+    member :ContainerType, 'The type of container holding the {{term(raw material)}}.', 0..1
+    member :ProcessKind, 'The ISO process type supported by this {{term(raw material)}}.', 0..1
+    
+    element :Form, 'The form of the {{term(raw material)}}.', 1
+    member :HasMaterial, '{{block(Material)}} has existing usable volume', 0..1
+    member :ManufacturingDate, 'The date the {{term(raw material)}} was created', 0..1
+    member :FirstUseDate, 'The date {{term(raw material)}} was first used.', 0..1
+    member :LastUseDate, 'The date {{term(raw material)}} was last used.', 0..1
+    member :InitialVolume, 'The amount of material initially placed in {{term(raw material)}} when manufactured.', 0..1
+    member :InitialDimension, 'The dimension of material initially placed in the material container when manufactured.', 0..1
     member :InitialQuantity, 'The quantity of material initially placed in the material container when manufactured.', 0..1
     member :CurrentVolume, 'The quantity of material currently contained in the material container', 0..1
     member :CurrentDimension, 'The dimension of material currently contained in the material container', 0..1
     member :CurrentQuantity, 'The quantity of material currently contained in the material container', 0..1
-	member :Material, 'material used as the {{block(RawMaterial)}}', 0..1, :RawMaterialMaterial
+    member :Material, 'material used as the {{block(RawMaterial)}}', 0..1, :RawMaterialMaterial
+    member :Description, 'description of an asset', 0..1, :AssetDescription
+    member :Configuration, 'The configuration information about this Asset', 0..1, :AssetConfiguration
   end
     
 end

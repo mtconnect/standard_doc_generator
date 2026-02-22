@@ -37,6 +37,9 @@ package :Files, 'Files or Documents' do
     member :ApplicationType, 'The sub classification of this file'
     member :FileProperties, 'A set of file properties', 0..1
     member :FileComments, 'The Destination is a reference to the target Device for this File', 0..1
+  
+    member :Description, 'description of an asset', 0..1, :AssetDescription
+    member :Configuration, 'The configuration information about this Asset', 0..1, :AssetConfiguration
   end
   
   # Common
@@ -77,6 +80,9 @@ package :Files, 'Files or Documents' do
     member :Destinations, 'The Destination is a reference to the target Device for this File', 0..1, :FileDestinations
     member :CreationTime, 'The time the file was coorected', :FileTime
     member :ModificationTime, 'The time the file was modified', 0..1, :FileTime
+  
+    member :Description, 'description of an asset', 0..1, :AssetDescription
+    member :Configuration, 'The configuration information about this Asset', 0..1, :AssetConfiguration
   end
   
   type :FileLocation, 'XLink to file location' do

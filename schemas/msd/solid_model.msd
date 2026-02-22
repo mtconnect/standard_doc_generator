@@ -12,7 +12,10 @@ package :SolidModel, 'Solid model eternal reference' do
     member :MediaType, 'The format of the referenced document', :SolidModelMediaType           
     member :CoordinateSystemIdRef, 'The identifier of the coordinate system that this motion is relative to', 0..1
     member :Transformation, 'A rotation and translation', 0..1
-    member :Scale, 'Scaling vector for the model', 0..1, :SolidModelScale
+    choice(0..1) do
+      member :Scale, 'Scaling vector for the model', 0..1, :SolidModelScale
+      member :ScaleDataSet, 'Scaling vector for the model with dataset representation', :XYZDataSet
+    end
     member :Units, 'The units of the measurement', 0..1
     member :NativeUnits, 'The units as expressed by the machine', 0..1
   end
@@ -37,6 +40,7 @@ package :SolidModel, 'Solid model eternal reference' do
     value :'3DS', 'Autodesk file format'
     value :ACIS, 'Dassault file format'
     value :X_T, 'Parasolid XT Siemens data interchange format'
+    value :QIF_MBD, 'provides the 3D geometric boundary representation used to associate with product information.'
   end
   
 end

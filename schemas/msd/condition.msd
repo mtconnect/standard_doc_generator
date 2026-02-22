@@ -1,6 +1,7 @@
 
 package :Condition, 'The condition of the device' do
   basic_type :ConditionDescription, 'The description of the Condition'
+  attr :ConditionId, 'Identifier of an individual condition activation provided by a piece of equipment'
   attr :NativeSeverity, 'The device\'s severity'
   enum :Qualifier, 'A qualifier for the condition' do
     # Conditions
@@ -19,9 +20,14 @@ package :Condition, 'The condition of the device' do
     member :Statistic, 'The statistical operation on this data', 0..1, :DataItemStatistics
     member :Value, 'The description of the condition', :ConditionDescription
   end
+
+  type :ActivatedCondition, 'Condition that has transitioned from Normal to either Warning or Fault', :Condition do
+    abstract
+    member :ConditionId, 'Identifier of an individual condition activation provided by a piece of equipment', 1
+  end
   
   type :Unavailable, 'The conditon can not be determined.', :Condition
   type :Normal, 'The item being monitored is operating normally and no action is required. Also indicates a cleared condition.', :Condition
-  type :Warning, 'he item being monitored is moving into the abnormal range and should be observed. No action required at this time.', :Condition
-  type :Fault, 'The item has failed an intervention is required to return to a normal condition. Transition to a normal condition indicates that the Fault has been cleared. Something that needs to be acknowledged. Sometimes noted as an alarm.', :Condition
+  type :Warning, 'he item being monitored is moving into the abnormal range and should be observed. No action required at this time.', :ActivatedCondition
+  type :Fault, 'The item has failed an intervention is required to return to a normal condition. Transition to a normal condition indicates that the Fault has been cleared. Something that needs to be acknowledged. Sometimes noted as an alarm.', :ActivatedCondition
 end

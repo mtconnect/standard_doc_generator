@@ -24,9 +24,11 @@ package :CoordinateSystems, 'Coordinate systems, kinematics and motion' do
     member :NativeName, 'The optional name of the coordinate system', 0..1, :Name
     member :ParentIdRef, 'The parent of the coordinate system', 0..1, :IdRef
     member :Type, 'The coordinate system type', :CoordinateSystemTypeEnum
+    member :Uuid, 'uuid of the coordinate system', 0..1
     choice(0..1) do
       member :Origin, 'The location (no parent)'
       member :Transformation, 'A rotation and translation'
+      member :OriginDataSet, 'The location with dataset representation', :XYZDataSet
     end
   end
 
@@ -35,8 +37,14 @@ package :CoordinateSystems, 'Coordinate systems, kinematics and motion' do
   end
 
   type :Transformation, 'An offset in space' do
-    member :Translation, 'An offset applied first', :ThreeSpaceValue
-    member :Rotation, 'A quaternion transform applied second', :ThreeSpaceValue
+    choice(0..1) do
+      member :Translation, 'An offset applied first', :ThreeSpaceValue
+      member :TranslationDataSet, 'An offset applied first with dataset representation', :XYZDataSet
+    end
+    choice(0..1) do
+      member :Rotation, 'A quaternion transform applied second', :ThreeSpaceValue
+      member :RotationDataSet, 'A quaternion transform applied second with dataset representation', :ABCDataSet
+    end
   end             
 end
 

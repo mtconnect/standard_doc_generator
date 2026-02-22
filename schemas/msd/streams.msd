@@ -4,6 +4,14 @@ package :Streams, 'Event Package' do
   
   attr :DataItemId, 'The item\'s unique ID that references the data item id from probe', :NMTOKEN
   attr :NativeCode, 'An Condition code as defined by the component'
+  attr :Extended, 'indicates if the Observation has any property or controlled vocabulary that has been extended', :boolean
+  attr :Deprecated, 'indicates if the Observation has any property or controlled vocabulary that has been deprecated', :boolean
+
+  enum :Quality, 'indicates if the Observation is verifiable and is in accordance with the normative definitions' do
+    value :UNVERIFIABLE, 'cannot be validated'
+    value :VALID, 'valid against the MTConnect Standard'
+    value :INVALID, 'not valid against the MTConnect Standard according to the validation capabilities of the agent'
+  end
 
   type :Streams, 'Event container for all component events' do
     member :DeviceStream, 'The data from a device', 0..INF
@@ -49,5 +57,8 @@ package :Streams, 'Event Package' do
     member :Name, 'The name of the event corresponding to the measurement', 0..1
     member :DataItemId, 'The unique identifier of the item being produced'
     member :CompositionId, 'The identifier of the sub-element this result is in reference to', 0..1
+    member :Quality, 'indicates if the Observation is verifiable and is in accordance with the normative definitions', 0..1
+    member :Deprecated, 'indicates if the Observation has any property or controlled vocabulary that has been deprecated', 0..1
+    member :Extended, 'indicates if the Observation has any property or controlled vocabulary that has been extended', 0..1
   end    
 end

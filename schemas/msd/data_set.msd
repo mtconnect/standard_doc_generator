@@ -2,14 +2,6 @@
 # coding: utf-8
 
 package :DataSet, 'DataSet Package' do
-  
-  type :Entry, 'An entry for a event with a data set representation' do
-    mixed
-    abstract
-    ordered
-    member :Key, 'the key'
-    member :Removed, 'an indicatore that the entry has been removed', 0..1
-  end
 
   # Create data set dataitems
   Glossary.events.merge(Glossary.samples).each do |name, dataitem|

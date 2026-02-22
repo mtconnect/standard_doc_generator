@@ -16,6 +16,7 @@ package :MTConnectAsset, 'MTC Top Level Package' do
 
     member :AssetBufferSize, 'The maximum number of assets'
     member :AssetCount, 'The number of assets we have', :AssetCountAttr
+    member :Validation, 'indicates if the Agent is validating against the normative model', 0..1
   end
 
   type :MTConnectAssets, 'The root node for MTConnect' do
@@ -32,8 +33,11 @@ load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'samples.msd')
 load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'condition.msd')
 load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'tools.msd')
 load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'files.msd')
-
-# Deferred to 1.6
-#load 'process.msd'
-#load 'parts.msd'
-#load 'inspection.msd'
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'qif.msd')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'raw_material.msd')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'parameters.msd')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'pallet.msd')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'fixture.msd')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'part.msd')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'process.msd')
+load File.join(File.dirname(__FILE__), 'schemas', 'msd', 'task.msd')

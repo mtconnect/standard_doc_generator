@@ -2,7 +2,6 @@
 package :Component, 'Top Level Components Package' do
   attr :ComponentStation, 'The station id for this device'
   attr :Iso841Class, 'The ISO 841 classification for the device', :integer
-  attr :Model, 'The model name'
   
   type :Devices, 'The top level components' do
     member :Agent, 'The Agent Device', 0..1
@@ -48,6 +47,7 @@ package :Component, 'Top Level Components Package' do
     member :Uuid, 'The components universally unique id. This can be composed of the manufactures id or name and the serial number.'
     member :Name, 'The Device name.'
     member :mtconnectVersion, 'The MTConnect version of the Devices Information Model used to configure the information to be published for a piece of equipment in an MTConnect Response Document', 0..1, :Version
+    member :Hash, 'secure one-way hash function', 0..1, :Hash
   end
 
   type :Agent, 'The Agent Device is a Device representing the MTConnect Agent and all its connected data sources.', :Device

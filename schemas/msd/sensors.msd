@@ -1,8 +1,4 @@
 package :Sensors, 'Sensor Calibration inspired by TEDS 1451.4' do
-  basic_type :CalibrationDate, 'The time the calibration was preformed',:date
-  basic_type :NextCalibrationDate, 'The time the next calibration should be preformed',:date
-  basic_type :CalibrationInitials, 'The initials of the person doing the calibration', :string
-  basic_type :FirmwareVersion, 'The firmware version of this sensor', :string
   
   attr :ChannelNumber, 'The channel number', :integer
   

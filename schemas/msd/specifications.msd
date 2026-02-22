@@ -1,5 +1,4 @@
 package :Specificaitons, 'Device and component specificaitons' do
-  basic_type :LimitValue, 'The limit of a value', :float
   attr :Peak, 'The peak value', :float
 
 

@@ -10,10 +10,8 @@ package :Tools, 'Cutting tools' do
   basic_type :ConnectionCodeMachineSide, 'The code for the connection to the machine'
   basic_type :ProgramToolGroup, 'The tool group associated with the tool'
   basic_type(:Speed, 'A speed in RPM or mm/s') { pattern optional_float }
-  basic_type(:MeasurementValue, 'A measurement value') { pattern optional_float }
   
   attr :LocationSize, 'The number of location units required to hold this tool', :integer
-  attr :MeasurementAttr, 'A measurement value', :float
   attr :CuttingToolId, 'The tool identifier', :NMTOKEN
   attr :EdgeCount, 'The number of cutting edges', :integer
   attr :Overlap, 'The number of additional locations taken by a tool', :integer
@@ -87,26 +85,28 @@ package :Tools, 'Cutting tools' do
 
   # Cutting tool definition
   type :CuttingTool, 'A cutting tool', :Asset do
-    member :SerialNumber, 'The serial number of the asset', :SerialNumberAttr
-    member :Manufacturers, 'The manufacturer of this asset', 0..1
     member :ToolId, 'The Identifier of the tool type', :CuttingToolId
-    member :Description, 'The description of the cutting tool', 0..1, :AssetDescription
     
     at_least_one do 
       member :CuttingToolDefinition, 'DEPRECATED: Description of tool - now only in Archetype'
       member :CuttingToolLifeCycle, 'the tool lifecycle'
     end
+
+    member :Description, 'description of an asset', 0..1, :AssetDescription
+    member :Configuration, 'The configuration information about this Asset', 0..1, :AssetConfiguration
   end
   
   # Archetype 
   type :CuttingToolArchetype, 'A Archetypical cutting tool', :Asset do
     member :toolId, 'The Identifier of the tool type', 0..1, :CuttingToolId
-    member :Description, 'The description of the cutting tool', 0..1, :AssetDescription
 
     at_least_one do 
       member :CuttingToolDefinition, 'Description of tool'
       member :CuttingToolLifeCycle, 'the tool lifecycle', :CuttingToolLifeCycleArchetype
     end
+    
+    member :Description, 'description of an asset', 0..1, :AssetDescription
+    member :Configuration, 'The configuration information about this Asset', 0..1, :AssetConfiguration
   end
   
   type :CuttingToolLifeCycleArchetype, 'A archetypical cutting tool life cycle definition' do
@@ -206,7 +206,7 @@ package :Tools, 'Cutting tools' do
     member :Maximum, 'The maximum tolerance value', 0..1, :MeasurementAttr
     member :Minimum, 'The minimum tolerance value', 0..1, :MeasurementAttr
     member :Nominal, 'The nominal value', 0..1, :MeasurementAttr
-    member :Value, 'The actual measurement', :MeasurementValue
+    member :Value, 'The actual measurement', :MeasurementValueType
   end
   
   type :CommonMeasurement, 'Measurements for both the assembly and the cutting item', :Measurement do

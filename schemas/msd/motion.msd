@@ -37,7 +37,11 @@ package :Motion, 'Motion represents kinematics' do
     choice(0..1) do
       member :Origin, 'The location (no parent)'
       member :Transformation, 'A rotation and translation'
+      member :OriginDataSet, 'The location with dataset representation', :XYZDataSet
     end
-    member :Axis, 'The axis motion', :MotionAxis
+    choice(0..1) do
+      member :Axis, 'The axis motion', :MotionAxis
+      member :AxisDataSet, 'The axis motion with dataset representation', :XYZDataSet
+    end
   end
 end

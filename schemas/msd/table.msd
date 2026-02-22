@@ -1,16 +1,4 @@
-package :DataSet, 'Table Package' do
-  type :TableCell, 'A cell of a table' do
-    mixed
-    abstract
-    ordered
-    member :Key, 'the key'
-  end
-
-  type :TableEntry, 'An entry for a table', :Entry do
-    mixed
-    ordered
-    member :Cell, 'The table\'s cell', 0..INF, :TableCell
-  end
+package :Table, 'Table Package' do
 
   # Create table dataitems 
   Glossary.events.merge(Glossary.samples).each do |name, dataitem|

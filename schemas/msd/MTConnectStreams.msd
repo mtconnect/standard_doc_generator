@@ -17,6 +17,7 @@ package :MTC, 'MTC Top Level Package' do
     member :NextSequence, 'The next sequence number for subsequent requests', 1, :Sequence
     member :LastSequence, 'The last sequence number available from the agent', 1, :Sequence
     member :FirstSequence, 'The first sequence number available from the agent', 1, :Sequence
+    member :Validation, 'indicates if the Agent is validating against the normative model', 0..1
   end
   
   type :MTConnectStreams, 'The root node for MTConnect' do
